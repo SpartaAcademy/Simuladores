@@ -1,0 +1,87 @@
+[
+  {
+    "usuario": "milton",
+    "contrasena": "root",
+    "nombre": "Milton Fuel"
+  },
+  {
+    "usuario": "jefa",
+    "contrasena": "root",
+    "nombre": "Jefa Geo"
+  },
+  {
+    "usuario": "capitan",
+    "contrasena": "capitan",
+    "nombre": "Querido Capitán"
+  },
+  {
+    "usuario": "michael_arcos",
+    "contrasena": "michael_arcos",
+    "nombre": "Michael Arcos"
+  },
+  {
+    "usuario": "carlos_bedoya",
+    "contrasena": "carlos_bedoya",
+    "nombre": "Carlos Bedoya"
+  },
+  {
+    "usuario": "mateo_benavides",
+    "contrasena": "mateo_benavides",
+    "nombre": "Mateo Benavides"
+  },
+  {
+    "usuario": "kiara_carrillo",
+    "contrasena": "kiara_carrillo",
+    "nombre": "Kiara Carrillo"
+  },
+  {
+    "usuario": "milton_enriquez",
+    "contrasena": "milton_enriquez",
+    "nombre": "Milton Enríquez"
+  },
+  {
+    "usuario": "diego_herrera",
+    "contrasena": "diego_herrera",
+    "nombre": "Diego Herrera"
+  },
+  {
+    "usuario": "franklin_imbaquingo",
+    "contrasena": "franklin_imbaquingo",
+    "nombre": "Franklin Imbaquingo"
+  },
+  {
+    "usuario": "mateo_janeta",
+    "contrasena": "mateo_janeta",
+    "nombre": "Mateo Janeta"
+  },
+  {
+    "usuario": "joel_lema",
+    "contrasena": "joel_lema",
+    "nombre": "Joel Lema"
+  },
+  {
+    "usuario": "dayra_lopez",
+    "contrasena": "dayra_lopez",
+    "nombre": "Dayra López"
+  },
+  {
+    "usuario": "deivid_montenegro",
+    "contrasena": "deivid_montenegro",
+    "nombre": "Deivid Montenegro"
+  },
+  {
+    "usuario": "anguie_sanchez",
+    "contrasena": "anguie_sanchez",
+    "nombre": "Anguie Sánchez"
+  },
+  {
+    "usuario": "wendy_sanchez",
+    "contrasena": "wendy_sanchez",
+    "nombre": "Wendy Sánchez"
+  },
+  {
+    "usuario": "lesly_tulcanaza",
+    "contrasena": "lesly_tulcanaza",
+    "nombre": "Lesly Tulcanaza"
+  }
+]

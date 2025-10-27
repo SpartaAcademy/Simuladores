@@ -1,0 +1,1002 @@
+[
+  {
+    "pregunta": "Is the ocean salty?",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "TRUE"
+  },
+  {
+    "pregunta": "Is a cat a type of fish?",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "FALSE"
+  },
+  {
+    "pregunta": "Are rocks soft?",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "FALSE"
+  },
+  {
+    "pregunta": "Are all fruits sweet?",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "FALSE"
+  },
+  {
+    "pregunta": "Do all fish live in water?",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "TRUE"
+  },
+  {
+    "pregunta": "Is ice hot?",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "FALSE"
+  },
+  {
+    "pregunta": "Is the word \"lazy\" a verb?",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "FALSE"
+  },
+  {
+    "pregunta": "Is the word \"jump\" a verb?",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "TRUE"
+  },
+  {
+    "pregunta": "Is the plural of train \"trainers\"?",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "FALSE"
+  },
+  {
+    "pregunta": "Does the English word \"January\" mean enero?",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "TRUE"
+  },
+  {
+    "pregunta": "Does the English word \"Monday\" mean lunes?",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "TRUE"
+  },
+  {
+    "pregunta": "Does the English word \"Human Rights\" mean Derechos Humanos?",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "TRUE"
+  },
+  {
+    "pregunta": "Does the English word \"Steal\" mean robar?",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "TRUE"
+  },
+  {
+    "pregunta": "Does the English word \"Police report\" mean Parte Policial?",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "TRUE"
+  },
+  {
+    "pregunta": "Does the English word \"Citizen security\" mean Seguridad Ciudadana?",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "TRUE"
+  },
+  {
+    "pregunta": "Is December a month of the year?",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "TRUE"
+  },
+  {
+    "pregunta": "Is Tuesday a month of the year?",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "FALSE"
+  },
+  {
+    "pregunta": "Is grass green?",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "TRUE"
+  },
+  {
+    "pregunta": "The plural of \"book\" is \"books\".",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "TRUE"
+  },
+  {
+    "pregunta": "The plural of \"bus\" is \"buses\".",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "TRUE"
+  },
+  {
+    "pregunta": "The singular of \"cities\" is \"citi\".",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "FALSE"
+  },
+  {
+    "pregunta": "The plural of \"box\" is \"boxes\".",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "TRUE"
+  },
+  {
+    "pregunta": "The singular of \"guys\" is \"guy\".",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "TRUE"
+  },
+  {
+    "pregunta": "\"Amarillo\" in English is \"purple\".",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "FALSE"
+  },
+  {
+    "pregunta": "\"Naranja\" in English is violet.",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "FALSE"
+  },
+  {
+    "pregunta": "\"Negro\" in English is White.",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "FALSE"
+  },
+  {
+    "pregunta": "The singular of \"heroes\" is \"hero\".",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "TRUE"
+  },
+  {
+    "pregunta": "The plural of \"lion\" is \"lyons\".",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "FALSE"
+  },
+  {
+    "pregunta": "The plural of \"police man\" is \"police men\".",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "TRUE"
+  },
+  {
+    "pregunta": "The plural of \"thief\" is \"thieves\".",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "TRUE"
+  },
+  {
+    "pregunta": "The singular of \"countries\" is \"country\".",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "TRUE"
+  },
+  {
+    "pregunta": "The singular of \"fishers\" is \"fishes\".",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "FALSE"
+  },
+  {
+    "pregunta": "The plural of \"carrot\" is \"carrottes\".",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "FALSE"
+  },
+  {
+    "pregunta": "The plural of \"child\" is \"children\".",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "TRUE"
+  },
+  {
+    "pregunta": "The singular of \"feet\" is \"fut\".",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "FALSE"
+  },
+  {
+    "pregunta": "\"Goose\" in English is gray.",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "FALSE"
+  },
+  {
+    "pregunta": "\"Azul\" in English is blue.",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "TRUE"
+  },
+  {
+    "pregunta": "\"Negro\" in English is brown.",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "FALSE"
+  },
+  {
+    "pregunta": "\"Morado\" in English is red.",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "FALSE"
+  },
+  {
+    "pregunta": "\"Blanco\" in English is pink.",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "FALSE"
+  },
+  {
+    "pregunta": "\"Azul\" in English is green.",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "FALSE"
+  },
+  {
+    "pregunta": "The cardinal number 81 is written (eighteen).",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "FALSE"
+  },
+  {
+    "pregunta": "The cardinal number 17 is written (seventeen).",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "TRUE"
+  },
+  {
+    "pregunta": "The cardinal number 11 is written (eleven).",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "TRUE"
+  },
+  {
+    "pregunta": "The cardinal number 41 is written (forty-six).",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "FALSE"
+  },
+  {
+    "pregunta": "The possessive adjective of (I) is (mine).",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "FALSE"
+  },
+  {
+    "pregunta": "The possessive adjective of (you) is (your).",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "TRUE"
+  },
+  {
+    "pregunta": "The possessive adjective of (he) is (him).",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "FALSE"
+  },
+  {
+    "pregunta": "The possessive adjective of (she) is (shis).",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "FALSE"
+  },
+  {
+    "pregunta": "\"Car\" and \"vehicle\" are synonyms.",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "TRUE"
+  },
+  {
+    "pregunta": "The word \"rain\" is an adjective.",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "FALSE"
+  },
+  {
+    "pregunta": "The opposite of \"cold\" is \"hot.\"",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "TRUE"
+  },
+  {
+    "pregunta": "The word \"run\" is a verb.",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "TRUE"
+  },
+  {
+    "pregunta": "The word \"elephant\" starts with a vowel.",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "TRUE"
+  },
+  {
+    "pregunta": "There are 6 days a week.",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "FALSE"
+  },
+  {
+    "pregunta": "Birds have wings and can fly.",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "TRUE"
+  },
+  {
+    "pregunta": "Humans need food and water to survive.",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "TRUE"
+  },
+  {
+    "pregunta": "Bananas grow on trees.",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "TRUE"
+  },
+  {
+    "pregunta": "Cars can float on water like boats.",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "FALSE"
+  },
+  {
+    "pregunta": "Dinosaurs are still alive today.",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "FALSE"
+  },
+  {
+    "pregunta": "The Earth is round.",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "TRUE"
+  },
+  {
+    "pregunta": "All butterflies are colorful.",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "TRUE"
+  },
+  {
+    "pregunta": "Elephants can fly.",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "FALSE"
+  },
+  {
+    "pregunta": "I am a fireman.",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "TRUE"
+  },
+  {
+    "pregunta": "Cars can swim.",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "FALSE"
+  },
+  {
+    "pregunta": "The sky is blue.",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "TRUE"
+  },
+  {
+    "pregunta": "Tigers are herbivores.",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "FALSE"
+  },
+  {
+    "pregunta": "All vegetables are green.",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "FALSE"
+  },
+  {
+    "pregunta": "All clouds are made of water vapor.",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "TRUE"
+  },
+  {
+    "pregunta": "The cardinal number 37 is written (thirty- seven).",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "TRUE"
+  },
+  {
+    "pregunta": "The cardinal number 21 is written (twenty).",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "FALSE"
+  },
+  {
+    "pregunta": "The cardinal number 94 is written (ninety-four).",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "TRUE"
+  },
+  {
+    "pregunta": "The cardinal number 63 is written (sixty-three).",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "TRUE"
+  },
+  {
+    "pregunta": "The cardinal number 16 is written (thirteen).",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "FALSE"
+  },
+  {
+    "pregunta": "The cardinal number 32 is written (thirty-twelve).",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "FALSE"
+  },
+  {
+    "pregunta": "The past participle of the verb (do) is (done).",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "TRUE"
+  },
+  {
+    "pregunta": "The past participle of the verb (go) is (gone).",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "TRUE"
+  },
+  {
+    "pregunta": "The past participle of the verb (make) is (made).",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "TRUE"
+  },
+  {
+    "pregunta": "The past participle of the verb (take) is (thought).",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "FALSE"
+  },
+  {
+    "pregunta": "The possessive adjective of (we) is (yours).",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "FALSE"
+  },
+  {
+    "pregunta": "The possessive adjective of (it) is (their).",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "FALSE"
+  },
+  {
+    "pregunta": "The nationality of Italy is Italian.",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "TRUE"
+  },
+  {
+    "pregunta": "The nationality of Colombia is Columbus.",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "FALSE"
+  },
+  {
+    "pregunta": "The nationality of France is French.",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "TRUE"
+  },
+  {
+    "pregunta": "The nationality of Spain is Swedish.",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "FALSE"
+  },
+  {
+    "pregunta": "The ordinal number 36th is written (tery-six).",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "FALSE"
+  },
+  {
+    "pregunta": "The ordinal number 48th is written (fifty-eight).",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "FALSE"
+  },
+  {
+    "pregunta": "The ordinal number 23rd is written (thirty-third).",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "FALSE"
+  },
+  {
+    "pregunta": "The ordinal number 70th is written (seventieth).",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "TRUE"
+  },
+  {
+    "pregunta": "The ordinal number 30th is written (twelfth).",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "FALSE"
+  },
+  {
+    "pregunta": "The nationality of Poland is Polish.",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "TRUE"
+  },
+  {
+    "pregunta": "The nationality of Sweden is Swedish.",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "TRUE"
+  },
+  {
+    "pregunta": "The nationality of Russia is Russian.",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "TRUE"
+  },
+  {
+    "pregunta": "The nationality of Peru is Peruvian.",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "TRUE"
+  },
+  {
+    "pregunta": "The nationality of Mexico is North Mexico.",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "FALSE"
+  },
+  {
+    "pregunta": "The nationality of Portugal is Portuguese.",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "TRUE"
+  },
+  {
+    "pregunta": "The nationality of Korea is Korean.",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "TRUE"
+  },
+  {
+    "pregunta": "The nationality of Denmark is Danishers.",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "FALSE"
+  },
+  {
+    "pregunta": "Blackboard means \"Teclado\".",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "FALSE"
+  },
+  {
+    "pregunta": "Table means table.",
+    "opciones": ["TRUE", "FALSE"],
+    "respuesta": "FALSE"
+  },
+  {
+    "pregunta": "Where _ your friends going while you were taking the tests?",
+    "opciones": ["were", "are", "is", "was"],
+    "respuesta": "were"
+  },
+  {
+    "pregunta": "My students _ some important tenses some levels ago.",
+    "opciones": ["learned", "learnt", "were learn", "learning"],
+    "respuesta": "learned"
+  },
+  {
+    "pregunta": "The driver was going fast when he _ into that post.",
+    "opciones": ["crashed", "crashing", "crash", "was crashing"],
+    "respuesta": "crashed"
+  },
+  {
+    "pregunta": "How _ mice are there in that old house?",
+    "opciones": ["much", "a few", "a lot", "many"],
+    "respuesta": "many"
+  },
+  {
+    "pregunta": "There isn't _ applying for that job.",
+    "opciones": ["somebody", "someone", "anyone", "none"],
+    "respuesta": "anyone"
+  },
+  {
+    "pregunta": "The couple seems _ a big problem.",
+    "opciones": ["to have", "has", "having", "have"],
+    "respuesta": "to have"
+  },
+  {
+    "pregunta": "Sometimes, I get bored _ Mexican movies.",
+    "opciones": ["in", "at", "with", "of"],
+    "respuesta": "with"
+  },
+  {
+    "pregunta": "I am tired _ working so hard.",
+    "opciones": ["at", "in", "of", "with"],
+    "respuesta": "of"
+  },
+  {
+    "pregunta": "Some theories about evolutions are based _ Darwin's.",
+    "opciones": ["on", "in", "of", "all of them"],
+    "respuesta": "on"
+  },
+  {
+    "pregunta": "My mom loves to cook. _ food is delicious.",
+    "opciones": ["her", "ours", "its", "their"],
+    "respuesta": "her"
+  },
+  {
+    "pregunta": "_ has called my brother several times today.",
+    "opciones": ["Anything", "Someone", "Anybody", "Anyone"],
+    "respuesta": "Someone"
+  },
+  {
+    "pregunta": "Women don't drink _ liquor as men.",
+    "opciones": ["So much", "as many", "as much", "as many as"],
+    "respuesta": "as much"
+  },
+  {
+    "pregunta": "Choose a synonym for: take it easy",
+    "opciones": ["relax", "hello", "hi", "take"],
+    "respuesta": "relax"
+  },
+  {
+    "pregunta": "Choose a synonym for: mother in law",
+    "opciones": ["your mother's mother", "your wife's mothers", "your mother", "your husband's/wife's mother"],
+    "respuesta": "your husband's/wife's mother"
+  },
+  {
+    "pregunta": "Choose a synonym for: twins",
+    "opciones": ["two identical brothers or sisters", "two different brothers", "two different sisters", "two unidentified people"],
+    "respuesta": "two identical brothers or sisters"
+  },
+  {
+    "pregunta": "Choose a synonym for: widowed",
+    "opciones": ["married", "divorced", "only one child", "his or her couple died"],
+    "respuesta": "his or her couple died"
+  },
+  {
+    "pregunta": "Choose a synonym for: alike",
+    "opciones": ["equal", "similar", "different", "unequal"],
+    "respuesta": "similar"
+  },
+  {
+    "pregunta": "Choose a synonym for: both",
+    "opciones": ["men", "women", "two", "three"],
+    "respuesta": "two"
+  },
+  {
+    "pregunta": "Choose a synonym for: awesome",
+    "opciones": ["pretty good", "bad", "terrible", "not good"],
+    "respuesta": "pretty good"
+  },
+  {
+    "pregunta": "Choose a synonym for: bumpy",
+    "opciones": ["unequal", "with bumpers", "regular surface", "opposite of irregular surface"],
+    "respuesta": "unequal"
+  },
+  {
+    "pregunta": "Choose a synonym for: seasick",
+    "opciones": ["sea", "dizzy", "tired", "sad"],
+    "respuesta": "dizzy"
+  },
+  {
+    "pregunta": "Choose a synonym for: to sightsee",
+    "opciones": ["to see", "sigh", "to visit places", "to take a look."],
+    "respuesta": "to visit places"
+  },
+  {
+    "pregunta": "Choose a synonym for: silly",
+    "opciones": ["dumb", "sick", "drill", "silk"],
+    "respuesta": "dumb"
+  },
+  {
+    "pregunta": "Choose a synonym for: tube",
+    "opciones": ["you tuber", "boob", "a pipe", "wire"],
+    "respuesta": "a pipe"
+  },
+  {
+    "pregunta": "Choose a synonym for: gorgeous",
+    "opciones": ["nice", "awesomer", "terrible", "all of them"],
+    "respuesta": "nice"
+  },
+  {
+    "pregunta": "Choose a synonym for: clay",
+    "opciones": ["something to make sand", "something to make ceramic", "to lay", "something liquid"],
+    "respuesta": "something to make ceramic"
+  },
+  {
+    "pregunta": "Choose a synonym for: fixed by",
+    "opciones": ["touched by", "changed places", "to repaired by", "none of them"],
+    "respuesta": "to repaired by"
+  },
+  {
+    "pregunta": "Choose a synonym for: bald",
+    "opciones": ["hair", "ball", "all of them", "hairless"],
+    "respuesta": "hairless"
+  },
+  {
+    "pregunta": "Choose a synonym for: sleep",
+    "opciones": ["take a nap", "slipping", "skip", "stiff"],
+    "respuesta": "take a nap"
+  },
+  {
+    "pregunta": "How old _ your mother?",
+    "opciones": ["is", "are", "am", "aren't"],
+    "respuesta": "is"
+  },
+  {
+    "pregunta": "What _ your best friend study at the university?",
+    "opciones": ["do", "is", "does", "are"],
+    "respuesta": "does"
+  },
+  {
+    "pregunta": "My family _ to the beach every vacation.",
+    "opciones": ["travels", "travel", "traveling", "are traveling"],
+    "respuesta": "travels"
+  },
+  {
+    "pregunta": "We _ English well.",
+    "opciones": ["are speak", "can speak", "do speaking", "speaks"],
+    "respuesta": "can speak"
+  },
+  {
+    "pregunta": "My siblings and I have an apartment; _ apartment is in the south of Quito.",
+    "opciones": ["my", "your", "their", "our"],
+    "respuesta": "our"
+  },
+  {
+    "pregunta": "her boyfriend cooks very well, _ food is delicious.",
+    "opciones": ["her", "his", "my", "their"],
+    "respuesta": "his"
+  },
+  {
+    "pregunta": "Choose the incorrect part: How much politicians are there in our country?",
+    "opciones": ["How much", "politicians are", "there in", "our country?"],
+    "respuesta": "How much"
+  },
+  {
+    "pregunta": "Choose the incorrect part: How many towns is there in your city?",
+    "opciones": ["How many", "towns", "is there", "in your city?"],
+    "respuesta": "is there"
+  },
+  {
+    "pregunta": "Choose the incorrect part: There is a lot of mice in the old houses.",
+    "opciones": ["There is", "a lot of", "mice in", "the old houses."],
+    "respuesta": "There is"
+  },
+  {
+    "pregunta": "Choose the incorrect part: There are twelve tooth in her little mouth.",
+    "opciones": ["There are", "twelve", "tooth in", "her little mouth."],
+    "respuesta": "tooth in"
+  },
+  {
+    "pregunta": "Replace the part in parentheses: Teenagers are funny (much of the time).",
+    "opciones": ["often", "always", "never", "sometimes"],
+    "respuesta": "often"
+  },
+  {
+    "pregunta": "Replace the part in parentheses: My dad is not angry (at any time).",
+    "opciones": ["always", "usually", "never", "sometimes"],
+    "respuesta": "never"
+  },
+  {
+    "pregunta": "Replace the part in parentheses: (The police) usually protect (citizens).",
+    "opciones": ["They-me", "They - us", "It-We", "They - them"],
+    "respuesta": "They - them"
+  },
+  {
+    "pregunta": "Replace the part in parentheses: (My friend) is always talking to (my sister and me).",
+    "opciones": ["He-us", "They - us", "She - we", "She them"],
+    "respuesta": "He-us"
+  },
+  {
+    "pregunta": "Replace the part in parentheses: Are (your friends and you) preparing (a party) soon?",
+    "opciones": ["they - it", "you - it", "you - them", "you - us"],
+    "respuesta": "you - it"
+  },
+  {
+    "pregunta": "Choose the best answer: Are you a careful student?",
+    "opciones": ["Yes, I do", "Yes. I am", "No, I am", "No, I doesn't"],
+    "respuesta": "Yes. I am"
+  },
+  {
+    "pregunta": "Choose the best answer: What is Quito like?",
+    "opciones": ["I like Quito", "I don't like it", "It's far", "It's nice and big"],
+    "respuesta": "It's nice and big"
+  },
+  {
+    "pregunta": "Choose the best answer: Do you like to swim or dance?",
+    "opciones": ["I like to swim", "No", "Yes, I do", "I can not swim"],
+    "respuesta": "I like to swim"
+  },
+  {
+    "pregunta": "Which one is a countable noun?",
+    "opciones": ["rice", "bowl of noodles", "beer", "cheese"],
+    "respuesta": "bowl of noodles"
+  },
+  {
+    "pregunta": "Is there ..... water in the glass?",
+    "opciones": ["some", "many", "any", "much"],
+    "respuesta": "any"
+  },
+  {
+    "pregunta": "I am going to school _",
+    "opciones": ["last year", "tomorrow", "yesterday", "last week"],
+    "respuesta": "tomorrow"
+  },
+  {
+    "pregunta": "Is your pen red?",
+    "opciones": ["No, it is", "Yes, I am", "No, I am not", "Yes, it is."],
+    "respuesta": "Yes, it is."
+  },
+  {
+    "pregunta": "March is the ... month of the year",
+    "opciones": ["thirtieth", "third", "three", "thirteenth"],
+    "respuesta": "third"
+  },
+  {
+    "pregunta": "I go to school... Monday ... 7 o'clock",
+    "opciones": ["at/in", "at / to", "on/at", "in/at"],
+    "respuesta": "on/at"
+  },
+  {
+    "pregunta": "I.... a headache.",
+    "opciones": ["have", "has", "it", "her"],
+    "respuesta": "have"
+  },
+  {
+    "pregunta": "I was born... 1993",
+    "opciones": ["at", "in", "on", "to"],
+    "respuesta": "in"
+  },
+  {
+    "pregunta": "_ fingers do you have?",
+    "opciones": ["How much", "How often", "How long", "How many"],
+    "respuesta": "How many"
+  },
+  {
+    "pregunta": "Choose the correct sentence: Students apologize...",
+    "opciones": ["Sometimes Students apologize for not doing homework.", "Students sometimes apologize not to do homework.", "Students sometimes apologize no for doing homework.", "Students sometimes apologize nou for doing homework."],
+    "respuesta": "Sometimes Students apologize for not doing homework."
+  },
+  {
+    "pregunta": "Choose the correct sentence: The telephone...",
+    "opciones": ["the telephone was creating by Graham Bell.", "the telephone was created for Graham Bell.", "the telephone was created by Graham Bell.", "the telephone did not created for Graham Bell."],
+    "respuesta": "the telephone was created by Graham Bell."
+  },
+  {
+    "pregunta": "Choose the correct sentence: Our political situation...",
+    "opciones": ["Our political situation is being changed nowadays.", "Our political situation is changed nowadays.", "Our political situation is being changing nowadays.", "Our political situation will be changing nowadays."],
+    "respuesta": "Our political situation is being changed nowadays."
+  },
+  {
+    "pregunta": "Choose the correct sentence: CCI Mall...",
+    "opciones": ["CCI Mall is in front of The Unicorn mall.", "CCI Malls is next The Unicorn mall.", "CCI Malls is next to The Unicorn mall.", "CCI Mall is in fron of The Unicorn mall."],
+    "respuesta": "CCI Malls is next to The Unicorn mall."
+  },
+  {
+    "pregunta": "Choose the correct sentence: The English Department Coordination...",
+    "opciones": ["The English Department Coordination in the south are in the second floor.", "The English Department Coordination in the south is on the second floor.", "The English Department Coordination in the south is at the second floor.", "The English Department Coordination in the south is off the second floor."],
+    "respuesta": "The English Department Coordination in the south is on the second floor."
+  },
+  {
+    "pregunta": "Choose the correct sentence: I celebrate my birthday...",
+    "opciones": ["I celebrate my birthday in April 30th.", "I celebrate my birthday by April 30th", "I celebrate my birthday on April 30th", "I celebrate my birthday at April 30th"],
+    "respuesta": "I celebrate my birthday on April 30th"
+  },
+  {
+    "pregunta": "There are many people _ Spain",
+    "opciones": ["in", "on", "at", "for"],
+    "respuesta": "in"
+  },
+  {
+    "pregunta": "His room is _ the second floor.",
+    "opciones": ["in", "on", "at", "by"],
+    "respuesta": "on"
+  },
+  {
+    "pregunta": "The movie is _ 8:15.",
+    "opciones": ["in", "on", "for", "at"],
+    "respuesta": "at"
+  },
+  {
+    "pregunta": "What do you do _ weekends?",
+    "opciones": ["In", "On", "at", "by"],
+    "respuesta": "at"
+  },
+  {
+    "pregunta": "We often go to the beach _ the summer.",
+    "opciones": ["in", "at", "on", "from"],
+    "respuesta": "in"
+  },
+  {
+    "pregunta": "her birthday is _ the 21st of May.",
+    "opciones": ["in", "on", "at", "by"],
+    "respuesta": "on"
+  },
+  {
+    "pregunta": "Dominic's birthday is _ June.",
+    "opciones": ["in", "on", "at", "to"],
+    "respuesta": "in"
+  },
+  {
+    "pregunta": "We are getting married _ September.",
+    "opciones": ["in", "on", "at", "for"],
+    "respuesta": "in"
+  },
+  {
+    "pregunta": "My birthday is _ the autumn.",
+    "opciones": ["in", "on", "at", "by"],
+    "respuesta": "in"
+  },
+  {
+    "pregunta": "_you happy?",
+    "opciones": ["are", "is", "am", "does"],
+    "respuesta": "are"
+  },
+  {
+    "pregunta": "Carlos and Geovanna _ at home. (Negative)",
+    "opciones": ["isn't", "aren't", "am not", "does not"],
+    "respuesta": "aren't"
+  },
+  {
+    "pregunta": "Christian and Lucia _ baseball players.",
+    "opciones": ["am", "are", "is", "an"],
+    "respuesta": "are"
+  },
+  {
+    "pregunta": "My cat _ in my room.",
+    "opciones": ["is", "are", "am", "will"],
+    "respuesta": "is"
+  },
+  {
+    "pregunta": "It _ a beautiful house.",
+    "opciones": ["is", "are", "am", "will not"],
+    "respuesta": "is"
+  },
+  {
+    "pregunta": "I _ 22 years old (Negative)",
+    "opciones": ["isn't", "aren't", "am not", "does not"],
+    "respuesta": "am not"
+  },
+  {
+    "pregunta": "It _ time to go to have dinner.",
+    "opciones": ["is", "are", "am", "will"],
+    "respuesta": "is"
+  },
+  {
+    "pregunta": "I (like) watching series in the past",
+    "opciones": ["liked", "live", "look", "liket"],
+    "respuesta": "liked"
+  },
+  {
+    "pregunta": "Juan Montalvo _ (write) many books.",
+    "opciones": ["writtes", "wrote", "writes", "written"],
+    "respuesta": "wrote"
+  },
+  {
+    "pregunta": "Her favorite band _ (give) an excellent concert last month.",
+    "opciones": ["give", "gived", "gave", "gaves"],
+    "respuesta": "gave"
+  },
+  {
+    "pregunta": "He _ (play) with his friends when he was a child.",
+    "opciones": ["plays", "playing", "playet", "played"],
+    "respuesta": "played"
+  },
+  {
+    "pregunta": "Thomas _ (lose) his identity car.",
+    "opciones": ["lost", "losen", "loosen", "loose"],
+    "respuesta": "lost"
+  },
+  {
+    "pregunta": "It _ (take) me a few hours to complete this task.",
+    "opciones": ["taken", "take", "took", "takes"],
+    "respuesta": "took"
+  },
+  {
+    "pregunta": "The flu disease _ (break) out in 2019.",
+    "opciones": ["brokes", "broken", "broke", "breas"],
+    "respuesta": "broke"
+  },
+  {
+    "pregunta": "Bernard _ (look) scared",
+    "opciones": ["looked", "like", "look", "looken"],
+    "respuesta": "looked"
+  },
+  {
+    "pregunta": "Sophie _ (do) the test",
+    "opciones": ["were", "was", "would", "did"],
+    "respuesta": "did"
+  },
+  {
+    "pregunta": "_ you like this show? (USE INTERROGATIVE FORM).",
+    "opciones": ["didnt", "doesn't", "does", "do"],
+    "respuesta": "do"
+  },
+  {
+    "pregunta": "_ he love classical music? (USE INTERROGATIVE FORM).",
+    "opciones": ["wouldn't", "doesn't", "does", "do"],
+    "respuesta": "does"
+  },
+  {
+    "pregunta": "Who _ you speak in the school with? (USE INTERROGATIVE FORM).",
+    "opciones": ["do", "does", "doesn't", "didn't"],
+    "respuesta": "do"
+  },
+  {
+    "pregunta": "Stephanie _ smoke. (USE NEGATIVE FORM).",
+    "opciones": ["do", "doesn't", "does", "will"],
+    "respuesta": "doesn't"
+  },
+  {
+    "pregunta": "_ it have a nickname? (USE INTERROGATIVE FORM).",
+    "opciones": ["does", "do", "doesn't", "didn't"],
+    "respuesta": "does"
+  },
+  {
+    "pregunta": "Mi conejo está durmiendo. / _ rabbit is sleeping.",
+    "opciones": ["my", "his", "our", "mine"],
+    "respuesta": "my"
+  },
+  {
+    "pregunta": "Tu perro está descansando. / _ dog is resting.",
+    "opciones": ["your", "his", "our", "her"],
+    "respuesta": "your"
+  },
+  {
+    "pregunta": "Es mi horario. / It's _ schedule",
+    "opciones": ["their", "your", "my", "its"],
+    "respuesta": "my"
+  },
+  {
+    "pregunta": "Claudia usarà sus botas nuevas. / Clau will wear _ new boots",
+    "opciones": ["his", "her", "our", "its"],
+    "respuesta": "her"
+  },
+  {
+    "pregunta": "Xavier vive con sus abuelos/ Javier lives with _ grandparents.",
+    "opciones": ["her", "his", "our", "their"],
+    "respuesta": "his"
+  },
+  {
+    "pregunta": "Gloria aprende con su hijo/ Gloria learns with _ son.",
+    "opciones": ["her", "their", "our", "my"],
+    "respuesta": "her"
+  },
+  {
+    "pregunta": "Cuéntame sobre tus metas. / Tell me about _ goals.",
+    "opciones": ["her", "their", "its", "your"],
+    "respuesta": "your"
+  },
+  {
+    "pregunta": "¿Esos son tus hermanos? / Are those _ brothers?",
+    "opciones": ["his", "her", "your", "mine"],
+    "respuesta": "your"
+  }
+]

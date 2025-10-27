@@ -1,0 +1,1002 @@
+[
+  {
+    "pregunta": "Los signos de puntuación sirven exclusivamente para decorar un texto",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "La polisemia ocurre cuando una palabra tiene varios significados relacionados entre sí",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Un ditirambo es un poema de alabanza exagerada, originalmente relacionado con el culto a Dionisio",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "La estructura de una página digital incluye encabezado, cuerpo y pie de página",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "En un texto argumentativo, los conectores lógicos son irrelevantes para su comprensión",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "La literatura épica narra hechos reales en su totalidad",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "La intertextualidad implica la relación de un texto con otros textos",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "La crónica es un relato de hechos reales contados cronológicamente",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Los neologismos son palabras que se crean para nombrar conceptos nuevos",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Los prefijos y sufijos son morfemas que cambian el significado de las palabras",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Un texto narrativo tiene como característica principal la descripción de emociones",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Las variedades lingüísticas se clasifican en diatópicas, diastráticas y diafásicas",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "El cómic es una forma de literatura escrita exclusivamente para niños",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "El Modernismo literario se caracteriza por el rechazo a la estética tradicional",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "La generación del 30 en Ecuador pertenece al movimiento de realismo social",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "El ensayo hispanoamericano es exclusivamente una obra literaria de ficción",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Las falacias son argumentos válidos y lógicos",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "La novela hispanoamericana del siglo XX se enfoca principalmente en temas mitológicos",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "La diversidad lingüística enriquece el patrimonio cultural de una región",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Las figuras retóricas se utilizan exclusivamente en la poesía",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "La lectura inferencial permite deducir información implícita en un texto",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Las normas APA son un sistema de citación para textos académicos",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "La escritura en redes sociales debe cumplir con las mismas normas gramaticales que un texto formal",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "El subrayado es una técnica que permite identificar ideas principales en un texto",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Las oraciones simples tienen más de un sujeto y un predicado",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "La lectura denotativa se centra en el significado literal de las palabras",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Un debate consiste en exponer ideas y refutarlas de manera respetuosa",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Las variedades lingüísticas diatópicas se refieren a las diferencias de lenguaje entre generaciones",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "La narración en primera persona ofrece una visión subjetiva de los hechos",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "El comentario es un texto académico que explica y valora otro texto",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "La cohesión textual se logra con el uso adecuado de conectores y referencias",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "El ensayo no requiere una estructura definida",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Las referencias bibliográficas son esenciales para dar crédito a las fuentes utilizadas",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Los textos digitales carecen de estructura definida en comparación con los impresos",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "El tono en un texto refleja la actitud del autor hacia el tema tratado",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Los textos académicos siempre son subjetivos",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "La entrevista es un tipo de texto narrativo",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "La hipérbole es una figura retórica que minimiza un aspecto para destacar otro",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "El discurso argumentativo utiliza evidencias para sustentar sus ideas",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "La coherencia textual es necesaria para que un texto sea comprensible",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Las variantes lingüísticas diastráticas están relacionadas con la geografía",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "La novela realista busca representar la vida tal como es",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Los textos publicitarios no tienen intención persuasiva",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Las reglas ortográficas son universales para todos los idiomas",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "La generación del 27 fue un movimiento literario hispanoamericano",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Los elementos gráficos como viñetas y negritas mejoran la presentación de un texto",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "La crítica literaria analiza y valora obras literarias",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "El texto descriptivo se enfoca en representar personas, lugares o cosas",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "La tragedia es un subgénero literario dentro del drama",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "La voz pasiva se utiliza para destacar la acción en lugar del sujeto que la realiza",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "El análisis literario se centra únicamente en el argumento de la obra",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "La novela picaresca se originó en la literatura francesa",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Los textos históricos relatan eventos pasados de forma ficticia",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "El realismo mágico combina elementos reales con fantásticos",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Un poema puede carecer de rima, pero conservar su ritmo",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Las jergas son variedades lingüísticas utilizadas en contextos especializados",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "La fonética estudia el significado de las palabras",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "La puntuación no afecta el significado de un texto",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "La sinestesia es una figura retórica que mezcla sensaciones de distintos sentidos",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "El simbolismo literario es exclusivo de la poesía",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "La literatura universal incluye obras representativas de distintas culturas y épocas",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "La función apelativa del lenguaje busca convencer al receptor",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Las unidades mínimas de significado son los fonemas",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "La descripción subjetiva incluye la opinión personal del autor",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Los caligramas son un tipo de poesía visual",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "El discurso expositivo presenta información de manera clara y ordenada",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "El texto argumentativo tiene como propósito principal persuadir al lector",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Los textos narrativos incluyen personajes, un espacio y un tiempo definidos",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "La función poética del lenguaje se centra en la estética del mensaje",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "El análisis crítico literario se basa únicamente en la biografía del autor",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "La contextualización es clave para comprender un texto histórico",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "El hipérbaton altera el orden lógico de las palabras en una oración",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "La lectura analógica busca establecer comparaciones entre conceptos",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Un texto publicitario utiliza recursos lingüísticos para persuadir",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "La función referencial del lenguaje describe objetos y eventos del mundo real",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Los mitos explican fenómenos naturales y culturales a través de relatos simbólicos",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "La comunicación no verbal incluye gestos y expresiones faciales",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "El paralelismo es una figura retórica que consiste en la repetición de estructuras similares",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "La literatura medieval en Europa se transmitía principalmente de forma escrita",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "La novela de ciencia ficción anticipa avances tecnológicos y sus consecuencias",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Las variantes lingüísticas diatópicas están relacionadas con las diferencias geográficas",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Las leyendas son relatos que mezclan hechos históricos con elementos ficticios",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "La función emotiva del lenguaje expresa sentimientos y emociones del emisor",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "El verso libre carece de rima y métrica definida",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Los textos técnicos están destinados a especialistas en un área específica",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "La literatura oral es anterior a la escritura",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Los caligramas son poemas que forman figuras visuales relacionadas con su contenido",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "La elisión es la omisión de sonidos o palabras en una oración",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "La literatura fantástica mezcla elementos reales con elementos irreales o mágicos",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Las autobiografías narran la vida de otra persona desde un punto de vista externo",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "La función conativa del lenguaje busca influir en el comportamiento del receptor",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "La metonimia sustituye un término por otro relacionado por proximidad o asociación",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "La epopeya es un subgénero narrativo que relata hazañas heroicas",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Los textos expositivos presentan información de manera objetiva y clara",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Las parábolas son relatos breves que transmiten una enseñanza moral",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "El género dramático utiliza diálogos para desarrollar su trama",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "El intertexto conecta un texto con referencias a otros textos",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "La ironía dramática ocurre cuando el lector sabe algo que los personajes desconocen",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Los textos instructivos indican los pasos para realizar una tarea o proceso",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "El diálogo es un recurso exclusivo del género narrativo",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "¿Qué recurso literario se emplea en la expresión \"el rugido del viento\"?",
+    "opciones": ["Metáfora", "Hipérbole", "Personificación", "Aliteración"],
+    "respuesta": "Personificación"
+  },
+  {
+    "pregunta": "¿Cuál de las siguientes opciones es un ejemplo de homonimia?",
+    "opciones": ["Banco: institución financiera o lugar para sentarse", "Mesa: objeto de mobiliario", "Sol: estrella del sistema solar", "Río: cuerpo de agua"],
+    "respuesta": "Banco: institución financiera o lugar para sentarse"
+  },
+  {
+    "pregunta": "¿Qué caracteriza a un narrador omnisciente?",
+    "opciones": ["Relata solo los hechos que observa", "Conoce los pensamientos y emociones de todos los personajes", "Es uno de los personajes de la historia", "No tiene acceso a los eventos futuros"],
+    "respuesta": "Conoce los pensamientos y emociones de todos los personajes"
+  },
+  {
+    "pregunta": "¿Cuál es el propósito principal de una fábula?",
+    "opciones": ["Describir un evento histórico", "Transmitir una enseñanza o moraleja", "Persuadir al lector", "Narrar hechos reales"],
+    "respuesta": "Transmitir una enseñanza o moraleja"
+  },
+  {
+    "pregunta": "¿Cuál es un ejemplo de literatura renacentista?",
+    "opciones": ["La Odisea", "Don Quijote de la Mancha", "La Celestina", "El Principito"],
+    "respuesta": "La Celestina"
+  },
+  {
+    "pregunta": "¿Qué tipo de texto tiene como función principal persuadir al receptor?",
+    "opciones": ["Texto descriptivo", "Texto argumentativo", "Texto narrativo", "Texto expositivo", "Informativo"],
+    "respuesta": "Texto argumentativo"
+  },
+  {
+    "pregunta": "¿Qué distingue a un cuento de una novela?",
+    "opciones": ["El cuento es más breve y tiene menos personajes", "La novela siempre está escrita en verso", "El cuento incluye capítulos", "La novela carece de trama"],
+    "respuesta": "El cuento es más breve y tiene menos personajes"
+  },
+  {
+    "pregunta": "¿Qué recurso literario está presente en la frase \"Es tan lento como una tortuga\"?",
+    "opciones": ["Metáfora", "Símil", "Hipérbole", "Oxímoron"],
+    "respuesta": "Símil"
+  },
+  {
+    "pregunta": "¿Qué subgénero pertenece al género dramático?",
+    "opciones": ["Referencial", "Poética", "Tragedia", "Fática"],
+    "respuesta": "Tragedia"
+  },
+  {
+    "pregunta": "¿Qué es una metáfora?",
+    "opciones": ["Una exageración extrema", "Una comparación implícita entre dos elementos", "Una descripción detallada", "Una narración de hechos ficticios"],
+    "respuesta": "Una comparación implícita entre dos elementos"
+  },
+  {
+    "pregunta": "¿Qué figura retórica se usa en la frase \"Sus lágrimas eran ríos\"?",
+    "opciones": ["Símil", "Antítesis", "Metáfora", "Hipérbole"],
+    "respuesta": "Hipérbole"
+  },
+  {
+    "pregunta": "¿Qué caracteriza a los textos informativos?",
+    "opciones": ["Brindan información objetiva y verificable", "Incluyen reflexiones personales", "Presentan una narrativa creativa", "Utilizan un lenguaje poético"],
+    "respuesta": "Brindan información objetiva y verificable"
+  },
+  {
+    "pregunta": "¿Qué subgénero literario incluye cuentos de fantasía?",
+    "opciones": ["Ensayo", "Crónica", "Cuento fantástico", "Poema lírico"],
+    "respuesta": "Cuento fantástico"
+  },
+  {
+    "pregunta": "¿Qué tipo de texto tiene como objetivo principal narrar hechos reales o ficticios?",
+    "opciones": ["Texto descriptivo", "Texto expositivo", "Texto narrativo", "Texto argumentativo"],
+    "respuesta": "Texto narrativo"
+  },
+  {
+    "pregunta": "¿Qué caracteriza a una novela?",
+    "opciones": ["Es un texto breve", "Tiene una trama extensa y varios personajes", "Está escrita en verso", "Siempre narra hechos reales"],
+    "respuesta": "Tiene una trama extensa y varios personajes"
+  },
+  {
+    "pregunta": "¿Qué figura retórica se usa para exagerar una idea o situación?",
+    "opciones": ["Metáfora", "Hipérbole", "Oxímoron", "Antítesis"],
+    "respuesta": "Hipérbole"
+  },
+  {
+    "pregunta": "¿Qué tipo de texto busca influir en el receptor utilizando recursos lingüísticos?",
+    "opciones": ["Texto publicitario", "Texto narrativo", "Texto lírico", "Texto científico"],
+    "respuesta": "Texto publicitario"
+  },
+  {
+    "pregunta": "¿Qué elemento es esencial en un texto argumentativo?",
+    "opciones": ["Evidencias que respalden la tesis", "Narración en primera persona", "Lenguaje poético", "Enumeración de características"],
+    "respuesta": "Evidencias que respalden la tesis"
+  },
+  {
+    "pregunta": "¿Qué recurso literario está presente en \"Silencio ensordecedor\"?",
+    "opciones": ["Símil", "Oxímoron", "Metáfora", "Antítesis"],
+    "respuesta": "Oxímoron"
+  },
+  {
+    "pregunta": "¿Qué caracteriza al subgénero de la epopeya?",
+    "opciones": ["Es una narración breve", "Relata hazañas de héroes legendarios", "Combina hechos históricos y míticos", "Se escribe exclusivamente en prosa"],
+    "respuesta": "Relata hazañas de héroes legendarios"
+  },
+  {
+    "pregunta": "¿Qué subgénero pertenece al género narrativo?",
+    "opciones": ["Crónica", "Cuento", "Ensayo", "Tragedia"],
+    "respuesta": "Cuento"
+  },
+  {
+    "pregunta": "¿Qué figura retórica se utiliza al decir \"Eres el sol que ilumina mi vida\"?",
+    "opciones": ["Hipérbole", "Metáfora", "Antítesis", "Comparación"],
+    "respuesta": "Metáfora"
+  },
+  {
+    "pregunta": "¿Qué subgénero literario combina ficción con elementos mágicos?",
+    "opciones": ["Realismo social", "Naturalismo", "Realismo mágico", "Simbolismo"],
+    "respuesta": "Realismo mágico"
+  },
+  {
+    "pregunta": "¿Qué tipo de texto combina elementos de análisis e interpretación crítica?",
+    "opciones": ["Novela", "Crónica", "Ensayo", "Cuento"],
+    "respuesta": "Ensayo"
+  },
+  {
+    "pregunta": "¿Qué característica tiene el narrador en segunda persona?",
+    "opciones": ["Se dirige al lector como si fuera parte de la historia", "Conoce los pensamientos de todos los personajes", "Habla directamente al lector como protagonista", "Relata hechos sin involucrarse"],
+    "respuesta": "Habla directamente al lector como protagonista"
+  },
+  {
+    "pregunta": "¿Qué recurso literario utiliza \"El silencio gritaba en la habitación\"?",
+    "opciones": ["Hipérbole", "Personificación", "Metáfora", "Símil"],
+    "respuesta": "Personificación"
+  },
+  {
+    "pregunta": "¿Qué distingue a una biografía?",
+    "opciones": ["Es un relato ficticio", "Narra la vida de una persona real", "Contiene opiniones subjetivas", "Está escrita en verso"],
+    "respuesta": "Narra la vida de una persona real"
+  },
+  {
+    "pregunta": "¿Qué subgénero literario pertenece al género lírico?",
+    "opciones": ["Ensayo", "Oda", "Crónica", "Epopeya"],
+    "respuesta": "Oda"
+  },
+  {
+    "pregunta": "¿Qué característica define al género dramático?",
+    "opciones": ["Escrito para ser representado en escena", "Uso exclusivo de narración", "Expresión de emociones del autor", "Basado en hechos históricos"],
+    "respuesta": "Escrito para ser representado en escena"
+  },
+  {
+    "pregunta": "¿Qué diferencia a una leyenda de un mito?",
+    "opciones": ["La leyenda es completamente ficticia", "La leyenda mezcla hechos históricos y elementos ficticios", "El mito es más realista", "La leyenda es siempre breve"],
+    "respuesta": "La leyenda mezcla hechos históricos y elementos ficticios"
+  },
+  {
+    "pregunta": "¿Qué caracteriza a un texto periodístico?",
+    "opciones": ["Busca informar sobre hechos actuales", "Expresa emociones del autor", "Contiene elementos fantásticos", "Siempre utiliza lenguaje técnico"],
+    "respuesta": "Busca informar sobre hechos actuales"
+  },
+  {
+    "pregunta": "¿Qué función del lenguaje predomina en una noticia?",
+    "opciones": ["Emotiva", "Poética", "Referencial", "Apelativa"],
+    "respuesta": "Referencial"
+  },
+  {
+    "pregunta": "¿Qué figura literaria mezcla ideas contradictorias en una misma frase?",
+    "opciones": ["Metáfora", "Oxímoron", "Hipérbole", "Sinestesia"],
+    "respuesta": "Oxímoron"
+  },
+  {
+    "pregunta": "¿Qué subgénero literario narra hechos reales y utiliza un enfoque cronológico?",
+    "opciones": ["Ensayo", "Crónica", "Novela", "Oda"],
+    "respuesta": "Crónica"
+  },
+  {
+    "pregunta": "¿Qué caracteriza a un ensayo literario?",
+    "opciones": ["Escribe hechos reales en forma cronológica", "Relata una historia ficticia", "Expone ideas y reflexiones personales del autor", "Incluye una moraleja al final"],
+    "respuesta": "Expone ideas y reflexiones personales del autor"
+  },
+  {
+    "pregunta": "¿Qué subgénero pertenece al género narrativo?",
+    "opciones": ["Oda", "Ensayo", "Novela", "Tragedia"],
+    "respuesta": "Novela"
+  },
+  {
+    "pregunta": "¿Qué caracteriza al realismo literario?",
+    "opciones": ["Uso exclusivo de elementos fantásticos", "Descripción objetiva de la realidad", "Enfoque en lo subjetivo", "Expresión de emociones personales"],
+    "respuesta": "Descripción objetiva de la realidad"
+  },
+  {
+    "pregunta": "¿Qué función del lenguaje se utiliza en una conversación cotidiana?",
+    "opciones": ["Poética", "Referencial", "Fática", "Apelativa"],
+    "respuesta": "Fática"
+  },
+  {
+    "pregunta": "¿Qué caracteriza a una obra de teatro?",
+    "opciones": ["Es un relato extenso con varios personajes", "Está escrita para ser representada ante un público", "Es exclusivamente en verso", "No incluye diálogos"],
+    "respuesta": "Está escrita para ser representada ante un público"
+  },
+  {
+    "pregunta": "¿Qué tipo de texto busca detallar las características de un objeto o persona?",
+    "opciones": ["Texto narrativo", "Texto argumentativo", "Texto descriptivo", "Texto lírico"],
+    "respuesta": "Texto descriptivo"
+  },
+  {
+    "pregunta": "¿Qué distingue a un poema épico?",
+    "opciones": ["Escribe hechos ficticios en primera persona", "Es breve y conciso", "Relata hazañas heroicas de manera extensa", "Usa exclusivamente rima libre"],
+    "respuesta": "Relata hazañas heroicas de manera extensa"
+  },
+  {
+    "pregunta": "¿Qué función del lenguaje predomina en los mensajes de alerta?",
+    "opciones": ["Referencial", "Poética", "Apelativa", "Emotiva"],
+    "respuesta": "Apelativa"
+  },
+  {
+    "pregunta": "¿Qué subgénero literario incluye reflexiones filosóficas o morales?",
+    "opciones": ["Crónica", "Cuento", "Ensayo", "Oda"],
+    "respuesta": "Ensayo"
+  },
+  {
+    "pregunta": "¿Qué figura literaria se utiliza al decir \"Las estrellas me guiaron en la noche\"?",
+    "opciones": ["Hipérbole", "Metáfora", "Símil", "Antítesis"],
+    "respuesta": "Metáfora"
+  },
+  {
+    "pregunta": "¿Qué recurso literario está presente en \"Eres tan fuerte como un roble\"?",
+    "opciones": ["Metáfora", "Hipérbole", "Símil", "Sinestesia"],
+    "respuesta": "Símil"
+  },
+  {
+    "pregunta": "¿Qué caracteriza al género de la fábula?",
+    "opciones": ["Uso de personajes mitológicos", "Exclusivamente escrito en prosa", "Incluye una moraleja al final", "Relatos extensos y complejos"],
+    "respuesta": "Incluye una moraleja al final"
+  },
+  {
+    "pregunta": "¿Qué distingue a la novela realista?",
+    "opciones": ["Uso de elementos mágicos", "Enfoque en lo subjetivo", "Descripción detallada de la realidad cotidiana", "Narración en verso"],
+    "respuesta": "Descripción detallada de la realidad cotidiana"
+  },
+  {
+    "pregunta": "¿Qué subgénero literario pertenece al género narrativo?",
+    "opciones": ["Ensayo", "Oda", "Novela", "Tragedia"],
+    "respuesta": "Novela"
+  },
+  {
+    "pregunta": "¿Qué figura retórica está presente en \"El hielo ardía en sus manos\"?",
+    "opciones": ["Símil", "Metáfora", "Oxímoron", "Hipérbole"],
+    "respuesta": "Oxímoron"
+  },
+  {
+    "pregunta": "¿Qué caracteriza a los textos científicos?",
+    "opciones": ["Presentan información basada en evidencias verificables", "Expresan emociones del autor", "Utilizan un lenguaje poético", "Incluyen reflexiones personales"],
+    "respuesta": "Presentan información basada en evidencias verificables"
+  },
+  {
+    "pregunta": "¿Qué función del lenguaje predomina en una conversación telefónica casual?",
+    "opciones": ["Apelativa", "Referencial", "Fática", "Poética"],
+    "respuesta": "Fática"
+  },
+  {
+    "pregunta": "¿Qué elemento distingue a una tragedia griega?",
+    "opciones": ["Relata eventos humorísticos", "Incluye un desenlace trágico para el protagonista", "Uso exclusivo de lenguaje poético", "Carece de conflictos"],
+    "respuesta": "Incluye un desenlace trágico para el protagonista"
+  },
+  {
+    "pregunta": "¿Qué tipo de texto presenta información ordenada y explicada claramente?",
+    "opciones": ["Texto narrativo", "Texto descriptivo", "Texto expositivo", "Texto poético"],
+    "respuesta": "Texto expositivo"
+  },
+  {
+    "pregunta": "¿Qué figura retórica está presente en \"El reloj corría más rápido que nunca\"?",
+    "opciones": ["Metáfora", "Personificación", "Hipérbole", "Antítesis"],
+    "respuesta": "Personificación"
+  },
+  {
+    "pregunta": "¿Qué caracteriza a un ensayo filosófico?",
+    "opciones": ["Relata hechos ficticios", "Explora ideas abstractas y reflexiones del autor", "Describe emociones de personajes", "Escribe eventos cronológicos"],
+    "respuesta": "Explora ideas abstractas y reflexiones del autor"
+  },
+  {
+    "pregunta": "¿Qué subgénero literario se centra en relatar historias breves con pocos personajes?",
+    "opciones": ["Novela", "Cuento", "Ensayo", "Crónica"],
+    "respuesta": "Cuento"
+  },
+  {
+    "pregunta": "¿Qué figura retórica combina elementos contradictorios?",
+    "opciones": ["Símil", "Hipérbole", "Oxímoron", "Metonimia"],
+    "respuesta": "Oxímoron"
+  },
+  {
+    "pregunta": "¿Qué función del lenguaje predomina en los mensajes informativos?",
+    "opciones": ["Emotiva", "Apelativa", "Referencial", "Poética"],
+    "respuesta": "Referencial"
+  },
+  {
+    "pregunta": "¿Qué distingue al género de la tragedia?",
+    "opciones": ["Final feliz", "Desenlace trágico y conflictos profundos", "Uso exclusivo de prosa", "Narración humorística"],
+    "respuesta": "Desenlace trágico y conflictos profundos"
+  },
+  {
+    "pregunta": "¿Qué recurso literario se utiliza al decir \"Una luz de esperanza iluminó mi camino\"?",
+    "opciones": ["Hipérbole", "Metáfora", "Símil", "Antítesis"],
+    "respuesta": "Metáfora"
+  },
+  {
+    "pregunta": "¿Qué tipo de narrador es un personaje secundario que observa la historia?",
+    "opciones": ["Narrador omnisciente", "Narrador testigo", "Narrador en primera persona", "Narrador objetivo"],
+    "respuesta": "Narrador testigo"
+  },
+  {
+    "pregunta": "¿Qué figura literaria exagera intencionalmente una característica?",
+    "opciones": ["Metáfora", "Hipérbole", "Antítesis", "Sinestesia"],
+    "respuesta": "Hipérbole"
+  },
+  {
+    "pregunta": "¿Qué característica define a los textos académicos?",
+    "opciones": ["Lenguaje informal", "Uso de evidencias y rigor en el contenido", "Narración subjetiva", "Final abierto"],
+    "respuesta": "Uso de evidencias y rigor en el contenido"
+  },
+  {
+    "pregunta": "¿Qué subgénero literario combina realidad con elementos mágicos?",
+    "opciones": ["Simbolismo", "Naturalismo", "Realismo mágico", "Romanticismo"],
+    "respuesta": "Realismo mágico"
+  },
+  {
+    "pregunta": "¿Qué función del lenguaje se utiliza en un poema?",
+    "opciones": ["Referencial", "Emotiva", "Poética", "Apelativa"],
+    "respuesta": "Poética"
+  },
+  {
+    "pregunta": "¿Qué tipo de narrador conoce los pensamientos de todos los personajes?",
+    "opciones": ["Narrador objetivo", "Narrador en primera persona", "Narrador omnisciente", "Narración testigo"],
+    "respuesta": "Narrador omnisciente"
+  },
+  {
+    "pregunta": "¿Qué subgénero pertenece al género lírico?",
+    "opciones": ["Ensayo", "Oda", "Crónica", "Cuento"],
+    "respuesta": "Oda"
+  },
+  {
+    "pregunta": "¿Qué recurso literario está presente en \"El rugido del león era música para sus oídos\"?",
+    "opciones": ["Hipérbole", "Metáfora", "Personificación", "Símil"],
+    "respuesta": "Metáfora"
+  },
+  {
+    "pregunta": "¿Qué recurso literario utiliza elementos opuestos en una misma frase?",
+    "opciones": ["Símil", "Antítesis", "Hipérbole", "Metáfora"],
+    "respuesta": "Antítesis"
+  },
+  {
+    "pregunta": "¿Qué tipo de texto busca enseñar al lector?",
+    "opciones": ["Texto narrativo", "Texto lírico", "Texto didáctico", "Texto poético"],
+    "respuesta": "Texto didáctico"
+  },
+  {
+    "pregunta": "¿Qué función del lenguaje predomina en un discurso político?",
+    "opciones": ["Referencial", "Emotiva", "Apelativa", "Poética"],
+    "respuesta": "Apelativa"
+  },
+  {
+    "pregunta": "¿Qué caracteriza a un poema lírico?",
+    "opciones": ["Narración objetiva", "Expresión de emociones y sentimientos personales", "Enfoque en eventos históricos", "Lenguaje técnico"],
+    "respuesta": "Expresión de emociones y sentimientos personales"
+  },
+  {
+    "pregunta": "¿Qué distingue a una autobiografía?",
+    "opciones": ["Es un relato ficticio", "Escribe la historia de vida del autor", "Narra hechos históricos", "Es exclusivamente en verso"],
+    "respuesta": "Escribe la historia de vida del autor"
+  },
+  {
+    "pregunta": "¿Qué tipo de narrador no participa en la historia, pero conoce todos los detalles?",
+    "opciones": ["Narrador testigo", "Narrador en primera persona", "Narrador omnisciente", "Narrador objetivo"],
+    "respuesta": "Narrador omnisciente"
+  },
+  {
+    "pregunta": "¿Qué caracteriza a una tragedia?",
+    "opciones": ["Uso de elementos humorísticos", "Incluye conflictos profundos y un desenlace trágico", "Narración exclusivamente en prosa", "Relatos poéticos"],
+    "respuesta": "Incluye conflictos profundos y un desenlace trágico"
+  },
+  {
+    "pregunta": "¿Qué caracteriza a un texto argumentativo?",
+    "opciones": ["Busca convencer al lector mediante razones y evidencia", "Relata eventos cronológicos", "Expresa emociones del autor", "Narra una historia ficticia"],
+    "respuesta": "Busca convencer al lector mediante razones y evidencia"
+  },
+  {
+    "pregunta": "¿Qué subgénero literario es un relato breve con enseñanza moral?",
+    "opciones": ["Crónica", "Ensayo", "Fábula", "Oda"],
+    "respuesta": "Fábula"
+  },
+  {
+    "pregunta": "¿Qué distingue al narrador omnisciente?",
+    "opciones": ["Narra en primera persona", "Conoce los pensamientos y emociones de todos los personajes", "Es un observador externo", "Participa en la historia como protagonista"],
+    "respuesta": "Conoce los pensamientos y emociones de todos los personajes"
+  },
+  {
+    "pregunta": "¿Qué recurso literario exagera para destacar una característica?",
+    "opciones": ["Metáfora", "Antítesis", "Hipérbole", "Símil"],
+    "respuesta": "Hipérbole"
+  },
+  {
+    "pregunta": "¿Qué característica define a una epopeya?",
+    "opciones": ["Relato breve", "Narra hazañas heroicas con elementos míticos", "Uso exclusivo de prosa", "Final trágico siempre"],
+    "respuesta": "Narra hazañas heroicas con elementos míticos"
+  },
+  {
+    "pregunta": "¿Qué función del lenguaje predomina en un poema lírico?",
+    "opciones": ["Referencial", "Apelativa", "Poética", "Fática"],
+    "respuesta": "Poética"
+  },
+  {
+    "pregunta": "¿Qué distingue al género de la crónica?",
+    "opciones": ["Relata eventos ficticios", "Describe hechos reales de manera cronológica", "Uso exclusivo de diálogo", "Persuade al lector"],
+    "respuesta": "Describe hechos reales de manera cronológica"
+  },
+  {
+    "pregunta": "¿Qué figura literaria combina sentidos distintos, como \"colores chillones\"?",
+    "opciones": ["Símil", "Hipérbole", "Sinestesia", "Metonimia"],
+    "respuesta": "Sinestesia"
+  },
+  {
+    "pregunta": "¿Qué distingue al género lírico?",
+    "opciones": ["Uso de diálogos exclusivamente", "Expresión de emociones y sentimientos del autor", "Narración de hechos históricos", "Relatos extensos"],
+    "respuesta": "Expresión de emociones y sentimientos del autor"
+  },
+  {
+    "pregunta": "¿Qué recurso literario está presente en \"El corazón del bosque latía fuerte\"?",
+    "opciones": ["Hipérbole", "Personificación", "Metáfora", "Antítesis"],
+    "respuesta": "Personificación"
+  },
+  {
+    "pregunta": "¿Qué figura retórica exagera intencionalmente una situación?",
+    "opciones": ["Símil", "Hipérbole", "Oxímoron", "Metáfora"],
+    "respuesta": "Hipérbole"
+  },
+  {
+    "pregunta": "¿Qué tipo de narrador relata eventos sin conocer pensamientos de los personajes?",
+    "opciones": ["Narrador omnisciente", "Narrador en primera persona", "Narrador objetivo", "Narrador testigo"],
+    "respuesta": "Narrador objetivo"
+  },
+  {
+    "pregunta": "¿Qué función del lenguaje predomina en los eslóganes publicitarios?",
+    "opciones": ["Referencial", "Poética", "Apelativa", "Fática"],
+    "respuesta": "Apelativa"
+  },
+  {
+    "pregunta": "¿Qué distingue a un ensayo literario?",
+    "opciones": ["Explora ideas y reflexiones personales", "Relata hechos cronológicos", "Contiene una moraleja", "Narra historias ficticias"],
+    "respuesta": "Explora ideas y reflexiones personales"
+  },
+  {
+    "pregunta": "¿Qué tipo de narrador está involucrado directamente en los eventos?",
+    "opciones": ["Narrador testigo", "Narrador objetivo", "Narrador en primera persona", "Narrador omnisciente"],
+    "respuesta": "Narrador en primera persona"
+  },
+  {
+    "pregunta": "¿Qué figura retórica utiliza \"Eres un ángel\"?",
+    "opciones": ["Símil", "Metáfora", "Hipérbole", "Antítesis"],
+    "respuesta": "Metáfora"
+  },
+  {
+    "pregunta": "¿Qué caracteriza a una tragedia griega?",
+    "opciones": ["Uso de lenguaje humorístico", "Conflictos profundos y un desenlace trágico", "Narración poética", "Exclusiva en prosa"],
+    "respuesta": "Conflictos profundos y un desenlace trágico"
+  },
+  {
+    "pregunta": "¿Qué caracteriza a un texto argumentativo?",
+    "opciones": ["Busca convencer al lector mediante razones y evidencia", "Relata eventos cronológicos", "Expresa emociones del autor", "Narra una historia ficticia"],
+    "respuesta": "Busca convencer al lector mediante razones y evidencia"
+  },
+  {
+    "pregunta": "¿Qué función del lenguaje predomina en los manuales de instrucciones?",
+    "opciones": ["Apelativa", "Referencial", "Poética", "Emotiva"],
+    "respuesta": "Apelativa"
+  },
+  {
+    "pregunta": "¿Qué recurso literario está presente en \"El corazón del bosque latía fuerte\"?",
+    "opciones": ["Hipérbole", "Personificación", "Metáfora", "Antítesis"],
+    "respuesta": "Personificación"
+  },
+  {
+    "pregunta": "¿Qué recurso literario está presente en \"Una cascada de lágrimas cayó de sus ojos\"?",
+    "opciones": ["Hipérbole", "Metáfora", "Símil", "Personificación"],
+    "respuesta": "Metáfora"
+  },
+  {
+    "pregunta": "¿Qué tipo de narrador utiliza \"tú\" para dirigirse al lector como si fuera el protagonista?",
+    "opciones": ["Narrador omnisciente", "Narrador objetivo", "Narrador en segunda persona", "Narrador testigo"],
+    "respuesta": "Narrador en segunda persona"
+  },
+  {
+    "pregunta": "¿Qué distingue a la literatura barroca?",
+    "opciones": ["Uso de lenguaje sencillo", "Complejidad en las figuras retóricas y temáticas", "Enfoque en lo cotidiano", "Narración objetiva"],
+    "respuesta": "Complejidad en las figuras retóricas y temáticas"
+  },
+  {
+    "pregunta": "¿Qué figura retórica está presente en \"La vida es un sueño\"?",
+    "opciones": ["Hipérbole", "Metáfora", "Antítesis", "Oxímoron"],
+    "respuesta": "Metáfora"
+  },
+  {
+    "pregunta": "¿Qué subgénero literario incluye la expresión subjetiva y emocional del autor?",
+    "opciones": ["Crónica", "Ensayo", "Poema lírico", "Tragedia"],
+    "respuesta": "Poema lírico"
+  }
+]

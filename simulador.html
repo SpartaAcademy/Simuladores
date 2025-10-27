@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sparta Academy - Simulador</title>
+
+    <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <link rel="stylesheet" href="CSS/style-simulador.css">
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;600&family=Work+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <script src="JS/auth.js"></script>
+    <script>
+        checkAuth(); // Verifica sesión al cargar inicialmente
+    </script>
+</head>
+<body>
+    <header>
+        <div class="header-logo">
+            <img src="logo.png" alt="Sparta Academy Logo">
+        </div>
+        <div class="header-titulo">
+            <h1>SPARTA ACADEMY</h1>
+            <h2 id="titulo-materia">SIMULADOR DE: ...</h2>
+        </div>
+         <div class="user-info-container desktop-only">
+            <span id="user-name-display-desktop">Aspirante: Cargando...</span>
+            <div class="dropdown">
+                <button class="dropdown-btn">▼</button>
+                <div class="dropdown-content">
+                    <a href="#" id="logout-button-desktop">Cerrar Sesión</a>
+                </div>
+            </div>
+        </div>
+        <button class="hamburger-menu mobile-only" id="hamburger-btn">☰</button>
+    </header>
+
+     <div class="side-nav" id="side-nav">
+        <button class="close-nav-btn" id="close-nav-btn">&times;</button>
+        <div class="side-nav-header">
+             <img src="logo.png" alt="Sparta Logo" class="side-nav-logo">
+             <h3>Menú Aspirante</h3>
+        </div>
+        <div class="side-nav-user">
+            <p>Aspirante:</p>
+            <p><strong id="user-name-display-mobile">Cargando...</strong></p>
+        </div>
+        <a href="#" id="logout-button-mobile" class="side-nav-link">Cerrar Sesión</a>
+    </div>
+    <div class="overlay" id="overlay"></div>
+
+    <main>
+        <div id="lobby-container">
+            <h1>Instrucciones del Simulacro</h1>
+            <div class="datos-informativos">
+                <p><strong>Materia:</strong> <span id="lobby-materia"></span></p>
+                <p><strong>Total de Preguntas:</strong> <span id="lobby-preguntas">50</span></p>
+                <p><strong>Tiempo Máximo:</strong> <span id="lobby-tiempo">1 Hora (60 Minutos)</span></p>
+                <p><strong>Calificación sobre:</strong> 1000 Puntos</p>
+            </div>
+            <hr>
+            <h3>Puntajes:</h3>
+            <ul>
+                <li>Respuesta Correcta: <strong>+20 Puntos</strong></li>
+                <li>Respuesta Incorrecta: <strong>0 Puntos</strong></li>
+                <li>Respuesta en Blanco: <strong>0 Puntos</strong></li>
+            </ul>
+            <p style="margin-top: 1rem; font-weight: 600;"><strong>Importante:</strong> Este intento es lineal. Una vez que presione "Siguiente", no podrá regresar a la pregunta anterior.</p>
+            <button id="comenzar-btn">Comenzar Intento</button>
+        </div>
+
+        <div id="simulador-container">
+            <div class="quiz-col-izquierda">
+                <div class="pregunta-header">
+                    <span id="pregunta-numero" class="pregunta-num-tag">Pregunta 1</span>
+                    <h2 id="pregunta-texto">Cargando pregunta...</h2>
+                </div>
+                <div id="opciones-container"></div>
+                <div class="quiz-navegacion">
+                    <button id="siguiente-btn">Siguiente</button>
+                </div>
+            </div>
+            <div class="quiz-col-derecha">
+                <div class="timer-box">
+                    <h3>Tiempo Restante</h3>
+                    <div id="cronometro">60:00</div>
+                </div>
+                <div class="navegador-box">
+                    <h3>Preguntas</h3>
+                    <div id="navegador-preguntas"></div>
+                </div>
+                <button id="terminar-intento-btn">Terminar Intento</button>
+            </div>
+        </div>
+
+        <div id="resultados-container">
+            <h2>¡Simulacro Terminado!</h2>
+            <p>Estos son tus resultados:</p>
+            <div class="puntaje-final-box">
+                <h3>Puntaje Total</h3>
+                <h1 id="puntaje-final">0</h1>
+                <p>sobre 1000 Puntos</p>
+            </div>
+            <div class="estadisticas-grid">
+                <div><h4>Contestadas</h4><p id="stats-contestadas">0</p></div>
+                <div><h4>Correctas</h4><p id="stats-correctas">0</p></div>
+                <div><h4>Incorrectas</h4><p id="stats-incorrectas">0</p></div>
+                <div><h4>En Blanco</h4><p id="stats-en-blanco">0</p></div>
+            </div>
+            <hr>
+            <div class="revision-header">
+                <h3>Revisión de Respuestas</h3>
+                <button id="reiniciar-btn">Volver al Inicio</button>
+            </div>
+            <div id="revision-container"></div>
+        </div>
+    </main>
+
+    <div id="modal-overlay" class="modal-overlay">
+        <div class="modal-box">
+            <h2>Terminar Intento</h2>
+            <p id="modal-mensaje">¿Estás seguro?</p>
+            <div class="modal-botones">
+                <button id="cancelar-modal-btn" class="modal-btn-cancelar">Cancelar</button>
+                <button id="confirmar-modal-btn" class="modal-btn-confirmar">Confirmar</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Dir: Calle Bolívar entre Boyacá y Junín</p>
+        <p>Cell: 0989746618 / 0984541920 / 0987451775</p>
+        <p>Email: spartatulcan@gmail.com</p>
+    </footer>
+
+    <script src="JS/script-simulador.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+             setupUserInfoDropdown();
+             setupMobileMenu();
+        });
+
+        // (NUEVO) Verifica sesión al mostrar la página (incluyendo al usar "Atrás")
+        window.addEventListener('pageshow', function(event) {
+             // Si la página viene del caché del navegador (bfcache)
+            if (event.persisted) {
+                 console.log("Página cargada desde caché (bfcache). Verificando sesión...");
+                 checkAuth(); // Vuelve a verificar la sesión
+            }
+        });
+    </script>
+</body>
+</html>

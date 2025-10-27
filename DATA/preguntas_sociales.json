@@ -1,0 +1,1002 @@
+[
+  {
+    "pregunta": "El río Guayas es el principal sistema fluvial de la región Sierra.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "El Ecuador formó parte de la Gran Colombia hasta 1830.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "La Gran Depresión de 1929 afectó únicamente a Estados Unidos, dejando intactas las economías de otros países.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "región amazónica de Ecuador alberga más del 50% de la biodiversidad del país.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "La Declaración Universal de los Derechos Humanos fue adoptada en 1938 por las Naciones Unidas.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "El sistema judicial de Ecuador permite la reelección indefinida del Presidente.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "El feriado bancario fue causado por la caída de los precios del petróleo exclusivamente.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "El Tratado de Río de Janeiro, firmado en 1942, resolvió definitivamente los conflictos territoriales entre Ecuador y Perú.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Las civilizaciones de la India antigua se desarrollaron alrededor del río Amarillo y el Yangtsé.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "La civilización china es conocida por inventos como la pólvora, la brújula y el papel.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "El feudalismo europeo se basaba en relaciones de vasallaje entre señores y campesinos.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "El primer presidente de la República del Ecuador fue Vicente Rocafuerte.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "La Constitución de 1945 fue conocida como \"La Carta de Montecristi\".",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "La economía del Ecuador durante el siglo XIX dependía principalmente de la exportación de petróleo.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Simón Bolívar es conocido como el Libertador de Sudamérica.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "La Primera Guerra Mundial comenzó en 1914.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Los mayas utilizaban un sistema de numeración basado en el número 20.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "El Renacimiento fue un movimiento cultural que se originó en Italia.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "El Tratado de Tordesillas dividió América entre España y Francia.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "El Imperio Romano alcanzó su máxima expansión durante la Edad Media.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "El cacao fino de aroma, una de las principales exportaciones de Ecuador, es considerado patrimonio cultural y económico del país debido a su calidad mundialmente reconocida.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "La cultura egipcia destacó por el uso de jeroglíficos.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "La Revolución Industrial tuvo su origen en Francia.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "La Revolución Liberal in Ecuador fue liderada por Eloy Alfaro en 1895.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "La Guerra del Cenepa entre Ecuador y Perú ocurrió en 1941.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "La Constitución de 2008 reconoció los derechos de la naturaleza en Ecuador.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "El Tratado de Río de Janeiro fue firmado para resolver el conflicto limítrofe entre Ecuador y Perú.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "La civilización Quitu-Cara se estableció en la región de la Sierra ecuatoriana.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "El movimiento indígena en Ecuador cobró fuerza política con la creación de la CONAIE en 1986.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "La Batalla de Tarqui en 1829 consolidó la independencia de Ecuador.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Las Islas Galápagos fueron declaradas Patrimonio Natural de la Humanidad en 1978.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "La Revolución Ciudadana introdujo la noción de Buen Vivir (Sumak Kawsay) en la política ecuatoriana.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Jaime Roldós Aguilera fue el presidente de Ecuador, y su mandato (1979-1981) marcó el retorno a la democracia tras varios años de dictaduras militares.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "La Guerra de Independencia del Ecuador finalizó con la Batalla de Pichincha en 1822.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "La cultura Tolita destacó por la producción de objetos de oro y cerámica.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "La ciudad de Guayaquil fue fundada en 1534 por Sebastián de Benalcázar.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "La Constitución de 1978 en Ecuador estableció el voto obligatorio para las mujeres.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "La Sierra ecuatoriana fue el principal centro político y cultural del Imperio Inca en Ecuador.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "El Monumento a la Independencia, ubicado en Guayaquil, celebra la firma del Acta de Independencia de la ciudad en 1820.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "La dolarización fue adoptada como política económica para combatir la hiperinflación.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Las Islas Galápagos deben su nombre a los caballos que se llevaron durante la colonización.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "La Amazonía ecuatoriana es conocida como la región menos poblada del país.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "La primera Asamblea Nacional del Ecuador se llevó a cabo en 1830.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "El conflicto entre Ecuador y Perú terminó con un acuerdo definitivo en 1998.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Quito fue declarada Patrimonio Cultural de la Humanidad en 1978 por la UNESCO.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "La Revolución Industrial comenzó en Inglaterra en el siglo XVIII.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "La Primera Guerra Mundial finalizó en 1918 con el Tratado de Versalles.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "La Revolución Francesa inició en 1789.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "La Guerra Fría fue un conflicto armado directo entre Estados Unidos y la Unión Soviética.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "La Guerra de los Cien Años fue un conflicto entre Francia e Inglaterra que duró exactamente 100 años.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "La cultura Valdivia, una de las más antiguas de América, es conocida por sus figurillas femeninas de cerámica.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "La Declaración Universal de los Derechos Humanos fue adoptada por la ONU en 1948.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "La Revolución Cubana culminó con la llegada al poder de Fidel Castro en 1959.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "José María Velasco Ibarra es conocido como el presidente que ocupó el cargo cinco veces, pero fue destituido o derrocado en cuatro de sus mandatos debido a conflictos con el Congreso y el ejército.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "La independencia de las colonias africanas ocurrió principalmente en la década de los 90.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "La Guerra de Vietnam concluyó en 1975 con la victoria del Norte comunista.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "La Primavera Árabe fue una serie de protestas y levantamientos en el mundo árabe que comenzaron en 2010.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "La ciudad de Quito fue fundada por los españoles el 6 de diciembre de 1534.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "La Real Audiencia de Quito fue creada como parte del Virreinato del Perú en 1563.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "La cultura Valdivia se asentó únicamente en la región de la Amazonía ecuatoriana.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "La independencia de Guayaquil fue declarada el 24 de mayo de 1822.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Las Islas Galápagos fueron anexadas al territorio ecuatoriano en 1832.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "La Batalla de Pichincha ocurrió en las faldas del volcán Chimborazo.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "La Constitución de 1830 fue la primera carta magna del Ecuador independiente.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "La Revolución de Quito en 1809 fue el primer intento de independencia en América Latina.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "El volcán Tungurahua es el más alto de Ecuador.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "La Guerra del Cenepa entre Ecuador y Perú ocurrió en 1995.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "El Parque Nacional Yasuní es una de las áreas con mayor biodiversidad del planeta.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "La cultura Tolita destacó por su trabajo en cerámica y orfebrería.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "El primer ferrocarril en Ecuador conectaba las ciudades de Quito y Cuenca.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "La Primera Guerra Mundial comenzó en 1914 tras el asesinato del archiduque Francisco Fernando.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "El Inti Raymi, una festividad tradicional andina, celebra el solsticio de invierno y está relacionada con las tradiciones agrícolas de las comunidades indígenas de la Sierra ecuatoriana.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "La Segunda Guerra Mundial terminó con la rendición de Alemania en 1945.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "La Revolución Industrial comenzó en el siglo XX.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "El Renacimiento tuvo su origen en Francia durante el siglo XV.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "La Guerra de los Cien Años fue un conflicto entre Inglaterra y Francia que duró 116 años.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "La Peste Negra del siglo XIV mató aproximadamente a un tercio de la población europea.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "La Declaración Universal de los Derechos Humanos fue adoptada por la ONU en 1945.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "La caída del Muro de Berlín en 1989 simbolizó el fin de la Guerra Fría.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Durante el primer periodo presidencial de Juan José Flores (1830-1834), se enfrentaron numerosos conflictos internos y externos que consolidaron las bases del nuevo Estado ecuatoriano, incluida la primera Constitución de la República.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "La Revolución Francesa dio lugar al establecimiento de una monarquía absoluta en Francia.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "La independencia de Cuenca se declaró el 3 de noviembre de 1820.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Las Islas Galápagos se conocían originalmente como \"Encantadas\" debido a su biodiversidad.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "El volcán Reventador está ubicado en la región de la Sierra ecuatoriana.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "El Palacio de Carondelet, sede del gobierno ecuatoriano, fue construido en la época colonial.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Quito, la capital de Ecuador, fue una de las primeras ciudades del mundo en ser declarada Patrimonio Cultural de la Humanidad por la UNESCO en 1978.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "El Tratado de Brasilia en 1998 puso fin a las disputas limítrofes entre Ecuador y Perú.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "La cultura Manteña utilizó conchas Spondylus como moneda de intercambio.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "La Constitución de 2008 reconoció a Ecuador como un Estado plurinacional e intercultural.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "El río Napo, en la Amazonía ecuatoriana, es uno de los principales afluentes del Amazonas.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "La cultura Jama-Coaque destacó por su trabajo en cerámica, madera y metales.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "La Real Audiencia de Quito alcanzó la independencia política el 11 de agosto de 1809.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "El sombrero de paja toquilla fue declarado Patrimonio Cultural Inmaterial de la Humanidad por la UNESCO en 2012.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "La Revolución Liberal, liderada por Eloy Alfaro, promovió la educación laica y gratuita en Ecuador.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Las Islas Galápagos son hogar de especies únicas, como las tortugas gigantes y los piqueros patas azules.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "León Febres-Cordero Rivadeneira (1984-1988) gobernó Ecuador en medio de fuertes conflictos sociales y políticos, incluyendo un intento de golpe de Estado y enfrentamientos con grupos guerrilleros.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "La independencia de Guayaquil fue liderada por José Joaquín de Olmedo.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Abdalá Bucaram Ortiz, conocido como \"El Loco\", fue destituido por el Congreso Nacional en 1997 tras solo seis meses de mandato, bajo la acusación de incapacidad mental y denuncias de corrupción.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Las Islas Galápagos fueron descubiertas en 1535 por Tomás de Berlanga.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "La ciudad de Ambato es conocida como la \"Cuna de la Independencia\".",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "¿Cuál fue el principal producto de exportación del Ecuador durante el siglo XIX?",
+    "opciones": ["Petróleo", "Banano", "Cacao", "Café"],
+    "respuesta": "Cacao"
+  },
+  {
+    "pregunta": "Durante la crisis financiera de 1999, ¿qué medida económica adoptó el Ecuador en el año 2000?",
+    "opciones": ["Reforma agraria", "Nacionalización de empresas", "Dolarización", "Libre comercio"],
+    "respuesta": "Dolarización"
+  },
+  {
+    "pregunta": "Durante el mandato de Rafael Correa, ¿cuál fue una de sus reformas más importantes?",
+    "opciones": ["Privatización de empresas públicas", "Redacción de la Constitución de 2008", "Eliminación del Impuesto al Valor Agregado (IVA)", "Fomentar el libre comercio"],
+    "respuesta": "Redacción de la Constitución de 2008"
+  },
+  {
+    "pregunta": "¿Quién fue el primer presidente del Ecuador tras su independencia?",
+    "opciones": ["Vicente Rocafuerte", "Gabriel García Moreno", "Juan José Flores", "Eloy Alfaro"],
+    "respuesta": "Juan José Flores"
+  },
+  {
+    "pregunta": "¿Cuál fue una de las principales políticas de la presidencia de Jamil Mahuad?",
+    "opciones": ["Nacionalización de recursos", "Construcción del ferrocarril transandino", "Reforma agraria", "Dolarización de la economía"],
+    "respuesta": "Dolarización de la economía"
+  },
+  {
+    "pregunta": "Durante la Revolución Liberal, liderada por Eloy Alfaro, ¿qué obra fue emblemática?",
+    "opciones": ["Creación del canal de Panamá", "Construcción del ferrocarril", "Reforma educativa basada en tecnología", "Construcción del puerto de Guayaquil"],
+    "respuesta": "Construcción del ferrocarril"
+  },
+  {
+    "pregunta": "¿Cuáles son las principales lenguas originarias que se hablan en la región Sierra del Ecuador?",
+    "opciones": ["Castellano y guaraní", "Quichua y castellano", "Aimara y quichua", "Castellano y maya"],
+    "respuesta": "Quichua y castellano"
+  },
+  {
+    "pregunta": "El único Patrimonio Natural de la Humanidad en Ecuador reconocido en 1978 es:",
+    "opciones": ["Parque Nacional Yasuni", "Islas Galápagos", "Reserva Cuyabeno", "Parque Nacional Llanganates"],
+    "respuesta": "Islas Galápagos"
+  },
+  {
+    "pregunta": "¿Qué evento marcó el inicio del auge petrolero en el Ecuador?",
+    "opciones": ["La firma del Acta de Brasilia", "La construcción del ferrocarril transandino", "El descubrimiento de yacimientos petroleros en Lago Agrio", "La dolarización de la economía"],
+    "respuesta": "El descubrimiento de yacimientos petroleros en Lago Agrio"
+  },
+  {
+    "pregunta": "Durante la segunda mitad del siglo XX, ¿qué sector económico emergió como el principal motor de la economía ecuatoriana?",
+    "opciones": ["Agricultura", "Turismo", "Explotación petrolera", "Ganadería"],
+    "respuesta": "Explotación petrolera"
+  },
+  {
+    "pregunta": "¿Qué evento marcó el inicio de la Segunda Guerra Mundial?",
+    "opciones": ["La invasión de Francia por parte de Alemania", "La invasión de Polonia por parte de Alemania en 1939", "El ataque a Pearl Harbor", "La firma del Tratado de Versalles"],
+    "respuesta": "La invasión de Polonia por parte de Alemania en 1939"
+  },
+  {
+    "pregunta": "¿Cuál fue la principal causa de la Revolución Francesa en 1789?",
+    "opciones": ["El auge del comunismo", "La desigualdad social y las crisis económicas", "La invasión napoleónica", "La abolición de la monarquía"],
+    "respuesta": "La desigualdad social y las crisis económicas"
+  },
+  {
+    "pregunta": "¿Cuál fue el principal objetivo de las Cruzadas en la Edad Media?",
+    "opciones": ["Conquistar territorios en Europa", "Recuperar Tierra Santa para la cristiandad", "Establecer rutas comerciales en Asia", "Expandir el feudalismo"],
+    "respuesta": "Recuperar Tierra Santa para la cristiandad"
+  },
+  {
+    "pregunta": "La Revolución Industrial iniciada en Inglaterra trajo consigo:",
+    "opciones": ["El desarrollo de máquinas y sistemas de producción en masa", "La disminución del comercio internacional", "La abolición de la esclavitud", "La caída del sistema capitalista"],
+    "respuesta": "El desarrollo de máquinas y sistemas de producción en masa"
+  },
+  {
+    "pregunta": "El Tratado de Versalles de 1919 tuvo como consecuencia principal:",
+    "opciones": ["El fin de la Primera Guerra Mundial y sanciones severas a Alemania", "La formación de la ONU", "La independencia de las colonias africanas", "La división del Imperio Otomano"],
+    "respuesta": "El fin de la Primera Guerra Mundial y sanciones severas a Alemania"
+  },
+  {
+    "pregunta": "¿Cuál fue el motivo principal de la Guerra de los Cien Años entre Inglaterra y Francia?",
+    "opciones": ["El control del comercio europeo", "La disputa por la sucesión del trono francés", "La expansión del cristianismo", "La división del Sacro Imperio Romano"],
+    "respuesta": "La disputa por la sucesión del trono francés"
+  },
+  {
+    "pregunta": "¿Qué caracterizó a la Peste Negra en el siglo XIV?",
+    "opciones": ["Una crisis económica global", "Una guerra entre reinos europeos", "Una pandemia que causó la muerte de un tercio de la población europea", "La expansión del Imperio Otomano"],
+    "respuesta": "Una pandemia que causó la muerte de un tercio de la población europea"
+  },
+  {
+    "pregunta": "¿Qué significa el amarillo en la Bandera del Ecuador?",
+    "opciones": ["Las riquezas de la naturaleza", "El oro y la abundancia", "La paz y la justicia", "La diversidad cultural"],
+    "respuesta": "El oro y la abundancia"
+  },
+  {
+    "pregunta": "Según la Constitución de 2008, ¿qué derechos están garantizados en Ecuador?",
+    "opciones": ["Solo los derechos individuales", "Derechos individuales, colectivos y de la naturaleza", "Derechos de propiedad exclusivamente", "Derechos políticos únicamente"],
+    "respuesta": "Derechos individuales, colectivos y de la naturaleza"
+  },
+  {
+    "pregunta": "¿Qué valor ético se promueve con la práctica del Buen Vivir o Sumak Kawsay?",
+    "opciones": ["Competencia económica", "Armonía con la naturaleza y la sociedad", "Individualismo extremo", "Acumulación de riquezas"],
+    "respuesta": "Armonía con la naturaleza y la sociedad"
+  },
+  {
+    "pregunta": "¿Qué presidente del Ecuador es conocido como el \"Viejo Luchador\" por sus reformas sociales y educativas?",
+    "opciones": ["Gabriel García Moreno", "Vicente Rocafuerte", "Eloy Alfaro", "Juan José Flores"],
+    "respuesta": "Eloy Alfaro"
+  },
+  {
+    "pregunta": "Durante la presidencia de Rafael Correa, ¿qué concepto se incluyó en la Constitución de 2008 para promover el desarrollo sostenible?",
+    "opciones": ["Liberalismo económico", "Privatización", "Buen Vivir (Sumak Kawsay)", "Proteccionismo"],
+    "respuesta": "Buen Vivir (Sumak Kawsay)"
+  },
+  {
+    "pregunta": "¿Cuál fue la principal razón de la crisis financiera del Ecuador en 1999?",
+    "opciones": ["Crisis política interna", "Fallas en el sistema bancario y la devaluación monetaria", "Ascenso en la producción petrolera", "Pérdida de comercio internacional"],
+    "respuesta": "Fallas en el sistema bancario y la devaluación monetaria"
+  },
+  {
+    "pregunta": "¿Qué tratado firmado en 1942 resolvió momentáneamente las disputas fronterizas entre Ecuador y Perú?",
+    "opciones": ["Tratado de Versalles", "Tratado de Tordesillas", "Tratado de Río de Janeiro", "Acta de Brasilia"],
+    "respuesta": "Tratado de Río de Janeiro"
+  },
+  {
+    "pregunta": "¿Qué simbolizan los colores de la bandera ecuatoriana?",
+    "opciones": ["La riqueza de recursos, el cielo, el mar y la sangre de los héroes caidos", "Los recursos minerales, la diversidad cultural y la libertad", "La agricultura, el comercio y la independencia", "Las tradiciones, la biodiversidad y la unidad"],
+    "respuesta": "La riqueza de recursos, el cielo, el mar y la sangre de los héroes caidos"
+  },
+  {
+    "pregunta": "¿Qué festividad ecuatoriana está asociada al agradecimiento por la cosecha y se celebra en la región andina?",
+    "opciones": ["Carnaval", "Inti Raymi", "Día de los Difuntos", "Semana Santa"],
+    "respuesta": "Inti Raymi"
+  },
+  {
+    "pregunta": "¿Cuál es uno de los idiomas indígenas más hablados en la región amazónica del Ecuador?",
+    "opciones": ["Español", "Quichua", "Huaorani", "Záparo"],
+    "respuesta": "Quichua"
+  },
+  {
+    "pregunta": "¿Qué evento marcó el final de la Segunda Guerra Mundial?",
+    "opciones": ["La invasión de Normandía", "La rendición de Alemania y Japón en 1945", "El bombardeo de Pearl Harbor", "La creación de la ONU"],
+    "respuesta": "La rendición de Alemania y Japón en 1945"
+  },
+  {
+    "pregunta": "¿Qué civilización antigua construyó las famosas pirámides de Giza?",
+    "opciones": ["Romana", "Mesopotámica", "Egicia", "Persa"],
+    "respuesta": "Egicia"
+  },
+  {
+    "pregunta": "¿Cuál es el océano más extenso del planeta?",
+    "opciones": ["Índico", "Atlántico", "Pacífico", "Ártico"],
+    "respuesta": "Pacífico"
+  },
+  {
+    "pregunta": "En el sistema solar, ¿cuál es el planeta más cercano al sol?",
+    "opciones": ["Marte", "Venus", "Mercurio", "Tierra"],
+    "respuesta": "Mercurio"
+  },
+  {
+    "pregunta": "¿Qué desierto es considerado el más seco del mundo?",
+    "opciones": ["Sahara", "Atacama", "Gobi", "Kalahari"],
+    "respuesta": "Atacama"
+  },
+  {
+    "pregunta": "¿Qué civilización es conocida por el uso de la escritura cuneiforme?",
+    "opciones": ["Egicia", "Sumerios", "Romana", "China"],
+    "respuesta": "Sumerios"
+  },
+  {
+    "pregunta": "¿Qué cultura desarrolló el sistema de numeración basado en el cero?",
+    "opciones": ["Griega", "Egicia", "Romana", "Maya"],
+    "respuesta": "Maya"
+  },
+  {
+    "pregunta": "¿Qué imperio antiguo es conocido por su código de leyes escrito, el más antiguo conservado?",
+    "opciones": ["Egipcio", "Babilónico (Código de Hammurabi)", "Asirio", "Persa"],
+    "respuesta": "Babilónico (Código de Hammurabi)"
+  },
+  {
+    "pregunta": "¿Qué valor cívico se promueve durante la celebración del Día de la Independencia en Ecuador?",
+    "opciones": ["Individualismo", "Libertad y unidad nacional", "Competencia económica", "Expansionismo territorial"],
+    "respuesta": "Libertad y unidad nacional"
+  },
+  {
+    "pregunta": "¿Cuál es una acción ciudadana clave para fortalecer la democracia?",
+    "opciones": ["No participar en elecciones", "Cumplir solo con obligaciones fiscales", "Ejercer el voto de manera informada y responsable", "Priorizar intereses individuales sobre los colectivos"],
+    "respuesta": "Ejercer el voto de manera informada y responsable"
+  },
+  {
+    "pregunta": "¿Cuál fue el primer grito de independencia en América del sur?",
+    "opciones": ["Revolución de Quito en 1809", "10 de agosto de 1809 en Quito", "9 de octubre de 1820 en Guayaquil", "24 de mayo de 1822 en Pichincha"],
+    "respuesta": "10 de agosto de 1809 en Quito"
+  },
+  {
+    "pregunta": "¿En qué año se firmó la Constitución de Montecristi?",
+    "opciones": ["1998", "2005", "2008", "2010"],
+    "respuesta": "2008"
+  },
+  {
+    "pregunta": "¿Qué presidente ecuatoriano impulsó la construcción del ferrocarril?",
+    "opciones": ["Vicente Rocafuerte", "Jaime Roldos Aguilera", "Eloy Alfaro", "Juan José Flores"],
+    "respuesta": "Eloy Alfaro"
+  },
+  {
+    "pregunta": "¿Qué tratado fronterizo se firmó entre Ecuador y Perú en 1998?",
+    "opciones": ["Tratado de Versalles", "Tratado de Río de Janeiro", "Acta de Brasilia", "Tratado de Tordesillas"],
+    "respuesta": "Acta de Brasilia"
+  },
+  {
+    "pregunta": "¿Qué batalla consolidó la independencia de Ecuador?",
+    "opciones": ["Batalla de Junín", "Batalla de Ayacucho", "Batalla de Pichincha", "Batalla de Boyacá"],
+    "respuesta": "Batalla de Pichincha"
+  },
+  {
+    "pregunta": "¿Qué festividad ecuatoriana se celebra el 2 de noviembre?",
+    "opciones": ["Carnaval", "Día de los Difuntos", "Inti Raymi", "Fiestas de Quito"],
+    "respuesta": "Día de los Difuntos"
+  },
+  {
+    "pregunta": "¿Qué instrumento musical es característico de la música tradicional de la región andina ecuatoriana?",
+    "opciones": ["Marimba", "Charango", "Arpa", "Guitarra"],
+    "respuesta": "Charango"
+  },
+  {
+    "pregunta": "¿Qué tradición gastronómica ecuatoriana está asociada con el Día de los Difuntos?",
+    "opciones": ["Ceviche", "Fritada", "Colada morada y guaguas de pan", "Hornado"],
+    "respuesta": "Colada morada y guaguas de pan"
+  },
+  {
+    "pregunta": "¿Qué festividad celebra la llegada de los Reyes Magos?",
+    "opciones": ["Carnaval", "Inti Raymi", "Día de Reyes", "Fiesta del Yamor"],
+    "respuesta": "Día de Reyes"
+  },
+  {
+    "pregunta": "¿Qué representa el condor en el escudo ecuatoriano?",
+    "opciones": ["El Oro", "El mes de Marzo", "La energía y el Esfuerzo", "La Paz"],
+    "respuesta": "La energía y el Esfuerzo"
+  },
+  {
+    "pregunta": "¿Qué suceso marcó el inicio de la Primera Guerra Mundial?",
+    "opciones": ["La invasión alemana a Polonia", "El asesinato del archiduque Francisco Fernando", "La creación de la ONU", "La caída del Imperio Austrohúngaro"],
+    "respuesta": "El asesinato del archiduque Francisco Fernando"
+  },
+  {
+    "pregunta": "¿Qué tratado puso fin a la Primera Guerra Mundial?",
+    "opciones": ["Tratado de Tordesillas", "Tratado de Versalles", "Pacto de Yalta", "Tratado de París"],
+    "respuesta": "Tratado de Versalles"
+  },
+  {
+    "pregunta": "¿Qué filósofo griego fue maestro de Alejandro Magno?",
+    "opciones": ["Sócrates", "Platón", "Aristóteles", "Epicuro"],
+    "respuesta": "Aristóteles"
+  },
+  {
+    "pregunta": "¿Qué país fue el primero en abolir la esclavitud en América Latina?",
+    "opciones": ["Argentina", "Brasil", "Haití", "México"],
+    "respuesta": "Haití"
+  },
+  {
+    "pregunta": "¿Qué líder es conocido por iniciar la reforma protestante en el siglo XVI?",
+    "opciones": ["Juan Calvino", "Enrique VIII", "Martín Lutero", "Tomás Moro"],
+    "respuesta": "Martín Lutero"
+  },
+  {
+    "pregunta": "¿Qué líder político implementó el \"New Deal\" para enfrentar la Gran Depresión?",
+    "opciones": ["Franklin D. Roosevelt", "Winston Churchill", "Harry S. Truman", "Herbert Hoover"],
+    "respuesta": "Franklin D. Roosevelt"
+  },
+  {
+    "pregunta": "¿Qué país fue el primero en enviar un satélite al espacio?",
+    "opciones": ["Estados Unidos", "China", "Alemania", "Unión Soviética"],
+    "respuesta": "Unión Soviética"
+  },
+  {
+    "pregunta": "¿Qué civilización construyó la ciudad de Machu Picchu?",
+    "opciones": ["Azteca", "Tolteca", "Inca", "Maya"],
+    "respuesta": "Inca"
+  },
+  {
+    "pregunta": "¿Qué país lideró la exploración marítima en el siglo XV?",
+    "opciones": ["Inglaterra", "Francia", "Portugal", "España"],
+    "respuesta": "Portugal"
+  },
+  {
+    "pregunta": "¿Qué faraón egipcio es conocido por su tumba intacta?",
+    "opciones": ["Ramsés II", "Cleopatra", "Tutankamón", "Akhenatón"],
+    "respuesta": "Tutankamón"
+  },
+  {
+    "pregunta": "¿Qué país lanzó la primera bomba atómica en un conflicto armado?",
+    "opciones": ["Estados Unidos", "Alemania", "Japón", "Reino Unido"],
+    "respuesta": "Estados Unidos"
+  },
+  {
+    "pregunta": "¿Qué tratado dividió el mundo entre España y Portugal en 1494?",
+    "opciones": ["Tratado de Versalles", "Tratado de Utrecht", "Tratado de Tordesillas", "Tratado de París"],
+    "respuesta": "Tratado de Tordesillas"
+  },
+  {
+    "pregunta": "¿Qué acontecimiento marcó el inicio de la Edad Media?",
+    "opciones": ["La caída de Constantinopla", "La caída del Imperio Romano de Occidente", "La conquista de América", "La peste negra"],
+    "respuesta": "La caída del Imperio Romano de Occidente"
+  },
+  {
+    "pregunta": "¿Qué país inició la Revolución Industrial?",
+    "opciones": ["Francia", "Alemania", "Inglaterra", "Estados Unidos"],
+    "respuesta": "Inglaterra"
+  },
+  {
+    "pregunta": "¿Quién fue el líder de la Revolución Liberal de 1895 en Ecuador?",
+    "opciones": ["Vicente Rocafuerte", "Eloy Alfaro", "Juan José Flores", "Gabriel García Moreno"],
+    "respuesta": "Eloy Alfaro"
+  },
+  {
+    "pregunta": "¿Cuál es la festividad más conocida que celebra el Inti Raymi?",
+    "opciones": ["La llegada de los Reyes Magos", "El solsticio de invierno", "La fundación de Quito", "El fin de la cosecha"],
+    "respuesta": "El solsticio de invierno"
+  },
+  {
+    "pregunta": "¿Qué tradición ecuatoriana se relaciona con la preparación de \"colada morada\" y \"guaguas de pan\"?",
+    "opciones": ["Carnaval", "Semana Santa", "Día de los Difuntos", "Navidad"],
+    "respuesta": "Día de los Difuntos"
+  },
+  {
+    "pregunta": "Las Islas Galápagos fueron declaradas Patrimonio Natural de la Humanidad en:",
+    "opciones": ["1965", "1978", "1985", "1990"],
+    "respuesta": "1978"
+  },
+  {
+    "pregunta": "¿Qué civilización antigua es conocida por construir las pirámides de Giza?",
+    "opciones": ["Romana", "Mesopotámica", "Egicia", "Persa"],
+    "respuesta": "Egicia"
+  },
+  {
+    "pregunta": "¿Qué filósofo griego fue maestro de Aristóteles?",
+    "opciones": ["Platón", "Sócrates", "Heródoto", "Epicuro"],
+    "respuesta": "Platón"
+  },
+  {
+    "pregunta": "¿En qué año se firmó la Constitución de Montecristi?",
+    "opciones": ["1998", "1869", "2008", "1830"],
+    "respuesta": "2008"
+  },
+  {
+    "pregunta": "¿Cuál es el planeta más grande del sistema solar?",
+    "opciones": ["Marte", "Tierra", "Júpiter", "Saturno"],
+    "respuesta": "Júpiter"
+  },
+  {
+    "pregunta": "¿Qué continente alberga la mayor cantidad de biodiversidad?",
+    "opciones": ["Asia", "América del Sur", "África", "Europa"],
+    "respuesta": "América del Sur"
+  },
+  {
+    "pregunta": "¿Qué país sudamericano es el único con dos costas oceánicas?",
+    "opciones": ["Argentina", "Brasil", "Colombia", "Chile"],
+    "respuesta": "Colombia"
+  },
+  {
+    "pregunta": "¿Cuál es el desierto más seco del mundo?",
+    "opciones": ["Kalahari", "Sahara", "Atacama"],
+    "respuesta": "Atacama"
+  },
+  {
+    "pregunta": "¿Qué civilización precolombina dominó la región andina de Ecuador?",
+    "opciones": ["Inca", "Azteca", "Maya", "Olmeca"],
+    "respuesta": "Inca"
+  },
+  {
+    "pregunta": "¿Qué texto es considerado el código de leyes más antiguo del mundo?",
+    "opciones": ["La Carta Magna", "El Código de Hammurabi", "Las Leyes de Napoleón", "Los Derechos del Hombre"],
+    "respuesta": "El Código de Hammurabi"
+  },
+  {
+    "pregunta": "En Ecuador, ¿cuál es un derecho fundamental de la naturaleza reconocido en la Constitución?",
+    "opciones": ["Derecho a la propiedad", "Derecho a la industrialización", "Derecho a ser protegida y conservada", "Derecho a la urbanización"],
+    "respuesta": "Derecho a ser protegida y conservada"
+  },
+  {
+    "pregunta": "¿Qué valor cívico se promueve al respetar los símbolos patrios?",
+    "opciones": ["Individualismo", "Patriotismo y unidad nacional", "Expansión territorial", "Competencia"],
+    "respuesta": "Patriotismo y unidad nacional"
+  },
+  {
+    "pregunta": "¿Qué acción refleja la solidaridad como un valor ético?",
+    "opciones": ["Ignorar problemas sociales", "Apoyar a quienes lo necesitan", "Priorizar beneficios individuales", "Competir sin restricciones"],
+    "respuesta": "Apoyar a quienes lo necesitan"
+  },
+  {
+    "pregunta": "¿Qué derecho garantiza la Constitución de Ecuador para las comunidades indígenas?",
+    "opciones": ["Derecho a exportar productos", "Derecho a mantener su identidad cultural", "Derecho exclusivo a la educación superior", "Derecho a urbanizar tierras ancestrales"],
+    "respuesta": "Derecho a mantener su identidad cultural"
+  },
+  {
+    "pregunta": "¿Qué océano rodea a las Islas Galápagos?",
+    "opciones": ["Atlántico", "Pacífico", "Índico", "Ártico"],
+    "respuesta": "Pacífico"
+  },
+  {
+    "pregunta": "¿Cuál es el planeta conocido como el \"Planeta Rojo\"?",
+    "opciones": ["Venus", "Júpiter", "Marte", "Mercurio"],
+    "respuesta": "Marte"
+  },
+  {
+    "pregunta": "¿Qué valor está vinculado a la conservación ambiental según la ética global?",
+    "opciones": ["Individualismo", "Sostenibilidad", "Consumo", "Exclusividad"],
+    "respuesta": "Sostenibilidad"
+  },
+  {
+    "pregunta": "¿Qué año marcó el descubrimiento de América?",
+    "opciones": ["1490", "1498", "1492", "1501"],
+    "respuesta": "1492"
+  },
+  {
+    "pregunta": "¿Qué cordillera atraviesa todo el continente sudamericano?",
+    "opciones": ["Alpes", "Andes", "Himalaya", "Montañas Rocosas"],
+    "respuesta": "Andes"
+  },
+  {
+    "pregunta": "¿Qué río es el principal afluente del Amazonas en Ecuador?",
+    "opciones": ["Guayas", "Napo", "Esmeraldas", "Coca"],
+    "respuesta": "Napo"
+  },
+  {
+    "pregunta": "¿Qué valor está vinculado a la conservación ambiental según la ética global?",
+    "opciones": ["Individualismo", "Sostenibilidad", "Consumo", "Exclusividad"],
+    "respuesta": "Sostenibilidad"
+  },
+  {
+    "pregunta": "¿Qué científico formuló la teoría de la relatividad?",
+    "opciones": ["Galileo Galilei", "Isaac Newton", "Albert Einstein", "Johannes Kepler"],
+    "respuesta": "Albert Einstein"
+  },
+  {
+    "pregunta": "¿Cuál fue el principal recurso económico que permitió el auge de las civilizaciones mesoamericanas?",
+    "opciones": ["El maíz", "El cacao", "El oro", "La plata"],
+    "respuesta": "El maíz"
+  },
+  {
+    "pregunta": "¿Qué río separa Estados Unidos de México?",
+    "opciones": ["Amazonas", "Río Bravo (Río Grande)", "Orinoco", "Paraná"],
+    "respuesta": "Río Bravo (Río Grande)"
+  },
+  {
+    "pregunta": "¿Quién fue el primer presidente del Ecuador?",
+    "opciones": ["Juan José Flores", "Vicente Rocafuerte", "García Moreno", "Eloy Alfaro"],
+    "respuesta": "Juan José Flores"
+  },
+  {
+    "pregunta": "¿Qué presidente ecuatoriano lideró la separación de Ecuador de la Gran Colombia en 1830?",
+    "opciones": ["Juan José Flores", "Vicente Rocafuerte", "José de Antepara", "García Moreno"],
+    "respuesta": "Juan José Flores"
+  },
+  {
+    "pregunta": "¿Qué valor cívico se promueve al respetar los símbolos patrios?",
+    "opciones": ["Individualismo", "Patriotismo y unidad nacional", "Expansión territorial", "Competencia"],
+    "respuesta": "Patriotismo y unidad nacional"
+  },
+  {
+    "pregunta": "¿Qué acción refleja la solidaridad como un valor ético?",
+    "opciones": ["Ignorar problemas sociales", "Apoyar a quienes lo necesitan", "Priorizar beneficios individuales", "Competir sin restricciones"],
+    "respuesta": "Apoyar a quienes lo necesitan"
+  },
+  {
+    "pregunta": "¿Quién escribió \"¿El Príncipe\", un tratado político influyente durante el Renacimiento?",
+    "opciones": ["John Locke", "Nicolás Maquiavelo", "Thomas Hobbes", "Montesquieu"],
+    "respuesta": "Nicolás Maquiavelo"
+  },
+  {
+    "pregunta": "¿Qué invento revolucionó la comunicación en el siglo XV?",
+    "opciones": ["Telégrafo", "Imprenta", "Brújula", "Microscopio"],
+    "respuesta": "Imprenta"
+  },
+  {
+    "pregunta": "¿Qué país fue el primero en otorgar el voto femenino en 1893?",
+    "opciones": ["Estados Unidos", "Nueva Zelanda", "Reino Unido", "Francia"],
+    "respuesta": "Nueva Zelanda"
+  },
+  {
+    "pregunta": "¿Qué tratado estableció las bases de la paz en Europa después de las guerras napoleónicas?",
+    "opciones": ["Tratado de Versalles", "Tratado de Tordesillas", "Congreso de Viena", "Acta de Brasilia"],
+    "respuesta": "Congreso de Viena"
+  },
+  {
+    "pregunta": "¿Qué movimiento artístico es conocido por Leonardo da Vinci y Miguel Ángel?",
+    "opciones": ["Barroco", "Renacimiento", "Impresionismo", "Surrealismo"],
+    "respuesta": "Renacimiento"
+  },
+  {
+    "pregunta": "¿Qué tratado puso fin a la Guerra de Vietnam en 1973?",
+    "opciones": ["Tratado de Viena", "Tratado de Paz de París", "Tratado de Versalles", "Tratado de Tordesillas"],
+    "respuesta": "Tratado de Paz de París"
+  },
+  {
+    "pregunta": "¿Qué organismo internacional fue creado en 1945 para mantener la paz y la seguridad mundial?",
+    "opciones": ["Naciones Unidas (ONU)", "OTAN", "Unión Europea", "Banco Mundial"],
+    "respuesta": "Naciones Unidas (ONU)"
+  },
+  {
+    "pregunta": "¿Quién fue el líder de la Revolución Liberal de 1895 en Ecuador?",
+    "opciones": ["Eloy Alfaro", "José María Urbina", "Luis Cordero", "León Febres Cordero"],
+    "respuesta": "Eloy Alfaro"
+  }
+]

@@ -1,0 +1,1002 @@
+[
+  {
+    "pregunta": "La notación científica se utiliza para facilitar la expresión de cantidades muy grandes o muy pequeñas, y los cálculos que se derivan de ellas.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "El resultado de cualquier número elevado a 0 es siempre 0.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "(a^m)^n = a^(m*n) ¿Esta afirmación de operaciones con potencia es correcta?",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Los perímetros tienen dimensiones de longitud, las áreas de longitud al cuadrado y los volúmenes de longitud al cubo.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Los triángulos rectángulos son aquellos que contienen un ángulo recto; es decir, un ángulo de 80°.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Los lados de este triángulo de 90° se llaman catetos, mientras que el tercer lado recibe el nombre de cateto mayor.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "El teorema de Pitágoras establece que la suma de los cuadrados de los dos catetos es igual al cuadrado de la hipotenusa: a^2 + b^2 = h^2",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Un cuerpo está en movimiento si cambia de posición con respecto al sistema de referencia; en caso contrario, decimos que está en movimiento rectilíneo.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Llamamos trayectoria a la línea imaginaria formada por los sucesivos puntos que ocupa un móvil en su movimiento.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Un móvil se desplaza con movimiento rectilíneo uniforme (MRU) si sigue una trayectoria rectilínea y su velocidad es constante en todo momento, recorriendo distancias iguales en iguales intervalos de tiempo.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "La aceleración de un móvil representa la rapidez con que varía su masa.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "A pequeñas distancias de la superficie terrestre podemos suponer que g (gravedad) es constante e igual a 9,8 m/s^2.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "La relación que existe entre las fuerzas y el movimiento es objeto de estudio de una parte de la física que llamamos aritmética.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "La propiedad de la materia de no poder cambiar su estado de reposo o de movimiento por sí misma recibe el nombre de inercia.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Tercera Ley de Newton: Ley de acción y reacción.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Al iniciar una carrera, una nadadora aplica una fuerza contra la pared. La nadadora recibe una fuerza de la pared que la impulsa hacia delante.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Se denomina corriente eléctrica al desplazamiento conjunto de las cargas eléctricas a través de un material conductor.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Llamamos generador eléctrico a todo dispositivo capaz de transformar alguna forma de energía en energía eléctrica.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "El polo norte de un imán al girar libremente señala el norte geográfico, y el polo sur del imán se orienta hacia el sur de la Tierra.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "La energía es la magnitud física por la que los cuerpos tienen capacidad para realizar transformaciones en ellos mismos o en otros cuerpos.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Las fuentes de energía renovables son aquellas que pueden considerarse agotables debido a que no se renuevan de forma continua.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Escalas de temperatura; C: grados Celsius; F: grados Fahrenheit; K: Kelvins",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "El sonido consiste en una forma de transmisión de la energía originada por la vibración de un cuerpo. Se propaga mediante ondas mecánicas y es capaz de estimular el sentido de la visión.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "El movimiento es el cambio de posición de un cuerpo en un tiempo determinado respecto a un punto de observación elegido.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "El movimiento circular es aquel movimiento cuya trayectoria es una circunferencia.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "La potencia de base a, es un número real y su exponente es un número natural n, la potencia es el producto del número a por si mismo, n veces.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "El resultado de la suma 252 + 352 es igual a: 552",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "El resultado de la suma 12,468 + 468,12 es igual a 24,936:",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "El resultado de la multiplicación 1 x 0 es igual a 0:",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "El resultado de la multiplicación 11 x 11 es igual a 211:",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Los 2/4 de 40 es igual a 20:",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "El 1/2 de 40 es igual a 20:",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Las matemáticas siempre jugaron un rol especial en el pensamiento científico, sirviendo desde tiempos antiguos como modelo de verdad y rigor para la inquisición racional.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Los fundamentos de las matemáticas son el estudio de conceptos matemáticos básicos como números, figuras geométricas, conjuntos, funciones.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Una hora tiene 60 segundos:",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "El número 0 cero pertenece a los números negativos",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "La Fuerza, Masa y Aceleración actúan en la segunda ley de Newton:",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "8, 16, 24 son Múltiplos de 4:",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "El número posterior a 9000 es el 8999:",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Dos ángulos son complementarios si suman 90 grados:",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "En la potencia 4 al cuadrado, la base es 2 y el exponente es 4:",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Los números enteros 15, 25, 35 suman 45",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "La jerarquía de operaciones se refiere al orden en que se deben realizar las operaciones matemáticas:",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Al dividir 81 entre 2 da como resultado 18 partes iguales:",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Dos ángulos son complementarios si suman 180 grados:",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "El triángulo que tiene dos lados iguales y uno desigual se llama isósceles:",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "El 20% de 525 es igual a 105:",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "El 24% de 150 es 36:",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Los triángulos por sus ángulos se clasifican en: Obtusángulo, acutángulo y rectángulo:",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Los triángulos por sus lados se clasifican en: isósceles, equilátero y escaleno:",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "54 al cuadrado es 2916:",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "33 al cubo tenemos como resultado 33333",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Un ángulo llano mide 180 grados",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "El valor de Y en la siguiente ecuación 5y = 8y - 15 es igual a y=5",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Un triángulo es escaleno cuando sus tres lados son diferentes:",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Si se divide 98 entre 7 tenemos como resultado 14:",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "El numero anterior a 2000 es el 1999:",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Una división entera es aquella en la que el resto diferente de 0:",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "El rectángulo tiene 4 lados, 4 vértices y 4 ángulos:",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Los elementos de la división son: dividendo, divisor, cociente, resto",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Los elementos del plano cartesiano son: ejes, origen, cuadrantes, coordenadas",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "El 100% de 50 es igual a 100:",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "El 15% de 3000 es igual a 450:",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "El 25% de 225 es igual a 25:",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "El triángulo que tiene los tres lados iguales se llama equilátero:",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Un ángulo completo mide 360 segundos:",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Un ángulo nulo mide cero grados:",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Dos ángulos son complementarios si suman 90 grados:",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Dos ángulos son suplementarios si suman 180 grados:",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Entre el 200 y 300, existen varios números que empiezan o terminan en 2:",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Pitágoras de Samos descubrió el Teorema de Pitágoras:",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Aristóteles descubrió el símbolo Infinito:",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Conforme a la siguiente proposición 12 + 5 = 16 + 1",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "En estadística señalamos que los tipos de frecuencia son relativas y absolutas:",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "El 25% de 500 es igual a 125:",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Los triángulos por sus lados se clasifican en: Obtusángulo, equilátero y escaleno:",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "El triángulo Isósceles es el que tiene 3 lados iguales:",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "El 69% de 696 es 196:",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "En estadística señalamos que los tipos de frecuencia son relativas y absolutas:",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Un ángulo cuya medida es de 90 grados se llama recto:",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "El resultado de los 3/6 de 72 es igual a 36:",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Al hablar de estadística, entendemos que media aritmética es el resultado de sumar un conjunto de valores y dividir el total entre el número de sumandos.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "En estadística, los tipos de variables son cualitativas y cuantitativas:",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Un par ordenado está conformado por dos elementos:",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Al hablar de estadística, entendemos que mediana es la medida de tendencia central que se encuentra en el punto medio de un grupo de datos ordenados:",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Al hablar de estadística, entendemos que moda es la medida de tendencia central formada por el dato de mayor frecuencia, o que más se repite:",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "El valor de X en la siguiente ecuación 10x = 28x + 6 es igual a x = 10:",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "El capital final es el capital inicial más el interés:",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Un hectómetro es igual a 0,1 km:",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Un polígono de nueve lados se llama nonágono:",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "El trinomio x^2 - 8x + 16 es igual a (x-4)(x-4):",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "43 al cuadrado es 625:",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "La jerarquía de operaciones se refiere al orden en que se deben realizar las operaciones matemáticas, partiendo de la suma y la resta.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "La raíz cuadrada de 81/27 es 3",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "9099,1 + 1,01 es igual a 10.000:",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "La unidad de medida en el Sistema Internacional de Unidades (SI) de la masa es el kilogramo:",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "La edad de A y B suma 20 años. Si la edad de B es 3 veces la edad de A, A tiene 5 años",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "La edad de A y B suma 20 años. Si la edad de B es 3 veces la edad de A, B tiene 15 años",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Monomio es una expresión algebraica que consta de un solo termino.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Polinomio es una expresión algebraica que consta más de tres términos.",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "La distancia media entre la Tierra y el Sol es de 149 600 000 km, esta cantidad expresada en notación científica es:",
+    "opciones": ["1,496 * 10^8 km", "14,96 * 10^7 km", "1496 * 10000 km", "14966 * 10 km"],
+    "respuesta": "1,496 * 10^8 km"
+  },
+  {
+    "pregunta": "El diámetro de un electrón del orden de 0,000 000 000 000 000 8 m, esta cantidad expresada en notación científica es:",
+    "opciones": ["8 * 10^16 m", "0,8 * 10^-16 m", "8 * 10^-16 m", "800 * 10 m"],
+    "respuesta": "8 * 10^-16 m"
+  },
+  {
+    "pregunta": "El resultado de 5 elevado a 0 es siempre:",
+    "opciones": ["5", "0", "1", "4"],
+    "respuesta": "1"
+  },
+  {
+    "pregunta": "Operaciones con potencia (7^3)^4 es igual a:",
+    "opciones": ["7^7", "7^-1", "7", "7^12"],
+    "respuesta": "7^12"
+  },
+  {
+    "pregunta": "Operaciones con potencia (12^5)^5 es igual a:",
+    "opciones": ["12^10", "12^0", "12^25", "12"],
+    "respuesta": "12^25"
+  },
+  {
+    "pregunta": "Transforma energía eléctrica en calor, tipo de receptor:",
+    "opciones": ["Lumínico", "Mecánico", "Térmico", "Nuclear"],
+    "respuesta": "Térmico"
+  },
+  {
+    "pregunta": "Fuente de energía no renovable.",
+    "opciones": ["Petróleo", "Sol", "Viento", "Agua mineral"],
+    "respuesta": "Petróleo"
+  },
+  {
+    "pregunta": "Fuente de energía renovable.",
+    "opciones": ["Agua embalsada", "Uranio", "Carbón", "Radiación lunar"],
+    "respuesta": "Agua embalsada"
+  },
+  {
+    "pregunta": "Es el volumen acústico con que se percibe un sonido y corresponde a la amplitud de la onda sonora:",
+    "opciones": ["Amplitud", "Frecuencia", "Intensidad", "Velocidad"],
+    "respuesta": "Intensidad"
+  },
+  {
+    "pregunta": "La luz es capaz de estimular el sentido de:",
+    "opciones": ["Oído", "Tacto", "Gusto", "Vista"],
+    "respuesta": "Vista"
+  },
+  {
+    "pregunta": "Sistema de tres ejes de coordenadas, OX, ΟΥ y OZ.",
+    "opciones": ["En dos dimensiones", "En tres dimensiones", "En una dimensión", "La cuarta dimensión"],
+    "respuesta": "En tres dimensiones"
+  },
+  {
+    "pregunta": "Sistema de dos ejes de coordenadas, OX y ΟΥ",
+    "opciones": ["En dos dimensiones", "En tres dimensiones", "En una dimensión", "En cuatro dimensiones"],
+    "respuesta": "En dos dimensiones"
+  },
+  {
+    "pregunta": "Sistema de un eje de coordenada, OX.",
+    "opciones": ["En una dimensión", "En dos dimensiones", "En tres dimensiones", "En cinco dimensiones"],
+    "respuesta": "En una dimensión"
+  },
+  {
+    "pregunta": "En la potencia dos a la sexta, el resultado es:",
+    "opciones": ["12", "8", "64", "4"],
+    "respuesta": "64"
+  },
+  {
+    "pregunta": "En la potencia 5 a la 3, el resultado es:",
+    "opciones": ["4", "125", "15", "8"],
+    "respuesta": "125"
+  },
+  {
+    "pregunta": "En la potencia 3 a la 4, el resultado es:",
+    "opciones": ["81", "12", "7", "3"],
+    "respuesta": "81"
+  },
+  {
+    "pregunta": "Cuál es el resultado de: -(3^2)^2",
+    "opciones": ["-81", "81", "27", "90"],
+    "respuesta": "-81"
+  },
+  {
+    "pregunta": "Determine la mediana en la siguiente muestra: 11, 14, 17, 10",
+    "opciones": ["14.5", "14", "12.5", "17"],
+    "respuesta": "12.5"
+  },
+  {
+    "pregunta": "Determine la mediana en la siguiente muestra: 14, 15, 16, 19, 20",
+    "opciones": ["11", "14", "20", "16"],
+    "respuesta": "16"
+  },
+  {
+    "pregunta": "Determine la mediana en la siguiente muestra: 5, 6, 7, 8",
+    "opciones": ["5", "6", "6.5", "7"],
+    "respuesta": "6.5"
+  },
+  {
+    "pregunta": "Determine la media en la siguiente muestra: 4, 1, 6, 14",
+    "opciones": ["5", "4", "8", "6.25"],
+    "respuesta": "6.25"
+  },
+  {
+    "pregunta": "Determine la media en la siguiente muestra: 6, 6, 6, 6, 6",
+    "opciones": ["6", "12", "18", "24"],
+    "respuesta": "6"
+  },
+  {
+    "pregunta": "¿Cuánto es el 17% de 22?",
+    "opciones": ["3.74", "3", "4", "5"],
+    "respuesta": "3.74"
+  },
+  {
+    "pregunta": "¿Cuánto es el 20% de 320?",
+    "opciones": ["81", "72", "18", "64"],
+    "respuesta": "64"
+  },
+  {
+    "pregunta": "¿Cuánto es el 1% de 0.1?",
+    "opciones": ["0.1", "0.001", "0.01", "1"],
+    "respuesta": "0.001"
+  },
+  {
+    "pregunta": "La unidad de medida de la superficie en el Sistema Internacional de medida es:",
+    "opciones": ["1 m^2", "1 m/s", "1 N", "1 s^2"],
+    "respuesta": "1 m^2"
+  },
+  {
+    "pregunta": "A todo número, diferente de uno y de cero, que es divisible sólo por sí mismo y por la unidad, se le llama:",
+    "opciones": ["Único", "Nulo", "Primo", "Indivisible"],
+    "respuesta": "Primo"
+  },
+  {
+    "pregunta": "Cuál es el resultado de -5(1) + (-5) + (7)",
+    "opciones": ["3", "-3", "0", "7"],
+    "respuesta": "-3"
+  },
+  {
+    "pregunta": "Cálculo mental rápido: cuánto es 80(0) + 80",
+    "opciones": ["0", "160", "80", "1"],
+    "respuesta": "80"
+  },
+  {
+    "pregunta": "Cálculo mental rápido: cuánto es 10^0 + 10^1",
+    "opciones": ["11", "100", "1000", "0.1"],
+    "respuesta": "11"
+  },
+  {
+    "pregunta": "Seleccione el número que continúan en la secuencia: 4:8:24:96:480: ......",
+    "opciones": ["2800", "280", "2008", "2880"],
+    "respuesta": "2880"
+  },
+  {
+    "pregunta": "Seleccione los números que continúan en la secuencia: 1:4:9:16:25: ...",
+    "opciones": ["25", "32", "26", "36"],
+    "respuesta": "36"
+  },
+  {
+    "pregunta": "Seleccione los números que continúan en la secuencia: 54: 48:43:39:....",
+    "opciones": ["26", "36", "12", "18"],
+    "respuesta": "36"
+  },
+  {
+    "pregunta": "Los elementos de la división son: Dividendo, Divisor, Resto, ...",
+    "opciones": ["Producto", "Cociente", "Residuo", "Múltiplo"],
+    "respuesta": "Cociente"
+  },
+  {
+    "pregunta": "30 más la raíz cuadrada de (-5)^2:",
+    "opciones": ["30", "40", "35", "25"],
+    "respuesta": "35"
+  },
+  {
+    "pregunta": "Los perímetros tienen dimensiones de:",
+    "opciones": ["Latitud", "Altitud", "Longitud", "Dimensión"],
+    "respuesta": "Longitud"
+  },
+  {
+    "pregunta": "Los triángulos rectángulos son aquellos que contienen un ángulo de:",
+    "opciones": ["180 grados", "90 cm", "90 grados", "90 m"],
+    "respuesta": "90 grados"
+  },
+  {
+    "pregunta": "Los lados de este triángulo de 90° se llaman catetos, mientras que el tercer lado recibe el nombre de:",
+    "opciones": ["Hipotenusa", "Cateto mayor", "Opuesto", "Paralelo"],
+    "respuesta": "Hipotenusa"
+  },
+  {
+    "pregunta": "Un cuerpo está en movimiento si cambia de posición con respecto al sistema de referencia; en caso contrario, decimos que está en:",
+    "opciones": ["Reposo", "Movimiento rectilíneo", "Inercia", "Movimiento circular"],
+    "respuesta": "Reposo"
+  },
+  {
+    "pregunta": "La aceleración de un móvil representa la rapidez con que varía su:",
+    "opciones": ["Reposo", "Inercia", "Velocidad", "Masa"],
+    "respuesta": "Velocidad"
+  },
+  {
+    "pregunta": "A pequeñas distancias de la superficie terrestre podemos suponer que g (gravedad) es constante e igual a:",
+    "opciones": ["9,8 m", "9,8ms", "9,8 m/s^2", "9,8 N"],
+    "respuesta": "9,8 m/s^2"
+  },
+  {
+    "pregunta": "La primera ley de Newton:",
+    "opciones": ["Ley de la inercia", "Ley de vida", "Ley penal", "Ley natural"],
+    "respuesta": "Ley de la inercia"
+  },
+  {
+    "pregunta": "La segunda ley de Newton:",
+    "opciones": ["Ley de la inercia", "Ley fundamental de la dinámica", "Ley de acción y reacción", "Ley de la termodinámica"],
+    "respuesta": "Ley fundamental de la dinámica"
+  },
+  {
+    "pregunta": "La propiedad de la materia de no poder cambiar su estado de reposo o de movimiento por sí misma recibe el nombre de:",
+    "opciones": ["Gravedad", "Dinámica", "Inercia", "Fusión"],
+    "respuesta": "Inercia"
+  },
+  {
+    "pregunta": "Al iniciar una carrera, una nadadora aplica una fuerza contra la pared. La nadadora recibe una fuerza de la pared que la impulsa hacia delante:",
+    "opciones": ["Ley de la inercia", "Ley del monte", "Ley de acción y reacción", "Ley de los signos"],
+    "respuesta": "Ley de acción y reacción"
+  },
+  {
+    "pregunta": "Las fuentes de energía renovables son aquellas que pueden considerarse....",
+    "opciones": ["Agotables", "Remplazables", "Inagotables", "Aprovechables"],
+    "respuesta": "Inagotables"
+  },
+  {
+    "pregunta": "Escala de temperatura:",
+    "opciones": ["Grados Celsius", "Milla", "Metro", "Grados de inclinación"],
+    "respuesta": "Grados Celsius"
+  },
+  {
+    "pregunta": "El movimiento circular es aquel movimiento cuya trayectoria es una:",
+    "opciones": ["Resta", "Curva", "Circunferencia", "Parábola"],
+    "respuesta": "Circunferencia"
+  },
+  {
+    "pregunta": "El resultado de la suma 7.459 + 7.784 es igual a:",
+    "opciones": ["15.243", "142.43", "1243", "4243"],
+    "respuesta": "15.243"
+  },
+  {
+    "pregunta": "El resultado de la suma 252 + 352 es igual a:",
+    "opciones": ["552", "640", "624", "604"],
+    "respuesta": "604"
+  },
+  {
+    "pregunta": "El resultado de la suma 1.995 + 1.995 es igual a:",
+    "opciones": ["3.99", "3.95", "3990", "3991"],
+    "respuesta": "3990"
+  },
+  {
+    "pregunta": "El resultado de la suma 5.19 + 51.9 es igual a:",
+    "opciones": ["57.9", "57", "57.09", "57098"],
+    "respuesta": "57.09"
+  },
+  {
+    "pregunta": "El resultado de la suma 12.468 + 468.12 es igual a:",
+    "opciones": ["480.588", "24936", "249.36", "480.6"],
+    "respuesta": "480.588"
+  },
+  {
+    "pregunta": "El resultado de la multiplicación 1 x 0 es igual a:",
+    "opciones": ["1", "-1", "0", "1/2"],
+    "respuesta": "0"
+  },
+  {
+    "pregunta": "El resultado de la multiplicación 11 x 11 es igual a:",
+    "opciones": ["121", "211", "112", "211"],
+    "respuesta": "121"
+  },
+  {
+    "pregunta": "El resultado de la multiplicación 8 x 0.8 es igual a:",
+    "opciones": ["64.0", "64", "6.4", "64.4"],
+    "respuesta": "6.4"
+  },
+  {
+    "pregunta": "El resultado de la multiplicación 0.06 x 10 es igual a",
+    "opciones": ["0.6", "0.66", "0.666", "6"],
+    "respuesta": "0.6"
+  },
+  {
+    "pregunta": "El resultado de la multiplicación 6 x 6.0 es igual a:",
+    "opciones": ["36.6", "3.6", "3", "36"],
+    "respuesta": "36"
+  },
+  {
+    "pregunta": "El resultado de la multiplicación 9.0 x 9.0 es igual a:",
+    "opciones": ["8.81", "81", "81.1", "81.8"],
+    "respuesta": "81"
+  },
+  {
+    "pregunta": "Los 2/4 de 40 es igual a:",
+    "opciones": ["20", "10", "5", "8"],
+    "respuesta": "20"
+  },
+  {
+    "pregunta": "El 1/2 de 50.5 es igual a:",
+    "opciones": ["25", "25.5", "25.1", "25.25"],
+    "respuesta": "25.25"
+  },
+  {
+    "pregunta": "Una hora tiene:",
+    "opciones": ["60 segundos", "180 segundos", "60 minutos", "360 segundos"],
+    "respuesta": "60 minutos"
+  },
+  {
+    "pregunta": "8, 16, 24 son múltiplos de:",
+    "opciones": ["4", "100", "5", "3"],
+    "respuesta": "4"
+  },
+  {
+    "pregunta": "El número posterior a 9000 es el:",
+    "opciones": ["8999", "8888", "9001", "8899"],
+    "respuesta": "9001"
+  },
+  {
+    "pregunta": "Dos ángulos son complementarios si suman:",
+    "opciones": ["180 grados", "270 grados", "360 grados", "90 grados"],
+    "respuesta": "90 grados"
+  },
+  {
+    "pregunta": "En la potencia 4 al cuadrado:",
+    "opciones": ["la base es 4 y el exponente es 2", "la base es 2 y el exponente es 4", "la base es 4 y el exponente es 4", "la base es 2 y el exponente es 2"],
+    "respuesta": "la base es 4 y el exponente es 2"
+  },
+  {
+    "pregunta": "En la potencia 5 a la sexta:",
+    "opciones": ["la base es 5 y el exponente es 6", "la base es 6 y el exponente es 6", "la base es 6 y el exponente es 6", "la base es 5 y el exponente es 5"],
+    "respuesta": "la base es 5 y el exponente es 6"
+  },
+  {
+    "pregunta": "En la potencia 6 a la octava:",
+    "opciones": ["la base es 6 y el exponente es ?", "la base es 8 y el exponente es 8", "la base es 8 y el exponente es 6", "la base es 6 y el exponente es 8"],
+    "respuesta": "la base es 6 y el exponente es 8"
+  },
+  {
+    "pregunta": "En la potencia 2 a la quinta:",
+    "opciones": ["la base es 5 y el exponente es 5", "la base es 2 y el exponente es 2", "la base es 2 y el exponente es 5", "la base es 5 y el exponente es 2"],
+    "respuesta": "la base es 2 y el exponente es 5"
+  },
+  {
+    "pregunta": "Los números enteros 15, 25, 35 suman:",
+    "opciones": ["75", "45", "55", "65"],
+    "respuesta": "75"
+  },
+  {
+    "pregunta": "La jerarquía de operaciones se refiere al orden en que se deben realizar:",
+    "opciones": ["las operaciones químicas", "las operaciones estadísticas", "las operaciones matemáticas", "las operaciones tácticas"],
+    "respuesta": "las operaciones matemáticas"
+  },
+  {
+    "pregunta": "Al dividir 82 entre 2 da como resultado:",
+    "opciones": ["41 partes iguales", "18 partes iguales", "36 partes iguales", "9 partes iguales"],
+    "respuesta": "41 partes iguales"
+  },
+  {
+    "pregunta": "Dos ángulos son suplementarios si suman:",
+    "opciones": ["45 grados", "90 grados", "180 grados", "360 grados"],
+    "respuesta": "180 grados"
+  },
+  {
+    "pregunta": "El triángulo que tiene dos lados iguales y uno desigual se llama:",
+    "opciones": ["Escaleno", "Equilátero", "Obtuso", "Isósceles"],
+    "respuesta": "Isósceles"
+  },
+  {
+    "pregunta": "El 20% de 525 es igual a:",
+    "opciones": ["105", "125", "158", "185"],
+    "respuesta": "105"
+  },
+  {
+    "pregunta": "El 24% de 150 es:",
+    "opciones": ["24", "30", "46", "36"],
+    "respuesta": "36"
+  },
+  {
+    "pregunta": "Los triángulos por sus ángulos se clasifican en:",
+    "opciones": ["Obtusángulo, acutángulo y rectángulo", "Obtusángulo, acutángulo y isósceles", "Obtusángulo, escaleno y rectángulo", "escaleno, acutángulo y rectángulo"],
+    "respuesta": "Obtusángulo, acutángulo y rectángulo"
+  },
+  {
+    "pregunta": "Los triángulos por sus lados se clasifican en:",
+    "opciones": ["Obtusángulo, equilátero y escaleno", "isósceles, equilátero y rectángulo", "isósceles, equilátero y escaleno", "rectángulo, equilátero y escaleno"],
+    "respuesta": "isósceles, equilátero y escaleno"
+  },
+  {
+    "pregunta": "54 al cuadrado es:",
+    "opciones": ["29166", "296", "2916", "916"],
+    "respuesta": "2916"
+  },
+  {
+    "pregunta": "33 al cubo tenemos como resultado:",
+    "opciones": ["35937", "33333", "333333", "3593"],
+    "respuesta": "35937"
+  },
+  {
+    "pregunta": "Un ángulo llano mide:",
+    "opciones": ["45 grados", "90 grados", "180 grados", "360 grados"],
+    "respuesta": "180 grados"
+  },
+  {
+    "pregunta": "El valor de Y en la siguiente ecuación 5y = 8y - 15 es igual a:",
+    "opciones": ["3", "-5", "-5", "5"],
+    "respuesta": "5"
+  },
+  {
+    "pregunta": "Un triángulo es escaleno cuando:",
+    "opciones": ["sus dos lados son diferentes", "sus tres ángulos son diferentes", "un lado es diferente", "sus tres lados son diferentes"],
+    "respuesta": "sus tres lados son diferentes"
+  },
+  {
+    "pregunta": "Las partes de una fracción es el:",
+    "opciones": ["numerador y dominador", "número y denominador", "numerador y denominador", "numerador y cociente"],
+    "respuesta": "numerador y denominador"
+  },
+  {
+    "pregunta": "La cantidad que expresa el número romano XV es:",
+    "opciones": ["15", "5", "25", "12"],
+    "respuesta": "15"
+  },
+  {
+    "pregunta": "La cantidad que expresa el número romano XIII es:",
+    "opciones": ["13", "31", "23", "5"],
+    "respuesta": "13"
+  },
+  {
+    "pregunta": "Si se divide 98 entre 7 tenemos como resultado:",
+    "opciones": ["14", "24", "18", "9"],
+    "respuesta": "14"
+  },
+  {
+    "pregunta": "El número anterior a 2000 es el:",
+    "opciones": ["2999", "3999", "1999", "2001"],
+    "respuesta": "1999"
+  },
+  {
+    "pregunta": "Una división entera es aquella en la que el resto es:",
+    "opciones": ["0", "Sin respuesta", "Diferente de 0", "Ninguna de las anteriores"],
+    "respuesta": "Diferente de 0"
+  },
+  {
+    "pregunta": "El rectángulo tiene:",
+    "opciones": ["3 lados, 4 vértices y 4 ángulos", "4 lados, 4 vértices y 3 ángulos", "4 lados, 4 vértices y 4 ángulos", "4 lados, 3 vértices y 4 ángulos"],
+    "respuesta": "4 lados, 4 vértices y 4 ángulos"
+  },
+  {
+    "pregunta": "Los elementos de la división son:",
+    "opciones": ["dividendo, divisor, cociente", "dividendo, multiplicando, cociente, resto", "dividendo, sustraendo, cociente, resto", "dividendo, divisor, cociente, resto"],
+    "respuesta": "dividendo, divisor, cociente, resto"
+  },
+  {
+    "pregunta": "Los elementos del plano cartesiano son:",
+    "opciones": ["ejes, origen, cuadrantes, coordenadas", "ejes, origen, cuadrantes", "ejes, base, cuadrantes, coordenadas", "ejes, origen, cuadra, coordenadas"],
+    "respuesta": "ejes, origen, cuadrantes, coordenadas"
+  },
+  {
+    "pregunta": "El 100% de 50 es igual a:",
+    "opciones": ["100", "25", "150", "50"],
+    "respuesta": "50"
+  },
+  {
+    "pregunta": "El 15% de 3000 es igual a",
+    "opciones": ["450", "45", "50", "40"],
+    "respuesta": "450"
+  },
+  {
+    "pregunta": "Un ángulo completo mide:",
+    "opciones": ["360 segundos", "360 cm", "180 grados", "360 grados"],
+    "respuesta": "360 grados"
+  },
+  {
+    "pregunta": "Un par ordenado está conformado por:",
+    "opciones": ["tres elementos", "dos elementos", "cuatro elementos", "un elemento"],
+    "respuesta": "dos elementos"
+  },
+  {
+    "pregunta": "El valor de X en la siguiente ecuación 10x = 8x + 6",
+    "opciones": ["3", "12", "6", "9"],
+    "respuesta": "3"
+  },
+  {
+    "pregunta": "Un hectómetro es igual a:",
+    "opciones": ["100 km", "10km", "0,1 km", "10m"],
+    "respuesta": "0,1 km"
+  },
+  {
+    "pregunta": "El trinomio x^2 - 8x + 16 es igual a",
+    "opciones": ["(x-4)(x-4)", "(x-4)(x+4)", "(x+4)(x+4)", "(x+4)^2"],
+    "respuesta": "(x-4)(x-4)"
+  },
+  {
+    "pregunta": "La raíz cuadrada de 81/9 es",
+    "opciones": ["9", "6", "12", "3"],
+    "respuesta": "3"
+  }
+]
