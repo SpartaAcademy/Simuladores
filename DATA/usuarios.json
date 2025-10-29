@@ -5,14 +5,19 @@
     "nombre": "Milton Fuel"
   },
   {
-    "usuario": "jefa",
-    "contrasena": "root",
-    "nombre": "Jefa Geo"
+    "usuario": "docente",
+    "contrasena": "docente",
+    "nombre": "Docente"
+  },
+  {
+    "usuario": "geomi",
+    "contrasena": "geomi",
+    "nombre": "Geo"
   },
   {
     "usuario": "capitan",
     "contrasena": "capitan",
-    "nombre": "Querido Capitán"
+    "nombre": "Capitán"
   },
   {
     "usuario": "michael_arcos",
