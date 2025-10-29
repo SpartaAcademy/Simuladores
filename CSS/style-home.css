@@ -26,29 +26,24 @@ main { flex: 1; padding: 2rem; position: relative; display: flex; align-items: c
 .seleccion-container h1 { font-family: 'Teko', sans-serif; font-size: 2.8rem; margin-bottom: 0.5rem; }
 .seleccion-container p { font-size: 1.1rem; color: #555; margin-bottom: 2rem; }
 
-/* (MODIFICADO) Ajuste para 5 elementos */
+/* Ajuste Grid para que el último elemento (impar) ocupe toda la fila */
 .materias-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Columnas flexibles */
+    grid-template-columns: repeat(2, 1fr); /* Por defecto 2 columnas */
     gap: 1.5rem;
 }
+/* Si el último hijo es impar, haz que ocupe las 2 columnas */
+.materias-grid > *:last-child:nth-child(odd) {
+    grid-column: 1 / -1; /* Ocupa desde la primera hasta la última columna */
+}
+
 
 .materia-card { display: flex; align-items: center; justify-content: center; padding: 2.5rem; background-color: #f9f9f9; border: 2px solid #eee; border-radius: 10px; text-decoration: none; color: #333; transition: all 0.3s ease; }
 .materia-card h3 { font-family: 'Teko', sans-serif; font-size: 1.8rem; font-weight: 600; }
 .materia-card:hover { background-color: #fff; border-color: #b22222; color: #b22222; transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.07); }
 
-/* (NUEVO/OPCIONAL) Estilo para destacar el General */
-.general-card {
-    background-color: #e6f7ff; /* Un fondo azul claro */
-    border-color: #91d5ff;
-}
-.general-card:hover {
-    background-color: #bae7ff;
-    border-color: #1890ff;
-    color: #0050b3;
-}
-/* Si quieres que ocupe todo el ancho cuando son impares (complicado con auto-fit) */
-/* .general-card:last-child:nth-child(odd) { grid-column: 1 / -1; } */
+.general-card { background-color: #e6f7ff; border-color: #91d5ff; }
+.general-card:hover { background-color: #bae7ff; border-color: #1890ff; color: #0050b3; }
 
 
 /* --- USER INFO Y LOGOUT (Escritorio) --- */
@@ -88,12 +83,23 @@ main { flex: 1; padding: 2rem; position: relative; display: flex; align-items: c
     .header-titulo h1 { font-size: 1.5rem; }
     .header-titulo h2 { font-size: 0.8rem; }
     main { align-items: center; }
+     .materias-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Más flexible */
+    }
+     /* En tablet, si el último es impar, también ocupa todo */
+    .materias-grid > *:last-child:nth-child(odd) {
+       grid-column: 1 / -1;
+    }
 }
 
 @media (max-width: 600px) {
     header { padding: 10px 15px; }
     .header-logo img { height: 45px; margin-right: 10px;}
-    main { padding: 1.5rem 1rem; }
+    main { padding: 1.5rem 1rem; align-items: flex-start; }
     .materias-grid { grid-template-columns: 1fr; } /* Asegura una columna en móvil */
     .seleccion-container { padding: 2rem 1.5rem; }
+    /* En móvil con 1 columna, la regla de last-child:nth-child(odd) ya no es necesaria explícitamente */
+     .materias-grid > *:last-child:nth-child(odd) {
+        grid-column: auto; /* Resetea la regla para móvil */
+    }
 }
