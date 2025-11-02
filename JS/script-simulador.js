@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const statsEnBlanco = document.getElementById('stats-en-blanco');
     const revisionContainer = document.getElementById('revision-container');
     const reiniciarBtn = document.getElementById('reiniciar-btn');
+    const retryBtn = document.getElementById('retry-btn'); // (NUEVO) Referencia al botón
     const modalOverlay = document.getElementById('modal-overlay');
     const modalMensaje = document.getElementById('modal-mensaje');
     const cancelarModalBtn = document.getElementById('cancelar-modal-btn');
@@ -90,66 +91,61 @@ document.addEventListener('DOMContentLoaded', () => {
         if (lobbyTiempoDisplay) lobbyTiempoDisplay.textContent = lobbyTiempoTexto;
         if (lobbyPreguntasDisplay) lobbyPreguntasDisplay.textContent = (materiaKey === 'general') ? '200' : '50';
 
-        // Deshabilitar el botón de comenzar hasta que las imágenes estén listas
         comenzarBtn.disabled = true;
         comenzarBtn.textContent = 'Cargando recursos...';
         
         cargarPreguntas(materiaKey);
 
-        // Los listeners de botones se mueven a después de la carga
+        // Listeners
         siguienteBtn.addEventListener('click', irPreguntaSiguiente);
         terminarIntentoBtn.addEventListener('click', confirmarTerminarIntento);
         reiniciarBtn.addEventListener('click', () => { window.location.href = 'index.html'; });
         cancelarModalBtn.addEventListener('click', () => { modalOverlay.style.display = 'none'; });
         confirmarModalBtn.addEventListener('click', () => { modalOverlay.style.display = 'none'; finalizarIntento(false); });
+        
+        // (NUEVO) Listener para el botón de reintentar
+        retryBtn.addEventListener('click', () => {
+            location.reload(); // Recarga la página (la forma más fácil de reiniciar el simulador)
+        });
     }
 
-    // --- (MODIFICADO) FUNCIÓN DE PRECARGA ---
+    // --- 4. LÓGICA DE PRECARGA ---
     async function precargarImagenes(listaPreguntas) {
         if (!listaPreguntas || listaPreguntas.length === 0) {
-            return Promise.resolve(); // Resuelve inmediatamente si no hay nada que cargar
+            return Promise.resolve();
         }
-
         const promesasDeImagenes = [];
-        let urlsUnicas = new Set(); // Para no cargar la misma imagen dos veces
-
+        let urlsUnicas = new Set();
         listaPreguntas.forEach(pregunta => {
             if (pregunta.imagen) {
                 urlsUnicas.add(pregunta.imagen);
             }
         });
-
         if (urlsUnicas.size === 0) {
-            return Promise.resolve(); // Resuelve si no hay imágenes
+            return Promise.resolve();
         }
-
         console.log(`Precargando ${urlsUnicas.size} imágenes únicas...`);
-
         urlsUnicas.forEach(url => {
             const promesa = new Promise((resolve, reject) => {
                 const img = new Image();
                 img.src = url;
-                img.onload = resolve; // Resuelve la promesa cuando la imagen carga
-                img.onerror = reject; // Rechaza si la imagen falla (ej. 404)
+                img.onload = resolve;
+                img.onerror = reject;
             });
             promesasDeImagenes.push(promesa);
         });
-
-        // Espera a que TODAS las imágenes se hayan descargado
         return Promise.all(promesasDeImagenes);
     }
 
-    // --- 4. LÓGICA DE CARGA Y PREPARACIÓN ---
+    // --- 5. LÓGICA DE CARGA Y PREPARACIÓN ---
     async function cargarPreguntas(materia) {
         preguntasPorMateria = {};
         let materiasACargar = [];
-
         if (materia === 'general') {
             materiasACargar = ordenGeneral;
         } else {
             materiasACargar = [materia];
         }
-
         try {
             const promesas = materiasACargar.map(m =>
                 fetch(`DATA/preguntas_${m}.json`)
@@ -157,10 +153,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     .then(data => ({ materia: m, preguntas: data }))
             );
             const resultados = await Promise.all(promesas);
-
             let totalPreguntasCargadas = 0;
             let todasLasPreguntasParaPrecarga = [];
-
             resultados.forEach(res => {
                  if (materia === 'general' && res.preguntas.length < 50) {
                      console.warn(`Advertencia: La materia '${res.materia}' tiene solo ${res.preguntas.length} preguntas (se necesitan 50 para el modo General). Se usarán todas.`);
@@ -172,33 +166,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 totalPreguntasCargadas += res.preguntas.length;
                 todasLasPreguntasParaPrecarga = todasLasPreguntasParaPrecarga.concat(res.preguntas);
             });
-
              if (totalPreguntasCargadas === 0) {
                  throw new Error("No se cargaron preguntas de ninguna materia relevante.");
              }
-
-             // (MODIFICADO) Espera a que las imágenes se carguen
              await precargarImagenes(todasLasPreguntasParaPrecarga);
-             
-             // (MODIFICADO) Habilita el botón DESPUÉS de cargar todo
              console.log("¡Imágenes precargadas con éxito!");
              comenzarBtn.disabled = false;
              comenzarBtn.textContent = 'Comenzar Intento';
-             // Añade el listener aquí para que solo funcione después de la carga
              comenzarBtn.addEventListener('click', iniciarIntento);
-
-
         } catch (error) {
             console.error("Error cargando recursos:", error);
             if (materia === 'inteligencia' && !error.message.includes('Fallo al cargar')) {
-                 // Si es inteligencia y el JSON está vacío (a propósito), igual habilita
                  comenzarBtn.disabled = false;
                  comenzarBtn.textContent = 'Comenzar Intento';
                  comenzarBtn.addEventListener('click', iniciarIntento);
             } else {
                 alert(`Error al cargar las preguntas o imágenes. ${error.message || ''}`);
                 comenzarBtn.textContent = 'Error al Cargar';
-                // window.location.href = 'index.html'; // Opcional: redirigir
             }
         }
     }
@@ -208,7 +192,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const materiaKey = params.get('materia') || 'sociales';
         preguntasQuiz = [];
         let contadorPreguntas = 0;
-
         if (materiaKey === 'general') {
             TOTAL_PREGUNTAS_QUIZ = 0; 
             ordenGeneral.forEach(materia => {
@@ -222,11 +205,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
             TOTAL_PREGUNTAS_QUIZ = contadorPreguntas;
-
         } else {
              let numPreguntasDeseadas = 50;
              if (materiaKey === 'matematicas') numPreguntasDeseadas = 50;
-
              if (preguntasPorMateria[materiaKey] && preguntasPorMateria[materiaKey].length > 0) {
                 const preguntasBarajadas = [...preguntasPorMateria[materiaKey]].sort(() => Math.random() - 0.5);
                 preguntasQuiz = preguntasBarajadas.slice(0, numPreguntasDeseadas);
@@ -237,13 +218,11 @@ document.addEventListener('DOMContentLoaded', () => {
                  TOTAL_PREGUNTAS_QUIZ = 0;
             }
         }
-         
          if (lobbyPreguntasDisplay) lobbyPreguntasDisplay.textContent = TOTAL_PREGUNTAS_QUIZ;
          respuestasUsuario = new Array(TOTAL_PREGUNTAS_QUIZ).fill(null);
     }
 
-
-    // --- 5. LÓGICA DEL SIMULADOR ---
+    // --- 6. LÓGICA DEL SIMULADOR ---
     function iniciarIntento() {
         prepararQuiz();
         if (preguntasQuiz.length === 0) { 
@@ -302,13 +281,11 @@ document.addEventListener('DOMContentLoaded', () => {
              return;
         }
         preguntaNumero.textContent = `Pregunta ${indice + 1}`;
-        
         let preguntaHTML = `<span>${pregunta.pregunta}</span>`;
         if (pregunta.imagen) {
             preguntaHTML += `<img src="${pregunta.imagen}" alt="Imagen de la pregunta" class="pregunta-imagen">`;
         }
         preguntaTexto.innerHTML = preguntaHTML;
-
         opcionesContainer.innerHTML = '';
         pregunta.opciones.forEach(opcion => {
             const btn = document.createElement('button');
@@ -352,7 +329,7 @@ document.addEventListener('DOMContentLoaded', () => {
         modalOverlay.style.display = 'flex';
     }
 
-    // --- 6. LÓGICA DE FINALIZACIÓN Y RESULTADOS ---
+    // --- 7. LÓGICA DE FINALIZACIÓN Y RESULTADOS ---
     function finalizarIntento(porTiempo = false) {
         clearInterval(cronometroInterval);
         if (porTiempo) {
@@ -374,7 +351,6 @@ document.addEventListener('DOMContentLoaded', () => {
     function calcularResultados() {
         let correctas = 0, incorrectas = 0, enBlanco = 0, puntaje = 0;
         const puntosPorPregunta = TOTAL_PREGUNTAS_QUIZ > 0 ? (1000 / TOTAL_PREGUNTAS_QUIZ) : 0;
-
         for (let i = 0; i < TOTAL_PREGUNTAS_QUIZ; i++) {
             const respUser = respuestasUsuario[i];
             if (preguntasQuiz[i]) {
@@ -387,16 +363,13 @@ document.addEventListener('DOMContentLoaded', () => {
                  enBlanco++;
             }
         }
-
         puntaje = Math.round(puntaje);
         if (puntaje < 0) puntaje = 0;
-
         puntajeFinalDisplay.textContent = puntaje;
         statsContestadas.textContent = correctas + incorrectas;
         statsCorrectas.textContent = correctas;
         statsIncorrectas.textContent = incorrectas;
         statsEnBlanco.textContent = enBlanco;
-
         mostrarRevision(puntosPorPregunta);
     }
 
@@ -409,12 +382,10 @@ document.addEventListener('DOMContentLoaded', () => {
             divRevision.className = 'revision-pregunta';
             let feedbackHTML = '';
             const puntosCorrecta = Math.round(puntosPorPregunta);
-
             let imagenHTML = '';
             if (pregunta.imagen) {
                 imagenHTML = `<img src="${pregunta.imagen}" alt="Imagen de la pregunta" class="pregunta-imagen-revision">`;
             }
-
             if (respUser === null) {
                 feedbackHTML = `<p class="respuesta-usuario">No contestada (0 Puntos)</p><div class="feedback incorrecta">RESPUESTA<span>La respuesta correcta era: <strong>${respCorrecta}</strong></span></div>`;
             } else if (respUser === respCorrecta) {
