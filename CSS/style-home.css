@@ -23,28 +23,80 @@ main { flex: 1; padding: 2rem; position: relative; display: flex; align-items: c
 
 /* --- CONTENEDOR DE SELECCIÓN --- */
 .seleccion-container { background-color: white; padding: 2.5rem 3rem; border-radius: 12px; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); width: 100%; max-width: 800px; text-align: center; position: relative; z-index: 1; border-top: 5px solid #b22222; }
-.seleccion-container h1 { font-family: 'Teko', sans-serif; font-size: 2.8rem; margin-bottom: 0.5rem; }
-.seleccion-container p { font-size: 1.1rem; color: #555; margin-bottom: 2rem; }
 
-/* Ajuste Grid para que el último elemento (impar) ocupe toda la fila */
+/* (MODIFICADO) Encabezados de la sección académica */
+.seleccion-container .section-title-main {
+    font-family: 'Work Sans', sans-serif; /* Fuente más delgada */
+    font-weight: 600;
+    font-size: 1.5rem; /* Más pequeño que el H1 */
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+.seleccion-container > h1 {
+    font-family: 'Teko', sans-serif;
+    font-size: 2.8rem;
+    color: #1a1a1a;
+    margin-bottom: 0.5rem;
+    line-height: 1.1;
+}
+.seleccion-container > p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 2rem;
+}
+
+/* Divisor de sección */
+.section-divider {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 2px solid #f0f0f0;
+}
+.section-divider h2 {
+    font-family: 'Teko', sans-serif;
+    font-size: 2.2rem;
+    color: #333;
+    margin-bottom: 0.25rem;
+}
+.section-divider p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+/* Grid y botones (Estilo Unificado) */
 .materias-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Por defecto 2 columnas */
+    grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
 }
-/* Si el último hijo es impar, haz que ocupe las 2 columnas */
 .materias-grid > *:last-child:nth-child(odd) {
-    grid-column: 1 / -1; /* Ocupa desde la primera hasta la última columna */
+    grid-column: 1 / -1;
 }
 
-
-.materia-card { display: flex; align-items: center; justify-content: center; padding: 2.5rem; background-color: #f9f9f9; border: 2px solid #eee; border-radius: 10px; text-decoration: none; color: #333; transition: all 0.3s ease; }
-.materia-card h3 { font-family: 'Teko', sans-serif; font-size: 1.8rem; font-weight: 600; }
-.materia-card:hover { background-color: #fff; border-color: #b22222; color: #b22222; transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.07); }
-
-.general-card { background-color: #e6f7ff; border-color: #91d5ff; }
-.general-card:hover { background-color: #bae7ff; border-color: #1890ff; color: #0050b3; }
-
+.materia-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2.5rem;
+    background-color: #f9f9f9; /* Color base gris claro */
+    border: 2px solid #eee; /* Borde gris claro */
+    border-radius: 10px;
+    text-decoration: none;
+    color: #333;
+    transition: all 0.3s ease;
+}
+.materia-card h3 {
+    font-family: 'Teko', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+.materia-card:hover {
+    background-color: #fff;
+    border-color: #b22222; /* Borde rojo al pasar el mouse */
+    color: #b22222; /* Texto rojo al pasar el mouse */
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.07);
+}
 
 /* --- USER INFO Y LOGOUT (Escritorio) --- */
 .user-info-container { display: flex; align-items: center; margin-left: auto; color: #eee; font-size: 0.9rem; }
@@ -83,23 +135,14 @@ main { flex: 1; padding: 2rem; position: relative; display: flex; align-items: c
     .header-titulo h1 { font-size: 1.5rem; }
     .header-titulo h2 { font-size: 0.8rem; }
     main { align-items: center; }
-     .materias-grid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Más flexible */
-    }
-     /* En tablet, si el último es impar, también ocupa todo */
-    .materias-grid > *:last-child:nth-child(odd) {
-       grid-column: 1 / -1;
-    }
+     .materias-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+    .materias-grid > *:last-child:nth-child(odd) { grid-column: 1 / -1; }
 }
-
 @media (max-width: 600px) {
     header { padding: 10px 15px; }
     .header-logo img { height: 45px; margin-right: 10px;}
     main { padding: 1.5rem 1rem; align-items: flex-start; }
-    .materias-grid { grid-template-columns: 1fr; } /* Asegura una columna en móvil */
+    .materias-grid { grid-template-columns: 1fr; }
     .seleccion-container { padding: 2rem 1.5rem; }
-    /* En móvil con 1 columna, la regla de last-child:nth-child(odd) ya no es necesaria explícitamente */
-     .materias-grid > *:last-child:nth-child(odd) {
-        grid-column: auto; /* Resetea la regla para móvil */
-    }
+     .materias-grid > *:last-child:nth-child(odd) { grid-column: auto; }
 }
