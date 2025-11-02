@@ -1,0 +1,1752 @@
+[
+  {
+    "pregunta": "Sería más interesante ser:",
+    "opciones": ["Orientador vocacional para ayudar a los jóvenes en la búsqueda de su profesión", "No estoy seguro", "Directivo de una empresa industrial"],
+    "respuesta": "Directivo de una empresa industrial"
+  },
+  {
+    "pregunta": "Cuando una persona no es honrada, casi siempre se le puede notar en la cara:",
+    "opciones": ["Verdadero", "Término medio", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Cuando yo sé muy bien lo que el grupo tiene que hacer, me gusta ser el único en dar las órdenes:",
+    "opciones": ["Si", "Término medio", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Si tuviera que escoger, preferiría ser:",
+    "opciones": ["Guarda forestal", "No estoy seguro", "Profesor de Enseñanza Media"],
+    "respuesta": "Profesor de Enseñanza Media"
+  },
+  {
+    "pregunta": "Admiro más la belleza de un poema que la de un arma de fuego bien construida:",
+    "opciones": ["Si", "No estoy seguro", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "Sólo asisto a actos sociales cuando estoy obligado, y me mantengo aparte en las demás ocasiones:",
+    "opciones": ["Si", "No estoy seguro", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Creo firmemente que \"tal vez el jefe no tenga siempre la razón, pero siempre tiene la razón por ser el jefe\":",
+    "opciones": ["Si", "No estoy seguro", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Me pongo nervioso (tenso) cuando pienso en todas las cosas que tengo que hacer:",
+    "opciones": ["Si", "Algunas veces", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "¿Cuál de las siguientes palabras es diferente de las otras dos?:",
+    "opciones": ["Ancho", "Zigzag", "Recto"],
+    "respuesta": "Zigzag"
+  },
+  {
+    "pregunta": "En un viaje al extranjero, preferiría ir en un grupo organizado, con un experto, que planear yo mismo los lugares que deseo visitar:",
+    "opciones": ["Si", "No estoy seguro", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "En mi adolescencia pertenecía a equipos deportivos:",
+    "opciones": ["Algunas veces", "A menudo", "La mayoría de las veces"],
+    "respuesta": "La mayoría de las veces"
+  },
+  {
+    "pregunta": "He visitado grupos de Facebook sobre cursos de preparación para la policía:",
+    "opciones": ["Si", "No estoy seguro", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Siempre me alegra formar parte de un grupo grande, como una reunión, un baile o una asamblea:",
+    "opciones": ["Si", "Término medio", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "La mayoría de las personas serían más felices si convivieran más con la gente de su nivel e hicieran las cosas como los demás:",
+    "opciones": ["Si", "Término medio", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "\"Cansado\" es a \"trabajar\" como \"orgulloso\" es a:",
+    "opciones": ["Sonreír", "Tener éxito", "Ser feliz"],
+    "respuesta": "Tener éxito"
+  },
+  {
+    "pregunta": "Si mi jefe (profesor) me llama a su despacho:",
+    "opciones": ["Aprovecho la ocasión para pedirle algo que deseo", "Término medio", "Temo haber hecho algo malo, algo que deseo"],
+    "respuesta": "Aprovecho la ocasión para pedirle algo que deseo"
+  },
+  {
+    "pregunta": "Tengo ocasiones en que me es difícil alejar un sentimiento de compasión hacia mí mismo:",
+    "opciones": ["A menudo", "Algunas veces", "Nunca"],
+    "respuesta": "Nunca"
+  },
+  {
+    "pregunta": "Algunas veces me \"sacan de quicio\" de un modo insoportable pequeñas cosas, aunque reconozca que son triviales:",
+    "opciones": ["Si", "Término medio", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "En un viaje largo, preferiría:",
+    "opciones": ["Leer algo profundo pero interesante", "No estoy seguro", "Pasar el tiempo charlando sobre cualquier cosa con una compañera de viaje"],
+    "respuesta": "Leer algo profundo pero interesante"
+  },
+  {
+    "pregunta": "Me gustaría la profesión de veterinario, ocupado con las enfermedades y curación de los animales:",
+    "opciones": ["Si", "Término medio", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Me gusta esperar a estar seguro de que lo que voy a decir es correcto, antes de exponer mis ideas:",
+    "opciones": ["Siempre", "Generalmente", "Sólo si es posible"],
+    "respuesta": "Siempre"
+  },
+  {
+    "pregunta": "\"Pronto\" es a \"nunca\" como \"cerca\" es a:",
+    "opciones": ["En ningún sitio", "Lejos", "En otro sitio"],
+    "respuesta": "Lejos"
+  },
+  {
+    "pregunta": "Conozco en Facebook un grupo de apoyo para aspirantes a policías:",
+    "opciones": ["Si", "No estoy seguro", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "Me gusta un trabajo que presente cambios, variedad y viajes, aunque implique algún peligro:",
+    "opciones": ["Si", "Término medio", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "Se me considera un \"hombre de ideas\" que casi siempre puede apuntar alguna solución a un problema:",
+    "opciones": ["Si", "Término medio", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "Nunca siento la necesidad de garabatear, dibujar o moverme cuando estoy sentado en una reunión:",
+    "opciones": ["Verdadero", "No estoy seguro", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Recomiendo a mis amigos grupos de Facebook sobre cursos de preparación para la policía:",
+    "opciones": ["Si", "No estoy seguro", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "En mi época de estudiante prefería (prefiero):",
+    "opciones": ["Lengua o Literatura", "No estoy seguro", "Matemáticas o Aritmética"],
+    "respuesta": "Lengua o Literatura"
+  },
+  {
+    "pregunta": "Aunque tenga pocas posibilidades de éxito, creo que todavía me merece la pena correr el riesgo:",
+    "opciones": ["Si", "Término medio", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "Es muy exagerada la idea de que la enfermedad proviene tanto de causas mentales como físicas:",
+    "opciones": ["Si", "Término medio", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Creo que es más importante mucha libertad que buena educación y respeto a la ley:",
+    "opciones": ["Verdadero", "No estoy seguro", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "A veces no puedo dormirme porque tengo una idea que me da vueltas en la cabeza:",
+    "opciones": ["Verdadero", "No estoy seguro", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "A veces me pongo en estado de tensión y agitación cuando pienso en los sucesos del día:",
+    "opciones": ["Si", "Término medio", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Me consideran una persona muy entusiasta:",
+    "opciones": ["Si", "Término medio", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "La gente me trata menos razonablemente de lo que merecen mis buenas intenciones:",
+    "opciones": ["A menudo", "Ocasionalmente", "Nunca"],
+    "respuesta": "Nunca"
+  },
+  {
+    "pregunta": "Con el mismo horario y sueldo, sería más interesante ser:",
+    "opciones": ["El cocinero de un buen restaurante", "No estoy seguro entre ambos", "El que sirve las mesas en el restaurante"],
+    "respuesta": "El cocinero de un buen restaurante"
+  },
+  {
+    "pregunta": "Cuando la gente no es razonable, yo normalmente:",
+    "opciones": ["Me quedo tan tranquilo", "Término medio", "La menosprecio"],
+    "respuesta": "Me quedo tan tranquilo"
+  },
+  {
+    "pregunta": "Hablar con personas corrientes, convencionales y rutinarias:",
+    "opciones": ["Es a menudo muy interesante e instructivo", "Término medio", "Me fastidia porque no hay profundidad o se trata de chismes y cosas sin importancia"],
+    "respuesta": "Es a menudo muy interesante e instructivo"
+  },
+  {
+    "pregunta": "Soy una persona bastante estricta, e insisto siempre en hacer las cosas tan correctamente como sea posible:",
+    "opciones": ["Verdadero", "Término medio", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "A veces los demás me advierten que yo muestro mi excitación demasiado claramente en la voz y en los modales:",
+    "opciones": ["Si", "Término medio", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Tengo mi habitación organizada de un modo inteligente y estético, con las cosas colocadas casi siempre en lugares conocidas:",
+    "opciones": ["Si", "Término medio", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "En ocasiones, contrariedades muy pequeñas me irritan mucho:",
+    "opciones": ["Si", "Término medio", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Si la gente se aprovecha de mi amistad, no me quedo resentido y lo olvido pronto:",
+    "opciones": ["Verdadero", "No estoy seguro", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "¿Cuáles de las siguientes palabras es diferente de las otras dos?:",
+    "opciones": ["Algo", "Nada", "Mucho"],
+    "respuesta": "Mucho"
+  },
+  {
+    "pregunta": "Me resultaría más interesante trabajar en una empresa:",
+    "opciones": ["Atendiendo a los clientes", "Término medio", "Llevando las cuentas o los archivos"],
+    "respuesta": "Atendiendo a los clientes"
+  },
+  {
+    "pregunta": "A veces dejo que los sentimientos de envidia o celos influyan en mis acciones:",
+    "opciones": ["Si", "Término medio", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Al llevar a cabo una tarea, no estoy satisfecho hasta que se ha considerado con toda atención el menor detalle:",
+    "opciones": ["Verdadero", "Término medio", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "He recibido capacitación por un familiar que pertenece a la Policía Nacional",
+    "opciones": ["Si", "No estoy seguro", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "No suelo decir, sin pensarlas, cosas que luego lamento mucho:",
+    "opciones": ["Verdadero", "No estoy seguro", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Me niego a admitir sugerencias bien intencionadas de los demás, aunque sé que no debería hacerlo:",
+    "opciones": ["Algunas veces", "Casi nunca", "Nunca"],
+    "respuesta": "Nunca"
+  },
+  {
+    "pregunta": "La siguiente serie de letras XOOOOXXOOOXXX continúa con el grupo:",
+    "opciones": ["OXXX", "OOXX", "XOOO"],
+    "respuesta": "OOXX"
+  },
+  {
+    "pregunta": "Hago agudas y sarcásticas observaciones a la gente si creo que las merece:",
+    "opciones": ["Generalmente", "Algunas veces", "Nunca"],
+    "respuesta": "Nunca"
+  },
+  {
+    "pregunta": "\"Sorpresa\" es a \"extraño\" como \"miedo\" es a:",
+    "opciones": ["Valeroso", "Ansioso", "Terrible"],
+    "respuesta": "Terrible"
+  },
+  {
+    "pregunta": "Estando en un grupo social me siento un poco turbado si de pronto paso a ser el foco de atención:",
+    "opciones": ["Si", "Término medio", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Siento de vez en cuando la necesidad de ocuparme en una actividad física enérgica:",
+    "opciones": ["Si", "Término medio", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "La gente me considera con justicia una persona activa, pero con éxito sólo mediano:",
+    "opciones": ["Si", "No estoy seguro", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Me molesta que la gente piense que mi comportamiento es demasiado raro o fuera de lo corriente:",
+    "opciones": ["Mucho", "Algo", "Nada en absoluto"],
+    "respuesta": "Nada en absoluto"
+  },
+  {
+    "pregunta": "Algunas cosas me irritan tanto que creo que entonces lo mejor es no hablar:",
+    "opciones": ["Si", "Término medio", "No"],
+    "respuesta": "Término medio"
+  },
+  {
+    "pregunta": "Me gusta planear mis cosas solo, sin interrupciones y sugerencias de otros:",
+    "opciones": ["Si", "Término medio", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Cuando estoy en un grupo pequeño, me agrada quedarme en un segundo término y dejar que otros lleven el peso de la conversación:",
+    "opciones": ["Si", "Término medio", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Algunas veces me ha turbado el que la gente diga a mi espalda cosas desagradables de mí sin fundamento:",
+    "opciones": ["Si", "No estoy seguro", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Hablo acerca de mis sentimientos:",
+    "opciones": ["Sólo si es necesario", "Término medio", "Fácilmente, siempre que tengo ocasión"],
+    "respuesta": "Sólo si es necesario"
+  },
+  {
+    "pregunta": "Cuando hablo con alguien, me gusta:",
+    "opciones": ["Decir las cosas tal como se me ocurren", "Término medio", "Organizar antes mis ideas"],
+    "respuesta": "Organizar antes mis ideas"
+  },
+  {
+    "pregunta": "Me gustaría más gozar de la vida tranquilamente y a mi modo que ser admirado por mis resultados:",
+    "opciones": ["Verdadero", "No estoy seguro", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Creo que en el mundo actual es más importante resolver:",
+    "opciones": ["El problema de la intención moral", "No estoy seguro", "Los problemas políticos"],
+    "respuesta": "El problema de la intención moral"
+  },
+  {
+    "pregunta": "En cualquier gran ceremonia oficial debería mantenerse la pompa y el esplendor:",
+    "opciones": ["Si", "Término medio", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "Si alguien se enfada conmigo:",
+    "opciones": ["Intento calmarle", "No estoy seguro", "Me irrito con él"],
+    "respuesta": "Intento calmarle"
+  },
+  {
+    "pregunta": "Creo que no me he saltado ninguna cuestión y he contestado a todas de modo apropiado:",
+    "opciones": ["Si", "No estoy seguro", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "Preferiría vestirme con sencillez y corrección que con un estilo personal y llamativo:",
+    "opciones": ["Verdadero", "No estoy seguro", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Creo que se me da mejor mostrar:",
+    "opciones": ["Aplomo en las pugnas y discusiones de una reunión", "No estoy seguro", "Tolerancia con los deseos de los demás"],
+    "respuesta": "Tolerancia con los deseos de los demás"
+  },
+  {
+    "pregunta": "Ante un nuevo invento utilitario, me gustaría:",
+    "opciones": ["Trabajar sobre él en el laboratorio", "No estoy seguro", "Venderlo a la gente"],
+    "respuesta": "Trabajar sobre él en el laboratorio"
+  },
+  {
+    "pregunta": "Aprendo mejor:",
+    "opciones": ["Leyendo un libro bien escrito", "Término medio", "Participando en un grupo de discusión"],
+    "respuesta": "Participando en un grupo de discusión"
+  },
+  {
+    "pregunta": "Me parece más interesante ser:",
+    "opciones": ["Artista", "No estoy seguro", "secretario de un club"],
+    "respuesta": "secretario de un club"
+  },
+  {
+    "pregunta": "En mi época de estudiante me gustaba:",
+    "opciones": ["La música", "No estoy seguro", "La actividad de tipo manual"],
+    "respuesta": "La música"
+  },
+  {
+    "pregunta": "Si se pasa por alto una buena observación mía:",
+    "opciones": ["La dejo pasar", "Término medio", "Doy a la gente la oportunidad de volver a escucharla"],
+    "respuesta": "Doy a la gente la oportunidad de volver a escucharla"
+  },
+  {
+    "pregunta": "Si el sueldo fuera el mismo, preferiría ser:",
+    "opciones": ["Abogado", "No estoy seguro entre ambos", "Navegante o piloto"],
+    "respuesta": "Abogado"
+  },
+  {
+    "pregunta": "Cuando es necesario que alguien emplee un poco de diplomacia y persuasión para conseguir que la gente actúe, generalmente sólo me lo encargan a mí.",
+    "opciones": ["Si", "Término medio", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "Cuando me ponen al frente de algo, insisto en que se sigan mis instrucciones; en caso contrario, renuncio.",
+    "opciones": ["Si", "Algunas veces", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Siempre soy capaz de controlar perfectamente la expresión de mis sentimientos:",
+    "opciones": ["Si", "Término medio", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "Una ley anticuada debería cambiarse:",
+    "opciones": ["Sólo después de muchas discusiones", "Término medio", "Inmediatamente"],
+    "respuesta": "Sólo después de muchas discusiones"
+  },
+  {
+    "pregunta": "En la formación del niño, es más importante:",
+    "opciones": ["Darle bastante afecto", "Término medio", "Procurar que aprenda hábitos y actitudes deseables"],
+    "respuesta": "Procurar que aprenda hábitos y actitudes deseables"
+  },
+  {
+    "pregunta": "\"Pala\" es a \"cavar\" como \"cuchillo\" es a:",
+    "opciones": ["Cortar", "Afilar", "Picar"],
+    "respuesta": "Cortar"
+  },
+  {
+    "pregunta": "Tengo algunas características en las que me siento claramente superior a la mayor parte de la gente:",
+    "opciones": ["Si", "No estoy seguro", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "En ocasiones dudo si la gente con quien estoy hablando se interesa realmente por lo que digo:",
+    "opciones": ["Si", "Término medio", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "¿Cuál de las siguientes cosas es diferente de las otras dos?:",
+    "opciones": ["Vela", "Ansioso", "Luz eléctrica"],
+    "respuesta": "Ansioso"
+  },
+  {
+    "pregunta": "Algunas personas parecen ignorarme o evitarme, aunque no sé por qué:",
+    "opciones": ["Verdadero", "No estoy seguro", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Me agradaría ser un periodista que escribiera sobre, teatro, conciertos, ópera, etc.:",
+    "opciones": ["Si", "No estoy seguro", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Me gustaría hacer el trabajo de un oficial encargado de los casos de delincuentes bajo fianza:",
+    "opciones": ["Si", "Término medio", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "Me gusta la música:",
+    "opciones": ["Ligera, movida y animada", "Término medio", "Emotiva y sentimental"],
+    "respuesta": "Ligera, movida y animada"
+  },
+  {
+    "pregunta": "Mis decisiones se apoyan más en:",
+    "opciones": ["El corazón", "Los sentimientos y la razón por igual", "La cabeza"],
+    "respuesta": "Los sentimientos y la razón por igual"
+  },
+  {
+    "pregunta": "Soy de ese tipo de personas con tanta energía que siempre están ocupadas:",
+    "opciones": ["Si", "No estoy seguro", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "Gasto gran parte de mi tiempo libre hablando con los amigos sobre situaciones sociales agradables vividas en el pasado:",
+    "opciones": ["Si", "Término medio", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Como los alimentos con gusto y placer, aunque no siempre tan cuidadosa y educadamente como otras personas:",
+    "opciones": ["Verdadero", "No estoy seguro", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Me atrae más pasar una tarde ocupado en una tarea tranquila a la que tenga afición que estar en una reunión animada:",
+    "opciones": ["Verdadero", "No estoy seguro", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Siempre puedo cambiar viejos hábitos sin dificultad y sin volver a ellos:",
+    "opciones": ["Si", "Término medio", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "Puedo trabajar cuidadosamente en la mayor parte de las cosas sin que me molesten personas que hacen mucho ruido a mi alrededor:",
+    "opciones": ["Si", "Término medio", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "Cuando hay que hacer algo, me gustaría más trabajar:",
+    "opciones": ["En equipo", "No estoy seguro", "Yo solo"],
+    "respuesta": "En equipo"
+  },
+  {
+    "pregunta": "Cuando la gente autoritaria trata de dominarme, hago justamente lo contrario de lo que quiere:",
+    "opciones": ["Si", "Término medio", "No"],
+    "respuesta": "Término medio"
+  },
+  {
+    "pregunta": "Por regla general, mis jefes y mi familia me encuentran defectos sólo cuando realmente existen:",
+    "opciones": ["Verdadero", "Término medio", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Me resulta molesta la vista de una habitación muy sucia:",
+    "opciones": ["Si", "Término medio", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "No tengo el más mínimo interés sobre las argumentaciones y conversaciones teóricas",
+    "opciones": ["Totalmente en desacuerdo", "En desacuerdo", "Ni acuerdo, ni en desacuerdo", "De acuerdo", "Totalmente de acuerdo"],
+    "respuesta": "Totalmente en desacuerdo"
+  },
+  {
+    "pregunta": "Me siento incapaz de hacerme cargo de las cosas",
+    "opciones": ["Totalmente en desacuerdo", "En desacuerdo", "Ni acuerdo, ni en desacuerdo", "De acuerdo", "Totalmente de acuerdo"],
+    "respuesta": "Totalmente en desacuerdo"
+  },
+  {
+    "pregunta": "Me abruman mucho las emociones",
+    "opciones": ["Totalmente en desacuerdo", "En desacuerdo", "Ni acuerdo, ni en desacuerdo", "De acuerdo", "Totalmente de acuerdo"],
+    "respuesta": "Totalmente en desacuerdo"
+  },
+  {
+    "pregunta": "Invierto tiempo en reflexionar sobre las cosas",
+    "opciones": ["Totalmente en desacuerdo", "En desacuerdo", "Ni acuerdo, ni en desacuerdo", "De acuerdo", "Totalmente de acuerdo"],
+    "respuesta": "Totalmente de acuerdo"
+  },
+  {
+    "pregunta": "Sé arreglármelas",
+    "opciones": ["Totalmente en desacuerdo", "En desacuerdo", "Ni acuerdo, ni en desacuerdo", "De acuerdo", "Totalmente de acuerdo"],
+    "respuesta": "Totalmente de acuerdo"
+  },
+  {
+    "pregunta": "Desprecio a los que me miran feo",
+    "opciones": ["Totalmente en desacuerdo", "En desacuerdo", "Ni acuerdo, ni en desacuerdo", "De acuerdo", "Totalmente de acuerdo"],
+    "respuesta": "Totalmente en desacuerdo"
+  },
+  {
+    "pregunta": "Grito a la gente",
+    "opciones": ["Totalmente en desacuerdo", "En desacuerdo", "Ni acuerdo, ni en desacuerdo", "De acuerdo", "Totalmente de acuerdo"],
+    "respuesta": "Totalmente en desacuerdo"
+  },
+  {
+    "pregunta": "A menudo me olvido de poner las cosas en su sitio",
+    "opciones": ["Totalmente en desacuerdo", "En desacuerdo", "Ni acuerdo, ni en desacuerdo", "De acuerdo", "Totalmente de acuerdo"],
+    "respuesta": "Totalmente en desacuerdo"
+  },
+  {
+    "pregunta": "Busco desenfrenadamente el peligro",
+    "opciones": ["Totalmente en desacuerdo", "En desacuerdo", "Ni acuerdo, ni en desacuerdo", "De acuerdo", "Totalmente de acuerdo"],
+    "respuesta": "Totalmente en desacuerdo"
+  },
+  {
+    "pregunta": "Le dedico poco tiempo y esfuerzo a mi trabajo",
+    "opciones": ["Totalmente en desacuerdo", "En desacuerdo", "Ni acuerdo, ni en desacuerdo", "De acuerdo", "Totalmente de acuerdo"],
+    "respuesta": "Totalmente en desacuerdo"
+  },
+  {
+    "pregunta": "Me adapto fácilmente a situaciones nuevas",
+    "opciones": ["Totalmente en desacuerdo", "En desacuerdo", "Ni acuerdo, ni en desacuerdo", "De acuerdo", "Totalmente de acuerdo"],
+    "respuesta": "Totalmente de acuerdo"
+  },
+  {
+    "pregunta": "Soy una persona de hábitos y costumbres",
+    "opciones": ["Totalmente en desacuerdo", "En desacuerdo", "Ni acuerdo, ni en desacuerdo", "De acuerdo", "Totalmente de acuerdo"],
+    "respuesta": "Totalmente de acuerdo"
+  },
+  {
+    "pregunta": "Sobresalgo en lo que hago",
+    "opciones": ["Totalmente en desacuerdo", "En desacuerdo", "Ni acuerdo, ni en desacuerdo", "De acuerdo", "Totalmente de acuerdo"],
+    "respuesta": "Totalmente de acuerdo"
+  },
+  {
+    "pregunta": "Odio el arte y todas sus expresiones",
+    "opciones": ["Totalmente en desacuerdo", "En desacuerdo", "Ni acuerdo, ni en desacuerdo", "De acuerdo", "Totalmente de acuerdo"],
+    "respuesta": "Totalmente en desacuerdo"
+  },
+  {
+    "pregunta": "Tengo miedo y ansiedad de llamar la atención",
+    "opciones": ["Totalmente en desacuerdo", "En desacuerdo", "Ni acuerdo, ni en desacuerdo", "De acuerdo", "Totalmente de acuerdo"],
+    "respuesta": "Totalmente en desacuerdo"
+  },
+  {
+    "pregunta": "Tengo cambios de humor radicales con frecuencia",
+    "opciones": ["Totalmente en desacuerdo", "En desacuerdo", "Ni acuerdo, ni en desacuerdo", "De acuerdo", "Totalmente de acuerdo"],
+    "respuesta": "Totalmente en desacuerdo"
+  },
+  {
+    "pregunta": "Solo me siento cómodo con mis amigos",
+    "opciones": ["Totalmente en desacuerdo", "En desacuerdo", "Ni acuerdo, ni en desacuerdo", "De acuerdo", "Totalmente de acuerdo"],
+    "respuesta": "Totalmente en desacuerdo"
+  },
+  {
+    "pregunta": "Tengo miedo de equivocarme",
+    "opciones": ["Totalmente en desacuerdo", "En desacuerdo", "Ni acuerdo, ni en desacuerdo", "De acuerdo", "Totalmente de acuerdo"],
+    "respuesta": "Totalmente en desacuerdo"
+  },
+  {
+    "pregunta": "Tengo dificultades para comprender conceptos abstractos",
+    "opciones": ["Totalmente en desacuerdo", "En desacuerdo", "Ni acuerdo, ni en desacuerdo", "De acuerdo", "Totalmente de acuerdo"],
+    "respuesta": "Totalmente en desacuerdo"
+  },
+  {
+    "pregunta": "No me preocupa aquello que ya ha pasado",
+    "opciones": ["Totalmente en desacuerdo", "En desacuerdo", "Ni acuerdo, ni en desacuerdo", "De acuerdo", "Totalmente de acuerdo"],
+    "respuesta": "Totalmente de acuerdo"
+  },
+  {
+    "pregunta": "No confío en la gente",
+    "opciones": ["Totalmente en desacuerdo", "En desacuerdo", "Ni acuerdo, ni en desacuerdo", "De acuerdo", "Totalmente de acuerdo"],
+    "respuesta": "Totalmente en desacuerdo"
+  },
+  {
+    "pregunta": "Hago trampas para llevar la delantera",
+    "opciones": ["Totalmente en desacuerdo", "En desacuerdo", "Ni acuerdo, ni en desacuerdo", "De acuerdo", "Totalmente de acuerdo"],
+    "respuesta": "Totalmente en desacuerdo"
+  },
+  {
+    "pregunta": "Me preocupo por el bienestar de mi familia",
+    "opciones": ["Totalmente en desacuerdo", "En desacuerdo", "Ni acuerdo, ni en desacuerdo", "De acuerdo", "Totalmente de acuerdo"],
+    "respuesta": "Totalmente de acuerdo"
+  },
+  {
+    "pregunta": "Me gustan las fiestas sorpresa",
+    "opciones": ["Totalmente en desacuerdo", "En desacuerdo", "Ni acuerdo, ni en desacuerdo", "De acuerdo", "Totalmente de acuerdo"],
+    "respuesta": "Totalmente de acuerdo"
+  },
+  {
+    "pregunta": "Tengo un nivel adecuado de empatía y compasión con los demás",
+    "opciones": ["Totalmente en desacuerdo", "En desacuerdo", "Ni acuerdo, ni en desacuerdo", "De acuerdo", "Totalmente de acuerdo"],
+    "respuesta": "Totalmente de acuerdo"
+  },
+  {
+    "pregunta": "Me gusta la aventura",
+    "opciones": ["Totalmente en desacuerdo", "En desacuerdo", "Ni acuerdo, ni en desacuerdo", "De acuerdo", "Totalmente de acuerdo"],
+    "respuesta": "Totalmente de acuerdo"
+  },
+  {
+    "pregunta": "Me gusta perderme en mis pensamientos cuando trabajo",
+    "opciones": ["Totalmente en desacuerdo", "En desacuerdo", "Ni acuerdo, ni en desacuerdo", "De acuerdo", "Totalmente de acuerdo"],
+    "respuesta": "Totalmente en desacuerdo"
+  },
+  {
+    "pregunta": "Aporto buenas soluciones",
+    "opciones": ["Totalmente en desacuerdo", "En desacuerdo", "Ni acuerdo, ni en desacuerdo", "De acuerdo", "Totalmente de acuerdo"],
+    "respuesta": "Totalmente de acuerdo"
+  },
+  {
+    "pregunta": "Mi habitación es un desorden",
+    "opciones": ["Totalmente en desacuerdo", "En desacuerdo", "Ni acuerdo, ni en desacuerdo", "De acuerdo", "Totalmente de acuerdo"],
+    "respuesta": "Totalmente en desacuerdo"
+  },
+  {
+    "pregunta": "La mayoría del tiempo estoy relajado",
+    "opciones": ["Totalmente en desacuerdo", "En desacuerdo", "Ni acuerdo, ni en desacuerdo", "De acuerdo", "Totalmente de acuerdo"],
+    "respuesta": "Totalmente de acuerdo"
+  },
+  {
+    "pregunta": "Disfruto dejar volar mi imaginación por varías horas",
+    "opciones": ["Totalmente en desacuerdo", "En desacuerdo", "Ni acuerdo, ni en desacuerdo", "De acuerdo", "Totalmente de acuerdo"],
+    "respuesta": "Totalmente en desacuerdo"
+  },
+  {
+    "pregunta": "Rara vez sueño despierto",
+    "opciones": ["Totalmente en desacuerdo", "En desacuerdo", "Ni acuerdo, ni en desacuerdo", "De acuerdo", "Totalmente de acuerdo"],
+    "respuesta": "Totalmente de acuerdo"
+  },
+  {
+    "pregunta": "Me gusta ponerme de pie cuando oigo el himno nacional",
+    "opciones": ["Totalmente en desacuerdo", "En desacuerdo", "Ni acuerdo, ni en desacuerdo", "De acuerdo", "Totalmente de acuerdo"],
+    "respuesta": "Totalmente de acuerdo"
+  },
+  {
+    "pregunta": "Creo que la gente básicamente sigue una moralidad",
+    "opciones": ["Totalmente en desacuerdo", "En desacuerdo", "Ni acuerdo, ni en desacuerdo", "De acuerdo", "Totalmente de acuerdo"],
+    "respuesta": "Totalmente de acuerdo"
+  },
+  {
+    "pregunta": "Hago que la gente se sienta incómoda",
+    "opciones": ["Totalmente en desacuerdo", "En desacuerdo", "Ni acuerdo, ni en desacuerdo", "De acuerdo", "Totalmente de acuerdo"],
+    "respuesta": "Totalmente en desacuerdo"
+  },
+  {
+    "pregunta": "Le doy más valor a la cooperación que a la competición",
+    "opciones": ["Totalmente en desacuerdo", "En desacuerdo", "Ni acuerdo, ni en desacuerdo", "De acuerdo", "Totalmente de acuerdo"],
+    "respuesta": "Totalmente de acuerdo"
+  },
+  {
+    "pregunta": "Hago rápidamente amigos",
+    "opciones": ["Totalmente en desacuerdo", "En desacuerdo", "Ni acuerdo, ni en desacuerdo", "De acuerdo", "Totalmente de acuerdo"],
+    "respuesta": "Totalmente de acuerdo"
+  },
+  {
+    "pregunta": "A menudo pierdo la memoria",
+    "opciones": ["Totalmente en desacuerdo", "En desacuerdo", "Ni acuerdo, ni en desacuerdo", "De acuerdo", "Totalmente de acuerdo"],
+    "respuesta": "Totalmente en desacuerdo"
+  },
+  {
+    "pregunta": "Evito el contacto con los demás",
+    "opciones": ["Totalmente en desacuerdo", "En desacuerdo", "Ni acuerdo, ni en desacuerdo", "De acuerdo", "Totalmente de acuerdo"],
+    "respuesta": "Totalmente en desacuerdo"
+  },
+  {
+    "pregunta": "Insulto a la gente",
+    "opciones": ["Totalmente en desacuerdo", "En desacuerdo", "Ni acuerdo, ni en desacuerdo", "De acuerdo", "Totalmente de acuerdo"],
+    "respuesta": "Totalmente en desacuerdo"
+  },
+  {
+    "pregunta": "Rompo mis promesas",
+    "opciones": ["Totalmente en desacuerdo", "En desacuerdo", "Ni acuerdo, ni en desacuerdo", "De acuerdo", "Totalmente de acuerdo"],
+    "respuesta": "Totalmente en desacuerdo"
+  },
+  {
+    "pregunta": "El sueldo no me alzanca",
+    "opciones": ["Totalmente en desacuerdo", "En desacuerdo", "Ni acuerdo, ni en desacuerdo", "De acuerdo", "Totalmente de acuerdo"],
+    "respuesta": "Totalmente en desacuerdo"
+  },
+  {
+    "pregunta": "Busco constantemente que la gente se calle",
+    "opciones": ["Totalmente en desacuerdo", "En desacuerdo", "Ni acuerdo, ni en desacuerdo", "De acuerdo", "Totalmente de acuerdo"],
+    "respuesta": "Totalmente en desacuerdo"
+  },
+  {
+    "pregunta": "Empiezo a trabajar inmediatamente",
+    "opciones": ["Totalmente en desacuerdo", "En desacuerdo", "Ni acuerdo, ni en desacuerdo", "De acuerdo", "Totalmente de acuerdo"],
+    "respuesta": "Totalmente de acuerdo"
+  },
+  {
+    "pregunta": "Me siento cómodo rodeado de gente",
+    "opciones": ["Totalmente en desacuerdo", "En desacuerdo", "Ni acuerdo, ni en desacuerdo", "De acuerdo", "Totalmente de acuerdo"],
+    "respuesta": "Totalmente de acuerdo"
+  },
+  {
+    "pregunta": "Mantengo a los demás a distancia",
+    "opciones": ["Totalmente en desacuerdo", "En desacuerdo", "Ni acuerdo, ni en desacuerdo", "De acuerdo", "Totalmente de acuerdo"],
+    "respuesta": "Totalmente en desacuerdo"
+  },
+  {
+    "pregunta": "Dejo que otros cumplan con mis responsabilidades",
+    "opciones": ["Totalmente en desacuerdo", "En desacuerdo", "Ni acuerdo, ni en desacuerdo", "De acuerdo", "Totalmente de acuerdo"],
+    "respuesta": "Totalmente en desacuerdo"
+  },
+  {
+    "pregunta": "Me apasionan los juegos donde puedo apostar",
+    "opciones": ["Totalmente en desacuerdo", "En desacuerdo", "Ni acuerdo, ni en desacuerdo", "De acuerdo", "Totalmente de acuerdo"],
+    "respuesta": "Totalmente en desacuerdo"
+  },
+  {
+    "pregunta": "Rara vez me enfado",
+    "opciones": ["Totalmente en desacuerdo", "En desacuerdo", "Ni acuerdo, ni en desacuerdo", "De acuerdo", "Totalmente de acuerdo"],
+    "respuesta": "Totalmente de acuerdo"
+  },
+  {
+    "pregunta": "Actúo de forma descontrolada y alocada",
+    "opciones": ["Totalmente en desacuerdo", "En desacuerdo", "Ni acuerdo, ni en desacuerdo", "De acuerdo", "Totalmente de acuerdo"],
+    "respuesta": "Totalmente en desacuerdo"
+  },
+  {
+    "pregunta": "He tenido muy peculiares y extrañas experiencias.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Frecuentemente tengo que esforzarme para no demostrar que soy tímido.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "La mayoría de la gente es honrada por temor a ser descubierta.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Me gusta la ciencia.",
+    "opciones": ["V", "F"],
+    "respuesta": "V"
+  },
+  {
+    "pregunta": "Casi todas las noches me duermo con ideas o pensamientos molestos.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Me gusta leer artículos sobre crímenes en los periódicos.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "La mayor parte del tiempo siento melancolía.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "No me canso fácilmente.",
+    "opciones": ["V", "F"],
+    "respuesta": "V"
+  },
+  {
+    "pregunta": "A veces mi alma abandona mi cuerpo.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Nunca me he entregado a prácticas sexuales fuera de lo común.",
+    "opciones": ["V", "F"],
+    "respuesta": "V"
+  },
+  {
+    "pregunta": "Me gusta cocinar.",
+    "opciones": ["V", "F"],
+    "respuesta": "V"
+  },
+  {
+    "pregunta": "Creo que me gustaría el trabajo de guardabosques.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Nunca he vomitado sangre, ni sangrado al toser.",
+    "opciones": ["V", "F"],
+    "respuesta": "V"
+  },
+  {
+    "pregunta": "Muy raras veces siento dolor en la nuca.",
+    "opciones": ["V", "F"],
+    "respuesta": "V"
+  },
+  {
+    "pregunta": "Muy rara vez sufro de constipación (sequedad de vientre)",
+    "opciones": ["V", "F"],
+    "respuesta": "V"
+  },
+  {
+    "pregunta": "Me gustaría ser periodista.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Creo en la vida después de la muerte.",
+    "opciones": ["V", "F"],
+    "respuesta": "V"
+  },
+  {
+    "pregunta": "Me gusta recoger flores o cultivar plantas en casa.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Casi nunca he sufrido de dolores en el pecho o en el corazón.",
+    "opciones": ["V", "F"],
+    "respuesta": "V"
+  },
+  {
+    "pregunta": "Tengo tos la mayor parte del tiempo.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "La gente debería intentar comprender sus sueños y guiarse por ellos o tomarlos como avisos.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "He vivido bastante libre e independiente de las normas familiares.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Cuando alguien me hace algún daño, siento deseos de devolvérselo si me es posible, y esto, por cuestión de principios.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Sufro ataques de náuseas y vómitos.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Tengo bastantes trastornos digestivos.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Me gusta conocer alguna gente importante porque esto me hace sentir importante.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Actualmente no comprendo lo que leo con la facilidad que tenía antes.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Me molesta que me pidan consejo o que me interrumpan cuando estoy trabajando en algo importante.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Me hieren profundamente las críticas y los retos.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Pienso que una gran mayoría de gente exagera sus desgracias para lograr la simpatía y ayuda de los demás.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "A veces siento que verdaderamente soy un inútil.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Me gustaría ser cantante.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "A menudo algunas partes de mi cuerpo tienen sensaciones de hormigueo, quemazón, picazón o bien de quedarse \"dormidas\".",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Nunca he tenido erupciones en la piel que me hayan preocupado.",
+    "opciones": ["V", "F"],
+    "respuesta": "V"
+  },
+  {
+    "pregunta": "Me gustaría ser menos tímido.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Nunca o rara vez tengo mareos.",
+    "opciones": ["V", "F"],
+    "respuesta": "V"
+  },
+  {
+    "pregunta": "Cuando camino por la vereda evito cuidadosamente pisar las baldosas flojas.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Creo que me siguen.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "A veces tengo accesos de risa y llanto que no puedo controlar.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Lloro con facilidad.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Me cuesta bastante concentrarme en una tarea o trabajo.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Nunca me he visto en dificultades a causa de mi conducta sexual.",
+    "opciones": ["V", "F"],
+    "respuesta": "V"
+  },
+  {
+    "pregunta": "Raras veces me preocupo por mi salud.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Veo a mi alrededor cosas, animales o personas que otros no ven.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Me gustaría ser florista.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "A mi familia no le gusta el trabajo que he elegido (o el trabajo que pienso elegir para mi futuro).",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Me es difícil entablar una conversación cuando recién conozco a alguien.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Creo que frecuentemente he sido castigado sin causa.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "A menudo he recibido órdenes de alguien que no sabía tanto como yo.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Comparando con otros hogares, en el mío hay poco amor o unión.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Me siento incómodo cuando tengo que hacer una payasada en una reunión, incluso aunque otros la estén haciendo.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Siento miedo cuando miro hacia abajo desde un lugar alto.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Durante algún tiempo, cuando era joven, participé en pequeños robos.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Mis razonamientos son ahora mejores que nunca.",
+    "opciones": ["V", "F"],
+    "respuesta": "V"
+  },
+  {
+    "pregunta": "Sé quién es el responsable de muchos de mis problemas.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Me parece ser tan capaz y despierto como la mayor parte de los que me rodean.",
+    "opciones": ["V", "F"],
+    "respuesta": "V"
+  },
+  {
+    "pregunta": "Con frecuencia, estoy preocupado por algo.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Normalmente tengo bastante calientes los pies y las manos.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Me gustan el teatro y el cine.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Creo que se trama algo contra mí.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Me gustaría ser enfermero.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Es necesario reforzar las leyes vigentes.",
+    "opciones": ["V", "F"],
+    "respuesta": "V"
+  },
+  {
+    "pregunta": "Me gusta leer y estudiar acerca de lo que estoy trabajando.",
+    "opciones": ["V", "F"],
+    "respuesta": "V"
+  },
+  {
+    "pregunta": "Durante los últimos años he estado sano casi siempre.",
+    "opciones": ["V", "F"],
+    "respuesta": "V"
+  },
+  {
+    "pregunta": "A menudo siento como si tuviera una venda puesta fuertemente alrededor de mi cabeza.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Me gustaría ser militar.",
+    "opciones": ["V", "F"],
+    "respuesta": "V"
+  },
+  {
+    "pregunta": "Me enojo fácilmente, pero se me pasa pronto.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Cualquier persona capacitada y dispuesta a trabajar fuerte, tiene muchas probabilidades de tener éxito.",
+    "opciones": ["V", "F"],
+    "respuesta": "V"
+  },
+  {
+    "pregunta": "Mi manera de hablar es como siempre (ni más rápida, ni más lenta, ni más atropellada, no tengo carraspera).",
+    "opciones": ["V", "F"],
+    "respuesta": "V"
+  },
+  {
+    "pregunta": "No me importa que se diviertan haciéndome bromas.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "En el colegio, algunas veces, fui enviado al director a causa de mi mala conducta.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Tengo molestias en la boca del estómago casi a diario.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "En una discusión o debate, me dejo vencer fácilmente.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "No digo siempre la verdad.",
+    "opciones": ["V", "F"],
+    "respuesta": "V"
+  },
+  {
+    "pregunta": "Hago muchas cosas de las que me arrepiento luego. (Me arrepiento de más cosas o con más frecuencia que otras personas).",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Nunca me he sentido mejor que ahora.",
+    "opciones": ["V", "F"],
+    "respuesta": "V"
+  },
+  {
+    "pregunta": "Varias veces a la semana me molesta la acidez de estómago.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Generalmente me pregunto qué razón oculta puede tener otra persona cuando me hace un favor.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Frecuentemente encuentro necesario defender lo que es justo.",
+    "opciones": ["V", "F"],
+    "respuesta": "V"
+  },
+  {
+    "pregunta": "No me sentiría nervioso si algún familiar tuviera problemas con la ley.",
+    "opciones": ["V", "F"],
+    "respuesta": "V"
+  },
+  {
+    "pregunta": "A veces hago rabiar (jugando) a los animales.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Si pudiera entrar en un espectáculo sin pagar y estuviera seguro de no ser visto, probablemente lo haría.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "A veces traté de que alguien no hiciera algo, porque eso estaba en contra de mis principios.",
+    "opciones": ["V", "F"],
+    "respuesta": "V"
+  },
+  {
+    "pregunta": "No me preocupa contraer una enfermedad.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "A menudo he deseado ser mujer. (O si usted es mujer: nunca me ha molestado ser mujer)",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Frecuentemente no puedo comprender porque he estado tan gruñón y mal humorado.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Actualmente no comprendo lo que leo con la facilidad que tenía antes.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Soy feliz la mayor parte del tiempo.",
+    "opciones": ["V", "F"],
+    "respuesta": "V"
+  },
+  {
+    "pregunta": "Me molesta que alguien se haya burlado tan inteligentemente de mí que yo haya tenido que admitir que lo logró.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "A veces, cuando estoy preocupado, comienzo a sudar, lo que me molesta mucho.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Cuando era pertenecía a una banda que intentaba mantenerse unida como \"carne y uña\".",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Tengo tan buena salud física como la mayor parte de mis amigos.",
+    "opciones": ["V", "F"],
+    "respuesta": "V"
+  },
+  {
+    "pregunta": "A veces siento que tengo que hacerme daño a mí mismo o a alguien.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "He tenido períodos de días, semanas o meses en los que no podía preocuparme por las cosas, porque no tenía ánimo para nada.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "A veces siento deseos de tomarme a puñetazos con alguien.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Soy una persona importante.",
+    "opciones": ["V", "F"],
+    "respuesta": "V"
+  },
+  {
+    "pregunta": "Solo me siento feliz cuando viajo de un lado para otro.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Me desagradan algunas personas que conozco.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Muy pocas veces me duele la cabeza.",
+    "opciones": ["V", "F"],
+    "respuesta": "V"
+  },
+  {
+    "pregunta": "No me cuesta pedir ayuda a mis amigos, incluso aunque no pueda devolverles el favor.",
+    "opciones": ["V", "F"],
+    "respuesta": "V"
+  },
+  {
+    "pregunta": "De vez en cuando dejo para mañana lo que debería hacer hoy.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "La mayor parte del tiempo me parece tener un nudo en la garganta.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Ver sangre no me da miedo ni me hace mal.",
+    "opciones": ["V", "F"],
+    "respuesta": "V"
+  },
+  {
+    "pregunta": "Me es indiferente lo que los demás piensen de mí.",
+    "opciones": ["V", "F"],
+    "respuesta": "V"
+  },
+  {
+    "pregunta": "Me divierte más un juego cuando yo apuesto.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Mi madre es una buena mujer, (o lo fue, si falleció).",
+    "opciones": ["V", "F"],
+    "respuesta": "V"
+  },
+  {
+    "pregunta": "Me divierten las historias de detectives y de misterio.",
+    "opciones": ["V", "F"],
+    "respuesta": "V"
+  },
+  {
+    "pregunta": "Mis modales en la mesa no son tan correctos en mi casa como cuando salgo a comer afuera.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Si los demás no se la hubieran tomado conmigo, hubiese tenido más éxito.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Normalmente oigo voces sin saber de dónde vienen.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Creo que me gustaría trabajar como bibliotecario.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "La mayor parte del tiempo me parece haber hecho algo malo o equivocado.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Me gustaría asistir a reuniones o fiestas donde haya mucha alegría y ruido.",
+    "opciones": ["V", "F"],
+    "respuesta": "V"
+  },
+  {
+    "pregunta": "No parece importarme lo que me suceda.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Decididamente no tengo confianza en mí mismo.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Yo quiero mucho a mi padre. (O lo quise, si falleció).",
+    "opciones": ["V", "F"],
+    "respuesta": "V"
+  },
+  {
+    "pregunta": "Frecuentemente he perdido o desaprovechado cosas por no saber decidirme a tiempo.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Cuando estoy en dificultades o problemas creo que lo mejor es callarme.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Mi memoria parece ser normal.",
+    "opciones": ["V", "F"],
+    "respuesta": "V"
+  },
+  {
+    "pregunta": "Me gusta la poesía.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Si fuera periodista me gustaría mucho informar sobre teatro.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "A veces he deseado muchísimo abandonar el hogar.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "A veces estoy poseído por espíritus diabólicos.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Creo que las mujeres deben tener tanta libertad sexual como los hombres.",
+    "opciones": ["V", "F"],
+    "respuesta": "V"
+  },
+  {
+    "pregunta": "No leo diariamente todos los artículos principales del diario.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Mis manos siguen siendo hábiles.",
+    "opciones": ["V", "F"],
+    "respuesta": "V"
+  },
+  {
+    "pregunta": "No he tenido dificultades para mantener el equilibrio al caminar.",
+    "opciones": ["V", "F"],
+    "respuesta": "V"
+  },
+  {
+    "pregunta": "A veces mis palabras han sido más rápidas que mis pensamientos.",
+    "opciones": ["V", "F"],
+    "respuesta": "V"
+  },
+  {
+    "pregunta": "Nadie parece comprenderme.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Me gusta leer novelas de amor.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Creo que me gustaría el trabajo de contratista de obras.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Me gustaría ser tan feliz como parecen ser los otros.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Me preocupan los temas sexuales.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Cuando estoy con gente escucho cosas extrañas.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Las luchas más encarnizadas las tengo conmigo mismo.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Estoy seguro de que la vida es dura para mí.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Alguien ha intentado envenenarme.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Solía llevar un diario personal.",
+    "opciones": ["V", "F"],
+    "respuesta": "V"
+  },
+  {
+    "pregunta": "A veces me siento tan atraído por las cosas de otros (zapatos, reloj), que tengo ganas de robarlas.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "A veces siento dolores en la parte superior de la cabeza.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Alguien me la tiene jurada.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "No tengo accesos de alergia o asma.",
+    "opciones": ["V", "F"],
+    "respuesta": "V"
+  },
+  {
+    "pregunta": "Le agrado a la mayor parte de la gente que me conoce.",
+    "opciones": ["V", "F"],
+    "respuesta": "V"
+  },
+  {
+    "pregunta": "Disfruto con muy diferentes clases de juegos o diversiones.",
+    "opciones": ["V", "F"],
+    "respuesta": "V"
+  },
+  {
+    "pregunta": "Me han sugerido una forma de vida basada en el deber y desde entonces la he seguido cuidadosamente.",
+    "opciones": ["V", "F"],
+    "respuesta": "V"
+  },
+  {
+    "pregunta": "Ahora no estoy subiendo o bajando de peso.",
+    "opciones": ["V", "F"],
+    "respuesta": "V"
+  },
+  {
+    "pregunta": "Actualmente, tengo tanta capacidad de trabajo como antes.",
+    "opciones": ["V", "F"],
+    "respuesta": "V"
+  },
+  {
+    "pregunta": "En mi vida diaria hay muchas cosas que me resultan interesantes.",
+    "opciones": ["V", "F"],
+    "respuesta": "V"
+  },
+  {
+    "pregunta": "En el momento actual me es difícil tener la esperanza de llegar a ser alguien.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Los niños me tratan más como a un niño que como a un adulto.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Mi vida sexual es satisfactoria.",
+    "opciones": ["V", "F"],
+    "respuesta": "V"
+  },
+  {
+    "pregunta": "Siento debilidad general la mayor parte del tiempo.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Me gusta visitar lugares donde nunca he estado.",
+    "opciones": ["V", "F"],
+    "respuesta": "V"
+  },
+  {
+    "pregunta": "Tengo pocas o ninguna molestia a causa de espasmos o contracciones musculares.",
+    "opciones": ["V", "F"],
+    "respuesta": "V"
+  },
+  {
+    "pregunta": "A veces, cuando no me siento bien, estoy irritable.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "En muchas ocasiones me gustaría más sentarme y soñar despierto que hacer cualquier cosa.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Parece como si la mayor parte del tiempo tuviera la cabeza cargada o llena de ruidos.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Nunca he hecho algo peligroso solo por el placer de hacerlo.",
+    "opciones": ["V", "F"],
+    "respuesta": "V"
+  },
+  {
+    "pregunta": "En un juego o partida suelo más ganar que perder.",
+    "opciones": ["V", "F"],
+    "respuesta": "V"
+  },
+  {
+    "pregunta": "Muy pocas veces sueño despierto.",
+    "opciones": ["V", "F"],
+    "respuesta": "V"
+  },
+  {
+    "pregunta": "Una vez a la semana, o más a menudo, siento calor por todo el cuerpo sin causa aparente.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Puedo leer mucho tiempo sin que se me canse la vista.",
+    "opciones": ["V", "F"],
+    "respuesta": "V"
+  },
+  {
+    "pregunta": "Algo no anda bien en mi cabeza.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Las serpientes no me dan mucho miedo.",
+    "opciones": ["V", "F"],
+    "respuesta": "V"
+  },
+  {
+    "pregunta": "Me gustaba ir al colegio.",
+    "opciones": ["V", "F"],
+    "respuesta": "V"
+  },
+  {
+    "pregunta": "Hay algunas personas tan mandonas que me dan ganas de hacer lo contrario de lo que quieren, aunque sepa que tienen razón.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Mis sentimientos no son heridos con facilidad.",
+    "opciones": ["V", "F"],
+    "respuesta": "V"
+  },
+  {
+    "pregunta": "Soy una persona sociable.",
+    "opciones": ["V", "F"],
+    "respuesta": "V"
+  },
+  {
+    "pregunta": "Creo que mi vida hogareña es tan agradable como la de mucha gente que conozco.",
+    "opciones": ["V", "F"],
+    "respuesta": "V"
+  },
+  {
+    "pregunta": "Para no perder un beneficio o ventaja, la mayoría de la gente está dispuesta a hacer cualquier cosa.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Normalmente siento que la vida vale la pena vivirla.",
+    "opciones": ["V", "F"],
+    "respuesta": "V"
+  },
+  {
+    "pregunta": "Alguien ha tratado de robarme.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "A menudo tengo pesadillas.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Mi conducta es ampliamente controlada por las costumbres que me rodean.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Frecuentemente noto temblar mis manos cuando intento hacer algo.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Nunca he tenido un desmayo o desvanecimiento.",
+    "opciones": ["V", "F"],
+    "respuesta": "V"
+  },
+  {
+    "pregunta": "A veces siento deseos de romper cosas.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "He tenido ataques en los que perdía el control de mis movimientos o de la palabra, pero sabía lo que pasaba a mi alrededor.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Se viviría mejor sin leyes.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Alguna vez me enojo.",
+    "opciones": ["V", "F"],
+    "respuesta": "V"
+  },
+  {
+    "pregunta": "No he llevado un tipo de vida adecuado y normal.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Me gusta flirtear (coquetear).",
+    "opciones": ["V", "F"],
+    "respuesta": "V"
+  },
+  {
+    "pregunta": "Me he encontrado con problemas tan llenos de posibilidades que no he podido llegar a una decisión.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Prefiero hacerme el desentendido con amigos del colegio, o personas conocidas que no veo desde hace tiempo, a menos que ellos me hablen primero.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Creo que la mayor parte de la gente mentiría para conseguir lo que busca.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Mi sueño es irregular, inquieto.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Tengo pocas discusiones con mi familia.",
+    "opciones": ["V", "F"],
+    "respuesta": "V"
+  },
+  {
+    "pregunta": "Me gusta caer en tentaciones carnales sin importar nada",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "La mayor parte del tiempo parece dolerme la cabeza por todas partes.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Se necesita discutir mucho para convencer a la mayor parte de la gente de la verdad.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Me preocupo muchísimo.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Cuando acepto un nuevo empleo, me gusta descubrir a quien debo \"caerle bien\".",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Siendo joven me echaron de clase, una o más veces, por portarme mal.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "De vez en cuando pienso en cosas demasiado malas como para hablar de ellas.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Nunca he tenido un ataque o convulsión.",
+    "opciones": ["V", "F"],
+    "respuesta": "V"
+  },
+  {
+    "pregunta": "A veces siento deseos de maldecir.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Algunas veces persisto en una cosa o tema hasta que los demás pierden la paciencia conmigo.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "A veces siento grandes deseos de hacer algo dañino o chocante.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "Trabajo bajo una tensión muy grande.",
+    "opciones": ["V", "F"],
+    "respuesta": "F"
+  },
+  {
+    "pregunta": "No me da miedo manejar dinero.",
+    "opciones": ["V", "F"],
+    "respuesta": "V"
+  }
+]
