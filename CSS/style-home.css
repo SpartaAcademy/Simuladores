@@ -24,43 +24,28 @@ main { flex: 1; padding: 2rem; position: relative; display: flex; align-items: c
 /* --- CONTENEDOR DE SELECCIÓN --- */
 .seleccion-container { background-color: white; padding: 2.5rem 3rem; border-radius: 12px; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); width: 100%; max-width: 800px; text-align: center; position: relative; z-index: 1; border-top: 5px solid #b22222; }
 
-/* (MODIFICADO) Encabezados de la sección académica */
-.seleccion-container .section-title-main {
-    font-family: 'Work Sans', sans-serif; /* Fuente más delgada */
-    font-weight: 600;
-    font-size: 1.5rem; /* Más pequeño que el H1 */
-    color: #333;
-    margin-bottom: 0.5rem;
+/* (NUEVO) Estilo para cada sección */
+.simulador-section {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 2px solid #f0f0f0; /* Línea divisoria */
 }
-.seleccion-container > h1 {
-    font-family: 'Teko', sans-serif;
-    font-size: 2.8rem;
-    color: #1a1a1a;
-    margin-bottom: 0.5rem;
-    line-height: 1.1;
+/* El primer bloque de simuladores no necesita división superior */
+.simulador-section:first-child {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
 }
-.seleccion-container > p {
-    font-size: 1.1rem;
-    color: #555;
-    margin-bottom: 2rem;
-}
-
-/* Divisor de sección */
-.section-divider {
-    margin-top: 2.5rem;
-    padding-top: 1.5rem;
-    border-top: 2px solid #f0f0f0;
-}
-.section-divider h2 {
+.simulador-section h2 {
     font-family: 'Teko', sans-serif;
     font-size: 2.2rem;
     color: #333;
     margin-bottom: 0.25rem;
 }
-.section-divider p {
-    font-size: 1rem;
-    color: #666;
-    margin-bottom: 1.5rem;
+.simulador-section p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 2rem;
 }
 
 /* Grid y botones (Estilo Unificado) */
@@ -78,8 +63,8 @@ main { flex: 1; padding: 2rem; position: relative; display: flex; align-items: c
     align-items: center;
     justify-content: center;
     padding: 2.5rem;
-    background-color: #f9f9f9; /* Color base gris claro */
-    border: 2px solid #eee; /* Borde gris claro */
+    background-color: #f9f9f9; /* Color base gris claro UNIFICADO */
+    border: 2px solid #eee; /* Borde gris claro UNIFICADO */
     border-radius: 10px;
     text-decoration: none;
     color: #333;
