@@ -827,7 +827,7 @@
   {
     "pregunta": "What do you do _ weekends?",
     "opciones": ["In", "On", "at", "by"],
-    "respuesta": "at"
+    "respuesta": "On"
   },
   {
     "pregunta": "We often go to the beach _ the summer.",
