@@ -5,7 +5,7 @@ body { font-family: 'Work Sans', Arial, sans-serif; background-color: #f0f2f5; c
 
 /* --- HEADER Y FOOTER (Compartidos) --- */
 header, footer { background-color: #1a1a1a; color: white; padding: 12px 25px; z-index: 10; }
-header { display: flex; align-items: center; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); position: relative; /* Necesario para el z-index del dropdown */ }
+header { display: flex; align-items: center; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); position: relative; }
 .header-logo { display: flex; align-items: center; }
 .header-logo img { height: 55px; margin-right: 20px; }
 .header-titulo { flex-grow: 1; }
@@ -32,7 +32,7 @@ main { flex: 1; padding: 2rem; position: relative; }
 .quiz-col-izquierda { background-color: white; border-radius: 12px; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); border-top: 5px solid #b22222; padding: 2.5rem; }
 .pregunta-header { margin-bottom: 2rem; }
 .pregunta-num-tag { display: inline-block; background-color: #b22222; color: white; padding: 0.3rem 0.8rem; border-radius: 5px; font-size: 0.9rem; font-weight: 700; margin-bottom: 1rem; }
-#pregunta-texto { font-size: 1.5rem; font-weight: 600; line-height: 1.5; }
+#pregunta-texto { font-size: 1.5rem; font-weight: 600; line-height: 1.5; display: block; /* Para que el span y la img se apilen */ }
 #opciones-container { display: grid; grid-template-columns: 1fr; gap: 1rem; margin-bottom: 2rem; }
 .opcion-btn { padding: 1rem; font-size: 1.1rem; border: 2px solid #ddd; border-radius: 8px; background-color: #fdfdfd; cursor: pointer; transition: all 0.2s ease-in-out; text-align: left; width: 100%; line-height: 1.5; }
 .opcion-btn:hover { background-color: #f5f5f5; border-color: #b22222; }
@@ -93,39 +93,11 @@ main { flex: 1; padding: 2rem; position: relative; }
 .user-info-container { display: flex; align-items: center; margin-left: auto; color: #eee; font-size: 0.9rem; }
 #user-name-display-desktop { margin-right: 0.5rem; white-space: nowrap; }
 .dropdown { position: relative; display: inline-block; }
-.dropdown-btn { background: none; border: none; color: #eee; font-size: 1rem; cursor: pointer; padding: 0 0.5rem; margin-left: 5px; /* Más espacio */ }
-
-/* === ESTILOS MEJORADOS DROPDOWN === */
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #2c2c2c; /* Fondo más oscuro */
-    min-width: 140px; /* Ancho mínimo */
-    box-shadow: 0px 10px 20px 0px rgba(0,0,0,0.5); /* Sombra más definida */
-    z-index: 20; /* Asegura que esté sobre otros elementos del header si es necesario */
-    right: 0;
-    border-radius: 6px; /* Bordes un poco más redondeados */
-    margin-top: 10px; /* Separación vertical aumentada */
-    border: 1px solid #444; /* Borde sutil */
-    overflow: hidden; /* Para que el hover no se salga */
-}
+.dropdown-btn { background: none; border: none; color: #eee; font-size: 1rem; cursor: pointer; padding: 0 0.5rem; margin-left: 5px; }
+.dropdown-content { display: none; position: absolute; background-color: #2c2c2c; min-width: 140px; box-shadow: 0px 10px 20px 0px rgba(0,0,0,0.5); z-index: 20; right: 0; border-radius: 6px; margin-top: 10px; border: 1px solid #444; overflow: hidden; }
 .dropdown-content.show { display: block; }
-
-.dropdown-content a {
-    color: #ddd; /* Texto más claro */
-    padding: 12px 18px; /* Padding ajustado */
-    text-decoration: none;
-    display: block;
-    font-size: 0.9rem;
-    text-align: center; /* Centrar texto */
-    transition: background-color 0.2s, color 0.2s;
-}
-
-.dropdown-content a:hover {
-    background-color: #b22222; /* Rojo Sparta */
-    color: white; /* Letras blancas */
-}
-/* === FIN ESTILOS MEJORADOS DROPDOWN === */
+.dropdown-content a { color: #ddd; padding: 12px 18px; text-decoration: none; display: block; font-size: 0.9rem; text-align: center; transition: background-color 0.2s, color 0.2s; }
+.dropdown-content a:hover { background-color: #b22222; color: white; }
 
 /* --- HAMBURGUESA Y PANEL LATERAL (Móvil) --- */
 .hamburger-menu { display: none; background: none; border: none; color: white; font-size: 2rem; cursor: pointer; padding: 0 0.5rem; margin-left: auto; }
@@ -147,20 +119,40 @@ main { flex: 1; padding: 2rem; position: relative; }
 .mobile-only { display: none; }
 .desktop-only { display: flex; }
 
+/* --- (NUEVO) ESTILOS PREGUNTA CON IMAGEN --- */
+.pregunta-imagen {
+    max-width: 100%; /* Asegura que la imagen sea responsive */
+    height: auto;
+    margin-top: 1.5rem; /* Espacio entre el texto y la imagen */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    display: block; /* Asegura que sea un bloque */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pregunta-imagen-revision {
+    max-width: 400px; /* Tamaño más pequeño para la revisión */
+    width: 100%;
+    height: auto;
+    margin-top: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    display: block;
+}
+
 /* --- Media Queries --- */
-@media (max-width: 900px) { /* Tablet y Móvil */
+@media (max-width: 900px) {
     #simulador-container { grid-template-columns: 1fr; }
     .quiz-col-derecha { position: static; top: auto; margin-top: 2rem; }
     #navegador-preguntas { grid-template-columns: repeat(auto-fill, minmax(38px, 1fr)); }
 }
-
-@media (max-width: 768px) { /* Móvil */
+@media (max-width: 768px) {
     .desktop-only { display: none; }
     .mobile-only { display: block; }
     .header-titulo h1 { font-size: 1.5rem; }
     .header-titulo h2 { font-size: 0.8rem; }
 }
-
 @media (max-width: 600px) {
     header { padding: 10px 15px; }
     .header-logo img { height: 45px; margin-right: 10px;}
