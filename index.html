@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale-1.0">
     <title>Sparta Academy - Simuladores</title>
     <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
     <meta http-equiv="Pragma" content="no-cache">
@@ -23,7 +23,7 @@
     <div class="side-nav" id="side-nav">
         <button class="close-nav-btn" id="close-nav-btn">&times;</button>
         <div class="side-nav-header"> <img src="logo.png" alt="Sparta Logo" class="side-nav-logo"> <h3>Menú Aspirante</h3> </div>
-        <div class="side-nav-user"> <p>Aspirante:</p> <p><strong id="user-name-display-mobile">Cargando...</strong></p> </div>
+        <div class="side-nav-user"> <p id="user-prefix-mobile">Aspirante:</p> <p><strong id="user-name-display-mobile">Cargando...</strong></p> </div>
         <a href="#" id="logout-button-mobile" class="side-nav-link">Cerrar Sesión</a>
     </div>
     <div class="overlay" id="overlay"></div>
@@ -31,15 +31,29 @@
     <main>
         <div class="marca-de-agua"> <img src="logo.png" alt="Watermark"> </div>
         <div class="seleccion-container">
+            
+            <h2 class="section-title-main">Simuladores Pruebas Académicas</h2>
             <h1>Seleccione una materia</h1>
             <p>Elija una de las materias disponibles para comenzar la simulación.</p>
+            
             <div class="materias-grid">
                 <a href="simulador.html?materia=sociales" class="materia-card"><h3>CIENCIAS SOCIALES</h3></a>
                 <a href="simulador.html?materia=matematicas" class="materia-card"><h3>MATEMÁTICAS Y FÍSICA</h3></a>
                 <a href="simulador.html?materia=lengua" class="materia-card"><h3>LENGUA Y LITERATURA</h3></a>
                 <a href="simulador.html?materia=ingles" class="materia-card"><h3>INGLÉS</h3></a>
-                <a href="simulador.html?materia=general" class="materia-card general-card"><h3>GENERAL (TODAS)</h3></a>
+                <a href="simulador.html?materia=general" class="materia-card"><h3>GENERAL (TODAS)</h3></a>
             </div>
+
+            <div class="section-divider">
+                <h2>Simuladores Pruebas Psicológicas</h2>
+                <p>Acceda a los simuladores de inteligencia o personalidad.</p>
+            </div>
+
+            <div class="materias-grid">
+                <a href="simulador.html?materia=inteligencia" class="materia-card"><h3>INTELIGENCIA</h3></a>
+                <a href="simulador.html?materia=personalidad" class="materia-card"><h3>PERSONALIDAD</h3></a>
+            </div>
+
         </div>
     </main>
 
