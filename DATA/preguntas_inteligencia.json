@@ -1,13 +1,13 @@
 [
   {
     "pregunta": "¿Qué figura de la derecha continúa la serie de la izquierda?",
-    "imagen": "https://i.imgur.com/8QGj3tS.png",
+    "imagen": "IMG/figura1.png",
     "opciones": ["B", "C", "E", "A", "D"],
     "respuesta": "C"
   },
   {
     "pregunta": "¿Qué figura de la derecha continúa la serie de la izquierda?",
-    "imagen": "https://i.imgur.com/E8WbLq8.png",
+    "imagen": "IMG/figura2.png",
     "opciones": ["C", "D", "A", "B", "E"],
     "respuesta": "E"
   },
@@ -63,7 +63,7 @@
   },
   {
     "pregunta": "¿Qué figura de la derecha continúa la serie de la izquierda?",
-    "imagen": "https://i.imgur.com/hR6wW7C.png",
+    "imagen": "IMG/figura3.png",
     "opciones": ["C", "B", "E", "D", "A"],
     "respuesta": "D"
   },
@@ -84,7 +84,7 @@
   },
   {
     "pregunta": "¿Qué figura de la derecha continúa la serie de la izquierda?",
-    "imagen": "https://i.imgur.com/D4sT1P1.png",
+    "imagen": "IMG/figura4.png",
     "opciones": ["B", "E", "A", "D", "C"],
     "respuesta": "C"
   },
@@ -120,7 +120,7 @@
   },
   {
     "pregunta": "¿Qué figura de la derecha continúa la serie de la izquierda?",
-    "imagen": "https://i.imgur.com/pS3qF8t.png",
+    "imagen": "IMG/figura5.png",
     "opciones": ["A", "B", "C", "D", "E"],
     "respuesta": "D"
   },
@@ -131,7 +131,7 @@
   },
   {
     "pregunta": "¿Qué figura de la derecha continúa la serie de la izquierda?",
-    "imagen": "https://i.imgur.com/V7R3iYJ.png",
+    "imagen": "IMG/figura6.png",
     "opciones": ["B", "C", "A", "E", "D"],
     "respuesta": "C"
   },
@@ -182,7 +182,7 @@
   },
   {
     "pregunta": "¿Qué figura de la derecha continúa la serie de la izquierda?",
-    "imagen": "https://i.imgur.com/K5b8O2M.png",
+    "imagen": "IMG/figura7.png",
     "opciones": ["C", "A", "D", "E", "B"],
     "respuesta": "A"
   },
@@ -208,7 +208,7 @@
   },
   {
     "pregunta": "¿Qué figura de la derecha continúa la serie de la izquierda?",
-    "imagen": "https://i.imgur.com/zWc9H6W.png",
+    "imagen": "IMG/figura8.png",
     "opciones": ["B", "D", "E", "A", "C"],
     "respuesta": "A"
   },
@@ -249,7 +249,7 @@
   },
   {
     "pregunta": "¿Qué figura de la derecha continúa la serie de la izquierda?",
-    "imagen": "https://i.imgur.com/3jG5X9U.png",
+    "imagen": "IMG/figura9.png",
     "opciones": ["C", "A", "D", "E", "B"],
     "respuesta": "E"
   },
