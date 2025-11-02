@@ -37,9 +37,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let indicePreguntaActual = 0;
     let cronometroInterval;
     let tiempoRestanteSeg;
-    let TOTAL_PREGUNTAS_QUIZ = 50; // Valor por defecto
+    let TOTAL_PREGUNTAS_QUIZ = 50;
 
-    // (MODIFICADO) Añadidas inteligencia y personalidad
     const materias = {
         'sociales': 'Ciencias Sociales',
         'matematicas': 'Matemáticas y Física',
@@ -67,22 +66,20 @@ document.addEventListener('DOMContentLoaded', () => {
         let quizDurationSeconds;
         let lobbyTiempoTexto;
 
-        // (MODIFICADO) Ajustes de tiempo y # preguntas según materia
         if (materiaKey === 'matematicas') {
-            quizDurationSeconds = 90 * 60; // 90 min
+            quizDurationSeconds = 90 * 60;
             lobbyTiempoTexto = "1 Hora y 30 Minutos (90 Minutos)";
             TOTAL_PREGUNTAS_QUIZ = 50;
         } else if (materiaKey === 'general') {
-            quizDurationSeconds = 180 * 60; // 3 horas
+            quizDurationSeconds = 180 * 60;
             lobbyTiempoTexto = "3 Horas (180 Minutos)";
-            TOTAL_PREGUNTAS_QUIZ = 200; // Objetivo: 50 * 4
-        } else if (materiaKey === 'personalidad' || materiaKey === 'inteligencia') { // (NUEVO)
+            TOTAL_PREGUNTAS_QUIZ = 200;
+        } else if (materiaKey === 'personalidad' || materiaKey === 'inteligencia') {
             quizDurationSeconds = 60 * 60; // 1 hora por defecto para psico
             lobbyTiempoTexto = "1 Hora (60 Minutos)";
             TOTAL_PREGUNTAS_QUIZ = 50;
         } else {
-            // Default para sociales, lengua, ingles
-            quizDurationSeconds = 60 * 60; 
+            quizDurationSeconds = 60 * 60;
             lobbyTiempoTexto = "1 Hora (60 Minutos)";
             TOTAL_PREGUNTAS_QUIZ = 50;
         }
@@ -91,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const lobbyTiempoDisplay = document.getElementById('lobby-tiempo');
         if (lobbyTiempoDisplay) lobbyTiempoDisplay.textContent = lobbyTiempoTexto;
-        if (lobbyPreguntasDisplay) lobbyPreguntasDisplay.textContent = TOTAL_PREGUNTAS_QUIZ;
+        if (lobbyPreguntasDisplay) lobbyPreguntasDisplay.textContent = (materiaKey === 'general') ? '200' : '50'; // Ajuste inicial
 
         cargarPreguntas(materiaKey);
 
@@ -111,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (materia === 'general') {
             materiasACargar = ordenGeneral;
         } else {
-            materiasACargar = [materia]; // Carga 'personalidad', 'inteligencia', 'sociales', etc.
+            materiasACargar = [materia];
         }
 
         try {
@@ -135,23 +132,16 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
              if (totalPreguntasCargadas === 0) {
-                 // Si es 'inteligencia' y está vacío, es esperado. Para otros, es un error.
-                 if (materia !== 'inteligencia') {
-                    throw new Error("No se cargaron preguntas de ninguna materia relevante.");
-                 }
+                 throw new Error("No se cargaron preguntas de ninguna materia relevante.");
              }
 
         } catch (error) {
             console.error("Error cargando preguntas:", error);
-            // No mostrar alerta para 'inteligencia' si está vacío
-            if (materia !== 'inteligencia' || error.message.includes('Fallo al cargar')) {
-                alert(`Error al cargar las preguntas. ${error.message || ''}`);
-                window.location.href = 'index.html';
-            }
+            alert(`Error al cargar las preguntas. ${error.message || ''}`);
+            window.location.href = 'index.html';
         }
     }
 
-    // (MODIFICADO PARA ORDENAR POR BLOQUES DE 50)
     function prepararQuiz() {
         const params = new URLSearchParams(window.location.search);
         const materiaKey = params.get('materia') || 'sociales';
@@ -159,7 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let contadorPreguntas = 0;
 
         if (materiaKey === 'general') {
-            TOTAL_PREGUNTAS_QUIZ = 0; // Se recalcula
+            TOTAL_PREGUNTAS_QUIZ = 0; 
             ordenGeneral.forEach(materia => {
                 if (preguntasPorMateria[materia] && preguntasPorMateria[materia].length > 0) {
                     const preguntasMateriaBarajadas = [...preguntasPorMateria[materia]].sort(() => Math.random() - 0.5);
@@ -170,14 +160,17 @@ document.addEventListener('DOMContentLoaded', () => {
                     console.warn(`No hay preguntas cargadas para ${materia} en modo general.`);
                 }
             });
-            TOTAL_PREGUNTAS_QUIZ = contadorPreguntas; // Total real
+            TOTAL_PREGUNTAS_QUIZ = contadorPreguntas;
 
         } else {
-             // Modo individual (sociales, mates, lengua, ingles, personalidad, inteligencia)
+             let numPreguntasDeseadas = 50; // Default
+             if (materiaKey === 'matematicas') numPreguntasDeseadas = 50;
+             if (materiaKey === 'general') numPreguntasDeseadas = 200; // Aunque ya se manejó arriba, por si acaso
+
              if (preguntasPorMateria[materiaKey] && preguntasPorMateria[materiaKey].length > 0) {
                 const preguntasBarajadas = [...preguntasPorMateria[materiaKey]].sort(() => Math.random() - 0.5);
-                preguntasQuiz = preguntasBarajadas.slice(0, TOTAL_PREGUNTAS_QUIZ);
-                TOTAL_PREGUNTAS_QUIZ = preguntasQuiz.length; // Ajustar por si hay menos
+                preguntasQuiz = preguntasBarajadas.slice(0, numPreguntasDeseadas);
+                TOTAL_PREGUNTAS_QUIZ = preguntasQuiz.length;
             } else {
                  console.error(`No hay preguntas cargadas para la materia ${materiaKey}`);
                  preguntasQuiz = [];
@@ -186,8 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
          
          if (lobbyPreguntasDisplay) lobbyPreguntasDisplay.textContent = TOTAL_PREGUNTAS_QUIZ;
-
-        respuestasUsuario = new Array(TOTAL_PREGUNTAS_QUIZ).fill(null);
+         respuestasUsuario = new Array(TOTAL_PREGUNTAS_QUIZ).fill(null);
     }
 
 
@@ -195,15 +187,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function iniciarIntento() {
         prepararQuiz();
         if (preguntasQuiz.length === 0) { 
-            // Manejo específico para 'inteligencia' sin preguntas
-            const params = new URLSearchParams(window.location.search);
-            const materiaKey = params.get('materia');
-            if(materiaKey === 'inteligencia') {
-                alert("El simulador de Inteligencia aún no está disponible. Próximamente.");
-                window.location.href = 'index.html';
-            } else {
-                alert("No se cargaron preguntas para iniciar. Verifique los archivos .json.");
-            }
+            alert("No se cargaron preguntas para iniciar. Verifique los archivos .json.");
             return; 
         }
         lobbyContainer.style.display = 'none';
@@ -240,6 +224,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // (MODIFICADO para mostrar imágenes)
     function mostrarPregunta(indice) {
         if (indice < 0 || indice >= TOTAL_PREGUNTAS_QUIZ) return;
         indicePreguntaActual = indice;
@@ -251,12 +236,31 @@ document.addEventListener('DOMContentLoaded', () => {
              return;
         }
         preguntaNumero.textContent = `Pregunta ${indice + 1}`;
-        preguntaTexto.textContent = pregunta.pregunta;
+        
+        // --- INICIO DE MODIFICACIÓN ---
+        // Limpia el contenido anterior
+        preguntaTexto.innerHTML = ''; 
+
+        // 1. Añade el texto de la pregunta
+        const texto = document.createElement('span');
+        texto.textContent = pregunta.pregunta;
+        preguntaTexto.appendChild(texto);
+
+        // 2. Si hay una clave 'imagen', añade la imagen
+        if (pregunta.imagen) {
+            const img = document.createElement('img');
+            img.src = pregunta.imagen;
+            img.alt = "Imagen de la pregunta";
+            img.className = "pregunta-imagen"; // Añadimos una clase para estilizar
+            preguntaTexto.appendChild(img);
+        }
+        // --- FIN DE MODIFICACIÓN ---
+
         opcionesContainer.innerHTML = '';
         pregunta.opciones.forEach(opcion => {
             const btn = document.createElement('button');
             btn.className = 'opcion-btn';
-            btn.innerHTML = opcion;
+            btn.innerHTML = opcion; // Usar innerHTML por si las opciones tienen formato
             if (respuestasUsuario[indice] === opcion) btn.classList.add('selected');
             btn.addEventListener('click', () => seleccionarRespuesta(opcion));
             opcionesContainer.appendChild(btn);
@@ -353,6 +357,12 @@ document.addEventListener('DOMContentLoaded', () => {
             let feedbackHTML = '';
             const puntosCorrecta = Math.round(puntosPorPregunta);
 
+            // (MODIFICADO) Añadir la imagen también a la revisión
+            let imagenHTML = '';
+            if (pregunta.imagen) {
+                imagenHTML = `<img src="${pregunta.imagen}" alt="Imagen de la pregunta" class="pregunta-imagen-revision">`;
+            }
+
             if (respUser === null) {
                 feedbackHTML = `<p class="respuesta-usuario">No contestada (0 Puntos)</p><div class="feedback incorrecta">RESPUESTA<span>La respuesta correcta era: <strong>${respCorrecta}</strong></span></div>`;
             } else if (respUser === respCorrecta) {
@@ -360,7 +370,8 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 feedbackHTML = `<p class="respuesta-usuario">Tu respuesta: ${respUser}</p><div class="feedback incorrecta">INCORRECTA (0 Puntos)<span>La respuesta correcta era: <strong>${respCorrecta}</strong></span></div>`;
             }
-            divRevision.innerHTML = `<p><span class="pregunta-num">Pregunta ${i + 1}:</span> ${pregunta.pregunta}</p>${feedbackHTML}`;
+            // Añadir imagenHTML al innerHTML
+            divRevision.innerHTML = `<p><span class="pregunta-num">Pregunta ${i + 1}:</span> ${pregunta.pregunta}</p>${imagenHTML}${feedbackHTML}`;
             revisionContainer.appendChild(divRevision);
         });
     }
