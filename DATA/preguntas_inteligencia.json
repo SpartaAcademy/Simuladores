@@ -406,5 +406,305 @@
     "imagen": "IMG/figura33.png",
     "opciones": ["-;X;:", "-;:;X", "+;:;X", ";-;X", "X; :; +"],
     "respuesta": "-;:;X"
+  },
+  {
+    "pregunta": "Selecciona la respuesta correcta",
+    "imagen": "IMG/figura34.png",
+    "opciones": ["1", "2", "3", "4", "5", "6"],
+    "respuesta": "5"
+  },
+  {
+    "pregunta": "Selecciona la respuesta correcta",
+    "imagen": "IMG/figura35.png",
+    "opciones": ["1", "2", "3", "4", "5", "6", "7", "8"],
+    "respuesta": "3"
+  },
+  {
+    "pregunta": "Selecciona la respuesta correcta",
+    "imagen": "IMG/figura36.png",
+    "opciones": ["1", "2", "3", "4", "5", "6", "7", "8"],
+    "respuesta": "1"
+  },
+  {
+    "pregunta": "Selecciona la respuesta correcta",
+    "imagen": "IMG/figura37.png",
+    "opciones": ["1", "2", "3", "4", "5", "6"],
+    "respuesta": "4"
+  },
+  {
+    "pregunta": "Selecciona la respuesta correcta",
+    "imagen": "IMG/figura38.png",
+    "opciones": ["1", "2", "3", "4", "5", "6"],
+    "respuesta": "1"
+  },
+  {
+    "pregunta": "Selecciona la respuesta correcta",
+    "imagen": "IMG/figura39.png",
+    "opciones": ["1", "2", "3", "4", "5", "6", "7", "8"],
+    "respuesta": "5"
+  },
+  {
+    "pregunta": "Selecciona la respuesta correcta",
+    "imagen": "IMG/figura40.png",
+    "opciones": ["1", "2", "3", "4", "5", "6", "7", "8"],
+    "respuesta": "5"
+  },
+  {
+    "pregunta": "Selecciona la respuesta correcta",
+    "imagen": "IMG/figura41.png",
+    "opciones": ["1", "2", "3", "4", "5", "6", "7", "8"],
+    "respuesta": "8"
+  },
+  {
+    "pregunta": "Selecciona la respuesta correcta",
+    "imagen": "IMG/figura42.png",
+    "opciones": ["1", "2", "3", "4", "5", "6", "7", "8"],
+    "respuesta": "6"
+  },
+  {
+    "pregunta": "Selecciona la respuesta correcta",
+    "imagen": "IMG/figura43.png",
+    "opciones": ["1", "2", "3", "4", "5", "6"],
+    "respuesta": "5"
+  },
+  {
+    "pregunta": "Selecciona la respuesta correcta",
+    "imagen": "IMG/figura44.png",
+    "opciones": ["1", "2", "3", "4", "5", "6", "7", "8"],
+    "respuesta": "5"
+  },
+  {
+    "pregunta": "Selecciona la respuesta correcta",
+    "imagen": "IMG/figura45.png",
+    "opciones": ["1", "2", "3", "4", "5", "6", "7", "8"],
+    "respuesta": "8"
+  },
+  {
+    "pregunta": "Selecciona la respuesta correcta",
+    "imagen": "IMG/figura46.png",
+    "opciones": ["1", "2", "3", "4", "5", "6", "7", "8"],
+    "respuesta": "5"
+  },
+  {
+    "pregunta": "Selecciona la respuesta correcta",
+    "imagen": "IMG/figura47.png",
+    "opciones": ["1", "2", "3", "4", "5", "6"],
+    "respuesta": "5"
+  },
+  {
+    "pregunta": "Selecciona la respuesta correcta",
+    "imagen": "IMG/figura48.png",
+    "opciones": ["1", "2", "3", "4", "5", "6"],
+    "respuesta": "1"
+  },
+  {
+    "pregunta": "Selecciona la respuesta correcta",
+    "imagen": "IMG/figura49.png",
+    "opciones": ["1", "2", "3", "4", "5", "6", "7", "8"],
+    "respuesta": "6"
+  },
+  {
+    "pregunta": "Selecciona la respuesta correcta",
+    "imagen": "IMG/figura50.png",
+    "opciones": ["1", "2", "3", "4", "5", "6", "7", "8"],
+    "respuesta": "7"
+  },
+  {
+    "pregunta": "Selecciona la respuesta correcta",
+    "imagen": "IMG/figura51.png",
+    "opciones": ["1", "2", "3", "4", "5", "6"],
+    "respuesta": "6"
+  },
+  {
+    "pregunta": "Selecciona la respuesta correcta",
+    "imagen": "IMG/figura52.png",
+    "opciones": ["1", "2", "3", "4", "5", "6", "7", "8"],
+    "respuesta": "2"
+  },
+  {
+    "pregunta": "Selecciona la respuesta correcta",
+    "imagen": "IMG/figura53.png",
+    "opciones": ["1", "2", "3", "4", "5", "6"],
+    "respuesta": "3"
+  },
+  {
+    "pregunta": "Selecciona la respuesta correcta",
+    "imagen": "IMG/figura54.png",
+    "opciones": ["1", "2", "3", "4", "5", "6", "7", "8"],
+    "respuesta": "2"
+  },
+  {
+    "pregunta": "Selecciona la respuesta correcta",
+    "imagen": "IMG/figura55.png",
+    "opciones": ["1", "2", "3", "4", "5", "6"],
+    "respuesta": "3"
+  },
+  {
+    "pregunta": "Selecciona la respuesta correcta",
+    "imagen": "IMG/figura56.png",
+    "opciones": ["1", "2", "3", "4", "5", "6"],
+    "respuesta": "6"
+  },
+  {
+    "pregunta": "Selecciona la respuesta correcta",
+    "imagen": "IMG/figura57.png",
+    "opciones": ["1", "2", "3", "4", "5", "6", "7", "8"],
+    "respuesta": "1"
+  },
+  {
+    "pregunta": "Selecciona la respuesta correcta",
+    "imagen": "IMG/figura58.png",
+    "opciones": ["1", "2", "3", "4", "5", "6", "7", "8"],
+    "respuesta": "5"
+  },
+  {
+    "pregunta": "Selecciona la respuesta correcta",
+    "imagen": "IMG/figura59.png",
+    "opciones": ["1", "2", "3", "4", "5", "6"],
+    "respuesta": "1"
+  },
+  {
+    "pregunta": "Selecciona la respuesta correcta",
+    "imagen": "IMG/figura60.png",
+    "opciones": ["1", "2", "3", "4", "5", "6", "7", "8"],
+    "respuesta": "7"
+  },
+  {
+    "pregunta": "Selecciona la respuesta correcta",
+    "imagen": "IMG/figura61.png",
+    "opciones": ["1", "2", "3", "4", "5", "6", "7", "8"],
+    "respuesta": "4"
+  },
+  {
+    "pregunta": "Selecciona la respuesta correcta",
+    "imagen": "IMG/figura62.png",
+    "opciones": ["1", "2", "3", "4", "5", "6"],
+    "respuesta": "4"
+  },
+  {
+    "pregunta": "Selecciona la respuesta correcta",
+    "imagen": "IMG/figura63.png",
+    "opciones": ["1", "2", "3", "4", "5", "6"],
+    "respuesta": "5"
+  },
+  {
+    "pregunta": "Selecciona la respuesta correcta",
+    "imagen": "IMG/figura64.png",
+    "opciones": ["1", "2", "3", "4", "5", "6", "7", "8"],
+    "respuesta": "7"
+  },
+  {
+    "pregunta": "Selecciona la respuesta correcta",
+    "imagen": "IMG/figura65.png",
+    "opciones": ["1", "2", "3", "4", "5", "6"],
+    "respuesta": "4"
+  },
+  {
+    "pregunta": "Selecciona la respuesta correcta",
+    "imagen": "IMG/figura66.png",
+    "opciones": ["1", "2",3, "4", "5", "6", "7", "8"],
+    "respuesta": "4"
+  },
+  {
+    "pregunta": "Selecciona la respuesta correcta",
+    "imagen": "IMG/figura67.png",
+    "opciones": ["1", "2", "3", "4", "5", "6", "7", "8"],
+    "respuesta": "3"
+  },
+  {
+    "pregunta": "Selecciona la respuesta correcta",
+    "imagen": "IMG/figura68.png",
+    "opciones": ["1", "2", "3", "4", "5", "6"],
+    "respuesta": "4"
+  },
+  {
+    "pregunta": "Selecciona la respuesta correcta",
+    "imagen": "IMG/figura69.png",
+    "opciones": ["1", "2", "3", "4", "5", "6", "7", "8"],
+    "respuesta": "2"
+  },
+  {
+    "pregunta": "Selecciona la respuesta correcta",
+    "imagen": "IMG/figura70.png",
+    "opciones": ["1", "2", "3", "4", "5", "6"],
+    "respuesta": "3"
+  },
+  {
+    "pregunta": "Selecciona la respuesta correcta",
+    "imagen": "IMG/figura71.png",
+    "opciones": ["1", "2", "3", "4", "5", "6", "7", "8"],
+    "respuesta": "1"
+  },
+  {
+    "pregunta": "Selecciona la respuesta correcta",
+    "imagen": "IMG/figura72.png",
+    "opciones": ["1", "2", "3", "4", "5", "6", "7", "8"],
+    "respuesta": "7"
+  },
+  {
+    "pregunta": "Selecciona la respuesta correcta",
+    "imagen": "IMG/figura73.png",
+    "opciones": ["1", "2", "3", "4", "5", "6", "7", "8"],
+    "respuesta": "3"
+  },
+  {
+    "pregunta": "Selecciona la respuesta correcta",
+    "imagen": "IMG/figura74.png",
+    "opciones": ["1", "2", "3", "4", "5", "6", "7", "8"],
+    "respuesta": "6"
+  },
+  {
+    "pregunta": "Selecciona la respuesta correcta",
+    "imagen": "IMG/figura75.png",
+    "opciones": ["1", "2", "3", "4", "5", "6"],
+    "respuesta": "2"
+  },
+  {
+    "pregunta": "Selecciona la respuesta correcta",
+    "imagen": "IMG/figura76.png",
+    "opciones": ["1", "2", "3", "4", "5", "6"],
+    "respuesta": "1"
+  },
+  {
+    "pregunta": "Selecciona la respuesta correcta",
+    "imagen": "IMG/figura77.png",
+    "opciones": ["1", "2", "3", "4", "5", "6", "7", "8"],
+    "respuesta": "1"
+  },
+  {
+    "pregunta": "Selecciona la respuesta correcta",
+    "imagen": "IMG/figura78.png",
+    "opciones": ["1", "2", "3", "4", "5", "6", "7", "8"],
+    "respuesta": "3"
+  },
+  {
+    "pregunta": "Selecciona la respuesta correcta",
+    "imagen": "IMG/figura79.png",
+    "opciones": ["1", "2", "3", "4", "5", "6", "7", "8"],
+    "respuesta": "2"
+  },
+  {
+    "pregunta": "Selecciona la respuesta correcta",
+    "imagen": "IMG/figura80.png",
+    "opciones": ["1", "2", "3", "4", "5", "6", "7", "8"],
+    "respuesta": "4"
+  },
+  {
+    "pregunta": "Selecciona la respuesta correcta",
+    "imagen": "IMG/figura81.png",
+    "opciones": ["1", "2", "3", "4", "5", "6"],
+    "respuesta": "2"
+  },
+  {
+    "pregunta": "Selecciona la respuesta correcta",
+    "imagen": "IMG/figura82.png",
+    "opciones": ["1", "2", "3", "4", "5", "6", "7", "8"],
+    "respuesta": "6"
+  },
+  {
+    "pregunta": "Selecciona la respuesta correcta",
+    "imagen": "IMG/figura83.png",
+    "opciones": ["1", "2", "3", "4", "5", "6", "7", "8"],
+    "respuesta": "6"
   }
 ]
