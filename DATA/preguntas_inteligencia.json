@@ -1,1 +1,261 @@
-[]
+[
+  {
+    "pregunta": "¿Qué figura de la derecha continúa la serie de la izquierda?",
+    "imagen": "https://i.imgur.com/8QGj3tS.png",
+    "opciones": ["B", "C", "E", "A", "D"],
+    "respuesta": "C"
+  },
+  {
+    "pregunta": "¿Qué figura de la derecha continúa la serie de la izquierda?",
+    "imagen": "https://i.imgur.com/E8WbLq8.png",
+    "opciones": ["C", "D", "A", "B", "E"],
+    "respuesta": "E"
+  },
+  {
+    "pregunta": "¿En qué grupo de letras hay una que no está en los otros grupos?",
+    "opciones": ["TFDPY", "PFIDT", "FDIPT", "DFTPI", "FIPDT"],
+    "respuesta": "TFDPY"
+  },
+  {
+    "pregunta": "¿Qué palabra significa lo mismo que la escrita en mayúscula? INSTRUCTOR:",
+    "opciones": ["Descuidado", "Profesor", "Experto", "Ayudante", "Capataz"],
+    "respuesta": "Profesor"
+  },
+  {
+    "pregunta": "¿Qué palabra tiene dos vocales iguales?",
+    "opciones": ["Chisquero", "Tristeza", "Fastidio", "Recuadro", "Cateto"],
+    "respuesta": "Fastidio"
+  },
+  {
+    "pregunta": "¿Qué palabra continúa la serie si la primera y la última letras son siempre las mismas? RARO REMO RITO ROTO ...",
+    "opciones": ["Rojo", "Rusa", "Reto", "Rulo", "Rasa"],
+    "respuesta": "Rulo"
+  },
+  {
+    "pregunta": "¿Qué palabra significa lo mismo que la escrita en mayúscula? AVIESO:",
+    "opciones": ["Perverso", "Agrio", "Oblicuo", "Anciano", "Avispado"],
+    "respuesta": "Perverso"
+  },
+  {
+    "pregunta": "¿Qué cifra continúa la serie? 17 18 20 15 16 18 13 14 ...",
+    "opciones": ["18", "16", "15", "21", "14"],
+    "respuesta": "16"
+  },
+  {
+    "pregunta": "¿Qué palabra completa mejor la frase siguiente? TEMAPERATURA es a TERMÓMETRO como VIENTO es a ...",
+    "opciones": ["Anemómetro", "Barómetro", "Pluviómetro", "Goniometro", "Cronómetro"],
+    "respuesta": "Anemómetro"
+  },
+  {
+    "pregunta": "¿Qué par de palabras completa mejor la frase, poniendo la 1ra al principio y la 2da al final? ... es a SOL como SAL es a ....",
+    "opciones": ["LOS - LAS", "CALOR - MAR", "AGUA - MAR", "LUZ - SABOR", "FRIO - ALIMENTO"],
+    "respuesta": "LUZ - SABOR"
+  },
+  {
+    "pregunta": "¿Qué palabra completa mejor la frase? CABELLO es a CALVICIE como LLUVIA es a ...",
+    "opciones": ["Sequia", "Mar", "Rio", "Abundancia", "Desborde"],
+    "respuesta": "Sequia"
+  },
+  {
+    "pregunta": "¿Qué palabra significa lo mismo que la escrita en mayúscula? ADQUIRIDO",
+    "opciones": ["Eludir", "Abandonado", "Deseado", "Obtenido", "Arado"],
+    "respuesta": "Obtenido"
+  },
+  {
+    "pregunta": "¿Qué figura de la derecha continúa la serie de la izquierda?",
+    "imagen": "https://i.imgur.com/hR6wW7C.png",
+    "opciones": ["C", "B", "E", "D", "A"],
+    "respuesta": "D"
+  },
+  {
+    "pregunta": "¿Qué cifra continúa la serie? 21 19 17 20 23 19 15 ....",
+    "opciones": ["15", "10", "20", "11", "16"],
+    "respuesta": "20"
+  },
+  {
+    "pregunta": "¿Qué palabra es más general o comprende a las otras cuatro?",
+    "opciones": ["Triciclo", "Ambulancia", "Automóvil", "Vehículo", "Bicicleta"],
+    "respuesta": "Vehículo"
+  },
+  {
+    "pregunta": "¿Qué palabra completa mejor la frase siguiente? CARNIVORO es a ANIMALES como VEGETARIANO es a ....",
+    "opciones": ["Reparación", "Salud", "Verdura", "Naufragio", "Omnivoro"],
+    "respuesta": "Verdura"
+  },
+  {
+    "pregunta": "¿Qué figura de la derecha continúa la serie de la izquierda?",
+    "imagen": "https://i.imgur.com/D4sT1P1.png",
+    "opciones": ["B", "E", "A", "D", "C"],
+    "respuesta": "C"
+  },
+  {
+    "pregunta": "¿Qué palabra significa lo mismo que Renta?",
+    "opciones": ["Variable", "Productos", "Impuestos", "Gastos", "Ingresos"],
+    "respuesta": "Impuestos"
+  },
+  {
+    "pregunta": "¿Qué palabra significa lo mismo que la escrita en mayúscula? OBVIAR:",
+    "opciones": ["Impugnar", "Encontrar", "Disponer", "Evitar", "Acelerar"],
+    "respuesta": "Evitar"
+  },
+  {
+    "pregunta": "¿Qué palabra significa lo contrario que la escrita en mayúscula? PULCRO:",
+    "opciones": ["Hostil", "Elegante", "Rigido", "Culto", "Sucio"],
+    "respuesta": "Sucio"
+  },
+  {
+    "pregunta": "¿Qué par de palabras completa mejor la frase, poniendo la 1ra al principio y la 2da al final? ... es a ÓPTICA como SONIDO es a ...",
+    "opciones": ["GAFA - MÚSICA", "MÚSICA - VISTA", "OJO - SILENCIO", "COLOR - SABOR", "LUZ - ACÚSTICA"],
+    "respuesta": "LUZ - ACÚSTICA"
+  },
+  {
+    "pregunta": "¿En qué grupo hay una letra que no está en los otros grupos?",
+    "opciones": ["NXCQS", "QCSNX", "SQNXC", "SNQXC", "NCXOZ"],
+    "respuesta": "NCXOZ"
+  },
+  {
+    "pregunta": "¿Qué palabra es más general o comprende a las otras cuatro?",
+    "opciones": ["Mesa", "Mueble", "Estantería", "Cama", "Silla"],
+    "respuesta": "Mueble"
+  },
+  {
+    "pregunta": "¿Qué figura de la derecha continúa la serie de la izquierda?",
+    "imagen": "https://i.imgur.com/pS3qF8t.png",
+    "opciones": ["A", "B", "C", "D", "E"],
+    "respuesta": "D"
+  },
+  {
+    "pregunta": "¿Qué cifra continúa la serie? 19 16 20 15 21 14 22 ....",
+    "opciones": ["13", "9", "10", "17", "23"],
+    "respuesta": "13"
+  },
+  {
+    "pregunta": "¿Qué figura de la derecha continúa la serie de la izquierda?",
+    "imagen": "https://i.imgur.com/V7R3iYJ.png",
+    "opciones": ["B", "C", "A", "E", "D"],
+    "respuesta": "C"
+  },
+  {
+    "pregunta": "¿Qué palabra significa lo contrario que la escrita en mayúscula? RAUDO:",
+    "opciones": ["Remiso", "Llano", "Rápido", "Raro", "Lento"],
+    "respuesta": "Lento"
+  },
+  {
+    "pregunta": "¿Qué cifra continúa la serie? 8 6 4 12 10 8 24 ....",
+    "opciones": ["24", "18", "22", "15", "20"],
+    "respuesta": "22"
+  },
+  {
+    "pregunta": "¿Qué cifra continúa la serie? 15 19 23 28 33 39 ....",
+    "opciones": ["41", "46", "45", "44", "43"],
+    "respuesta": "45"
+  },
+  {
+    "pregunta": "¿Qué cifra continúa la serie? 17 18 20 15 16 18 13 ....",
+    "opciones": ["14", "15", "16", "18", "21"],
+    "respuesta": "14"
+  },
+  {
+    "pregunta": "¿Qué palabra significa lo mismo que la escrita en mayúscula? RIESGO:",
+    "opciones": ["Oportunidad", "Impuesto", "Elección", "Enfriar", "Peligro"],
+    "respuesta": "Peligro"
+  },
+  {
+    "pregunta": "¿Qué palabra significa lo mismo que la escrita en mayúscula? SUPLANTAR:",
+    "opciones": ["Sobreentender", "Andar", "Replantar", "Sustituir", "Injertar"],
+    "respuesta": "Sustituir"
+  },
+  {
+    "pregunta": "¿Qué palabra continúa la serie si la primera y la última letras son siempre las mismas? PANA PERA PILA PODA ...",
+    "opciones": ["Puma", "Poca", "Puño", "Pela", "Pica"],
+    "respuesta": "Puma"
+  },
+  {
+    "pregunta": "Seleccione la palabra que mejor completa la frase: Lo que usted dice ... nuestra confianza.",
+    "opciones": ["DESEA", "MERECE", "TEME", "PIERDE", "RECUPERA"],
+    "respuesta": "MERECE"
+  },
+  {
+    "pregunta": "¿Qué cifra continúa la serie? 4 8 6 12 10 20 18 ....",
+    "opciones": ["16", "34", "36", "68", "72"],
+    "respuesta": "36"
+  },
+  {
+    "pregunta": "¿Qué figura de la derecha continúa la serie de la izquierda?",
+    "imagen": "https://i.imgur.com/K5b8O2M.png",
+    "opciones": ["C", "A", "D", "E", "B"],
+    "respuesta": "A"
+  },
+  {
+    "pregunta": "¿Qué palabra tiene dos vocales o dos consonantes juntas?",
+    "opciones": ["Tiburón", "Enojoso", "Movedizo", "Acalorar", "Picaresca"],
+    "respuesta": "Picaresca"
+  },
+  {
+    "pregunta": "¿Qué palabra completa mejor la frase siguiente? COCHE es a VOLANTE como BARCO es a ...",
+    "opciones": ["Timón", "Ancla", "Brújula", "Sextante", "Proa"],
+    "respuesta": "Timón"
+  },
+  {
+    "pregunta": "¿Qué palabra completa mejor la frase siguiente? LIBRO es a BIBLIOTECA como DIARIO es a ...",
+    "opciones": ["Hemeroteca", "Quiosco", "Revista", "Contabilidad", "Pinacoteca"],
+    "respuesta": "Hemeroteca"
+  },
+  {
+    "pregunta": "¿Qué cifra continúa la serie? 7 14 9 18 13 26 ...",
+    "opciones": ["19", "14", "40", "27", "21"],
+    "respuesta": "21"
+  },
+  {
+    "pregunta": "¿Qué figura de la derecha continúa la serie de la izquierda?",
+    "imagen": "https://i.imgur.com/zWc9H6W.png",
+    "opciones": ["B", "D", "E", "A", "C"],
+    "respuesta": "A"
+  },
+  {
+    "pregunta": "¿En qué grupo de letras hay una que no está en los otros grupos?",
+    "opciones": ["GMHRL", "HGMRL", "GHMRI", "GMRHL", "RGLHM"],
+    "respuesta": "GHMRI"
+  },
+  {
+    "pregunta": "¿Qué palabra significa lo mismo que la escrita en mayúscula? PRESEDENTE:",
+    "opciones": ["Previo", "Anterior", "Mejor", "Sermón", "Siguiente"],
+    "respuesta": "Previo"
+  },
+  {
+    "pregunta": "¿Qué par de palabras completa mejor la frase, poniendo la 1ra al principio y la 2da al final? ... es a BISTURÍ como ESCULTOR es a .....",
+    "opciones": ["CORTE - ARTE", "OPERACIÓN - ESTATUA", "CIRUJANO - CINCEL", "MANO - BARRO", "MÉDICO - ARQUITECTO"],
+    "respuesta": "CIRUJANO - CINCEL"
+  },
+  {
+    "pregunta": "¿Qué par de palabras completa mejor la frase, poniendo la 1ra al principio y la 2da al final? ... es a VERTICAL como VIGA es a ...",
+    "opciones": ["ESCALÓN - DINTEL", "VÉRTICE - CEMENTO", "LIMA - CONSTRUCCIÓN", "COLUMNA - HORIZONTAL", "POSICIÓN - COLUMNA"],
+    "respuesta": "COLUMNA - HORIZONTAL"
+  },
+  {
+    "pregunta": "¿Qué par de palabras completa mejor la frase, poniendo la 1ra al principio y la 2da al final? ... es a JUEGO como BÉLICO es a .....",
+    "opciones": ["LÚDICO - GUERRA", "DEPORTE - AUTORIDAD", "BATALLA - TRIUNFO", "MUÑECA - ENEMIGO", "DIVERSION - ARMA"],
+    "respuesta": "LÚDICO - GUERRA"
+  },
+  {
+    "pregunta": "¿Qué par de palabras completa mejor la frase, poniendo la 1ra al principio y la 2da al final? ... es a RIO como SER es a ...",
+    "opciones": ["OIR - RES", "FUENTE - RES", "ARROYO - EBRO", "MONTAÑA - EXISTIR", "AGUA - PERSONA"],
+    "respuesta": "OIR - RES"
+  },
+  {
+    "pregunta": "¿Qué palabra completa mejor la frase siguiente? MÁQUINA es a PIEZA como PALABRA es a ...",
+    "opciones": ["Letra", "Frase", "Expresión", "Escritura", "Lenguaje"],
+    "respuesta": "Letra"
+  },
+  {
+    "pregunta": "¿Qué figura de la derecha continúa la serie de la izquierda?",
+    "imagen": "https://i.imgur.com/3jG5X9U.png",
+    "opciones": ["C", "A", "D", "E", "B"],
+    "respuesta": "E"
+  },
+  {
+    "pregunta": "Seleccione la palabra que mejor completa la frase: Aunque era jóven, hizo notables ...",
+    "opciones": ["PROGRESOS", "CONOCIMIENTOS", "SABIDURÍAS", "CAPACIDADES", "VELOCIDADES"],
+    "respuesta": "PROGRESOS"
+  }
+]
