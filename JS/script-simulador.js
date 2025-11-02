@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
             lobbyTiempoTexto = "3 Horas (180 Minutos)";
             TOTAL_PREGUNTAS_QUIZ = 200;
         } else if (materiaKey === 'personalidad' || materiaKey === 'inteligencia') {
-            quizDurationSeconds = 60 * 60; // 1 hora por defecto para psico
+            quizDurationSeconds = 60 * 60;
             lobbyTiempoTexto = "1 Hora (60 Minutos)";
             TOTAL_PREGUNTAS_QUIZ = 50;
         } else {
@@ -88,16 +88,55 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const lobbyTiempoDisplay = document.getElementById('lobby-tiempo');
         if (lobbyTiempoDisplay) lobbyTiempoDisplay.textContent = lobbyTiempoTexto;
-        if (lobbyPreguntasDisplay) lobbyPreguntasDisplay.textContent = (materiaKey === 'general') ? '200' : '50'; // Ajuste inicial
+        if (lobbyPreguntasDisplay) lobbyPreguntasDisplay.textContent = (materiaKey === 'general') ? '200' : '50';
 
+        // Deshabilitar el botón de comenzar hasta que las imágenes estén listas
+        comenzarBtn.disabled = true;
+        comenzarBtn.textContent = 'Cargando recursos...';
+        
         cargarPreguntas(materiaKey);
 
-        comenzarBtn.addEventListener('click', iniciarIntento);
+        // Los listeners de botones se mueven a después de la carga
         siguienteBtn.addEventListener('click', irPreguntaSiguiente);
         terminarIntentoBtn.addEventListener('click', confirmarTerminarIntento);
         reiniciarBtn.addEventListener('click', () => { window.location.href = 'index.html'; });
         cancelarModalBtn.addEventListener('click', () => { modalOverlay.style.display = 'none'; });
         confirmarModalBtn.addEventListener('click', () => { modalOverlay.style.display = 'none'; finalizarIntento(false); });
+    }
+
+    // --- (MODIFICADO) FUNCIÓN DE PRECARGA ---
+    async function precargarImagenes(listaPreguntas) {
+        if (!listaPreguntas || listaPreguntas.length === 0) {
+            return Promise.resolve(); // Resuelve inmediatamente si no hay nada que cargar
+        }
+
+        const promesasDeImagenes = [];
+        let urlsUnicas = new Set(); // Para no cargar la misma imagen dos veces
+
+        listaPreguntas.forEach(pregunta => {
+            if (pregunta.imagen) {
+                urlsUnicas.add(pregunta.imagen);
+            }
+        });
+
+        if (urlsUnicas.size === 0) {
+            return Promise.resolve(); // Resuelve si no hay imágenes
+        }
+
+        console.log(`Precargando ${urlsUnicas.size} imágenes únicas...`);
+
+        urlsUnicas.forEach(url => {
+            const promesa = new Promise((resolve, reject) => {
+                const img = new Image();
+                img.src = url;
+                img.onload = resolve; // Resuelve la promesa cuando la imagen carga
+                img.onerror = reject; // Rechaza si la imagen falla (ej. 404)
+            });
+            promesasDeImagenes.push(promesa);
+        });
+
+        // Espera a que TODAS las imágenes se hayan descargado
+        return Promise.all(promesasDeImagenes);
     }
 
     // --- 4. LÓGICA DE CARGA Y PREPARACIÓN ---
@@ -120,6 +159,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const resultados = await Promise.all(promesas);
 
             let totalPreguntasCargadas = 0;
+            let todasLasPreguntasParaPrecarga = [];
+
             resultados.forEach(res => {
                  if (materia === 'general' && res.preguntas.length < 50) {
                      console.warn(`Advertencia: La materia '${res.materia}' tiene solo ${res.preguntas.length} preguntas (se necesitan 50 para el modo General). Se usarán todas.`);
@@ -129,16 +170,36 @@ document.addEventListener('DOMContentLoaded', () => {
                  }
                 preguntasPorMateria[res.materia] = res.preguntas;
                 totalPreguntasCargadas += res.preguntas.length;
+                todasLasPreguntasParaPrecarga = todasLasPreguntasParaPrecarga.concat(res.preguntas);
             });
 
              if (totalPreguntasCargadas === 0) {
                  throw new Error("No se cargaron preguntas de ninguna materia relevante.");
              }
 
+             // (MODIFICADO) Espera a que las imágenes se carguen
+             await precargarImagenes(todasLasPreguntasParaPrecarga);
+             
+             // (MODIFICADO) Habilita el botón DESPUÉS de cargar todo
+             console.log("¡Imágenes precargadas con éxito!");
+             comenzarBtn.disabled = false;
+             comenzarBtn.textContent = 'Comenzar Intento';
+             // Añade el listener aquí para que solo funcione después de la carga
+             comenzarBtn.addEventListener('click', iniciarIntento);
+
+
         } catch (error) {
-            console.error("Error cargando preguntas:", error);
-            alert(`Error al cargar las preguntas. ${error.message || ''}`);
-            window.location.href = 'index.html';
+            console.error("Error cargando recursos:", error);
+            if (materia === 'inteligencia' && !error.message.includes('Fallo al cargar')) {
+                 // Si es inteligencia y el JSON está vacío (a propósito), igual habilita
+                 comenzarBtn.disabled = false;
+                 comenzarBtn.textContent = 'Comenzar Intento';
+                 comenzarBtn.addEventListener('click', iniciarIntento);
+            } else {
+                alert(`Error al cargar las preguntas o imágenes. ${error.message || ''}`);
+                comenzarBtn.textContent = 'Error al Cargar';
+                // window.location.href = 'index.html'; // Opcional: redirigir
+            }
         }
     }
 
@@ -163,9 +224,8 @@ document.addEventListener('DOMContentLoaded', () => {
             TOTAL_PREGUNTAS_QUIZ = contadorPreguntas;
 
         } else {
-             let numPreguntasDeseadas = 50; // Default
+             let numPreguntasDeseadas = 50;
              if (materiaKey === 'matematicas') numPreguntasDeseadas = 50;
-             if (materiaKey === 'general') numPreguntasDeseadas = 200; // Aunque ya se manejó arriba, por si acaso
 
              if (preguntasPorMateria[materiaKey] && preguntasPorMateria[materiaKey].length > 0) {
                 const preguntasBarajadas = [...preguntasPorMateria[materiaKey]].sort(() => Math.random() - 0.5);
@@ -187,7 +247,14 @@ document.addEventListener('DOMContentLoaded', () => {
     function iniciarIntento() {
         prepararQuiz();
         if (preguntasQuiz.length === 0) { 
-            alert("No se cargaron preguntas para iniciar. Verifique los archivos .json.");
+            const params = new URLSearchParams(window.location.search);
+            const materiaKey = params.get('materia');
+            if(materiaKey === 'inteligencia' && (!preguntasPorMateria['inteligencia'] || preguntasPorMateria['inteligencia'].length === 0)) {
+                alert("El simulador de Inteligencia aún no está disponible. Próximamente.");
+                window.location.href = 'index.html';
+            } else {
+                alert("No se cargaron preguntas para iniciar. Verifique los archivos .json.");
+            }
             return; 
         }
         lobbyContainer.style.display = 'none';
@@ -224,7 +291,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // (MODIFICADO para mostrar imágenes)
     function mostrarPregunta(indice) {
         if (indice < 0 || indice >= TOTAL_PREGUNTAS_QUIZ) return;
         indicePreguntaActual = indice;
@@ -237,30 +303,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         preguntaNumero.textContent = `Pregunta ${indice + 1}`;
         
-        // --- INICIO DE MODIFICACIÓN ---
-        // Limpia el contenido anterior
-        preguntaTexto.innerHTML = ''; 
-
-        // 1. Añade el texto de la pregunta
-        const texto = document.createElement('span');
-        texto.textContent = pregunta.pregunta;
-        preguntaTexto.appendChild(texto);
-
-        // 2. Si hay una clave 'imagen', añade la imagen
+        let preguntaHTML = `<span>${pregunta.pregunta}</span>`;
         if (pregunta.imagen) {
-            const img = document.createElement('img');
-            img.src = pregunta.imagen;
-            img.alt = "Imagen de la pregunta";
-            img.className = "pregunta-imagen"; // Añadimos una clase para estilizar
-            preguntaTexto.appendChild(img);
+            preguntaHTML += `<img src="${pregunta.imagen}" alt="Imagen de la pregunta" class="pregunta-imagen">`;
         }
-        // --- FIN DE MODIFICACIÓN ---
+        preguntaTexto.innerHTML = preguntaHTML;
 
         opcionesContainer.innerHTML = '';
         pregunta.opciones.forEach(opcion => {
             const btn = document.createElement('button');
             btn.className = 'opcion-btn';
-            btn.innerHTML = opcion; // Usar innerHTML por si las opciones tienen formato
+            btn.innerHTML = opcion;
             if (respuestasUsuario[indice] === opcion) btn.classList.add('selected');
             btn.addEventListener('click', () => seleccionarRespuesta(opcion));
             opcionesContainer.appendChild(btn);
@@ -357,7 +410,6 @@ document.addEventListener('DOMContentLoaded', () => {
             let feedbackHTML = '';
             const puntosCorrecta = Math.round(puntosPorPregunta);
 
-            // (MODIFICADO) Añadir la imagen también a la revisión
             let imagenHTML = '';
             if (pregunta.imagen) {
                 imagenHTML = `<img src="${pregunta.imagen}" alt="Imagen de la pregunta" class="pregunta-imagen-revision">`;
@@ -370,7 +422,6 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 feedbackHTML = `<p class="respuesta-usuario">Tu respuesta: ${respUser}</p><div class="feedback incorrecta">INCORRECTA (0 Puntos)<span>La respuesta correcta era: <strong>${respCorrecta}</strong></span></div>`;
             }
-            // Añadir imagenHTML al innerHTML
             divRevision.innerHTML = `<p><span class="pregunta-num">Pregunta ${i + 1}:</span> ${pregunta.pregunta}</p>${imagenHTML}${feedbackHTML}`;
             revisionContainer.appendChild(divRevision);
         });
