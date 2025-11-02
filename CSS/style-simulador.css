@@ -6,9 +6,19 @@ body { font-family: 'Work Sans', Arial, sans-serif; background-color: #f0f2f5; c
 /* --- HEADER Y FOOTER (Compartidos) --- */
 header, footer { background-color: #1a1a1a; color: white; padding: 12px 25px; z-index: 10; }
 header { display: flex; align-items: center; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); position: relative; }
+
+/* (NUEVO) Estilos para el enlace del header */
+.header-main-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit; /* Hereda el color (blanco) del header */
+    flex-grow: 1; /* Ocupa el espacio y empuja el user-info */
+}
+
 .header-logo { display: flex; align-items: center; }
 .header-logo img { height: 55px; margin-right: 20px; }
-.header-titulo { flex-grow: 1; }
+.header-titulo { /* flex-grow: 1; -> se movió a .header-main-link */ }
 .header-titulo h1 { font-family: 'Teko', sans-serif; font-size: 1.8rem; font-weight: 600; line-height: 1; }
 .header-titulo h2 { font-family: 'Work Sans', sans-serif; font-size: 0.9rem; font-weight: 400; color: #ccc; }
 footer { color: #aaa; text-align: center; font-size: 0.85rem; line-height: 1.6; padding: 25px; }
@@ -26,13 +36,14 @@ main { flex: 1; padding: 2rem; position: relative; }
 #lobby-container ul { list-style-position: inside; margin-bottom: 1rem; line-height: 1.7; }
 #comenzar-btn { display: block; width: 100%; padding: 1rem; font-size: 1.2rem; font-weight: 700; background-color: #b22222; color: white; border: none; border-radius: 8px; cursor: pointer; transition: background-color 0.3s; margin-top: 2rem; }
 #comenzar-btn:hover { background-color: #8B0000; }
+#comenzar-btn:disabled { background-color: #ccc; border-color: #ccc; cursor: not-allowed; } /* Estilo para botón deshabilitado */
 
 /* --- PANTALLA 2: SIMULADOR --- */
 #simulador-container { width: 100%; max-width: 1200px; display: none; grid-template-columns: 1fr 300px; gap: 2rem; align-items: flex-start; margin: 0 auto; }
 .quiz-col-izquierda { background-color: white; border-radius: 12px; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); border-top: 5px solid #b22222; padding: 2.5rem; }
 .pregunta-header { margin-bottom: 2rem; }
 .pregunta-num-tag { display: inline-block; background-color: #b22222; color: white; padding: 0.3rem 0.8rem; border-radius: 5px; font-size: 0.9rem; font-weight: 700; margin-bottom: 1rem; }
-#pregunta-texto { font-size: 1.5rem; font-weight: 600; line-height: 1.5; display: block; /* Para que el span y la img se apilen */ }
+#pregunta-texto { font-size: 1.5rem; font-weight: 600; line-height: 1.5; display: block; }
 #opciones-container { display: grid; grid-template-columns: 1fr; gap: 1rem; margin-bottom: 2rem; }
 .opcion-btn { padding: 1rem; font-size: 1.1rem; border: 2px solid #ddd; border-radius: 8px; background-color: #fdfdfd; cursor: pointer; transition: all 0.2s ease-in-out; text-align: left; width: 100%; line-height: 1.5; }
 .opcion-btn:hover { background-color: #f5f5f5; border-color: #b22222; }
@@ -65,9 +76,19 @@ main { flex: 1; padding: 2rem; position: relative; }
 .estadisticas-grid h4 { font-family: 'Teko', sans-serif; font-size: 1.5rem; color: #555; }
 .estadisticas-grid p { font-size: 2rem; font-weight: 700; color: #b22222; }
 #resultados-container hr { border: 0; border-top: 1px solid #eee; margin: 2rem 0; }
+
+/* (MODIFICADO) Estilos para botones de revisión */
 .revision-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
 .revision-header h3 { font-family: 'Teko', sans-serif; font-size: 2rem; }
-#reiniciar-btn { padding: 0.7rem 1.5rem; font-size: 1rem; font-weight: 600; border: none; border-radius: 8px; cursor: pointer; background-color: #b22222; color: white; }
+.revision-botones { display: flex; gap: 1rem; } /* Contenedor para botones */
+
+#retry-btn, #reiniciar-btn { padding: 0.7rem 1.5rem; font-size: 1rem; font-weight: 600; border: none; border-radius: 8px; cursor: pointer; transition: background-color 0.2s; }
+#reiniciar-btn { background-color: #b22222; color: white; }
+#reiniciar-btn:hover { background-color: #8B0000; }
+#retry-btn { background-color: #f0f0f0; border: 1px solid #ccc; color: #333; }
+#retry-btn:hover { background-color: #e0e0e0; }
+/* --- Fin Modificación --- */
+
 .revision-pregunta { border: 1px solid #ddd; border-radius: 8px; margin-bottom: 1rem; padding: 1.5rem; }
 .revision-pregunta p { font-size: 1.1rem; line-height: 1.6; }
 .revision-pregunta .pregunta-num { font-weight: 700; margin-right: 0.5rem; }
@@ -119,27 +140,9 @@ main { flex: 1; padding: 2rem; position: relative; }
 .mobile-only { display: none; }
 .desktop-only { display: flex; }
 
-/* --- (NUEVO) ESTILOS PREGUNTA CON IMAGEN --- */
-.pregunta-imagen {
-    max-width: 100%; /* Asegura que la imagen sea responsive */
-    height: auto;
-    margin-top: 1.5rem; /* Espacio entre el texto y la imagen */
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    display: block; /* Asegura que sea un bloque */
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.pregunta-imagen-revision {
-    max-width: 400px; /* Tamaño más pequeño para la revisión */
-    width: 100%;
-    height: auto;
-    margin-top: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    display: block;
-}
+/* --- ESTILOS PREGUNTA CON IMAGEN --- */
+.pregunta-imagen { max-width: 100%; height: auto; margin-top: 1.5rem; border: 1px solid #ddd; border-radius: 8px; display: block; margin-left: auto; margin-right: auto; }
+.pregunta-imagen-revision { max-width: 400px; width: 100%; height: auto; margin-top: 1rem; border: 1px solid #ddd; border-radius: 8px; display: block; }
 
 /* --- Media Queries --- */
 @media (max-width: 900px) {
