@@ -752,7 +752,7 @@
   {
     "pregunta": "El resultado de la suma 1.995 + 1.995 es igual a:",
     "opciones": ["3.99", "3.95", "3990", "3991"],
-    "respuesta": "3990"
+    "respuesta": "3.99"
   },
   {
     "pregunta": "El resultado de la suma 5.19 + 51.9 es igual a:",
