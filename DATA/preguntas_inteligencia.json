@@ -110,8 +110,8 @@
   },
   {
     "pregunta": "¿En qué grupo hay una letra que no está en los otros grupos?",
-    "opciones": ["NXCQS", "QCSNX", "SQNXC", "SNQXC", "NCXOZ"],
-    "respuesta": "NCXOZ"
+    "opciones": ["NXCQS", "QCSNX", "SQNXC", "SNQXC", "NCXQZ"],
+    "respuesta": "NCXQZ"
   },
   {
     "pregunta": "¿Qué palabra es más general o comprende a las otras cuatro?",
