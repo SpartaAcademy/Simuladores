@@ -6,9 +6,19 @@ body { font-family: 'Work Sans', Arial, sans-serif; background-color: #f0f2f5; c
 /* --- HEADER Y FOOTER (Compartidos) --- */
 header, footer { background-color: #1a1a1a; color: white; padding: 12px 25px; z-index: 10; }
 header { display: flex; align-items: center; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); position: relative; }
+
+/* (NUEVO) Estilos para el enlace del header */
+.header-main-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit; /* Hereda el color (blanco) del header */
+    flex-grow: 1; /* Ocupa el espacio y empuja el user-info */
+}
+
 .header-logo { display: flex; align-items: center; }
 .header-logo img { height: 55px; margin-right: 20px; }
-.header-titulo { flex-grow: 1; }
+.header-titulo { /* flex-grow: 1; -> se movió a .header-main-link */ }
 .header-titulo h1 { font-family: 'Teko', sans-serif; font-size: 1.8rem; font-weight: 600; line-height: 1; }
 .header-titulo h2 { font-family: 'Work Sans', sans-serif; font-size: 0.9rem; font-weight: 400; color: #ccc; }
 footer { color: #aaa; text-align: center; font-size: 0.85rem; line-height: 1.6; padding: 25px; }
@@ -24,13 +34,12 @@ main { flex: 1; padding: 2rem; position: relative; display: flex; align-items: c
 /* --- CONTENEDOR DE SELECCIÓN --- */
 .seleccion-container { background-color: white; padding: 2.5rem 3rem; border-radius: 12px; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); width: 100%; max-width: 800px; text-align: center; position: relative; z-index: 1; border-top: 5px solid #b22222; }
 
-/* (NUEVO) Estilo para cada sección */
+/* Encabezados de la sección académica */
 .simulador-section {
     margin-top: 2rem;
     padding-top: 2rem;
-    border-top: 2px solid #f0f0f0; /* Línea divisoria */
+    border-top: 2px solid #f0f0f0;
 }
-/* El primer bloque de simuladores no necesita división superior */
 .simulador-section:first-child {
     margin-top: 0;
     padding-top: 0;
@@ -49,39 +58,11 @@ main { flex: 1; padding: 2rem; position: relative; display: flex; align-items: c
 }
 
 /* Grid y botones (Estilo Unificado) */
-.materias-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-}
-.materias-grid > *:last-child:nth-child(odd) {
-    grid-column: 1 / -1;
-}
-
-.materia-card {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2.5rem;
-    background-color: #f9f9f9; /* Color base gris claro UNIFICADO */
-    border: 2px solid #eee; /* Borde gris claro UNIFICADO */
-    border-radius: 10px;
-    text-decoration: none;
-    color: #333;
-    transition: all 0.3s ease;
-}
-.materia-card h3 {
-    font-family: 'Teko', sans-serif;
-    font-size: 1.8rem;
-    font-weight: 600;
-}
-.materia-card:hover {
-    background-color: #fff;
-    border-color: #b22222; /* Borde rojo al pasar el mouse */
-    color: #b22222; /* Texto rojo al pasar el mouse */
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.07);
-}
+.materias-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+.materias-grid > *:last-child:nth-child(odd) { grid-column: 1 / -1; }
+.materia-card { display: flex; align-items: center; justify-content: center; padding: 2.5rem; background-color: #f9f9f9; border: 2px solid #eee; border-radius: 10px; text-decoration: none; color: #333; transition: all 0.3s ease; }
+.materia-card h3 { font-family: 'Teko', sans-serif; font-size: 1.8rem; font-weight: 600; }
+.materia-card:hover { background-color: #fff; border-color: #b22222; color: #b22222; transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.07); }
 
 /* --- USER INFO Y LOGOUT (Escritorio) --- */
 .user-info-container { display: flex; align-items: center; margin-left: auto; color: #eee; font-size: 0.9rem; }
