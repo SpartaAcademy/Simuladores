@@ -4,48 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sparta Academy - Simulador</title>
-
     <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
     <link rel="stylesheet" href="CSS/style-simulador.css">
     <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;600&family=Work+Sans:wght@400;700&display=swap" rel="stylesheet">
     <script src="JS/auth.js"></script>
-    <script>
-        checkAuth(); // Verifica sesión al cargar inicialmente
-    </script>
+    <script> checkAuth(); </script>
 </head>
 <body>
+
     <header>
-        <div class="header-logo">
-            <img src="logo.png" alt="Sparta Academy Logo">
-        </div>
-        <div class="header-titulo">
-            <h1>SPARTA ACADEMY</h1>
-            <h2 id="titulo-materia">SIMULADOR DE: ...</h2>
-        </div>
-         <div class="user-info-container desktop-only">
-            <span id="user-name-display-desktop">Aspirante: Cargando...</span>
-            <div class="dropdown">
-                <button class="dropdown-btn">▼</button>
-                <div class="dropdown-content">
-                    <a href="#" id="logout-button-desktop">Cerrar Sesión</a>
-                </div>
-            </div>
-        </div>
+        <a href="index.html" class="header-main-link">
+            <div class="header-logo"> <img src="logo.png" alt="Sparta Academy Logo"> </div>
+            <div class="header-titulo"> <h1>SPARTA ACADEMY</h1> <h2 id="titulo-materia">SIMULADOR DE: ...</h2> </div>
+        </a>
+         
+         <div class="user-info-container desktop-only"> <span id="user-name-display-desktop">Aspirante: Cargando...</span> <div class="dropdown"> <button class="dropdown-btn">▼</button> <div class="dropdown-content"> <a href="#" id="logout-button-desktop">Cerrar Sesión</a> </div> </div> </div>
         <button class="hamburger-menu mobile-only" id="hamburger-btn">☰</button>
     </header>
 
      <div class="side-nav" id="side-nav">
         <button class="close-nav-btn" id="close-nav-btn">&times;</button>
-        <div class="side-nav-header">
-             <img src="logo.png" alt="Sparta Logo" class="side-nav-logo">
-             <h3>Menú Aspirante</h3>
-        </div>
-        <div class="side-nav-user">
-            <p>Aspirante:</p>
-            <p><strong id="user-name-display-mobile">Cargando...</strong></p>
-        </div>
+        <div class="side-nav-header"> <img src="logo.png" alt="Sparta Logo" class="side-nav-logo"> <h3>Menú Aspirante</h3> </div>
+        <div class="side-nav-user"> <p id="user-prefix-mobile">Aspirante:</p> <p><strong id="user-name-display-mobile">Cargando...</strong></p> </div>
         <a href="#" id="logout-button-mobile" class="side-nav-link">Cerrar Sesión</a>
     </div>
     <div class="overlay" id="overlay"></div>
@@ -62,7 +44,7 @@
             <hr>
             <h3>Puntajes:</h3>
             <ul>
-                <li>Respuesta Correcta: <strong>+20 Puntos</strong></li>
+                <li>Respuesta Correcta: <strong>+20 Puntos</strong> (o equivalente)</li>
                 <li>Respuesta Incorrecta: <strong>0 Puntos</strong></li>
                 <li>Respuesta en Blanco: <strong>0 Puntos</strong></li>
             </ul>
@@ -72,24 +54,13 @@
 
         <div id="simulador-container">
             <div class="quiz-col-izquierda">
-                <div class="pregunta-header">
-                    <span id="pregunta-numero" class="pregunta-num-tag">Pregunta 1</span>
-                    <h2 id="pregunta-texto">Cargando pregunta...</h2>
-                </div>
+                <div class="pregunta-header"> <span id="pregunta-numero" class="pregunta-num-tag">Pregunta 1</span> <h2 id="pregunta-texto">Cargando pregunta...</h2> </div>
                 <div id="opciones-container"></div>
-                <div class="quiz-navegacion">
-                    <button id="siguiente-btn">Siguiente</button>
-                </div>
+                <div class="quiz-navegacion"> <button id="siguiente-btn">Siguiente</button> </div>
             </div>
             <div class="quiz-col-derecha">
-                <div class="timer-box">
-                    <h3>Tiempo Restante</h3>
-                    <div id="cronometro">60:00</div>
-                </div>
-                <div class="navegador-box">
-                    <h3>Preguntas</h3>
-                    <div id="navegador-preguntas"></div>
-                </div>
+                <div class="timer-box"> <h3>Tiempo Restante</h3> <div id="cronometro">60:00</div> </div>
+                <div class="navegador-box"> <h3>Preguntas</h3> <div id="navegador-preguntas"></div> </div>
                 <button id="terminar-intento-btn">Terminar Intento</button>
             </div>
         </div>
@@ -97,11 +68,7 @@
         <div id="resultados-container">
             <h2>¡Simulacro Terminado!</h2>
             <p>Estos son tus resultados:</p>
-            <div class="puntaje-final-box">
-                <h3>Puntaje Total</h3>
-                <h1 id="puntaje-final">0</h1>
-                <p>sobre 1000 Puntos</p>
-            </div>
+            <div class="puntaje-final-box"> <h3>Puntaje Total</h3> <h1 id="puntaje-final">0</h1> <p>sobre 1000 Puntos</p> </div>
             <div class="estadisticas-grid">
                 <div><h4>Contestadas</h4><p id="stats-contestadas">0</p></div>
                 <div><h4>Correctas</h4><p id="stats-correctas">0</p></div>
@@ -109,9 +76,13 @@
                 <div><h4>En Blanco</h4><p id="stats-en-blanco">0</p></div>
             </div>
             <hr>
+            
             <div class="revision-header">
                 <h3>Revisión de Respuestas</h3>
-                <button id="reiniciar-btn">Volver al Inicio</button>
+                <div class="revision-botones">
+                    <button id="retry-btn">Realizar otro intento</button>
+                    <button id="reiniciar-btn">Volver al Inicio</button>
+                </div>
             </div>
             <div id="revision-container"></div>
         </div>
@@ -140,15 +111,7 @@
              setupUserInfoDropdown();
              setupMobileMenu();
         });
-
-        // (NUEVO) Verifica sesión al mostrar la página (incluyendo al usar "Atrás")
-        window.addEventListener('pageshow', function(event) {
-             // Si la página viene del caché del navegador (bfcache)
-            if (event.persisted) {
-                 console.log("Página cargada desde caché (bfcache). Verificando sesión...");
-                 checkAuth(); // Vuelve a verificar la sesión
-            }
-        });
+        window.addEventListener('pageshow', function(event) { if (event.persisted) { checkAuth(); } });
     </script>
 </body>
 </html>
