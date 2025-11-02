@@ -31,22 +31,24 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalBotones = document.querySelector('.modal-botones');
 
     // --- 2. VARIABLES GLOBALES DEL SIMULADOR ---
-    let preguntasPorMateria = {}; // Objeto para guardar preguntas por materia
-    let preguntasQuiz = []; // El array final de preguntas para el intento actual
+    let preguntasPorMateria = {};
+    let preguntasQuiz = [];
     let respuestasUsuario = [];
     let indicePreguntaActual = 0;
     let cronometroInterval;
     let tiempoRestanteSeg;
-    let TOTAL_PREGUNTAS_QUIZ = 50; // Valor por defecto, se ajustará
+    let TOTAL_PREGUNTAS_QUIZ = 50; // Valor por defecto
 
+    // (MODIFICADO) Añadidas inteligencia y personalidad
     const materias = {
         'sociales': 'Ciencias Sociales',
         'matematicas': 'Matemáticas y Física',
         'lengua': 'Lengua y Literatura',
         'ingles': 'Inglés',
-        'general': 'General (Todas)'
+        'general': 'General (Todas)',
+        'inteligencia': 'Inteligencia',
+        'personalidad': 'Personalidad'
     };
-    // Orden DEFINIDO para el modo general
     const ordenGeneral = ['sociales', 'matematicas', 'lengua', 'ingles'];
 
     // --- 3. INICIALIZACIÓN ---
@@ -65,16 +67,22 @@ document.addEventListener('DOMContentLoaded', () => {
         let quizDurationSeconds;
         let lobbyTiempoTexto;
 
+        // (MODIFICADO) Ajustes de tiempo y # preguntas según materia
         if (materiaKey === 'matematicas') {
-            quizDurationSeconds = 90 * 60;
+            quizDurationSeconds = 90 * 60; // 90 min
             lobbyTiempoTexto = "1 Hora y 30 Minutos (90 Minutos)";
             TOTAL_PREGUNTAS_QUIZ = 50;
         } else if (materiaKey === 'general') {
             quizDurationSeconds = 180 * 60; // 3 horas
             lobbyTiempoTexto = "3 Horas (180 Minutos)";
             TOTAL_PREGUNTAS_QUIZ = 200; // Objetivo: 50 * 4
+        } else if (materiaKey === 'personalidad' || materiaKey === 'inteligencia') { // (NUEVO)
+            quizDurationSeconds = 60 * 60; // 1 hora por defecto para psico
+            lobbyTiempoTexto = "1 Hora (60 Minutos)";
+            TOTAL_PREGUNTAS_QUIZ = 50;
         } else {
-            quizDurationSeconds = 60 * 60;
+            // Default para sociales, lengua, ingles
+            quizDurationSeconds = 60 * 60; 
             lobbyTiempoTexto = "1 Hora (60 Minutos)";
             TOTAL_PREGUNTAS_QUIZ = 50;
         }
@@ -83,11 +91,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const lobbyTiempoDisplay = document.getElementById('lobby-tiempo');
         if (lobbyTiempoDisplay) lobbyTiempoDisplay.textContent = lobbyTiempoTexto;
-        // Se actualiza el número de preguntas DESPUÉS de cargarlas en prepararQuiz
-        if (lobbyPreguntasDisplay) lobbyPreguntasDisplay.textContent = (materiaKey === 'general') ? '200' : '50';
+        if (lobbyPreguntasDisplay) lobbyPreguntasDisplay.textContent = TOTAL_PREGUNTAS_QUIZ;
 
-
-        cargarPreguntas(materiaKey); // Llamar DESPUÉS de setear variables
+        cargarPreguntas(materiaKey);
 
         comenzarBtn.addEventListener('click', iniciarIntento);
         siguienteBtn.addEventListener('click', irPreguntaSiguiente);
@@ -105,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (materia === 'general') {
             materiasACargar = ordenGeneral;
         } else {
-            materiasACargar = [materia];
+            materiasACargar = [materia]; // Carga 'personalidad', 'inteligencia', 'sociales', etc.
         }
 
         try {
@@ -129,49 +135,48 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
              if (totalPreguntasCargadas === 0) {
-                 throw new Error("No se cargaron preguntas de ninguna materia relevante.");
+                 // Si es 'inteligencia' y está vacío, es esperado. Para otros, es un error.
+                 if (materia !== 'inteligencia') {
+                    throw new Error("No se cargaron preguntas de ninguna materia relevante.");
+                 }
              }
 
         } catch (error) {
             console.error("Error cargando preguntas:", error);
-            alert(`Error al cargar las preguntas. ${error.message || ''}`);
-            window.location.href = 'index.html';
+            // No mostrar alerta para 'inteligencia' si está vacío
+            if (materia !== 'inteligencia' || error.message.includes('Fallo al cargar')) {
+                alert(`Error al cargar las preguntas. ${error.message || ''}`);
+                window.location.href = 'index.html';
+            }
         }
     }
 
-    // (CORREGIDO PARA ORDENAR POR BLOQUES DE 50)
+    // (MODIFICADO PARA ORDENAR POR BLOQUES DE 50)
     function prepararQuiz() {
         const params = new URLSearchParams(window.location.search);
         const materiaKey = params.get('materia') || 'sociales';
-        preguntasQuiz = []; // Limpiar quiz anterior
-        let contadorPreguntas = 0; // Para saber el total real
+        preguntasQuiz = [];
+        let contadorPreguntas = 0;
 
         if (materiaKey === 'general') {
-            TOTAL_PREGUNTAS_QUIZ = 200; // Resetear al objetivo inicial
-            // Barajar y tomar 50 de cada materia EN ORDEN
+            TOTAL_PREGUNTAS_QUIZ = 0; // Se recalcula
             ordenGeneral.forEach(materia => {
                 if (preguntasPorMateria[materia] && preguntasPorMateria[materia].length > 0) {
-                    // 1. Baraja TODAS las preguntas de la materia actual
                     const preguntasMateriaBarajadas = [...preguntasPorMateria[materia]].sort(() => Math.random() - 0.5);
-                    // 2. Toma las PRIMERAS 50 (o menos si no hay)
                     const preguntasSeleccionadas = preguntasMateriaBarajadas.slice(0, 50);
-                    // 3. Añade este bloque al array final del quiz
                     preguntasQuiz = preguntasQuiz.concat(preguntasSeleccionadas);
-                    contadorPreguntas += preguntasSeleccionadas.length; // Sumar las realmente añadidas
+                    contadorPreguntas += preguntasSeleccionadas.length;
                 } else {
-                    console.warn(`No hay preguntas cargadas o suficientes para ${materia} en modo general.`);
+                    console.warn(`No hay preguntas cargadas para ${materia} en modo general.`);
                 }
             });
-            // Actualizar TOTAL_PREGUNTAS_QUIZ por si alguna materia no tenía 50
-            TOTAL_PREGUNTAS_QUIZ = contadorPreguntas;
+            TOTAL_PREGUNTAS_QUIZ = contadorPreguntas; // Total real
 
         } else {
-             // Modo individual: barajar y tomar hasta TOTAL_PREGUNTAS_QUIZ
-             const numPreguntasDeseadas = (materiaKey === 'matematicas') ? 50 : 50; // Ajusta si matemáticas necesita otro #
+             // Modo individual (sociales, mates, lengua, ingles, personalidad, inteligencia)
              if (preguntasPorMateria[materiaKey] && preguntasPorMateria[materiaKey].length > 0) {
                 const preguntasBarajadas = [...preguntasPorMateria[materiaKey]].sort(() => Math.random() - 0.5);
-                // Toma hasta el número deseado, o menos si no hay suficientes
-                preguntasQuiz = preguntasBarajadas.slice(0, numPreguntasDeseadas);
+                preguntasQuiz = preguntasBarajadas.slice(0, TOTAL_PREGUNTAS_QUIZ);
                 TOTAL_PREGUNTAS_QUIZ = preguntasQuiz.length; // Ajustar por si hay menos
             } else {
                  console.error(`No hay preguntas cargadas para la materia ${materiaKey}`);
@@ -179,18 +184,28 @@ document.addEventListener('DOMContentLoaded', () => {
                  TOTAL_PREGUNTAS_QUIZ = 0;
             }
         }
-         // Actualizar display del lobby con el número REAL de preguntas
+         
          if (lobbyPreguntasDisplay) lobbyPreguntasDisplay.textContent = TOTAL_PREGUNTAS_QUIZ;
 
-        // Inicializar respuestas con el tamaño correcto
         respuestasUsuario = new Array(TOTAL_PREGUNTAS_QUIZ).fill(null);
     }
 
 
-    // --- 5. LÓGICA DEL SIMULADOR --- (Sin cambios necesarios aquí)
+    // --- 5. LÓGICA DEL SIMULADOR ---
     function iniciarIntento() {
         prepararQuiz();
-        if (preguntasQuiz.length === 0) { alert("No se cargaron preguntas para iniciar."); return; }
+        if (preguntasQuiz.length === 0) { 
+            // Manejo específico para 'inteligencia' sin preguntas
+            const params = new URLSearchParams(window.location.search);
+            const materiaKey = params.get('materia');
+            if(materiaKey === 'inteligencia') {
+                alert("El simulador de Inteligencia aún no está disponible. Próximamente.");
+                window.location.href = 'index.html';
+            } else {
+                alert("No se cargaron preguntas para iniciar. Verifique los archivos .json.");
+            }
+            return; 
+        }
         lobbyContainer.style.display = 'none';
         simuladorContainer.style.display = 'grid';
         construirNavegador();
@@ -280,7 +295,7 @@ document.addEventListener('DOMContentLoaded', () => {
         modalOverlay.style.display = 'flex';
     }
 
-    // --- 6. LÓGICA DE FINALIZACIÓN Y RESULTADOS --- (Sin cambios necesarios aquí)
+    // --- 6. LÓGICA DE FINALIZACIÓN Y RESULTADOS ---
     function finalizarIntento(porTiempo = false) {
         clearInterval(cronometroInterval);
         if (porTiempo) {
