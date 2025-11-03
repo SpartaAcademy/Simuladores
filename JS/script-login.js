@@ -1,48 +1,67 @@
-// JS/script-login.js - Lógica de la página de login
+// JS/script-login.js
 
 document.addEventListener('DOMContentLoaded', () => {
     const loginForm = document.getElementById('login-form');
     const usuarioInput = document.getElementById('usuario');
     const contrasenaInput = document.getElementById('contrasena');
     const errorMensaje = document.getElementById('error-mensaje');
-    const togglePassword = document.getElementById('togglePassword'); // (NUEVO) Referencia al ojo
-
-    // Referencias al Modal
+    const togglePassword = document.getElementById('togglePassword');
     const modalOverlay = document.getElementById('modal-overlay');
     const modalNombreAspirante = document.getElementById('modal-nombre-aspirante');
+    const modalRolAspirante = document.getElementById('modal-rol-aspirante');
     const continuarBtn = document.getElementById('continuar-btn');
 
-    // Redirigir si ya está logueado
+    // Esta función DEBE existir (viene de auth.js)
     if (isLoggedIn()) {
         window.location.replace('index.html');
         return;
     }
 
-    // Cargar usuarios
     let usuarios = [];
     fetch('DATA/usuarios.json')
-        .then(response => response.json())
-        .then(data => { usuarios = data; })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Error de red o archivo no encontrado');
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Filtra los objetos que son comentarios
+            usuarios = data.filter(u => u.usuario); // Solo incluye objetos que tengan la propiedad 'usuario'
+            console.log(`Cargados ${usuarios.length} usuarios.`);
+        })
         .catch(error => {
-            console.error('Error cargando usuarios:', error);
-            errorMensaje.textContent = 'Error al cargar datos de usuario. Intente más tarde.';
+            console.error('Error cargando usuarios.json:', error);
+            errorMensaje.textContent = 'Error fatal al cargar datos de usuario. Revise el archivo JSON.';
             errorMensaje.style.display = 'block';
         });
 
-    // Manejar envío del formulario
     loginForm.addEventListener('submit', (event) => {
         event.preventDefault();
         errorMensaje.style.display = 'none';
-
         const usuario = usuarioInput.value.trim();
         const contrasena = contrasenaInput.value;
+
+        if (usuarios.length === 0) {
+             errorMensaje.textContent = 'Error: La lista de usuarios está vacía. Contacte al admin.';
+             errorMensaje.style.display = 'block';
+             return;
+        }
 
         const usuarioEncontrado = usuarios.find(u => u.usuario === usuario && u.contrasena === contrasena);
 
         if (usuarioEncontrado) {
-            const userInfo = { nombre: usuarioEncontrado.nombre };
-            saveSession(userInfo);
+            const userInfo = {
+                usuario: usuarioEncontrado.usuario,
+                nombre: usuarioEncontrado.nombre,
+                rol: usuarioEncontrado.rol || 'aspirante',
+                ciudad: usuarioEncontrado.ciudad || 'N/A'
+            };
+            saveSession(userInfo); // <-- Esta función de auth.js guarda la sesión
+
             modalNombreAspirante.textContent = userInfo.nombre;
+            const prefix = (userInfo.rol === 'aspirante') ? 'Aspirante' : 'Usuario';
+            modalRolAspirante.textContent = prefix;
             modalOverlay.style.display = 'flex';
         } else {
             errorMensaje.textContent = 'Usuario o contraseña incorrectos.';
@@ -51,22 +70,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Manejar botón "Continuar" del modal
     continuarBtn.addEventListener('click', () => {
         modalOverlay.style.display = 'none';
         window.location.replace('index.html');
     });
 
-    // (NUEVO) Lógica para mostrar/ocultar contraseña
     if (togglePassword && contrasenaInput) {
         togglePassword.addEventListener('click', function (e) {
-            // Obtener el tipo actual del input
             const type = contrasenaInput.getAttribute('type') === 'password' ? 'text' : 'password';
             contrasenaInput.setAttribute('type', type);
-
-            // Cambiar el icono del ojo
-            this.classList.toggle('fa-eye'); // Quita fa-eye si existe, lo añade si no
-            this.classList.toggle('fa-eye-slash'); // Añade fa-eye-slash si no existe, lo quita si sí
+            this.classList.toggle('fa-eye');
+            this.classList.toggle('fa-eye-slash');
         });
     }
 });
