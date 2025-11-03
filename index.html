@@ -9,6 +9,7 @@
     <meta http-equiv="Expires" content="0">
     <link rel="stylesheet" href="CSS/style-home.css">
     <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;600&family=Work+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="JS/auth.js"></script>
     <script> checkAuth(); </script>
 </head>
@@ -18,10 +19,17 @@
             <div class="header-logo"> <img src="logo.png" alt="Sparta Academy Logo"> </div>
             <div class="header-titulo"> <h1>SPARTA ACADEMY</h1> <h2>PLATAFORMA DE SIMULADORES</h2> </div>
         </a>
-        
         <div class="header-spacer"></div>
-
-        <div class="user-info-container desktop-only"> <span id="user-name-display-desktop">Aspirante: Cargando...</span> <div class="dropdown"> <button class="dropdown-btn">▼</button> <div class="dropdown-content"> <a href="#" id="logout-button-desktop">Cerrar Sesión</a> </div> </div> </div>
+        <div class="user-info-container desktop-only">
+            <span id="user-name-display-desktop">Cargando...</span>
+            <div class="dropdown">
+                <button class="dropdown-btn">▼</button>
+                <div class="dropdown-content">
+                    <a href="resultados.html" id="ver-resultados-desktop" style="display: none;">Ver Resultados</a>
+                    <a href="#" id="logout-button-desktop">Cerrar Sesión</a>
+                </div>
+            </div>
+        </div>
         <button class="hamburger-menu mobile-only" id="hamburger-btn">☰</button>
     </header>
 
@@ -29,6 +37,7 @@
         <button class="close-nav-btn" id="close-nav-btn">&times;</button>
         <div class="side-nav-header"> <img src="logo.png" alt="Sparta Logo" class="side-nav-logo"> <h3>Menú Aspirante</h3> </div>
         <div class="side-nav-user"> <p id="user-prefix-mobile">Aspirante:</p> <p><strong id="user-name-display-mobile">Cargando...</strong></p> </div>
+        <a href="resultados.html" id="ver-resultados-mobile" class="side-nav-link" style="display: none;">Ver Resultados</a>
         <a href="#" id="logout-button-mobile" class="side-nav-link">Cerrar Sesión</a>
     </div>
     <div class="overlay" id="overlay"></div>
@@ -36,7 +45,6 @@
     <main>
         <div class="marca-de-agua"> <img src="logo.png" alt="Watermark"> </div>
         <div class="seleccion-container">
-            
             <div class="simulador-section">
                 <h2>Simuladores Pruebas Académicas</h2>
                 <p>Elija una de las materias disponibles para comenzar la simulación.</p>
@@ -48,7 +56,6 @@
                     <a href="simulador.html?materia=general" class="materia-card"><h3>GENERAL (TODAS)</h3></a>
                 </div>
             </div>
-
             <div class="simulador-section">
                 <h2>Simuladores Pruebas Psicológicas</h2>
                 <p>Acceda a los simuladores de inteligencia o personalidad.</p>
@@ -57,7 +64,6 @@
                     <a href="simulador.html?materia=personalidad" class="materia-card"><h3>PERSONALIDAD</h3></a>
                 </div>
             </div>
-
         </div>
     </main>
 
