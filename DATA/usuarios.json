@@ -2,92 +2,128 @@
   {
     "usuario": "milton",
     "contrasena": "root",
-    "nombre": "Milton Fuel"
+    "nombre": "Milton Fuel",
+    "rol": "admin",
+    "ciudad": "Tulcán"
   },
   {
     "usuario": "docente",
     "contrasena": "docente",
-    "nombre": "Docente"
+    "nombre": "Docente",
+    "rol": "admin",
+    "ciudad": "Tulcán"
   },
   {
     "usuario": "geomi",
     "contrasena": "geomi",
-    "nombre": "Geo"
+    "nombre": "Geo",
+    "rol": "admin",
+    "ciudad": "Tulcán"
   },
   {
     "usuario": "capitan",
     "contrasena": "capitan",
-    "nombre": "Capitán"
+    "nombre": "Capitán",
+    "rol": "admin",
+    "ciudad": "Tulcán"
   },
   {
     "usuario": "michael_arcos",
     "contrasena": "michael_arcos",
-    "nombre": "Michael Arcos"
+    "nombre": "Michael Arcos",
+    "rol": "aspirante",
+    "ciudad": "Tulcán"
   },
   {
     "usuario": "carlos_bedoya",
     "contrasena": "carlos_bedoya",
-    "nombre": "Carlos Bedoya"
+    "nombre": "Carlos Bedoya",
+    "rol": "aspirante",
+    "ciudad": "Tulcán"
   },
   {
     "usuario": "mateo_benavides",
     "contrasena": "mateo_benavides",
-    "nombre": "Mateo Benavides"
+    "nombre": "Mateo Benavides",
+    "rol": "aspirante",
+    "ciudad": "Tulcán"
   },
   {
     "usuario": "kiara_carrillo",
     "contrasena": "kiara_carrillo",
-    "nombre": "Kiara Carrillo"
+    "nombre": "Kiara Carrillo",
+    "rol": "aspirante",
+    "ciudad": "Tulcán"
   },
   {
     "usuario": "milton_enriquez",
     "contrasena": "milton_enriquez",
-    "nombre": "Milton Enríquez"
+    "nombre": "Milton Enríquez",
+    "rol": "aspirante",
+    "ciudad": "Tulcán"
   },
   {
     "usuario": "diego_herrera",
     "contrasena": "diego_herrera",
-    "nombre": "Diego Herrera"
+    "nombre": "Diego Herrera",
+    "rol": "aspirante",
+    "ciudad": "Tulcán"
   },
   {
     "usuario": "franklin_imbaquingo",
     "contrasena": "franklin_imbaquingo",
-    "nombre": "Franklin Imbaquingo"
+    "nombre": "Franklin Imbaquingo",
+    "rol": "aspirante",
+    "ciudad": "Tulcán"
   },
   {
     "usuario": "mateo_janeta",
     "contrasena": "mateo_janeta",
-    "nombre": "Mateo Janeta"
+    "nombre": "Mateo Janeta",
+    "rol": "aspirante",
+    "ciudad": "Tulcán"
   },
   {
     "usuario": "joel_lema",
     "contrasena": "joel_lema",
-    "nombre": "Joel Lema"
+    "nombre": "Joel Lema",
+    "rol": "aspirante",
+    "ciudad": "Tulcán"
   },
   {
     "usuario": "dayra_lopez",
     "contrasena": "dayra_lopez",
-    "nombre": "Dayra López"
+    "nombre": "Dayra López",
+    "rol": "aspirante",
+    "ciudad": "Tulcán"
   },
   {
     "usuario": "deivid_montenegro",
     "contrasena": "deivid_montenegro",
-    "nombre": "Deivid Montenegro"
+    "nombre": "Deivid Montenegro",
+    "rol": "aspirante",
+    "ciudad": "Tulcán"
   },
   {
     "usuario": "anguie_sanchez",
     "contrasena": "anguie_sanchez",
-    "nombre": "Anguie Sánchez"
+    "nombre": "Anguie Sánchez",
+    "rol": "aspirante",
+    "ciudad": "Tulcán"
   },
   {
     "usuario": "wendy_sanchez",
     "contrasena": "wendy_sanchez",
-    "nombre": "Wendy Sánchez"
+    "nombre": "Wendy Sánchez",
+    "rol": "aspirante",
+    "ciudad": "Tulcán"
   },
   {
     "usuario": "lesly_tulcanaza",
     "contrasena": "lesly_tulcanaza",
-    "nombre": "Lesly Tulcanaza"
+    "nombre": "Lesly Tulcanaza",
+    "rol": "aspirante",
+    "ciudad": "Tulcán"
   },
   {
     "_comment": "USUARIOS DE LA CIUDAD DE IBARRA"
@@ -95,191 +131,267 @@
   {
     "usuario": "1004711006",
     "contrasena": "SA_1004711006",
-    "nombre": "Domenica Yepez"
+    "nombre": "Domenica Yepez",
+    "rol": "aspirante",
+    "ciudad": "Ibarra"
   },
   {
     "usuario": "1004144455",
     "contrasena": "SA_1004144455",
-    "nombre": "Dayra Minda"
+    "nombre": "Dayra Minda",
+    "rol": "aspirante",
+    "ciudad": "Ibarra"
   },
   {
     "usuario": "1004436752",
     "contrasena": "SA_1004436752",
-    "nombre": "Andrea Cárdenas"
+    "nombre": "Andrea Cárdenas",
+    "rol": "aspirante",
+    "ciudad": "Ibarra"
   },
   {
     "usuario": "1004425979",
     "contrasena": "SA_1004425979",
-    "nombre": "Liseth Santacruz"
+    "nombre": "Liseth Santacruz",
+    "rol": "aspirante",
+    "ciudad": "Ibarra"
   },
   {
     "usuario": "1004549786",
     "contrasena": "SA_1004549786",
-    "nombre": "Andres Rivadeneira"
+    "nombre": "Andres Rivadeneira",
+    "rol": "aspirante",
+    "ciudad": "Ibarra"
   },
   {
     "usuario": "1729004653",
     "contrasena": "SA_1729004653",
-    "nombre": "Juan Landazuri"
+    "nombre": "Juan Landazuri",
+    "rol": "aspirante",
+    "ciudad": "Ibarra"
   },
   {
     "usuario": "1004476634",
     "contrasena": "SA_1004476634",
-    "nombre": "Anthony Navarrete"
+    "nombre": "Anthony Navarrete",
+    "rol": "aspirante",
+    "ciudad": "Ibarra"
   },
   {
     "usuario": "1004353098",
     "contrasena": "SA_1004353098",
-    "nombre": "Tifany Palacios"
+    "nombre": "Tifany Palacios",
+    "rol": "aspirante",
+    "ciudad": "Ibarra"
   },
   {
     "usuario": "1050465903",
     "contrasena": "SA_1050465903",
-    "nombre": "Lady Mina"
+    "nombre": "Lady Mina",
+    "rol": "aspirante",
+    "ciudad": "Ibarra"
   },
   {
     "usuario": "1005265028",
     "contrasena": "SA_1005265028",
-    "nombre": "Liseth Delgado"
+    "nombre": "Liseth Delgado",
+    "rol": "aspirante",
+    "ciudad": "Ibarra"
   },
   {
     "usuario": "1004473409",
     "contrasena": "SA_1004473409",
-    "nombre": "Antonella Congo"
+    "nombre": "Antonella Congo",
+    "rol": "aspirante",
+    "ciudad": "Ibarra"
   },
   {
     "usuario": "402099477",
     "contrasena": "SA_0402099477",
-    "nombre": "Danelly Patiño"
+    "nombre": "Danelly Patiño",
+    "rol": "aspirante",
+    "ciudad": "Ibarra"
   },
   {
     "usuario": "1004293583",
     "contrasena": "SA_1004293583",
-    "nombre": "Stiven Moreno"
+    "nombre": "Stiven Moreno",
+    "rol": "aspirante",
+    "ciudad": "Ibarra"
   },
   {
     "usuario": "1728790732",
     "contrasena": "SA_1728790732",
-    "nombre": "Tadeo Herrera"
+    "nombre": "Tadeo Herrera",
+    "rol": "aspirante",
+    "ciudad": "Ibarra"
   },
   {
     "usuario": "1050120128",
     "contrasena": "SA_1050120128",
-    "nombre": "Emily Juma"
+    "nombre": "Emily Juma",
+    "rol": "aspirante",
+    "ciudad": "Ibarra"
   },
   {
     "usuario": "1004214308",
     "contrasena": "SA_1004214308",
-    "nombre": "Elkin Anangono"
+    "nombre": "Elkin Anangono",
+    "rol": "aspirante",
+    "ciudad": "Ibarra"
   },
   {
     "usuario": "1005063381",
     "contrasena": "SA_1005063381",
-    "nombre": "Samely Pabon"
+    "nombre": "Samely Pabon",
+    "rol": "aspirante",
+    "ciudad": "Ibarra"
   },
   {
     "usuario": "1004358410",
     "contrasena": "SA_1004358410",
-    "nombre": "Wilmer Arciniega"
+    "nombre": "Wilmer Arciniega",
+    "rol": "aspirante",
+    "ciudad": "Ibarra"
   },
   {
     "usuario": "402041677",
     "contrasena": "SA_0402041677",
-    "nombre": "Jean Pierre Hernandez"
+    "nombre": "Jean Pierre Hernandez",
+    "rol": "aspirante",
+    "ciudad": "Ibarra"
   },
   {
     "usuario": "504195678",
     "contrasena": "SA_0504195678",
-    "nombre": "Erika Pastuña"
+    "nombre": "Erika Pastuña",
+    "rol": "aspirante",
+    "ciudad": "Ibarra"
   },
   {
     "usuario": "1004780738",
     "contrasena": "SA_1004780738",
-    "nombre": "David Villareal"
+    "nombre": "David Villareal",
+    "rol": "aspirante",
+    "ciudad": "Ibarra"
   },
   {
     "usuario": "1723876221",
     "contrasena": "SA_1723876221",
-    "nombre": "Diego Acosta"
+    "nombre": "Diego Acosta",
+    "rol": "aspirante",
+    "ciudad": "Ibarra"
   },
   {
     "usuario": "1004423115",
     "contrasena": "SA_1004423115",
-    "nombre": "Dennisse Santacruz"
+    "nombre": "Dennisse Santacruz",
+    "rol": "aspirante",
+    "ciudad": "Ibarra"
   },
   {
     "usuario": "1004314660",
     "contrasena": "SA_1004314660",
-    "nombre": "Angie Peñafiel"
+    "nombre": "Angie Peñafiel",
+    "rol": "aspirante",
+    "ciudad": "Ibarra"
   },
   {
     "usuario": "1005041098",
     "contrasena": "SA_1005041098",
-    "nombre": "Anderson Narváez"
+    "nombre": "Anderson Narváez",
+    "rol": "aspirante",
+    "ciudad": "Ibarra"
   },
   {
     "usuario": "1004712822",
     "contrasena": "SA_1004712822",
-    "nombre": "Emily López"
+    "nombre": "Emily López",
+    "rol": "aspirante",
+    "ciudad": "Ibarra"
   },
   {
     "usuario": "0150331023",
     "contrasena": "SA_0150331023",
-    "nombre": "Luis Estevez"
+    "nombre": "Luis Estevez",
+    "rol": "aspirante",
+    "ciudad": "Ibarra"
   },
   {
     "usuario": "1750462424",
     "contrasena": "SA_1750462424",
-    "nombre": "Ivan Casanova"
+    "nombre": "Ivan Casanova",
+    "rol": "aspirante",
+    "ciudad": "Ibarra"
   },
   {
     "usuario": "1004215362",
     "contrasena": "SA_1004215362",
-    "nombre": "Domenica Toapanta"
+    "nombre": "Domenica Toapanta",
+    "rol": "aspirante",
+    "ciudad": "Ibarra"
   },
   {
     "usuario": "1005056138",
     "contrasena": "SA_1005056138",
-    "nombre": "Martin Veloz"
+    "nombre": "Martin Veloz",
+    "rol": "aspirante",
+    "ciudad": "Ibarra"
   },
   {
     "usuario": "1004436083",
     "contrasena": "SA_1004436083",
-    "nombre": "Emilia Bolaños"
+    "nombre": "Emilia Bolaños",
+    "rol": "aspirante",
+    "ciudad": "Ibarra"
   },
   {
     "usuario": "1755439757",
     "contrasena": "SA_1755439757",
-    "nombre": "Danna Bustillos"
+    "nombre": "Danna Bustillos",
+    "rol": "aspirante",
+    "ciudad": "Ibarra"
   },
   {
     "usuario": "0402090021",
     "contrasena": "SA_0402090021",
-    "nombre": "Axel Obando"
+    "nombre": "Axel Obando",
+    "rol": "aspirante",
+    "ciudad": "Ibarra"
   },
   {
     "usuario": "1004795413",
     "contrasena": "SA_1004795413",
-    "nombre": "Melanny Terán"
+    "nombre": "Melanny Terán",
+    "rol": "aspirante",
+    "ciudad": "Ibarra"
   },
   {
     "usuario": "1004068373",
     "contrasena": "SA_1004068373",
-    "nombre": "Jorge Sandoval"
+    "nombre": "Jorge Sandoval",
+    "rol": "aspirante",
+    "ciudad": "Ibarra"
   },
   {
     "usuario": "aguilar_damaris",
     "contrasena": "SA_aguilar_damaris",
-    "nombre": "Damaris Aguilar"
+    "nombre": "Damaris Aguilar",
+    "rol": "aspirante",
+    "ciudad": "Ibarra"
   },
   {
     "usuario": "1050111549",
     "contrasena": "SA_1050111549",
-    "nombre": "Franco Juma"
+    "nombre": "Franco Juma",
+    "rol": "aspirante",
+    "ciudad": "Ibarra"
   },
   {
     "usuario": "1004455810",
     "contrasena": "SA_1004455810",
-    "nombre": "Diego Torres"
+    "nombre": "Diego Torres",
+    "rol": "aspirante",
+    "ciudad": "Ibarra"
   }
 ]
