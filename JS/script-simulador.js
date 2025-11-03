@@ -1,5 +1,14 @@
 // JS/script-simulador.js
 
+// (NUEVO) Importar la librería de Supabase
+import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
+
+// (NUEVO) Inicializar Supabase (¡Usa tus claves!)
+const supabaseUrl = 'https://tgkbsaazxgnpllcwtbuk.supabase.co';
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRna2JzYWF6eGducGxsY3d0YnVrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjIxNzk0OTUsImV4cCI6MjA3Nzc1NTQ5NX0.877IdYJdJSczFaqCsz2P-w5uzAZvS7E6DzWTcwyT4IQ';
+const supabase = createClient(supabaseUrl, supabaseKey);
+
+
 document.addEventListener('DOMContentLoaded', () => {
 
     // --- 1. REFERENCIAS A ELEMENTOS DEL DOM ---
@@ -24,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const statsEnBlanco = document.getElementById('stats-en-blanco');
     const revisionContainer = document.getElementById('revision-container');
     const reiniciarBtn = document.getElementById('reiniciar-btn');
-    const retryBtn = document.getElementById('retry-btn'); // (NUEVO) Referencia al botón
+    const retryBtn = document.getElementById('retry-btn');
     const modalOverlay = document.getElementById('modal-overlay');
     const modalMensaje = document.getElementById('modal-mensaje');
     const cancelarModalBtn = document.getElementById('cancelar-modal-btn');
@@ -50,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'personalidad': 'Personalidad'
     };
     const ordenGeneral = ['sociales', 'matematicas', 'lengua', 'ingles'];
-
+    
     // --- 3. INICIALIZACIÓN ---
     function inicializar() {
         const params = new URLSearchParams(window.location.search);
@@ -96,16 +105,14 @@ document.addEventListener('DOMContentLoaded', () => {
         
         cargarPreguntas(materiaKey);
 
-        // Listeners
         siguienteBtn.addEventListener('click', irPreguntaSiguiente);
         terminarIntentoBtn.addEventListener('click', confirmarTerminarIntento);
         reiniciarBtn.addEventListener('click', () => { window.location.href = 'index.html'; });
         cancelarModalBtn.addEventListener('click', () => { modalOverlay.style.display = 'none'; });
         confirmarModalBtn.addEventListener('click', () => { modalOverlay.style.display = 'none'; finalizarIntento(false); });
         
-        // (NUEVO) Listener para el botón de reintentar
         retryBtn.addEventListener('click', () => {
-            location.reload(); // Recarga la página (la forma más fácil de reiniciar el simulador)
+            location.reload(); 
         });
     }
 
@@ -186,7 +193,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     }
-
+    
     function prepararQuiz() {
         const params = new URLSearchParams(window.location.search);
         const materiaKey = params.get('materia') || 'sociales';
@@ -221,7 +228,7 @@ document.addEventListener('DOMContentLoaded', () => {
          if (lobbyPreguntasDisplay) lobbyPreguntasDisplay.textContent = TOTAL_PREGUNTAS_QUIZ;
          respuestasUsuario = new Array(TOTAL_PREGUNTAS_QUIZ).fill(null);
     }
-
+    
     // --- 6. LÓGICA DEL SIMULADOR ---
     function iniciarIntento() {
         prepararQuiz();
@@ -328,6 +335,41 @@ document.addEventListener('DOMContentLoaded', () => {
         modalBotones.style.display = 'flex';
         modalOverlay.style.display = 'flex';
     }
+    
+    // (NUEVO) Función para guardar en Supabase
+    async function guardarResultadoEnSupabase(resultado) {
+        try {
+            // Deshabilita los botones de reintento/inicio mientras guarda
+            retryBtn.disabled = true;
+            reiniciarBtn.disabled = true;
+
+            const { data, error } = await supabase
+                .from('resultados') // El nombre de tu tabla
+                .insert([
+                    {
+                        usuario_id: resultado.usuario_id,
+                        usuario_nombre: resultado.usuario_nombre,
+                        materia: resultado.materia,
+                        puntaje: resultado.puntaje,
+                        total_preguntas: resultado.total_preguntas,
+                        ciudad: resultado.ciudad
+                    }
+                ]);
+            
+            if (error) {
+                throw error;
+            }
+            
+            console.log("Resultado guardado en Supabase:", data);
+        } catch (error) {
+            console.error("Error al guardar resultado en Supabase:", error.message);
+             alert("¡Error! No se pudo guardar tu resultado en el servidor. Revisa tu conexión. Tu resultado local se mostrará, pero no se guardará en el reporte.");
+        } finally {
+            // Vuelve a habilitar los botones
+            retryBtn.disabled = false;
+            reiniciarBtn.disabled = false;
+        }
+    }
 
     // --- 7. LÓGICA DE FINALIZACIÓN Y RESULTADOS ---
     function finalizarIntento(porTiempo = false) {
@@ -342,10 +384,39 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    function mostrarResultadosPantalla() {
+    async function mostrarResultadosPantalla() { // (MODIFICADO) ahora es async
         simuladorContainer.style.display = 'none';
         resultadosContainer.style.display = 'block';
-        calcularResultados();
+        
+        const { puntaje, correctas, incorrectas, enBlanco } = calcularResultados();
+        
+        // (MODIFICADO) Guarda el resultado en Supabase
+        try {
+            const userInfo = getUserInfo(); // {usuario, nombre, rol, ciudad}
+            const params = new URLSearchParams(window.location.search);
+            const materiaKey = params.get('materia') || 'sociales';
+            const nombreMateria = materias[materiaKey] || 'Desconocida';
+
+            if (userInfo && userInfo.usuario) {
+                const result = {
+                    usuario_id: userInfo.usuario,
+                    usuario_nombre: userInfo.nombre,
+                    materia: nombreMateria,
+                    puntaje: puntaje,
+                    total_preguntas: TOTAL_PREGUNTAS_QUIZ,
+                    ciudad: userInfo.ciudad // Añade la ciudad
+                };
+                
+                // (NUEVO) Llama a la función de guardado
+                await guardarResultadoEnSupabase(result);
+
+            }
+        } catch (e) {
+            console.error("Error al obtener info de usuario para guardar:", e);
+        }
+        // --- Fin de guardar ---
+
+        mostrarRevision(puntaje, correctas, incorrectas, enBlanco);
     }
 
     function calcularResultados() {
@@ -365,16 +436,19 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         puntaje = Math.round(puntaje);
         if (puntaje < 0) puntaje = 0;
+        return { puntaje, correctas, incorrectas, enBlanco };
+    }
+
+    function mostrarRevision(puntaje, correctas, incorrectas, enBlanco) {
         puntajeFinalDisplay.textContent = puntaje;
         statsContestadas.textContent = correctas + incorrectas;
         statsCorrectas.textContent = correctas;
         statsIncorrectas.textContent = incorrectas;
         statsEnBlanco.textContent = enBlanco;
-        mostrarRevision(puntosPorPregunta);
-    }
 
-    function mostrarRevision(puntosPorPregunta) {
+        const puntosPorPregunta = TOTAL_PREGUNTAS_QUIZ > 0 ? (1000 / TOTAL_PREGUNTAS_QUIZ) : 0;
         revisionContainer.innerHTML = '';
+        
         preguntasQuiz.forEach((pregunta, i) => {
             const respUser = respuestasUsuario[i];
             const respCorrecta = pregunta.respuesta;
