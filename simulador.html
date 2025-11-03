@@ -9,6 +9,7 @@
     <meta http-equiv="Expires" content="0">
     <link rel="stylesheet" href="CSS/style-simulador.css">
     <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;600&family=Work+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="JS/auth.js"></script>
     <script> checkAuth(); </script>
 </head>
@@ -19,10 +20,17 @@
             <div class="header-logo"> <img src="logo.png" alt="Sparta Academy Logo"> </div>
             <div class="header-titulo"> <h1>SPARTA ACADEMY</h1> <h2 id="titulo-materia">SIMULADOR DE: ...</h2> </div>
         </a>
-         
         <div class="header-spacer"></div>
-
-         <div class="user-info-container desktop-only"> <span id="user-name-display-desktop">Aspirante: Cargando...</span> <div class="dropdown"> <button class="dropdown-btn">▼</button> <div class="dropdown-content"> <a href="#" id="logout-button-desktop">Cerrar Sesión</a> </div> </div> </div>
+         <div class="user-info-container desktop-only">
+            <span id="user-name-display-desktop">Cargando...</span>
+            <div class="dropdown">
+                <button class="dropdown-btn">▼</button>
+                <div class="dropdown-content">
+                    <a href="resultados.html" id="ver-resultados-desktop" style="display: none;">Ver Resultados</a>
+                    <a href="#" id="logout-button-desktop">Cerrar Sesión</a>
+                </div>
+            </div>
+        </div>
         <button class="hamburger-menu mobile-only" id="hamburger-btn">☰</button>
     </header>
 
@@ -30,6 +38,7 @@
         <button class="close-nav-btn" id="close-nav-btn">&times;</button>
         <div class="side-nav-header"> <img src="logo.png" alt="Sparta Logo" class="side-nav-logo"> <h3>Menú Aspirante</h3> </div>
         <div class="side-nav-user"> <p id="user-prefix-mobile">Aspirante:</p> <p><strong id="user-name-display-mobile">Cargando...</strong></p> </div>
+        <a href="resultados.html" id="ver-resultados-mobile" class="side-nav-link" style="display: none;">Ver Resultados</a>
         <a href="#" id="logout-button-mobile" class="side-nav-link">Cerrar Sesión</a>
     </div>
     <div class="overlay" id="overlay"></div>
@@ -78,7 +87,6 @@
                 <div><h4>En Blanco</h4><p id="stats-en-blanco">0</p></div>
             </div>
             <hr>
-            
             <div class="revision-header">
                 <h3>Revisión de Respuestas</h3>
                 <div class="revision-botones">
@@ -107,7 +115,7 @@
         <p>Email: spartatulcan@gmail.com</p>
     </footer>
 
-    <script src="JS/script-simulador.js"></script>
+    <script src="JS/script-simulador.js" type="module"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
              setupUserInfoDropdown();
