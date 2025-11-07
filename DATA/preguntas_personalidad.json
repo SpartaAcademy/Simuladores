@@ -4063,5 +4063,180 @@
     "pregunta": "No soporto que alguien me contradiga",
     "opciones": ["Verdadero", "Falso"],
     "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Comprendo que algunas personas, por sus errores y conflictos me traten injustamente.",
+    "opciones": ["Casi nunca", "Algunas veces", "Muchas veces"],
+    "respuesta": "Casi nunca"
+  },
+  {
+    "pregunta": "Mentir frecuentemente por cosas que valgan la pena, es algo que todos deberíamos hacer.",
+    "opciones": ["En desacuerdo", "Quizás", "De acuerdo"],
+    "respuesta": "En desacuerdo"
+  },
+  {
+    "pregunta": "Siento colera hacia la gente que ha abusado de mi bondad e ingenuidad.",
+    "opciones": ["Casi siempre", "Casi nunca", "en ocasiones"],
+    "respuesta": "Casi nunca"
+  },
+  {
+    "pregunta": "Si fuera un reciente egresado me haría el héroe de enfrentarme a una banda delictiva sin pedir refuerzo",
+    "opciones": ["Cierto", "Falso", "Depende"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Muchas veces siento envidia",
+    "opciones": ["De acuerdo", "Depende", "En desacuerdo"],
+    "respuesta": "En desacuerdo"
+  },
+  {
+    "pregunta": "Me conozco a mi mismo, se lo que pienso, lo que siento y lo que hago.",
+    "opciones": ["Bastante verdadero para mi", "En ocasiones", "Bastante falso para mi"],
+    "respuesta": "Bastante verdadero para mi"
+  },
+  {
+    "pregunta": "Toda situación difícil es un reto, pero puedo manejarlo.",
+    "opciones": ["Casi siempre", "Casi nunca", "Algunas veces"],
+    "respuesta": "Casi siempre"
+  },
+  {
+    "pregunta": "Ser desaprobado por alguien que me interesa, es muy doloroso para mí.",
+    "opciones": ["Casi siempre", "Algunas veces", "Casi nunca"],
+    "respuesta": "Casi nunca"
+  },
+  {
+    "pregunta": "Llego a acuerdos razonables con otras personas cuando tenemos posturas enfrentadas.",
+    "opciones": ["Casi siempre", "Casi nunca", "A veces"],
+    "respuesta": "Casi siempre"
+  },
+  {
+    "pregunta": "Admiro menos a las personas audaces que las personas razonables:",
+    "opciones": ["Verdadero", "Falso", "Algunas veces"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Cuando los demás me provocan intencionalmente soy capaz de no responder.",
+    "opciones": ["Siempre", "Nunca"],
+    "respuesta": "Siempre"
+  },
+  {
+    "pregunta": "Cuando me critican por algo que es justo lo acepto porque tiene la razon.",
+    "opciones": ["Las nunca", "A veces", "Casi siempre"],
+    "respuesta": "Casi siempre"
+  },
+  {
+    "pregunta": "Me lleva mucho tiempo acostumbrarme a algo nuevo.",
+    "opciones": ["Casi siempre", "A veces", "Casi nunca"],
+    "respuesta": "Casi nunca"
+  },
+  {
+    "pregunta": "Pienso en mi estado de animo cosntantemente.",
+    "opciones": ["De acuerdo", "En desacuerdo", "No lo se"],
+    "respuesta": "En desacuerdo"
+  },
+  {
+    "pregunta": "Me alivia mucho conseguir con rapidez algo que necesite hacer irresistiblemente.",
+    "opciones": ["De acuerdo", "En desacuerdo", "A veces"],
+    "respuesta": "De acuerdo"
+  },
+  {
+    "pregunta": "Todo vale en el amor y la guerra",
+    "opciones": ["Totalmente de acuerdo", "Depende", "Totalmente en desacuerdo"],
+    "respuesta": "Totalmente en desacuerdo"
+  },
+  {
+    "pregunta": "Soy capaz de quitarme de la mente las preocupaciones que me obsecionan.",
+    "opciones": ["No", "Algunas veces", "Si"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "Me gusta trabajar solo.",
+    "opciones": ["Casi nunca", "Algunas veces", "Casi siempre"],
+    "respuesta": "Casi nunca"
+  },
+  {
+    "pregunta": "Me he Colocado en situaciones de riesgo",
+    "opciones": ["Casi nunca", "Algunas veces", "Casi siempre"],
+    "respuesta": "Casi nunca"
+  },
+  {
+    "pregunta": "Me Pone celoso que a otros lo vaya bien.",
+    "opciones": ["Casi nunca", "Algunas veces", "Casi siempre"],
+    "respuesta": "Casi nunca"
+  },
+  {
+    "pregunta": "Generalmente se me hace difícil resolver alguna que otra tarea:",
+    "opciones": ["No me es difícil", "No me es difícil", "No, no me es difícil"],
+    "respuesta": "No, no me es difícil"
+  },
+  {
+    "pregunta": "A pesar que las otras personas son menos simpaticas que yo, veo que Tienen mejor suerte en la vida, la mistad y el amor.",
+    "opciones": ["Casi nunca", "Algunas veces", "Casi siempre"],
+    "respuesta": "Casi nunca"
+  },
+  {
+    "pregunta": "Creo que puedo opinar sobre todos los temas..",
+    "opciones": ["Pocas veces", "Muchas veces", "En ocasiones"],
+    "respuesta": "Muchas veces"
+  },
+  {
+    "pregunta": "Actuo como si fuera mejor que los demas.",
+    "opciones": ["Casi nunca", "Casi siempre", "A veces"],
+    "respuesta": "Casi nunca"
+  },
+  {
+    "pregunta": "Me adapto a las nuevas situaciones, aunque me cueste algun cambio en mi manera de sentir las cosas.",
+    "opciones": ["Si, pero me cuesta un poco.", "Si, pero me cuesta mucho", "A veces"],
+    "respuesta": "Si, pero me cuesta un poco."
+  },
+  {
+    "pregunta": "Cuando hago o digo algo, espero que los resultados se vean pronto.",
+    "opciones": ["Casi nunca", "Casi siempre", "A veces"],
+    "respuesta": "Casi nunca"
+  },
+  {
+    "pregunta": "Suelo molestar a los demas tomandole el pelo.",
+    "opciones": ["No va conmigo", "Si va conmigo", "A veces"],
+    "respuesta": "No va conmigo"
+  },
+  {
+    "pregunta": "Trabajo mucho para conseguir mis metas,",
+    "opciones": ["Falso, siempre tengo suerte", "Cierto, me ocurre siempre", "Depende"],
+    "respuesta": "Cierto, me ocurre siempre"
+  },
+  {
+    "pregunta": "Tomo decisions sin dudar ni titubear demasiado.",
+    "opciones": ["Casi siempre", "Casi nunca", "En ocasiones"],
+    "respuesta": "Casi siempre"
+  },
+  {
+    "pregunta": "Prefiero amigos que son exitadamente impredecibles",
+    "opciones": ["En desacuerdo", "A veces", "De acuerdo"],
+    "respuesta": "En desacuerdo"
+  },
+  {
+    "pregunta": "Tengo mucha auto-disciplina",
+    "opciones": ["Si, en ocasiones", "Si, es importante en mi vida", "No, me es difícil"],
+    "respuesta": "Si, es importante en mi vida"
+  },
+  {
+    "pregunta": "Estoy completamente libre de perjuicios de cualquier tipo.",
+    "opciones": ["Casi siempre", "A veces", "Casi nunca"],
+    "respuesta": "Casi siempre"
+  },
+  {
+    "pregunta": "Si volviera a vivir, haria muchas de manera distinta a como las he hecho.",
+    "opciones": ["Verdadero para mi", "Quizas", "Falso para mi"],
+    "respuesta": "Falso para mi"
+  },
+  {
+    "pregunta": "Es importante para mi ser libre e independiente de los demas.",
+    "opciones": ["No estoy de acuerdo", "No, solo en algunos casos", "Si, estoy de acuerdo"],
+    "respuesta": "Si, estoy de acuerdo"
+  },
+  {
+    "pregunta": "Antes de emprender una accion siempre considero sus consecuencias,",
+    "opciones": ["No, espero lo que venga", "En ocasiones", "Si, es importante"],
+    "respuesta": "Si, es importante"
   }
 ]
