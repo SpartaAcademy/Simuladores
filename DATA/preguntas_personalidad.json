@@ -1749,4 +1749,754 @@
     "opciones": ["V", "F"],
     "respuesta": "V"
   }
+  {
+    "pregunta": "Se me suele dar bien organizar grupos de trabajo.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "Deberíamos ser todos más humanitarios y más religiosos.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "Por lo general no voy a sitios donde no conozco a nadie.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "En mi casa soy muy ordenado con mis pertenencias.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Jamas me he enfadado tanto que no haya podido controlar mi tono de voz.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "En muchas ocasiones me siento una persona desdichada sin razones suficientes.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Creo que no soy ambicioso.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Ante todo me gusta debatir y criticar las órdenes que se me dan.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Soy una persona bastante normal.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "Al acabar el trabajo me gusta repasarlo detalladamente.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "Tengo facilidad para convencer a otros para que acepten mis puntos de vista.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "Mi estado de ánimo es generalmente depresivo.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Los trabajos que están jerarquizados anulan la voluntad de las personas.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Mis amigos piensan que soy un gran hombre y gran amigo.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "La gente actúa con demasiada malicia.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Soy una persona espontánea y no planificadora.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "Creo que mis semejantes saben que prefiero ganar.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "No me gusta decir cosas de otros que le puedan causar problemas.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "A veces tomo decisiones inmediatas aún en los casos dificiles.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "Pocas veces pierdo la oportunidad de conversar con un desconocido.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "Generalmente me siento mal en sitios pequeños y extraños.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Soy muy nervioso y pierdo con facilidad los estribos.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "No encuentro razonamiento alguno a pensar mucho las cosas.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Soy un poco dejado ante los problemas ajenos.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Me resulta fácil enfadarme y desenfadarme.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "Si no estoy de acuerdo con algo intento solucionarlo cuanto antes.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "Cuando me mira el jefe en el trabajo me siento incomodo.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "En las reuniones ante desconocidos me gustan que resalten mis opiniones.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Soy bastante rápido y desorganizado en mis tareas.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "Cuando opto por una opinión me aferro a ella obstinadamente.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "A veces me pongo sin saber por qué muy sentimental.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Generalmente pienso en la forma en que los demás resuelven sus problemas.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "Soy una persona muy afortunada.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "Cuando se habla mal de mí, me da igual.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "Ante una reunión no soy un buen organizador.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "En pocas ocasiones me descontroló.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "A veces soy desafortunado en la relación con mis amistades.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Ante una discusión suelo intervenir siempre como moderador.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "Mis amigos piensan que soy muy desconfiado con los extraños.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "A veces me siento tan enfadado, que seria capaz de hacer daño a otros.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Cuando planifico algún asunto, siempre dejo algo al azar.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "A veces me angustio ante un trabajo nuevo.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Cuando no quiero encontrarme con alguien cambio de acera.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Soy una persona con ideas originales.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "Ante controversias respondo con tranquilidad.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "Suelo estar siempre acompañado por muchas personas.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "Ocasionalmente."
+  },
+  {
+    "pregunta": "Cuando no comparto opiniones impongo mi criterio.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Es más interesante una película de amor que de acción.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Generalmente creo que es mejor llevarse bien con mis jefes, que hacer correctamente el trabajo.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Cuando decido algo mi decisión es inamovible.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Resuelvo rápidamente todos los problemas.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "La gente cree que soy muy tímido.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Si tuviera que enfrentarme a un público para exponer mis ideas me pondría nervioso.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Suelo ser muy impulsivo en mi forma de actuar.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Suelo poner al mal tiempo una buena cara.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "Suelo ser muy crítico cuando me dan una orden en mi trabajo.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Soy un gran jugador y por supuesto un gran ganador.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "Casi nada llega a producirme preocupaciones.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "Acepto el punto de vista del contrario.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "A veces tengo grandes pesadillas de asesinatos.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Pienso que es mejor un trabajo en el que tome decisiones dificiles, que otro en el que se tomen decisiones fáciles.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "Cuando me miran mal me vuelvo algo agresivo.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Pienso que es menos importante ser arquitecto que pedagogo.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "Cuando estoy en sitios estrechos siento una sensación de agobio.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Quizás siento horror por todo lo que es habitual y se prevee con anterioridad.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Por lo general me gustan los ambientes animados.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "Me enfado y enojo con facilidad.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "No suelo ser planificador.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "Por lo general es bueno aceptar lo que piensen los demás.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Me seleccionan siempre para que convenza a otros.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "Suelo ser mal educado con los demás.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Soy un gran soñador.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "Siempre he creído que es mejor que te teman, a que te estimen por buena persona.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Cuando realizo algún viaje prefiero charlar con otros viajeros que ver el paisaje.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "Estoy seguro que puedo solucionar cualquier problema que se me suscite.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "Creo que suelo ser mejor que los otros.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "Estoy en silencio cuando me encuentro en alguna reunión.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "Suelen convencerme fácilmente con otros argumentos diferentes a los míos.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Suelo pensarme bastante las cosas antes de decidirlas.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "Soy bueno finalizando los trabajos de otros.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "Soy un gran jugador.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "Cuando decido sobre algún asunto tomo antes ciertas precauciones.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "Me pone nervioso el pensar lo que otros piensan de mi.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Cuando participo en coloquios suelo imponer mis ideas.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "A veces creo que todo podría ir mejor.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "Suele dolerme mucho la cabeza.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Creo que si la gente no comete más actos ilegales es por el miedo a la justicia.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "A veces es mejor ser algo desordenado que más ordenado.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "Siempre me ha gustado más leer novelas que hacer senderismo en busca de aventura.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Mis amigos a veces critican lo responsable que soy.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "No soy violento pero tampoco sensible.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "No suelo ser una persona apática.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "Aún insultándome no me inmuto.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Mis familiares piensan que es dificil conocerme bien.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Suelo ser bastante crítico con el trabajo de mis compañeros.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Siempre he pensado que ser buena persona hace que se rían de uno.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Siempre he querido que mis amigos me aceptaran en el grupo como uno más.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Algunas veces dicen que soy muy orgulloso e interesado.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "A veces es mejor ser introvertido que extrovertido.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "Creo que estoy maduro para enfrentarme con los avatares de mi vida.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "Siempre he pensado que antes de ganar hay que participar.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "Me olvido rápidamente de los problemas que he tenido.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "No me resulta fácil estar con desconocidos.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Soy una persona animada incluso ante las adversidades.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "Si hubiera que convencer a alguien, pienso que no me elegirían para hacerlo.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "Puedo convencer fácilmente de mis opiniones a los demás.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "Suele darme igual que la gente sea agredida.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Me gusta catalogar a la gente nada más conocerla.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Ante una alteración del orden no creo que pudiera hacer nada.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "Existen personas a las que les gusta hacer daño, como a mí.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "En situaciones límites me trastorno y me excito mucho.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Los problemas en el trabajo, no afectan a mi vida privada.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Me suelo enfadar demasiado pronto.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Soy un poco nervioso.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Tengo algunos vicios inconfesables.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "Soy un gran trabajador, jamás me rindo.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "Soy muy arisco con las personas no conocidas.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "El éxito lo es todo para mi.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Prefiero no mandar sobre los demás.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "Cuando me equivoco suelo reconocer mi error.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "Me desagrada recibir un\" no\" aún sabiendo que pido un imposible.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "De vez en cuando estoy nervioso, como si necesitase algo pero no se que es.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Ante un arma cargada en mis manos, no me fiaría hasta que la descargará.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "Suelo tener frecuentemente la sensación de ser desgraciado.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "No me gusta tomar decisiones por otros.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Me afecta bastante el que piensen mal de mí.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "A veces me enfado sin motivos.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Cuando tengo que realizar algún trabajo, prefiero hacerlo yo mismo y no confiar en otras personas.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Soy una persona muy segura de mí mismo.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "Mis amigos piensan que yo no tengo fuerza de voluntad.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "A veces he organizado asociaciones de forma activa.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Aún cuando me insultan no me altero.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Aunque por dentro estoy enfadado por fuera intento que no se note.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "Ante situaciones de riesgo pierdo los nervios y me descontrolo.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Permito las opiniones burlescas a los demás.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Cuando llega la noche siento pánico, por lo que siempre me gusta estar en casa.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "No suelo fiarme de nadie excepto de mi.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "Me gusta establecer y planificarme las cosas.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Suelo ser bastante lento en la toma de decisiones.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Cuando voy a empezar un trabajo lo pienso detenidamente.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "Defiendo mis ideas y creencias hasta que las aceptan los demás.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "No me gustan que me den órdenes.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "No soy un gran organizador de trabajos.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "No tengo problemas para que me acepten en cualquier grupo social.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "A veces creo que mi gran felicidad actual se me desvanece.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "A veces siento remordimientos por cosas insignificantes que me suelen turbar.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Pienso que es positivo presentar una reclamación en un bar cuando un empleado no se comporta correctamente.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Mis amigos piensan que es difícil desconcertarme.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "Suelo sobresaltarme cuando me llaman bruscamente.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "A veces suelo darle largas a las cosas que tengo que realizar.",
+    "opciones": ["Si", "Ocasionalmente.", "No"],
+    "respuesta": "No"
+  }
 ]
