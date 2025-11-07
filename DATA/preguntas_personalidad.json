@@ -3248,5 +3248,820 @@
     "pregunta": "No sé tomar decisiones cuando estoy desconcentrado.",
     "opciones": ["Nunca", "Casi nunca", "A veces", "Casi siempre", "Siempre"],
     "respuesta": "Nunca"
+  },
+  {
+    "pregunta": "Me dejo llevar por los demás",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Me disgustan las obras de ficción",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Me desanimo con facilidad",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Lloro durante las películas",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "No me gusta involucrarme en los problemas de los demás",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Me encanta soñar despierto",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "No rehúso hablar de mí mismo",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Intento seguir las reglas",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Quiero que me dejen en paz",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Hago cosas que otros encuentran extrañas",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Respeto la autoridad",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "No respeto las reglas",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Hago cosas inesperadas",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Me enfado con facilidad",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Tengo cambios de humor radicales con frecuencia",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Me hago cargo",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Me siento culpable cuando digo \"no\"",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Supero las adversidades con facilidad",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "No me interesan las argumentaciones y conversaciones teóricas",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Busco el silencio",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Animo a la gente",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Rara vez me pierdo en mis pensamientos",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "No hablo en presencia de extraños",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Nado a contra corriente",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "No me importa comer sólo",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Intento no pensar en los necesitados",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Digo lo que pienso",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Me encantan las grandes fiestas",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Siempre estoy de broma",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Me opongo a la autoridad",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Creo en la importancia del arte",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Hago amigos con facilidad",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Nunca me involucro en desafíos",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Me intereso por la vida de los demás",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Pospongo tareas desagradables",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Raramente le busco un significado más profundo a las cosas",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "No me gustan los acontecimientos con mucha gente",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Controlo el tiempo",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Disfruto dejando volar mi imaginación",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Me siento amenazado con facilidad",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Siento las emociones de los demás",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Sé evadir las reglas",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Aprendo rápidamente",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Me disgusta la música alta",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "No me gustan las películas de acción",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Me resisto a la autoridad",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "No me gusta la poesía",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Creo que la gente básicamente sigue una moralidad",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "No me molesta el desorden",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Me enojan los errores de otros",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Me considero una persona normal",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Me guardo mis pensamientos",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Saco tiempo para los demás",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Utilizo mi cerebro",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "No me enojo con facilidad",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Escondo mis sentimientos",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Me siento desesperado",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Disfruto discutiendo sobre películas y libros con mis amigos",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Me gusta perderme en mis pensamientos",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Me llevo a cabo las tareas de inmediato",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Creo que las leyes deberían ser aplicadas estrictamente",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Hago que la gente se sienta a gusto",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Me preocupo por las cosas",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "No estoy realmente interesado en los demás",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Confío en los demás",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "No disfruto viendo a actuaciones de danza",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Reflexiono antes de actuar",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Llevo la conversación a un nivel más elevado",
+    "opciones": ["Verdadero", "F falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Dejo mis cosas personales al margen",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Me disgusto con facilidad",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Conozco la respuesta a muchas preguntas",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Intento perdonar y olvidar",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Me irrito con facilidad",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Intento evitar a la gente complicada",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Quiero que todo esté “en su punto”",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Evito argumentaciones y conversaciones filosóficas",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Leo mucho",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Rara vez sueño despierto",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Tengo miedo de hacer lo incorrecto",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Disfruto de mi privacidad",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Me hieren con facilidad",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Exteriorizo mis pensamientos íntimos",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "No hablo mucho",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Me encantan las flores",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Creo en una religión verdadera",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Mi vocabulario es pobre",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Sopeso los pros y los contras",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Me gusta leer",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "No estoy interesado en ideas abstractas",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Exteriorizo mis sentimientos",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "No confío en la gente",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Entretengo a mis amigos",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "A menudo me siento incómodo rodeado de los demás",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Disfruto siendo parte de una multitud ruidosa",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "No tengo miedo de ser crítico",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Sospecho que los demás esconden motivos ocultos",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "No me gusto a mí mismo",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Me fío de lo que la gente dice",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Creo que la gente rara vez dice toda la verdad",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Me quedo en un segundo plano",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Espero que sean otros los que me enseñen el camino",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Me encanta idear nuevas formas de hacer las cosas",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Rara vez me siento triste",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Tengo poco que decir",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "No me molesto con facilidad",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Insisto hasta que todo está perfecto",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Tengo una palabra amable para todo el mundo",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Actúo de forma descontrolada y alocada",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Soy preciso en mi trabajo",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Me cuesta acercarme a los demás",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "No puedo vivir sin la compañía de otras personas",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Invierto tiempo pensando sobre errores pasados",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Soy el alma de la fiesta",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "No me preocupa aquello que ya ha pasado",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Me gusta ponerme de pie cuando oigo el himno nacional",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Las personas desordenadas no me molestan",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Disfruto pasando el tiempo solo",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Me gusta el orden",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Estoy abierto a los demás",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "A menudo me siento triste",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Recelo de los demás",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Hablo con mucha gente distinta en las fiestas",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Quiero estar a cargo",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Contrarresto los argumentos de los demás",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Raramente advierto mis reacciones emocionales",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Sé cómo consolar a los demás",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "No me importa ser el centro de atención",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Dejo que otros tomen las decisiones",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Sé que no soy una persona especial",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Hago las cosas siguiendo estrictamente las reglas",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Disfruto del silencio",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Me salto las palabras complicadas cuando leo",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "No dejo que los demás me desanimen",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Prefiero la variedad a la rutina",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "No me frustro con facilidad",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Disfruto siendo parte de un grupo",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Prefiero hacer las cosas por mí mismo",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Me siento abatido por las adversidades",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Tiendo a juzgar a los demás rápidamente",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Adopto posiciones fuera de lo normal",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Creo que la gente es fundamentalmente malvada",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Mi habitación es un desorden",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Me cuesta perdonar a los demás",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Puedo tomar medidas contundentes",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Me siento a gusto conmigo mismo",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Disfruto reuniendo/reconciliando a la gente",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Tiendo a analizar las cosas",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Hago comentarios profundos",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Juzgo a la gente por su apariencia",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Disfruto del trabajo en equipo",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Soy el último en reír con un chiste",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Creo en las buenas intenciones de los demás",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Casi siempre estoy relajado",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Tomo el control sobre las cosas",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Revelo poco de mí mismo",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Empiezo las conversaciones",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Me siento cómodo rodeado de gente",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Rara vez estoy de broma",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Soy una persona abierta sobre mis sentimientos con los demás",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "No soporto que alguien me contradiga",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Rara vez estoy de broma",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Soy una persona abierta sobre mis sentimientos con los demás",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "No soporto que alguien me contradiga",
+    "opciones": ["Verdadero", "Falso"],
+    "respuesta": "Falso"
   }
 ]
