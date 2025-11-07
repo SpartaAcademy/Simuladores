@@ -2498,5 +2498,755 @@
     "pregunta": "A veces suelo darle largas a las cosas que tengo que realizar.",
     "opciones": ["Si", "Ocasionalmente.", "No"],
     "respuesta": "No"
+  },
+  {
+    "pregunta": "En ocasiones considero que debemos respetar a nuestros mayores y no creer que sabemos más que ellos",
+    "opciones": ["Rara vez o nunca", "Casi siempre", "Algunas veces", "Frecuentemente"],
+    "respuesta": "Rara vez o nunca"
+  },
+  {
+    "pregunta": "Me siento muy triste y deprimido la mayor parte del tiempo",
+    "opciones": ["Rara vez o nunca", "Casi siempre", "Algunas veces", "Frecuentemente"],
+    "respuesta": "Rara vez o nunca"
+  },
+  {
+    "pregunta": "Me doy cuenta enseguida cuando la gente intenta crearme problemas",
+    "opciones": ["Rara vez o nunca", "Casi siempre", "Algunas veces", "Frecuentemente"],
+    "respuesta": "Rara vez o nunca"
+  },
+  {
+    "pregunta": "Siempre he tenido menos interés en el sexo que la mayoría de la gente",
+    "opciones": ["Rara vez o nunca", "Casi siempre", "Algunas veces", "Frecuentemente"],
+    "respuesta": "Rara vez o nunca"
+  },
+  {
+    "pregunta": "No comprendo, pero disfruto hacer sufrir a los que quiero",
+    "opciones": ["Siempre", "En algunas ocasiones", "Nunca"],
+    "respuesta": "Nunca"
+  },
+  {
+    "pregunta": "No veo nada incorrecto en utilizar la gente para conseguir lo que quiero",
+    "opciones": ["Siempre", "En algunas ocasiones", "Nunca"],
+    "respuesta": "Nunca"
+  },
+  {
+    "pregunta": "No veo nada incorrecto en hacer todo lo que quiero sin pedir la opinión de los demás",
+    "opciones": ["Siempre", "En algunas ocasiones", "Nunca"],
+    "respuesta": "Siempre"
+  },
+  {
+    "pregunta": "El que me castiguen por mi mal carácter nunca me ha frenado para hacer lo que he querido",
+    "opciones": ["Siempre", "En algunas ocasiones", "Nunca"],
+    "respuesta": "Nunca"
+  },
+  {
+    "pregunta": "Es mi costumbre sentirme muy alegre y animado sin ningún motivo",
+    "opciones": ["Rara vez o nunca", "Casi siempre", "Algunas veces", "Frecuentemente"],
+    "respuesta": "Frecuentemente"
+  },
+  {
+    "pregunta": "Siendo un adolescente me fui de casa a causa de las disputas",
+    "opciones": ["Rara vez o nunca", "Casi siempre", "Algunas veces", "Frecuentemente"],
+    "respuesta": "Rara vez o nunca"
+  },
+  {
+    "pregunta": "Muy a menudo digo cosas sin pensarlas y luego me arrepiento",
+    "opciones": ["Rara vez o nunca", "Casi siempre", "Algunas veces", "Frecuentemente"],
+    "respuesta": "Rara vez o nunca"
+  },
+  {
+    "pregunta": "En las últimas semanas me he sentido exhausto, agotado, sin un motivo en especial",
+    "opciones": ["En desacuerdo", "Totalmente de acuerdo", "En ocasiones en mi caso"],
+    "respuesta": "En desacuerdo"
+  },
+  {
+    "pregunta": "Me resulta muy fácil hacer muchos amigos",
+    "opciones": ["Siempre", "En algunas ocasiones", "Nunca"],
+    "respuesta": "Siempre"
+  },
+  {
+    "pregunta": "Algunas veces me aseguró siempre de que mi trabajo esté bien planeado y organizado",
+    "opciones": ["Siempre", "En algunas ocasiones", "Nunca"],
+    "respuesta": "Nunca"
+  },
+  {
+    "pregunta": "Con mucha frecuencia al salir de casa oigo cosas con tanta claridad que me molestan y perturban",
+    "opciones": ["Rara vez o nunca", "Casi siempre", "Algunas veces", "Frecuentemente"],
+    "respuesta": "Rara vez o nunca"
+  },
+  {
+    "pregunta": "Mis pensamientos cambian constantemente",
+    "opciones": ["Siempre", "En algunas ocasiones", "Nunca"],
+    "respuesta": "Nunca"
+  },
+  {
+    "pregunta": "De forma permanente me recrimino por actuar adecuadamente",
+    "opciones": ["Siempre", "En algunas ocasiones", "Nunca"],
+    "respuesta": "Nunca"
+  },
+  {
+    "pregunta": "He cambiado mi deseos profesionales por lo menos 3 veces el último año",
+    "opciones": ["En desacuerdo", "Totalmente de acuerdo", "En ocasiones en mi caso"],
+    "respuesta": "En desacuerdo"
+  },
+  {
+    "pregunta": "Tengo muchas ideas avanzadas para los tiempos actuales, lo que me diferencia de los demás",
+    "opciones": ["Rara vez o nunca", "Casi siempre", "Algunas veces", "Frecuentemente"],
+    "respuesta": "Rara vez o nunca"
+  },
+  {
+    "pregunta": "A veces me siento confundido cuando la gente me ofrece su ayuda",
+    "opciones": ["Rara vez o nunca", "Casi siempre", "Algunas veces", "Frecuentemente"],
+    "respuesta": "Rara vez o nunca"
+  },
+  {
+    "pregunta": "Si las drogas no perjudicarán a mi salud, las tomaría para descubrir nuevas sensaciones y experiencias",
+    "opciones": ["Rara vez o nunca", "Casi siempre", "Algunas veces", "Frecuentemente"],
+    "respuesta": "Rara vez o nunca"
+  },
+  {
+    "pregunta": "En conversaciones con otras personas, me aburro tanto que únicamente pienso en cómo puedo huir de allí.",
+    "opciones": ["Rara vez o nunca", "Casi siempre", "Algunas veces", "Frecuentemente"],
+    "respuesta": "Rara vez o nunca"
+  },
+  {
+    "pregunta": "Algunos miembros de mi familia dicen que soy muy egoísta y que solo pienso en mí mismo",
+    "opciones": ["Rara vez o nunca", "Casi siempre", "Algunas veces", "Frecuentemente"],
+    "respuesta": "Rara vez o nunca"
+  },
+  {
+    "pregunta": "Si me dan a escoger entre lugares conocidos y placenteros y desconocidos, prefiero elegir los lugares desconocidos, aunque entrañen peligro o incomodidad.",
+    "opciones": ["Rara vez o nunca", "Casi siempre", "Algunas veces", "Frecuentemente"],
+    "respuesta": "Frecuentemente"
+  },
+  {
+    "pregunta": "Si tuviera que elegir entre varios tipos de deporte, elegiría los deportes de aventura (rapel, piragüismo) o extremos (esquí, parkour, puenting).",
+    "opciones": ["Rara vez o nunca", "Casi siempre", "Algunas veces", "Frecuentemente"],
+    "respuesta": "Frecuentemente"
+  },
+  {
+    "pregunta": "La gente puede hacerme cambiar de ideas fácilmente,",
+    "opciones": ["Rara vez o nunca", "Casi siempre", "Algunas veces", "Frecuentemente"],
+    "respuesta": "Rara vez o nunca"
+  },
+  {
+    "pregunta": "Me merezco el sufrimiento que he padecido a lo largo de mi vida",
+    "opciones": ["En desacuerdo", "Totalmente de acuerdo", "En ocasiones en mi caso"],
+    "respuesta": "En desacuerdo"
+  },
+  {
+    "pregunta": "Mi tiempo libre lo prefiero pasar fuera de casa.",
+    "opciones": ["Siempre", "En algunas ocasiones", "Nunca"],
+    "respuesta": "Nunca"
+  },
+  {
+    "pregunta": "Mis padres nunca se ponen de acuerdo entre ellos",
+    "opciones": ["Siempre", "En algunas ocasiones", "Nunca"],
+    "respuesta": "Nunca"
+  },
+  {
+    "pregunta": "A menudo olvidó poner las cosas en su lugar",
+    "opciones": ["Nunca", "Casi nunca", "A veces", "Casi siempre", "Siempre"],
+    "respuesta": "Nunca"
+  },
+  {
+    "pregunta": "En la fiesta siempre me gusta conversar con gente desconocida",
+    "opciones": ["Nunca", "Casi nunca", "A veces", "Casi siempre", "Siempre"],
+    "respuesta": "Siempre"
+  },
+  {
+    "pregunta": "Me irritó siempre con facilidad",
+    "opciones": ["Nunca", "Casi nunca", "A veces", "Casi siempre", "Siempre"],
+    "respuesta": "Nunca"
+  },
+  {
+    "pregunta": "Creo que la gente en general tiene buenas intenciones",
+    "opciones": ["Nunca", "Casi nunca", "A veces", "Casi siempre", "Siempre"],
+    "respuesta": "Siempre"
+  },
+  {
+    "pregunta": "La mayoría de las veces no me gusto",
+    "opciones": ["Nunca", "Casi nunca", "A veces", "Casi siempre", "Siempre"],
+    "respuesta": "Nunca"
+  },
+  {
+    "pregunta": "Muy pocas veces caigo en excesos",
+    "opciones": ["Nunca", "Casi nunca", "A veces", "Casi siempre", "Siempre"],
+    "respuesta": "Siempre"
+  },
+  {
+    "pregunta": "Siempre prefiero limitarme a las cosas que conozco",
+    "opciones": ["Nunca", "Casi nunca", "A veces", "Casi siempre", "Siempre"],
+    "respuesta": "Nunca"
+  },
+  {
+    "pregunta": "Tengo miedo que me llamen la atención",
+    "opciones": ["Nunca", "Casi nunca", "A veces", "Casi siempre", "Siempre"],
+    "respuesta": "Nunca"
+  },
+  {
+    "pregunta": "Hago más cosas de las que se espera de mí",
+    "opciones": ["Nunca", "Casi nunca", "A veces", "Casi siempre", "Siempre"],
+    "respuesta": "Siempre"
+  },
+  {
+    "pregunta": "Siento compasión por los demás, solo si son allegados a mi",
+    "opciones": ["Nunca", "Casi nunca", "A veces", "Casi siempre", "Siempre"],
+    "respuesta": "Nunca"
+  },
+  {
+    "pregunta": "Creo que no existe el éxito sin sacrificio",
+    "opciones": ["Nunca", "Casi nunca", "A veces", "Casi siempre", "Siempre"],
+    "respuesta": "Siempre"
+  },
+  {
+    "pregunta": "A menudo los acontecimientos cotidianos me sobrepasa",
+    "opciones": ["Nunca", "Casi nunca", "A veces", "Casi siempre", "Siempre"],
+    "respuesta": "Nunca"
+  },
+  {
+    "pregunta": "Tengo un concepto muy abstracto de mí mismo",
+    "opciones": ["Nunca", "Casi nunca", "A veces", "Casi siempre", "Siempre"],
+    "respuesta": "Nunca"
+  },
+  {
+    "pregunta": "Siempre suelo hacer mis deberes sin que me obliguen",
+    "opciones": ["Nunca", "Casi nunca", "A veces", "Casi siempre", "Siempre"],
+    "respuesta": "Siempre"
+  },
+  {
+    "pregunta": "Tomó con seriedad el control de mis decisiones o me dejo llevar por las circunstancias",
+    "opciones": ["Nunca", "Casi nunca", "A veces", "Casi siempre", "Siempre"],
+    "respuesta": "Siempre"
+  },
+  {
+    "pregunta": "Reflexionar sobre mis emociones, me deprime",
+    "opciones": ["Nunca", "Casi nunca", "A veces", "Casi siempre", "Siempre"],
+    "respuesta": "Nunca"
+  },
+  {
+    "pregunta": "Mis amigos a menudo dicen que pierdo los estribos",
+    "opciones": ["Nunca", "Casi nunca", "A veces", "Casi siempre", "Siempre"],
+    "respuesta": "Nunca"
+  },
+  {
+    "pregunta": "En la mayoría de las ocasiones solo hago las tareas que son de mi interés personal.",
+    "opciones": ["Nunca", "Casi nunca", "A veces", "Casi siempre", "Siempre"],
+    "respuesta": "Nunca"
+  },
+  {
+    "pregunta": "Me aprovecho de los demás siempre que tengo la oportunidad",
+    "opciones": ["Nunca", "Casi nunca", "A veces", "Casi siempre", "Siempre"],
+    "respuesta": "Nunca"
+  },
+  {
+    "pregunta": "Siempre me siento realmente cómodo con mis amigos",
+    "opciones": ["Nunca", "Casi nunca", "A veces", "Casi siempre", "Siempre"],
+    "respuesta": "Siempre"
+  },
+  {
+    "pregunta": "Hago muchas cosas sin sentido en mi tiempo libre",
+    "opciones": ["Nunca", "Casi nunca", "A veces", "Casi siempre", "Siempre"],
+    "respuesta": "Nunca"
+  },
+  {
+    "pregunta": "Por lo general, me siento que estoy atrapado o encerrado en mi mismo",
+    "opciones": ["Nunca", "Casi nunca", "A veces", "Casi siempre", "Siempre"],
+    "respuesta": "Nunca"
+  },
+  {
+    "pregunta": "Siempre siento que el dia no me alcanza para todo lo que deseo realizar",
+    "opciones": ["Si", "Nunca es mi caso", "En algunas ocasiones me sucede"],
+    "respuesta": "Nunca es mi caso"
+  },
+  {
+    "pregunta": "Siempre me gusta leer de prisa para saber rápidamente el final de una historia.",
+    "opciones": ["Nunca", "Casi nunca", "A veces", "Casi siempre", "Siempre"],
+    "respuesta": "Nunca"
+  },
+  {
+    "pregunta": "Por lo general, me gusta hacer dos o más cosas simultáneamente",
+    "opciones": ["Rara vez o nunca", "Pocas veces", "Algunas veces", "Muchas veces", "Muy frecuentemente"],
+    "respuesta": "Rara vez o nunca"
+  },
+  {
+    "pregunta": "Si conversas con alguien, sueles seguir el tema aunque no tengas ningún interés por ello.",
+    "opciones": ["Si", "Nunca es mi caso", "En algunas ocasiones me sucede"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "Tienes el hábito de acentuar las palabras",
+    "opciones": ["Si", "Nunca es mi caso", "En algunas ocasiones me sucede"],
+    "respuesta": "Si"
+  },
+  {
+    "pregunta": "Sueles decir las últimas palabras más rápido que las iniciales",
+    "opciones": ["Siempre", "Nunca es mi caso", "En desacuerdo"],
+    "respuesta": "Nunca es mi caso"
+  },
+  {
+    "pregunta": "¿Encuentras difícil mantener cualquier conversación que no sea de tu interés?",
+    "opciones": ["Siempre", "Nunca es mi caso", "En desacuerdo"],
+    "respuesta": "Nunca es mi caso"
+  },
+  {
+    "pregunta": "¿Te sientes culpable, cuando descansas?",
+    "opciones": ["Siempre", "Nunca es mi caso", "En desacuerdo"],
+    "respuesta": "Nunca es mi caso"
+  },
+  {
+    "pregunta": "¿Intentas siempre programar más y más cosas en menos tiempo para sentirte seguro?",
+    "opciones": ["Rara vez o nunca", "Pocas veces", "Algunas veces", "Muchas veces", "Muy frecuentemente"],
+    "respuesta": "Rara vez o nunca"
+  },
+  {
+    "pregunta": "Al conversar de algún tema incómodo, ¿das puñetazos o palmadas en la mesa?",
+    "opciones": ["Siempre", "Nunca es mi caso", "En desacuerdo"],
+    "respuesta": "Nunca es mi caso"
+  },
+  {
+    "pregunta": "¿Te comprometes a realizar trabajos que son difíciles de cumplir, aun sabiendo que no podrás hacerlo?",
+    "opciones": ["Rara vez o nunca", "Pocas veces", "Algunas veces", "Muchas veces", "Muy frecuentemente"],
+    "respuesta": "Rara vez o nunca"
+  },
+  {
+    "pregunta": "¿Una manera muy común de expresar tu malestar es rechinando los dientes?",
+    "opciones": ["Rara vez o nunca", "Pocas veces", "Algunas veces", "Muchas veces", "Muy frecuentemente"],
+    "respuesta": "Rara vez o nunca"
+  },
+  {
+    "pregunta": "¿Con mucha frecuencia llevas material relacionado con tu trabajo a tu casa?",
+    "opciones": ["Rara vez o nunca", "Pocas veces", "Algunas veces", "Muchas veces", "Muy frecuentemente"],
+    "respuesta": "Rara vez o nunca"
+  },
+  {
+    "pregunta": "¿Acostumbras a evaluar en términos numéricos a los demás?",
+    "opciones": ["Rara vez o nunca", "Pocas veces", "Algunas veces", "Muchas veces", "Muy frecuentemente"],
+    "respuesta": "Rara vez o nunca"
+  },
+  {
+    "pregunta": "¿Te sientes insatisfecho con tu vida?",
+    "opciones": ["Rara vez o nunca", "Pocas veces", "Algunas veces", "Muchas veces", "Muy frecuentemente"],
+    "respuesta": "Rara vez o nunca"
+  },
+  {
+    "pregunta": "¿Te gusta conocer gente nueva?",
+    "opciones": ["Rara vez o nunca", "Pocas veces", "Algunas veces", "Muchas veces", "Muy frecuentemente"],
+    "respuesta": "Muy frecuentemente"
+  },
+  {
+    "pregunta": "¿Te gusta ayudar a la gente?",
+    "opciones": ["Rara vez o nunca", "Pocas veces", "Algunas veces", "Muchas veces", "Muy frecuentemente"],
+    "respuesta": "Muy frecuentemente"
+  },
+  {
+    "pregunta": "¿Si te han culpado injustamente, reaccionas violentamente para hacer valer tus derechos?",
+    "opciones": ["Siempre", "Nunca es mi caso", "En desacuerdo"],
+    "respuesta": "Nunca es mi caso"
+  },
+  {
+    "pregunta": "¿Te toma mucho tiempo calmarte cuando has estado enojado?",
+    "opciones": ["Siempre", "Nunca es mi caso", "En desacuerdo"],
+    "respuesta": "Nunca es mi caso"
+  },
+  {
+    "pregunta": "¿Te decepcionas fácilmente?",
+    "opciones": ["Rara vez o nunca", "Pocas veces", "Algunas veces", "Muchas veces", "Muy frecuentemente"],
+    "respuesta": "Rara vez o nunca"
+  },
+  {
+    "pregunta": "¿Ayudas a la gente sólo si sabes que recibirás algo a cambio?",
+    "opciones": ["Rara vez o nunca", "Pocas veces", "Algunas veces", "Muchas veces", "Muy frecuentemente"],
+    "respuesta": "Rara vez o nunca"
+  },
+  {
+    "pregunta": "¿Te fijas metas a largo plazo?",
+    "opciones": ["Rara vez o nunca", "Pocas veces", "Algunas veces", "Muchas veces", "Muy frecuentemente"],
+    "respuesta": "Muy frecuentemente"
+  },
+  {
+    "pregunta": "¿Te confundes fácilmente?",
+    "opciones": ["Siempre", "Nunca es mi caso", "En desacuerdo"],
+    "respuesta": "Nunca es mi caso"
+  },
+  {
+    "pregunta": "¿Con mucha frecuencia sales a un ambiente social?",
+    "opciones": ["Rara vez o nunca", "Pocas veces", "Algunas veces", "Muchas veces", "Muy frecuentemente"],
+    "respuesta": "Muy frecuentemente"
+  },
+  {
+    "pregunta": "¿Eres considerado con los sentimientos de los demás?",
+    "opciones": ["Rara vez o nunca", "Pocas veces", "Algunas veces", "Muchas veces", "Muy frecuentemente"],
+    "respuesta": "Muy frecuentemente"
+  },
+  {
+    "pregunta": "¿Siempre estás ocupado?",
+    "opciones": ["Rara vez o nunca", "Pocas veces", "Algunas veces", "Muchas veces", "Muy frecuentemente"],
+    "respuesta": "Rara vez o nunca"
+  },
+  {
+    "pregunta": "¿Te gusta resolver problemas complejos?",
+    "opciones": ["Rara vez o nunca", "Pocas veces", "Algunas veces", "Muchas veces", "Muy frecuentemente"],
+    "respuesta": "Muy frecuentemente"
+  },
+  {
+    "pregunta": "¿Haces que la gente se sienta bienvenida, cuando están contigo?",
+    "opciones": ["Rara vez o nunca", "Pocas veces", "Algunas veces", "Muchas veces", "Muy frecuentemente"],
+    "respuesta": "Muy frecuentemente"
+  },
+  {
+    "pregunta": "¿Tu reacción a un problema es engañar para salirte con la tuya?",
+    "opciones": ["Siempre", "Nunca es mi caso", "En desacuerdo"],
+    "respuesta": "Nunca es mi caso"
+  },
+  {
+    "pregunta": "¿Te sientes abrumado con frecuencia?",
+    "opciones": ["Rara vez o nunca", "Pocas veces", "Algunas veces", "Muchas veces", "Muy frecuentemente"],
+    "respuesta": "Rara vez o nunca"
+  },
+  {
+    "pregunta": "Cuando en los programas de televisión hablan sobre un tema que me desagrada suelo enojarme, renegar o gritarle al televisor.",
+    "opciones": ["Me ocurre", "Me ocurre a veces", "Nunca me ocurre"],
+    "respuesta": "Nunca me ocurre"
+  },
+  {
+    "pregunta": "Cuando revisan mis pertenencias me enojo.",
+    "opciones": ["Me ocurre", "Me ocurre a veces", "Nunca me ocurre"],
+    "respuesta": "Nunca me ocurre"
+  },
+  {
+    "pregunta": "Las personas siempre tratan de ayudarme para integrarme a mi localidad",
+    "opciones": ["Me ocurre", "Me ocurre a veces", "Nunca me ocurre"],
+    "respuesta": "Nunca me ocurre"
+  },
+  {
+    "pregunta": "Para mí sería más motivador tener un trabajo con una rutina clara.",
+    "opciones": ["Me ocurre", "Me ocurre a veces", "Nunca me ocurre"],
+    "respuesta": "Me ocurre"
+  },
+  {
+    "pregunta": "Si pierdo dinero en un juego, me descontrolo.",
+    "opciones": ["Me ocurre", "Me ocurre a veces", "Nunca me ocurre"],
+    "respuesta": "Nunca me ocurre"
+  },
+  {
+    "pregunta": "Considero que si ingreso a la PNP me demoraré en adaptarme.",
+    "opciones": ["Me ocurre", "Me ocurre a veces", "Nunca me ocurre"],
+    "respuesta": "Nunca me ocurre"
+  },
+  {
+    "pregunta": "Siempre me provoca hacer las mismas actividades",
+    "opciones": ["Me ocurre", "Me ocurre a veces", "Nunca me ocurre"],
+    "respuesta": "Nunca me ocurre"
+  },
+  {
+    "pregunta": "Prefiero recibir reconocimiento en privado más que en público.",
+    "opciones": ["Me ocurre", "Me ocurre a veces", "Nunca me ocurre"],
+    "respuesta": "Me ocurre"
+  },
+  {
+    "pregunta": "Considero que todos los conflictos siempre se pueden solucionar aplicando las mismas técnicas.",
+    "opciones": ["Me ocurre", "Me ocurre a veces", "Nunca me ocurre"],
+    "respuesta": "Nunca me ocurre"
+  },
+  {
+    "pregunta": "Creo que es mejor hacerse conocido por tus méritos que por virtudes",
+    "opciones": ["Me ocurre", "Me ocurre a veces", "Nunca me ocurre"],
+    "respuesta": "Nunca me ocurre"
+  },
+  {
+    "pregunta": "Considero que asimilo las cosas con rapidez.",
+    "opciones": ["Me ocurre", "Me ocurre a veces", "Nunca me ocurre"],
+    "respuesta": "Me ocurre"
+  },
+  {
+    "pregunta": "Soy una persona a quien poco le interesa lo que opinen los demás",
+    "opciones": ["Me ocurre", "Me ocurre a veces", "Nunca me ocurre"],
+    "respuesta": "Me ocurre"
+  },
+  {
+    "pregunta": "Vivo la vida a mi manera y defiendo mis ideales",
+    "opciones": ["Me ocurre", "Me ocurre a veces", "Nunca me ocurre"],
+    "respuesta": "Me ocurre"
+  },
+  {
+    "pregunta": "En mi vida personal, me dejo llevar por lo que digan los demás",
+    "opciones": ["Me ocurre", "Me ocurre a veces", "Nunca me ocurre"],
+    "respuesta": "Nunca me ocurre"
+  },
+  {
+    "pregunta": "Tengo la capacidad de predecir con mucha facilidad lo que mi pareja quiere decir.",
+    "opciones": ["Me ocurre", "Me ocurre a veces", "Nunca me ocurre"],
+    "respuesta": "Nunca me ocurre"
+  },
+  {
+    "pregunta": "Soy una persona que siempre entiende todos los conflictos que otros presentan",
+    "opciones": ["Me ocurre", "Me ocurre a veces", "Nunca me ocurre"],
+    "respuesta": "Nunca me ocurre"
+  },
+  {
+    "pregunta": "Siempre considero que es más importante hacer las cosas que me generan beneficio personal.",
+    "opciones": ["Me ocurre", "Me ocurre a veces", "Nunca me ocurren"],
+    "respuesta": "Nunca me ocurren"
+  },
+  {
+    "pregunta": "Tomar el control de mis decisiones siempre ha sido algo muy difícil de realizar",
+    "opciones": ["Me ocurre", "Me ocurre a veces", "Nunca me ocurre"],
+    "respuesta": "Nunca me ocurre"
+  },
+  {
+    "pregunta": "Las personas dicen que constantemente me exijo demasiado Nunca se lo que quiero hacer",
+    "opciones": ["Me ocurre", "Me ocurre a veces", "Nunca me ocurre"],
+    "respuesta": "Nunca me ocurre"
+  },
+  {
+    "pregunta": "Si tuvieras la oportunidad de reiniciar toda mi vida lo haría de nuevo",
+    "opciones": ["Me ocurre", "Me ocurre a veces", "Nunca me ocurre"],
+    "respuesta": "Nunca me ocurre"
+  },
+  {
+    "pregunta": "Elegir las cosas que quiero realizar siempre ha sido una acción que me genera mucha dificultad",
+    "opciones": ["Me ocurre", "En ocasiones me sucede", "Nunca me ocurre"],
+    "respuesta": "Nunca me ocurre"
+  },
+  {
+    "pregunta": "En la mayoría de las ocasiones rompo las reglas",
+    "opciones": ["Nunca", "Casi nunca", "A veces", "Casi siempre", "Siempre"],
+    "respuesta": "Nunca"
+  },
+  {
+    "pregunta": "En la mayoría de las ocasiones trabajo lo justo y lo necesario",
+    "opciones": ["Nunca", "Casi nunca", "A veces", "Casi siempre", "Siempre"],
+    "respuesta": "Nunca"
+  },
+  {
+    "pregunta": "Raramente resiste las tentaciones",
+    "opciones": ["Nunca", "Casi nunca", "A veces", "Casi siempre", "Siempre"],
+    "respuesta": "Nunca"
+  },
+  {
+    "pregunta": "Tengo dificultades para entender las ideas de otros",
+    "opciones": ["Nunca", "Casi nunca", "A veces", "Casi siempre", "Siempre"],
+    "respuesta": "Nunca"
+  },
+  {
+    "pregunta": "En la mayoría de las ocasiones suelo perder el control de lo que estoy realizando",
+    "opciones": ["Nunca", "Casi nunca", "A veces", "Casi siempre", "Siempre"],
+    "respuesta": "Nunca"
+  },
+  {
+    "pregunta": "En la mayoría de las ocasiones me estreso con mucha facilidad",
+    "opciones": ["Nunca", "Casi nunca", "A veces", "Casi siempre", "Siempre"],
+    "respuesta": "Nunca"
+  },
+  {
+    "pregunta": "No me interesan los problemas de los demás",
+    "opciones": ["Nunca", "Casi nunca", "A veces", "Casi siempre", "Siempre"],
+    "respuesta": "Nunca"
+  },
+  {
+    "pregunta": "Creo que la ley no se debe cumplir estrictamente, si la puedo evadir lo hago",
+    "opciones": ["Nunca", "Casi nunca", "A veces", "Casi siempre", "Siempre"],
+    "respuesta": "Nunca"
+  },
+  {
+    "pregunta": "Constantemente siento que no soy capaz de hacer frente a las cosas nuevas",
+    "opciones": ["Nunca", "Casi nunca", "A veces", "Casi siempre", "Siempre"],
+    "respuesta": "Nunca"
+  },
+  {
+    "pregunta": "En muchas ocasiones suelo precipitarme",
+    "opciones": ["Nunca", "Casi nunca", "A veces", "Casi siempre", "Siempre"],
+    "respuesta": "Nunca"
+  },
+  {
+    "pregunta": "Con cierta regularidad le gusta mantener distancia con los demás",
+    "opciones": ["Nunca", "Casi nunca", "A veces", "Casi siempre", "Siempre"],
+    "respuesta": "Nunca"
+  },
+  {
+    "pregunta": "La mayoría de las personas dicen que me molesto con facilidad",
+    "opciones": ["Nunca", "Casi nunca", "A veces", "Casi siempre", "Siempre"],
+    "respuesta": "Nunca"
+  },
+  {
+    "pregunta": "A veces pongo trabas a las opiniones de otras personas",
+    "opciones": ["Nunca", "Casi nunca", "A veces", "Casi siempre", "Siempre"],
+    "respuesta": "Nunca"
+  },
+  {
+    "pregunta": "Raramente evito a las multitudes",
+    "opciones": ["Nunca", "Casi nunca", "A veces", "Casi siempre", "Siempre"],
+    "respuesta": "Siempre"
+  },
+  {
+    "pregunta": "Con poca frecuencia se cómo debo hacer las cosas",
+    "opciones": ["Nunca", "Casi nunca", "A veces", "Casi siempre", "Siempre"],
+    "respuesta": "Nunca"
+  },
+  {
+    "pregunta": "Suelo dejar mis decisiones en manos del grupo",
+    "opciones": ["Nunca", "Casi nunca", "A veces", "Casi siempre", "Siempre"],
+    "respuesta": "Nunca"
+  },
+  {
+    "pregunta": "Por lo general, no me siento a gusto conmigo mismo",
+    "opciones": ["Nunca", "Casi nunca", "A veces", "Casi siempre", "Siempre"],
+    "respuesta": "Nunca"
+  },
+  {
+    "pregunta": "Espero que los demás tomen el liderazgo",
+    "opciones": ["Nunca", "Casi nunca", "A veces", "Casi siempre", "Siempre"],
+    "respuesta": "Nunca"
+  },
+  {
+    "pregunta": "No entiendo a la gente sentimental",
+    "opciones": ["Nunca", "Casi nunca", "A veces", "Casi siempre", "Siempre"],
+    "respuesta": "Nunca"
+  },
+  {
+    "pregunta": "Me afectan las situaciones sociales difíciles",
+    "opciones": ["Nunca", "Casi nunca", "A veces", "Casi siempre", "Siempre"],
+    "respuesta": "Nunca"
+  },
+  {
+    "pregunta": "Dedico poco tiempo y esfuerzo a mi trabajo",
+    "opciones": ["Nunca", "Casi nunca", "A veces", "Casi siempre", "Siempre"],
+    "respuesta": "Nunca"
+  },
+  {
+    "pregunta": "Raramente me tomo mi revancha con los demás",
+    "opciones": ["Nunca", "Casi nunca", "A veces", "Casi siempre", "Siempre"],
+    "respuesta": "Siempre"
+  },
+  {
+    "pregunta": "Participa en diferentes actividades dentro de mi comunidad",
+    "opciones": ["Nunca", "Casi nunca", "A veces", "Casi siempre", "Siempre"],
+    "respuesta": "Siempre"
+  },
+  {
+    "pregunta": "Soy incapaz de controlar mis deseos",
+    "opciones": ["Nunca", "Casi nunca", "A veces", "Casi siempre", "Siempre"],
+    "respuesta": "Nunca"
+  },
+  {
+    "pregunta": "Comúnmente, me gustan las discusiones",
+    "opciones": ["Nunca", "Casi nunca", "A veces", "Casi siempre", "Siempre"],
+    "respuesta": "Siempre"
+  },
+  {
+    "pregunta": "Siempre suelo hablar de mis cualidades a los demás",
+    "opciones": ["Nunca", "Casi nunca", "A veces", "Casi siempre", "Siempre"],
+    "respuesta": "Nunca"
+  },
+  {
+    "pregunta": "Me cueste empezar las tareas",
+    "opciones": ["Nunca", "Casi nunca", "A veces", "Casi siempre", "Siempre"],
+    "respuesta": "Nunca"
+  },
+  {
+    "pregunta": "Bajo presión no mantengo la calma",
+    "opciones": ["Nunca", "Casi nunca", "A veces", "Casi siempre", "Siempre"],
+    "respuesta": "Nunca"
+  },
+  {
+    "pregunta": "Con mucha frecuencia pienso en los necesitados",
+    "opciones": ["Nunca", "Casi nunca", "A veces", "Casi siempre", "Siempre"],
+    "respuesta": "Siempre"
+  },
+  {
+    "pregunta": "Deberíamos ser implacables con la delincuencia y mostrar nuestro poder",
+    "opciones": ["Nunca", "Casi nunca", "A veces", "Casi siempre", "Siempre"],
+    "respuesta": "Nunca"
+  },
+  {
+    "pregunta": "Me gusta la acción y el peligro",
+    "opciones": ["Nunca", "Casi nunca", "A veces", "Casi siempre", "Siempre"],
+    "respuesta": "Nunca"
+  },
+  {
+    "pregunta": "Siempre miro el lado bueno de la vida",
+    "opciones": ["Nunca", "Casi nunca", "A veces", "Casi siempre", "Siempre"],
+    "respuesta": "Siempre"
+  },
+  {
+    "pregunta": "Me considero una persona incapaz de controlar mis deseos",
+    "opciones": ["Nunca", "Casi nunca", "A veces", "Casi siempre", "Siempre"],
+    "respuesta": "Nunca"
+  },
+  {
+    "pregunta": "Rompo mis promesas con regularidad",
+    "opciones": ["Nunca", "Casi nunca", "A veces", "Casi siempre", "Siempre"],
+    "respuesta": "Nunca"
+  },
+  {
+    "pregunta": "Siempre desconfío de la gente",
+    "opciones": ["Nunca", "Casi nunca", "A veces", "Casi siempre", "Siempre"],
+    "respuesta": "Nunca"
+  },
+  {
+    "pregunta": "Me gusta abstraerme",
+    "opciones": ["Nunca", "Casi nunca", "A veces", "Casi siempre", "Siempre"],
+    "respuesta": "Nunca"
+  },
+  {
+    "pregunta": "Suelo perder el tiempo",
+    "opciones": ["Nunca", "Casi nunca", "A veces", "Casi siempre", "Siempre"],
+    "respuesta": "Nunca"
+  },
+  {
+    "pregunta": "Me importa no hacer cosas ilegales",
+    "opciones": ["Nunca", "Casi nunca", "A veces", "Casi siempre", "Siempre"],
+    "respuesta": "Siempre"
+  },
+  {
+    "pregunta": "Mis amigos dicen que nunca temo lo peor",
+    "opciones": ["Nunca", "Casi nunca", "A veces", "Casi siempre", "Siempre"],
+    "respuesta": "Siempre"
+  },
+  {
+    "pregunta": "Con mucha frecuencia dejo volar mi imaginación",
+    "opciones": ["Nunca", "Casi nunca", "A veces", "Casi siempre", "Siempre"],
+    "respuesta": "Nunca"
+  },
+  {
+    "pregunta": "Me encanta experimentar de manera frecuente sensaciones fuertes",
+    "opciones": ["Nunca", "Casi nunca", "A veces", "Casi siempre", "Siempre"],
+    "respuesta": "Nunca"
+  },
+  {
+    "pregunta": "Disfrute leyendo libros y artículos interesantes al igual que los demás",
+    "opciones": ["Nunca", "Casi nunca", "A veces", "Casi siempre", "Siempre"],
+    "respuesta": "Siempre"
+  },
+  {
+    "pregunta": "Completo mis tareas con éxito",
+    "opciones": ["Nunca", "Casi nunca", "A veces", "Casi siempre", "Siempre"],
+    "respuesta": "Siempre"
+  },
+  {
+    "pregunta": "¿Impaciente por el ritmo en el que se desarrollan los acontecimientos?",
+    "opciones": ["Nunca", "Casi nunca", "A veces", "Casi siempre", "Siempre"],
+    "respuesta": "Nunca"
+  },
+  {
+    "pregunta": "¿Acostumbras a seguir la corriente en una conversación, aunque no comprendas el tema, solo para que se acabe pronto?",
+    "opciones": ["Nunca", "Casi nunca", "A veces", "Casi siempre", "Siempre"],
+    "respuesta": "Nunca"
+  },
+  {
+    "pregunta": "Terminas las frases de otras personas",
+    "opciones": ["Nunca", "Casi nunca", "A veces", "Casi siempre", "Siempre"],
+    "respuesta": "Nunca"
+  },
+  {
+    "pregunta": "Te irrita ver que alguien se equivoque una y otra vez",
+    "opciones": ["Nunca", "Casi nunca", "A veces", "Casi siempre", "Siempre"],
+    "respuesta": "Nunca"
+  },
+  {
+    "pregunta": "No sé tomar decisiones cuando estoy desconcentrado.",
+    "opciones": ["Nunca", "Casi nunca", "A veces", "Casi siempre", "Siempre"],
+    "respuesta": "Nunca"
   }
 ]
