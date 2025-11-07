@@ -1748,7 +1748,7 @@
     "pregunta": "No me da miedo manejar dinero.",
     "opciones": ["V", "F"],
     "respuesta": "V"
-  }
+  },
   {
     "pregunta": "Se me suele dar bien organizar grupos de trabajo.",
     "opciones": ["Si", "Ocasionalmente.", "No"],
