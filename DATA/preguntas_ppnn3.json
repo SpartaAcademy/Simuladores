@@ -1,0 +1,502 @@
+[
+  {
+    "pregunta": "Si estuvieras a cargo del presupuesto de una empresa y sobrara dinero, ¿lo gastarías en beneficio propio?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Si un compañero llega tarde constantemente, ¿le encubrirías ante el jefe?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Si tu jefe se equivoca en una decisión, ¿se lo harías notar con respeto?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "Sí"
+  },
+  {
+    "pregunta": "Si un compañero no cumple con su trabajo, ¿lo ayudarías antes de reportarlo?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "Sí"
+  },
+  {
+    "pregunta": "Si encontraras dinero en la oficina, ¿lo entregarías a tu superior inmediato?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "Sí"
+  },
+  {
+    "pregunta": "Si un compañero te cae mal, ¿evitarías trabajar con él?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Si te ordenan una tarea que no te corresponde, ¿la harías de todos modos?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "Sí"
+  },
+  {
+    "pregunta": "Si un superior te pide que ocultes un error, ¿obedecerías?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Si un cliente te falta al respeto, ¿responderías con la misma actitud?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Si pudieras obtener un beneficio sin que nadie se dé cuenta, ¿lo tomarías?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Si un compañero te pide ayuda en plena hora de descanso, ¿lo ayudarías?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "Sí"
+  },
+  {
+    "pregunta": "Si un error tuyo causa un perjuicio a la empresa, ¿lo admitirías?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "Sí"
+  },
+  {
+    "pregunta": "Si una orden no te parece justa, ¿la cumplirías igual?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Si un compañero logra un ascenso antes que tú, ¿te molestaría?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Si se pierde material de la empresa y sospechan de ti, ¿te defenderías con pruebas?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "Sí"
+  },
+  {
+    "pregunta": "Si ves a un compañero robar, ¿lo denunciarías?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "Sí"
+  },
+  {
+    "pregunta": "Si un superior te grita injustamente, ¿guardarías la calma?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "Sí"
+  },
+  {
+    "pregunta": "Si tienes una opinión distinta a la del grupo, ¿la expresarías?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "Sí"
+  },
+  {
+    "pregunta": "Si un compañero rompe una regla menor, ¿preferirías callar?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Si te ofrecen dinero por hacer algo indebido, ¿lo aceptarías?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Si pudieras mejorar la empresa con una idea nueva, ¿la compartirías?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "Sí"
+  },
+  {
+    "pregunta": "Si cometes un error leve, ¿esperarías a que lo descubran?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Si tu jefe te pide quedarte horas extras sin pago, ¿aceptarías?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Si tus compañeros discuten, ¿intervendrías para calmar la situación?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "Sí"
+  },
+  {
+    "pregunta": "Si un amigo trabaja contigo y hace algo mal, ¿lo cubrirías?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Si un compañero te acusa injustamente, ¿mantendrías la calma?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "Sí"
+  },
+  {
+    "pregunta": "Si un superior actúa de forma incorrecta, ¿lo reportarías?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "Sí"
+  },
+  {
+    "pregunta": "Si un cliente se equivoca, ¿le corregirías con respeto?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "Sí"
+  },
+  {
+    "pregunta": "Si ves que tu grupo trabaja mal, ¿ofrecerías una solución?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "Sí"
+  },
+  {
+    "pregunta": "Si alguien toma tus méritos, ¿reclamarías ante el jefe?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "Sí"
+  },
+  {
+    "pregunta": "Si hay una tarea que nadie quiere hacer, ¿te ofrecerías voluntariamente?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Si tu jefe comete una falta leve, ¿preferirías callar?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Si tienes un conflicto con un compañero, ¿buscarías resolverlo por diálogo?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "Sí"
+  },
+  {
+    "pregunta": "Si estás cansado pero hay trabajo urgente, ¿seguirías trabajando?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "Sí"
+  },
+  {
+    "pregunta": "Si tienes un problema personal, ¿afectaría tu desempeño laboral?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "Sí"
+  },
+  {
+    "pregunta": "Si te ofrecen un ascenso que no mereces, ¿lo aceptarías?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Si un superior te pide hacer algo ilegal, ¿te negarías?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "Sí"
+  },
+  {
+    "pregunta": "Si un compañero nuevo comete errores, ¿lo ayudarías a mejorar?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "Sí"
+  },
+  {
+    "pregunta": "Si tuvieras la oportunidad de corregir a tu jefe, ¿lo harías?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Si se te asigna una tarea difícil, ¿buscarías aprender antes de rendirte?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "Sí"
+  },
+  {
+    "pregunta": "Si tus compañeros pierden tiempo en charlas, ¿les llamarías la atención?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "Sí"
+  },
+  {
+    "pregunta": "Si no estás de acuerdo con una regla, ¿igual la cumplirías?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "Sí"
+  },
+  {
+    "pregunta": "Si un compañero tiene mejor sueldo, ¿te sentirías inconforme?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Si te piden hacer una tarea sin recursos, ¿buscarías alternativas?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "Sí"
+  },
+  {
+    "pregunta": "Si un compañero rompe material por descuido, ¿lo reportarías?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "Sí"
+  },
+  {
+    "pregunta": "Si en tu área hay desorden, ¿colaborarías para organizarlo?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "Sí"
+  },
+  {
+    "pregunta": "Si te corrigen en público, ¿lo tomarías bien?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "Sí"
+  },
+  {
+    "pregunta": "Si un compañero tiene una actitud negativa, ¿intentarías motivarlo?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "Sí"
+  },
+  {
+    "pregunta": "Si se comete una injusticia en el grupo, ¿intervendrías?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "Sí"
+  },
+  {
+    "pregunta": "Si te piden mentir para proteger la imagen de la empresa, ¿lo harías?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "Sí"
+  },
+  {
+    "pregunta": "Si tus ideas no son tomadas en cuenta, ¿insistirías con respeto?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "Sí"
+  },
+  {
+    "pregunta": "Si se te delega una tarea importante, ¿te sentirías capaz de cumplirla?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "Sí"
+  },
+  {
+    "pregunta": "Si un compañero llega tarde, ¿le llamarías la atención directamente?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "Sí"
+  },
+  {
+    "pregunta": "Si te piden entregar un informe que no terminaste, ¿mentirías sobre su estado?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Si alguien toma tu material sin permiso, ¿lo reclamarías calmadamente?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "Sí"
+  },
+  {
+    "pregunta": "Si ves favoritismos en tu trabajo, ¿lo comentarías con tus compañeros?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Si un superior te pide revisar trabajo ajeno, ¿lo harías con detalle?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Si un compañero no colabora, ¿prefieres hacer su parte para terminar a tiempo?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Si estás en desacuerdo con una decisión, ¿la acatarías de todos modos?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "Sí"
+  },
+  {
+    "pregunta": "Si notas un error en tus registros, ¿lo corregirías sin decir nada?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Si se te confía información confidencial, ¿la mantendrías en secreto?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "Sí"
+  },
+  {
+    "pregunta": "Si te equivocas, ¿aceptas tu responsabilidad?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "Sí"
+  },
+  {
+    "pregunta": "Si un compañero te ofende, ¿responderías con calma?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "Sí"
+  },
+  {
+    "pregunta": "Si tienes una carga de trabajo extra, ¿buscarías apoyo sin quejarte?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "Sí"
+  },
+  {
+    "pregunta": "Si un superior te delega una tarea urgente, ¿priorizarías su cumplimiento?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "Sí"
+  },
+  {
+    "pregunta": "Si un compañero toma crédito por tu trabajo, ¿lo confrontarías directamente?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "Sí"
+  },
+  {
+    "pregunta": "Si se presenta un problema ético, ¿optarías por lo correcto aunque afecte tu puesto?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "Sí"
+  },
+  {
+    "pregunta": "Si ves desperdicio de recursos, ¿lo informarías?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "Sí"
+  },
+  {
+    "pregunta": "Si un compañero te pide ayuda fuera de tu horario, ¿accederías?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "Sí"
+  },
+  {
+    "pregunta": "Si recibes críticas injustas, ¿mantendrías tu autocontrol?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "Sí"
+  },
+  {
+    "pregunta": "Si tus ideas son rechazadas varias veces, ¿seguirías aportando?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "Sí"
+  },
+  {
+    "pregunta": "Si un cliente te agradece por tu trabajo, ¿te motivas a seguir mejorando?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "Sí"
+  },
+  {
+    "pregunta": "Si descubres un error en un informe final, ¿lo corregirías aunque retrase todo?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Si tu jefe no te felicita, ¿te desmotivarías?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Si un compañero comete una falta menor, ¿lo aconsejarías en privado?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "Sí"
+  },
+  {
+    "pregunta": "Si un superior te pide hacer tareas ajenas a tu cargo, ¿te adaptarías?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "Sí"
+  },
+  {
+    "pregunta": "Si sientes injusticia en tu evaluación, ¿pedirías revisión formal?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "Sí"
+  },
+  {
+    "pregunta": "Si se presenta un imprevisto, ¿reaccionas con serenidad?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "Sí"
+  },
+  {
+    "pregunta": "Si tus compañeros están desanimados, ¿buscarías motivarlos?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "Sí"
+  },
+  {
+    "pregunta": "Si hay rumores en el trabajo, ¿participarías en ellos?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Si te piden opinar sobre un compañero, ¿serías objetivo?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "Sí"
+  },
+  {
+    "pregunta": "Si un error ajeno te afecta, ¿prefieres resolverlo tú mismo?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Si te hacen una pregunta que no sabes, ¿reconoces no tener la respuesta?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "Sí"
+  },
+  {
+    "pregunta": "Si te ofrecen un ascenso con más responsabilidad, ¿lo aceptarías?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "Sí"
+  },
+  {
+    "pregunta": "Si alguien te critica injustamente, ¿buscarías aclararlo con madurez?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "Sí"
+  },
+  {
+    "pregunta": "Si se presenta una emergencia, ¿actúas con rapidez?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "Sí"
+  },
+  {
+    "pregunta": "Si no entiendes una orden, ¿preguntas para aclararla?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "Sí"
+  },
+  {
+    "pregunta": "Si te piden una tarea urgente y estás cansado, ¿la cumples igual?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "Sí"
+  },
+  {
+    "pregunta": "Si tus compañeros bromean en exceso, ¿los corriges amablemente?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Si un compañero logra un premio, ¿te alegras sinceramente?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Si pierdes un documento importante, ¿informas de inmediato?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "Sí"
+  },
+  {
+    "pregunta": "Si un compañero necesita tu puesto temporalmente, ¿se lo cedes sin problema?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Si descubres que otro se lleva materiales de la empresa, ¿lo reportas?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "Sí"
+  },
+  {
+    "pregunta": "Si ves injusticia hacia otro compañero, ¿lo defiendes?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "Sí"
+  },
+  {
+    "pregunta": "Si se te pide guardar un secreto laboral, ¿lo cumplirías siempre?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "Sí"
+  },
+  {
+    "pregunta": "Si la empresa atraviesa dificultades, ¿seguirías dando tu mejor esfuerzo?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "Sí"
+  },
+  {
+    "pregunta": "Si notas favoritismo de tu jefe, ¿seguirías cumpliendo con normalidad?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "Sí"
+  },
+  {
+    "pregunta": "Si tus compañeros fallan, ¿te ofreces para ayudar a cumplir la meta?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "Sí"
+  },
+  {
+    "pregunta": "Si te critican por algo que no hiciste, ¿esperas el momento adecuado para aclararlo?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "Si se te da una oportunidad de mejorar la institución, ¿te comprometes totalmente?",
+    "opciones": ["Sí", "Tal vez", "No"],
+    "respuesta": "Sí"
+  }
+]
