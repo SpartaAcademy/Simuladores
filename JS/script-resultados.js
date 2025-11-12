@@ -6,6 +6,8 @@ const supabaseUrl = 'https://tgkbsaazxgnpllcwtbuk.supabase.co';
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRna2JzYWF6eGducGxsY3d0YnVrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjIxNzk0OTUsImV4cCI6MjA3Nzc1NTQ5NX0.877IdYJdJSczFaqCsz2P-w5uzAZvS7E6DzWTcwyT4IQ';
 const supabase = createClient(supabaseUrl, supabaseKey);
 
+// (ELIMINADO) El objeto 'materias' estático ya no es necesario
+
 // Inicializa jsPDF (global)
 const { jsPDF } = window.jspdf;
 
@@ -18,11 +20,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const reporteContainer = document.getElementById('reporte-container');
     const loadingSpinner = document.getElementById('loading-spinner');
     const descargarGeneralBtn = document.getElementById('descargar-general-csv-btn');
-    const descargarPdfBtn = document.getElementById('descargar-pdf-btn'); // Botón PDF General
+    const descargarPdfBtn = document.getElementById('descargar-pdf-btn');
 
     let allUsers = [];
     let allAttempts = [];
-    let currentFilteredUsers = []; // Almacena los usuarios que se están mostrando
+    let currentFilteredUsers = [];
     
     function formatFecha(fechaISO) {
         if (!fechaISO) return 'N/A';
@@ -38,6 +40,26 @@ document.addEventListener('DOMContentLoaded', () => {
         if (p >= 700) return 'alto';
         if (p >= 400) return 'medio';
         return 'bajo';
+    }
+
+    // (MODIFICADO) Esta función ahora lee los datos de Supabase
+    function popularFiltroMaterias(intentos) {
+        // Extrae nombres de materias únicos de los resultados
+        const materiasUnicas = [...new Set(intentos.map(intento => intento.materia))];
+        materiasUnicas.sort(); // Ordena alfabéticamente
+
+        // Limpia el filtro (excepto la opción "Todas")
+        filtroMateria.innerHTML = '<option value="Todas">Todas las Materias</option>';
+        
+        // Añade las materias encontradas
+        materiasUnicas.forEach(materia => {
+            if (materia) { // Evita nulos o vacíos
+                const option = document.createElement('option');
+                option.value = materia;
+                option.textContent = materia;
+                filtroMateria.appendChild(option);
+            }
+        });
     }
     
     async function cargarDatosIniciales() {
@@ -55,6 +77,9 @@ document.addEventListener('DOMContentLoaded', () => {
             if (intentosRes.error) throw intentosRes.error;
             allAttempts = intentosRes.data;
 
+            // (MODIFICADO) Llama a la función para poblar el filtro
+            popularFiltroMaterias(allAttempts);
+            
             renderizarListaUsuarios();
 
         } catch (error) {
@@ -70,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const materia = filtroMateria.value;
         const nombreSearch = filtroNombre.value.toLowerCase();
         
-        currentFilteredUsers = allUsers.filter(user => { // Guarda los usuarios filtrados
+        currentFilteredUsers = allUsers.filter(user => {
             const matchCiudad = (ciudad === 'Todos' || user.ciudad === ciudad);
             const matchNombre = user.nombre.toLowerCase().includes(nombreSearch);
             return matchCiudad && matchNombre;
@@ -98,7 +123,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const userCard = document.createElement('div');
             userCard.className = 'user-card';
-            // (MODIFICADO) Añadido botón .user-pdf-btn
             userCard.innerHTML = `
                 <div class="user-header" data-userid="${user.usuario}">
                     <div class="user-info">
@@ -129,14 +153,12 @@ document.addEventListener('DOMContentLoaded', () => {
              reporteContainer.innerHTML = '<p class="no-intentos">No se encontraron aspirantes con esos filtros.</p>';
         }
 
-        // Añadir Listeners a los elementos recién creados
         reporteContainer.querySelectorAll('.user-header').forEach(header => {
             header.addEventListener('click', toggleUserAttempts);
         });
         reporteContainer.querySelectorAll('.user-csv-btn').forEach(btn => {
             btn.addEventListener('click', descargarCSVUsuario);
         });
-        // (NUEVO) Listener para el botón PDF individual
         reporteContainer.querySelectorAll('.user-pdf-btn').forEach(btn => {
             btn.addEventListener('click', descargarPDFUsuario);
         });
@@ -148,7 +170,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const attemptsContainer = userCard.querySelector('.user-attempts-container');
         const userId = header.dataset.userid;
 
-        // (MODIFICADO) Si se hizo clic en CUALQUIER botón de descarga, no hagas nada
         if (event.target.closest('.user-csv-btn') || event.target.closest('.user-pdf-btn')) {
             return;
         }
@@ -165,7 +186,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // (CORREGIDO) Vuelve a agrupar por materia para arreglar el diseño
+    // (CORREGIDO) Vuelve a agrupar por materia
     function buildAttemptDetails(container, userId) {
         const materiaFiltro = filtroMateria.value;
 
@@ -179,7 +200,6 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // Agrupar por materia
         const intentosAgrupados = {};
         intentosFiltrados.forEach(intento => {
             if (!intentosAgrupados[intento.materia]) {
@@ -192,15 +212,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const materiasOrdenadas = Object.keys(intentosAgrupados).sort();
         
         for (const materia of materiasOrdenadas) {
-            // Fila de Título de Materia
             html += `<div class="materia-group"><h4>${materia} (${intentosAgrupados[materia].length} intentos)</h4>`;
-            // Tabla para esta materia
             html += '<table class="intentos-tabla"><thead><tr><th class="col-puntaje">Puntaje</th><th class="col-fecha">Fecha y Hora</th></tr></thead><tbody>';
             
-            // Ordenar intentos por fecha (más nuevos primero)
             intentosAgrupados[materia].sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
 
-            // Filas de Intentos
             intentosAgrupados[materia].forEach(intento => {
                 const clasePuntaje = getClasePuntaje(intento.puntaje);
                 const puntajeTotal = 1000;
@@ -217,16 +233,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- Lógica de Descarga CSV ---
-
     function generarYDescargarCSV(data, filename) {
-        // Usa punto y coma como separador para que Excel lo abra bien
         let csvContenido = data.map(filaArray => 
             filaArray.map(cell => `"${String(cell).replace(/"/g, '""')}"`)
         ).map(filaArray => filaArray.join(";")).join("\r\n");
-        
         const bom = "\uFEFF";
         const csvBlob = new Blob([bom + csvContenido], { type: "text/csv;charset=utf-8;" });
-        
         const link = document.createElement("a");
         const url = URL.createObjectURL(csvBlob);
         link.setAttribute("href", url);
@@ -323,12 +335,11 @@ document.addEventListener('DOMContentLoaded', () => {
         generarYDescargarCSV(data, `reporte_general_sparta.csv`);
     }
 
-    // --- (NUEVO) Lógica de Descarga PDF Individual ---
+    // --- Lógica de Descarga PDF ---
     function descargarPDFUsuario(event) {
-        event.stopPropagation(); // Evita que se abra/cierre el acordeón
+        event.stopPropagation();
         const userId = event.currentTarget.dataset.userid;
         const usuarioInfo = allUsers.find(u => u.usuario === userId);
-
         const intentosUsuario = allAttempts.filter(a => 
             a.usuario_id === userId &&
             (filtroMateria.value === 'Todas' || a.materia === filtroMateria.value)
@@ -339,7 +350,6 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // --- Creación del PDF ---
         const doc = new jsPDF();
         
         doc.setFont('helvetica', 'bold');
@@ -365,7 +375,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const materiasOrdenadas = Object.keys(intentosAgrupados).sort();
 
         for (const materia of materiasOrdenadas) {
-            // Evita que la tabla se corte mal si está muy cerca del final
             if (startY > 250) { 
                 doc.addPage();
                 startY = 22;
@@ -396,11 +405,9 @@ document.addEventListener('DOMContentLoaded', () => {
             startY = doc.autoTable.previous.finalY + 15;
         }
 
-        // (MODIFICADO) Corregido el nombre del archivo
         doc.save(`reporte_pdf_${usuarioInfo.usuario}.pdf`);
     }
     
-    // --- Lógica de Descarga PDF General ---
     function descargarPDFGeneral() {
         const ciudad = filtroCiudad.value;
         const materiaFiltro = filtroMateria.value;
@@ -455,7 +462,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const materiasOrdenadas = Object.keys(intentosAgrupados).sort();
             for (const materia of materiasOrdenadas) {
-                 if (startY > 250) { // Evita cortes
+                 if (startY > 250) {
                     doc.addPage();
                     startY = 22;
                 }
