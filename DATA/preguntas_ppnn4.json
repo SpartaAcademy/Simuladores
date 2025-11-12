@@ -1,0 +1,657 @@
+[
+  {
+    "pregunta": "¿Qué harías si descubres que un compañero está tomando objetos del trabajo sin permiso?",
+    "opciones": ["Ignorarlo, ya que no me afecta.", "Informar al superior de la situación.", "Pedirle que lo devuelva y no decir nada más.", "Hablar con el compañero y pedirle que lo deje de hacer."],
+    "respuesta": "Informar al superior de la situation."
+  },
+  {
+    "pregunta": "Si te ofrecen un soborno para no poner una multa, ¿qué harías?",
+    "opciones": ["Aceptar el soborno, ya que puede ser útil.", "Rechazar el soborno y seguir con el procedimiento legal.", "Pedir un poco más para no poner la multa.", "Dejar pasar la multa sin cobrarla, pero no aceptar el soborno."],
+    "respuesta": "Rechazar el soborno y seguir con el procedimiento legal."
+  },
+  {
+    "pregunta": "¿Cómo manejarías una situación en la que un superior te pide que cubras un error cometido por él?",
+    "opciones": ["Lo haría para evitar problemas.", "Le diría que no lo puedo hacer y seguiría el protocolo.", "Intentaría resolverlo por mi cuenta sin decir nada.", "Reportaría el error al superior y seguiría las indicaciones."],
+    "respuesta": "Le diría que no lo puedo hacer y seguiría el protocolo."
+  },
+  {
+    "pregunta": "Si observas que un colega está intimidando a un ciudadano, ¿qué deberías hacer?",
+    "opciones": ["No intervenir, ya que es un tema entre ellos.", "Informar a los superiores y documentar el incidente.", "Unirme al comportamiento para no ser señalado.", "Hablar con el colega para que cambie su comportamiento."],
+    "respuesta": "Informar a los superiores y documentar el incidente."
+  },
+  {
+    "pregunta": "¿Qué harías si descubres que un compañero está vendiendo información confidencial?",
+    "opciones": ["Ignorarlo, ya que no me afecta.", "Informar inmediatamente a los superiores o a un canal de denuncias.", "Confrontarlo personalmente y advertirle que deje de hacerlo.", "Intentar obtener algo a cambio de esa información."],
+    "respuesta": "Informar inmediatamente a los superiores o a un canal de denuncias."
+  },
+  {
+    "pregunta": "En una situación en la que un superior te da una orden que consideras ilegal, ¿qué harías?",
+    "opciones": ["Cumpliría la orden sin cuestionarla.", "Desobedecería la orden y denunciaría la situación.", "Consultaría con un abogado antes de actuar.", "Buscaría una manera de hacer la orden de manera que no me afecte."],
+    "respuesta": "Desobedecería la orden y denunciaría la situación."
+  },
+  {
+    "pregunta": "Si un compañero te pide ayuda para encubrir una infracción, ¿qué harías?",
+    "opciones": ["Ayudarlo, ya que somos colegas.", "Rechazaría ayudarlo y lo denunciaría.", "Intentaría que no se descubriera.", "Consultaría con alguien más antes de tomar una decisión."],
+    "respuesta": "Rechazaría ayudarlo y lo denunciaría."
+  },
+  {
+    "pregunta": "Si un superior te pide que escondas evidencia, ¿qué harías?",
+    "opciones": ["Cumpliría la orden sin dudar.", "Me negaría rotundamente y denunciaría la orden.", "Consideraría la orden y lo haría si no me perjudica.", "Intentaría manejar la situación de forma discreta."],
+    "respuesta": "Me negaría rotundamente y denunciaría la orden."
+  },
+  {
+    "pregunta": "En caso de que un amigo pida tu ayuda para evitar una multa injusta, ¿qué harías?",
+    "opciones": ["Ayudaría a mi amigo sin importar las consecuencias.", "Intentaría ver si se puede apelar la multa de manera legal.", "No haría nada, ya que la multa es legítima.", "Ayudaría a mi amigo siempre que no implique una violación de reglas."],
+    "respuesta": "Intentaría ver si se puede apelar la multa de manera legal."
+  },
+  {
+    "pregunta": "Si un compañero llega al trabajo con síntomas de estar bajo la influencia de alcohol o drogas, ¿qué harías?",
+    "opciones": [
+      "Ignoraría el problema, ya que no me concierne.",
+      "Le pediría que se retire y reportaría el incidente a un superior.",
+      "Lo confrontaría, pero sin hablar con nadie más.",
+      "Lo dejaría trabajar, ya que puede estar fingiendo."
+    ],
+    "respuesta": "Le pediría que se retire y reportaría el incidente a un superior."
+  },
+  {
+    "pregunta": "¿Qué harías si un ciudadano te ofrece información valiosa a cambio de un favor personal?",
+    "opciones": [
+      "Aceptaría el favor porque me beneficia.",
+      "Rechazaría la oferta y seguiría el procedimiento.",
+      "Consultaría con un superior para ver qué hacer.",
+      "Aprovecharía la oportunidad para obtener algo a cambio."
+    ],
+    "respuesta": "Rechazaría la oferta y seguiría el procedimiento."
+  },
+  {
+    "pregunta": "Si un compañero de trabajo tiene problemas personales que afectan su desempeño, ¿cómo reaccionarías?",
+    "opciones": [
+      "Lo ignoraría y seguiría con mi trabajo.",
+      "Intentaría ayudarlo personalmente o sugerirle que busque ayuda profesional.",
+      "Reportaría su bajo desempeño a los superiores.",
+      "Le ofrecería una excusa para cubrir su falta de rendimiento."
+    ],
+    "respuesta": "Intentaría ayudarlo personalmente o sugerirle que busque ayuda profesional."
+  },
+  {
+    "pregunta": "¿Qué harías si un superior te pide que ocultes un error cometido durante una investigación?",
+    "opciones": [
+      "Cumpliría la orden y lo ocultaría.",
+      "Rechazaría la solicitud y lo reportaría.",
+      "Intentaría corregir el error sin que nadie lo note.",
+      "Consultaría con otro superior antes de tomar una decisión."
+    ],
+    "respuesta": "Rechazaría la solicitud y lo reportaría."
+  },
+  {
+    "pregunta": "Si en tu trabajo como policía te piden que uses fuerza excesiva en un arresto, ¿qué harías?",
+    "opciones": [
+      "Usaría la fuerza como me lo pidieron, ya que es una orden.",
+      "Evaluaría la situación y usaría la fuerza necesaria, pero no excesiva.",
+      "Me negaría a usar fuerza excesiva y buscaría alternativas.",
+      "Ignoraría las normas y usaría toda la fuerza disponible."
+    ],
+    "respuesta": "Me negaría a usar fuerza excesiva y buscaría alternativas."
+  },
+  {
+    "pregunta": "Si un superior te ofrece una ventaja a cambio de no reportar una infracción que cometió, ¿qué harías?",
+    "opciones": [
+      "Aceptaría la oferta para evitar problemas.",
+      "Rechazaría la oferta y denunciaría la infracción.",
+      "Consultaría con otros colegas para decidir qué hacer.",
+      "Intentaría solucionar el problema sin involucrar a nadie más."
+    ],
+    "respuesta": "Rechazaría la oferta y denunciaría la infracción."
+  },
+  {
+    "pregunta": "Si un compañero está usando equipo del trabajo para fines personales, ¿qué harías?",
+    "opciones": [
+      "Lo dejaría hacer, ya que no me afecta.",
+      "Reportaría el mal uso del equipo.",
+      "Hablaría con él para que deje de hacerlo.",
+      "Lo usaría también si necesito el equipo."
+    ],
+    "respuesta": "Reportaría el mal uso del equipo."
+  },
+  {
+    "pregunta": "¿Qué harías si un ciudadano te ofrece un regalo como agradecimiento por un buen servicio?",
+    "opciones": [
+      "Aceptaría el regalo y lo disfrutaría.",
+      "Rechazaría el regalo para evitar conflictos de interés.",
+      "Lo aceptaría pero lo entregaría a la institución.",
+      "Aceptaría el regalo, pero solo si es algo simbólico."
+    ],
+    "respuesta": "Rechazaría el regalo para evitar conflictos de interés."
+  },
+  {
+    "pregunta": "Si un colega está siendo acosado por un superior, ¿qué deberías hacer?",
+    "opciones": [
+      "Ignorar el problema, ya que no me concierne.",
+      "Reportar el acoso a recursos humanos o a un canal de denuncias.",
+      "Hablar directamente con el superior para detener el acoso.",
+      "Aconsejar a mi compañero que resuelva el problema por su cuenta."
+    ],
+    "respuesta": "Reportar el acoso a recursos humanos o a un canal de denuncias."
+  },
+  {
+    "pregunta": "En una situación en la que un compañero está actuando de manera inapropiada con el público, ¿qué harías?",
+    "opciones": [
+      "No me involucraría, ya que es su problema.",
+      "Intervendría para corregir su comportamiento.",
+      "Reportaría la situación sin confrontar al compañero.",
+      "Esperaría a que alguien más se ocupe del problema."
+    ],
+    "respuesta": "Intervendría para corregir su comportamiento."
+  },
+  {
+    "pregunta": "Si un superior te pide que dejes de documentar un incidente importante, ¿qué harías?",
+    "opciones": [
+      "Cumpliría la orden y dejaría de documentar.",
+      "Insistiría en documentarlo, ya que es importante para la investigación.",
+      "Intentaría buscar una forma de documentarlo sin que el superior lo sepa.",
+      "Ignoraría la orden y seguiría mis propios procedimientos."
+    ],
+    "respuesta": "Insistiría en documentarlo, ya que es importante para la investigación."
+  },
+  {
+    "pregunta": "Si un superior te pide que hagas algo que va en contra de los valores de la policía, ¿qué harías?",
+    "opciones": [
+      "Obedecería la orden, ya que es mi superior.",
+      "Consultaría con un colega antes de tomar una decisión.",
+      "Desobedecería la orden y denunciaría la situación.",
+      "Intentaría encontrar una manera de hacerlo sin comprometer mis valores."
+    ],
+    "respuesta": "Desobedecería la orden y denunciaría la situación."
+  },
+  {
+    "pregunta": "Si un compañero llega tarde frecuentemente al trabajo sin justificación, ¿qué harías?",
+    "opciones": [
+      "No me importa, no es mi problema.",
+      "Reportaría su comportamiento a los superiores.",
+      "Hablaría con él para ver si puedo ayudarlo.",
+      "Ignoraría la situación para evitar conflictos."
+    ],
+    "respuesta": "Hablaría con él para ver si puedo ayudarlo."
+  },
+  {
+    "pregunta": "Si te enteras de que un superior está involucrado en corrupción, ¿qué harías?",
+    "opciones": [
+      "No me involucraría, ya que no es mi problema.",
+      "Lo confrontaría directamente para que detenga sus acciones.",
+      "Reportaría la situación a las autoridades correspondientes.",
+      "Intentaría obtener pruebas antes de hablar con alguien."
+    ],
+    "respuesta": "Reportaría la situación a las autoridades correspondientes."
+  },
+  {
+    "pregunta": "Si un ciudadano te ofrece dinero para evitar un arresto, ¿qué harías?",
+    "opciones": [
+      "Aceptaría el dinero y dejaría ir al ciudadano.",
+      "Rechazaría el dinero y procedería con el arresto.",
+      "Pediría una cantidad mayor para no hacer el arresto.",
+      "Consultaría con un superior antes de tomar una decisión."
+    ],
+    "respuesta": "Rechazaría el dinero y procedería con el arresto."
+  },
+  {
+    "pregunta": "Si te das cuenta de que un compañero está usando su puesto para obtener beneficios personales, ¿cómo actuarías?",
+    "opciones": [
+      "Ignoraría la situación para evitar problemas.",
+      "Le pediría que deje de hacerlo sin involucrar a nadie más.",
+      "Lo reportaría a un superior o a un canal de denuncias.",
+      "Aprovecharía la oportunidad para obtener algún beneficio también."
+    ],
+    "respuesta": "Lo reportaría a un superior o a un canal de denuncias."
+  },
+  {
+    "pregunta": "Si un compañero hace un comentario racista en el trabajo, ¿qué harías?",
+    "opciones": [
+      "No diría nada, ya que no quiero crear un conflicto.",
+      "Ignoraría el comentario y seguiría trabajando.",
+      "Le pediría que se disculpe y reportaría la situación.",
+      "Me uniría al comentario para evitar ser señalado."
+    ],
+    "respuesta": "Le pediría que se disculpe y reportaría la situación."
+  },
+  {
+    "pregunta": "Si en medio de un operativo se encuentra material sospechoso, ¿qué deberías hacer?",
+    "opciones": [
+      "Dejarlo allí y seguir con el operativo.",
+      "Recogerlo y asegurar que sea revisado adecuadamente.",
+      "Ignorarlo, ya que podría retrasar la operación.",
+      "Llevarlo a casa para revisarlo más tarde."
+    ],
+    "respuesta": "Recogerlo y asegurar que sea revisado adecuadamente."
+  },
+  {
+    "pregunta": "Si un colega te pide que cubras su turno de trabajo y sabes que está mintiendo sobre su estado de salud, ¿qué harías?",
+    "opciones": [
+      "Lo ayudaría sin preguntar más.",
+      "Le pediría que sea honesto, pero aceptaría cubrir su turno.",
+      "Le diría que no puedo cubrir su turno.",
+      "Reportaría la situación a un superior si creo que está mintiendo."
+    ],
+    "respuesta": "Le pediría que sea honesto, pero aceptaría cubrir su turno."
+  },
+  {
+    "pregunta": "Si un compañero de trabajo se comporta de forma grosera con un ciudadano, ¿qué deberías hacer?",
+    "opciones": [
+      "No decir nada, ya que es su comportamiento.",
+      "Hablar con el compañero y pedirle que se disculpe.",
+      "Informar a un superior sobre el comportamiento.",
+      "Defender al compañero, ya que no me gustaría que me reporten."
+    ],
+    "respuesta": "Informar a un superior sobre el comportamiento."
+  },
+  {
+    "pregunta": "¿Qué harías si te encuentras con una situación en la que alguien te exige que ignores una norma?",
+    "opciones": [
+      "Cumpliría la solicitud para evitar problemas.",
+      "Consultaría con un superior para saber cómo proceder.",
+      "Ignoraría la solicitud y seguiría las normas.",
+      "Buscaría un equilibrio entre la norma y la solicitud."
+    ],
+    "respuesta": "Consultaría con un superior para saber cómo proceder."
+  },
+  {
+    "pregunta": "Si un compañero tiene una actitud constantemente negativa, ¿cómo actuarías?",
+    "opciones": [
+      "Ignoraría su actitud y seguiría trabajando.",
+      "Intentaría hablar con él para entender el problema y ayudarlo.",
+      "Lo reportaría por su actitud.",
+      "Me uniría a él para no sentirme excluido."
+    ],
+    "respuesta": "Intentaría hablar con él para entender el problema y ayudarlo."
+  },
+  {
+    "pregunta": "¿Qué harías si un amigo cercano te pide que lo ayudes a mentir sobre un incidente en el trabajo?",
+    "opciones": [
+      "Lo ayudaría, ya que es mi amigo.",
+      "Le diría que no puedo ayudarlo, pero no reportaría el incidente.",
+      "Reportaría el incidente inmediatamente.",
+      "Intentaría manipular la situación para que no le pase nada."
+    ],
+    "respuesta": "Le diría que no puedo ayudarlo, pero no reportaría el incidente."
+  },
+  {
+    "pregunta": "Si un compañero se muestra reacio a seguir el protocolo en una emergencia, ¿qué harías?",
+    "opciones": [
+      "Lo seguiría y no diría nada.",
+      "Lo corregiría inmediatamente y le recordaría el protocolo.",
+      "Ignoraría la situación, ya que no quiero causar conflictos.",
+      "Hablaría con un superior después de la emergencia."
+    ],
+    "respuesta": "Lo corregiría inmediatamente y le recordaría el protocolo."
+  },
+  {
+    "pregunta": "Si te das cuenta de que alguien está tomando crédito por tu trabajo, ¿qué harías?",
+    "opciones": [
+      "No diría nada para evitar crear problemas.",
+      "Hablaría directamente con esa persona para aclarar la situación.",
+      "Reportaría la situación a mi superior.",
+      "Tomaría crédito por el trabajo también."
+    ],
+    "respuesta": "Hablaría directamente con esa persona para aclarar la situación."
+  },
+  {
+    "pregunta": "Si en una patrullaje encuentras a un conocido involucrado en una situación ilegal, ¿cómo actuarías?",
+    "opciones": [
+      "Ignoraría la situación porque es mi conocido.",
+      "Procedería como lo haría con cualquier otra persona, siguiendo los procedimientos.",
+      "Intentaría hacer que se libere sin consecuencias.",
+      "Lo reportaría, pero trataría de no implicarlo demasiado."
+    ],
+    "respuesta": "Procedería como lo haría con cualquier otra persona, siguiendo los procedimientos."
+  },
+  {
+    "pregunta": "Si en tu trabajo descubres que otro miembro del equipo tiene dificultades para cumplir con sus responsabilidades, ¿qué harías?",
+    "opciones": [
+      "Lo ignoraría y seguiría con mis tareas.",
+      "Lo reportaría a los superiores de inmediato.",
+      "Le ofrecería ayuda para mejorar su desempeño.",
+      "Lo ayudaría de manera secreta, sin involucrar a otros."
+    ],
+    "respuesta": "Le ofrecería ayuda para mejorar su desempeño."
+  },
+  {
+    "pregunta": "Si te encuentras con una persona que necesita ayuda en la vía pública, pero te están esperando en otro lugar, ¿qué harías?",
+    "opciones": [
+      "No ayudaría a la persona y seguiría mi camino.",
+      "Detendría lo que estoy haciendo para ayudar a la persona",
+      "Intentaría pedir ayuda a otra persona para que lo atienda.",
+      "Solo ayudaría si me aseguro de que no hay otras prioridades."
+    ],
+    "respuesta": "Detendría lo que estoy haciendo para ayudar a la persona."
+  },
+  {
+    "pregunta": "Si un superior te pide que ocultes un hecho importante durante una investigación, ¿qué harías?",
+    "opciones": [
+      "Cumpliría la orden y no revelaría la información.",
+      "Denunciaría la solicitud y trataría de seguir con la investigación de manera ética.",
+      "No haría nada, simplemente no informaría a nadie.",
+      "Intentaría negociar una solución que no ponga en riesgo mi puesto."
+    ],
+    "respuesta": "Denunciaría la solicitud y trataría de seguir con la investigación de manera ética."
+  },
+  {
+    "pregunta": "Si descubres que un compañero está usando información confidencial para su beneficio personal, ¿qué harías?",
+    "opciones": [
+      "Lo ignoraría, ya que no me afecta.",
+      "Le pediría que deje de hacerlo sin involucrar a nadie más.",
+      "Lo reportaría a los superiores o a un canal de denuncias.",
+      "Le pediría que me dé algo a cambio de no reportarlo."
+    ],
+    "respuesta": "Lo reportaría a los superiores o a un canal de denuncias."
+  },
+  {
+    "pregunta": "Si te encuentras en una situación donde un ciudadano está siendo irrespetuoso contigo, ¿cómo actuarías?",
+    "opciones": [
+      "Le respondería de manera igualmente irrespetuosa.",
+      "Mantendría la calma y seguiría con el procedimiento adecuado.",
+      "Le pediría que se calme, pero sin darle demasiada importancia.",
+      "Lo ignoraría y seguiría mi camino sin responder."
+    ],
+    "respuesta": "Mantendría la calma y seguiría con el procedimiento adecuado."
+  },
+  {
+    "pregunta": "Si un compañero te pide ayuda para cubrir un error que cometió, ¿qué harías?",
+    "opciones": [
+      "Ayudaría a cubrir el error, ya que somos compañeros.",
+      "Rechazaría ayudarlo y reportaría el error.",
+      "Intentaría corregir el error sin que nadie lo note.",
+      "D) Lo hablaría directamente con él para que asuma la responsabilidad."
+    ],
+    "respuesta": "Rechazaría ayudarlo y reportaría el error."
+  },
+  {
+    "pregunta": "¿Qué harías si te encuentras con un miembro de la comunidad que no sabe cómo actuar en una situación de emergencia?",
+    "opciones": [
+      "Ignoraría la situación, ya que no me corresponde.",
+      "Le explicaría cómo actuar y lo ayudaría en lo que pudiera.",
+      "Llamaría a otro equipo para que se encargue del asunto.",
+      "Diría que debe esperar a que llegue ayuda profesional."
+    ],
+    "respuesta": "Le explicaría cómo actuar y lo ayudaría en lo que pudiera."
+  },
+  {
+    "pregunta": "Si un superior te ofrece una solución rápida, pero ilegal para un problema, ¿cómo reaccionarías?",
+    "opciones": [
+      "Aceptaría la solución, ya que proviene de un superior.",
+      "La rechazaría, y buscaría una solución dentro de la legalidad.",
+      "Buscaría una forma de hacerla legal sin cuestionar demasiado.",
+      "Consultaría con otro superior para ver si la solución es válida."
+    ],
+    "respuesta": "La rechazaría, y buscaría una solución dentro de la legalidad."
+  },
+  {
+    "pregunta": "Si un compañero está usando su teléfono móvil durante el turno de trabajo, ¿qué harías?",
+    "opciones": [
+      "No me importa, cada quien tiene sus tiempos.",
+      "Se lo mencionaría y le pediría que lo guarde para evitar distracciones.",
+      "Reportaría su comportamiento a los superiores.",
+      "Lo ignoraría, ya que todos necesitamos descansar."
+    ],
+    "respuesta": "Se lo mencionaría y le pediría que lo guarde para evitar distracciones."
+  },
+  {
+    "pregunta": "Si encuentras que un compañero no sigue los protocolos de seguridad en una intervención, ¿cómo actuarías?",
+    "opciones": [
+      "Lo ignoraría, ya que no es mi responsabilidad.",
+      "Lo corregiría y le recordaría los protocolos de seguridad.",
+      "Lo reportaría inmediatamente a los superiores.",
+      "Lo dejaría actuar, ya que es un procedimiento que podría salvar tiempo."
+    ],
+    "respuesta": "Lo corregiría y le recordaría los protocolos de seguridad."
+  },
+  {
+    "pregunta": "¿Qué harías si un superior te exige que priorices una tarea que no es urgente, pero ignora una emergencia real?",
+    "opciones": [
+      "Cumpliría la orden y seguiría con la tarea.",
+      "Buscaría una manera de realizar ambas tareas al mismo tiempo.",
+      "Explicaría la situación de emergencia y trataría de reordenar las prioridades.",
+      "Ignoraría la orden y me enfocaría en la emergencia."
+    ],
+    "respuesta": "Explicaría la situación de emergencia y trataría de reordenar las prioridades."
+  },
+  {
+    "pregunta": "Si un compañero te pide que cubras una falsificación de documentos, ¿qué harías?",
+    "opciones": [
+      "Aceptaría cubrir la falsificación, ya que es solo un error pequeño.",
+      "Le diría que no puedo hacerlo y lo denunciaría.",
+      "Trataría de ocultarlo para evitar problemas a largo plazo.",
+      "Haría la falsificación, pero luego intentaría corregirla."
+    ],
+    "respuesta": "Le diría que no puedo hacerlo y lo denunciaría."
+  },
+  {
+    "pregunta": "Si un ciudadano te pide que le dé un trato preferencial en un caso legal, ¿cómo actuarías?",
+    "opciones": [
+      "Le daría el trato preferencial para hacerle un favor.",
+      "Le explicaría que no puedo hacer excepciones y que se debe seguir el proceso.",
+      "Intentaría ayudarlo sin romper las reglas.",
+      "Consultaría con un superior para ver qué puedo hacer."
+    ],
+    "respuesta": "Le explicaría que no puedo hacer excepciones y que se debe seguir el proceso."
+  },
+  {
+    "pregunta": "Si un colega está mintiendo acerca de un incidente ocurrido en el trabajo, ¿cómo actuarías?",
+    "opciones": [
+      "No diría nada, ya que no quiero involucrarme.",
+      "Reportaría la mentira a los superiores para que se tomen las acciones correspondientes.",
+      "Le preguntaría sobre la mentira para aclarar la situación.",
+      "Mentiría también para proteger a mi colega."
+    ],
+    "respuesta": "Reportaría la mentira a los superiores para que se tomen las acciones correspondientes."
+  },
+  {
+    "pregunta": "Si te das cuenta de que tu compañero de patrullaje está descansando durante el turno, ¿qué harías?",
+    "opciones": [
+      "Lo ignoraría, ya que no me afecta directamente.",
+      "Lo alertaría sobre la importancia de mantenerse activo.",
+      "Lo reportaría a los superiores por no cumplir con su deber.",
+      "Me uniría a él y tomaría un descanso también."
+    ],
+    "respuesta": "Lo reportaría a los superiores por no cumplir con su deber."
+  },
+  {
+    "pregunta": "¿Qué harías si descubres que otro miembro del equipo está bajo la influencia de drogas o alcohol durante el turno?",
+    "opciones": [
+      "Lo ignoraría, ya que no me concierne.",
+      "Lo confrontaría para que se retire y lo reportaría.",
+      "Trataría de encubrirlo para evitar consecuencias.",
+      "Lo acompañaría al superior para que tome las medidas necesarias."
+    ],
+    "respuesta": "Lo confrontaría para que se retire y lo reportaría."
+  },
+  {
+    "pregunta": "Si un compañero está usando el uniforme de manera inapropiada, ¿cómo actuarías?",
+    "opciones": [
+      "Lo ignoraría, ya que no es un tema importante.",
+      "Le sugeriría que cumpla con las normas y el código de vestimenta.",
+      "Reportaría la situación a los superiores.",
+      "Le diría que se cambie sin involucrar a nadie más."
+    ],
+    "respuesta": "Le sugeriría que cumpla con las normas y el código de vestimenta."
+  },
+  {
+    "pregunta": "Si tienes que arrestar a alguien que conoces, ¿cómo manejarías la situación?",
+    "opciones": [
+      "Evitaría hacer el arresto para no complicarme.",
+      "Realizaría el arresto de manera profesional y de acuerdo con los procedimientos.",
+      "Intentaría encontrar una forma de que no tenga consecuencias legales.",
+      "Hablaría con la persona para ver si acepta el arresto sin que se necesiten medidas más drásticas."
+    ],
+    "respuesta": "Realizaría el arresto de manera profesional y de acuerdo con los procedimientos."
+  },
+  {
+    "pregunta": "Si un superior te pide que realices una tarea que sabes que no está dentro de tus responsabilidades, ¿qué harías?",
+    "opciones": [
+      "Lo haría sin cuestionar nada.",
+      "Preguntaría si realmente es necesario y cómo puedo hacerlo de forma efectiva.",
+      "Me negaría y seguiría con mis responsabilidades asignadas.",
+      "Buscaría una forma de delegar la tarea a otro compañero."
+    ],
+    "respuesta": "Preguntaría si realmente es necesario y cómo puedo hacerlo de forma efectiva."
+  },
+  {
+    "pregunta": "Si descubres que otro agente ha falsificado su informe de patrullaje, ¿qué harías?",
+    "opciones": [
+      "Lo ignoraría, ya que no me afecta directamente.",
+      "Lo confrontaría y le pediría que lo corrija.",
+      "Lo reportaría a los superiores para que se tomen medidas.",
+      "Lo cubriría para evitar que se metan en problemas."
+    ],
+    "respuesta": "Lo reportaría a los superiores para que se tomen medidas."
+  },
+  {
+    "pregunta": "Si un colega te muestra cómo hacer algo que va en contra de las normativas, ¿qué harías?",
+    "opciones": [
+      "Lo seguiría porque me lo enseña un colega experimentado.",
+      "Lo rechazaría y buscaría una forma de hacer las cosas correctamente.",
+      "Intentaría hacer lo que me enseña, pero de manera que no me afecte.",
+      "Ignoraría las normativas para aprender del colega."
+    ],
+    "respuesta": "Lo rechazaría y buscaría una forma de hacer las cosas correctamente."
+  },
+  {
+    "pregunta": "Si un compañero te ofrece acceso a información confidencial que no necesitas, ¿qué harías?",
+    "opciones": [
+      "Aceptaría la oferta, ya que no me perjudica.",
+      "Rechazaría la oferta para evitar cualquier conflicto.",
+      "Le agradecería y lo usaría para beneficio personal.",
+      "Consultaría con un superior para entender si es adecuado acceder a esa información."
+    ],
+    "respuesta": "Rechazaría la oferta para evitar cualquier conflicto."
+  },
+  {
+    "pregunta": "Si te piden que participes en una actividad que no cumple con los estándares éticos de la policía, ¿cómo reaccionarías?",
+    "opciones": [
+      "Participaría, ya que soy parte del equipo.",
+      "Buscaría una forma de evitar involucrarme sin causar problemas.",
+      "Denunciaría la actividad a los superiores para que se tomen las medidas necesarias.",
+      "Consultaría con un abogado antes de tomar una decisión."
+    ],
+    "respuesta": "Denunciaría la actividad a los superiores para que se tomen las medidas necesarias."
+  },
+  {
+    "pregunta": "Si un ciudadano te ofrece información que podría ser útil para un caso, pero a cambio de un favor personal, ¿qué harías?",
+    "opciones": [
+      "Aceptaría el favor y le daría la información.",
+      "Rechazaría el favor y seguiría el proceso de manera ética.",
+      "Aceptaría la oferta, pero lo reportaría a mis superiores.",
+      "Aprovecharía la situación para obtener algo más."
+    ],
+    "respuesta": "Rechazaría el favor y seguiría el proceso de manera ética."
+  },
+  {
+    "pregunta": "Si eres testigo de un compañero que manipula evidencia, ¿qué harías?",
+    "opciones": [
+      "Lo ignoraría, ya que no quiero involucrarme.",
+      "Lo confrontaría y le pediría que deje de hacerlo.",
+      "Lo reportaría inmediatamente a los superiores.",
+      "Manipularía la evidencia también para evitar conflictos."
+    ],
+    "respuesta": "Lo reportaría inmediatamente a los superiores."
+  },
+  {
+    "pregunta": "¿Qué harías si un compañero te pide ayuda para cubrir una infracción que cometió en servicio?",
+    "opciones": [
+      "Lo ayudaría, ya que es mi compañero.",
+      "Rechazaría ayudarlo y lo reportaría.",
+      "Intentaría cubrir la infracción sin que nadie lo note.",
+      "Lo confrontaría directamente y le sugeriría que lo asuma."
+    ],
+    "respuesta": "Rechazaría ayudarlo y lo reportaría."
+  },
+  {
+    "pregunta": "Si te encuentras con un civil que desafía tu autoridad, ¿cómo manejarías la situación?",
+    "opciones": [
+      "Le respondería de manera confrontativa.",
+      "Mantendría la calma y trataría de resolver el conflicto de manera profesional.",
+      "Ignoraría la actitud y seguiría con mi tarea.",
+      "Llamaría a un superior para que se encargue de la situación."
+    ],
+    "respuesta": "Mantendría la calma y trataría de resolver el conflicto de manera profesional."
+  },
+  {
+    "pregunta": "Si tienes conocimiento de que un superior está haciendo un uso indebido de recursos del departamento, ¿cómo actuarías?",
+    "opciones": [
+      "No diría nada, ya que es un superior.",
+      "Lo reportaría de inmediato a la autoridad correspondiente.",
+      "Intentaría hablar con él para que detenga esa acción.",
+      "Aprovecharía la oportunidad para obtener algo de los recursos."
+    ],
+    "respuesta": "Lo reportaría de inmediato a la autoridad correspondiente."
+  },
+  {
+    "pregunta": "Si un compañero de trabajo está involucrado en una discusión violenta con un civil, ¿qué harías?",
+    "opciones": [
+      "No interferiría, ya que el compañero sabe cómo manejar la situación.",
+      "Intervendría para calmar la situación y evitar mayores problemas.",
+      "Reportaría el incidente a los superiores.",
+      "Haría lo que fuera necesario para que el compañero gane la discusión."
+    ],
+    "respuesta": "Intervendría para calmar la situación y evitar mayores problemas."
+  },
+  {
+    "pregunta": "Si un compañero está siendo acosado por un superior, ¿qué deberías hacer?",
+    "opciones": [
+      "Ignorar el problema, ya que no me concierne.",
+      "Informar a recursos humanos o utilizar el canal adecuado para reportarlo.",
+      "Hablar con el superior para detener el acoso.",
+      "Aconsejar a mi compañero que lo resuelva por su cuenta."
+    ],
+    "respuesta": "Informar a recursos humanos o utilizar el canal adecuado para reportarlo."
+  },
+  {
+    "pregunta": "Si un civil te pide que te \"hagas de la vista gorda\" en un incidente, ¿qué harías?",
+    "opciones": [
+      "Ignoraría el incidente para evitar problemas.",
+      "Reportaría el incidente a mis superiores inmediatamente.",
+      "Intentaría gestionar la situación de manera que no haya consecuencias.",
+      "Aceptaría la solicitud para evitar conflictos."
+    ],
+    "respuesta": "Reportaría el incidente a mis superiores inmediatamente."
+  },
+  {
+    "pregunta": "Si un compañero te pide que cubras un turno aunque sabes que no está enfermo, ¿qué harías?",
+    "opciones": [
+      "Cubriría el turno para ayudarlo.",
+      "Le diría que no puedo cubrir su turno sin una razón válida.",
+      "Cubriría el turno pero lo reportaría a los superiores.",
+      "Intentaría ayudarlo a salir de la situación sin que nadie se entere."
+    ],
+    "respuesta": "Le diría que no puedo cubrir su turno sin una razón válida."
+  },
+  {
+    "pregunta": "Si te das cuenta de que un compañero está acumulando horas extra sin haber trabajado realmente, ¿qué harías?",
+    "opciones": [
+      "Lo ignoraría, ya que no me afecta.",
+      "Lo confrontaría y le pediría que sea honesto.",
+      "Lo reportaría a los superiores para que tomen medidas.",
+      "Lo cubriría para evitar que se descubra."
+    ],
+    "respuesta": "Lo reportaría a los superiores para que tomen medidas."
+  },
+  {
+    "pregunta": "Si un superior te pide que informes de manera errónea sobre un incidente, ¿qué harías?",
+    "opciones": [
+      "Cumpliría la orden sin cuestionar nada.",
+      "Buscaría una forma de hacerlo de manera correcta sin desafiar al superior.",
+      "Me negaría a hacerlo y reportaría la solicitud.",
+      "Ignoraría la orden y actuaría según lo que creo que es correcto."
+    ],
+    "respuesta": "Me negaría a hacerlo y reportaría la solicitud."
+  },
+  {
+    "pregunta": "Si un colega se muestra reacio a seguir el protocolo, ¿qué harías?",
+    "opciones": [
+      "No diría nada, ya que cada quien tiene su estilo de trabajo.",
+      "Lo confrontaría y le explicaría la importancia del protocolo.",
+      "Lo reportaría a los superiores.",
+      "Ignoraría la situación, ya que no quiero problemas."
+    ],
+    "respuesta": "Lo confrontaría y le explicaría la importancia del protocolo."
+  }
+]
