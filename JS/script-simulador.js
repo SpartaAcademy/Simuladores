@@ -3,7 +3,7 @@
 // Importar la librería de Supabase
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
 
-// Inicializar Supabase (¡Usa tus claves!)
+// Inicializar Supabase
 const supabaseUrl = 'https://tgkbsaazxgnpllcwtbuk.supabase.co';
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRna2JzYWF6eGducGxsY3d0YnVrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjIxNzk0OTUsImV4cCI6MjA3Nzc1NTQ5NX0.877IdYJdJSczFaqCsz2P-w5uzAZvS7E6DzWTcwyT4IQ';
 const supabase = createClient(supabaseUrl, supabaseKey);
@@ -69,16 +69,19 @@ document.addEventListener('DOMContentLoaded', () => {
     function inicializar() {
         const params = new URLSearchParams(window.location.search);
         const materiaKey = params.get('materia') || 'sociales';
-        const nombreMateria = materias[materiaKey] || 'Desconocida'; // Cae aquí si es ppnn2, etc.
-
-        // Si la materia no se encontró, intenta mostrar un nombre genérico
-        if (nombreMateria === 'Desconocida' && materiaKey.startsWith('ppnn')) {
-            tituloMateria.textContent = `SIMULADOR DE: CUESTIONARIO PPNN`;
-            lobbyMateria.textContent = `Cuestionario ${materiaKey.replace('ppnn', '')} PPNN`;
-        } else {
-            tituloMateria.textContent = `SIMULADOR DE: ${nombreMateria.toUpperCase()}`;
-            lobbyMateria.textContent = nombreMateria;
+        
+        // (MODIFICADO) Lógica para manejar materias desconocidas (como ppnn2, 3, 4)
+        let nombreMateria = materias[materiaKey];
+        if (!nombreMateria) {
+            if (materiaKey.startsWith('ppnn')) {
+                nombreMateria = `Cuestionario ${materiaKey.replace('ppnn', '')} PPNN`;
+            } else {
+                nombreMateria = 'Desconocida';
+            }
         }
+
+        tituloMateria.textContent = `SIMULADOR DE: ${nombreMateria.toUpperCase()}`;
+        lobbyMateria.textContent = nombreMateria;
 
         lobbyContainer.style.display = 'block';
         simuladorContainer.style.display = 'none';
@@ -209,7 +212,6 @@ document.addEventListener('DOMContentLoaded', () => {
                  throw new Error("No se cargaron preguntas de ninguna materia relevante.");
              }
 
-            // (MODIFICADO) Determinar el TOTAL_PREGUNTAS_QUIZ
             const params = new URLSearchParams(window.location.search);
             const materiaKey = params.get('materia');
             
@@ -265,8 +267,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             TOTAL_PREGUNTAS_QUIZ = contadorPreguntas;
         
-        } else if (materiaKey.startsWith('ppnn')) { // <-- NUEVO
-            // Para PPNN, toma TODAS las preguntas y las baraja
+        } else if (materiaKey.startsWith('ppnn')) { // <-- Lógica para PPNN
             if (preguntasPorMateria[materiaKey] && preguntasPorMateria[materiaKey].length > 0) {
                 preguntasQuiz = [...preguntasPorMateria[materiaKey]].sort(() => Math.random() - 0.5);
                 TOTAL_PREGUNTAS_QUIZ = preguntasQuiz.length;
@@ -279,7 +280,6 @@ document.addEventListener('DOMContentLoaded', () => {
         } else { // Para materias individuales (sociales, mates, inteligencia, etc.)
              if (preguntasPorMateria[materiaKey] && preguntasPorMateria[materiaKey].length > 0) {
                 const preguntasBarajadas = [...preguntasPorMateria[materiaKey]].sort(() => Math.random() - 0.5);
-                // Toma solo 50
                 preguntasQuiz = preguntasBarajadas.slice(0, 50);
                 TOTAL_PREGUNTAS_QUIZ = preguntasQuiz.length;
             } else {
@@ -456,7 +456,16 @@ document.addEventListener('DOMContentLoaded', () => {
             const userInfo = getUserInfo(); // {usuario, nombre, rol, ciudad}
             const params = new URLSearchParams(window.location.search);
             const materiaKey = params.get('materia') || 'sociales';
-            const nombreMateria = materias[materiaKey] || `PPNN ${materiaKey.replace('ppnn', '')}`; // Nombre dinámico
+            
+            // (MODIFICADO) Asigna el nombre correcto
+            let nombreMateria = materias[materiaKey];
+            if (!nombreMateria) {
+                if (materiaKey.startsWith('ppnn')) {
+                    nombreMateria = `Cuestionario ${materiaKey.replace('ppnn', '')} PPNN`;
+                } else {
+                    nombreMateria = 'Desconocida';
+                }
+            }
 
             if (userInfo && userInfo.usuario) {
                 const result = {
