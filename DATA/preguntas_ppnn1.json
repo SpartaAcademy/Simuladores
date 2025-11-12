@@ -1,0 +1,242 @@
+[
+  {
+    "pregunta": "El queso se fabrica de:",
+    "opciones": ["Las flores", "La harina", "La leche", "Las uvas", "El azúcar"],
+    "respuesta": "La leche"
+  },
+  {
+    "pregunta": "Lo contrario de abierto es:",
+    "opciones": ["Liso", "Cerrado", "Delante", "Claro", "Despejado"],
+    "respuesta": "Cerrado"
+  },
+  {
+    "pregunta": "De las siguientes palabras una pertenece a una clase diferente ¿Cuál es?",
+    "opciones": ["Rojo", "Amarillo", "Morado", "Bandera", "Verde"],
+    "respuesta": "Bandera"
+  },
+  {
+    "pregunta": "El pájaro canta y el perro...",
+    "opciones": ["Habla", "Rebuzna", "Cacarea", "Maúlla", "Ladra"],
+    "respuesta": "Ladra"
+  },
+  {
+    "pregunta": "Para medir la temperatura se emplea...",
+    "opciones": ["Litro", "Gramo", "Termómetro", "Metro", "Kilowatio"],
+    "respuesta": "Termómetro"
+  },
+  {
+    "pregunta": "Lo contrario de dormido es",
+    "opciones": ["Noche", "Luz", "Amanecer", "Despierto", "Día"],
+    "respuesta": "Despierto"
+  },
+  {
+    "pregunta": "De estas cinco palabras una pertenece a una clase diferente ¿Cuál es?",
+    "opciones": ["Agua", "Platino", "Café", "Té", "Cerveza"],
+    "respuesta": "Platino"
+  },
+  {
+    "pregunta": "El zapato protege al pie, y el sombrero protege a:",
+    "opciones": ["La cabeza", "La mano", "El dedo", "El brazo", "La rodilla"],
+    "respuesta": "La cabeza"
+  },
+  {
+    "pregunta": "El triángulo es una figura formada por:",
+    "opciones": ["4 lados", "6 lados", "65 lados", "3 lados", "9 lados"],
+    "respuesta": "3 lados"
+  },
+  {
+    "pregunta": "Lo contrario de negro es:",
+    "opciones": ["Oscuro", "Sombra", "Opaco", "Sucio", "Blanco"],
+    "respuesta": "Blanco"
+  },
+  {
+    "pregunta": "De estas cinco palabras una pertenece a una clase diferente ¿Cuál es?",
+    "opciones": ["Enrique", "Pedro", "Ana", "José", "Carlos"],
+    "respuesta": "Ana"
+  },
+  {
+    "pregunta": "El naranjo es un árbol, y el perro es:",
+    "opciones": ["Un objeto", "Un animal", "Una cosa", "Un mineral", "Un vegetal"],
+    "respuesta": "Un animal"
+  },
+  {
+    "pregunta": "El gato es un:",
+    "opciones": ["Mamífero", "Insecto", "Ave", "Pez", "Reptil"],
+    "respuesta": "Mamífero"
+  },
+  {
+    "pregunta": "Lo contrario de triste es:",
+    "opciones": ["Alegre", "Preocupado", "Dolorido", "Desgraciado", "Enfermo"],
+    "respuesta": "Alegre"
+  },
+  {
+    "pregunta": "De estas cinco palabras una pertenece a una clase diferente ¿Cuál es?",
+    "opciones": ["Bogotá", "Lima", "Alpes", "Caracas", "Quito"],
+    "respuesta": "Alpes"
+  },
+  {
+    "pregunta": "La piel cubre al hombre, y las plumas cubren a:",
+    "opciones": ["La vaca", "El perro", "El gato", "La gallina", "El caballo"],
+    "respuesta": "La gallina"
+  },
+  {
+    "pregunta": "Treinta es el triple de:",
+    "opciones": ["Quince", "Tres", "Diez", "Doce", "Cinco"],
+    "respuesta": "Diez"
+  },
+  {
+    "pregunta": "Lo contrario de calor es:",
+    "opciones": ["Sudor", "Fatiga", "Blanco", "Frío", "Luz"],
+    "respuesta": "Frío"
+  },
+  {
+    "pregunta": "De estas cinco palabras, una pertenece a una clase diferente ¿Cuál es?",
+    "opciones": ["Cuchara", "Plato", "Tenedor", "Cuchillo", "Cucharita"],
+    "respuesta": "Plato"
+  },
+  {
+    "pregunta": "Para coser se emplea la aguja, y para dibujar se emplea el:",
+    "opciones": ["Lápiz", "Bastón", "Tintero", "Pie", "Ojo"],
+    "respuesta": "Lápiz"
+  },
+  {
+    "pregunta": "La cordillera de los Andes está en:",
+    "opciones": ["Europa", "Asia", "América", "Austria", "África"],
+    "respuesta": "América"
+  },
+  {
+    "pregunta": "Lo contrario de arriba es:",
+    "opciones": ["Dentro", "Abajo", "Cerca", "Completo", "Lejos"],
+    "respuesta": "Abajo"
+  },
+  {
+    "pregunta": "De estas cinco palabras, una pertenece a una clase diferente ¿Cuál es?",
+    "opciones": ["General", "Teniente", "Capitán", "Presidente", "Coronel"],
+    "respuesta": "Presidente"
+  },
+  {
+    "pregunta": "Con el cuero se fabrica el calzado, y con la tela:",
+    "opciones": ["Piel", "Lana", "Algodón", "Seda", "Vestidos"],
+    "respuesta": "Vestidos"
+  },
+  {
+    "pregunta": "Roma es la Capital de:",
+    "opciones": ["Nicaragua", "España", "Grecia", "Italia", "Paraguay"],
+    "respuesta": "Italia"
+  },
+  {
+    "pregunta": "Lo contrario de sí es:",
+    "opciones": ["Antes", "Afirmar", "Duda", "Luego", "No"],
+    "respuesta": "No"
+  },
+  {
+    "pregunta": "De estas cinco palabras, una pertenece a una clase diferente ¿Cuál es?",
+    "opciones": ["Vaso", "Copa", "Agua", "Jarra", "Taza"],
+    "respuesta": "Agua"
+  },
+  {
+    "pregunta": "La Nariz sirve para oler, y los ojos sirven para:",
+    "opciones": ["Oir", "Ver", "Gustar", "Tocar", "Andar"],
+    "respuesta": "Ver"
+  },
+  {
+    "pregunta": "El idioma oficial de Haití es el:",
+    "opciones": ["Inglés", "Francés", "Español", "Holandés", "Portugués"],
+    "respuesta": "Francés"
+  },
+  {
+    "pregunta": "Lo contrario de despacio es:",
+    "opciones": ["De prisa", "Lento", "Pausado", "Débil", "Grueso"],
+    "respuesta": "De prisa"
+  },
+  {
+    "pregunta": "De estas cinco palabras una pertenece a una clase diferente ¿Cuál es?",
+    "opciones": ["Carpintero", "Herrero", "Médico", "Albañil", "Zapatero"],
+    "respuesta": "Médico"
+  },
+  {
+    "pregunta": "Al lunes sigue el martes, y a enero sigue:",
+    "opciones": ["Junio", "Viernes", "Mes", "Febrero", "Año"],
+    "respuesta": "Febrero"
+  },
+  {
+    "pregunta": "Fernando Magallanes fue un famoso:",
+    "opciones": ["Militar", "Aviador", "Navegante", "Sabio", "Sacerdote"],
+    "respuesta": "Navegante"
+  },
+  {
+    "pregunta": "Lo contrario de blando es:",
+    "opciones": ["Suave", "Duro", "Liso", "Grueso", "Débil"],
+    "respuesta": "Duro"
+  },
+  {
+    "pregunta": "De estas cinco palabras una pertenece a una clase diferente ¿Cuál es?",
+    "opciones": ["Ver", "Oir", "Oler", "Andar", "Gustar"],
+    "respuesta": "Andar"
+  },
+  {
+    "pregunta": "El codo articula el brazo, y la rodilla articula:",
+    "opciones": ["El corazón", "Los dedos", "Los pulmones", "El cerebro", "La pierna"],
+    "respuesta": "La pierna"
+  },
+  {
+    "pregunta": "Cristóbal Colón descubrió América en el:",
+    "opciones": ["Siglo XIII", "Siglo XVII", "Siglo IV", "Siglo XV", "Siglo XIV"],
+    "respuesta": "Siglo XV"
+  },
+  {
+    "pregunta": "Lo contrario de fuera es:",
+    "opciones": ["Libre", "Lejos", "Distinto", "Malo", "Dentro"],
+    "respuesta": "Dentro"
+  },
+  {
+    "pregunta": "De estas cinco palabras una pertenece a una clase diferente ¿Cuál es?",
+    "opciones": ["Venus", "Júpiter", "Satélite", "Urano", "Neptuno"],
+    "respuesta": "Satélite"
+  },
+  {
+    "pregunta": "Octubre es anterior a Noviembre y Jueves es anterior a:",
+    "opciones": ["Diciembre", "Viernes", "Septiembre", "Miércoles", "Día"],
+    "respuesta": "Viernes"
+  },
+  {
+    "pregunta": "Los primeros ferrocarriles empezaron a funcionar hacia:",
+    "opciones": ["1900", "1800", "1825", "1750", "1710"],
+    "respuesta": "1825"
+  },
+  {
+    "pregunta": "Lo contrario de empezar es:",
+    "opciones": ["Iniciar", "Adelantar", "Obstruir", "Terminar", "Buscar"],
+    "respuesta": "Terminar"
+  },
+  {
+    "pregunta": "De estas cinco palabras una pertenece a una clase diferente ¿Cuál es?",
+    "opciones": ["Feliz", "Triste", "Satisfecho", "Alegre", "Contento"],
+    "respuesta": "Triste"
+  },
+  {
+    "pregunta": "La paz viene después de la guerra y la calma viene después de:",
+    "opciones": ["La tormenta", "El crepúsculo", "El bienestar", "La felicidad", "El ocaso"],
+    "respuesta": "La tormenta"
+  },
+  {
+    "pregunta": "La bitácora es de uso indispensable en:",
+    "opciones": ["Música", "Biología", "Navegación", "Teatro", "Química"],
+    "respuesta": "Navegación"
+  },
+  {
+    "pregunta": "Lo contrario de homogéneo es:",
+    "opciones": ["Compacto", "Heterogéneo", "Abstracto", "Sútil", "Neutro"],
+    "respuesta": "Heterogéneo"
+  },
+  {
+    "pregunta": "De estas cinco palabras una pertenece a una clase diferente ¿Cuál es?",
+    "opciones": ["Stravinski", "Bach", "Mozart", "Newton", "Chopin"],
+    "respuesta": "Newton"
+  },
+  {
+    "pregunta": "La biblioteca es para guardar libros y la pinacoteca para guardar:",
+    "opciones": ["Periódico", "Discos", "Películas", "Monedas", "Cuadros"],
+    "respuesta": "Cuadros"
+  }
+]
