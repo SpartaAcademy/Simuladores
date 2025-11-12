@@ -400,5 +400,47 @@
     "nombre": "Diego Torres",
     "rol": "aspirante",
     "ciudad": "Ibarra"
+  },
+  {
+    "usuario": "1004804777",
+    "contrasena": "SA_1004804777",
+    "nombre": "Christopher",
+    "rol": "aspirante",
+    "ciudad": "Ibarra"
+  },
+  {
+    "usuario": "1004068373",
+    "contrasena": "SA_1004068373",
+    "nombre": "Jorge",
+    "rol": "aspirante",
+    "ciudad": "Ibarra"
+  },
+  {
+    "usuario": "1004455810",
+    "contrasena": "SA_1004455810",
+    "nombre": "Diego",
+    "rol": "aspirante",
+    "ciudad": "Ibarra"
+  },
+  {
+    "usuario": "1004914055",
+    "contrasena": "SA_1004914055",
+    "nombre": "Mayte",
+    "rol": "aspirante",
+    "ciudad": "Ibarra"
+  },
+  {
+    "usuario": "0450009691",
+    "contrasena": "SA_0450009691",
+    "nombre": "Dennis",
+    "rol": "aspirante",
+    "ciudad": "Ibarra"
+  },
+  {
+    "usuario": "1005045545",
+    "contrasena": "SA_1005045545",
+    "nombre": "Deivid",
+    "rol": "aspirante",
+    "ciudad": "Ibarra"
   }
 ]
