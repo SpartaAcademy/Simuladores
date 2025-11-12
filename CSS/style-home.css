@@ -7,16 +7,12 @@ body { font-family: 'Work Sans', Arial, sans-serif; background-color: #f0f2f5; c
 header, footer { background-color: #1a1a1a; color: white; padding: 12px 25px; z-index: 10; }
 header { display: flex; align-items: center; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); position: relative; }
 
-/* (MODIFICADO) Estilos para el enlace del header */
 .header-main-link {
     display: flex;
     align-items: center;
     text-decoration: none;
     color: inherit;
-    /* flex-grow: 1; -> ELIMINADO DE AQUÍ */
 }
-
-/* (NUEVO) El espaciador invisible toma el espacio */
 .header-spacer {
     flex-grow: 1;
 }
@@ -97,4 +93,19 @@ main { flex: 1; padding: 2rem; position: relative; display: flex; align-items: c
     .materias-grid { grid-template-columns: 1fr; }
     .seleccion-container { padding: 2rem 1.5rem; }
      .materias-grid > *:last-child:nth-child(odd) { grid-column: auto; }
+}
+
+/* (NUEVO) Estilo para botón deshabilitado (Próximamente) */
+.disabled-card {
+    background-color: #f1f1f1;
+    color: #aaa;
+    border-color: #e0e0e0;
+    cursor: not-allowed;
+    pointer-events: none; /* Evita que se pueda hacer clic */
+}
+.disabled-card:hover {
+    transform: none;
+    box-shadow: none;
+    border-color: #e0e0e0;
+    color: #aaa;
 }
