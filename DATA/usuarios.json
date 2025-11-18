@@ -133,6 +133,13 @@
     "ciudad": "Tulcán"
   },
   {
+    "usuario": "michael_vaca",
+    "contrasena": "michael_vaca",
+    "nombre": "Michael Vaca",
+    "rol": "aspirante",
+    "ciudad": "Tulcán"
+  },
+  {
     "_comment": "USUARIOS DE LA CIUDAD DE IBARRA"
   }
 ]
