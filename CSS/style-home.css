@@ -3,20 +3,11 @@
 html { scroll-behavior: smooth; overflow-y: auto; }
 body { font-family: 'Work Sans', Arial, sans-serif; background-color: #f0f2f5; color: #333; display: flex; flex-direction: column; min-height: 100vh; overflow-y: visible; }
 
-/* --- HEADER Y FOOTER (Compartidos) --- */
+/* --- HEADER Y FOOTER --- */
 header, footer { background-color: #1a1a1a; color: white; padding: 12px 25px; z-index: 10; }
 header { display: flex; align-items: center; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); position: relative; }
-
-.header-main-link {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: inherit;
-}
-.header-spacer {
-    flex-grow: 1;
-}
-
+.header-main-link { display: flex; align-items: center; text-decoration: none; color: inherit; }
+.header-spacer { flex-grow: 1; }
 .header-logo { display: flex; align-items: center; }
 .header-logo img { height: 55px; margin-right: 20px; }
 .header-titulo h1 { font-family: 'Teko', sans-serif; font-size: 1.8rem; font-weight: 600; line-height: 1; }
@@ -24,29 +15,60 @@ header { display: flex; align-items: center; box-shadow: 0 4px 10px rgba(0, 0, 0
 footer { color: #aaa; text-align: center; font-size: 0.85rem; line-height: 1.6; padding: 25px; }
 footer p { margin: 4px 0; }
 
-/* --- CONTENIDO PRINCIPAL --- */
+/* --- CONTENIDO --- */
 main { flex: 1; padding: 2rem; position: relative; display: flex; align-items: center; justify-content: center; }
-
-/* --- MARCA DE AGUA --- */
 .marca-de-agua { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 0; opacity: 0.06; pointer-events: none; }
 .marca-de-agua img { width: 350px; }
+.seleccion-container { background-color: white; padding: 2.5rem 3rem; border-radius: 12px; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); width: 100%; max-width: 900px; text-align: center; position: relative; z-index: 1; border-top: 5px solid #b22222; min-height: 400px; }
 
-/* --- CONTENEDOR DE SELECCIÓN --- */
-.seleccion-container { background-color: white; padding: 2.5rem 3rem; border-radius: 12px; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); width: 100%; max-width: 800px; text-align: center; position: relative; z-index: 1; border-top: 5px solid #b22222; }
+/* Títulos dinámicos */
+#section-title { font-family: 'Teko', sans-serif; font-size: 2.8rem; color: #1a1a1a; margin-bottom: 0.5rem; line-height: 1.1; }
+#section-desc { font-size: 1.1rem; color: #555; margin-bottom: 2rem; }
 
-.simulador-section { margin-top: 2rem; padding-top: 2rem; border-top: 2px solid #f0f0f0; }
-.simulador-section:first-child { margin-top: 0; padding-top: 0; border-top: none; }
-.simulador-section h2 { font-family: 'Teko', sans-serif; font-size: 2.2rem; color: #333; margin-bottom: 0.25rem; }
-.simulador-section p { font-size: 1.1rem; color: #555; margin-bottom: 2rem; }
+/* Barra de Navegación */
+.nav-bar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 2rem; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+.btn-nav { background: none; border: none; color: #b22222; font-weight: 600; cursor: pointer; font-size: 1rem; display: flex; align-items: center; gap: 5px; transition: color 0.3s; }
+.btn-nav:hover { color: #800000; }
+.breadcrumbs { color: #777; font-size: 0.9rem; }
 
-/* Grid y botones (Estilo Unificado) */
+/* Grid */
 .materias-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
-.materias-grid > *:last-child:nth-child(odd) { grid-column: 1 / -1; }
-.materia-card { display: flex; align-items: center; justify-content: center; padding: 2.5rem; background-color: #f9f9f9; border: 2px solid #eee; border-radius: 10px; text-decoration: none; color: #333; transition: all 0.3s ease; }
-.materia-card h3 { font-family: 'Teko', sans-serif; font-size: 1.8rem; font-weight: 600; }
-.materia-card:hover { background-color: #fff; border-color: #b22222; color: #b22222; transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.07); }
 
-/* --- USER INFO Y LOGOUT (Escritorio) --- */
+/* --- TARJETAS (Botones) --- */
+.materia-card {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 2rem;
+    border-radius: 10px; text-decoration: none;
+    transition: all 0.3s ease;
+    height: 100%; min-height: 120px;
+    cursor: pointer;
+}
+
+/* Estilo TIPO CARPETA (Instituciones y Categorías) */
+.card-folder {
+    background-color: #2c3e50; /* Azul oscuro */
+    color: white;
+    border: 2px solid #2c3e50;
+}
+.card-folder i { font-size: 2rem; margin-bottom: 10px; color: #f1c40f; /* Icono amarillo */ }
+.card-folder h3 { font-family: 'Teko', sans-serif; font-size: 1.8rem; font-weight: 500; letter-spacing: 1px; }
+.card-folder:hover { background-color: #34495e; transform: translateY(-5px); box-shadow: 0 8px 20px rgba(44, 62, 80, 0.3); }
+
+/* Estilo TIPO SIMULADOR (Test final) */
+.card-test {
+    background-color: #f9f9f9;
+    color: #333;
+    border: 2px solid #eee;
+}
+.card-test i { font-size: 1.8rem; margin-bottom: 10px; color: #b22222; }
+.card-test h3 { font-family: 'Teko', sans-serif; font-size: 1.6rem; font-weight: 600; }
+.card-test:hover { background-color: #fff; border-color: #b22222; color: #b22222; transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); }
+
+/* Deshabilitado */
+.disabled-card { background-color: #f1f1f1 !important; color: #aaa !important; border-color: #e0e0e0 !important; cursor: not-allowed; pointer-events: none; }
+.disabled-card i { color: #ccc !important; }
+
+/* --- USER INFO Y MOBILE --- */
 .user-info-container { display: flex; align-items: center; margin-left: auto; color: #eee; font-size: 0.9rem; }
 #user-name-display-desktop { margin-right: 0.5rem; white-space: nowrap; }
 .dropdown { position: relative; display: inline-block; }
@@ -56,7 +78,6 @@ main { flex: 1; padding: 2rem; position: relative; display: flex; align-items: c
 .dropdown-content a { color: #ddd; padding: 12px 18px; text-decoration: none; display: block; font-size: 0.9rem; text-align: center; transition: background-color 0.2s, color 0.2s; }
 .dropdown-content a:hover { background-color: #b22222; color: white; }
 
-/* --- HAMBURGUESA Y PANEL LATERAL (Móvil) --- */
 .hamburger-menu { display: none; background: none; border: none; color: white; font-size: 2rem; cursor: pointer; padding: 0 0.5rem; margin-left: auto; }
 .side-nav { height: 100%; width: 280px; position: fixed; z-index: 1001; top: 0; right: -280px; background-color: #2c2c2c; overflow-x: hidden; transition: 0.3s ease-out; padding-top: 20px; box-shadow: -5px 0 15px rgba(0,0,0,0.3); }
 .side-nav.open { right: 0; }
@@ -71,41 +92,14 @@ main { flex: 1; padding: 2rem; position: relative; display: flex; align-items: c
 .side-nav-link:hover { color: white; background-color: #8B0000; }
 .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); z-index: 1000; display: none; }
 .overlay.show { display: block; }
-
-/* Clases de visibilidad */
 .mobile-only { display: none; }
 .desktop-only { display: flex; }
 
-/* --- Media Queries --- */
 @media (max-width: 768px) {
     .desktop-only { display: none; }
     .mobile-only { display: block; }
     .header-titulo h1 { font-size: 1.5rem; }
     .header-titulo h2 { font-size: 0.8rem; }
     main { align-items: center; }
-     .materias-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
-    .materias-grid > *:last-child:nth-child(odd) { grid-column: 1 / -1; }
-}
-@media (max-width: 600px) {
-    header { padding: 10px 15px; }
-    .header-logo img { height: 45px; margin-right: 10px;}
-    main { padding: 1.5rem 1rem; align-items: flex-start; }
-    .materias-grid { grid-template-columns: 1fr; }
-    .seleccion-container { padding: 2rem 1.5rem; }
-     .materias-grid > *:last-child:nth-child(odd) { grid-column: auto; }
-}
-
-/* (NUEVO) Estilo para botón deshabilitado (Próximamente) */
-.disabled-card {
-    background-color: #f1f1f1;
-    color: #aaa;
-    border-color: #e0e0e0;
-    cursor: not-allowed;
-    pointer-events: none; /* Evita que se pueda hacer clic */
-}
-.disabled-card:hover {
-    transform: none;
-    box-shadow: none;
-    border-color: #e0e0e0;
-    color: #aaa;
+     .materias-grid { grid-template-columns: 1fr; } /* En móvil 1 sola columna */
 }
