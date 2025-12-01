@@ -1,0 +1,1542 @@
+[
+  {
+    "pregunta": "Un ejemplo de proposición es:",
+    "opciones": [
+      "1+3=1",
+      "x+3=1",
+      "f(x)=x+3",
+      "quiero ser un gran militar"
+    ],
+    "respuesta": "1+3=1"
+  },
+  {
+    "pregunta": "Seleccione la tautología",
+    "opciones": [
+      "pvq <=> p",
+      "pvq <=> q",
+      "pvq <=> (qvp)",
+      "pvq <=> qvp"
+    ],
+    "respuesta": "pvq <=> qvp"
+  },
+  {
+    "pregunta": "Seleccione la contradicción",
+    "opciones": [
+      "pvq <=> p",
+      "pvq <=> q",
+      "pvq <=> (qvp)",
+      "pvq <=> qvp"
+    ],
+    "respuesta": "pvq <=> (qvp)"
+  },
+  {
+    "pregunta": "Considere la proposición 'p: Daniel no está triste', 'p' está dada por:",
+    "opciones": [
+      "Daniel está contento",
+      "No es cierto que Daniel no está triste",
+      "Daniel está feliz",
+      "No se sabe si Daniel está triste o feliz"
+    ],
+    "respuesta": "No es cierto que Daniel no está triste"
+  },
+  {
+    "pregunta": "Dadas las proposiciones, 'p:todos los cuerpos poseen masa'; 'q:la Tierra tiene atmósfera'. La proposición falsa es:",
+    "opciones": [
+      "si p, q",
+      "si p entonces q",
+      "¬pvq",
+      "¬p"
+    ],
+    "respuesta": "¬p"
+  },
+  {
+    "pregunta": "Dadas las proposiciones, 'p:todos los cuerpos poseen masa'; 'q:la Tierra tiene atmósfera'. La proposición verdadera es:",
+    "opciones": [
+      "si ¬p, q",
+      "si p entonces ¬q",
+      "¬pvq",
+      "¬p"
+    ],
+    "respuesta": "¬p"
+  },
+  {
+    "pregunta": "Considere las dos proposiciones 'p: 2=3', 'q: raíz cuadrada de 4=-2'. Una proposición verdadera es:",
+    "opciones": [
+      "p si q",
+      "¬p entonces q",
+      "pvq",
+      "¬p si q"
+    ],
+    "respuesta": "p si q"
+  },
+  {
+    "pregunta": "Considere las proposiciones 'p:este polígono tiene 4 lados', 'q: este polígono es un cuadrado'. La proposición verdadera es:",
+    "opciones": [
+      "q entonces p",
+      "p entonces q",
+      "p si q",
+      "¬q entonces ¬p"
+    ],
+    "respuesta": "q entonces p"
+  },
+  {
+    "pregunta": "Considere las dos proposiciones simples 'p: Juan es ecuatoriano', 'q: Juan es latinoamericano'. La condición suficiente está dada por la proposición:",
+    "opciones": [
+      "p",
+      "q",
+      "¬pvq",
+      "-q"
+    ],
+    "respuesta": "p"
+  },
+  {
+    "pregunta": "Considere dos proposiciones simples, la conjunción es verdadera:",
+    "opciones": [
+      "si las dos proposiciones simples son verdaderas",
+      "si las dos proposiciones simples son falsas",
+      "si las dos proposiciones simples tienen igual valor de verdad",
+      "si las dos proposiciones simples tienen diferente valor de verdad"
+    ],
+    "respuesta": "si las dos proposiciones simples son verdaderas"
+  },
+  {
+    "pregunta": "La disyunción es falsa:",
+    "opciones": [
+      "si las dos proposiciones simples son verdaderas",
+      "si las dos proposiciones simples son falsas",
+      "si las dos proposiciones simples tienen igual valor de verdad",
+      "si las dos proposiciones simples no tienen diferente valor de verdad"
+    ],
+    "respuesta": "si las dos proposiciones simples son falsas"
+  },
+  {
+    "pregunta": "El bicondicional es verdadero:",
+    "opciones": [
+      "si las dos proposiciones simples son verdaderas",
+      "si las dos proposiciones simples son falsas",
+      "si las dos proposiciones simples tienen igual valor de verdad",
+      "si las dos proposiciones simples tienen diferente valor de verdad"
+    ],
+    "respuesta": "si las dos proposiciones simples tienen igual valor de verdad"
+  },
+  {
+    "pregunta": "La disyunción exclusiva es verdadera:",
+    "opciones": [
+      "si las dos proposiciones simples son verdaderas",
+      "si las dos proposiciones simples son falsas",
+      "si las dos proposiciones simples tienen igual valor de verdad",
+      "si las dos proposiciones simples tienen diferente valor de verdad"
+    ],
+    "respuesta": "si las dos proposiciones simples tienen diferente valor de verdad"
+  },
+  {
+    "pregunta": "El conjunto E está formado por todos los escritores ecuatorianos. Una proposición verdadera es:",
+    "opciones": [
+      "para todo x que pertenece a E: x es quiteño",
+      "existe al menos un x que pertenece a E: x es quiteño",
+      "ninguno de los x que pertenecen a E: x es quiteño",
+      "para todo x que pertenece a E: x no es quiteño"
+    ],
+    "respuesta": "existe al menos un x que pertenece a E: x es quiteño"
+  },
+  {
+    "pregunta": "El conjunto E está formado por todos los escritores ecuatorianos. Una proposición falsa es:",
+    "opciones": [
+      "para todo x que pertenece a E: x es quiteño",
+      "existe al menos un x que pertenece a E: x es quiteño",
+      "existe al menos un x que pertenece a E: x no es quiteño",
+      "ninguno de los x que pertenecen a E: x es quiteño"
+    ],
+    "respuesta": "para todo x que pertenece a E: x es quiteño"
+  },
+  {
+    "pregunta": "Considere: la función proposicional P(x): x es felino y el conjunto G={x/x es gato}. Escoja la proposición verdadera:",
+    "opciones": [
+      "Para todo x elemento de G: P(x)",
+      "Para todo x elemento de G: ¬P(x)",
+      "Existe un x elemento de G: ¬P(x)",
+      "Para todo x que no es elemento de G: P(x)"
+    ],
+    "respuesta": "Para todo x elemento de G: P(x)"
+  },
+  {
+    "pregunta": "Considere: la función proposicional P(x): x es felino, el conjunto G={x/x es gato} y la proposición p:Existe un x elemento de G: P(x). La negación de la proposición p es:",
+    "opciones": [
+      "Para todo x elemento de G: P(x)",
+      "Para todo x elemento de G: -P(x)",
+      "Existe un x elemento de G: -P(x)",
+      "Para todo x que no es elemento de G: P(x)"
+    ],
+    "respuesta": "Para todo x elemento de G: P(x)"
+  },
+  {
+    "pregunta": "Considere: la función proposicional P(x): x es reptil y el conjunto S={x/x es serpiente}. La negación de la proposición 'p:Existe un x que pertenece a S: P(x)' es:",
+    "opciones": [
+      "Para todo x que pertenece a S: -P(x)",
+      "Para todo x que no pertenece a S: ¬P(x)",
+      "Para todo x que no pertenece a S: P(x)",
+      "Para todo x que no pertenece a S: P(¬x)"
+    ],
+    "respuesta": "Para todo x que pertenece a S: -P(x)"
+  },
+  {
+    "pregunta": "Considere: la función proposicional P(x): x es reptil y el conjunto S={x/x es serpiente}. La negación de la proposición 'p:Existe un x que pertenece a S: ¬P(x)' es:",
+    "opciones": [
+      "Para todo x que pertenece a S: -P(x)",
+      "Para todo x que no pertenece a S: ¬P(x)",
+      "Para todo x que pertenece a S: P(x)",
+      "No existe ningún x que no pertenece a S: ¬P(x)"
+    ],
+    "respuesta": "Para todo x que pertenece a S: P(x)"
+  },
+  {
+    "pregunta": "La expresión 'los hombres son mortales' es una proposición que se expresa:",
+    "opciones": [
+      "Para todo 'x' que pertenece al conjunto de los hombres: 'x' es mortal",
+      "Para todo 'x' que pertenece al conjunto de los humanos: 'x' es mortal",
+      "Existe algún 'x' que pertenece al conjunto de los hombres: 'x' es mortal",
+      "La expresión no es una proposición"
+    ],
+    "respuesta": "Para todo 'x' que pertenece al conjunto de los hombres: 'x' es mortal"
+  },
+  {
+    "pregunta": "El resultado de operar '4+8x2' es:",
+    "opciones": [
+      "10",
+      "20",
+      "24",
+      "28"
+    ],
+    "respuesta": "20"
+  },
+  {
+    "pregunta": "El resultado de operar '8÷4÷2' es:",
+    "opciones": [
+      "1",
+      "2",
+      "4",
+      "0"
+    ],
+    "respuesta": "1"
+  },
+  {
+    "pregunta": "El resultado de operar '4x8+2' es:",
+    "opciones": [
+      "34",
+      "40",
+      "64",
+      "14"
+    ],
+    "respuesta": "34"
+  },
+  {
+    "pregunta": "El resultado de operar '9-2(8-5)-1' es:",
+    "opciones": [
+      "2",
+      "14",
+      "20",
+      "no se sabe el resultado"
+    ],
+    "respuesta": "2"
+  },
+  {
+    "pregunta": "El inverso multiplicativo del resultado de la operación '9+3(5-8)-1' es:",
+    "opciones": [
+      "-1",
+      "1",
+      "1369",
+      "0"
+    ],
+    "respuesta": "-1"
+  },
+  {
+    "pregunta": "El opuesto aditivo del resultado de la operación '9+3(5-8)-1' es:",
+    "opciones": [
+      "-1",
+      "1",
+      "1369",
+      "0"
+    ],
+    "respuesta": "1"
+  },
+  {
+    "pregunta": "El neutro aditivo del resultado de la operación '9+3(5-8)-1' es:",
+    "opciones": [
+      "-1",
+      "1",
+      "1369",
+      "0"
+    ],
+    "respuesta": "0"
+  },
+  {
+    "pregunta": "El neutro multiplicativo del resultado de la operación '9+3(5-8)-1' es:",
+    "opciones": [
+      "-1",
+      "1",
+      "1369",
+      "-1369"
+    ],
+    "respuesta": "1"
+  },
+  {
+    "pregunta": "La diferencia de temperatura entre -3° y 5° es:",
+    "opciones": [
+      "2°",
+      "4°",
+      "8°",
+      "-2°"
+    ],
+    "respuesta": "8°"
+  },
+  {
+    "pregunta": "Los 3 socios-propietarios de un hostal deciden repartir los gastos equitativamente: luz bimestral $320 ($160/mes), teléfono $240/mes, cable $260/mes, predio anual $3600 ($300/mes). ¿Cuánto aporta mensualmente cada uno?",
+    "opciones": [
+      "$320",
+      "$370",
+      "$240",
+      "$280"
+    ],
+    "respuesta": "$320"
+  },
+  {
+    "pregunta": "Si tengo x dólares y deposito 2/7 de ellos, me quedo con:",
+    "opciones": [
+      "5/7x",
+      "x",
+      "2/7 x",
+      "7/5 x"
+    ],
+    "respuesta": "5/7x"
+  },
+  {
+    "pregunta": "Escoja la proposición falsa",
+    "opciones": [
+      "el rango de una función par puede ser todos los reales",
+      "el rango de una función par puede ser un conjuto unitario",
+      "el rango de una función impar pueden ser todos los reales",
+      "el rango de una función impar pueden ser los reales positivos"
+    ],
+    "respuesta": "el rango de una función impar pueden ser los reales positivos"
+  },
+  {
+    "pregunta": "El dominio de una función par no puede ser",
+    "opciones": [
+      "todos los reales excepto el cero",
+      "todos los reales",
+      "todos los reales mayores o iguales a cero",
+      "los enteros"
+    ],
+    "respuesta": "todos los reales mayores o iguales a cero"
+  },
+  {
+    "pregunta": "Seleccione la opción incorrecta. Una función par puede",
+    "opciones": [
+      "tener como Domino, todos los reales excepto el cero",
+      "tener como Domino, todos los reales",
+      "tener como Domino, todos los reales positivos",
+      "tener como rango los reales positivos"
+    ],
+    "respuesta": "tener como Domino, todos los reales positivos"
+  },
+  {
+    "pregunta": "Escoja la proposición verdadera. Una función impar puede",
+    "opciones": [
+      "tener como rango, todos los reales",
+      "tener como rango, todos los reales negativos",
+      "tener como rango, todos los reales positivos",
+      "tener como dominio los reales positivos"
+    ],
+    "respuesta": "tener como rango, todos los reales"
+  },
+  {
+    "pregunta": "Seleccione la opción incorrecta. Una función impar puede",
+    "opciones": [
+      "tener como Domino, todos los reales excepto el cero",
+      "tener como Domino, todos los reales",
+      "tener como Domino, todos los reales positivos",
+      "tener como rango los reales positivos"
+    ],
+    "respuesta": "tener como Domino, todos los reales positivos"
+  },
+  {
+    "pregunta": "Seleccione la opción incorrecta. Una función creciente puede ser",
+    "opciones": [
+      "inyectiva",
+      "sobreyectiva",
+      "biyectiva",
+      "constante"
+    ],
+    "respuesta": "constante"
+  },
+  {
+    "pregunta": "Una función creciente es",
+    "opciones": [
+      "inyectiva",
+      "sobreyectiva",
+      "biyectiva",
+      "constante"
+    ],
+    "respuesta": "inyectiva"
+  },
+  {
+    "pregunta": "Una función decreciente no puede ser",
+    "opciones": [
+      "inyectiva",
+      "sobreyectiva",
+      "biyectiva",
+      "constante"
+    ],
+    "respuesta": "constante"
+  },
+  {
+    "pregunta": "Seleccione la opción incorrecta. Una función decreciente es",
+    "opciones": [
+      "inyectiva",
+      "monótona",
+      "par",
+      "constante"
+    ],
+    "respuesta": "par"
+  },
+  {
+    "pregunta": "Una función monótona no puede ser",
+    "opciones": [
+      "inyectiva",
+      "creciente",
+      "decreciente",
+      "constante"
+    ],
+    "respuesta": "constante"
+  },
+  {
+    "pregunta": "Una función monótona no es",
+    "opciones": [
+      "inyectiva",
+      "creciente",
+      "decreciente",
+      "par"
+    ],
+    "respuesta": "par"
+  },
+  {
+    "pregunta": "Escoja la proposición verdadera",
+    "opciones": [
+      "una función es una relación",
+      "los términos relación y función son sinónimos",
+      "una relación es una función",
+      "el gráfico de una función es un conjunto infinito de puntos"
+    ],
+    "respuesta": "una función es una relación"
+  },
+  {
+    "pregunta": "Considere los conjuntos A, B no vacíos, y la función f de A en B. Seleccione la proposición verdadera.",
+    "opciones": [
+      "A se denomina rango de f",
+      "A se denomina recorrido de f",
+      "A es el dominio de f",
+      "A es la imagen de f"
+    ],
+    "respuesta": "A es el dominio de f"
+  },
+  {
+    "pregunta": "Elija la opción incorrecta",
+    "opciones": [
+      "El gráfico de una función lineal es una recta",
+      "El gráfico de una función cuadrática es una parábola",
+      "El gráfico de una función cuadrática es una recta",
+      "El gráfico de una función constante es una recta"
+    ],
+    "respuesta": "El gráfico de una función cuadrática es una recta"
+  },
+  {
+    "pregunta": "El dominio de la función dada por f(x)=log(6-x) es:",
+    "opciones": [
+      "{x/x>6}",
+      "{x/x<6}",
+      "{x/x es real}",
+      "{x/x es real positivo}"
+    ],
+    "respuesta": "{x/x<6}"
+  },
+  {
+    "pregunta": "El dominio de la función dada por f(x)=log(x-6) es:",
+    "opciones": [
+      "{x/x>6}",
+      "{x/x<6}",
+      "{x/x es real}",
+      "{x/x es real positivo}"
+    ],
+    "respuesta": "{x/x>6}"
+  },
+  {
+    "pregunta": "El dominio de la función dada por f(x)=log(6+x) es:",
+    "opciones": [
+      "{x/x>-6}",
+      "{x/x<-6}",
+      "{x/x es real}",
+      "{x/x es real positivo}"
+    ],
+    "respuesta": "{x/x<-6}"
+  },
+  {
+    "pregunta": "El dominio de la función dada por f(x)=log(x+1/x) es:",
+    "opciones": [
+      "{x/-1<x<0}",
+      "{x/x<-10 o x>0}",
+      "{x/x<-1 y x>0}",
+      "{x/x es real positivo}"
+    ],
+    "respuesta": "{x/x es real positivo}"
+  },
+  {
+    "pregunta": "El dominio de la función 'logaritmo de 6-x en base x' es:",
+    "opciones": [
+      "{x/x>-6}",
+      "{x/x<-6}",
+      "{x/0<x<6}",
+      "{x/x es real positivo}"
+    ],
+    "respuesta": "{x/0<x<6}"
+  },
+  {
+    "pregunta": "El rango de la función dada por f(x)=log(6-x) está dado por el conjunto:",
+    "opciones": [
+      "{y/y>6}",
+      "{y/y<6}",
+      "{y/y es real}",
+      "{y/y es real positivo}"
+    ],
+    "respuesta": "{y/y es real}"
+  },
+  {
+    "pregunta": "El dominio de la función 'exponencial de 6-x en base 2' es:",
+    "opciones": [
+      "{x/x>-6}",
+      "{x/x es real}",
+      "{x/0<x<6}",
+      "{x/x es real positivo}"
+    ],
+    "respuesta": "{x/x es real}"
+  },
+  {
+    "pregunta": "El dominio de la función 'exponencial de 6-x en base 1/2' es:",
+    "opciones": [
+      "{x/x>-6}",
+      "{x/x es real}",
+      "{x/0<x<6}",
+      "{x/x es real positivo}"
+    ],
+    "respuesta": "{x/x es real}"
+  },
+  {
+    "pregunta": "El rango de la función 'exponencial de 6-x en base 2' es:",
+    "opciones": [
+      "{y/y>-6}",
+      "{y/y es real}",
+      "{y/0<y<6}",
+      "{y/y es real positivo}"
+    ],
+    "respuesta": "{y/y es real positivo}"
+  },
+  {
+    "pregunta": "El rango de la función 'exponencial de 6-x en base 1/2' es:",
+    "opciones": [
+      "{y/y>-6}",
+      "{y/y es real negativo}",
+      "{y/0<y<6}",
+      "{y/y es real positivo}"
+    ],
+    "respuesta": "{y/y es real positivo}"
+  },
+  {
+    "pregunta": "La función 'exponencial de 6-x en base 2' es:",
+    "opciones": [
+      "par",
+      "impar",
+      "creciente",
+      "decreciente"
+    ],
+    "respuesta": "decreciente"
+  },
+  {
+    "pregunta": "El 'exponencial de 6 en base 2' es:",
+    "opciones": [
+      "12",
+      "32",
+      "36",
+      "64"
+    ],
+    "respuesta": "64"
+  },
+  {
+    "pregunta": "El 'exponencial de 2 en base 6' es:",
+    "opciones": [
+      "12",
+      "32",
+      "36",
+      "64"
+    ],
+    "respuesta": "36"
+  },
+  {
+    "pregunta": "El 'logaritmo de 100' es:",
+    "opciones": [
+      "no se sabe",
+      "1",
+      "2",
+      "-2"
+    ],
+    "respuesta": "2"
+  },
+  {
+    "pregunta": "El 'logaritmo de 0.01' es:",
+    "opciones": [
+      "no se sabe",
+      "1",
+      "2",
+      "-2"
+    ],
+    "respuesta": "-2"
+  },
+  {
+    "pregunta": "El 'logaritmo de 1/2 en base 2' es:",
+    "opciones": [
+      "no se sabe",
+      "-1",
+      "2",
+      "-2"
+    ],
+    "respuesta": "-1"
+  },
+  {
+    "pregunta": "El 'logaritmo de la raíz cuadrada de 2 en base 2' es:",
+    "opciones": [
+      "no se sabe",
+      "0.5",
+      "1",
+      "-0.5"
+    ],
+    "respuesta": "0.5"
+  },
+  {
+    "pregunta": "La función 'exponencial de 6-x en base 1/2' es:",
+    "opciones": [
+      "par",
+      "impar",
+      "creciente",
+      "decreciente"
+    ],
+    "respuesta": "creciente"
+  },
+  {
+    "pregunta": "La función 'exponencial de x-6 en base 2' es:",
+    "opciones": [
+      "par",
+      "impar",
+      "creciente",
+      "decreciente"
+    ],
+    "respuesta": "creciente"
+  },
+  {
+    "pregunta": "La función 'exponencial de x-6 en base 1/2' es:",
+    "opciones": [
+      "par",
+      "impar",
+      "creciente",
+      "decreciente"
+    ],
+    "respuesta": "decreciente"
+  },
+  {
+    "pregunta": "La función 'exponencial de 6-x en base 1/2' es:",
+    "opciones": [
+      "par",
+      "impar",
+      "creciente",
+      "decreciente"
+    ],
+    "respuesta": "creciente"
+  },
+  {
+    "pregunta": "La función 'exponencial de x-6 en base 2' es:",
+    "opciones": [
+      "par",
+      "impar",
+      "creciente",
+      "decreciente"
+    ],
+    "respuesta": "creciente"
+  },
+  {
+    "pregunta": "La función 'exponencial de x-6 en base 1/2' es:",
+    "opciones": [
+      "par",
+      "impar",
+      "creciente",
+      "decreciente"
+    ],
+    "respuesta": "decreciente"
+  },
+  {
+    "pregunta": "La función 'exponencial de 6-x en base 2' es:",
+    "opciones": [
+      "par",
+      "impar",
+      "creciente",
+      "inyectiva"
+    ],
+    "respuesta": "inyectiva"
+  },
+  {
+    "pregunta": "La función 'exponencial de 6-x en base 1/2' es:",
+    "opciones": [
+      "par",
+      "impar",
+      "inyectiva",
+      "decreciente"
+    ],
+    "respuesta": "inyectiva"
+  },
+  {
+    "pregunta": "La función 'exponencial de x-6 en base 2' es:",
+    "opciones": [
+      "par",
+      "impar",
+      "monótona",
+      "decreciente"
+    ],
+    "respuesta": "monótona"
+  },
+  {
+    "pregunta": "La función 'exponencial de x-6 en base 1/2' es:",
+    "opciones": [
+      "par",
+      "impar",
+      "creciente",
+      "monótona"
+    ],
+    "respuesta": "monótona"
+  },
+  {
+    "pregunta": "Las funciones f, g; son iguales:",
+    "opciones": [
+      "si y solo si f y g tienen el mismo dominio",
+      "si y solo si f y g tienen el mismo rango y la misma regla de correspondencia",
+      "si y solo si f y g tienen el mismo dominio y la misma regla de correspondencia",
+      "Si tienen la misma regla de correspondencia"
+    ],
+    "respuesta": "si y solo si f y g tienen el mismo dominio y la misma regla de correspondencia"
+  },
+  {
+    "pregunta": "Seleccione la proposición verdadera.",
+    "opciones": [
+      "Toda función es una relación, pero no toda relación es una función.",
+      "Toda relación es una función",
+      "Una función es una relación en donde a cada elemento del conjunto de partida le corresponde un elemento del conjunto de llegada",
+      "El conjunto de partida nunca puede ser igual al conjunto de llegada"
+    ],
+    "respuesta": "Toda función es una relación, pero no toda relación es una función."
+  },
+  {
+    "pregunta": "Si en la función lineal dada por: f(x)=mx+b, m=0, entonces toma el nombre de:",
+    "opciones": [
+      "función lineal afín",
+      "función constante",
+      "función identidad",
+      "función acotada"
+    ],
+    "respuesta": "función constante"
+  },
+  {
+    "pregunta": "Si en la función lineal dada por: f(x)=mx+b, m=1 y b=0 entonces toma el nombre de:",
+    "opciones": [
+      "función lineal afín",
+      "función constante",
+      "función identidad",
+      "función acotada"
+    ],
+    "respuesta": "función identidad"
+  },
+  {
+    "pregunta": "La condición que se debe cumplir para que la función potencia tenga dominio y rango a todos los reales, es:",
+    "opciones": [
+      "el exponente debe ser entero",
+      "el exponente debe ser par",
+      "el exponente deber se impar",
+      "el exponente puede ser par o impar"
+    ],
+    "respuesta": "el exponente deber se impar"
+  },
+  {
+    "pregunta": "La función definida por: f(x)=|x|, es:",
+    "opciones": [
+      "es una función par",
+      "es una función impar",
+      "es una función inyectiva",
+      "es una función creciente"
+    ],
+    "respuesta": "es una función par"
+  },
+  {
+    "pregunta": "Si: y=f(x) y k<0. Seleccione la proposición verdadera.",
+    "opciones": [
+      "y=f(x)+k se desplaza la curva f(x), k unidades hacia abajo",
+      "y=f(x)+k, se desplaza la curva f(x), k unidades hacia arriba",
+      "y=f(x+k), se desplaza la curva f(x), k unidades hacia la derecha",
+      "y=f(x+k), se desplaza la curva f(x), k unidades hacia la izquierda"
+    ],
+    "respuesta": "y=f(x)+k se desplaza la curva f(x), k unidades hacia abajo"
+  },
+  {
+    "pregunta": "Si: y=f(x) y k<0 Seleccione la proposición verdadera",
+    "opciones": [
+      "y=f(x)+k se desplaza la curva f(x), k unidades hacia abajo",
+      "y=f(x)+k, se desplaza la curva f(x), k unidades hacia arriba",
+      "y=f(x+k) se desplaza la curva f(x), k unidades hacia la derecha",
+      "y=f(x+k), se desplaza la curva f(x), k unidades hacia la izquierda"
+    ],
+    "respuesta": "y=f(x+k) se desplaza la curva f(x), k unidades hacia la derecha"
+  },
+  {
+    "pregunta": "¿Qué condición es suficiente para que existe la composición 'fog'?",
+    "opciones": [
+      "el dominio de f y el dominio de g tengan elementos comunes",
+      "el dominio de f y el rango de g tengan elementos comunes",
+      "el rango de f y el rango de g tengan elementos comunes",
+      "el rango de f y el dominio de g tengan elementos comunes"
+    ],
+    "respuesta": "el dominio de f y el rango de g tengan elementos comunes"
+  },
+  {
+    "pregunta": "¿Que condición es suficiente para que existe la composición 'gof'?",
+    "opciones": [
+      "el dominio de f y el dominio de g tengan elementos comunes",
+      "el dominio de f y el rango de g tengan elementos comunes",
+      "el rango de f y el rango de g tengan elementos comunes",
+      "el rango de f y el dominio de g tengan elementos comunes"
+    ],
+    "respuesta": "el rango de f y el dominio de g tengan elementos comunes"
+  },
+  {
+    "pregunta": "En la función cuadrática, ¿cuál de las siguientes proposiciones es verdadera?",
+    "opciones": [
+      "El rango de la función siempre es todos los números reales.",
+      "El rango de la función siempre es los números reales positivos.",
+      "El rango de la función es un subconjunto de los números reales.",
+      "El rango de la función podría ser todos los números reales."
+    ],
+    "respuesta": "El rango de la función es un subconjunto de los números reales."
+  },
+  {
+    "pregunta": "En la función cuadrática, indique cual de las siguientes proposiciones es verdadera",
+    "opciones": [
+      "El dominio de la función siempre es todos los números reales.",
+      "El dominio de la función siempre es los números reales positivos.",
+      "El dominio de la función es un subconjunto de los números reales.",
+      "El dominio de la función podría ser todos los números naturales."
+    ],
+    "respuesta": "El dominio de la función siempre es todos los números reales."
+  },
+  {
+    "pregunta": "Dada la función potencia de 'n', la proposición verdadera es:",
+    "opciones": [
+      "Si n es par el rango de la función es el conjunto de los números reales.",
+      "Si n es impar el rango de la función es el conunto de los números reales.",
+      "Si n es par el dominio de la función es el conjunto de los números reales positivos incluido el cero.",
+      "Si n es impar el dominio de la función es el conunto de los números reales positivos incluido el cero."
+    ],
+    "respuesta": "Si n es impar el rango de la función es el conunto de los números reales."
+  },
+  {
+    "pregunta": "Dada la función potencia de 'n', la proposición verdadera es:",
+    "opciones": [
+      "Si n es par el rango de la función es el conjunto de los números reales positivos incluido el cero.",
+      "Si n es impar el rango de la función es el conunto de los números reales positivos incluido el cero.",
+      "Si n es par el dominio de la función es el conjunto de los números reales positivos incluido el cero.",
+      "Si n es impar el dominio de la función es el conunto de los números reales positivos incluido el cero."
+    ],
+    "respuesta": "Si n es par el rango de la función es el conjunto de los números reales positivos incluido el cero."
+  },
+  {
+    "pregunta": "Dadas las funciones f, g. La condición que debe cumplirse para que exista (f+g) es:",
+    "opciones": [
+      "Que exista la intersección de los rangos de las funciones.",
+      "Que exista la intersección del dominio de las funciones.",
+      "Que f sea una función par.",
+      "Que g sea una función par."
+    ],
+    "respuesta": "Que exista la intersección del dominio de las funciones."
+  },
+  {
+    "pregunta": "Dadas las funciones f, g. Para que que exista la función (f-g) debe cumplirse:",
+    "opciones": [
+      "Que exista la intersección de los rangos de las funciones.",
+      "Que exista la intersección del dominio de las funciones.",
+      "Que f sea una función par.",
+      "Que g sea una función par."
+    ],
+    "respuesta": "Que exista la intersección del dominio de las funciones."
+  },
+  {
+    "pregunta": "Considere una función f y seleccione la proposición es verdadera.",
+    "opciones": [
+      "Una función f es inyectiva, si a elementos distintos de su conjunto de partida, le corresponden elementos distintos del rango.",
+      "Una función f es inyectiva, si a elementos iguales de su conjunto de partida, le corresponden elementos distintos del rango.",
+      "Una función f es inyectiva, si a elementos distintos de su conjunto de partida, le corresponden elementos iguales del rango.",
+      "Una función f es inyectiva, si a elementos iguales de su conjunto de partida, le corresponden elementos iguales del rango."
+    ],
+    "respuesta": "Una función f es inyectiva, si a elementos distintos de su conjunto de partida, le corresponden elementos distintos del rango."
+  },
+  {
+    "pregunta": "Considere una función f y seleccione la proposición se verdadera.",
+    "opciones": [
+      "Si f es biyectiva, entonces existe su inversa.",
+      "Si f es inyectiva, entonces existe su inversa.",
+      "Si f es sobreyectiva, entonces existe su inversa.",
+      "Si f es par, entonces existe su inversa."
+    ],
+    "respuesta": "Si f es biyectiva, entonces existe su inversa."
+  },
+  {
+    "pregunta": "Indique cual de las siguientes proposiciones es verdadera.",
+    "opciones": [
+      "La inversa de una función cuando existe, no es única.",
+      "La inversa de una función cualquiera no siempre existe, pero la inversa de una función biyectiva siempre existe.",
+      "En general, las graficas de la función y su inversa, no son simétricas respecto a la función identidad.",
+      "Al componer una función con su inversa se obtiene una función constante."
+    ],
+    "respuesta": "La inversa de una función cualquiera no siempre existe, pero la inversa de una función biyectiva siempre existe."
+  },
+  {
+    "pregunta": "Calcule la suma de los elementos del rango de la función f={(4;k),(2;5k),(7;2k^2+1),(4;2k-1)}",
+    "opciones": [
+      "6",
+      "8",
+      "9",
+      "11"
+    ],
+    "respuesta": "9"
+  },
+  {
+    "pregunta": "Calcule el rango de la función f={(1;b),(1;b^2-2),(11;2),(-1;3)}",
+    "opciones": [
+      "{3}",
+      "{-1;2;3}",
+      "{-1;3}",
+      "{2;3}"
+    ],
+    "respuesta": "{-1;2;3}"
+  },
+  {
+    "pregunta": "Que tipo de función es f(x)=|x+2|+|x-2|",
+    "opciones": [
+      "Par",
+      "Impar",
+      "Mixta",
+      "Ninguna"
+    ],
+    "respuesta": "Par"
+  },
+  {
+    "pregunta": "Si P(x+4)=8x-1, hallar P(7)",
+    "opciones": [
+      "11",
+      "55",
+      "23",
+      "25"
+    ],
+    "respuesta": "23"
+  },
+  {
+    "pregunta": "La expresión: 'el duplo de un número, aumentado en 5' puede corresponder a:",
+    "opciones": [
+      "2x+5",
+      "2(x+5)",
+      "(x+5)(x+5)",
+      "x+5x"
+    ],
+    "respuesta": "2x+5"
+  },
+  {
+    "pregunta": "El dominio de la función dada por: (x+4)/(x+12), es:",
+    "opciones": [
+      "Reales",
+      "x<-4 o x>-12",
+      "x-12 o x>-12",
+      "x<-12"
+    ],
+    "respuesta": "x-12 o x>-12"
+  },
+  {
+    "pregunta": "El grado absoluto del término independiente de un polinomio, es:",
+    "opciones": [
+      "3",
+      "2",
+      "1",
+      "0"
+    ],
+    "respuesta": "0"
+  },
+  {
+    "pregunta": "Una expresión algebraica compuesta por dos términos, recibe el nombre de:",
+    "opciones": [
+      "Monomio",
+      "Binomio",
+      "Trinomio",
+      "Cuatrinomio"
+    ],
+    "respuesta": "Binomio"
+  },
+  {
+    "pregunta": "Una expresión algebraica compuesta por tres términos, recibe el nombre de:",
+    "opciones": [
+      "Monomio",
+      "Binomio",
+      "Trinomio",
+      "Cuatrinomio"
+    ],
+    "respuesta": "Trinomio"
+  },
+  {
+    "pregunta": "Los polinomios que tienen todos sus términos incluyendo el término independiente, se denominan",
+    "opciones": [
+      "Completos",
+      "Numéricos",
+      "Homogéneos",
+      "Ordenados"
+    ],
+    "respuesta": "Completos"
+  },
+  {
+    "pregunta": "Los polinomios cuyos coeficientes en sus términos son letras, se denominan",
+    "opciones": [
+      "Heterogéneos",
+      "Numéricos",
+      "Mixtos",
+      "Literales"
+    ],
+    "respuesta": "Literales"
+  },
+  {
+    "pregunta": "Los polinomios, donde todos sus términos tienen el mismo grado absoluto, se denominan",
+    "opciones": [
+      "Heterogéneos",
+      "Homogéneos",
+      "Ordenados",
+      "Desordenados"
+    ],
+    "respuesta": "Homogéneos"
+  },
+  {
+    "pregunta": "Dos términos algebraicos son semejantes cuando",
+    "opciones": [
+      "Tienen el mismo coeficiente y la misma variable",
+      "Tienen diferente coeficiente y diferente variable",
+      "Tienen diferente coeficiente y la misma variable",
+      "Tienen el mismo coeficiente y diferente variable"
+    ],
+    "respuesta": "Tienen diferente coeficiente y la misma variable"
+  },
+  {
+    "pregunta": "El rango o recorrido de una función, es conjunto formado por:",
+    "opciones": [
+      "Todas las primeras componentes de los pares ordenados que conforman la función",
+      "Todas las segundas componentes de los pares ordenados que conforman la función",
+      "Todos los elementos del conjunto de partida",
+      "Todos los elementos del conjunto de llegada"
+    ],
+    "respuesta": "Todas las segundas componentes de los pares ordenados que conforman la función"
+  },
+  {
+    "pregunta": "El dominio de una función es conjunto formado por:",
+    "opciones": [
+      "Todas las primeras componentes de los pares ordenados que conforman la función",
+      "Todas las segundas componentes de los pares ordenados que conforman la función",
+      "Todos los elementos del conjunto de partida",
+      "Todos los elementos del conjunto de llegada"
+    ],
+    "respuesta": "Todas las primeras componentes de los pares ordenados que conforman la función"
+  },
+  {
+    "pregunta": "Función lineal es la que cumple con:",
+    "opciones": [
+      "Tener la variable x de primer grado",
+      "Tener la variable y de primer grado",
+      "Tener la variable x de primer grado y no tener la variable y",
+      "Tener las dos variables, independiente y dependiente, de primer grado"
+    ],
+    "respuesta": "Tener las dos variables, independiente y dependiente, de primer grado"
+  },
+  {
+    "pregunta": "Función cuadrática es la que cumple con:",
+    "opciones": [
+      "Tener la variable x de primer grado",
+      "Tener las variables de segundo grado grado",
+      "Tener la variable independiente de segundo grado y la variable dependiente de primer grado",
+      "Tener la variable independiente de primer grado y la variable dependiente de segundo grado"
+    ],
+    "respuesta": "Tener la variable independiente de segundo grado y la variable dependiente de primer grado"
+  },
+  {
+    "pregunta": "El Producto Cartesiano corresponde a:",
+    "opciones": [
+      "El conjunto de pares ordenados",
+      "El conjunto de pares desordenados",
+      "El conjunto de relaciones binarias",
+      "El conjunto de puntos en el plano cartesiano"
+    ],
+    "respuesta": "El conjunto de puntos en el plano cartesiano"
+  },
+  {
+    "pregunta": "El eje de las abscisas hace referencia al",
+    "opciones": [
+      "Eje X",
+      "Eje Y",
+      "Conjunto de Partida",
+      "Conjunto de Llegada"
+    ],
+    "respuesta": "Eje X"
+  },
+  {
+    "pregunta": "El eje de las ordenadas hace referencia al",
+    "opciones": [
+      "Eje X",
+      "Eje Y",
+      "Conjunto de Partida",
+      "Conjunto de Llegada"
+    ],
+    "respuesta": "Eje Y"
+  },
+  {
+    "pregunta": "Sean los conjuntos A y B, el producto cartesiano se denota como",
+    "opciones": [
+      "A+B",
+      "AxB",
+      "A*B",
+      "AB"
+    ],
+    "respuesta": "AxB"
+  },
+  {
+    "pregunta": "El Dominio de una función hace referencia al:",
+    "opciones": [
+      "Conjunto de Partida",
+      "Conjunto de Llegada",
+      "Conjunto de las Imágenes",
+      "Conjunto Final"
+    ],
+    "respuesta": "Conjunto de Partida"
+  },
+  {
+    "pregunta": "El Rango de una función hace referencia al:",
+    "opciones": [
+      "Conjunto de Partida",
+      "Conjunto de las Imágenes",
+      "Conjunto Inicial",
+      "Conjunto de Salida"
+    ],
+    "respuesta": "Conjunto de las Imágenes"
+  },
+  {
+    "pregunta": "El Rango de una función, también es conocido como:",
+    "opciones": [
+      "Preimagen",
+      "Recorrido",
+      "Imagen Inversa",
+      "Conjunto de Definición"
+    ],
+    "respuesta": "Recorrido"
+  },
+  {
+    "pregunta": "Seleccione la proposición falsa.",
+    "opciones": [
+      "La curva de la función tiende a aproximarse continuamente a una asíntota",
+      "Las asíntotas son consideradas líneas rectas",
+      "A medida que se extiende indefinidamente, la distancia entre la curva de la función y la asíntota tiende a cero",
+      "Las asíntotas son consideradas líneas curvas"
+    ],
+    "respuesta": "Las asíntotas son consideradas líneas rectas"
+  },
+  {
+    "pregunta": "Dada la función f={(-4,-1),(0,-4),(1,4),(4,8)}, ¿Cuál es el dominio de f?",
+    "opciones": [
+      "Dom(f)={-4,0,1,4}",
+      "Dom(f)={-1,-4,4,8}",
+      "Dom(f)={-4,4}",
+      "Dom(f)={-4,4,8}"
+    ],
+    "respuesta": "Dom(f)={-4,0,1,4}"
+  },
+  {
+    "pregunta": "Dada la función g={(-9,1),(0,-1),(6,0),(3,-3),(-3,6)}, Cuál es el dominio de g?",
+    "opciones": [
+      "Dom(g)={-3,-1,0,1,6}",
+      "Dom(g)={-9,0,3,6}",
+      "Dom(g)={-9,-3,0,6}",
+      "Dom(g)={-9,-3,0,6,3}"
+    ],
+    "respuesta": "Dom(g)={-9,-3,0,6,3}"
+  },
+  {
+    "pregunta": "¿Cuándo es posible convertir un producto de dos logaritmos en uno solo?",
+    "opciones": [
+      "Cuando la base de uno de ellos sea igual al argumento del otro.",
+      "Cuando los logaritmos tengan la misma base.",
+      "Cuando los logaritmos tengan el mismo argumento.",
+      "Cuando los logaritmos sean decimales."
+    ],
+    "respuesta": "Cuando la base de uno de ellos sea igual al argumento del otro."
+  },
+  {
+    "pregunta": "¿Cuándo es posible convertir el cociente de dos logaritmos en uno solo?",
+    "opciones": [
+      "Cuando la base de uno de ellos sea igual al argumento del otro.",
+      "Cuando los logaritmos tengan la misma base.",
+      "Cuando los logaritmos tengan el mismo argumento.",
+      "Cuando los logaritmos sean decimales."
+    ],
+    "respuesta": "Cuando los logaritmos tengan la misma base."
+  },
+  {
+    "pregunta": "Indique que característica no es propia de una función exponencial elemental.",
+    "opciones": [
+      "El dominio de todas las funciones exponenciales son todos los números reales.",
+      "El rango de todas las funciones exponenciales son los números reales positivos.",
+      "Todas las funciones exponenciales, cortan al eje de las Y en el punto (0,1).",
+      "Toda función exponencial es creciente."
+    ],
+    "respuesta": "Toda función exponencial es creciente."
+  },
+  {
+    "pregunta": "Indique que característica no es propia de una función logaritmica básica.",
+    "opciones": [
+      "El dominio de estas funciones son los reales positivos.",
+      "El rango son todos los números reales.",
+      "Toda función logaritmica es creciente.",
+      "Todas las funciones cortan al eje de las X en el punto (1;0)."
+    ],
+    "respuesta": "Toda función logaritmica es creciente."
+  },
+  {
+    "pregunta": "Según las propiedades de los logaritmos a que equivale una diferencia de logaritmos.",
+    "opciones": [
+      "Logaritmo de un producto.",
+      "Logaritmo de un cociente.",
+      "Logaritmo de una suma.",
+      "Logaritmo de una diferencia."
+    ],
+    "respuesta": "Logaritmo de un cociente."
+  },
+  {
+    "pregunta": "Según las propiedades de los logaritmos a que equivale una suma de logaritmos.",
+    "opciones": [
+      "Logaritmo de un producto",
+      "Logaritmo de un cociente",
+      "Logaritmo de una suma",
+      "Logaritmo de una diferencia"
+    ],
+    "respuesta": "Logaritmo de un producto"
+  },
+  {
+    "pregunta": "¿Cuándo se podría resolver una ecuación logaritmica por métodos analíticos?",
+    "opciones": [
+      "Solo si al simplificar se obtiene de un miembro de la ecuación una función logaritmica y en el otro miembro una constante u otra función logarítmica.",
+      "Solo si al simplificar se obtiene de un miembro de la ecuación una función logarítmica y en el otro miembro cualquier tipo de función.",
+      "Solo si al simplificar se obtiene de un miembro de la ecuación una función logarítmica y en el otro miembro una función exponencial.",
+      "Solo si al simplificar se obtiene de un miembro de la ecuación una función logarítmica y en el otro miembro una función trigonométrica."
+    ],
+    "respuesta": "Solo si al simplificar se obtiene de un miembro de la ecuación una función logaritmica y en el otro miembro una constante u otra función logarítmica."
+  },
+  {
+    "pregunta": "¿Cuándo se podría resolver una ecuación exponencial por métodos analíticos?",
+    "opciones": [
+      "solo si al simplificar se obtiene de un miembro de la ecuación una función exponencial y en el otro miembro una constante u otra función exponencial.",
+      "solo si solo si al simplificar se obtiene de un miembro de la ecuación una función exponencial y en el otro miembro cualquier tipo de función.",
+      "solo si al simplificar se obtiene de un miembro de la ecuación una función exponencial y en el otro miembro una función logaritmica.",
+      "solo si al simplificar se obtiene de un miembro de la ecuación una función exponencial y en el otro miembro una función trigonométrica."
+    ],
+    "respuesta": "solo si al simplificar se obtiene de un miembro de la ecuación una función exponencial y en el otro miembro una constante u otra función exponencial."
+  },
+  {
+    "pregunta": "Indique cuál de las siguientes proposiciones no es verdadera.",
+    "opciones": [
+      "La función exponencial no tiene simetría.",
+      "La función exponencial tiene por asíntota horizontal el eje x.",
+      "La función exponencial tiene por asíntota vertical el eje y.",
+      "La función exponencial puede ser creciente o decreciente dependiendo del valor de su base."
+    ],
+    "respuesta": "La función exponencial tiene por asíntota vertical el eje y."
+  },
+  {
+    "pregunta": "Indique cuál de las siguientes proposiciones no es verdadera.",
+    "opciones": [
+      "La función logarítmica no tiene simetría.",
+      "La función logaritmica tiene por asíntota horizontal el eje x.",
+      "La función logaritmica tiene por asíntota vertical el eje y.",
+      "La función logarítmica puede ser creciente o decreciente dependiendo del valor de su base."
+    ],
+    "respuesta": "La función logaritmica tiene por asíntota horizontal el eje x."
+  },
+  {
+    "pregunta": "Indique cuál de las siguientes proposiciones es verdadera.",
+    "opciones": [
+      "Si en la función exponencial su base es mayor a 2 la función es decreciente.",
+      "Si en la función exponencial su base es mayor a 2 la función es creciente.",
+      "La gráfica de la función exponencial corta el eje x en 1.",
+      "La gráfica de la función exponencial corta el eje y en -1."
+    ],
+    "respuesta": "Si en la función exponencial su base es mayor a 2 la función es creciente."
+  },
+  {
+    "pregunta": "Indique cuál de las siguientes proposiciones es verdadera.",
+    "opciones": [
+      "Si en la función logarítmica su base es mayor a 2 la función es decreciente.",
+      "Si en la función logarítmica su base es mayor a 2 la función es creciente.",
+      "La gráfica de la función logaritmica corta el eje y en 1.",
+      "La gráfica de la función logaritmica corta el eje x en -1."
+    ],
+    "respuesta": "Si en la función logarítmica su base es mayor a 2 la función es creciente."
+  },
+  {
+    "pregunta": "Indique que tipo de estructura algebraica es el conjunto de los números naturales sin el cero y con la operación suma:",
+    "opciones": [
+      "grupo",
+      "semigrupo",
+      "monoide",
+      "anillo"
+    ],
+    "respuesta": "semigrupo"
+  },
+  {
+    "pregunta": "¿Qué axioma indica que a=a?",
+    "opciones": [
+      "Transitivo",
+      "Reflexivo",
+      "Simétrico",
+      "Uniforme"
+    ],
+    "respuesta": "Reflexivo"
+  },
+  {
+    "pregunta": "Indique el orden correcto en el que se debe realizar operaciones con números reales.",
+    "opciones": [
+      "Potenciación y radicación, multiplicación y división, sumas y restas.",
+      "Sumas y restas, potenciación y radicación, multiplicación y división.",
+      "Potenciación y radicación, sumas y restas, multiplicación y división.",
+      "Multiplicación y división, potenciación y radicación, sumas y restas."
+    ],
+    "respuesta": "Potenciación y radicación, multiplicación y división, sumas y restas."
+  },
+  {
+    "pregunta": "Todo número real 'b' elevado al exponente cero es igual a",
+    "opciones": [
+      "0",
+      "1",
+      "no está definido",
+      "falta condicionar b"
+    ],
+    "respuesta": "falta condicionar b"
+  },
+  {
+    "pregunta": "Cero elevado a cualquier número real 'b' es igual a",
+    "opciones": [
+      "0",
+      "1",
+      "no está definido",
+      "falta condicionar b"
+    ],
+    "respuesta": "falta condicionar b"
+  },
+  {
+    "pregunta": "Indique que propiedad del signo sumatorio es correcta:",
+    "opciones": [
+      "La suma del producto de una constante K por una variable es igual a n veces la constante K.",
+      "La sumatoria hasta n de un constante K es igual a K veces la sumatoria.",
+      "La sumatoria de una suma es igual a la suma de cada sumatoria de cada término.",
+      "La sumatoria de un producto es igual al producto de cada sumatorio de cada término."
+    ],
+    "respuesta": "La sumatoria de una suma es igual a la suma de cada sumatoria de cada término."
+  },
+  {
+    "pregunta": "Indique que propiedad del signo sumatorio es incorrecta:",
+    "opciones": [
+      "La suma del producto de una constante K por una variable es igual a K veces la sumatoria.",
+      "La sumatoria hasta n de un constante K es igual a n veces la constante K.",
+      "La sumatoria de una suma es igual a la suma de cada sumatoria de cada término.",
+      "La sumatoria de un producto es igual al producto de cada sumatorio de cada término."
+    ],
+    "respuesta": "La sumatoria de un producto es igual al producto de cada sumatorio de cada término."
+  },
+  {
+    "pregunta": "Indique cuando el principio de inducción matemática es aplicable",
+    "opciones": [
+      "Para demostrar que una expresión que involucre una variable es verdadera para todo valor entero positivo de la variable.",
+      "Para demostrar que una expresión que involucre una variable es verdadera para todo valor entero de la variable.",
+      "Para demostrar que una expresión que involucre una variable es verdadera para todo valor de la variable.",
+      "Para demostrar que una expresión que involucre una variable es verdadera para todo valor irracional de la variable."
+    ],
+    "respuesta": "Para demostrar que una expresión que involucre una variable es verdadera para todo valor entero positivo de la variable."
+  },
+  {
+    "pregunta": "Si en la potencia (x+a)^n, el valor de n es impar, entonces se cumple que:",
+    "opciones": [
+      "El desarrollo de la potencia tiene n-1 términos.",
+      "El desarrollo de la potencia tiene n términos.",
+      "El desarrollo de la potencia tiene 1 término medio.",
+      "El desarrollo de la potencia tiene 2 términos medios."
+    ],
+    "respuesta": "El desarrollo de la potencia tiene 2 términos medios."
+  },
+  {
+    "pregunta": "Si en la potencia (x+a)^n, el valor de n es par, entonces se cumple que:",
+    "opciones": [
+      "El desarrollo de la potencia tiene n-1 términos.",
+      "El desarrollo de la potencia tiene n términos.",
+      "El desarrollo de la potencia tiene 1 término medio.",
+      "El desarrollo de la potencia tiene 2 términos medios."
+    ],
+    "respuesta": "El desarrollo de la potencia tiene 1 término medio."
+  },
+  {
+    "pregunta": "Para todo a y b elementos del conjunto de los reales, si se eleva al cuadrado a>b",
+    "opciones": [
+      "siempre se mantiene el sentido de la desigualdad.",
+      "siempre cambia el sentido de la desigualdad.",
+      "siempre mantiene el sentido de la desigualdad si y solo si a y b son positivos.",
+      "siempre mantiene el sentido de la desigualdad si a es negativo."
+    ],
+    "respuesta": "siempre mantiene el sentido de la desigualdad si y solo si a y b son positivos."
+  },
+  {
+    "pregunta": "Para todo a y b elementos del conjunto de los reales, si se eleva al cubo a>b",
+    "opciones": [
+      "siempre se mantiene el sentido de la desigualdad.",
+      "siempre cambia el sentido de la desigualdad.",
+      "siempre mantiene el sentido de la desigualdad si y solo si a y b son positivos.",
+      "siempre cambia el sentido de la desigualdad si y solo si a y b son negativos."
+    ],
+    "respuesta": "siempre se mantiene el sentido de la desigualdad."
+  },
+  {
+    "pregunta": "Para todo a y b elementos del conjunto de los reales, si se eleva al cuadrado a<b",
+    "opciones": [
+      "siempre se mantiene el sentido de la desigualdad.",
+      "siempre cambia el sentido de la desigualdad.",
+      "siempre cambia el sentido de la desigualdad si y solo si a y b son positivos.",
+      "siempre cambia el sentido de la desigualdad si y solo si a y b son negativos."
+    ],
+    "respuesta": "siempre cambia el sentido de la desigualdad si y solo si a y b son negativos."
+  },
+  {
+    "pregunta": "Para todo a,b y c elementos del conjunto de los reales, si a<b se cumple que:",
+    "opciones": [
+      "a+c>b+c",
+      "a+c<b+c",
+      "a<b+c",
+      "a+c<b"
+    ],
+    "respuesta": "a+c<b+c"
+  },
+  {
+    "pregunta": "¿Qué condición deben cumplir los coeficientes a y b de la inecuación ax+b>0, para que el conjunto solución sea vacío?",
+    "opciones": [
+      "a=0 y b cualquier número real.",
+      "a=0 y b cualquier número real positivo.",
+      "a=0 y b cualquier número real negativo.",
+      "b=0 y a cualquier número real."
+    ],
+    "respuesta": "a=0 y b cualquier número real negativo."
+  },
+  {
+    "pregunta": "¿Qué condición deben cumplir los coeficientes a y b de la inecuación ax+b>0, para que el conjunto solución sea todos los reales?",
+    "opciones": [
+      "a=0 y b cualquier número real.",
+      "a=0 y b cualquier número real positivo.",
+      "a=0 y b cualquier número real negativo.",
+      "b=0 y a cualquier número real."
+    ],
+    "respuesta": "a=0 y b cualquier número real positivo."
+  },
+  {
+    "pregunta": "¿Cuándo la inecuación ax^2+bx+c>0, tiene por conjunto solución todos los reales?",
+    "opciones": [
+      "si al analizar el discriminante es negativo.",
+      "cuando al analizar el discriminante es positivo.",
+      "cuando al analizar el discriminante es negativo y el coeficiente a es positivo.",
+      "cuando al analizar el discriminante es negativo y el coeficiente a es negativo."
+    ],
+    "respuesta": "cuando al analizar el discriminante es negativo y el coeficiente a es positivo."
+  },
+  {
+    "pregunta": "¿Cuándo la inecuación ax^2+bx+c>0, tiene por conjunto solución vacío?",
+    "opciones": [
+      "si al analizar el discriminante es negativo.",
+      "cuando al analizar el discriminante es positivo.",
+      "cuando al analizar el discriminante es negativo y el coeficiente a es positivo.",
+      "cuando al analizar el discriminante es negativo y el coeficiente a es negativo."
+    ],
+    "respuesta": "cuando al analizar el discriminante es negativo y el coeficiente a es negativo."
+  },
+  {
+    "pregunta": "El valor absoluto de dos números reales diferentes, puede ser igual",
+    "opciones": [
+      "No, el valor absoluto de un número es único.",
+      "Si, siempre y cuando los números reales se diferencien solo en el signo.",
+      "Si, siempre y cuando los números reales sean positivos.",
+      "Si, siempre y cuando los números reales sean negativos."
+    ],
+    "respuesta": "Si, siempre y cuando los números reales se diferencien solo en el signo."
+  },
+  {
+    "pregunta": "¿Cuándo el cuadrado del valor absoluto de un número real es igual al cuadrado de dicho número real?",
+    "opciones": [
+      "Siempre que el número sea negativo.",
+      "Siempre que el número sea positivo.",
+      "Se cumple para todo número real.",
+      "Siempre que el número sea entero."
+    ],
+    "respuesta": "Se cumple para todo número real."
+  },
+  {
+    "pregunta": "Indique cuando es verdadera la igualdad: |a+b|=|a|+|b|.",
+    "opciones": [
+      "Cuando a y b son números reales negativos.",
+      "Cuando a es un número real negativo y b es un número real positivo.",
+      "Cuando a es un número real positivo y b es un número real negativo.",
+      "Nunca se puede cumplir dicha expresión."
+    ],
+    "respuesta": "Cuando a y b son números reales negativos."
+  },
+  {
+    "pregunta": "Indique cuando es verdadera la igualdad: |a+b|=|a|+|b|.",
+    "opciones": [
+      "Cuando a y b son números reales positivos.",
+      "Cuando a es un número real negativo y b es un número real positivo.",
+      "Cuando a es un número real positivo y b es un número real negativo.",
+      "Nunca se puede cumplir dicha expresión."
+    ],
+    "respuesta": "Cuando a y b son números reales positivos."
+  },
+  {
+    "pregunta": "Indique porque la solución de la inecuación |x-b|<-b, donde b es un real positivo, es el conjunto vacío.",
+    "opciones": [
+      "Debido a que -b es un número real.",
+      "Por definición, ya que el valor absoluto de todo numero real es mayor o igual que cero.",
+      "Debido a que es una inecuación lineal.",
+      "Denido a que la forma lineal x-b tiene un cero en b."
+    ],
+    "respuesta": "Por definición, ya que el valor absoluto de todo numero real es mayor o igual que cero."
+  },
+  {
+    "pregunta": "Indique porque la solución de la inecuación |x-b|>-b donde b es un real positivo, es el conjunto de los números reales.",
+    "opciones": [
+      "Debido a que -b es un número real.",
+      "Por definición, ya que el valor absoluto de todo numero real es mayor o igual que cero.",
+      "Debido a que es una inecuación lineal.",
+      "Denido a que la forma lineal x-b tiene un cero en b."
+    ],
+    "respuesta": "Por definición, ya que el valor absoluto de todo numero real es mayor o igual que cero."
+  }
+]
