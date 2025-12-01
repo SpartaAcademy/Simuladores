@@ -1,0 +1,1002 @@
+[
+  {
+    "pregunta": "My sister lives in Paris. ....... is from Spain.",
+    "opciones": ["she", "her", "hers", "himself"],
+    "respuesta": "she"
+  },
+  {
+    "pregunta": "....... you married?",
+    "opciones": ["Are", "Is", "Am", "Do"],
+    "respuesta": "Are"
+  },
+  {
+    "pregunta": "We often talk about .......",
+    "opciones": ["each other", "themselves", "one another", "himself"],
+    "respuesta": "each other"
+  },
+  {
+    "pregunta": "How many children .......?",
+    "opciones": ["do you have", "have you", "you have", "have you got"],
+    "respuesta": "do you have"
+  },
+  {
+    "pregunta": "Where ....... from? I'm from New York.",
+    "opciones": ["are you", "do you", "is you", "you are"],
+    "respuesta": "are you"
+  },
+  {
+    "pregunta": "....... is your brother? He is 28 years old.",
+    "opciones": ["what", "how old", "how often", "why"],
+    "respuesta": "how old"
+  },
+  {
+    "pregunta": "....... you like to travel to different countries?",
+    "opciones": ["Do", "Are", "Does", "Is"],
+    "respuesta": "Do"
+  },
+  {
+    "pregunta": "....... a lot of people in the park on weekends.",
+    "opciones": ["Are", "There are", "Is", "They are"],
+    "respuesta": "There are"
+  },
+  {
+    "pregunta": "I ....... pizza, but my sister ....... it.",
+    "opciones": ["don't like / likes", "doesn't like / likes", "don't like / like", "doesn't like / doesn't like"],
+    "respuesta": "don't like / likes"
+  },
+  {
+    "pregunta": "....... your friends usually go to the beach in the summer?",
+    "opciones": ["Do", "Are", "Does", "Is"],
+    "respuesta": "Do"
+  },
+  {
+    "pregunta": "We ....... to the cinema every Saturday.",
+    "opciones": ["go", "goes", "going", "went"],
+    "respuesta": "go"
+  },
+  {
+    "pregunta": "There ....... some books on the shelf.",
+    "opciones": ["is", "are", "be", "being"],
+    "respuesta": "are"
+  },
+  {
+    "pregunta": "....... your uncle Peter have a big house?",
+    "opciones": ["Is", "Are", "Do", "Does"],
+    "respuesta": "Does"
+  },
+  {
+    "pregunta": "Can you tell me ....... the new smartphone costs?",
+    "opciones": ["how much", "how many", "how", "what"],
+    "respuesta": "how much"
+  },
+  {
+    "pregunta": "There ....... a lot of traffic today.",
+    "opciones": ["is", "are", "be", "being"],
+    "respuesta": "is"
+  },
+  {
+    "pregunta": "....... questions about the assignment?",
+    "opciones": ["Do you have", "Have you", "You have", "Are you have"],
+    "respuesta": "Do you have"
+  },
+  {
+    "pregunta": "She ....... like to cook.",
+    "opciones": ["don't", "doesn't", "isn't", "not"],
+    "respuesta": "doesn't"
+  },
+  {
+    "pregunta": "She ....... her breakfast at 8 a.m. every morning.",
+    "opciones": ["have", "has", "having", "had"],
+    "respuesta": "has"
+  },
+  {
+    "pregunta": "I go to the office .......",
+    "opciones": ["by bus", "for bus", "to bus", "in bus"],
+    "respuesta": "by bus"
+  },
+  {
+    "pregunta": "How ....... I get to the airport? You can take a taxi.",
+    "opciones": ["much", "many", "can", "do"],
+    "respuesta": "can"
+  },
+  {
+    "pregunta": "He always arrives ....... to work.",
+    "opciones": ["early", "earlier", "earliest", "earlyer"],
+    "respuesta": "early"
+  },
+  {
+    "pregunta": "What ....... of movies do you like?",
+    "opciones": ["kind", "kinds", "type", "types"],
+    "respuesta": "kind"
+  },
+  {
+    "pregunta": "She ....... likes to travel to new places.",
+    "opciones": ["very", "too", "really", "many"],
+    "respuesta": "really"
+  },
+  {
+    "pregunta": "The museum is ....... the corner of the street.",
+    "opciones": ["on", "in", "at", "under"],
+    "respuesta": "on"
+  },
+  {
+    "pregunta": "We ....... to the beach on our last holiday.",
+    "opciones": ["goes", "go", "went", "going"],
+    "respuesta": "went"
+  },
+  {
+    "pregunta": "What ....... you do last weekend? I visited a museum.",
+    "opciones": ["did", "do", "does", "doing"],
+    "respuesta": "did"
+  },
+  {
+    "pregunta": "How ....... were you when you went to Paris?",
+    "opciones": ["many", "much", "old", "young"],
+    "respuesta": "old"
+  },
+  {
+    "pregunta": "They ....... stay at a hotel during their vacation.",
+    "opciones": ["didn't", "don't", "aren't", "doesn't"],
+    "respuesta": "didn't"
+  },
+  {
+    "pregunta": "Did you ....... to the concert last night? Yes, it was fantastic!",
+    "opciones": ["went", "goes", "going", "go"],
+    "respuesta": "go"
+  },
+  {
+    "pregunta": "....... you ever visit the Grand Canyon last year?",
+    "opciones": ["Did", "Were", "Have", "Are"],
+    "respuesta": "Did"
+  },
+  {
+    "pregunta": "Last summer, we ....... in a beautiful cottage by the lake.",
+    "opciones": ["stayed", "stays", "stay", "staying"],
+    "respuesta": "stayed"
+  },
+  {
+    "pregunta": "Jim: How long have you been studying English? Jake: .......",
+    "opciones": ["by me", "for me", "for three years", "by bus"],
+    "respuesta": "for me"
+  },
+  {
+    "pregunta": "A: What ....... you think when you saw the movie? B: I thought it was amazing.",
+    "opciones": ["did", "do", "does", "doing"],
+    "respuesta": "did"
+  },
+  {
+    "pregunta": "Friend A: After ....... the concert, we went out for dinner. Friend B: That sounds like a fun night.",
+    "opciones": ["see", "saw", "seeing", "seen"],
+    "respuesta": "seeing"
+  },
+  {
+    "pregunta": "Teacher: How ....... were you when you started working? Student: I was 25.",
+    "opciones": ["far", "long", "old", "many"],
+    "respuesta": "old"
+  },
+  {
+    "pregunta": "A: What ....... you think of the book? B: I enjoyed it a lot.",
+    "opciones": ["does", "do", "did", "doing"],
+    "respuesta": "did"
+  },
+  {
+    "pregunta": "Mom: How ....... did you wait? Son: Just five minutes.",
+    "opciones": ["many", "far", "old", "long"],
+    "respuesta": "long"
+  },
+  {
+    "pregunta": "She has ....... magazines on the shelf.",
+    "opciones": ["many", "much", "few", "little"],
+    "respuesta": "many"
+  },
+  {
+    "pregunta": "My house is ....... to the city center than yours.",
+    "opciones": ["more closer", "close", "closest", "closer"],
+    "respuesta": "closer"
+  },
+  {
+    "pregunta": "Which job do you think is challenging? - Being a firefighter is the ....... challenging.",
+    "opciones": ["many", "much", "more", "most"],
+    "respuesta": "most"
+  },
+  {
+    "pregunta": "The new policy is ....... than the old one.",
+    "opciones": ["strict", "stricter", "strictest", "more strict"],
+    "respuesta": "stricter"
+  },
+  {
+    "pregunta": "Boss: How ....... people work in your office? Manager: There are about 150 employees.",
+    "opciones": ["many", "much", "few", "little"],
+    "respuesta": "many"
+  },
+  {
+    "pregunta": "His office is ....... to the train station than yours.",
+    "opciones": ["near", "nearer", "nearest", "more near"],
+    "respuesta": "nearer"
+  },
+  {
+    "pregunta": "What ....... you do if you won the lottery? I would travel around the world.",
+    "opciones": ["can", "can't", "could", "couldn't"],
+    "respuesta": "could"
+  },
+  {
+    "pregunta": "I ....... start a new business next year. That's exciting! What kind of business?",
+    "opciones": ["am going", "will", "going to", "am going to"],
+    "respuesta": "am going to"
+  },
+  {
+    "pregunta": "Carlos: I ....... play the piano when I was younger. Peter: That's wonderful! Can you still play?",
+    "opciones": ["can", "can't", "could", "couldn't"],
+    "respuesta": "could"
+  },
+  {
+    "pregunta": "Frank: He ....... help you with the move. Rose: That's very kind of him.",
+    "opciones": ["is going to", "will", "going to", "would"],
+    "respuesta": "will"
+  },
+  {
+    "pregunta": "She ....... visit her grandparents next weekend. I'm sure they'll be happy to see her.",
+    "opciones": ["am going to", "will", "is going to", "would"],
+    "respuesta": "is going to"
+  },
+  {
+    "pregunta": "Tania ....... attend the conference in Madrid. I heard it's a prestigious event.",
+    "opciones": ["are intending to", "will", "going to", "may"],
+    "respuesta": "will"
+  },
+  {
+    "pregunta": "Karina: I ....... buy a new laptop soon. Lorena: That's a wise investment.",
+    "opciones": ["am planning to", "will", "going to", "should"],
+    "respuesta": "will"
+  },
+  {
+    "pregunta": "Is there ....... milk in the fridge?",
+    "opciones": ["some", "any", "much", "a"],
+    "respuesta": "any"
+  },
+  {
+    "pregunta": "How ....... chairs are there in the classroom?",
+    "opciones": ["much", "any", "many", "some"],
+    "respuesta": "many"
+  },
+  {
+    "pregunta": "I don't have ....... cat.",
+    "opciones": ["any", "much", "many", "a"],
+    "respuesta": "any"
+  },
+  {
+    "pregunta": "There aren't ....... seats available.",
+    "opciones": ["some", "any", "a", "much"],
+    "respuesta": "any"
+  },
+  {
+    "pregunta": "There is ....... money in my wallet.",
+    "opciones": ["any", "a", "many", "some"],
+    "respuesta": "some"
+  },
+  {
+    "pregunta": "How ....... orange juice is there?",
+    "opciones": ["many", "some", "any", "much"],
+    "respuesta": "much"
+  },
+  {
+    "pregunta": "My neighbor has ....... money.",
+    "opciones": ["a lot of", "much", "any", "a few"],
+    "respuesta": "a lot of"
+  },
+  {
+    "pregunta": "There are a lot of carrots but there aren't ....... tomatoes.",
+    "opciones": ["much", "many", "a", "some"],
+    "respuesta": "many"
+  },
+  {
+    "pregunta": "There is ....... juice but there isn't ....... coffee.",
+    "opciones": ["lots of / much", "a / some", "much / a", "many / lots of"],
+    "respuesta": "lots of / much"
+  },
+  {
+    "pregunta": "We have got ....... time to do the test. Hurry up!",
+    "opciones": ["a few", "very little", "any", "many"],
+    "respuesta": "very little"
+  },
+  {
+    "pregunta": "The weather in Quito is ....... than Guayaquil.",
+    "opciones": ["badder", "worse", "the worst", "worst"],
+    "respuesta": "worse"
+  },
+  {
+    "pregunta": "The ....... season of the year is December.",
+    "opciones": ["good", "goodest", "best", "bestest"],
+    "respuesta": "best"
+  },
+  {
+    "pregunta": "Peter thinks that learning math is ....... than learning English.",
+    "opciones": ["more easy", "easiest", "easy", "easier"],
+    "respuesta": "easier"
+  },
+  {
+    "pregunta": "The little boy ran ....... than his friends.",
+    "opciones": ["farther", "more far", "farthest", "far"],
+    "respuesta": "farther"
+  },
+  {
+    "pregunta": "Whales are ....... than sharks.",
+    "opciones": ["big", "bigger", "more big", "biggest"],
+    "respuesta": "bigger"
+  },
+  {
+    "pregunta": "Math is ....... than biology.",
+    "opciones": ["more difficult", "most difficult", "difficult", "difficultier"],
+    "respuesta": "more difficult"
+  },
+  {
+    "pregunta": "That is definitely the ....... game of football I have ever seen.",
+    "opciones": ["bad", "worse", "worst", "baddest"],
+    "respuesta": "worst"
+  },
+  {
+    "pregunta": "Your classmate is the ....... student in this class.",
+    "opciones": ["good", "best", "goodest", "better"],
+    "respuesta": "best"
+  },
+  {
+    "pregunta": "What is the ....... Planet from the sun?",
+    "opciones": ["fur", "further", "furthest", "most fur"],
+    "respuesta": "furthest"
+  },
+  {
+    "pregunta": "Who is the ....... runner in the world?",
+    "opciones": ["fast", "faster", "fastest", "more fast"],
+    "respuesta": "fastest"
+  },
+  {
+    "pregunta": "Susan is the ....... person I have ever met.",
+    "opciones": ["happiest", "more happy", "happy", "happier"],
+    "respuesta": "happiest"
+  },
+  {
+    "pregunta": "Mary's drawing is as ....... as a professional artist.",
+    "opciones": ["good", "best", "better", "the best"],
+    "respuesta": "good"
+  },
+  {
+    "pregunta": "This is the ....... painting in the museum of Prado in Madrid.",
+    "opciones": ["more beautiful", "most beautiful", "beautiful", "as beautiful"],
+    "respuesta": "most beautiful"
+  },
+  {
+    "pregunta": "Yesterday was the ....... day of summer so far.",
+    "opciones": ["hot", "hotter", "hottest", "hotest"],
+    "respuesta": "hottest"
+  },
+  {
+    "pregunta": "I ....... what you are saying. The music is too loud.",
+    "opciones": ["can't hear", "can't to hear", "don't can hear", "can hearing"],
+    "respuesta": "can't hear"
+  },
+  {
+    "pregunta": "Mary is my best friend. She ....... four languages.",
+    "opciones": ["cans speak", "can speak", "can to speak", "can speaking"],
+    "respuesta": "can speak"
+  },
+  {
+    "pregunta": "....... go to the bathroom, please?",
+    "opciones": ["do I can", "can I", "can I to", "I can"],
+    "respuesta": "can I"
+  },
+  {
+    "pregunta": "You ....... in the classroom.",
+    "opciones": ["can't eats", "can't eating", "can't to eat", "can't eat"],
+    "respuesta": "can't eat"
+  },
+  {
+    "pregunta": "Pedro ....... my car if he needs to go on holidays.",
+    "opciones": ["can use", "cans use", "can uses", "can to use"],
+    "respuesta": "can use"
+  },
+  {
+    "pregunta": "....... open the window, please? It is too hot.",
+    "opciones": ["I can", "can I", "can I to", "do I can"],
+    "respuesta": "can I"
+  },
+  {
+    "pregunta": "Can you read this paragraph for my sister? She ....... without her glasses.",
+    "opciones": ["can't see", "can see", "can't to see", "can't seeing"],
+    "respuesta": "can't see"
+  },
+  {
+    "pregunta": "You ....... park here, it is free.",
+    "opciones": ["can't", "can", "can to", "can't to"],
+    "respuesta": "can"
+  },
+  {
+    "pregunta": "Peter and Pamela ....... get married yet.",
+    "opciones": ["aren't going to", "will get married", "is going to", "will to"],
+    "respuesta": "aren't going to"
+  },
+  {
+    "pregunta": "Look at those clouds. It ....... snow.",
+    "opciones": ["will", "is going to", "will be", "is going"],
+    "respuesta": "is going to"
+  },
+  {
+    "pregunta": "My sister ....... email you tonight - she promises!",
+    "opciones": ["will to", "will", "is going to", "are going to"],
+    "respuesta": "will"
+  },
+  {
+    "pregunta": "Daniel is holding a tennis racket. He ....... play tennis!",
+    "opciones": ["Is going", "going to", "is going to", "will"],
+    "respuesta": "is going to"
+  },
+  {
+    "pregunta": "Mary hasn't done any revision. She ....... pass her exams.",
+    "opciones": ["won't", "isn't going to", "Isn't going", "will not to"],
+    "respuesta": "isn't going to"
+  },
+  {
+    "pregunta": "Are you busy? I ....... answer the phone for you.",
+    "opciones": ["am going", "Is going", "will", "will to"],
+    "respuesta": "will"
+  },
+  {
+    "pregunta": "Of course, your brother should take the job. I don't think he ....... it.",
+    "opciones": ["will regrets", "will regret", "is going to regret", "will to regret"],
+    "respuesta": "will regret"
+  },
+  {
+    "pregunta": "Do you know what to buy your dad for his birthday? Yes, I ....... him a tie.",
+    "opciones": ["am going to buys", "going to buy", "am going to buy", "will"],
+    "respuesta": "am going to buy"
+  },
+  {
+    "pregunta": "Did your mom bring my books? Sorry. She forgot. She ....... tomorrow.",
+    "opciones": ["will bring", "will brings", "will to bring", "is to going to bring"],
+    "respuesta": "will bring"
+  },
+  {
+    "pregunta": "My friend and me ....... a new business. We're planning to open a restaurant.",
+    "opciones": ["is going to start", "are going to start", "will start", "will starts"],
+    "respuesta": "are going to start"
+  },
+  {
+    "pregunta": "You've heard that Patricio and his wife ....... to America, haven't you?",
+    "opciones": ["is going to come", "are going to come", "going to come", "will come"],
+    "respuesta": "are going to come"
+  },
+  {
+    "pregunta": "Get down off that table. It doesn't look very stable at all. You ....... fall off the table.",
+    "opciones": ["are going to", "will going", "will go to", "is to going to"],
+    "respuesta": "are going to"
+  },
+  {
+    "pregunta": "It is raining very hard and Judith is walking in the street without an umbrella. She ....... very wet.",
+    "opciones": ["will to get", "is going to get", "wills get", "will get"],
+    "respuesta": "is going to get"
+  },
+  {
+    "pregunta": "The lion is chasing the deer and the deer has an injured leg. The lion ....... the deer.",
+    "opciones": ["is going to catch", "are going to catch", "will catch", "will catches"],
+    "respuesta": "is going to catch"
+  },
+  {
+    "pregunta": "I haven't got my phone. That's OK I ....... you mine.",
+    "opciones": ["will lend", "will to lend", "am going to lend", "Is going lend"],
+    "respuesta": "will lend"
+  },
+  {
+    "pregunta": "It's Julia's birthday next week, so we ....... her some flowers.",
+    "opciones": ["are going to buy", "Is going to buy", "will buy", "will to buy"],
+    "respuesta": "are going to buy"
+  },
+  {
+    "pregunta": "Will you lend me £1000? I promise I ....... it back to you tomorrow.",
+    "opciones": ["will give", "will to give", "am going to give", "are going to give"],
+    "respuesta": "will give"
+  },
+  {
+    "pregunta": "Look! The coach .......! Run or we'll miss it.",
+    "opciones": ["will leave", "is going to leave", "will leaves", "are going to leave"],
+    "respuesta": "is going to leave"
+  },
+  {
+    "pregunta": "We're students. That's ....... classroom.",
+    "opciones": ["our", "us", "is", "the we"],
+    "respuesta": "our"
+  },
+  {
+    "pregunta": "\"What are those?\" - \"....... my pens.\"",
+    "opciones": ["They is", "Those", "They're", "Their"],
+    "respuesta": "They're"
+  },
+  {
+    "pregunta": "There are 60 minutes in ....... hour.",
+    "opciones": ["much", "a", "some", "an"],
+    "respuesta": "an"
+  },
+  {
+    "pregunta": "I saw two ....... at the bus stop.",
+    "opciones": ["mans", "men", "man", "mens"],
+    "respuesta": "men"
+  },
+  {
+    "pregunta": "These days, a lot of ....... live in cities.",
+    "opciones": ["people", "mans", "person", "we"],
+    "respuesta": "people"
+  },
+  {
+    "pregunta": "There's a nice picture ....... the wall.",
+    "opciones": ["in", "at", "on", "from"],
+    "respuesta": "on"
+  },
+  {
+    "pregunta": "I'm ....... very hard at the moment.",
+    "opciones": ["working", "works", "work", "worker"],
+    "respuesta": "working"
+  },
+  {
+    "pregunta": "He ....... know the answer.",
+    "opciones": ["don't", "not", "doesn't", "no"],
+    "respuesta": "doesn't"
+  },
+  {
+    "pregunta": "\"Where's Sam?\" - \"He's .......\"",
+    "opciones": ["at home", "on home", "in the home", "his home"],
+    "respuesta": "at home"
+  },
+  {
+    "pregunta": "They're talking ....... the football match.",
+    "opciones": ["for", "on", "from", "about"],
+    "respuesta": "about"
+  },
+  {
+    "pregunta": "I'm always tired ....... the morning ....... Saturdays.",
+    "opciones": ["in / at", "in / on", "at / in", "on / at"],
+    "respuesta": "in / on"
+  },
+  {
+    "pregunta": "A: Were you in bed ....... Sunday afternoon? B: Oh, no. I only sleep ....... night.",
+    "opciones": ["in / in", "on / in", "on / at", "in / on"],
+    "respuesta": "on / at"
+  },
+  {
+    "pregunta": "The ....... names are Fred and Tom.",
+    "opciones": ["boys'", "boy is", "boy's", "boys"],
+    "respuesta": "boys'"
+  },
+  {
+    "pregunta": "A: Can you help me? B: ....... I'm very busy.",
+    "opciones": ["Sorry, no can", "Yes, I can", "No can", "Sorry, I can't"],
+    "respuesta": "Sorry, I can't"
+  },
+  {
+    "pregunta": "A: How ....... do you go swimming? B: ....... a week.",
+    "opciones": ["much / often", "often / twice", "many / so", "often / five"],
+    "respuesta": "often / twice"
+  },
+  {
+    "pregunta": "I can't find my keys. I don't know where ....... are.",
+    "opciones": ["them", "these", "their", "they"],
+    "respuesta": "they"
+  },
+  {
+    "pregunta": "A: \"Is he a teacher?\" B: \"Yes, he .......\"",
+    "opciones": ["does", "is", "s", "did"],
+    "respuesta": "is"
+  },
+  {
+    "pregunta": "A: \"....... brush your teeth?\" B: \"Three times a day.\"",
+    "opciones": ["When you", "How often are you?", "How often do you", "Do you"],
+    "respuesta": "How often do you"
+  },
+  {
+    "pregunta": "....... summer, I get up early ....... Sunday mornings.",
+    "opciones": ["In / on", "At / on", "In / in", "On / an"],
+    "respuesta": "In / on"
+  },
+  {
+    "pregunta": "Please, can you stop making noise? I ....... a book.",
+    "opciones": ["reading", "read", "'m reading", "will read"],
+    "respuesta": "'m reading"
+  },
+  {
+    "pregunta": "The bike belongs to me. It is ....... bike.",
+    "opciones": ["his", "her", "your", "my"],
+    "respuesta": "my"
+  },
+  {
+    "pregunta": "We have a dog and a cat. They are ....... pets.",
+    "opciones": ["our", "your", "their", "his"],
+    "respuesta": "our"
+  },
+  {
+    "pregunta": "Betty and Daniel have three children. ....... children are very nice.",
+    "opciones": ["your", "her", "his", "their"],
+    "respuesta": "their"
+  },
+  {
+    "pregunta": "Nadia has a new car. She washes ....... car every week.",
+    "opciones": ["his", "her", "their", "your"],
+    "respuesta": "her"
+  },
+  {
+    "pregunta": "....... do you go swimming? I sometimes go swimming",
+    "opciones": ["How much", "How often", "How old", "How long"],
+    "respuesta": "How often"
+  },
+  {
+    "pregunta": "....... does your uncle live?",
+    "opciones": ["What", "Where", "Why", "When"],
+    "respuesta": "Where"
+  },
+  {
+    "pregunta": "....... brothers and sisters do you have?",
+    "opciones": ["How many", "How much", "How old", "How long"],
+    "respuesta": "How many"
+  },
+  {
+    "pregunta": "....... do you spell your baby's name. Is it French?",
+    "opciones": ["How", "Who", "Where", "What"],
+    "respuesta": "How"
+  },
+  {
+    "pregunta": "....... is your father so angry with you?",
+    "opciones": ["Where", "Who", "Why", "How old"],
+    "respuesta": "Why"
+  },
+  {
+    "pregunta": "....... season of the year is your favourite?",
+    "opciones": ["What", "Who", "Where", "How"],
+    "respuesta": "What"
+  },
+  {
+    "pregunta": "What time does Karen get up on Saturday mornings?",
+    "opciones": ["She sleeps up at 8.30am", "She get up at 8.30am", "She gets up at 8.30am.", "She got up at 8.30am."],
+    "respuesta": "She gets up at 8.30am."
+  },
+  {
+    "pregunta": "Does Dylan speak French?",
+    "opciones": ["Yes, he is", "Yes, he does.", "Yes, of course", "I don't know"],
+    "respuesta": "Yes, he does."
+  },
+  {
+    "pregunta": "Do your parents still visit you?",
+    "opciones": ["Yes, they do", "Yes, she does", "Yes, they are", "Yes, You do"],
+    "respuesta": "Yes, they do"
+  },
+  {
+    "pregunta": "Russia ....... one of the largest countries in the world.",
+    "opciones": ["am", "is", "are", "am"],
+    "respuesta": "is"
+  },
+  {
+    "pregunta": "The President of the United States ....... an important person.",
+    "opciones": ["is", "are", "am", "does"],
+    "respuesta": "is"
+  },
+  {
+    "pregunta": "Do you know if the shop ....... open?",
+    "opciones": ["are", "is", "am", "do"],
+    "respuesta": "is"
+  },
+  {
+    "pregunta": "This window is very dirty. I ....... see through it!",
+    "opciones": ["can't", "can", "do", "does"],
+    "respuesta": "can't"
+  },
+  {
+    "pregunta": "Martha can ....... English very well. She's a good student.",
+    "opciones": ["speak", "speaks", "to speak", "speaking"],
+    "respuesta": "speak"
+  },
+  {
+    "pregunta": "....... you go to the post office and buy twenty stamps for me?",
+    "opciones": ["Can", "Does", "Are", "Do"],
+    "respuesta": "Can"
+  },
+  {
+    "pregunta": "My father ....... drive a truck.",
+    "opciones": ["To can", "cans", "can", "does"],
+    "respuesta": "can"
+  },
+  {
+    "pregunta": "She ....... usually on time in the mornings",
+    "opciones": ["are", "is", "am", "to be"],
+    "respuesta": "is"
+  },
+  {
+    "pregunta": "....... she always do her homework on time?",
+    "opciones": ["Do", "Does", "Did", "Is"],
+    "respuesta": "Does"
+  },
+  {
+    "pregunta": "Our teacher always ....... in English",
+    "opciones": ["speaks", "speaking", "to speak", "spoke"],
+    "respuesta": "speaks"
+  },
+  {
+    "pregunta": "She never ....... her homework at home",
+    "opciones": ["do", "does", "doing", "did"],
+    "respuesta": "does"
+  },
+  {
+    "pregunta": "....... does this watch cost?",
+    "opciones": ["How long", "How many", "How much", "How old"],
+    "respuesta": "How much"
+  },
+  {
+    "pregunta": "Yesterday I ....... hungry. I ate two hamburgers?",
+    "opciones": ["am", "is", "was", "were"],
+    "respuesta": "was"
+  },
+  {
+    "pregunta": "Caroline ....... in a car accident last week.",
+    "opciones": ["was", "were", "is", "are"],
+    "respuesta": "was"
+  },
+  {
+    "pregunta": "Where ....... Caroline and you last week?",
+    "opciones": ["is", "was", "were", "did"],
+    "respuesta": "were"
+  },
+  {
+    "pregunta": "Where was your computer last night? It ....... in my room?",
+    "opciones": ["was", "were", "did", "are"],
+    "respuesta": "was"
+  },
+  {
+    "pregunta": "Karl and Caroline ....... on the train last Friday.",
+    "opciones": ["was", "are", "were", "did"],
+    "respuesta": "were"
+  },
+  {
+    "pregunta": "Rebecca is ....... have a baby next month.",
+    "opciones": ["go to", "going to", "going", "to go"],
+    "respuesta": "going to"
+  },
+  {
+    "pregunta": "....... you going to cook some food?",
+    "opciones": ["Are", "Is", "Am", "Do"],
+    "respuesta": "Are"
+  },
+  {
+    "pregunta": "Mozart ....... more than 600 pieces of music.",
+    "opciones": ["wrote", "write", "written", "writing"],
+    "respuesta": "wrote"
+  },
+  {
+    "pregunta": "I ....... a lot of money yesterday. I ....... an expensive dress.",
+    "opciones": ["spend / buy", "spent / bought", "spend / bought", "spending / bought"],
+    "respuesta": "spent / bought"
+  },
+  {
+    "pregunta": "The window was open and a bird ....... into the room.",
+    "opciones": ["flies", "fly", "flew", "flown"],
+    "respuesta": "flew"
+  },
+  {
+    "pregunta": "The bed was very uncomfortable. I ....... sleep very well.",
+    "opciones": ["wasn't", "does not", "didn't", "don't"],
+    "respuesta": "didn't"
+  },
+  {
+    "pregunta": "The police ....... me on my way home last night.",
+    "opciones": ["stop", "stopped", "stops", "stopping"],
+    "respuesta": "stopped"
+  },
+  {
+    "pregunta": "What ....... you ....... last weekend?",
+    "opciones": ["were / do", "does / did", "did / do", "do / did"],
+    "respuesta": "did / do"
+  },
+  {
+    "pregunta": "His mother ....... take any photos last night.",
+    "opciones": ["wasn't", "doesn't", "don't", "didn't"],
+    "respuesta": "didn't"
+  },
+  {
+    "pregunta": "He didn't ....... the question.",
+    "opciones": ["understand", "understood", "understands", "understanding"],
+    "respuesta": "understand"
+  },
+  {
+    "pregunta": "Did they play football ....... ?",
+    "opciones": ["right now", "now", "at the moment", "yesterday."],
+    "respuesta": "yesterday."
+  },
+  {
+    "pregunta": "Tell them again. Perhaps they .......",
+    "opciones": ["going to understand", "will understand", "will be understand", "understands"],
+    "respuesta": "will understand"
+  },
+  {
+    "pregunta": "Do you think you ....... work here when you are fifty years old?",
+    "opciones": ["will", "going", "will be", "going to"],
+    "respuesta": "will"
+  },
+  {
+    "pregunta": "We need some eggs. ....... do we need?",
+    "opciones": ["How many", "How much", "How old", "How often"],
+    "respuesta": "How many"
+  },
+  {
+    "pregunta": "....... languages do you speak?",
+    "opciones": ["How much", "How many", "How old", "How far"],
+    "respuesta": "How many"
+  },
+  {
+    "pregunta": "....... water do you want?",
+    "opciones": ["How long", "How many", "How old", "How much"],
+    "respuesta": "How much"
+  },
+  {
+    "pregunta": "....... time do you spend on line?",
+    "opciones": ["How far", "How many", "How much", "How old"],
+    "respuesta": "How much"
+  },
+  {
+    "pregunta": "....... money do you have?",
+    "opciones": ["How far", "How many", "How long", "How much"],
+    "respuesta": "How much"
+  },
+  {
+    "pregunta": "....... days are there in a week?",
+    "opciones": ["How far", "How many", "How long", "How much"],
+    "respuesta": "How many"
+  },
+  {
+    "pregunta": "....... months are there in a year?",
+    "opciones": ["How many", "How old", "How long", "How much"],
+    "respuesta": "How many"
+  },
+  {
+    "pregunta": "After four months of applying for a job, I ....... to take any type of work.",
+    "opciones": ["decided", "did decide", "decide", "will"],
+    "respuesta": "decided"
+  },
+  {
+    "pregunta": "Linda ....... quite far away, so he takes the train to work every day.",
+    "opciones": ["goes", "studies", "drives", "lives"],
+    "respuesta": "lives"
+  },
+  {
+    "pregunta": "When Martin is on the train, he likes to read a .......",
+    "opciones": ["phone", "Wi-Fi", "newspaper", "facebook"],
+    "respuesta": "newspaper"
+  },
+  {
+    "pregunta": "After work, Tracy usually goes home to have ....... with his mother.",
+    "opciones": ["lunch", "dinner", "breakfast", "brunch"],
+    "respuesta": "dinner"
+  },
+  {
+    "pregunta": "At the weekend, he likes to play football with friends. He is ....... then.",
+    "opciones": ["happy", "right", "easy", "shy"],
+    "respuesta": "happy"
+  },
+  {
+    "pregunta": "Now, I am working at a restaurant ....... my home. I just need to cross the street and I'm at work.",
+    "opciones": ["opposite", "in front of", "next to", "on"],
+    "respuesta": "opposite"
+  },
+  {
+    "pregunta": "Apartments outside the city are bigger and noisy. I don't ....... live there.",
+    "opciones": ["want", "wanting to", "want to", "wanting"],
+    "respuesta": "want to"
+  },
+  {
+    "pregunta": "It's important to keep your balance as you lift. ....... keep your feet apart and wear flat shoes.",
+    "opciones": ["so", "because", "therefore", "but"],
+    "respuesta": "but"
+  },
+  {
+    "pregunta": "My ....... name is Peter.",
+    "opciones": ["father is", "father's", "fathers'", "fathers"],
+    "respuesta": "father's"
+  },
+  {
+    "pregunta": "Are you ....... English teacher?",
+    "opciones": ["Maria", "Marias's", "Maria's", "Mariases"],
+    "respuesta": "Maria's"
+  },
+  {
+    "pregunta": "....... that film last night?",
+    "opciones": ["Did you see", "Did you saw", "Do you see", "Have you see"],
+    "respuesta": "Did you see"
+  },
+  {
+    "pregunta": "The author ....... a fantastic book.",
+    "opciones": ["writing", "write", "wrote", "written"],
+    "respuesta": "wrote"
+  },
+  {
+    "pregunta": "I got up and had ....... breakfast very quickly because I was late.",
+    "opciones": ["-", "the", "an", "a"],
+    "respuesta": "-"
+  },
+  {
+    "pregunta": "Where ....... last night?",
+    "opciones": ["Tim was", "was Tim", "did was Tim", "did Tim was"],
+    "respuesta": "was Tim"
+  },
+  {
+    "pregunta": "Why ....... that box there?",
+    "opciones": ["you did put", "put you", "you put", "did you put"],
+    "respuesta": "did you put"
+  },
+  {
+    "pregunta": "What ....... ?",
+    "opciones": ["do you are doing", "you are doing", "are you doing", "do you doing"],
+    "respuesta": "are you doing"
+  },
+  {
+    "pregunta": "Who ....... to the party?",
+    "opciones": ["did Sandra invite", "Sandra did invite", "Sandra invited", "Sandra did invite"],
+    "respuesta": "did Sandra invite"
+  },
+  {
+    "pregunta": "When ....... have a test?",
+    "opciones": ["are going to", "are we going to", "we are going to", "is going to"],
+    "respuesta": "are we going to"
+  },
+  {
+    "pregunta": "I was born .......",
+    "opciones": ["before 30 years", "the last thirty years", "thirty years ago", "since thirty years"],
+    "respuesta": "thirty years ago"
+  },
+  {
+    "pregunta": "I went to Rodolfo's restaurant. What was the question?",
+    "opciones": ["Where have you had dinner last night?", "Where did you have dinner last night?", "Where do you have dinner last night?", "Where went dinner last night?"],
+    "respuesta": "Where did you have dinner last night?"
+  },
+  {
+    "pregunta": "Greg is ....... a lot of time in the library. He is getting ready for his exams.",
+    "opciones": ["spending", "taking", "stay", "passing"],
+    "respuesta": "spending"
+  },
+  {
+    "pregunta": "Is this a good time to talk? Sorry, no. I ....... dinner.",
+    "opciones": ["cooking", "cook", "no time", "am cooking"],
+    "respuesta": "am cooking"
+  },
+  {
+    "pregunta": "We couldn't find a taxi. ....... we walked home",
+    "opciones": ["because", "although", "so", "and"],
+    "respuesta": "so"
+  },
+  {
+    "pregunta": "....... it was very cold; she wasn't wearing a coat.",
+    "opciones": ["Therefore", "Although", "But", "So"],
+    "respuesta": "Although"
+  },
+  {
+    "pregunta": "I called him ....... his mobile was turned off.",
+    "opciones": ["but", "so", "because", "and"],
+    "respuesta": "but"
+  },
+  {
+    "pregunta": "There was nothing on TV, ....... I went to bed.",
+    "opciones": ["but", "so", "because", "and"],
+    "respuesta": "so"
+  },
+  {
+    "pregunta": "....... John a builder before he retired?",
+    "opciones": ["Did", "Wasn't", "Is", "Does"],
+    "respuesta": "Wasn't"
+  },
+  {
+    "pregunta": "I'm going to a concert tonight. ....... you like to come?",
+    "opciones": ["Do", "Are", "Would", "Like"],
+    "respuesta": "Would"
+  },
+  {
+    "pregunta": "....... use your dictionary? Sure. Here you are.",
+    "opciones": ["Could you", "Do I", "Maybe", "Could I"],
+    "respuesta": "Could I"
+  },
+  {
+    "pregunta": "If you've got a headache, you ....... go home.",
+    "opciones": ["did you", "should", "had", "may"],
+    "respuesta": "should"
+  }
+]
