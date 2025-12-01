@@ -45,38 +45,18 @@
 
     <main>
         <div class="marca-de-agua"> <img src="logo.png" alt="Watermark"> </div>
+        
         <div class="seleccion-container">
-            <div class="simulador-section">
-                <h2>Simuladores Pruebas Académicas</h2>
-                <p>Elija una de las materias disponibles para comenzar la simulación.</p>
-                <div class="materias-grid">
-                    <a href="simulador.html?materia=sociales" class="materia-card"><h3>CIENCIAS SOCIALES</h3></a>
-                    <a href="simulador.html?materia=matematicas" class="materia-card"><h3>MATEMÁTICAS Y FÍSICA</h3></a>
-                    <a href="simulador.html?materia=lengua" class="materia-card"><h3>LENGUA Y LITERATURA</h3></a>
-                    <a href="simulador.html?materia=ingles" class="materia-card"><h3>INGLÉS</h3></a>
-                    <a href="simulador.html?materia=general" class="materia-card"><h3>GENERAL (TODAS)</h3></a>
-                </div>
-            </div>
-            <div class="simulador-section">
-                <h2>Simuladores Psicosométricos</h2>
-                <p>Acceda a los simuladores de inteligencia o personalidad.</p>
-                <div class="materias-grid">
-                    <a href="simulador.html?materia=inteligencia" class="materia-card"><h3>INTELIGENCIA</h3></a>
-                    <a href="simulador.html?materia=personalidad" class="materia-card"><h3>PERSONALIDAD</h3></a>
-                </div>
+            <div id="navigation-bar" class="nav-bar" style="display: none;">
+                <button id="btn-atras" class="btn-nav"><i class="fas fa-arrow-left"></i> Atrás</button>
+                <span id="breadcrumbs" class="breadcrumbs">Inicio</span>
             </div>
 
-            <div class="simulador-section">
-                <h2>Pruebas PPNN 2025</h2>
-                <p>Acceda a los cuestionarios de la Policía Nacional.</p>
-                <div class="materias-grid">
-                    <a href="simulador.html?materia=ppnn1" class="materia-card"><h3>CUESTIONARIO 1 PPNN</h3></a>
-                    <a href="simulador.html?materia=ppnn2" class="materia-card"><h3>CUESTIONARIO 2 PPNN</h3></a>
-                    <a href="simulador.html?materia=ppnn3" class="materia-card"><h3>CUESTIONARIO 3 PPNN</h3></a>
-                    <a href="simulador.html?materia=ppnn4" class="materia-card"><h3>CUESTIONARIO 4 PPNN</h3></a>
+            <h2 id="section-title">Seleccione una Institución</h2>
+            <p id="section-desc">Elija la institución para ver los simuladores disponibles.</p>
+            
+            <div id="dynamic-grid" class="materias-grid">
                 </div>
-            </div>
-
         </div>
     </main>
 
@@ -86,6 +66,8 @@
         <p>Email: spartatulcan@gmail.com</p>
     </footer>
 
+    <script src="JS/script-home.js"></script> 
+    
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             setupUserInfoDropdown();
@@ -95,4 +77,3 @@
     </script>
 </body>
 </html>
-
