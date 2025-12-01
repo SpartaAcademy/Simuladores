@@ -1,0 +1,1390 @@
+Skip to content
+Navigation Menu
+Daltongit
+simuladores_pruebaf
+
+Code
+Issues
+Pull requests
+Actions
+Projects
+Wiki
+Security
+Insights
+simuladores_pruebaf/DATA
+/preguntas_sociales_esmil.json
+Go to file
+t
+Daltongit
+Daltongit
+Create preguntas_sociales_esmil.json
+7c8d3d5
+ · 
+yesterday
+1361 lines (1361 loc) · 56.8 KB
+
+Code
+
+Blame
+[
+  {
+    "pregunta": "El Rey de España encargó la conquista de los territorios de América a:",
+    "opciones": [
+      "Los ejércitos profesionales de España.",
+      "A hombres particulares que actuaban a nombre de los reyes.",
+      "A los criollos que se reclutaban en España.",
+      "A los indígenas que se revelaban de sus pueblos."
+    ],
+    "respuesta": "A hombres particulares que actuaban a nombre de los reyes."
+  },
+  {
+    "pregunta": "¿Los improvisados militares que formaban parte de las milicias coloniales, con el tiempo en qué se transformaban?",
+    "opciones": [
+      "En militares españoles.",
+      "En piratas porque conocían las debilidades de las ciudades.",
+      "En conquistadores de otros continentes.",
+      "En propietarios, agricultores o encomenderos de los territorios de la América Hispánica."
+    ],
+    "respuesta": "En propietarios, agricultores o encomenderos de los territorios de la América Hispánica."
+  },
+  {
+    "pregunta": "¿Cómo se organizaron las milicias coloniales?",
+    "opciones": [
+      "Con presencia permanente y temporal de acuerdo a las circunstancias.",
+      "Con una estructura similar el Ejército español con logística y armamento suficiente.",
+      "Con soldados traídos desde España y caciques indios.",
+      "Con jefes españoles y tropa indígena."
+    ],
+    "respuesta": "Con presencia permanente y temporal de acuerdo a las circunstancias."
+  },
+  {
+    "pregunta": "La organización de las milicias coloniales contemplaba dos tipos que fueron:",
+    "opciones": [
+      "Urbanas y Nacionales.",
+      "Estatales y rurales.",
+      "Urbanas y rurales.",
+      "Estatales y nacionales."
+    ],
+    "respuesta": "Urbanas y rurales."
+  },
+  {
+    "pregunta": "Con el pasar del tiempo, las milicias coloniales evolucionaron, especialmente por la influencia de:",
+    "opciones": [
+      "Las reformas borbónicas.",
+      "El avance de la tecnología del siglo XX.",
+      "El impulso de Carlos V.",
+      "El impulso de Napoleón"
+    ],
+    "respuesta": "Las reformas borbónicas."
+  },
+  {
+    "pregunta": "¿Cuál fue uno de los motivos para fortalecer las milicias coloniales?",
+    "opciones": [
+      "Prever que los españoles puedan ser invadidos y toda la población trasladarse a América",
+      "Mantener un ejército de reserva para el apoyo a España en Europa.",
+      "Apoyar al desarrollo de la economía española a expensas de las colonias.",
+      "Nunca se fortaleció las milicias coloniales"
+    ],
+    "respuesta": "Apoyar al desarrollo de la economía española a expensas de las colonias."
+  },
+  {
+    "pregunta": "¿En qué siglo se desarrollaron las milicias coloniales?",
+    "opciones": [
+      "Siglo XX",
+      "Siglo XXI",
+      "Siglo XVI",
+      "Siglo V antes de Cristo"
+    ],
+    "respuesta": "Siglo XVI"
+  },
+  {
+    "pregunta": "¿En qué año se produce la Revolución de las Alcabalas?",
+    "opciones": [
+      "1941",
+      "1592",
+      "1492",
+      "1900"
+    ],
+    "respuesta": "1592"
+  },
+  {
+    "pregunta": "¿Cuál fue el porcentaje del impuesto a las alcabalas en el año de 1592?",
+    "opciones": [
+      "10%",
+      "2%",
+      "50%",
+      "25%"
+    ],
+    "respuesta": "2%"
+  },
+  {
+    "pregunta": "¿A qué insumos se impuso el impuesto a las alcabalas en 1592?",
+    "opciones": [
+      "Artículos que se vendían en el mercado y comercio en general.",
+      "A los galeones previo el zarpe a España.",
+      "Al correo que llevaban los chasquis",
+      "Al oro que los españoles llevaban a España."
+    ],
+    "respuesta": "Artículos que se vendían en el mercado y comercio en general."
+  },
+  {
+    "pregunta": "¿Cuál fue el pueblo que se levantó en la Revolución de las Alcabalas?",
+    "opciones": [
+      "Los españoles residentes en Francia.",
+      "Las milicias del pueblo",
+      "El limeño",
+      "El quiteño"
+    ],
+    "respuesta": "El quiteño"
+  },
+  {
+    "pregunta": "¿A qué general envió el virrey del Perú con 60 hombres a aplacar la Revolución de las Alcabalas?",
+    "opciones": [
+      "Al general Eloy Alfaro",
+      "Al general Pedro de Arana",
+      "Al general Rumiñahui",
+      "Al general Dimitri del Valle"
+    ],
+    "respuesta": "Al general Pedro de Arana"
+  },
+  {
+    "pregunta": "Al conocerse la implementación del nuevo impuesto a las acabalas, el pueblo afectado ¿cómo reaccionó?",
+    "opciones": [
+      "Se levantó en paro de brazos caídos.",
+      "Hizo una huelga de hambre por 20 días.",
+      "Organizó grupos de milicias.",
+      "Abandonó la ciudad para ir a otra población donde no cobren impuestos."
+    ],
+    "respuesta": "Organizó grupos de milicias."
+  },
+  {
+    "pregunta": "¿Quién fue el Rey de España que impuso el impuesto a las alcabalas en los territorios americanos?",
+    "opciones": [
+      "Fernando VII",
+      "Carlos V",
+      "Juan pablo VI",
+      "Felipe II"
+    ],
+    "respuesta": "Felipe II"
+  },
+  {
+    "pregunta": "Para varios estudiosos de la historia, La Revolución de las Alcabalas es considerado como:",
+    "opciones": [
+      "La primera expresión de rebeldía de los quiteños.",
+      "La segunda expresión de rebeldía de los quiteños, luego de la de Atahualpa.",
+      "La tercera expresión de rebeldía luego de la de Atahualpa de Rumiñahui luego de la muerte del primero.",
+      "No es considerada como rebelión de Quito."
+    ],
+    "respuesta": "La primera expresión de rebeldía de los quiteños."
+  },
+  {
+    "pregunta": "¿Cuál fue la connotación social de la Revolución de las Alcabalas?",
+    "opciones": [
+      "Multitudinaria.",
+      "Muy poca connotación.",
+      "Como solo afectó a los indígenas no fue apoyada por el resto.",
+      "No tuvo ninguna connotación."
+    ],
+    "respuesta": "Multitudinaria."
+  },
+  {
+    "pregunta": "Se podría decir que otra de las causas que influyó en la Revolución de las Alcabalas fue:",
+    "opciones": [
+      "En interés económico del gobernador de Quito.",
+      "La gran solvencia económica de la Audiencia de Quito.",
+      "Una Real Audiencia de Quito a la deriva.",
+      "La fuerte represión de las milicias al pueblo, en donde se incluyen españoles y criollos."
+    ],
+    "respuesta": "Una Real Audiencia de Quito a la deriva."
+  },
+  {
+    "pregunta": "¿En qué fecha se desarrolló la denominada Revolución de Quito o Primer Grito de la Independencia?",
+    "opciones": [
+      "10 de agosto de 1802.",
+      "10 de agosto de 1809.",
+      "24 de mayo de 1822.",
+      "27 de febrero de 1829."
+    ],
+    "respuesta": "10 de agosto de 1809."
+  },
+  {
+    "pregunta": "¿Qué personaje importante facilitó su casa para la reunión de los próceres de la independencia la noche del 9 de agosto de 1809?",
+    "opciones": [
+      "Juan Pío Montufar",
+      "Antonio José de Sucre",
+      "Manuela Cañizares",
+      "Juan de Dios Salinas"
+    ],
+    "respuesta": "Manuela Cañizares"
+  },
+  {
+    "pregunta": "¿Quiénes de los miembros que a continuación se describen decidieron organizar la Junta Suprema de Gobierno?",
+    "opciones": [
+      "Juan Pío Montufar, Obispo Cuero y Caicedo, Juan de Dios Morales, entre otros.",
+      "Juan José Flores, Mariscal Sucre, Simón Bolívar, entre otros.",
+      "José de Veintimilla, José de Antepara, Juan José Flores, entre otros",
+      "Diego de la Vega, Márquez de Villanueva, Manuelita Sáenz, entre otros"
+    ],
+    "respuesta": "Juan Pío Montufar, Obispo Cuero y Caicedo, Juan de Dios Morales, entre otros."
+  },
+  {
+    "pregunta": "Los factores fundamentales que se juntaron en el proceso de la Revolución de Quito o primer grito de la independencia fueron:",
+    "opciones": [
+      "El resentimiento, la ambición y la pobreza del pueblo.",
+      "Los idealistas, los caudillos y el pueblo.",
+      "La corrupción, el idealismo y la reivindicación de la lucha indígena.",
+      "El mercantilismo, la revolución agraria y la desigualdad de clases sociales."
+    ],
+    "respuesta": "Los idealistas, los caudillos y el pueblo."
+  },
+  {
+    "pregunta": "Los ideales independentistas de Espejo en Quito, Miranda en Venezuela y Nariño en Santa Fe promulgaba eran:",
+    "opciones": [
+      "El no cobro del impuesto de las alcabalas.",
+      "Los derechos del hombre y el ciudadano.",
+      "El derecho a la vida y a la igualdad de clases sociales.",
+      "El ideal de igualdad económica, libertad de expresión y fraternidad entre las clases sociales."
+    ],
+    "respuesta": "Los derechos del hombre y el ciudadano."
+  },
+  {
+    "pregunta": "¿A quién se le atribuye como el impulsor fundamental de las ideas que generaron la Revolución de Quito?",
+    "opciones": [
+      "Manuela Cañizares.",
+      "Juan Pio Montufar.",
+      "Eugenio Espejo.",
+      "Juan de Dios Morales."
+    ],
+    "respuesta": "Eugenio Espejo."
+  },
+  {
+    "pregunta": "¿Cómo se llamó a la organización militar que se formó para apoyar a la Revolución de Quito?",
+    "opciones": [
+      "Milicias Coloniales.",
+      "Falange de Fernando VII.",
+      "Milicias Libertarias.",
+      "Falange de Salinas."
+    ],
+    "respuesta": "Falange de Fernando VII."
+  },
+  {
+    "pregunta": "La reorganización militar que se conformó para la Revolución de Quito, estuvo conformada por:",
+    "opciones": [
+      "Tres batallones.",
+      "Tres batallones de infantería, 2 de caballería y una batería de artillería.",
+      "Una brigada de milicias.",
+      "Un batallón de milicias."
+    ],
+    "respuesta": "Tres batallones."
+  },
+  {
+    "pregunta": "La reacción de las autoridades españolas contra los próceres de la Independencia fue:",
+    "opciones": [
+      "Violenta",
+      "Comprensible",
+      "Indiferente",
+      "De negociación"
+    ],
+    "respuesta": "Violenta"
+  },
+  {
+    "pregunta": "¿Cuál fue la consecuencia de la Revolución de Quito al cabo de un año?",
+    "opciones": [
+      "La masacre de los próceres quiteños el 2 de agosto de 1810.",
+      "La batalla de Pichincha.",
+      "La batalla de Tarqui.",
+      "Las mitas y los obrajes."
+    ],
+    "respuesta": "La masacre de los próceres quiteños el 2 de agosto de 1810."
+  },
+  {
+    "pregunta": "¿En qué fecha se da la revolución de octubre o Independencia de Guayaquil?",
+    "opciones": [
+      "10 de agosto de 1809.",
+      "9 de octubre de 1820.",
+      "19 de octubre 1820.",
+      "9 de octubre de 1822."
+    ],
+    "respuesta": "9 de octubre de 1820."
+  },
+  {
+    "pregunta": "¿Quién fue el presidente de la Junta de Gobierno que se formó en Guayaquil con su independencia?",
+    "opciones": [
+      "Coronel Rafael Jimena.",
+      "Francisco Roca.",
+      "José Joaquín de Olmedo.",
+      "Francisco Marcos."
+    ],
+    "respuesta": "José Joaquín de Olmedo."
+  },
+  {
+    "pregunta": "La división de infantería que se formó para garantizar los logros obtenidos en la Revolución de Octubre de 1820, estuvo al mando de:",
+    "opciones": [
+      "Coronel Luis Urdaneta.",
+      "Antonio José de Sucre.",
+      "General Juan José Flores.",
+      "Coronel Córdova."
+    ],
+    "respuesta": "Coronel Luis Urdaneta."
+  },
+  {
+    "pregunta": "¿Quiénes fueron los militares que apoyaron a la Revolución de Octubre que fueron el eje y fundamental para lograr el apoyo y/o insurrección de varios batallones militares en 1820?",
+    "opciones": [
+      "Flores, Sucre y Bolívar.",
+      "Letamendi, Urdaneta y León de Febres Cordero",
+      "San Martín, Córdova, Olmedo.",
+      "Saldarriaga, Fernando VII, Napoleón."
+    ],
+    "respuesta": "Letamendi, Urdaneta y León de Febres Cordero"
+  },
+  {
+    "pregunta": "Con el propósito de que la Revolución no fracasara, se enviaron emisarios a:",
+    "opciones": [
+      "España, Inglaterra y Francia.",
+      "Colombia, Perú, ayuntamientos de Quito y de Cuenca",
+      "Alto Perú, Bolivia y Panamá.",
+      "Solo a España."
+    ],
+    "respuesta": "Colombia, Perú, ayuntamientos de Quito y de Cuenca"
+  },
+  {
+    "pregunta": "La campaña libertaria de la Real Audiencia de Quito inició con:",
+    "opciones": [
+      "La revolución de las Alcabalas.",
+      "Independencia de Venezuela.",
+      "Independencia de Guayaquil.",
+      "La independencia del Perú."
+    ],
+    "respuesta": "Independencia de Guayaquil."
+  },
+  {
+    "pregunta": "La base en la que se formaron las tropas en la Revolución de Octubre, se encuentra en:",
+    "opciones": [
+      "Los ejércitos realistas.",
+      "Los ejércitos incarios.",
+      "Los ejércitos ingleses.",
+      "Los ejércitos criollos."
+    ],
+    "respuesta": "Los ejércitos realistas."
+  },
+  {
+    "pregunta": "¿Cuáles fueron los antecedentes de las unidades que se conformaron con la Revolución de Octubre de 1820?",
+    "opciones": [
+      "En 1797 se organizó el Escuadrón de Dragones de Milicias y más tarde hacia 1819, se formó el Batallón Daule.",
+      "En 1797 se organizó el Escuadrón Libertador de Milicias y más tarde hacia 1819, se formó el batallón Magdalena.",
+      "En 1797 se organizó el Escuadrón de lanceros de la Santísima Trinidad más tarde hacia 1819, se formó el Batallón de Artillería Don Julián Trinidad y Tobago.",
+      "Nunca existieron unidades militares anteriormente."
+    ],
+    "respuesta": "En 1797 se organizó el Escuadrón de Dragones de Milicias y más tarde hacia 1819, se formó el Batallón Daule."
+  },
+  {
+    "pregunta": "¿Cómo estuvieron compuestas tropas revolucionarias de octubre de 1820?",
+    "opciones": [
+      "Por los siguientes cuerpos: Batallón de Granaderos de Reserva, unidad veterana enviada desde el Perú... milicias de infantería de blancos, milicia de infantería de pardos, escuadrón Daule, también de milicias y 200 artilleros milicianos...",
+      "Por los siguientes cuerpos: Batallón de lanceros, y batallón de granaderos más una batería de artillería antiaérea.",
+      "Por los siguientes cuerpos: Batallón de lanceros del Perú, y batallón de granaderos de Colombia y una batería de artillería de campo española.",
+      "Por los siguientes cuerpos: Batallón de Granaderos de Reserva Ingles, unidad veterana enviada desde el Alto Perú... milicias de infantería de mestizos, milicia de infantería de indios, escuadrón Daule-Peripa."
+    ],
+    "respuesta": "Por los siguientes cuerpos: Batallón de Granaderos de Reserva, unidad veterana enviada desde el Perú... milicias de infantería de blancos, milicia de infantería de pardos, escuadrón Daule, también de milicias y 200 artilleros milicianos..."
+  },
+  {
+    "pregunta": "En la madrugada del 9 de octubre de 1820 comenzaron las acciones de la siguiente forma:",
+    "opciones": [
+      "El coronel Gregorio Escobedo había asumido el mando del batallón Granaderos de Reserva Ingles; el capitán Febres Cordero tomó el control de la unidad de artillería antiaérea española, el capitán Luis Urdaneta, se dirigió a tomar al escuadrón Daule-Peripa.",
+      "Las acciones comenzaron el 6 de octubre y culminaron el 9 del mismo mes.",
+      "Los batallones se entregaron por voluntad propia el 9 de octubre, ya que todos aportaron a la causa.",
+      "El coronel Gregorio Escobedo había asumido el mando del batallón Granaderos; el capitán Febres Cordero tomó el control de la unidad de artillería, el capitán Luis Urdaneta, se dirigió a tomar al escuadrón Daule."
+    ],
+    "respuesta": "El coronel Gregorio Escobedo había asumido el mando del batallón Granaderos; el capitán Febres Cordero tomó el control de la unidad de artillería, el capitán Luis Urdaneta, se dirigió a tomar al escuadrón Daule."
+  },
+  {
+    "pregunta": "Una vez consumada la independencia de Guayaquil, Olmedo envió emisarios para que colaboren con la causa patriota. ¿Ante quienes debían presentarse?",
+    "opciones": [
+      "Ante Fernando VII, Rey de España.",
+      "Ante Bolívar y San Martín.",
+      "Ante el Conde Ruíz de Castilla.",
+      "Ante Agustín I de México."
+    ],
+    "respuesta": "Ante Bolívar y San Martín."
+  },
+  {
+    "pregunta": "En el combate de Camino Real quien dirigió la División Protectora de Quito?",
+    "opciones": [
+      "El coronel Luis Urdaneta.",
+      "El coronel Antonio José de Sucre.",
+      "El general José Mires.",
+      "El general Simón Bolívar."
+    ],
+    "respuesta": "El coronel Luis Urdaneta."
+  },
+  {
+    "pregunta": "¿Cuáles fueron son los resultados del primer combate de Huachi?",
+    "opciones": [
+      "Una victoria para la División Protectora de Quito que permitió avanzar a Quito para liberarlo.",
+      "Una derrota que significó muchos muertos y heridos abandonados en el campo de batalla, y el relevo del coronel Luis Urdaneta del mando de la División Protectora de Quito.",
+      "La firma de un armisticio que permitió la entrega pacifica de Quito al general Antonio José de Sucre.",
+      "Ninguna de las anteriores."
+    ],
+    "respuesta": "Una derrota que significó muchos muertos y heridos abandonados en el campo de batalla, y el relevo del coronel Luis Urdaneta del mando de la División Protectora de Quito."
+  },
+  {
+    "pregunta": "¿Qué significó la derrota del combate de Verdeloma?",
+    "opciones": [
+      "Significó que el coronel González se arrepienta de las muertes causadas en Cuenca y las poblaciones anexas.",
+      "Significó la paz entre los patriotas insurgentes y las fuerzas realistas.",
+      "Significó la pacificación sangrienta mediante fusilamientos y degollamientos en Cuenca y poblaciones anexas.",
+      "Ninguna de las anteriores."
+    ],
+    "respuesta": "Significó la pacificación sangrienta mediante fusilamientos y degollamientos en Cuenca y poblaciones anexas."
+  },
+  {
+    "pregunta": "¿Qué hicieron las tropas realistas con el comandante patriota que fue capturado en el combate de Tanizagua?",
+    "opciones": [
+      "El coronel García fue conducido a Guaranda para someterlo a un Consejo de Guerra, fue fusilado y decapitado; su cabeza y manos cortadas fueron enviadas a Quito dentro de una jaula de hierro, como escarmiento se expusieron en el puente del Machángara a la entrada de la ciudad.",
+      "El coronel García fue perdonado y conmutada la pena de muerte, siempre y cuando se auto exilie en el Virreinato del Perú.",
+      "El coronel García fue despojado de sus armas y enviado a Quito para ser nombrado comandante del batallón Tiradores de Cádiz.",
+      "Ninguna de las anteriores."
+    ],
+    "respuesta": "El coronel García fue conducido a Guaranda para someterlo a un Consejo de Guerra, fue fusilado y decapitado; su cabeza y manos cortadas fueron enviadas a Quito dentro de una jaula de hierro, como escarmiento se expusieron en el puente del Machángara a la entrada de la ciudad."
+  },
+  {
+    "pregunta": "¿Cuáles fueron las repercusiones del combate de Coné?",
+    "opciones": [
+      "Que las tropas del Ejército patriota fueran derrotadas por completo y replieguen a Guayaquil para que emprender la huida a Colombia.",
+      "La derrota de los realistas, en donde el coronel González y 200 hombres pudieron escapar.La captura de los pertrechos de guerra que sirvieron al Ejército patriota y el cambio de bando del coronel realista Francisco Eugenio Tamariz.",
+      "La firma de un armisticio para poder reorganizar las tropas realistas y patriotas, para avanzar a Quito.",
+      "Ninguna de las anteriores."
+    ],
+    "respuesta": "La derrota de los realistas, en donde el coronel González y 200 hombres pudieron escapar.La captura de los pertrechos de guerra que sirvieron al Ejército patriota y el cambio de bando del coronel realista Francisco Eugenio Tamariz."
+  },
+  {
+    "pregunta": "Luego de la derrota del ejército patriota en el combate de Huachi II, ¿Qué acciones realizó el general Antonio José de Sucre?",
+    "opciones": [
+      "Firmó un armisticio el 20 de noviembre de 1821 que sirvió para reorganizar la División Patriota.",
+      "Firmó la paz definitiva con el Mariscal Melchor de Aymerich.",
+      "Abrió un nuevo frente de batalla está vez desde Pasto para liberar Quito.",
+      "Ninguna de las anteriores."
+    ],
+    "respuesta": "Firmó un armisticio el 20 de noviembre de 1821 que sirvió para reorganizar la División Patriota."
+  },
+  {
+    "pregunta": "¿Qué día se llevó a cabo el combate de Tapi?",
+    "opciones": [
+      "12 de abril de 1821.",
+      "21 de abril de 1822.",
+      "12 de abril de 1822.",
+      "22 de abril de 1821."
+    ],
+    "respuesta": "21 de abril de 1822."
+  },
+  {
+    "pregunta": "¿Cuál fue la misión del teniente coronel Cayetano Cestari en Guayllabamba?",
+    "opciones": [
+      "Una campaña de engaño para frenar los refuerzos realistas que salieron desde Pasto hacia Quito.",
+      "Un armisticio con el coronel Agustín Agualongo para evitar que los refuerzos realistas lleguen a Quito.",
+      "Entablar combate contra la caballería realista en el sector de Guayllabamba.",
+      "Ninguna de las anteriores."
+    ],
+    "respuesta": "Una campaña de engaño para frenar los refuerzos realistas que salieron desde Pasto hacia Quito."
+  },
+  {
+    "pregunta": "¿Cuál fue la fecha que se llevó a cabo la Batalla de Ibarra?",
+    "opciones": [
+      "20 de junio de 1823.",
+      "17 de julio de 1823.",
+      "20 de diciembre de 1820.",
+      "17 de junio de 1823."
+    ],
+    "respuesta": "17 de julio de 1823."
+  },
+  {
+    "pregunta": "¿Simón Bolívar dirigió las tropas grancolombianas en la Batalla de Ibarra?",
+    "opciones": [
+      "Sí.",
+      "No."
+    ],
+    "respuesta": "Sí."
+  },
+  {
+    "pregunta": "¿Cuál fue una de las causas que originaron la Batalla de Tarqui?",
+    "opciones": [
+      "Los problemas limítrofes y territoriales entre la Gran Colombia y Perú (Bolivia, Tumbes, Jaén y Mainas).",
+      "La división de los hombres de Ayacucho por conquistar el Tahuantinsuyo.",
+      "La guerra del guano y salitre.",
+      "La Revolución de las Alcabalas."
+    ],
+    "respuesta": "Los problemas limítrofes y territoriales entre la Gran Colombia y Perú (Bolivia, Tumbes, Jaén y Mainas)."
+  },
+  {
+    "pregunta": "Previo a la batalla de Tarqui, ¿En qué sector se enfrentaron los veinte bravos del Yaguachi contra tropas peruanas?",
+    "opciones": [
+      "Riobamba.",
+      "Saraguro.",
+      "Portete de Tarqui.",
+      "Guayaquil."
+    ],
+    "respuesta": "Saraguro."
+  },
+  {
+    "pregunta": "¿Quién organizó las tropas grancolombianas para enfrentarse al ejército peruano en Tarqui?",
+    "opciones": [
+      "El general José María Sáenz.",
+      "El coronel Antonio Farfán.",
+      "El coronel Juan José Flores.",
+      "El coronel Juan Otamendi."
+    ],
+    "respuesta": "El coronel Juan José Flores."
+  },
+  {
+    "pregunta": "Actualmente, ¿Qué se celebra cada 27 de febrero?",
+    "opciones": [
+      "Día del Civismo, Día del Ejército Ecuatoriano, Día de la Unidad Nacional, Día del Héroe Nacional.",
+      "La Independencia de Cuenca y Día del Portete de Tarqui.",
+      "Día de la Unidad Regional, Día de la Patria Chica, Independencia de Tarqui.",
+      "Ninguna de las anteriores."
+    ],
+    "respuesta": "Día del Civismo, Día del Ejército Ecuatoriano, Día de la Unidad Nacional, Día del Héroe Nacional."
+  },
+  {
+    "pregunta": "¿Qué fecha nació la República del Ecuador?",
+    "opciones": [
+      "27 de febrero de 1829.",
+      "1 de mayo de 1859.",
+      "5 de julio de 1895.",
+      "13 de mayo de 1830."
+    ],
+    "respuesta": "13 de mayo de 1830."
+  },
+  {
+    "pregunta": "¿Cuál es el artículo que emana la misión de fuerzas armadas en la Constitución de 1830?",
+    "opciones": [
+      "Art 76. La fuerza armada está destinada a proteger las ordenanzas militares en el Ecuador.",
+      "Art 86.- La fuerza armada es esencialmente obediente, no deliberante.",
+      "Art. 99. Para la defensa de la República y la conservación del orden interior habrá una fuerza militar permanente y guardias nacionales.",
+      "Art. 51. El destino de la fuerza armada es defender la independencia de la patria, sostener sus leyes y mantener el orden público. "
+    ],
+    "respuesta": "Art. 51. El destino de la fuerza armada es defender la independencia de la patria, sostener sus leyes y mantener el orden público."
+  },
+  {
+    "pregunta": "¿Qué provincias conformaron la República del Ecuador?",
+    "opciones": [
+      "Azuay, Loja Quito.",
+      "Esmeraldas, Machala, Cuenca.",
+      "Pasto, Riobamba, Guayaquil.",
+      "Quito, Guayaquil, Cuenca."
+    ],
+    "respuesta": "Quito, Guayaquil, Cuenca."
+  },
+  {
+    "pregunta": "¿Quién es el primer de la República del Ecuador?",
+    "opciones": [
+      "Vicente Rocafuerte.",
+      "Juan José Flores.",
+      "Vicente Ramón Roca.",
+      "Antonio José de Sucre."
+    ],
+    "respuesta": "Juan José Flores."
+  },
+  {
+    "pregunta": "¿En qué fecha el Ecuador se desanexo de la Gran Colombia?",
+    "opciones": [
+      "31 de mayo de 1830.",
+      "13 de mayo de 1830.",
+      "27 de febrero de 1829.",
+      "24 de mayo de 1822."
+    ],
+    "respuesta": "13 de mayo de 1830."
+  },
+  {
+    "pregunta": "¿Por qué se sublevó el general Luis Urdaneta contra el general Juan José Flores?",
+    "opciones": [
+      "Tenía la intención de ser el presidente y comandante en jefe del Ejército del Ecuador.",
+      "Estuvo en desacuerdo por la anexión de Bolivia a la Gran Colombia.",
+      "Estuvo en desacuerdo por ser nombrado presidente gobernador de Azuay.",
+      "Estuvo en desacuerdo con las políticas adoptadas por Juan José Flores y la desanexión de Ecuador de la Gran Colombia."
+    ],
+    "respuesta": "Estuvo en desacuerdo con las políticas adoptadas por Juan José Flores y la desanexión de Ecuador de la Gran Colombia."
+  },
+  {
+    "pregunta": "El 10 de octubre de 1831 ¿Qué unidad militar se sublevó, debido a la falta de pago de raciones, vestuarios y sueldos?",
+    "opciones": [
+      "El batallón Sucre.",
+      "El batallón Yacuanquer.",
+      "El batallón Vargas.",
+      "El batallón Vencedores."
+    ],
+    "respuesta": "El batallón Vargas."
+  },
+  {
+    "pregunta": "¿En qué fecha Ecuador tomó posesión de las islas Galápagos?",
+    "opciones": [
+      "12 de febrero de 1832.",
+      "13 de noviembre de 1830.",
+      "25 de enero de 1833.",
+      "25 de diciembre de 1835."
+    ],
+    "respuesta": "12 de febrero de 1832."
+  },
+  {
+    "pregunta": "¿Quiénes dirigieron la Revolución de los Chihuahuas?",
+    "opciones": [
+      "José Joaquín de Olmedo declara la Revolución contra Flores y el coronel Francisco Hall fue el líder político para mantener la misma.",
+      "El coronel Francisco Javier Salazar declara la Revolución contra Flores y Gabriel García Moreno fue el líder político para mantener la misma.",
+      "El general José María Sarasti declara la Revolución contra Flores y Eloy Alfaro Delgado fue el líder político para mantener la misma.",
+      "El coronel Pedro Mena declaró la Revolución contra Flores y Vicente Rocafuerte fue el líder político para mantener la misma."
+    ],
+    "respuesta": "El coronel Pedro Mena declaró la Revolución contra Flores y Vicente Rocafuerte fue el líder político para mantener la misma."
+  },
+  {
+    "pregunta": "¿Por qué se originó el pacto interesado entre Vicente Rocafuerte y el general Juan José Flores?",
+    "opciones": [
+      "Flores sabía que si fusilaba a Rocafuerte hubiera causado una revolución violenta en su contra y Rocafuerte pretendió evitar que la guerra civil se extienda.",
+      "Buscaron mediar una alianza para establecer en el poder al Dr. José Félix Valdivieso.",
+      "Para que el general José María Urbina no expulse a los militares extranjeros.",
+      "Para fusilar al general José María Sáenz."
+    ],
+    "respuesta": "Flores sabía que si fusilaba a Rocafuerte hubiera causado una revolución violenta en su contra y Rocafuerte pretendió evitar que la guerra civil se extienda."
+  },
+  {
+    "pregunta": "¿Cuáles fueron dos de los principales aportes de Vicente Rocafuerte para la institución militar?",
+    "opciones": [
+      "Implemento la carta de la esclavitud y la carta negra.",
+      "El pago la deuda de la independencia y negocio las islas Galápagos.",
+      "Estableció los ascensos por méritos de combate y la implementación de estudios secundarios dentro de los cuarteles.",
+      "Creación de la conscripción militar y la creación del primer colegio militar en Ecuador."
+    ],
+    "respuesta": "Creación de la conscripción militar y la creación del primer colegio militar en Ecuador."
+  },
+  {
+    "pregunta": "¿Cuál fue una de las razones por las que Vicente Rocafuerte creó el Colegio Militar?",
+    "opciones": [
+      "Para que el Ejército se sienta fortalecido por militares profesionales y libres de la injerencia de extranjeros.",
+      "Para fortalecer los lazos con los países vecinos.",
+      "Para que los militares tengan prebendas como el fuero constitucional.",
+      "Para poder becar jóvenes en las escuelas militares europeas."
+    ],
+    "respuesta": "Para que el Ejército se sienta fortalecido por militares profesionales y libres de la injerencia de extranjeros."
+  },
+  {
+    "pregunta": "¿Por qué el Ecuador tuvo una campaña en Pasto en 1839?",
+    "opciones": [
+      "El general Flores intentó aprovechar la oportunidad para obtener una revisión de la frontera entre Ecuador y Nueva Granada a cambio del apoyo militar para erradicar la insurrección en el país del norte.",
+      "El general Flores intentó aprovechar la oportunidad para obtener una revisión de la frontera entre Ecuador y Perú a cambio del apoyo militar para erradicar la insurrección en el país del Este.",
+      "El general Flores intentó aprovechar la oportunidad para obtener una revisión de la frontera entre Ecuador y Nueva Granada a cambio del apoyo militar para erradicar la insurrección en el Perú.",
+      "Ninguna de las anteriores."
+    ],
+    "respuesta": "El general Flores intentó aprovechar la oportunidad para obtener una revisión de la frontera entre Ecuador y Nueva Granada a cambio del apoyo militar para erradicar la insurrección en el país del norte."
+  },
+  {
+    "pregunta": "¿Cuál fue una de las razones para finalizar el militarismo extranjero?",
+    "opciones": [
+      "La delimitación de fronteras entre Ecuador Nueva Granada.",
+      "La invasión monárquica de España a Ecuador",
+      "La prolongación del periodo presidencial a ocho años.",
+      "El pacto interesado entre Flores y Rocafuerte."
+    ],
+    "respuesta": "La prolongación del periodo presidencial a ocho años."
+  },
+  {
+    "pregunta": "Ecuador se separó de la Gran Colombia el 13 de mayo de 1830.",
+    "opciones": [
+      "Verdadero",
+      "Falso"
+    ],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "El general Luis Urdaneta se insurreccionó contra el general Juan José Flores porque tenía la intención de ser el presidente y comandante en jefe del Ejército del Ecuador.",
+    "opciones": [
+      "Verdadero",
+      "Falso"
+    ],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "El Ecuador tomó posesión de las islas Galápagos el 12 de mayo de 1832.",
+    "opciones": [
+      "Verdadero",
+      "Falso"
+    ],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Uno de los principales aportes de Vicente Rocafuerte para la institución militar fue la creación del Colegio militar.",
+    "opciones": [
+      "Verdadero",
+      "Falso"
+    ],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "Una de las razones para finalizar el militarismo extranjero fue la delimitación de fronteras entre Ecuador Nueva Granada.",
+    "opciones": [
+      "Verdadero",
+      "Falso"
+    ],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "¿En qué fecha se dio la Revolución Marcista?",
+    "opciones": [
+      "6 de marzo de 1846.",
+      "6 de marzo de 1845.",
+      "6 de marzo de 1830.",
+      "6 de marzo de 1859."
+    ],
+    "respuesta": "6 de marzo de 1845."
+  },
+  {
+    "pregunta": "¿Cuáles fueron los periodos de las fases civilistas y militaristas en la Revolución Marcista?",
+    "opciones": [
+      "Fase civilista 1845-1851; Fase militarista 1851-1860.",
+      "Fase civilista 1830-1839.",
+      "Fase civilista 1845-1849; Fase militarista 1849-1855.",
+      "Fase civilista 1851-1835; Fase militarista 1835-1860."
+    ],
+    "respuesta": "Fase civilista 1845-1851; Fase militarista 1851-1860."
+  },
+  {
+    "pregunta": "¿Cuándo se firma el Tratado de la Virginia?",
+    "opciones": [
+      "15 de junio de 1845.",
+      "28 de junio de 1845.",
+      "23 de octubre de 1845.",
+      "17 de junio de 1845."
+    ],
+    "respuesta": "17 de junio de 1845."
+  },
+  {
+    "pregunta": "¿Qué pretendió el general Juan José Flores al firmar el Tratado de la Virginia?",
+    "opciones": [
+      "Obtener la jefatura suprema del Ecuador.",
+      "Designar al siguiente presidente del Ecuador.",
+      "Obtener reconocimiento militar, la pensión de su jerarquía y proteger a sus tropas.",
+      "Mantenerse en el poder como presidente constitucional del Ecuador."
+    ],
+    "respuesta": "Obtener reconocimiento militar, la pensión de su jerarquía y proteger a sus tropas."
+  },
+  {
+    "pregunta": "Con el triunfo de la Revolución Marcista ¿Cuáles fueron los cambios en la estructura del Ejército?",
+    "opciones": [
+      "Se dispone que existan cinco generales en servicio activo y cuatro comandancias Distritales (Guayaquil, Quito, Cuenca, Esmeraldas).",
+      "Se dispone que existan tres generales en servicio activo y tres comandancias Distritales (Guayaquil, Quito, Cuenca, Napo).",
+      "Se dispone que existan dos generales en servicio activo y tres comandancias Distritales (Guayaquil, Quito, Cuenca).",
+      "Se dispone que existan cuatro generales en servicio activo y tres comandancias Distritales (Guayaquil, Quito, Cuenca)."
+    ],
+    "respuesta": "Se dispone que existan cinco generales en servicio activo y cuatro comandancias Distritales (Guayaquil, Quito, Cuenca)."
+  },
+  {
+    "pregunta": "¿Cuáles fueron las intenciones del general Juan José Flores al configurar una expedición monárquica hacia Ecuador?",
+    "opciones": [
+      "Ser parte del Imperio Luso brasileño al unir el oriente de ecuatoriano con Brasil.",
+      "Invadir Nueva Granada y Perú.",
+      "Instaurar la monarquía española y asumir la función de Regidor del reino de España en Ecuador.",
+      "Permitir que existan elecciones ser el presidente del Ecuador."
+    ],
+    "respuesta": "Instaurar la monarquía española y asumir la función de Regidor del reino de España en Ecuador."
+  },
+  {
+    "pregunta": "En 1851 ¿Por qué el general José María Urbina lo derroca al presidente Diego Noboa?",
+    "opciones": [
+      "A Diego Noboa se lo acusó de floreano, por la Constitución de 1851, permitía que Juan José Flores pueda volver al Ecuador.",
+      "A Diego se le otorgaron plenos poderes para poder organizar el Ejército.",
+      "A Diego Noboa se le autorizo vender las Islas Galápagos.",
+      "Por expulsar del Ecuador a Juan José Flores."
+    ],
+    "respuesta": "A Diego Noboa se lo acusó de floreano, por la Constitución de 1851, permitía que Juan José Flores pueda volver al Ecuador."
+  },
+  {
+    "pregunta": "En 1854 ¿Quién destruye los planes de la expedición monárquica de Juan José Flores?",
+    "opciones": [
+      "El general José María Urbina.",
+      "El general Ignacio de Veintimilla.",
+      "Gabriel García Moreno.",
+      "Vicente Rocafuerte."
+    ],
+    "respuesta": "El general José María Urbina."
+  },
+  {
+    "pregunta": "¿En qué se basó el Tratado Icaza Pritchet?",
+    "opciones": [
+      "En cancelar la deuda externa contraída en la independencia a cambio de entregar terrenos baldíos Pasto y Sucumbíos.",
+      "En cancelar la deuda externa contraída en la independencia a cambio de entregar terrenos baldíos en el oriente y Esmeraldas.",
+      "En cancelar la deuda externa contraída en la independencia a cambio de 7 millones de pesos.",
+      "En la construcción del ferrocarril para unir Guayaquil con Quito."
+    ],
+    "respuesta": "En cancelar la deuda externa contraída en la independencia a cambio de entregar terrenos baldíos en el oriente y Esmeraldas."
+  },
+  {
+    "pregunta": "¿Por qué el presidente del Perú, general Ramón castilla ordenó el bloqueo de la costa ecuatoriana?",
+    "opciones": [
+      "Por la revolución generada por el general Tomás Cipriano Mosquera en el Cauca.",
+      "Por la expedición monárquica del general Juan José Flores.",
+      "Debido a la negociación del Tratado Icaza Pritchet, en donde se negociaban los terrenos en el oriente.",
+      "Por la manumisión de esclavos en Ecuador."
+    ],
+    "respuesta": "Debido a la negociación del Tratado Icaza Pritchet, en donde se negociaban los terrenos en el oriente."
+  },
+  {
+    "pregunta": "¿Quién es la figura y máximo líder de la transformación de la Revolución de 1895 en el Ecuador?",
+    "opciones": [
+      "Leónidas Plaza Gutiérrez.",
+      "David Martínez Acosta.",
+      "Eloy Alfaro Delgado.",
+      "Vicente Ramón Roca."
+    ],
+    "respuesta": "Eloy Alfaro Delgado."
+  },
+  {
+    "pregunta": "¿Qué proyectos políticos nacionales confluyeron en el desarrollo de la Revolución Liberal?",
+    "opciones": [
+      "El de la burguesía y el de los campesinos.",
+      "Los capitalistas y conservadores.",
+      "La plutocracia mercantil y burócratas.",
+      "El militarismo extranjero y la bancocracia."
+    ],
+    "respuesta": "El de la burguesía y el de los campesinos."
+  },
+  {
+    "pregunta": "¿Cómo se denominó la revuelta que encabezó Alfaro contra Caamaño en 1884?",
+    "opciones": [
+      "Revuelta de los Forajidos.",
+      "Revuelta de los Chapulos.",
+      "Revuelta de los Barrios de Quito.",
+      "Revuelta de los Montoneros."
+    ],
+    "respuesta": "Revuelta de los Montoneros."
+  },
+  {
+    "pregunta": "¿En qué país de América se le concedió el grado de general a Eloy Alfaro por su lucha por las causas liberales?",
+    "opciones": [
+      "El Salvador.",
+      "Nicaragua.",
+      "Panamá.",
+      "Chile."
+    ],
+    "respuesta": "Nicaragua."
+  },
+  {
+    "pregunta": "¿Cómo se denominó el escándalo que provocó la renuncia del Presidente Cordero y precipitó los acontecimientos para proclamar Jefe Supremo a Alfaro en 1895?",
+    "opciones": [
+      "El Tratado de la Virginia.",
+      "El escándalo de Watergate",
+      "La venta de la bandera.",
+      "Los papeles de Montecristi."
+    ],
+    "respuesta": "La venta de la bandera."
+  },
+  {
+    "pregunta": "¿En qué guerra Chile que se declaró neutral vendió un barco por intermedio del Ecuador?",
+    "opciones": [
+      "En la guerra de Paraguay contra Bolivia.",
+      "En la guerra de Perú contra Chile.",
+      "En la guerra de Nicaragua contra El Salvador.",
+      "En la guerra de Japón contra China."
+    ],
+    "respuesta": "En la guerra de Japón contra China."
+  },
+  {
+    "pregunta": "¿Principales obras de Alfaro en su primer gobierno de la Revolución Liberal?",
+    "opciones": [
+      "Fundación del Banco Central del Ecuador.",
+      "Crea el Instituto Espacial ecuatoriano.",
+      "Impulsa la libertad de conciencia y cultos y establece el Registro Civil",
+      "Impulsa el sufragio universal.",
+      "Funda la Escuela Politécnica."
+    ],
+    "respuesta": "Impulsa la libertad de conciencia y cultos y establece el Registro Civil"
+  },
+  {
+    "pregunta": "¿Qué misión militar extranjera fue contratada a finales del siglo XIX 1900 por el gobierno de Eloy Alfaro?",
+    "opciones": [
+      "Misión militar francesa.",
+      "Misión militar chilena.",
+      "Misión militar prusiana.",
+      "Misión militar norteamericana."
+    ],
+    "respuesta": "Misión militar chilena."
+  },
+  {
+    "pregunta": "¿Qué permitió la llegada de la primera misión militar chilena al Ecuador?",
+    "opciones": [
+      "Modernizar y profesionalizar al Ejército ecuatoriano.",
+      "Declarar la guerra abierta al Perú.",
+      "Terminar con el militarismo criollo en el Ejército ecuatoriano.",
+      "El monopolio de las armas y la violencia de Estado."
+    ],
+    "respuesta": "Modernizar y profesionalizar al Ejército ecuatoriano."
+  },
+  {
+    "pregunta": "¿Qué figura liberal le sucedió en el poder a Eloy Alfaro en 1901?",
+    "opciones": [
+      "Alfredo Baquerizo Moreno.",
+      "Lizardo García Sorroza.",
+      "Leónidas Plaza Gutiérrez.",
+      "José Luis Tamayo."
+    ],
+    "respuesta": "Leónidas Plaza Gutiérrez."
+  },
+  {
+    "pregunta": "¿Cuándo inició la denominada Revolución Juliana en el Ecuador?",
+    "opciones": [
+      "17 de julio de 1823.",
+      "9 de julio de 1925.",
+      "20 de julio de 1924.",
+      "15 de julio de 1826."
+    ],
+    "respuesta": "9 de julio de 1925."
+  },
+  {
+    "pregunta": "¿Quién fue el presidente ecuatoriano que fue derrocado por el golpe dirigido por jóvenes oficiales que fueron parte de la denominada Revolución Juliana?",
+    "opciones": [
+      "Gonzalo Segundo Córdoba.",
+      "Isidro Ayora.",
+      "José Luis Tamayo.",
+      "José María Velasco."
+    ],
+    "respuesta": "Gonzalo Segundo Córdoba."
+  },
+  {
+    "pregunta": "¿Con qué presidente concluye en 1931 el periodo de la Revolución Juliana?",
+    "opciones": [
+      "Jacinto Jijón y Caamaño.",
+      "José María Velasco Ibarra.",
+      "Galo Plaza Lasso.",
+      "Isidro Ayora."
+    ],
+    "respuesta": "Isidro Ayora."
+  },
+  {
+    "pregunta": "¿Cómo se denominó a la organización secreta de oficiales del ejército que dio el golpe de Estado el 9 de julio de 1925?",
+    "opciones": [
+      "Los Vengadores.",
+      "Liga Militar.",
+      "Julianos por siempre.",
+      "Liga de la Justicia."
+    ],
+    "respuesta": "Liga Militar."
+  },
+  {
+    "pregunta": "¿Qué ideales inspiraron a los jóvenes oficiales julianos de 1925?",
+    "opciones": [
+      "Filosóficos y políticos.",
+      "Insurgentes, científicos y dogmáticos.",
+      "Patrióticos, nacionalistas y social reformistas.",
+      "Capitalistas."
+    ],
+    "respuesta": "Patrióticos, nacionalistas y social reformistas."
+  },
+  {
+    "pregunta": "¿Causas de la necesidad política juliana?",
+    "opciones": [
+      "Aumento de las importaciones de materia prima.",
+      "Agotamiento fiscal.",
+      "Dominio plutocrático y Predominio bancario.",
+      "Libre comercio."
+    ],
+    "respuesta": "Dominio plutocrático y Predominio bancario."
+  },
+  {
+    "pregunta": "¿Cuál fue el general que presidió la Junta Militar en el julianismo?",
+    "opciones": [
+      "Moisés Oliva.",
+      "José María Sarasti.",
+      "Luis Telmo Paz y Miño.",
+      "Juan Larrea Holguín."
+    ],
+    "respuesta": "Luis Telmo Paz y Miño."
+  },
+  {
+    "pregunta": "¿Cuáles fueron las obras importantes de Isidro Ayora?",
+    "opciones": [
+      "Academia de Guerra del Ejército.",
+      "Banco Central del Ecuador y Contraloría General del Estado.",
+      "Dirección de Transformación de las Fuerzas Armadas.",
+      "Consejo de Participación ciudadana."
+    ],
+    "respuesta": "Banco Central del Ecuador y Contraloría General del Estado."
+  },
+  {
+    "pregunta": "¿Cuáles fueron las causas que cuestionaron los julianos del interior del Ejército?",
+    "opciones": [
+      "Vínculos políticos de jefes militares de alta jerarquía con la plutocracia y Abusos en ascensos y pases.",
+      "La falta de doctrina militar.",
+      "El monopolio de las armas y la violencia de Estado.",
+      "La fundación de la Escuela de Clases."
+    ],
+    "respuesta": "Vínculos políticos de jefes militares de alta jerarquía con la plutocracia y Abusos en ascensos y pases."
+  },
+  {
+    "pregunta": "¿Quién fue el general que inicialmente se 10 nombró para integrar la Junta de gobierno, pero fue enérgicamente rechazado por la joven oficialidad determinando su salida inmediata?",
+    "opciones": [
+      "Luis Cabrera Negrete.",
+      "Lizardo Gómez Quiroz.",
+      "Moisés Oliva.",
+      "Juan Donoso Salem."
+    ],
+    "respuesta": "Moisés Oliva."
+  },
+  {
+    "pregunta": "¿Dentro del escenario político militar. ¿Quién fue el presidente ecuatoriano que tuvo que enfrentar la guerra de 1941?",
+    "opciones": [
+      "Dr. Arroyo del Río.",
+      "Dr. José María Velasco Ibarra.",
+      "Dr. Jaime Roldós Aguilera.",
+      "Dr. Sixto Durán Ballén."
+    ],
+    "respuesta": "Dr. Arroyo del Río."
+  },
+  {
+    "pregunta": "¿Dentro del escenario político militar de la Guerra de 1941, el ejército peruano se expidió el decreto para que se realice de inmediato el llamamiento militar. ¿Indique en qué fecha se expidió el decreto?",
+    "opciones": [
+      "El 21 de marzo de 1941.",
+      "El 19 de marzo de 1941.",
+      "El 29 de octubre de 1941.",
+      "El 15 de abril de 1941."
+    ],
+    "respuesta": "El 21 de marzo de 1941."
+  },
+  {
+    "pregunta": "En los antecedentes a la invasión del Perú al Ecuador en 1941, ¿Qué dispuso al Congreso Nacional al Ministerio de Defensa frente a la situación militar del Ecuador?",
+    "opciones": [
+      "Dispuso la criminal reducción del presupuesto del Ministerio de Defensa.",
+      "Dispuso reducción significativa del presupuesto del Ministerio de Defensa.",
+      "Dispuso el aumento del presupuesto del Ministerio de Defensa.",
+      "Dispuso mantener el mismo presupuesto del Ministerio de Defensa."
+    ],
+    "respuesta": "Dispuso la criminal reducción del presupuesto del Ministerio de Defensa."
+  },
+  {
+    "pregunta": "¿Quién fue el comandante del Ejército ecuatoriano cuando se dio la guerra en 1941?",
+    "opciones": [
+      "General Jacinto Jijón y Caamaño.",
+      "Coronel Francisco Urrutia.",
+      "Coronel. Galo Plaza Lasso.",
+      "Coronel Isidro Ayora"
+    ],
+    "respuesta": "Coronel Francisco Urrutia."
+  },
+  {
+    "pregunta": "¿Qué cantidad de efectivos disponía el teatro de operaciones del Ecuador en 1941?",
+    "opciones": [
+      "Un total de 868 hombres.",
+      "Un total de 10.000 hombres.",
+      "Un total de 5.000 hombres.",
+      "Un total de 500 hombres."
+    ],
+    "respuesta": "Un total de 868 hombres."
+  },
+  {
+    "pregunta": "En la situación militar del Perú, para cumplir los objetivos, su plan de guerra se puntualiza en:",
+    "opciones": [
+      "Dos grandes operaciones militares.",
+      "Tres grandes operaciones militares.",
+      "Cinco grandes operaciones militares.",
+      "Siete grandes operaciones militares"
+    ],
+    "respuesta": "Cinco grandes operaciones militares."
+  },
+  {
+    "pregunta": "En 1941, para la creación del Agrupamiento Norte del Perú, ¿De cuántos hombres contaban?",
+    "opciones": [
+      "De 10.000 hombres.",
+      "De 5.000 hombres.",
+      "De 3.000 hombres.",
+      "De 15.000 hombres."
+    ],
+    "respuesta": "De 10.000 hombres."
+  },
+  {
+    "pregunta": "¿En qué fecha fue la invasión de la provincia de El Oro en 1941?",
+    "opciones": [
+      "El 11 de abril de 1941.",
+      "El 25 de agosto de 1941.",
+      "El 28 de septiembre de 1941.",
+      "El 23 de julio de 1941."
+    ],
+    "respuesta": "El 23 de julio de 1941."
+  },
+  {
+    "pregunta": "En 1941 ¿Cuáles son los destacamentos que fueron atacados por tropas peruanas en la provincia del Oro?",
+    "opciones": [
+      "Porotillo, Panupali.",
+      "Casitas, La Bomba, El Cruce, Huaquillas, Chacras, Quebrada Seca.",
+      "El Empalme, el telégrafo, Bejucal.",
+      "Cazaderos, Progreso y Zapotillo"
+    ],
+    "respuesta": "Casitas, La Bomba, El Cruce, Huaquillas, Chacras, Quebrada Seca."
+  },
+  {
+    "pregunta": "¿En qué fecha fue suscrito el protocolo de Rio de Janeiro?",
+    "opciones": [
+      "El 29 de enero de 1941.",
+      "El 29 de febrero de 1942",
+      "El 29 de enero de 1942",
+      "El 19 de septiembre de 1942"
+    ],
+    "respuesta": "El 29 de enero de 1942"
+  },
+  {
+    "pregunta": "El gobierno peruano de Miguel Prado estuvo predispuesto para satisfacer las necesidades de su ejército por lo cual, el 21 de marzo de 1941 expidió un decreto para realizar donaciones multitudinarias en los cuarteles",
+    "opciones": [
+      "Verdadero",
+      "Falso"
+    ],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "En 1941, el coronel Francisco Urrutia manifestó que: \"la situación militar en nuestra frontera suroccidental entre Ecuador y Perú resulta día a día más fortificada y beneficiosa para el país\"",
+    "opciones": [
+      "Verdadero",
+      "Falso"
+    ],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Entre las unidades militares que cubrían la frontera con el Perú, se encontraba el Batallón Cayambe, que tenía bajo su responsabilidad ocho pequeños destacamentos y para cubrirlos tenía un orgánico de 226 efectivos",
+    "opciones": [
+      "Verdadero",
+      "Falso"
+    ],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "En 1941, la situación militar del Perú desarrollaba un plan con cinco grandes operaciones dentro los cuales se destaca: además de la invasión a Ecuador, otra operación a gran escala para ocupar territorios de Chile, Colombia y Bolivia y Brasil.",
+    "opciones": [
+      "Verdadero",
+      "Falso"
+    ],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "En 1941, se produjo el combate de Jambelí, en donde se empleó el cañonero \"Atahualpa\" para la defensa del mar territorial.",
+    "opciones": [
+      "Verdadero",
+      "Falso"
+    ],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "El Dr Julio Tobar Donoso presidio la delegación ecuatoriana para firmar el Protocolo de Río de Janeiro.",
+    "opciones": [
+      "Verdadero",
+      "Falso"
+    ],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "¿Cuáles fueron las últimas acciones armadas en 1941?",
+    "opciones": [
+      "Combate de Porotillo o Cune y Combate de Panupali.",
+      "Combate de Selva alegre.",
+      "Combate de Zambillo.",
+      "Combate de Puerto Alegre."
+    ],
+    "respuesta": "Combate de Porotillo o Cune y Combate de Panupali."
+  },
+  {
+    "pregunta": "Efectivos del teatro de operaciones del Ecuador en 1941",
+    "opciones": [
+      "Batallón Montecristi, Compañía de carabineros Machala (No fue unidad militar), Batallón de Ingenieros Córdova, Batería de artillería Sucre.",
+      "Grupo de Caballería Blindada Machala",
+      "Grupo de Artillería Pintag",
+      "Ninguna de las anteriores"
+    ],
+    "respuesta": "Batallón Montecristi, Compañía de carabineros Machala (No fue unidad militar), Batallón de Ingenieros Córdova, Batería de artillería Sucre."
+  },
+  {
+    "pregunta": "De las cinco grandes operaciones que planificó el Perú para invadir al Ecuador se destacan las siguientes:",
+    "opciones": [
+      "Destacar una fuerza naval para controlar el Golfo de Guayaquil, Bloqueo del litoral ecuatoriano, particularmente el mismo Golfo y las Bahías de Santa Elena y Manta, Una Operación combinada de las tres fuerzas para la captura de la región entre Puerto Bolívar y Puerto Pizarro, Una Operación combinada de gran envergadura para la captura de Guayaquil y la captura de las Islas Galápagos.",
+      "Una operación con paracaidistas para tomar el palacio de Carondelet",
+      "Una operación combinada para que las tropas peruanas lleguen hasta la ciudad de Riobamba.",
+      "Ninguna de las anteriores."
+    ],
+    "respuesta": "Destacar una fuerza naval para controlar el Golfo de Guayaquil, Bloqueo del litoral ecuatoriano, particularmente el mismo Golfo y las Bahías de Santa Elena y Manta, Una Operación combinada de las tres fuerzas para la captura de la región entre Puerto Bolívar y Puerto Pizarro, Una Operación combinada de gran envergadura para la captura de Guayaquil y la captura de las Islas Galápagos."
+  },
+  {
+    "pregunta": "En la guerra de 1941, la situación en el oriente ecuatoriano fue la siguiente:",
+    "opciones": [
+      "Combate e Yaupi y de Santiago, Puesto de Yaupi fue atacado el 1 de agosto de 1941, El 2 de agosto fue atacado el destacamento de Santiago, La muerte del valeroso subteniente Hugo Ortíz. Ataque al destacamento Tarqui, el 31 de julio de 1941, Combate de Rocafuerte, el 11 de agosto inció por un ataque peruano.",
+      "La muerte del valerosos subteniente José Ortíz.",
+      "Envió de tropas a la zona oriental para reforzar los destacamentos militares.",
+      "Ninguna de las anteriores."
+    ],
+    "respuesta": "Combate e Yaupi y de Santiago, Puesto de Yaupi fue atacado el 1 de agosto de 1941, El 2 de agosto fue atacado el destacamento de Santiago, La muerte del valeroso subteniente Hugo Ortíz. Ataque al destacamento Tarqui, el 31 de julio de 1941, Combate de Rocafuerte, el 11 de agosto inció por un ataque peruano."
+  },
+  {
+    "pregunta": "En el contexto del conflicto del Cenepa, el gobierno de Ecuador pidió al Perú que retire el puesto de vigilancia:",
+    "opciones": [
+      "Soldado Monge",
+      "Pachacútec",
+      "Ciro Alegría",
+      "Cóndor Mirador",
+      "Pachacamac"
+    ],
+    "respuesta": "Pachacútec"
+  },
+  {
+    "pregunta": "El día 24 de enero de 1995, ¿Qué tipo de infraestructura se detectó?",
+    "opciones": [
+      "Un aeropuerto enemigo",
+      "Trincheras enemigo",
+      "Un helipuerto enemigo",
+      "Un destacamento enemigo"
+    ],
+    "respuesta": "Un helipuerto enemigo"
+  },
+  {
+    "pregunta": "En el contexto del conflicto del Cenepa ¿Qué tipo de armamento de artillería hostigó a las fuerzas peruanas y evitó su concentración en el sector de los Tayos y al sur de Tiwintza?",
+    "opciones": [
+      "Cañón krupp",
+      "Igla",
+      "Grad 1p",
+      "BM-21",
+      "Oerlikon"
+    ],
+    "respuesta": "BM-21"
+  },
+  {
+    "pregunta": "¿Cómo se llamaba el agrupamiento táctico creado durante el conflicto del Alto Cenepa?",
+    "opciones": [
+      "Agrupamiento táctico Carlomagno Andrade",
+      "Agrupamiento táctico Cenepa",
+      "Agrupamiento táctico Cóndor",
+      "Agrupamiento táctico Ecuador"
+    ],
+    "respuesta": "Agrupamiento táctico Carlomagno Andrade"
+  },
+  {
+    "pregunta": "¿Qué tipo de aeronaves peruanas derribó la Fuerza Aérea Ecuatoriana el 10 de febrero de 1995?",
+    "opciones": [
+      "Aviones supersónicos MIG-25",
+      "Aviones supersónicos Sukoi",
+      "Aviones subsónicos súper tucano",
+      "Aviones supersónico F-1 Phantom"
+    ],
+    "respuesta": "Aviones supersónicos Sukoi"
+  },
+  {
+    "pregunta": "¿La Fuerza Aérea Ecuatoriana alcanzó la superioridad aérea en la zona de enfrentamiento?",
+    "opciones": [
+      "Verdadero",
+      "Falso"
+    ],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "¿La misión de observadores militares (interina), estuvo conformada por los agregados militares destacados en Chile, Brasil, Argentina, Colombia y Estado Unidos?",
+    "opciones": [
+      "Verdadero",
+      "Falso"
+    ],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "La Declaración de la Paz, permitió consolidar la paz mediante la disposición al diálogo constructivo y el pleno cumplimiento de la declaración de paz, ¿en una dinámica de buena fe y fomento de confianza?",
+    "opciones": [
+      "Verdadero",
+      "Falso"
+    ],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "¿La Zona Alfa tenía una forma trapezoidal?",
+    "opciones": [
+      "Verdadero",
+      "Falso"
+    ],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "¿El acuerdo de distensión es conocido como Pacto de gentiles?",
+    "opciones": [
+      "Verdadero",
+      "Falso"
+    ],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "El día 26 de enero, la Patrulla Zafiro ¿sería la encargada de desalojar a las tropas peruanas de Base Norte?",
+    "opciones": [
+      "Verdadero",
+      "Falso"
+    ],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "¿Se utilizaron cohetes antiaéreos igla para derribar a los helicópteros peruanos?",
+    "opciones": [
+      "Verdadero",
+      "Falso"
+    ],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "¿El 22 de enero de 1981 el Ejército peruano inicia reconocimientos ofensivos sobre los destacamentos ecuatorianos?",
+    "opciones": [
+      "Verdadero",
+      "Falso"
+    ],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "En 1981 ¿El teniente Hugo Valencia fue herido en el ataque peruano al destacamento Paquisha?",
+    "opciones": [
+      "Verdadero",
+      "Falso"
+    ],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "En el conflicto del Cóndor de 1981, producto del bombardeo, ¿Una esquirla dio de baja al Conscripto Segundo Nicanor Quiroz e hirió al conscripto Luís Suarez?",
+    "opciones": [
+      "Verdadero",
+      "Falso"
+    ],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "En los antecedentes del conflicto del Cenepa existió el denominado pacto de caballeros entre Ecuador y Perú, ¿Este hecho tuvo como compromiso la conformación de una comisión de verificación de la zona de frontera entre Ecuador y Brasil?",
+    "opciones": [
+      "Verdadero",
+      "Falso"
+    ],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "Una de las primeras acciones previa a al conflicto de 1995 fue crear el Agrupamiento Táctico Miguel Iturralde?",
+    "opciones": [
+      "Verdadero",
+      "Falso"
+    ],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "La detección de la construcción de un helipuerto ocurrida el 24 de enero de 1995, ¿Fue por parte de tropas a pie que patrullaban la zona?",
+    "opciones": [
+      "Verdadero",
+      "Falso"
+    ],
+    "respuesta": "Falso"
+  },
+  {
+    "pregunta": "El 26 de enero de 1995, Fue la patrulla Zafiro la encargada de desalojar a las tropas peruanas de Base Norte?",
+    "opciones": [
+      "Verdadero",
+      "Falso"
+    ],
+    "respuesta": "Verdadero"
+  },
+  {
+    "pregunta": "El derribo de dos aviones supersónicos Sukoi y un subsónico A-37 ¿Permitió qué la Fuerza Aérea Ecuatoriana gane la superioridad aérea del Sector del conflicto?",
+    "opciones": [
+      "Verdadero",
+      "Falso"
+    ],
+    "respuesta": "Verdadero"
+  }
+]
+ 
