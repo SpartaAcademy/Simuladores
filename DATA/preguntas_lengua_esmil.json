@@ -1,0 +1,1422 @@
+[
+  {
+    "pregunta": "Seleccione el sinónimo de la palabra: EFÍMERO",
+    "opciones": [
+      "Eterno",
+      "Pasajero",
+      "Definitivo",
+      "Duradero"
+    ],
+    "respuesta": "Pasajero"
+  },
+  {
+    "pregunta": "Seleccione el sinónimo de la palabra: DÁDIVA",
+    "opciones": [
+      "Ahorro",
+      "Venta",
+      "Regalo",
+      "Préstamo"
+    ],
+    "respuesta": "Regalo"
+  },
+  {
+    "pregunta": "Seleccione el antónimo de la palabra: ALTRUISMO",
+    "opciones": [
+      "Egoísmo",
+      "Bondad",
+      "Solidaridad",
+      "Caridad"
+    ],
+    "respuesta": "Egoísmo"
+  },
+  {
+    "pregunta": "Seleccione el antónimo de la palabra: CIMA",
+    "opciones": [
+      "Cumbre",
+      "Cúspide",
+      "Sima",
+      "Montaña"
+    ],
+    "respuesta": "Sima"
+  },
+  {
+    "pregunta": "Complete la analogía: PINTOR es a CUADRO como ESCULTOR es a:",
+    "opciones": [
+      "Mármol",
+      "Estatua",
+      "Cincel",
+      "Arte"
+    ],
+    "respuesta": "Estatua"
+  },
+  {
+    "pregunta": "Complete la analogía: LECHE es a VACA como LANA es a:",
+    "opciones": [
+      "Oveja",
+      "Abrigo",
+      "Tela",
+      "Blanco"
+    ],
+    "respuesta": "Oveja"
+  },
+  {
+    "pregunta": "Identifique el término excluido de: VIRTUDES",
+    "opciones": [
+      "Honestidad",
+      "Justicia",
+      "Prudencia",
+      "Avaricia"
+    ],
+    "respuesta": "Avaricia"
+  },
+  {
+    "pregunta": "Seleccione la palabra que está escrita correctamente:",
+    "opciones": [
+      "Exhuberante",
+      "Esuberante",
+      "Exuberante",
+      "Ecsuberante"
+    ],
+    "respuesta": "Exuberante"
+  },
+  {
+    "pregunta": "Seleccione la oración correctamente puntuada:",
+    "opciones": [
+      "Juan, ven aquí inmediatamente.",
+      "Juan ven, aquí inmediatamente.",
+      "Juan ven aquí, inmediatamente.",
+      "Juan, ven, aquí, inmediatamente."
+    ],
+    "respuesta": "Juan, ven aquí inmediatamente."
+  },
+  {
+    "pregunta": "¿Quién es el autor de la novela ecuatoriana 'Huasipungo'?",
+    "opciones": [
+      "Juan León Mera",
+      "Jorge Icaza",
+      "Demetrio Aguilera Malta",
+      "Medardo Ángel Silva"
+    ],
+    "respuesta": "Jorge Icaza"
+  },
+  {
+    "pregunta": "¿A qué movimiento literario pertenece la 'Generación Decapitada'?",
+    "opciones": [
+      "Realismo Social",
+      "Modernismo",
+      "Romanticismo",
+      "Barroco"
+    ],
+    "respuesta": "Modernismo"
+  },
+  {
+    "pregunta": "Autor del poema 'Boletín y elegía de las mitas':",
+    "opciones": [
+      "César Dávila Andrade",
+      "Jorge Carrera Andrade",
+      "José de la Cuadra",
+      "Pablo Neruda"
+    ],
+    "respuesta": "César Dávila Andrade"
+  },
+  {
+    "pregunta": "Identifique el vicio de dicción en la frase: 'Sube para arriba'.",
+    "opciones": [
+      "Cacofonía",
+      "Pleonasmo",
+      "Barbarismo",
+      "Solecismo"
+    ],
+    "respuesta": "Pleonasmo"
+  },
+  {
+    "pregunta": "Seleccione la palabra homófona correcta para completar: 'No _______ venido nadie hoy'.",
+    "opciones": [
+      "A",
+      "Ha",
+      "Ah",
+      "Hah"
+    ],
+    "respuesta": "Ha"
+  },
+  {
+    "pregunta": "Complete la oración: 'El soldado _______ la bandera con orgullo'.",
+    "opciones": [
+      "Izó",
+      "Hisó",
+      "Hizó",
+      "Isó"
+    ],
+    "respuesta": "Izó"
+  },
+  {
+    "pregunta": "¿Cuál es la función del lenguaje que predomina en: '¡Ay, qué dolor!'?",
+    "opciones": [
+      "Referencial",
+      "Apelativa",
+      "Expresiva o Emotiva",
+      "Metalingüística"
+    ],
+    "respuesta": "Expresiva o Emotiva"
+  },
+  {
+    "pregunta": "¿Quién escribió la novela 'Cumandá'?",
+    "opciones": [
+      "Juan Montalvo",
+      "Juan León Mera",
+      "Eugenio Espejo",
+      "Dolores Veintimilla"
+    ],
+    "respuesta": "Juan León Mera"
+  },
+  {
+    "pregunta": "Seleccione el sinónimo de: INEXORABLE",
+    "opciones": [
+      "Inevitable",
+      "Dudoso",
+      "Flexible",
+      "Amable"
+    ],
+    "respuesta": "Inevitable"
+  },
+  {
+    "pregunta": "Seleccione el antónimo de: CÁNDIDO",
+    "opciones": [
+      "Ingenuo",
+      "Astuto",
+      "Blanco",
+      "Puro"
+    ],
+    "respuesta": "Astuto"
+  },
+  {
+    "pregunta": "Complete la analogía: ABEJA es a ENJAMBRE como SOLDADO es a:",
+    "opciones": [
+      "Guerra",
+      "Cuartel",
+      "Batallón",
+      "Arma"
+    ],
+    "respuesta": "Batallón"
+  },
+  {
+    "pregunta": "Elija la opción que ordena sintácticamente la oración: 1. historia 2. contaron 3. los 4. abuelos 5. una",
+    "opciones": [
+      "3, 4, 2, 5, 1",
+      "5, 1, 2, 3, 4",
+      "2, 3, 4, 5, 1",
+      "1, 5, 2, 3, 4"
+    ],
+    "respuesta": "3, 4, 2, 5, 1"
+  },
+  {
+    "pregunta": "¿Qué figura literaria se usa en: 'Sus cabellos de oro'?",
+    "opciones": [
+      "Símil",
+      "Metáfora",
+      "Hipérbole",
+      "Personificación"
+    ],
+    "respuesta": "Metáfora"
+  },
+  {
+    "pregunta": "Palabra que NO lleva tilde:",
+    "opciones": [
+      "Cancion",
+      "Arbol",
+      "Imagen",
+      "Lapiz"
+    ],
+    "respuesta": "Imagen"
+  },
+  {
+    "pregunta": "¿Cuál de las siguientes palabras es esdrújula?",
+    "opciones": [
+      "Caminar",
+      "Reloj",
+      "Música",
+      "Ángel"
+    ],
+    "respuesta": "Música"
+  },
+  {
+    "pregunta": "¿Qué obra pertenece a Medardo Ángel Silva?",
+    "opciones": [
+      "El alma en los labios",
+      "Los Sangurimas",
+      "A la costa",
+      "Las catilinarias"
+    ],
+    "respuesta": "El alma en los labios"
+  },
+  {
+    "pregunta": "El autor de 'Las Catilinarias' es:",
+    "opciones": [
+      "Eloy Alfaro",
+      "Juan Montalvo",
+      "Benjamín Carrión",
+      "José Joaquín de Olmedo"
+    ],
+    "respuesta": "Juan Montalvo"
+  },
+  {
+    "pregunta": "Seleccione el sinónimo de: PROLÍFICO",
+    "opciones": [
+      "Estéril",
+      "Fecundo",
+      "Pobre",
+      "Seco"
+    ],
+    "respuesta": "Fecundo"
+  },
+  {
+    "pregunta": "En la oración 'Ellos han estudiado mucho', el verbo está en tiempo:",
+    "opciones": [
+      "Pretérito perfecto simple",
+      "Pretérito imperfecto",
+      "Pretérito perfecto compuesto",
+      "Futuro"
+    ],
+    "respuesta": "Pretérito perfecto compuesto"
+  },
+  {
+    "pregunta": "Seleccione la palabra escrita incorrectamente:",
+    "opciones": [
+      "Hervir",
+      "Servir",
+      "Vivir",
+      "Escrivir"
+    ],
+    "respuesta": "Escrivir"
+  },
+  {
+    "pregunta": "¿Qué es un texto argumentativo?",
+    "opciones": [
+      "El que narra hechos",
+      "El que describe objetos",
+      "El que defiende una opinión con razones",
+      "El que informa noticias"
+    ],
+    "respuesta": "El que defiende una opinión con razones"
+  },
+  {
+    "pregunta": "Autor de la novela 'A la Costa':",
+    "opciones": [
+      "Luis A. Martínez",
+      "Jorge Icaza",
+      "Alfredo Pareja",
+      "Enrique Gil Gilbert"
+    ],
+    "respuesta": "Luis A. Martínez"
+  },
+  {
+    "pregunta": "Seleccione el término excluido de: MAMÍFEROS",
+    "opciones": [
+      "Ballena",
+      "Delfín",
+      "Murciélago",
+      "Tiburón"
+    ],
+    "respuesta": "Tiburón"
+  },
+  {
+    "pregunta": "Sinónimo de: ÓBITO",
+    "opciones": [
+      "Nacimiento",
+      "Muerte",
+      "Boda",
+      "Enfermedad"
+    ],
+    "respuesta": "Muerte"
+  },
+  {
+    "pregunta": "Complete: No es lo mismo _______ que escuchar.",
+    "opciones": [
+      "Oír",
+      "Mirar",
+      "Hablar",
+      "Callar"
+    ],
+    "respuesta": "Oír"
+  },
+  {
+    "pregunta": "La palabra 'Te' lleva tilde cuando:",
+    "opciones": [
+      "Es pronombre personal",
+      "Es sustantivo (bebida)",
+      "Es artículo",
+      "Nunca lleva tilde"
+    ],
+    "respuesta": "Es sustantivo (bebida)"
+  },
+  {
+    "pregunta": "¿Qué autor NO pertenece al Grupo de Guayaquil?",
+    "opciones": [
+      "José de la Cuadra",
+      "Joaquín Gallegos Lara",
+      "Enrique Gil Gilbert",
+      "Jorge Icaza"
+    ],
+    "respuesta": "Jorge Icaza"
+  },
+  {
+    "pregunta": "Antónimo de: PRECARIO",
+    "opciones": [
+      "Escaso",
+      "Estable",
+      "Pobre",
+      "Inseguro"
+    ],
+    "respuesta": "Estable"
+  },
+  {
+    "pregunta": "Complete la oración: Si hubieras estudiado, _______ el examen.",
+    "opciones": [
+      "Habrías aprobado",
+      "Habías aprobado",
+      "Hubieras aprobado",
+      "Haber aprobado"
+    ],
+    "respuesta": "Habrías aprobado"
+  },
+  {
+    "pregunta": "¿Cuál es el núcleo del sujeto en: 'Los valientes soldados marcharon al frente'?",
+    "opciones": [
+      "Los",
+      "Valientes",
+      "Soldados",
+      "Marcharon"
+    ],
+    "respuesta": "Soldados"
+  },
+  {
+    "pregunta": "Identifique el tipo de palabra: 'Césped'.",
+    "opciones": [
+      "Aguda",
+      "Grave",
+      "Esdrújula",
+      "Sobresdrújula"
+    ],
+    "respuesta": "Grave"
+  },
+  {
+    "pregunta": "La obra 'Polvo y Ceniza' fue escrita por:",
+    "opciones": [
+      "Eliécer Cárdenas",
+      "Medardo Ángel Silva",
+      "Pablo Palacio",
+      "Demetrio Aguilera Malta"
+    ],
+    "respuesta": "Eliécer Cárdenas"
+  },
+  {
+    "pregunta": "Sinónimo de: LOCUAZ",
+    "opciones": [
+      "Callado",
+      "Hablador",
+      "Triste",
+      "Lento"
+    ],
+    "respuesta": "Hablador"
+  },
+  {
+    "pregunta": "Analogía: MÉDICO es a HOSPITAL como:",
+    "opciones": [
+      "Profesor es a Colegio",
+      "Mecánico es a Auto",
+      "Abogado es a Ley",
+      "Juez es a Cárcel"
+    ],
+    "respuesta": "Profesor es a Colegio"
+  },
+  {
+    "pregunta": "Seleccione la oración con el uso correcto de 'Sino' y 'Si no':",
+    "opciones": [
+      "No quiero comer, si no dormir.",
+      "Te castigaré sino haces la tarea.",
+      "No es blanco, sino negro.",
+      "Sino vienes, me voy."
+    ],
+    "respuesta": "No es blanco, sino negro."
+  },
+  {
+    "pregunta": "¿Quién escribió 'La Emancipada', considerada la primera novela ecuatoriana?",
+    "opciones": [
+      "Miguel Riofrío",
+      "Juan León Mera",
+      "Eugenio Espejo",
+      "José de la Cuadra"
+    ],
+    "respuesta": "Miguel Riofrío"
+  },
+  {
+    "pregunta": "El género literario que se caracteriza por el diálogo y la representación ante un público es:",
+    "opciones": [
+      "Lírico",
+      "Narrativo",
+      "Dramático",
+      "Ensayo"
+    ],
+    "respuesta": "Dramático"
+  },
+  {
+    "pregunta": "Sinónimo de: ABORIGEN",
+    "opciones": [
+      "Extranjero",
+      "Nativo",
+      "Turista",
+      "Inmigrante"
+    ],
+    "respuesta": "Nativo"
+  },
+  {
+    "pregunta": "Antónimo de: DISCREPAR",
+    "opciones": [
+      "Discutir",
+      "Coincidir",
+      "Pelear",
+      "Diferenciar"
+    ],
+    "respuesta": "Coincidir"
+  },
+  {
+    "pregunta": "En la palabra 'Desleal', el prefijo 'Des' significa:",
+    "opciones": [
+      "Repetición",
+      "Negación",
+      "Superioridad",
+      "Interioridad"
+    ],
+    "respuesta": "Negación"
+  },
+  {
+    "pregunta": "Identifique el autor de 'Los Sangurimas':",
+    "opciones": [
+      "José de la Cuadra",
+      "Demetrio Aguilera Malta",
+      "Alfredo Pareja Diezcanseco",
+      "Jorge Icaza"
+    ],
+    "respuesta": "José de la Cuadra"
+  },
+  {
+    "pregunta": "La 'Generación del 30' en Ecuador se caracterizó por:",
+    "opciones": [
+      "El Romanticismo puro",
+      "El Realismo Social",
+      "El Modernismo",
+      "La Ciencia Ficción"
+    ],
+    "respuesta": "El Realismo Social"
+  },
+  {
+    "pregunta": "¿Cuál es el vicio del lenguaje en: 'Entrar para adentro'?",
+    "opciones": [
+      "Pleonasmo",
+      "Queísmo",
+      "Ambigüedad",
+      "Extranjerismo"
+    ],
+    "respuesta": "Pleonasmo"
+  },
+  {
+    "pregunta": "Seleccione la palabra correctamente escrita:",
+    "opciones": [
+      "Convisión",
+      "Conbicsión",
+      "Convicción",
+      "Combicción"
+    ],
+    "respuesta": "Convicción"
+  },
+  {
+    "pregunta": "Complete la serie: Enero, Marzo, Mayo, _______",
+    "opciones": [
+      "Junio",
+      "Julio",
+      "Agosto",
+      "Septiembre"
+    ],
+    "respuesta": "Julio"
+  },
+  {
+    "pregunta": "Sinónimo de: VASTO",
+    "opciones": [
+      "Pequeño",
+      "Amplio",
+      "Tosco",
+      "Grosero"
+    ],
+    "respuesta": "Amplio"
+  },
+  {
+    "pregunta": "Palabra homófona de 'Basto' (tosco):",
+    "opciones": [
+      "Vasto",
+      "Basta",
+      "Pasto",
+      "Gasto"
+    ],
+    "respuesta": "Vasto"
+  },
+  {
+    "pregunta": "¿Qué figura literaria es: 'Érase un hombre a una nariz pegado'?",
+    "opciones": [
+      "Metáfora",
+      "Hipérbole",
+      "Anáfora",
+      "Epíteto"
+    ],
+    "respuesta": "Hipérbole"
+  },
+  {
+    "pregunta": "Seleccione el conector correcto: 'Estudió mucho, _______, reprobó el examen'.",
+    "opciones": [
+      "Además",
+      "Por lo tanto",
+      "Sin embargo",
+      "También"
+    ],
+    "respuesta": "Sin embargo"
+  },
+  {
+    "pregunta": "La obra 'Cruces sobre el agua' relata:",
+    "opciones": [
+      "La matanza del 15 de noviembre de 1922",
+      "La independencia de Guayaquil",
+      "La guerra del Cenepa",
+      "La revolución liberal"
+    ],
+    "respuesta": "La matanza del 15 de noviembre de 1922"
+  },
+  {
+    "pregunta": "Autor de 'Cruces sobre el agua':",
+    "opciones": [
+      "Joaquín Gallegos Lara",
+      "José de la Cuadra",
+      "Enrique Gil Gilbert",
+      "Jorge Icaza"
+    ],
+    "respuesta": "Joaquín Gallegos Lara"
+  },
+  {
+    "pregunta": "Sinónimo de: PERSPICAZ",
+    "opciones": [
+      "Tonto",
+      "Agudo",
+      "Lento",
+      "Ciego"
+    ],
+    "respuesta": "Agudo"
+  },
+  {
+    "pregunta": "Antónimo de: OPACO",
+    "opciones": [
+      "Oscuro",
+      "Diáfano",
+      "Turbio",
+      "Sucio"
+    ],
+    "respuesta": "Diáfano"
+  },
+  {
+    "pregunta": "Analogía: PEZ es a ESCAMA como AVE es a:",
+    "opciones": [
+      "Vuelo",
+      "Nido",
+      "Pluma",
+      "Aire"
+    ],
+    "respuesta": "Pluma"
+  },
+  {
+    "pregunta": "El hiato se produce cuando:",
+    "opciones": [
+      "Se unen dos vocales en la misma sílaba",
+      "Se separan dos vocales en sílabas diferentes",
+      "Hay tres vocales juntas",
+      "Una palabra termina en vocal"
+    ],
+    "respuesta": "Se separan dos vocales en sílabas diferentes"
+  },
+  {
+    "pregunta": "Ejemplo de palabra con hiato:",
+    "opciones": [
+      "Cielo",
+      "Causa",
+      "Maíz",
+      "Reino"
+    ],
+    "respuesta": "Maíz"
+  },
+  {
+    "pregunta": "Sinónimo de: INNOCUO",
+    "opciones": [
+      "Dañino",
+      "Inofensivo",
+      "Peligroso",
+      "Mortal"
+    ],
+    "respuesta": "Inofensivo"
+  },
+  {
+    "pregunta": "Antónimo de: CONDONAR",
+    "opciones": [
+      "Perdonar",
+      "Castigar",
+      "Olvidar",
+      "Regalar"
+    ],
+    "respuesta": "Castigar"
+  },
+  {
+    "pregunta": "Poeta ecuatoriano conocido como 'El ruiseñor de América':",
+    "opciones": [
+      "Julio Jaramillo",
+      "Medardo Ángel Silva",
+      "Numa Pompilio Llona",
+      "Julio Zaldumbide"
+    ],
+    "respuesta": "Julio Jaramillo"
+  },
+  {
+    "pregunta": "¿Qué palabra está escrita correctamente?",
+    "opciones": [
+      "Idiosincracia",
+      "Idiosincrasia",
+      "Idiosingracia",
+      "Hidiosincrasia"
+    ],
+    "respuesta": "Idiosincrasia"
+  },
+  {
+    "pregunta": "Complete: El juez _______ la sentencia.",
+    "opciones": [
+      "Absolvió",
+      "Absorbió",
+      "Adsolvió",
+      "Azolvió"
+    ],
+    "respuesta": "Absolvió"
+  },
+  {
+    "pregunta": "Término excluido de: BARCO",
+    "opciones": [
+      "Proa",
+      "Popa",
+      "Babor",
+      "Alas"
+    ],
+    "respuesta": "Alas"
+  },
+  {
+    "pregunta": "Sinónimo de: DILIGENTE",
+    "opciones": [
+      "Vago",
+      "Lento",
+      "Cuidadoso",
+      "Despistado"
+    ],
+    "respuesta": "Cuidadoso"
+  },
+  {
+    "pregunta": "Las palabras agudas se tildan cuando:",
+    "opciones": [
+      "Terminan en cualquier consonante",
+      "Terminan en N, S o Vocal",
+      "Nunca se tildan",
+      "Siempre se tildan"
+    ],
+    "respuesta": "Terminan en N, S o Vocal"
+  },
+  {
+    "pregunta": "Autor de 'Un hombre muerto a puntapiés':",
+    "opciones": [
+      "Pablo Palacio",
+      "Jorge Icaza",
+      "Benjamín Carrión",
+      "José de la Cuadra"
+    ],
+    "respuesta": "Pablo Palacio"
+  },
+  {
+    "pregunta": "Analogía: MARTILLO es a CLAVO como DESTORNILLADOR es a:",
+    "opciones": [
+      "Tuerca",
+      "Tornillo",
+      "Madera",
+      "Pared"
+    ],
+    "respuesta": "Tornillo"
+  },
+  {
+    "pregunta": "Antónimo de: BELICOSO",
+    "opciones": [
+      "Guerrero",
+      "Pacífico",
+      "Violento",
+      "Agresivo"
+    ],
+    "respuesta": "Pacífico"
+  },
+  {
+    "pregunta": "Complete con B o V: La _______aca come hierba.",
+    "opciones": [
+      "B",
+      "V",
+      "W",
+      "H"
+    ],
+    "respuesta": "V"
+  },
+  {
+    "pregunta": "Complete con B o V: El _______arco navega.",
+    "opciones": [
+      "B",
+      "V",
+      "W",
+      "H"
+    ],
+    "respuesta": "B"
+  },
+  {
+    "pregunta": "Seleccione el sinónimo de: HITO",
+    "opciones": [
+      "Suceso",
+      "Mito",
+      "Leyenda",
+      "Fantasía"
+    ],
+    "respuesta": "Suceso"
+  },
+  {
+    "pregunta": "¿Qué es la semántica?",
+    "opciones": [
+      "Estudio de los sonidos",
+      "Estudio del significado de las palabras",
+      "Estudio de la estructura de las oraciones",
+      "Estudio de la ortografía"
+    ],
+    "respuesta": "Estudio del significado de las palabras"
+  },
+  {
+    "pregunta": "Sinónimo de: QUIMERA",
+    "opciones": [
+      "Realidad",
+      "Ilusión",
+      "Verdad",
+      "Certeza"
+    ],
+    "respuesta": "Ilusión"
+  },
+  {
+    "pregunta": "Antónimo de: ADULTERAR",
+    "opciones": [
+      "Falsificar",
+      "Purificar",
+      "Mezclar",
+      "Contaminar"
+    ],
+    "respuesta": "Purificar"
+  },
+  {
+    "pregunta": "En la frase 'El agua clara', el adjetivo es:",
+    "opciones": [
+      "El",
+      "Agua",
+      "Clara",
+      "Ninguno"
+    ],
+    "respuesta": "Clara"
+  },
+  {
+    "pregunta": "Seleccione la palabra grave:",
+    "opciones": [
+      "Corazón",
+      "Árbol",
+      "Papá",
+      "Compás"
+    ],
+    "respuesta": "Árbol"
+  },
+  {
+    "pregunta": "Sinónimo de: IMPRUDENCIA",
+    "opciones": [
+      "Cautela",
+      "Negligencia",
+      "Sensatez",
+      "Acierto"
+    ],
+    "respuesta": "Negligencia"
+  },
+  {
+    "pregunta": "¿Quién escribió el poema 'Quejas'?",
+    "opciones": [
+      "Dolores Veintimilla de Galindo",
+      "Gabriela Mistral",
+      "Sor Juana Inés de la Cruz",
+      "Alfonsina Storni"
+    ],
+    "respuesta": "Dolores Veintimilla de Galindo"
+  },
+  {
+    "pregunta": "Analogía: PÁGINA es a LIBRO como TECLA es a:",
+    "opciones": [
+      "Dedo",
+      "Piano",
+      "Música",
+      "Nota"
+    ],
+    "respuesta": "Piano"
+  },
+  {
+    "pregunta": "Término excluido de: SILLA",
+    "opciones": [
+      "Banco",
+      "Sillón",
+      "Mesa",
+      "Taburete"
+    ],
+    "respuesta": "Mesa"
+  },
+  {
+    "pregunta": "Sinónimo de: EXHAUSTO",
+    "opciones": [
+      "Vigoroso",
+      "Agotado",
+      "Fuerte",
+      "Animado"
+    ],
+    "respuesta": "Agotado"
+  },
+  {
+    "pregunta": "Complete: A caballo regalado no se le mira el _______.",
+    "opciones": [
+      "Pelo",
+      "Ojo",
+      "Diente",
+      "Dueño"
+    ],
+    "respuesta": "Diente"
+  },
+  {
+    "pregunta": "Ortografía: Se escribe con 'H':",
+    "opciones": [
+      "Echar",
+      "Haber",
+      "Aver",
+      "Olla"
+    ],
+    "respuesta": "Haber"
+  },
+  {
+    "pregunta": "¿Qué función cumple el adverbio?",
+    "opciones": [
+      "Modifica al sustantivo",
+      "Modifica al verbo, adjetivo u otro adverbio",
+      "Reemplaza al nombre",
+      "Une oraciones"
+    ],
+    "respuesta": "Modifica al verbo, adjetivo u otro adverbio"
+  },
+  {
+    "pregunta": "Sinónimo de: IDÓNEO",
+    "opciones": [
+      "Incapaz",
+      "Apto",
+      "Torpe",
+      "Inútil"
+    ],
+    "respuesta": "Apto"
+  },
+  {
+    "pregunta": "Antónimo de: PERENNE",
+    "opciones": [
+      "Eterno",
+      "Mortal",
+      "Continuo",
+      "Temporal"
+    ],
+    "respuesta": "Temporal"
+  },
+  {
+    "pregunta": "En la oración 'Juan come manzanas', el objeto directo es:",
+    "opciones": [
+      "Juan",
+      "Come",
+      "Manzanas",
+      "No tiene"
+    ],
+    "respuesta": "Manzanas"
+  },
+  {
+    "pregunta": "Sinónimo de: VIGENTE",
+    "opciones": [
+      "Actual",
+      "Pasado",
+      "Futuro",
+      "Obsoleto"
+    ],
+    "respuesta": "Actual"
+  },
+  {
+    "pregunta": "Antónimo de: FICTICIO",
+    "opciones": [
+      "Real",
+      "Falso",
+      "Imaginario",
+      "Irreal"
+    ],
+    "respuesta": "Real"
+  },
+  {
+    "pregunta": "Complete: El _______ es el satélite de la Tierra.",
+    "opciones": [
+      "Sol",
+      "Luna",
+      "Marte",
+      "Cometa"
+    ],
+    "respuesta": "Luna"
+  },
+  {
+    "pregunta": "Analogía: GUANTE es a MANO como ZAPATO es a:",
+    "opciones": [
+      "Pie",
+      "Calcetín",
+      "Pierna",
+      "Camino"
+    ],
+    "respuesta": "Pie"
+  },
+  {
+    "pregunta": "Sinónimo de: OSADÍA",
+    "opciones": [
+      "Miedo",
+      "Audacia",
+      "Vergüenza",
+      "Prudencia"
+    ],
+    "respuesta": "Audacia"
+  },
+  {
+    "pregunta": "La oración '¡Ojalá llueva!' es:",
+    "opciones": [
+      "Enunciativa",
+      "Imperativa",
+      "Desiderativa",
+      "Dubitativa"
+    ],
+    "respuesta": "Desiderativa"
+  },
+  {
+    "pregunta": "Sinónimo de: MITIGAR",
+    "opciones": [
+      "Aumentar",
+      "Calmar",
+      "Empeorar",
+      "Provocar"
+    ],
+    "respuesta": "Calmar"
+  },
+  {
+    "pregunta": "Antónimo de: ABUNDANCIA",
+    "opciones": [
+      "Riqueza",
+      "Escasez",
+      "Exceso",
+      "Mucho"
+    ],
+    "respuesta": "Escasez"
+  },
+  {
+    "pregunta": "Complete: Quien mucho abarca, poco _______.",
+    "opciones": [
+      "Camina",
+      "Aprieta",
+      "Come",
+      "Duerme"
+    ],
+    "respuesta": "Aprieta"
+  },
+  {
+    "pregunta": "Seleccione el pronombre personal:",
+    "opciones": [
+      "Mesa",
+      "Cantar",
+      "Nosotros",
+      "Rápido"
+    ],
+    "respuesta": "Nosotros"
+  },
+  {
+    "pregunta": "Sinónimo de: LÚGUBRE",
+    "opciones": [
+      "Alegre",
+      "Sombrío",
+      "Luminoso",
+      "Colorido"
+    ],
+    "respuesta": "Sombrío"
+  },
+  {
+    "pregunta": "Antónimo de: CORTÉS",
+    "opciones": [
+      "Amable",
+      "Educado",
+      "Grosero",
+      "Atento"
+    ],
+    "respuesta": "Grosero"
+  },
+  {
+    "pregunta": "¿Cuál es el sujeto en 'Corren rápido los atletas'?",
+    "opciones": [
+      "Corren",
+      "Rápido",
+      "Los atletas",
+      "Atletas"
+    ],
+    "respuesta": "Los atletas"
+  },
+  {
+    "pregunta": "Sinónimo de: ERUDITO",
+    "opciones": [
+      "Ignorante",
+      "Sabio",
+      "Novato",
+      "Aprendiz"
+    ],
+    "respuesta": "Sabio"
+  },
+  {
+    "pregunta": "Antónimo de: EFICAZ",
+    "opciones": [
+      "Útil",
+      "Ineficaz",
+      "Activo",
+      "Fuerte"
+    ],
+    "respuesta": "Ineficaz"
+  },
+  {
+    "pregunta": "Término excluido de: DEPORTES",
+    "opciones": [
+      "Fútbol",
+      "Tenis",
+      "Natación",
+      "Cine"
+    ],
+    "respuesta": "Cine"
+  },
+  {
+    "pregunta": "Complete: Camarón que se duerme, _______.",
+    "opciones": [
+      "Se lo lleva la corriente",
+      "Se despierta tarde",
+      "No come",
+      "Se ahoga"
+    ],
+    "respuesta": "Se lo lleva la corriente"
+  },
+  {
+    "pregunta": "Sinónimo de: FRÁGIL",
+    "opciones": [
+      "Fuerte",
+      "Débil",
+      "Duro",
+      "Resistente"
+    ],
+    "respuesta": "Débil"
+  },
+  {
+    "pregunta": "Antónimo de: AMAR",
+    "opciones": [
+      "Querer",
+      "Odiar",
+      "Adorar",
+      "Gustar"
+    ],
+    "respuesta": "Odiar"
+  },
+  {
+    "pregunta": "Analogía: LUZ es a SOL como:",
+    "opciones": [
+      "Agua es a Río",
+      "Noche es a Luna",
+      "Calor es a Fuego",
+      "Frío es a Hielo"
+    ],
+    "respuesta": "Calor es a Fuego"
+  },
+  {
+    "pregunta": "Seleccione el artículo definido:",
+    "opciones": [
+      "Un",
+      "Una",
+      "El",
+      "Unos"
+    ],
+    "respuesta": "El"
+  },
+  {
+    "pregunta": "Sinónimo de: BREVE",
+    "opciones": [
+      "Largo",
+      "Corto",
+      "Eterno",
+      "Grande"
+    ],
+    "respuesta": "Corto"
+  },
+  {
+    "pregunta": "Antónimo de: SUBIR",
+    "opciones": [
+      "Ascender",
+      "Bajar",
+      "Trepar",
+      "Elevar"
+    ],
+    "respuesta": "Bajar"
+  },
+  {
+    "pregunta": "¿Qué signo de puntuación indica una pausa breve?",
+    "opciones": [
+      "Punto",
+      "Coma",
+      "Punto y coma",
+      "Dos puntos"
+    ],
+    "respuesta": "Coma"
+  },
+  {
+    "pregunta": "Sinónimo de: NOCTURNO",
+    "opciones": [
+      "Diurno",
+      "De noche",
+      "Mañanero",
+      "Tarde"
+    ],
+    "respuesta": "De noche"
+  },
+  {
+    "pregunta": "Antónimo de: INICIAR",
+    "opciones": [
+      "Comenzar",
+      "Empezar",
+      "Terminar",
+      "Abrir"
+    ],
+    "respuesta": "Terminar"
+  },
+  {
+    "pregunta": "Complete la frase: 'En casa de herrero, cuchillo de _______'.",
+    "opciones": [
+      "Hierro",
+      "Acero",
+      "Palo",
+      "Plata"
+    ],
+    "respuesta": "Palo"
+  },
+  {
+    "pregunta": "Término excluido de: COLORES",
+    "opciones": [
+      "Rojo",
+      "Azul",
+      "Verde",
+      "Brillante"
+    ],
+    "respuesta": "Brillante"
+  },
+  {
+    "pregunta": "Sinónimo de: VELOZ",
+    "opciones": [
+      "Lento",
+      "Rápido",
+      "Pausado",
+      "Tranquilo"
+    ],
+    "respuesta": "Rápido"
+  },
+  {
+    "pregunta": "Antónimo de: MOJADO",
+    "opciones": [
+      "Húmedo",
+      "Seco",
+      "Empapado",
+      "Líquido"
+    ],
+    "respuesta": "Seco"
+  },
+  {
+    "pregunta": "Analogía: ALA es a PÁJARO como ALETA es a:",
+    "opciones": [
+      "Pez",
+      "Gato",
+      "Perro",
+      "León"
+    ],
+    "respuesta": "Pez"
+  },
+  {
+    "pregunta": "Sinónimo de: CÉLEBRE",
+    "opciones": [
+      "Desconocido",
+      "Famoso",
+      "Anónimo",
+      "Oculto"
+    ],
+    "respuesta": "Famoso"
+  },
+  {
+    "pregunta": "Antónimo de: REÍR",
+    "opciones": [
+      "Sonreír",
+      "Llorar",
+      "Gozar",
+      "Disfrutar"
+    ],
+    "respuesta": "Llorar"
+  },
+  {
+    "pregunta": "Identifique el verbo en: 'El niño juega en el parque'.",
+    "opciones": [
+      "El",
+      "Niño",
+      "Juega",
+      "Parque"
+    ],
+    "respuesta": "Juega"
+  },
+  {
+    "pregunta": "Sinónimo de: RUTA",
+    "opciones": [
+      "Camino",
+      "Muro",
+      "Casa",
+      "Piedra"
+    ],
+    "respuesta": "Camino"
+  },
+  {
+    "pregunta": "Antónimo de: JUSTICIA",
+    "opciones": [
+      "Equidad",
+      "Injusticia",
+      "Verdad",
+      "Ley"
+    ],
+    "respuesta": "Injusticia"
+  },
+  {
+    "pregunta": "Complete: Más vale tarde que _______.",
+    "opciones": [
+      "Pronto",
+      "Nunca",
+      "Ahora",
+      "Mañana"
+    ],
+    "respuesta": "Nunca"
+  },
+  {
+    "pregunta": "Término excluido de: FRUTAS",
+    "opciones": [
+      "Manzana",
+      "Pera",
+      "Uva",
+      "Lechuga"
+    ],
+    "respuesta": "Lechuga"
+  },
+  {
+    "pregunta": "Sinónimo de: FURIA",
+    "opciones": [
+      "Calma",
+      "Ira",
+      "Paz",
+      "Alegría"
+    ],
+    "respuesta": "Ira"
+  },
+  {
+    "pregunta": "Antónimo de: COMPRAR",
+    "opciones": [
+      "Adquirir",
+      "Vender",
+      "Obtener",
+      "Ganar"
+    ],
+    "respuesta": "Vender"
+  },
+  {
+    "pregunta": "Analogía: OÍDO es a OÍR como OJO es a:",
+    "opciones": [
+      "Oler",
+      "Tocar",
+      "Ver",
+      "Gustar"
+    ],
+    "respuesta": "Ver"
+  },
+  {
+    "pregunta": "Sinónimo de: BATALLA",
+    "opciones": [
+      "Paz",
+      "Combate",
+      "Amistad",
+      "Acuerdo"
+    ],
+    "respuesta": "Combate"
+  },
+  {
+    "pregunta": "Antónimo de: LIBERTAD",
+    "opciones": [
+      "Esclavitud",
+      "Independencia",
+      "Autonomía",
+      "Albedrío"
+    ],
+    "respuesta": "Esclavitud"
+  },
+  {
+    "pregunta": "Seleccione el sustantivo propio:",
+    "opciones": [
+      "Ciudad",
+      "País",
+      "Ecuador",
+      "Río"
+    ],
+    "respuesta": "Ecuador"
+  },
+  {
+    "pregunta": "Sinónimo de: ENIGMA",
+    "opciones": [
+      "Misterio",
+      "Claridad",
+      "Luz",
+      "Verdad"
+    ],
+    "respuesta": "Misterio"
+  },
+  {
+    "pregunta": "Antónimo de: UNIÓN",
+    "opciones": [
+      "Juntura",
+      "Separación",
+      "Alianza",
+      "Vínculo"
+    ],
+    "respuesta": "Separación"
+  },
+  {
+    "pregunta": "Complete: A mal tiempo, buena _______.",
+    "opciones": [
+      "Cara",
+      "Suerte",
+      "Vida",
+      "Tarde"
+    ],
+    "respuesta": "Cara"
+  }
+]
