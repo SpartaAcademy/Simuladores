@@ -7,23 +7,9 @@
     "ciudad": "Tulcán"
   },
   {
-    "usuario": "docente",
-    "contrasena": "docente",
-    "nombre": "Docente",
-    "rol": "admin",
-    "ciudad": "Tulcán"
-  },
-  {
     "usuario": "geomi",
-    "contrasena": "geomi",
+    "contrasena": "administradora",
     "nombre": "Geo",
-    "rol": "admin",
-    "ciudad": "Tulcán"
-  },
-  {
-    "usuario": "capitan",
-    "contrasena": "capitan",
-    "nombre": "Capitán",
     "rol": "admin",
     "ciudad": "Tulcán"
   },
