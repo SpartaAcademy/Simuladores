@@ -9,7 +9,7 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    // REFERENCIAS
+    // --- REFERENCIAS DOM ---
     const lobbyContainer = document.getElementById('lobby-container');
     const simuladorContainer = document.getElementById('simulador-container');
     const resultadosContainer = document.getElementById('resultados-container');
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const confirmarModalBtn = document.getElementById('confirmar-modal-btn');
     const modalBotones = document.querySelector('.modal-botones');
 
-    // VARIABLES
+    // --- VARIABLES ---
     let preguntasPorMateria = {};
     let preguntasQuiz = [];
     let respuestasUsuario = [];
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let tiempoRestanteSeg;
     let TOTAL_PREGUNTAS_QUIZ = 50;
 
-    // LISTA COMPLETA DE MATERIAS
+    // LISTA MAESTRA DE MATERIAS
     const materias = {
         'sociales': 'Ciencias Sociales',
         'matematicas': 'Matemáticas y Física',
@@ -72,18 +72,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const ordenGeneralPolicia = ['sociales', 'matematicas', 'lengua', 'ingles'];
     const ordenGeneralEsmil = ['sociales_esmil', 'matematicas_esmil', 'lengua_esmil', 'ingles_esmil'];
     
-    // INICIALIZACIÓN
+    // --- INICIALIZACIÓN ---
     function inicializar() {
         const params = new URLSearchParams(window.location.search);
         const materiaKey = params.get('materia') || 'sociales';
         
         let nombreMateria = materias[materiaKey];
         if (!nombreMateria) {
-            if (materiaKey.startsWith('ppnn')) {
-                nombreMateria = `Cuestionario ${materiaKey.replace('ppnn', '')} PPNN`;
-            } else {
-                nombreMateria = 'Desconocida';
-            }
+            nombreMateria = "Materia Desconocida";
         }
 
         if (tituloMateria) tituloMateria.textContent = `SIMULADOR DE: ${nombreMateria.toUpperCase()}`;
@@ -96,8 +92,10 @@ document.addEventListener('DOMContentLoaded', () => {
         let quizDurationSeconds = 60 * 60; 
         let lobbyTiempoTexto = "1 Hora (60 Minutos)";
 
+        // Configuración de Tiempos e Instrucciones
         if (materiaKey.startsWith('ppnn')) {
             quizDurationSeconds = 60 * 60;
+            
             const h3Puntajes = lobbyContainer.querySelector('h3');
             const ulPuntajes = lobbyContainer.querySelector('ul');
             const pImportante = lobbyContainer.querySelector('p[style*="font-weight: 600"]');
@@ -139,7 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
         retryBtn.addEventListener('click', () => { location.reload(); });
     }
 
-    // CARGA DE PREGUNTAS
+    // --- CARGA ---
     async function cargarPreguntas(materia) {
         preguntasPorMateria = {};
         let materiasACargar = [];
@@ -175,6 +173,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const params = new URLSearchParams(window.location.search);
             const materiaKey = params.get('materia');
             
+            // Ajuste total para PPNN
             if (materiaKey.startsWith('ppnn')) {
                 TOTAL_PREGUNTAS_QUIZ = totalPreguntasCargadas;
                 if (document.getElementById('lobby-preguntas')) 
@@ -185,7 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             comenzarBtn.disabled = false;
             comenzarBtn.textContent = 'Comenzar Intento';
-            comenzarBtn.onclick = iniciarIntento; 
+            comenzarBtn.onclick = iniciarIntento;
 
         } catch (error) {
             console.error("Error cargando recursos:", error);
@@ -194,18 +193,19 @@ document.addEventListener('DOMContentLoaded', () => {
                  comenzarBtn.textContent = 'Comenzar Intento';
                  comenzarBtn.onclick = iniciarIntento;
             } else {
-                alert(`Error al cargar: ${error.message}. Verifica que los archivos JSON estén en la carpeta DATA.`);
+                alert(`Error al cargar: ${error.message}. Verifica que el archivo JSON esté en la carpeta DATA.`);
                 comenzarBtn.textContent = 'Error: Faltan archivos';
             }
         }
     }
     
-    // PREPARAR QUIZ
+    // --- PREPARAR QUIZ ---
     function prepararQuiz() {
         const params = new URLSearchParams(window.location.search);
         const materiaKey = params.get('materia') || 'sociales';
         preguntasQuiz = [];
         
+        // General (Mezcla de materias)
         if (materiaKey.includes('general')) {
             const listaOrden = (materiaKey === 'general') ? ordenGeneralPolicia : ordenGeneralEsmil;
             listaOrden.forEach(materia => {
@@ -217,12 +217,14 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             TOTAL_PREGUNTAS_QUIZ = preguntasQuiz.length;
         
+        // PPNN (Todas las preguntas)
         } else if (materiaKey.startsWith('ppnn')) {
             if (preguntasPorMateria[materiaKey]) {
                 preguntasQuiz = [...preguntasPorMateria[materiaKey]].sort(() => Math.random() - 0.5);
                 TOTAL_PREGUNTAS_QUIZ = preguntasQuiz.length;
             }
 
+        // Individuales (50 preguntas)
         } else { 
              if (preguntasPorMateria[materiaKey]) {
                 const preguntasBarajadas = [...preguntasPorMateria[materiaKey]].sort(() => Math.random() - 0.5);
@@ -234,7 +236,7 @@ document.addEventListener('DOMContentLoaded', () => {
          respuestasUsuario = new Array(TOTAL_PREGUNTAS_QUIZ).fill(null);
     }
     
-    // LÓGICA
+    // --- LÓGICA DE SIMULACIÓN ---
     function iniciarIntento() {
         prepararQuiz();
         if (preguntasQuiz.length === 0) { 
@@ -279,7 +281,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (indice < 0 || indice >= TOTAL_PREGUNTAS_QUIZ) return;
         indicePreguntaActual = indice;
         const pregunta = preguntasQuiz[indice];
-        
         preguntaNumero.textContent = `Pregunta ${indice + 1}`;
         let preguntaHTML = `<span>${pregunta.pregunta}</span>`;
         if (pregunta.imagen) {
@@ -329,7 +330,7 @@ document.addEventListener('DOMContentLoaded', () => {
         modalOverlay.style.display = 'flex';
     }
     
-    // GUARDAR
+    // GUARDAR EN SUPABASE (Aquí fallaba antes)
     async function guardarResultadoEnSupabase(resultado) {
         try {
             retryBtn.disabled = true;
@@ -358,6 +359,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // FINALIZAR
     function finalizarIntento(porTiempo = false) {
         clearInterval(cronometroInterval);
         if (porTiempo) {
@@ -457,5 +459,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
     inicializar();
 });
-
-
