@@ -2,11 +2,32 @@
 
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
 
+// (ACTUALIZADO) Inicializar Supabase con tus NUEVAS credenciales
 const supabaseUrl = 'https://scfbvwqkgtyflzwcasqv.supabase.co';
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNjZmJ2d3FrZ3R5Zmx6d2Nhc3F2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM1Njc3OTYsImV4cCI6MjA3OTE0Mzc5Nn0.xilfVrz6wfG1IfJeqggKKBYR-kDO1zT36CUNQCoxXnM';
 const supabase = createClient(supabaseUrl, supabaseKey);
 
-// (ELIMINADO) El objeto 'materias' estático ya no es necesario
+// Lista completa de materias para el filtro
+const materias = {
+    'sociales': 'Ciencias Sociales',
+    'matematicas': 'Matemáticas y Física',
+    'lengua': 'Lengua y Literatura',
+    'ingles': 'Inglés',
+    'general': 'General (Todas)',
+    'inteligencia': 'Inteligencia',
+    'personalidad': 'Personalidad',
+    // PPNN
+    'ppnn1': 'Cuestionario 1 PPNN',
+    'ppnn2': 'Cuestionario 2 PPNN',
+    'ppnn3': 'Cuestionario 3 PPNN',
+    'ppnn4': 'Cuestionario 4 PPNN',
+    // ESMIL
+    'sociales_esmil': 'Ciencias Sociales (ESMIL)',
+    'matematicas_esmil': 'Matemáticas y Física (ESMIL)',
+    'lengua_esmil': 'Lengua y Literatura (ESMIL)',
+    'ingles_esmil': 'Inglés (ESMIL)',
+    'general_esmil': 'General ESMIL (Todas)'
+};
 
 // Inicializa jsPDF (global)
 const { jsPDF } = window.jspdf;
@@ -42,24 +63,14 @@ document.addEventListener('DOMContentLoaded', () => {
         return 'bajo';
     }
 
-    // (MODIFICADO) Esta función ahora lee los datos de Supabase
-    function popularFiltroMaterias(intentos) {
-        // Extrae nombres de materias únicos de los resultados
-        const materiasUnicas = [...new Set(intentos.map(intento => intento.materia))];
-        materiasUnicas.sort(); // Ordena alfabéticamente
-
-        // Limpia el filtro (excepto la opción "Todas")
+    function popularFiltroMaterias() {
         filtroMateria.innerHTML = '<option value="Todas">Todas las Materias</option>';
-        
-        // Añade las materias encontradas
-        materiasUnicas.forEach(materia => {
-            if (materia) { // Evita nulos o vacíos
-                const option = document.createElement('option');
-                option.value = materia;
-                option.textContent = materia;
-                filtroMateria.appendChild(option);
-            }
-        });
+        for (const [key, value] of Object.entries(materias)) {
+            const option = document.createElement('option');
+            option.value = value;
+            option.textContent = value; 
+            filtroMateria.appendChild(option);
+        }
     }
     
     async function cargarDatosIniciales() {
@@ -67,6 +78,8 @@ document.addEventListener('DOMContentLoaded', () => {
         reporteContainer.innerHTML = '<p class="no-intentos">Cargando datos...</p>';
         
         try {
+            popularFiltroMaterias();
+
             const [usuariosRes, intentosRes] = await Promise.all([
                 fetch('DATA/usuarios.json').then(res => res.json()),
                 supabase.from('resultados').select('*')
@@ -77,9 +90,6 @@ document.addEventListener('DOMContentLoaded', () => {
             if (intentosRes.error) throw intentosRes.error;
             allAttempts = intentosRes.data;
 
-            // (MODIFICADO) Llama a la función para poblar el filtro
-            popularFiltroMaterias(allAttempts);
-            
             renderizarListaUsuarios();
 
         } catch (error) {
@@ -186,7 +196,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // (CORREGIDO) Vuelve a agrupar por materia
     function buildAttemptDetails(container, userId) {
         const materiaFiltro = filtroMateria.value;
 
@@ -335,7 +344,7 @@ document.addEventListener('DOMContentLoaded', () => {
         generarYDescargarCSV(data, `reporte_general_sparta.csv`);
     }
 
-    // --- Lógica de Descarga PDF ---
+    // --- Lógica de Descarga PDF Individual ---
     function descargarPDFUsuario(event) {
         event.stopPropagation();
         const userId = event.currentTarget.dataset.userid;
