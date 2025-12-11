@@ -2,12 +2,12 @@
 
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
 
-// (ACTUALIZADO) Tus nuevas credenciales
+// (ACTUALIZADO) TUS NUEVAS CREDENCIALES
 const supabaseUrl = 'https://vwfpjvfjmmwmrqqahooi.supabase.co';
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZ3ZnBqdmZqbW13bXJxcWFob29pIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU0NzkyNTcsImV4cCI6MjA4MTA1NTI1N30.pTc8KM-GnxVRgrYpcqm8YUZ9zb6Co-QgKT0i7W41HEA';
 const supabase = createClient(supabaseUrl, supabaseKey);
 
-// Lista de materias para el filtro
+// Lista de materias para el filtro (Ahora incluye ESMIL y PPNN)
 const materias = {
     'sociales': 'Ciencias Sociales',
     'matematicas': 'Matemáticas y Física',
@@ -93,8 +93,6 @@ document.addEventListener('DOMContentLoaded', () => {
             loadingSpinner.style.display = 'none';
         }
     }
-
-    // ... (El resto del código de renderizar es el mismo, pero lo pongo para que esté completo) ...
 
     function renderizarListaUsuarios() {
         const ciudad = filtroCiudad.value;
@@ -256,7 +254,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function descargarPDFGeneral() { 
-        alert("PDF General en construcción");
+        alert("PDF General no disponible aún."); 
     }
 
     filtroCiudad.addEventListener('change', renderizarListaUsuarios);
