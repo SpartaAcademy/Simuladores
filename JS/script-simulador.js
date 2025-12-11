@@ -2,7 +2,7 @@
 
 // Importar la librería de Supabase
 
-import { createClient } from '@supabase/supabase-js'
+import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2'
 
 const supabaseUrl = 'https://vwfpjvfjmmwmrqqahooi.supabase.co'
 const supabaseKey = process.env.SUPABASE_KEY
@@ -532,4 +532,5 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- KICKOFF ---
     inicializar();
 });
+
 
