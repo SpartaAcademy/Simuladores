@@ -3,14 +3,15 @@
 // Importar la librería de Supabase
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
 
-// Inicializar Supabase
+// (ACTUALIZADO) Inicializar Supabase con tus NUEVAS credenciales
 const supabaseUrl = 'https://scfbvwqkgtyflzwcasqv.supabase.co';
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNjZmJ2d3FrZ3R5Zmx6d2Nhc3F2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM1Njc3OTYsImV4cCI6MjA3OTE0Mzc5Nn0.xilfVrz6wfG1IfJeqggKKBYR-kDO1zT36CUNQCoxXnM';
 const supabase = createClient(supabaseUrl, supabaseKey);
 
+
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- 1. REFERENCIAS ---
+    // --- 1. REFERENCIAS A ELEMENTOS DEL DOM ---
     const lobbyContainer = document.getElementById('lobby-container');
     const simuladorContainer = document.getElementById('simulador-container');
     const resultadosContainer = document.getElementById('resultados-container');
@@ -39,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const confirmarModalBtn = document.getElementById('confirmar-modal-btn');
     const modalBotones = document.querySelector('.modal-botones');
 
-    // --- 2. VARIABLES GLOBALES ---
+    // --- 2. VARIABLES GLOBALES DEL SIMULADOR ---
     let preguntasPorMateria = {};
     let preguntasQuiz = [];
     let respuestasUsuario = [];
@@ -48,9 +49,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let tiempoRestanteSeg;
     let TOTAL_PREGUNTAS_QUIZ = 50;
 
-    // (MODIFICADO) Lista de materias incluyendo ESMIL
+    // Lista de materias
     const materias = {
-        // Policía Nacional
+        // Policía
         'sociales': 'Ciencias Sociales',
         'matematicas': 'Matemáticas y Física',
         'lengua': 'Lengua y Literatura',
@@ -58,12 +59,12 @@ document.addEventListener('DOMContentLoaded', () => {
         'general': 'General (Todas)',
         'inteligencia': 'Inteligencia',
         'personalidad': 'Personalidad',
+        // PPNN
         'ppnn1': 'Cuestionario 1 PPNN',
         'ppnn2': 'Cuestionario 2 PPNN',
         'ppnn3': 'Cuestionario 3 PPNN',
         'ppnn4': 'Cuestionario 4 PPNN',
-        
-        // Fuerzas Armadas (ESMIL)
+        // ESMIL
         'sociales_esmil': 'Ciencias Sociales (ESMIL)',
         'matematicas_esmil': 'Matemáticas y Física (ESMIL)',
         'lengua_esmil': 'Lengua y Literatura (ESMIL)',
@@ -98,19 +99,18 @@ document.addEventListener('DOMContentLoaded', () => {
         let quizDurationSeconds;
         let lobbyTiempoTexto;
 
-        // Lógica de Tiempos y Configuración
         if (materiaKey.startsWith('ppnn')) {
             quizDurationSeconds = 60 * 60; 
             lobbyTiempoTexto = "1 Hora (60 Minutos)";
-            // TOTAL_PREGUNTAS_QUIZ se define al cargar el JSON
             
-            // Ajuste de instrucciones para PPNN
+            // Limpieza de instrucciones viejas
             const h3Puntajes = lobbyContainer.querySelector('h3');
             const ulPuntajes = lobbyContainer.querySelector('ul');
             const pImportante = lobbyContainer.querySelector('p[style*="font-weight: 600"]');
             if (h3Puntajes) h3Puntajes.remove();
             if (ulPuntajes) ulPuntajes.remove();
             if (pImportante) pImportante.remove();
+            
             const hr = lobbyContainer.querySelector('hr');
             if (hr && !lobbyContainer.querySelector('.instrucciones-ppnn')) {
                 const newInstructions = document.createElement('p');
@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
             lobbyTiempoTexto = "3 Horas (180 Minutos)";
             TOTAL_PREGUNTAS_QUIZ = 200;
 
-        } else { // Default
+        } else { 
             quizDurationSeconds = 60 * 60;
             lobbyTiempoTexto = "1 Hora (60 Minutos)";
             TOTAL_PREGUNTAS_QUIZ = 50;
@@ -180,7 +180,6 @@ document.addEventListener('DOMContentLoaded', () => {
         preguntasPorMateria = {};
         let materiasACargar = [];
 
-        // (MODIFICADO) Determina qué JSONs cargar según si es General Policia o General ESMIL
         if (materia === 'general') {
             materiasACargar = ordenGeneralPolicia;
         } else if (materia === 'general_esmil') {
@@ -212,7 +211,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const params = new URLSearchParams(window.location.search);
             const materiaKey = params.get('materia');
             
-            // Ajuste final de total preguntas si es PPNN
             if (materiaKey.startsWith('ppnn')) {
                 TOTAL_PREGUNTAS_QUIZ = totalPreguntasCargadas;
                 if (document.getElementById('lobby-preguntas')) 
@@ -226,7 +224,6 @@ document.addEventListener('DOMContentLoaded', () => {
              comenzarBtn.addEventListener('click', iniciarIntento);
         } catch (error) {
             console.error("Error cargando recursos:", error);
-            // Si es inteligencia y falla, asumimos que no existe aún
             if (materia === 'inteligencia' && !error.message.includes('Fallo al cargar')) {
                  comenzarBtn.disabled = false;
                  comenzarBtn.textContent = 'Comenzar Intento';
@@ -244,18 +241,16 @@ document.addEventListener('DOMContentLoaded', () => {
         const materiaKey = params.get('materia') || 'sociales';
         preguntasQuiz = [];
         
-        // Lógica para GENERAL (Policía o ESMIL)
         if (materiaKey === 'general' || materiaKey === 'general_esmil') {
             let contadorPreguntas = 0;
             TOTAL_PREGUNTAS_QUIZ = 0; 
             
-            // Decide qué lista usar
             const listaOrden = (materiaKey === 'general') ? ordenGeneralPolicia : ordenGeneralEsmil;
 
             listaOrden.forEach(materia => {
                 if (preguntasPorMateria[materia] && preguntasPorMateria[materia].length > 0) {
                     const preguntasMateriaBarajadas = [...preguntasPorMateria[materia]].sort(() => Math.random() - 0.5);
-                    const preguntasSeleccionadas = preguntasMateriaBarajadas.slice(0, 50); // Toma 50 de cada una
+                    const preguntasSeleccionadas = preguntasMateriaBarajadas.slice(0, 50); 
                     preguntasQuiz = preguntasQuiz.concat(preguntasSeleccionadas);
                     contadorPreguntas += preguntasSeleccionadas.length;
                 } else {
@@ -265,7 +260,6 @@ document.addEventListener('DOMContentLoaded', () => {
             TOTAL_PREGUNTAS_QUIZ = contadorPreguntas;
         
         } else if (materiaKey.startsWith('ppnn')) {
-            // Lógica para PPNN (Todas las preguntas)
             if (preguntasPorMateria[materiaKey] && preguntasPorMateria[materiaKey].length > 0) {
                 preguntasQuiz = [...preguntasPorMateria[materiaKey]].sort(() => Math.random() - 0.5);
                 TOTAL_PREGUNTAS_QUIZ = preguntasQuiz.length;
@@ -276,7 +270,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
         } else { 
-            // Lógica para Materias Individuales (50 preguntas)
              if (preguntasPorMateria[materiaKey] && preguntasPorMateria[materiaKey].length > 0) {
                 const preguntasBarajadas = [...preguntasPorMateria[materiaKey]].sort(() => Math.random() - 0.5);
                 preguntasQuiz = preguntasBarajadas.slice(0, 50);
@@ -292,7 +285,7 @@ document.addEventListener('DOMContentLoaded', () => {
          respuestasUsuario = new Array(TOTAL_PREGUNTAS_QUIZ).fill(null);
     }
     
-    // --- 6. LÓGICA DEL SIMULADOR (Sin cambios significativos) ---
+    // --- 6. LÓGICA DEL SIMULADOR ---
     function iniciarIntento() {
         prepararQuiz();
         if (preguntasQuiz.length === 0) { 
@@ -406,7 +399,7 @@ document.addEventListener('DOMContentLoaded', () => {
             reiniciarBtn.disabled = true;
 
             const { data, error } = await supabase
-                .from('resultados')
+                .from('resultados') // El nombre de tu tabla
                 .insert([
                     {
                         usuario_id: resultado.usuario_id,
@@ -425,7 +418,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log("Resultado guardado en Supabase:", data);
         } catch (error) {
             console.error("Error al guardar resultado en Supabase:", error.message);
-             alert("¡Error! No se pudo guardar tu resultado en el servidor.");
+             alert("¡Error! No se pudo guardar tu resultado en el servidor. Revisa tu conexión. Tu resultado local se mostrará, pero no se guardará en el reporte.");
         } finally {
             retryBtn.disabled = false;
             reiniciarBtn.disabled = false;
@@ -455,7 +448,16 @@ document.addEventListener('DOMContentLoaded', () => {
             const userInfo = getUserInfo(); // {usuario, nombre, rol, ciudad}
             const params = new URLSearchParams(window.location.search);
             const materiaKey = params.get('materia') || 'sociales';
-            const nombreMateria = materias[materiaKey] || `Materia: ${materiaKey}`; // Fallback nombre
+            
+            // Asigna el nombre correcto para ESMIL o PPNN
+            let nombreMateria = materias[materiaKey];
+            if (!nombreMateria) {
+                if (materiaKey.startsWith('ppnn')) {
+                    nombreMateria = `Cuestionario ${materiaKey.replace('ppnn', '')} PPNN`;
+                } else {
+                    nombreMateria = 'Desconocida';
+                }
+            }
 
             if (userInfo && userInfo.usuario) {
                 const result = {
@@ -532,5 +534,3 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- KICKOFF ---
     inicializar();
 });
-
-
