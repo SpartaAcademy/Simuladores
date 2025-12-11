@@ -94,6 +94,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // ... (El resto del código de renderizar es el mismo, pero lo pongo para que esté completo) ...
+
     function renderizarListaUsuarios() {
         const ciudad = filtroCiudad.value;
         const materia = filtroMateria.value;
@@ -189,7 +191,6 @@ document.addEventListener('DOMContentLoaded', () => {
         container.innerHTML = html;
     }
 
-    // Funciones de descarga
     function generarYDescargarCSV(data, filename) {
         let csvContent = "data:text/csv;charset=utf-8,\uFEFF" + data.map(e => e.join(";")).join("\n");
         const encodedUri = encodeURI(csvContent);
@@ -200,10 +201,32 @@ document.addEventListener('DOMContentLoaded', () => {
         link.click();
     }
     
-    function descargarCSVUsuario(e) { /* Lógica CSV individual igual que antes */ }
-    function descargarCSVGeneral() { /* Lógica CSV general igual que antes */ }
+    function descargarCSVUsuario(event) {
+        event.stopPropagation();
+        const userId = event.currentTarget.dataset.userid;
+        const usuarioInfo = allUsers.find(u => u.usuario === userId);
+        const intentos = allAttempts.filter(a => a.usuario_id === userId && (filtroMateria.value === 'Todas' || a.materia === filtroMateria.value));
+        
+        if (!intentos.length) { alert("Sin datos"); return; }
+        
+        const data = [["Reporte Individual"], ["Nombre:", usuarioInfo.nombre], ["Usuario:", usuarioInfo.usuario], ["Ciudad:", usuarioInfo.ciudad], [], ["Materia", "Puntaje", "Total", "Fecha"]];
+        intentos.forEach(i => data.push([i.materia, i.puntaje, i.total_preguntas, formatFecha(i.created_at)]));
+        generarYDescargarCSV(data, `reporte_${usuarioInfo.usuario}.csv`);
+    }
+
+    function descargarCSVGeneral() {
+        const data = [["Reporte General"], ["Filtro:", filtroMateria.value], [], ["Nombre", "Usuario", "Ciudad", "Materia", "Puntaje", "Total", "Fecha"]];
+        const intentosFiltrados = allAttempts.filter(i => {
+             const user = allUsers.find(u => u.usuario === i.usuario_id);
+             return user && (filtroMateria.value === 'Todas' || i.materia === filtroMateria.value);
+        });
+        intentosFiltrados.forEach(i => {
+             const user = allUsers.find(u => u.usuario === i.usuario_id);
+             data.push([user.nombre, user.usuario, user.ciudad, i.materia, i.puntaje, i.total_preguntas, formatFecha(i.created_at)]);
+        });
+        generarYDescargarCSV(data, "reporte_general.csv");
+    }
     
-    // (IMPORTANTE) Lógica PDF individual 
     function descargarPDFUsuario(event) {
         event.stopPropagation();
         const userId = event.currentTarget.dataset.userid;
@@ -232,9 +255,10 @@ document.addEventListener('DOMContentLoaded', () => {
         doc.save(`reporte_${usuarioInfo.usuario}.pdf`);
     }
 
-    function descargarPDFGeneral() { /* Lógica PDF general igual que antes */ }
+    function descargarPDFGeneral() { 
+        alert("PDF General en construcción");
+    }
 
-    // Listeners
     filtroCiudad.addEventListener('change', renderizarListaUsuarios);
     filtroMateria.addEventListener('change', renderizarListaUsuarios);
     filtroNombre.addEventListener('input', renderizarListaUsuarios);
