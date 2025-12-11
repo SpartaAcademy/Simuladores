@@ -1,15 +1,16 @@
 // JS/script-simulador.js
 
+// Importar la librería de Supabase
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
 
-// (ACTUALIZADO) TUS NUEVAS CREDENCIALES
+// Inicializar Supabase
 const supabaseUrl = 'https://vwfpjvfjmmwmrqqahooi.supabase.co';
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZ3ZnBqdmZqbW13bXJxcWFob29pIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU0NzkyNTcsImV4cCI6MjA4MTA1NTI1N30.pTc8KM-GnxVRgrYpcqm8YUZ9zb6Co-QgKT0i7W41HEA';
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- REFERENCIAS DOM ---
+    // --- 1. REFERENCIAS ---
     const lobbyContainer = document.getElementById('lobby-container');
     const simuladorContainer = document.getElementById('simulador-container');
     const resultadosContainer = document.getElementById('resultados-container');
@@ -38,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const confirmarModalBtn = document.getElementById('confirmar-modal-btn');
     const modalBotones = document.querySelector('.modal-botones');
 
-    // --- VARIABLES ---
+    // --- 2. VARIABLES GLOBALES ---
     let preguntasPorMateria = {};
     let preguntasQuiz = [];
     let respuestasUsuario = [];
@@ -47,8 +48,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let tiempoRestanteSeg;
     let TOTAL_PREGUNTAS_QUIZ = 50;
 
-    // LISTA MAESTRA DE MATERIAS
+    // (MODIFICADO) Lista de materias incluyendo ESMIL
     const materias = {
+        // Policía Nacional
         'sociales': 'Ciencias Sociales',
         'matematicas': 'Matemáticas y Física',
         'lengua': 'Lengua y Literatura',
@@ -56,12 +58,12 @@ document.addEventListener('DOMContentLoaded', () => {
         'general': 'General (Todas)',
         'inteligencia': 'Inteligencia',
         'personalidad': 'Personalidad',
-        // PPNN
         'ppnn1': 'Cuestionario 1 PPNN',
         'ppnn2': 'Cuestionario 2 PPNN',
         'ppnn3': 'Cuestionario 3 PPNN',
         'ppnn4': 'Cuestionario 4 PPNN',
-        // ESMIL
+        
+        // Fuerzas Armadas (ESMIL)
         'sociales_esmil': 'Ciencias Sociales (ESMIL)',
         'matematicas_esmil': 'Matemáticas y Física (ESMIL)',
         'lengua_esmil': 'Lengua y Literatura (ESMIL)',
@@ -72,37 +74,43 @@ document.addEventListener('DOMContentLoaded', () => {
     const ordenGeneralPolicia = ['sociales', 'matematicas', 'lengua', 'ingles'];
     const ordenGeneralEsmil = ['sociales_esmil', 'matematicas_esmil', 'lengua_esmil', 'ingles_esmil'];
     
-    // --- INICIALIZACIÓN ---
+    // --- 3. INICIALIZACIÓN ---
     function inicializar() {
         const params = new URLSearchParams(window.location.search);
         const materiaKey = params.get('materia') || 'sociales';
         
         let nombreMateria = materias[materiaKey];
         if (!nombreMateria) {
-            nombreMateria = "Materia Desconocida";
+            if (materiaKey.startsWith('ppnn')) {
+                nombreMateria = `Cuestionario ${materiaKey.replace('ppnn', '')} PPNN`;
+            } else {
+                nombreMateria = 'Desconocida';
+            }
         }
 
-        if (tituloMateria) tituloMateria.textContent = `SIMULADOR DE: ${nombreMateria.toUpperCase()}`;
-        if (lobbyMateria) lobbyMateria.textContent = nombreMateria;
+        tituloMateria.textContent = `SIMULADOR DE: ${nombreMateria.toUpperCase()}`;
+        lobbyMateria.textContent = nombreMateria;
 
-        if (lobbyContainer) lobbyContainer.style.display = 'block';
-        if (simuladorContainer) simuladorContainer.style.display = 'none';
-        if (resultadosContainer) resultadosContainer.style.display = 'none';
+        lobbyContainer.style.display = 'block';
+        simuladorContainer.style.display = 'none';
+        resultadosContainer.style.display = 'none';
 
-        let quizDurationSeconds = 60 * 60; 
-        let lobbyTiempoTexto = "1 Hora (60 Minutos)";
+        let quizDurationSeconds;
+        let lobbyTiempoTexto;
 
-        // Configuración de Tiempos e Instrucciones
+        // Lógica de Tiempos y Configuración
         if (materiaKey.startsWith('ppnn')) {
-            quizDurationSeconds = 60 * 60;
+            quizDurationSeconds = 60 * 60; 
+            lobbyTiempoTexto = "1 Hora (60 Minutos)";
+            // TOTAL_PREGUNTAS_QUIZ se define al cargar el JSON
             
+            // Ajuste de instrucciones para PPNN
             const h3Puntajes = lobbyContainer.querySelector('h3');
             const ulPuntajes = lobbyContainer.querySelector('ul');
             const pImportante = lobbyContainer.querySelector('p[style*="font-weight: 600"]');
-            if (h3Puntajes) h3Puntajes.style.display = 'none'; 
-            if (ulPuntajes) ulPuntajes.style.display = 'none';
-            if (pImportante) pImportante.style.display = 'none';
-            
+            if (h3Puntajes) h3Puntajes.remove();
+            if (ulPuntajes) ulPuntajes.remove();
+            if (pImportante) pImportante.remove();
             const hr = lobbyContainer.querySelector('hr');
             if (hr && !lobbyContainer.querySelector('.instrucciones-ppnn')) {
                 const newInstructions = document.createElement('p');
@@ -110,13 +118,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 newInstructions.innerHTML = '<strong>INSTRUCCIONES.-</strong> Mediante esta prueba se persigue que pienses rápido y eficazmente. Cada reactivo está seguido generalmente de cinco respuestas, de las cuales debes escoger la mejor.';
                 hr.after(newInstructions);
             }
-        } else if (materiaKey.includes('matematicas')) {
+
+        } else if (materiaKey === 'matematicas' || materiaKey === 'matematicas_esmil') {
             quizDurationSeconds = 90 * 60;
             lobbyTiempoTexto = "1 Hora y 30 Minutos (90 Minutos)";
-        } else if (materiaKey.includes('general')) {
+            TOTAL_PREGUNTAS_QUIZ = 50;
+
+        } else if (materiaKey === 'general' || materiaKey === 'general_esmil') {
             quizDurationSeconds = 180 * 60;
             lobbyTiempoTexto = "3 Horas (180 Minutos)";
             TOTAL_PREGUNTAS_QUIZ = 200;
+
+        } else { // Default
+            quizDurationSeconds = 60 * 60;
+            lobbyTiempoTexto = "1 Hora (60 Minutos)";
+            TOTAL_PREGUNTAS_QUIZ = 50;
         }
 
         tiempoRestanteSeg = quizDurationSeconds;
@@ -137,11 +153,34 @@ document.addEventListener('DOMContentLoaded', () => {
         retryBtn.addEventListener('click', () => { location.reload(); });
     }
 
-    // --- CARGA ---
+    // --- 4. LÓGICA DE PRECARGA ---
+    async function precargarImagenes(listaPreguntas) {
+        if (!listaPreguntas || listaPreguntas.length === 0) return Promise.resolve();
+        const promesasDeImagenes = [];
+        let urlsUnicas = new Set();
+        listaPreguntas.forEach(pregunta => {
+            if (pregunta.imagen) urlsUnicas.add(pregunta.imagen);
+        });
+        if (urlsUnicas.size === 0) return Promise.resolve();
+        console.log(`Precargando ${urlsUnicas.size} imágenes únicas...`);
+        urlsUnicas.forEach(url => {
+            const promesa = new Promise((resolve, reject) => {
+                const img = new Image();
+                img.src = url;
+                img.onload = resolve;
+                img.onerror = reject;
+            });
+            promesasDeImagenes.push(promesa);
+        });
+        return Promise.all(promesasDeImagenes);
+    }
+
+    // --- 5. LÓGICA DE CARGA ---
     async function cargarPreguntas(materia) {
         preguntasPorMateria = {};
         let materiasACargar = [];
 
+        // (MODIFICADO) Determina qué JSONs cargar según si es General Policia o General ESMIL
         if (materia === 'general') {
             materiasACargar = ordenGeneralPolicia;
         } else if (materia === 'general_esmil') {
@@ -154,13 +193,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const promesas = materiasACargar.map(m =>
                 fetch(`DATA/preguntas_${m}.json`)
                     .then(res => {
-                        if (!res.ok) throw new Error(`Archivo no encontrado: preguntas_${m}.json`);
+                        if (!res.ok) return Promise.reject(`Fallo al cargar ${m}.json`);
                         return res.json();
                     })
                     .then(data => ({ materia: m, preguntas: data }))
             );
             const resultados = await Promise.all(promesas);
-            
             let totalPreguntasCargadas = 0;
             let todasLasPreguntasParaPrecarga = [];
             
@@ -169,78 +207,103 @@ document.addEventListener('DOMContentLoaded', () => {
                 totalPreguntasCargadas += res.preguntas.length;
                 todasLasPreguntasParaPrecarga = todasLasPreguntasParaPrecarga.concat(res.preguntas);
             });
+             if (totalPreguntasCargadas === 0) throw new Error("No se cargaron preguntas.");
 
             const params = new URLSearchParams(window.location.search);
             const materiaKey = params.get('materia');
             
-            // Ajuste total para PPNN
+            // Ajuste final de total preguntas si es PPNN
             if (materiaKey.startsWith('ppnn')) {
                 TOTAL_PREGUNTAS_QUIZ = totalPreguntasCargadas;
                 if (document.getElementById('lobby-preguntas')) 
                     document.getElementById('lobby-preguntas').textContent = TOTAL_PREGUNTAS_QUIZ;
             }
             
-            await precargarImagenes(todasLasPreguntasParaPrecarga);
-            
-            comenzarBtn.disabled = false;
-            comenzarBtn.textContent = 'Comenzar Intento';
-            comenzarBtn.onclick = iniciarIntento;
-
+             await precargarImagenes(todasLasPreguntasParaPrecarga);
+             console.log("¡Imágenes precargadas con éxito!");
+             comenzarBtn.disabled = false;
+             comenzarBtn.textContent = 'Comenzar Intento';
+             comenzarBtn.addEventListener('click', iniciarIntento);
         } catch (error) {
             console.error("Error cargando recursos:", error);
-            if (materia === 'inteligencia') { 
+            // Si es inteligencia y falla, asumimos que no existe aún
+            if (materia === 'inteligencia' && !error.message.includes('Fallo al cargar')) {
                  comenzarBtn.disabled = false;
                  comenzarBtn.textContent = 'Comenzar Intento';
-                 comenzarBtn.onclick = iniciarIntento;
+                 comenzarBtn.addEventListener('click', iniciarIntento);
             } else {
-                alert(`Error al cargar: ${error.message}. Verifica que el archivo JSON esté en la carpeta DATA.`);
-                comenzarBtn.textContent = 'Error: Faltan archivos';
+                alert(`Error al cargar: ${error.message}. Verifica que los archivos .json existan en la carpeta DATA.`);
+                comenzarBtn.textContent = 'Error al Cargar';
             }
         }
     }
     
-    // --- PREPARAR QUIZ ---
+    // (MODIFICADO)
     function prepararQuiz() {
         const params = new URLSearchParams(window.location.search);
         const materiaKey = params.get('materia') || 'sociales';
         preguntasQuiz = [];
         
-        // General (Mezcla de materias)
-        if (materiaKey.includes('general')) {
+        // Lógica para GENERAL (Policía o ESMIL)
+        if (materiaKey === 'general' || materiaKey === 'general_esmil') {
+            let contadorPreguntas = 0;
+            TOTAL_PREGUNTAS_QUIZ = 0; 
+            
+            // Decide qué lista usar
             const listaOrden = (materiaKey === 'general') ? ordenGeneralPolicia : ordenGeneralEsmil;
+
             listaOrden.forEach(materia => {
                 if (preguntasPorMateria[materia] && preguntasPorMateria[materia].length > 0) {
-                    const preguntasBarajadas = [...preguntasPorMateria[materia]].sort(() => Math.random() - 0.5);
-                    const seleccion = preguntasBarajadas.slice(0, 50); 
-                    preguntasQuiz = preguntasQuiz.concat(seleccion);
+                    const preguntasMateriaBarajadas = [...preguntasPorMateria[materia]].sort(() => Math.random() - 0.5);
+                    const preguntasSeleccionadas = preguntasMateriaBarajadas.slice(0, 50); // Toma 50 de cada una
+                    preguntasQuiz = preguntasQuiz.concat(preguntasSeleccionadas);
+                    contadorPreguntas += preguntasSeleccionadas.length;
+                } else {
+                    console.warn(`No hay preguntas cargadas para ${materia}.`);
                 }
             });
-            TOTAL_PREGUNTAS_QUIZ = preguntasQuiz.length;
+            TOTAL_PREGUNTAS_QUIZ = contadorPreguntas;
         
-        // PPNN (Todas las preguntas)
         } else if (materiaKey.startsWith('ppnn')) {
-            if (preguntasPorMateria[materiaKey]) {
+            // Lógica para PPNN (Todas las preguntas)
+            if (preguntasPorMateria[materiaKey] && preguntasPorMateria[materiaKey].length > 0) {
                 preguntasQuiz = [...preguntasPorMateria[materiaKey]].sort(() => Math.random() - 0.5);
                 TOTAL_PREGUNTAS_QUIZ = preguntasQuiz.length;
+            } else {
+                 console.error(`No hay preguntas cargadas para la materia ${materiaKey}`);
+                 preguntasQuiz = [];
+                 TOTAL_PREGUNTAS_QUIZ = 0;
             }
 
-        // Individuales (50 preguntas)
         } else { 
-             if (preguntasPorMateria[materiaKey]) {
+            // Lógica para Materias Individuales (50 preguntas)
+             if (preguntasPorMateria[materiaKey] && preguntasPorMateria[materiaKey].length > 0) {
                 const preguntasBarajadas = [...preguntasPorMateria[materiaKey]].sort(() => Math.random() - 0.5);
                 preguntasQuiz = preguntasBarajadas.slice(0, 50);
                 TOTAL_PREGUNTAS_QUIZ = preguntasQuiz.length;
+            } else {
+                 console.error(`No hay preguntas cargadas para la materia ${materiaKey}`);
+                 preguntasQuiz = [];
+                 TOTAL_PREGUNTAS_QUIZ = 0;
             }
         }
          
+         if (lobbyPreguntasDisplay) lobbyPreguntasDisplay.textContent = TOTAL_PREGUNTAS_QUIZ;
          respuestasUsuario = new Array(TOTAL_PREGUNTAS_QUIZ).fill(null);
     }
     
-    // --- LÓGICA DE SIMULACIÓN ---
+    // --- 6. LÓGICA DEL SIMULADOR (Sin cambios significativos) ---
     function iniciarIntento() {
         prepararQuiz();
         if (preguntasQuiz.length === 0) { 
-            alert("No hay preguntas disponibles. Verifica los archivos JSON.");
+            const params = new URLSearchParams(window.location.search);
+            const materiaKey = params.get('materia');
+            if(materiaKey === 'inteligencia' && (!preguntasPorMateria['inteligencia'] || preguntasPorMateria['inteligencia'].length === 0)) {
+                alert("El simulador de Inteligencia aún no está disponible. Próximamente.");
+                window.location.href = 'index.html';
+            } else {
+                alert("No se cargaron preguntas para iniciar. Verifique los archivos .json.");
+            }
             return; 
         }
         lobbyContainer.style.display = 'none';
@@ -281,6 +344,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (indice < 0 || indice >= TOTAL_PREGUNTAS_QUIZ) return;
         indicePreguntaActual = indice;
         const pregunta = preguntasQuiz[indice];
+        if (!pregunta) {
+             console.error(`Intento de mostrar pregunta inválida en índice ${indice}`);
+             if(indice < TOTAL_PREGUNTAS_QUIZ - 1) irPreguntaSiguiente();
+             else finalizarIntento(false);
+             return;
+        }
         preguntaNumero.textContent = `Pregunta ${indice + 1}`;
         let preguntaHTML = `<span>${pregunta.pregunta}</span>`;
         if (pregunta.imagen) {
@@ -330,7 +399,7 @@ document.addEventListener('DOMContentLoaded', () => {
         modalOverlay.style.display = 'flex';
     }
     
-    // GUARDAR EN SUPABASE (Aquí fallaba antes)
+    // Función para guardar en Supabase
     async function guardarResultadoEnSupabase(resultado) {
         try {
             retryBtn.disabled = true;
@@ -349,17 +418,21 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 ]);
             
-            if (error) throw error;
-            console.log("Resultado guardado correctamente");
+            if (error) {
+                throw error;
+            }
+            
+            console.log("Resultado guardado en Supabase:", data);
         } catch (error) {
-            console.error("Error al guardar:", error.message);
+            console.error("Error al guardar resultado en Supabase:", error.message);
+             alert("¡Error! No se pudo guardar tu resultado en el servidor.");
         } finally {
             retryBtn.disabled = false;
             reiniciarBtn.disabled = false;
         }
     }
 
-    // FINALIZAR
+    // --- 7. LÓGICA DE FINALIZACIÓN Y RESULTADOS ---
     function finalizarIntento(porTiempo = false) {
         clearInterval(cronometroInterval);
         if (porTiempo) {
@@ -379,12 +452,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const { puntaje, correctas, incorrectas, enBlanco } = calcularResultados();
         
         try {
-            const userInfoStr = sessionStorage.getItem('userInfo');
-            const userInfo = userInfoStr ? JSON.parse(userInfoStr) : null;
-
+            const userInfo = getUserInfo(); // {usuario, nombre, rol, ciudad}
             const params = new URLSearchParams(window.location.search);
             const materiaKey = params.get('materia') || 'sociales';
-            const nombreMateria = materias[materiaKey] || materiaKey;
+            const nombreMateria = materias[materiaKey] || `Materia: ${materiaKey}`; // Fallback nombre
 
             if (userInfo && userInfo.usuario) {
                 const result = {
@@ -393,13 +464,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     materia: nombreMateria,
                     puntaje: puntaje,
                     total_preguntas: TOTAL_PREGUNTAS_QUIZ,
-                    ciudad: userInfo.ciudad || 'N/A'
+                    ciudad: userInfo.ciudad
                 };
                 
                 await guardarResultadoEnSupabase(result);
             }
         } catch (e) {
-            console.error("Error al guardar:", e);
+            console.error("Error al obtener info de usuario para guardar:", e);
         }
 
         mostrarRevision(puntaje, correctas, incorrectas, enBlanco);
@@ -415,6 +486,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (respUser === null) enBlanco++;
                 else if (respUser === respCorrecta) { correctas++; puntaje += puntosPorPregunta; }
                 else incorrectas++;
+            } else {
+                 console.error("Error: Pregunta no encontrada en índice", i, "durante el cálculo.");
+                 enBlanco++;
             }
         }
         puntaje = Math.round(puntaje);
@@ -455,7 +529,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    function precargarImagenes(lista) { return Promise.resolve(); }
-
+    // --- KICKOFF ---
     inicializar();
 });
