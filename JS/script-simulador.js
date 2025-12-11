@@ -2,14 +2,14 @@
 
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
 
-// (ACTUALIZADO) Tus nuevas credenciales
+// TUS CREDENCIALES NUEVAS
 const supabaseUrl = 'https://scfbvwqkgtyflzwcasqv.supabase.co';
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNjZmJ2d3FrZ3R5Zmx6d2Nhc3F2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM1Njc3OTYsImV4cCI6MjA3OTE0Mzc5Nn0.xilfVrz6wfG1IfJeqggKKBYR-kDO1zT36CUNQCoxXnM';
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- REFERENCIAS ---
+    // REFERENCIAS
     const lobbyContainer = document.getElementById('lobby-container');
     const simuladorContainer = document.getElementById('simulador-container');
     const resultadosContainer = document.getElementById('resultados-container');
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const confirmarModalBtn = document.getElementById('confirmar-modal-btn');
     const modalBotones = document.querySelector('.modal-botones');
 
-    // --- VARIABLES GLOBALES ---
+    // VARIABLES
     let preguntasPorMateria = {};
     let preguntasQuiz = [];
     let respuestasUsuario = [];
@@ -47,25 +47,20 @@ document.addEventListener('DOMContentLoaded', () => {
     let tiempoRestanteSeg;
     let TOTAL_PREGUNTAS_QUIZ = 50;
 
-    // (IMPORTANTE) Lista maestra de TODAS las materias
+    // LISTA DE TODAS LAS MATERIAS (Policia, ESMIL, PPNN)
     const materias = {
-        // Académicas Policia
         'sociales': 'Ciencias Sociales',
         'matematicas': 'Matemáticas y Física',
         'lengua': 'Lengua y Literatura',
         'ingles': 'Inglés',
         'general': 'General (Todas)',
-        
-        // Psicológicas
         'inteligencia': 'Inteligencia',
         'personalidad': 'Personalidad',
-        
         // PPNN
         'ppnn1': 'Cuestionario 1 PPNN',
         'ppnn2': 'Cuestionario 2 PPNN',
         'ppnn3': 'Cuestionario 3 PPNN',
         'ppnn4': 'Cuestionario 4 PPNN',
-        
         // ESMIL
         'sociales_esmil': 'Ciencias Sociales (ESMIL)',
         'matematicas_esmil': 'Matemáticas y Física (ESMIL)',
@@ -77,40 +72,42 @@ document.addEventListener('DOMContentLoaded', () => {
     const ordenGeneralPolicia = ['sociales', 'matematicas', 'lengua', 'ingles'];
     const ordenGeneralEsmil = ['sociales_esmil', 'matematicas_esmil', 'lengua_esmil', 'ingles_esmil'];
     
-    // --- INICIALIZACIÓN ---
+    // INICIALIZACIÓN
     function inicializar() {
         const params = new URLSearchParams(window.location.search);
         const materiaKey = params.get('materia') || 'sociales';
         
-        // Recuperar nombre de la materia
         let nombreMateria = materias[materiaKey];
-        
-        // Si no existe en la lista, poner un nombre por defecto para que no salga vacío
         if (!nombreMateria) {
-            nombreMateria = "Materia Desconocida (" + materiaKey + ")";
+            if (materiaKey.startsWith('ppnn')) {
+                nombreMateria = `Cuestionario ${materiaKey.replace('ppnn', '')} PPNN`;
+            } else {
+                nombreMateria = 'Desconocida';
+            }
         }
 
-        // Poner títulos en el HTML
-        if (tituloMateria) tituloMateria.textContent = `SIMULADOR DE: ${nombreMateria.toUpperCase()}`;
-        if (lobbyMateria) lobbyMateria.textContent = nombreMateria;
+        // Si esto falla es porque el script no se cargó como module o hay un error de sintaxis antes
+        if(tituloMateria) tituloMateria.textContent = `SIMULADOR DE: ${nombreMateria.toUpperCase()}`;
+        if(lobbyMateria) lobbyMateria.textContent = nombreMateria;
 
-        lobbyContainer.style.display = 'block';
-        simuladorContainer.style.display = 'none';
-        resultadosContainer.style.display = 'none';
+        if(lobbyContainer) lobbyContainer.style.display = 'block';
+        if(simuladorContainer) simuladorContainer.style.display = 'none';
+        if(resultadosContainer) resultadosContainer.style.display = 'none';
 
-        let quizDurationSeconds = 60 * 60; // 1 Hora por defecto
+        let quizDurationSeconds = 60 * 60; 
         let lobbyTiempoTexto = "1 Hora (60 Minutos)";
 
-        // Configuración de tiempos
+        // Lógica de tiempos e instrucciones
         if (materiaKey.startsWith('ppnn')) {
-            // Ajustes visuales para PPNN
+            quizDurationSeconds = 60 * 60;
+            
             const h3Puntajes = lobbyContainer.querySelector('h3');
             const ulPuntajes = lobbyContainer.querySelector('ul');
             const pImportante = lobbyContainer.querySelector('p[style*="font-weight: 600"]');
-            if (h3Puntajes) h3Puntajes.style.display = 'none'; 
+            if (h3Puntajes) h3Puntajes.style.display = 'none';
             if (ulPuntajes) ulPuntajes.style.display = 'none';
             if (pImportante) pImportante.style.display = 'none';
-            
+
             const hr = lobbyContainer.querySelector('hr');
             if (hr && !lobbyContainer.querySelector('.instrucciones-ppnn')) {
                 const newInstructions = document.createElement('p');
@@ -137,7 +134,6 @@ document.addEventListener('DOMContentLoaded', () => {
         
         cargarPreguntas(materiaKey);
 
-        // Listeners
         siguienteBtn.addEventListener('click', irPreguntaSiguiente);
         terminarIntentoBtn.addEventListener('click', confirmarTerminarIntento);
         reiniciarBtn.addEventListener('click', () => { window.location.href = 'index.html'; });
@@ -146,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
         retryBtn.addEventListener('click', () => { location.reload(); });
     }
 
-    // --- CARGA DE PREGUNTAS ---
+    // CARGA
     async function cargarPreguntas(materia) {
         preguntasPorMateria = {};
         let materiasACargar = [];
@@ -179,9 +175,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 todasLasPreguntasParaPrecarga = todasLasPreguntasParaPrecarga.concat(res.preguntas);
             });
 
-            // Ajuste total preguntas PPNN
             const params = new URLSearchParams(window.location.search);
-            if (params.get('materia').startsWith('ppnn')) {
+            const materiaKey = params.get('materia');
+            
+            if (materiaKey.startsWith('ppnn')) {
                 TOTAL_PREGUNTAS_QUIZ = totalPreguntasCargadas;
                 if (document.getElementById('lobby-preguntas')) 
                     document.getElementById('lobby-preguntas').textContent = TOTAL_PREGUNTAS_QUIZ;
@@ -191,22 +188,28 @@ document.addEventListener('DOMContentLoaded', () => {
             
             comenzarBtn.disabled = false;
             comenzarBtn.textContent = 'Comenzar Intento';
-            comenzarBtn.onclick = iniciarIntento; // Asignación directa para asegurar funcionamiento
+            comenzarBtn.onclick = iniciarIntento; 
 
         } catch (error) {
             console.error("Error cargando recursos:", error);
-            alert(`Error: No se pudo cargar el archivo de preguntas. Asegúrate de haber subido el archivo JSON correcto a la carpeta DATA. \n\nDetalle: ${error.message}`);
-            comenzarBtn.textContent = 'Error: Faltan archivos';
+            if (materia === 'inteligencia') {
+                 // Si no existe inteligencia, permitir entrar igual (como estaba antes)
+                 comenzarBtn.disabled = false;
+                 comenzarBtn.textContent = 'Comenzar Intento';
+                 comenzarBtn.onclick = iniciarIntento;
+            } else {
+                alert(`Error al cargar: ${error.message}. Verifica que los archivos JSON estén en la carpeta DATA.`);
+                comenzarBtn.textContent = 'Error: Faltan archivos';
+            }
         }
     }
     
-    // --- PREPARAR QUIZ ---
+    // PREPARAR
     function prepararQuiz() {
         const params = new URLSearchParams(window.location.search);
         const materiaKey = params.get('materia') || 'sociales';
         preguntasQuiz = [];
         
-        // General
         if (materiaKey.includes('general')) {
             let contadorPreguntas = 0;
             const listaOrden = (materiaKey === 'general') ? ordenGeneralPolicia : ordenGeneralEsmil;
@@ -220,14 +223,12 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             TOTAL_PREGUNTAS_QUIZ = preguntasQuiz.length;
         
-        // PPNN (Todas)
         } else if (materiaKey.startsWith('ppnn')) {
             if (preguntasPorMateria[materiaKey]) {
                 preguntasQuiz = [...preguntasPorMateria[materiaKey]].sort(() => Math.random() - 0.5);
                 TOTAL_PREGUNTAS_QUIZ = preguntasQuiz.length;
             }
 
-        // Individuales (50)
         } else { 
              if (preguntasPorMateria[materiaKey]) {
                 const preguntasBarajadas = [...preguntasPorMateria[materiaKey]].sort(() => Math.random() - 0.5);
@@ -239,11 +240,11 @@ document.addEventListener('DOMContentLoaded', () => {
          respuestasUsuario = new Array(TOTAL_PREGUNTAS_QUIZ).fill(null);
     }
     
-    // --- LÓGICA DEL JUEGO ---
+    // INICIAR
     function iniciarIntento() {
         prepararQuiz();
         if (preguntasQuiz.length === 0) { 
-            alert("No hay preguntas disponibles para este simulador.");
+            alert("No hay preguntas disponibles. Verifica los archivos JSON.");
             return; 
         }
         lobbyContainer.style.display = 'none';
@@ -357,7 +358,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log("Resultado guardado correctamente");
         } catch (error) {
             console.error("Error al guardar:", error.message);
-             // No alertamos al usuario para no interrumpir, pero logueamos
+            // No alertamos para no molestar, pero queda en consola
         } finally {
             retryBtn.disabled = false;
             reiniciarBtn.disabled = false;
@@ -384,7 +385,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const { puntaje, correctas, incorrectas, enBlanco } = calcularResultados();
         
         try {
-            // Recuperar info del usuario de sessionStorage (auth.js)
             const userInfoStr = sessionStorage.getItem('userInfo');
             const userInfo = userInfoStr ? JSON.parse(userInfoStr) : null;
 
@@ -461,8 +461,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- PRECARGA DE IMÁGENES PARA PREVENIR ERRORES ---
-    function precargarImagenes(lista) { /* ... (igual que antes) ... */ }
+    // PRECAGA VACÍA (Para que no falle)
+    function precargarImagenes(lista) { return Promise.resolve(); }
 
     inicializar();
 });
