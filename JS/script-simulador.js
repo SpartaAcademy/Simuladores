@@ -2,7 +2,7 @@
 
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
 
-// TUS CREDENCIALES NUEVAS
+// (ACTUALIZADO) TUS NUEVAS CREDENCIALES
 const supabaseUrl = 'https://scfbvwqkgtyflzwcasqv.supabase.co';
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNjZmJ2d3FrZ3R5Zmx6d2Nhc3F2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM1Njc3OTYsImV4cCI6MjA3OTE0Mzc5Nn0.xilfVrz6wfG1IfJeqggKKBYR-kDO1zT36CUNQCoxXnM';
 const supabase = createClient(supabaseUrl, supabaseKey);
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let tiempoRestanteSeg;
     let TOTAL_PREGUNTAS_QUIZ = 50;
 
-    // LISTA DE TODAS LAS MATERIAS (Policia, ESMIL, PPNN)
+    // LISTA COMPLETA DE MATERIAS
     const materias = {
         'sociales': 'Ciencias Sociales',
         'matematicas': 'Matemáticas y Física',
@@ -86,28 +86,25 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // Si esto falla es porque el script no se cargó como module o hay un error de sintaxis antes
-        if(tituloMateria) tituloMateria.textContent = `SIMULADOR DE: ${nombreMateria.toUpperCase()}`;
-        if(lobbyMateria) lobbyMateria.textContent = nombreMateria;
+        if (tituloMateria) tituloMateria.textContent = `SIMULADOR DE: ${nombreMateria.toUpperCase()}`;
+        if (lobbyMateria) lobbyMateria.textContent = nombreMateria;
 
-        if(lobbyContainer) lobbyContainer.style.display = 'block';
-        if(simuladorContainer) simuladorContainer.style.display = 'none';
-        if(resultadosContainer) resultadosContainer.style.display = 'none';
+        if (lobbyContainer) lobbyContainer.style.display = 'block';
+        if (simuladorContainer) simuladorContainer.style.display = 'none';
+        if (resultadosContainer) resultadosContainer.style.display = 'none';
 
         let quizDurationSeconds = 60 * 60; 
         let lobbyTiempoTexto = "1 Hora (60 Minutos)";
 
-        // Lógica de tiempos e instrucciones
         if (materiaKey.startsWith('ppnn')) {
             quizDurationSeconds = 60 * 60;
-            
             const h3Puntajes = lobbyContainer.querySelector('h3');
             const ulPuntajes = lobbyContainer.querySelector('ul');
             const pImportante = lobbyContainer.querySelector('p[style*="font-weight: 600"]');
-            if (h3Puntajes) h3Puntajes.style.display = 'none';
+            if (h3Puntajes) h3Puntajes.style.display = 'none'; 
             if (ulPuntajes) ulPuntajes.style.display = 'none';
             if (pImportante) pImportante.style.display = 'none';
-
+            
             const hr = lobbyContainer.querySelector('hr');
             if (hr && !lobbyContainer.querySelector('.instrucciones-ppnn')) {
                 const newInstructions = document.createElement('p');
@@ -142,7 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
         retryBtn.addEventListener('click', () => { location.reload(); });
     }
 
-    // CARGA
+    // CARGA DE PREGUNTAS
     async function cargarPreguntas(materia) {
         preguntasPorMateria = {};
         let materiasACargar = [];
@@ -192,8 +189,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         } catch (error) {
             console.error("Error cargando recursos:", error);
-            if (materia === 'inteligencia') {
-                 // Si no existe inteligencia, permitir entrar igual (como estaba antes)
+            if (materia === 'inteligencia') { 
                  comenzarBtn.disabled = false;
                  comenzarBtn.textContent = 'Comenzar Intento';
                  comenzarBtn.onclick = iniciarIntento;
@@ -204,16 +200,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     
-    // PREPARAR
+    // PREPARAR QUIZ
     function prepararQuiz() {
         const params = new URLSearchParams(window.location.search);
         const materiaKey = params.get('materia') || 'sociales';
         preguntasQuiz = [];
         
         if (materiaKey.includes('general')) {
-            let contadorPreguntas = 0;
             const listaOrden = (materiaKey === 'general') ? ordenGeneralPolicia : ordenGeneralEsmil;
-
             listaOrden.forEach(materia => {
                 if (preguntasPorMateria[materia] && preguntasPorMateria[materia].length > 0) {
                     const preguntasBarajadas = [...preguntasPorMateria[materia]].sort(() => Math.random() - 0.5);
@@ -240,7 +234,7 @@ document.addEventListener('DOMContentLoaded', () => {
          respuestasUsuario = new Array(TOTAL_PREGUNTAS_QUIZ).fill(null);
     }
     
-    // INICIAR
+    // LÓGICA
     function iniciarIntento() {
         prepararQuiz();
         if (preguntasQuiz.length === 0) { 
@@ -335,7 +329,7 @@ document.addEventListener('DOMContentLoaded', () => {
         modalOverlay.style.display = 'flex';
     }
     
-    // GUARDAR EN SUPABASE
+    // GUARDAR
     async function guardarResultadoEnSupabase(resultado) {
         try {
             retryBtn.disabled = true;
@@ -358,14 +352,12 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log("Resultado guardado correctamente");
         } catch (error) {
             console.error("Error al guardar:", error.message);
-            // No alertamos para no molestar, pero queda en consola
         } finally {
             retryBtn.disabled = false;
             reiniciarBtn.disabled = false;
         }
     }
 
-    // FINALIZAR
     function finalizarIntento(porTiempo = false) {
         clearInterval(cronometroInterval);
         if (porTiempo) {
@@ -461,7 +453,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // PRECAGA VACÍA (Para que no falle)
     function precargarImagenes(lista) { return Promise.resolve(); }
 
     inicializar();
