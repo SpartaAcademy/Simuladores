@@ -2,111 +2,48 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <title>Admin Resultados</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sparta Academy - Reporte de Resultados</title>
-    <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="CSS/style-home.css">
     <link rel="stylesheet" href="CSS/style-resultados.css">
-    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;600&family=Work+Sans:wght@400;600&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="JS/auth.js"></script>
+    <link rel="stylesheet" href="CSS/style-main.css"> <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.23/jspdf.plugin.autotable.min.js"></script>
-
-    <script>
-        checkAuth();
-        const userInfo = getUserInfo();
-        if (userInfo && userInfo.rol !== 'admin') {
-            alert("Acceso denegado. Esta página es solo para administradores.");
-            window.location.replace('index.html');
-        }
-    </script>
+    
+    <script src="JS/auth.js"></script>
+    <script>checkAuth();</script>
 </head>
 <body>
     <header>
         <a href="index.html" class="header-main-link">
-            <div class="header-logo"> <img src="logo.png" alt="Sparta Academy Logo"> </div>
-            <div class="header-titulo"> <h1>SPARTA ACADEMY</h1> <h2>REPORTE DE RESULTADOS</h2> </div>
+            <div class="header-logo"><img src="logo.png" alt="Logo"></div>
+            <h1>SPARTA ADMIN</h1>
         </a>
-        <div class="header-spacer"></div>
-        <div class="user-info-container desktop-only">
-            <span id="user-name-display-desktop">Cargando...</span>
-            <div class="dropdown">
-                <button class="dropdown-btn">▼</button>
-                <div class="dropdown-content">
-                    <a href="index.html">Simuladores</a>
-                    <a href="#" id="logout-button-desktop">Cerrar Sesión</a>
-                </div>
-            </div>
-        </div>
-        <button class="hamburger-menu mobile-only" id="hamburger-btn">☰</button>
     </header>
 
-    <div class="side-nav" id="side-nav">
-        <button class="close-nav-btn" id="close-nav-btn">&times;</button>
-        <div class="side-nav-header"> <img src="logo.png" alt="Sparta Logo" class="side-nav-logo"> <h3>Menú Admin</h3> </div>
-        <div class="side-nav-user"> <p id="user-prefix-mobile">Usuario:</p> <p><strong id="user-name-display-mobile">Cargando...</strong></p> </div>
-        <a href="index.html" class="side-nav-link">Simuladores</a>
-        <a href="#" id="logout-button-mobile" class="side-nav-link">Cerrar Sesión</a>
-    </div>
-    <div class="overlay" id="overlay"></div>
-
-    <main class="resultados-main">
-        <h1>Reporte de Intentos de Aspirantes</h1>
+    <main>
+        <h2 style="text-align:center; font-family:'Teko'; font-size:2.5rem;">REPORTE DE INTENTOS</h2>
         
-        <div class="filtros-container">
-            <div class="filtro-grupo">
-                <i class="fas fa-map-marker-alt"></i>
-                <label for="filtro-ciudad">Ciudad:</label>
-                <select id="filtro-ciudad">
-                    <option value="Tulcán">Tulcán</option>
-                    <option value="Ibarra">Ibarra</option>
-                    <option value="Todos">Todas las Ciudades</option>
-                </select>
-            </div>
-            <div class="filtro-grupo">
-                <i class="fas fa-book"></i>
-                <label for="filtro-materia">Materia:</label>
-                <select id="filtro-materia">
-                    <option value="Todas">Todas las Materias</option>
-                    </select>
-            </div>
-            <div class="filtro-grupo filtro-nombre">
-                <i class="fas fa-search"></i>
-                <label for="filtro-nombre">Buscar Nombre:</label>
-                <input type="text" id="filtro-nombre" placeholder="Escriba un nombre...">
-            </div>
-            
-            <button id="descargar-pdf-btn" class="pdf-button">
-                <i class="fas fa-file-pdf"></i> PDF General
-            </button>
-            <button id="descargar-general-csv-btn" class="csv-button">
-                <i class="fas fa-file-excel"></i> CSV General
-            </button>
+        <div class="filtros-container" style="background:white; padding:20px; border-radius:10px; display:flex; gap:15px; justify-content:center; flex-wrap:wrap;">
+            <select id="filtro-ciudad"><option>Todas</option><option>Tulcán</option><option>Ibarra</option></select>
+            <select id="filtro-materia"><option>Todas</option></select>
+            <input id="filtro-nombre" placeholder="Buscar nombre...">
+            <button id="descargar-pdf-btn" style="background:#b22222; color:white; border:none; padding:10px;">PDF</button>
+            <button id="descargar-general-csv-btn" style="background:#28a745; color:white; border:none; padding:10px;">CSV</button>
         </div>
 
-        <div id="loading-spinner" class="spinner"></div>
-        <div id="reporte-container">
-            <p class="no-intentos">Cargando datos de aspirantes...</p>
-        </div>
-
+        <div id="loading-spinner" style="text-align:center; margin:20px;">Cargando...</div>
+        <div id="reporte-container"></div>
     </main>
 
-    <footer>
-        <p>Dir: Calle Bolívar entre Boyacá y Junín</p>
-        <p>Cell: 0989746618 / 0984541920 / 0987451775</p>
-        <p>Email: spartatulcan@gmail.com</p>
-    </footer>
+    <div id="error-modal" class="modal-overlay">
+        <div class="modal-content">
+            <h3 style="color:#d32f2f">Error de Conexión</h3>
+            <p id="error-text"></p>
+            <button class="btn-close-modal" onclick="document.getElementById('error-modal').style.display='none'">Cerrar</button>
+        </div>
+    </div>
 
-    <script src="JS/script-resultados.js" type="module"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            setupUserInfoDropdown();
-            setupMobileMenu();
-        });
-        window.addEventListener('pageshow', function(event) { if (event.persisted) { checkAuth(); } });
-    </script>
+    <script src="JS/script-resultados.js"></script>
 </body>
 </html>
