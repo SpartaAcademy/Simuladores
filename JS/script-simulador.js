@@ -1,26 +1,61 @@
-// CONEXIÓN
+// JS/script-simulador.js
+
+// 1. CONEXIÓN (Credenciales del último mensaje)
 const supabaseUrl = 'https://fgpqioviycmgwypidhcs.supabase.co';
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZncHFpb3ZpeWNtZ3d5cGlkaGNzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU0OTkwMDgsImV4cCI6MjA4MTA3NTAwOH0.5ckdzDtwFRG8JpuW5S-Qi885oOSVESAvbLoNiqePJYo';
 const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Referencias
-    const lobby = document.getElementById('lobby-container');
-    const simulador = document.getElementById('simulador-container');
-    const resultados = document.getElementById('resultados-container');
-    const btnStart = document.getElementById('comenzar-btn');
-    const errorModal = document.getElementById('error-modal');
-    const errorText = document.getElementById('error-text');
-    const btnNext = document.getElementById('siguiente-btn');
-    const navContainer = document.getElementById('navegador-preguntas');
-    
-    let questions = [];
-    let userAnswers = [];
-    let currentIdx = 0;
-    let timerInterval;
-    let timeLeft = 3600;
-    let totalPreguntas = 50;
 
+    // --- REFERENCIAS ---
+    const lobbyContainer = document.getElementById('lobby-container');
+    const simuladorContainer = document.getElementById('simulador-container');
+    const resultadosContainer = document.getElementById('resultados-container');
+    
+    // Textos
+    const tituloMateria = document.getElementById('titulo-materia');
+    const lobbyMateria = document.getElementById('lobby-materia');
+    const lobbyPreguntasDisplay = document.getElementById('lobby-preguntas');
+    const lobbyTiempoDisplay = document.getElementById('lobby-tiempo');
+    
+    // Quiz Elements
+    const comenzarBtn = document.getElementById('comenzar-btn');
+    const cronometroDisplay = document.getElementById('cronometro');
+    const preguntaNumero = document.getElementById('pregunta-numero');
+    const preguntaTexto = document.getElementById('pregunta-texto');
+    const opcionesContainer = document.getElementById('opciones-container');
+    const navegadorPreguntas = document.getElementById('navegador-preguntas');
+    const siguienteBtn = document.getElementById('siguiente-btn');
+    const terminarIntentoBtn = document.getElementById('terminar-intento-btn');
+    
+    // Resultados Elements
+    const puntajeFinalDisplay = document.getElementById('puntaje-final');
+    const statsContestadas = document.getElementById('stats-contestadas');
+    const statsCorrectas = document.getElementById('stats-correctas');
+    const statsIncorrectas = document.getElementById('stats-incorrectas');
+    const statsEnBlanco = document.getElementById('stats-en-blanco');
+    const revisionContainer = document.getElementById('revision-container');
+    
+    // Botones Resultados
+    const reiniciarBtn = document.getElementById('reiniciar-btn');
+    const retryBtn = document.getElementById('retry-btn');
+    
+    // Modales
+    const modalOverlay = document.getElementById('modal-overlay');
+    const modalMensaje = document.getElementById('modal-mensaje');
+    const cancelarModalBtn = document.getElementById('cancelar-modal-btn');
+    const confirmarModalBtn = document.getElementById('confirmar-modal-btn');
+
+    // Variables
+    let preguntasPorMateria = {};
+    let preguntasQuiz = [];
+    let respuestasUsuario = [];
+    let indicePreguntaActual = 0;
+    let cronometroInterval;
+    let tiempoRestanteSeg;
+    let TOTAL_PREGUNTAS_QUIZ = 50;
+
+    // Lista de Materias
     const materias = {
         'sociales': 'Ciencias Sociales', 'matematicas': 'Matemáticas y Física',
         'lengua': 'Lengua y Literatura', 'ingles': 'Inglés', 'general': 'General (Todas)',
@@ -35,214 +70,319 @@ document.addEventListener('DOMContentLoaded', () => {
     const ordenGeneralPolicia = ['sociales', 'matematicas', 'lengua', 'ingles'];
     const ordenGeneralEsmil = ['sociales_esmil', 'matematicas_esmil', 'lengua_esmil', 'ingles_esmil'];
 
-    function showError(msg) {
-        if(errorText) errorText.innerHTML = msg;
-        if(errorModal) errorModal.style.display = 'flex';
-        btnStart.textContent = "Error de Archivos";
-        btnStart.style.background = "#c0392b";
+    // --- INICIALIZACIÓN ---
+    function inicializar() {
+        const params = new URLSearchParams(window.location.search);
+        const materiaKey = params.get('materia') || 'sociales';
+        
+        let nombreMateria = materias[materiaKey];
+        if (!nombreMateria) {
+            if (materiaKey.startsWith('ppnn')) nombreMateria = `Cuestionario ${materiaKey.replace('ppnn', '')} PPNN`;
+            else nombreMateria = 'Desconocida';
+        }
+
+        if(tituloMateria) tituloMateria.textContent = `SIMULADOR DE: ${nombreMateria.toUpperCase()}`;
+        if(lobbyMateria) lobbyMateria.textContent = nombreMateria;
+
+        lobbyContainer.style.display = 'block';
+        simuladorContainer.style.display = 'none';
+        resultadosContainer.style.display = 'none';
+
+        let quizDurationSeconds = 3600; 
+
+        if (materiaKey.startsWith('ppnn')) {
+            quizDurationSeconds = 3600;
+        } else if (materiaKey.includes('matematicas')) {
+            quizDurationSeconds = 5400; 
+        } else if (materiaKey.includes('general')) {
+            quizDurationSeconds = 10800; 
+            TOTAL_PREGUNTAS_QUIZ = 200;
+        }
+
+        tiempoRestanteSeg = quizDurationSeconds;
+        if(lobbyTiempoDisplay) lobbyTiempoDisplay.textContent = Math.floor(quizDurationSeconds/60) + " Minutos";
+        if(lobbyPreguntasDisplay) lobbyPreguntasDisplay.textContent = TOTAL_PREGUNTAS_QUIZ;
+
+        comenzarBtn.disabled = true;
+        comenzarBtn.textContent = 'Cargando recursos...';
+
+        cargarPreguntas(materiaKey);
+
+        // Listeners
+        // IMPORTANTE: Aquí asignamos la función irPreguntaSiguiente al botón "Siguiente"
+        if(siguienteBtn) siguienteBtn.addEventListener('click', irPreguntaSiguiente);
+        if(terminarIntentoBtn) terminarIntentoBtn.addEventListener('click', confirmarTerminarIntento);
+        
+        if(reiniciarBtn) reiniciarBtn.addEventListener('click', () => window.location.href = 'index.html');
+        if(retryBtn) retryBtn.addEventListener('click', () => location.reload());
+        
+        if(cancelarModalBtn) cancelarModalBtn.addEventListener('click', () => modalOverlay.style.display = 'none');
+        if(confirmarModalBtn) confirmarModalBtn.addEventListener('click', () => { 
+            modalOverlay.style.display = 'none'; 
+            finalizarIntento(false); 
+        });
     }
 
-    async function init() {
-        const params = new URLSearchParams(window.location.search);
-        const materiaKey = params.get('materia');
-        const title = materias[materiaKey] || 'Simulador';
-        
-        document.getElementById('titulo-materia').textContent = title.toUpperCase();
-        document.getElementById('lobby-materia').textContent = title;
-        
-        if(materiaKey.includes('matematicas')) timeLeft = 5400; 
-        else if(materiaKey.includes('general')) { timeLeft = 10800; totalPreguntas = 200; }
-        
-        document.getElementById('lobby-tiempo').textContent = Math.floor(timeLeft/60) + " Minutos";
-        document.getElementById('lobby-preguntas').textContent = totalPreguntas;
+    async function cargarPreguntas(materia) {
+        let materiasACargar = [];
+        if (materia === 'general') materiasACargar = ordenGeneralPolicia;
+        else if (materia === 'general_esmil') materiasACargar = ordenGeneralEsmil;
+        else materiasACargar = [materia];
 
         try {
-            let filesToLoad = [];
-            if(materiaKey === 'general') filesToLoad = ordenGeneralPolicia;
-            else if(materiaKey === 'general_esmil') filesToLoad = ordenGeneralEsmil;
-            else filesToLoad = [materiaKey];
-
-            const promises = filesToLoad.map(m => 
-                fetch(`DATA/preguntas_${m}.json`).then(r => {
-                    if(!r.ok) throw new Error(`Falta el archivo: <b>DATA/preguntas_${m}.json</b>`);
-                    return r.json();
+            const promesas = materiasACargar.map(m =>
+                fetch(`DATA/preguntas_${m}.json`).then(res => {
+                    if (!res.ok) throw new Error(`Fallo al cargar ${m}.json`);
+                    return res.json();
                 })
             );
+            const resultados = await Promise.all(promesas);
+            let totalPreguntasCargadas = 0;
+            let todas = [];
 
-            const results = await Promise.all(promises);
-            let allQ = [];
-            results.forEach(d => allQ = allQ.concat(d));
+            resultados.forEach(data => {
+                todas = todas.concat(data);
+            });
+            totalPreguntasCargadas = todas.length;
 
-            if(materiaKey.startsWith('ppnn')) {
-                questions = allQ.sort(() => 0.5 - Math.random());
-                totalPreguntas = questions.length;
-                document.getElementById('lobby-preguntas').textContent = totalPreguntas;
-            } else if (materiaKey.includes('general')) {
-                questions = allQ.sort(() => 0.5 - Math.random()).slice(0, 200);
-            } else {
-                questions = allQ.sort(() => 0.5 - Math.random()).slice(0, 50);
+            if (totalPreguntasCargadas === 0) throw new Error("No se cargaron preguntas.");
+
+            if (materia.startsWith('ppnn')) {
+                TOTAL_PREGUNTAS_QUIZ = totalPreguntasCargadas;
+                if(lobbyPreguntasDisplay) lobbyPreguntasDisplay.textContent = TOTAL_PREGUNTAS_QUIZ;
             }
 
-            if(questions.length === 0) throw new Error("Archivo vacío.");
-
-            btnStart.disabled = false;
-            btnStart.textContent = 'COMENZAR INTENTO';
-            btnStart.onclick = startQuiz;
-
-        } catch (e) {
-            showError(e.message);
+            preguntasPorMateria[materia] = todas;
+            
+            comenzarBtn.disabled = false;
+            comenzarBtn.textContent = 'COMENZAR INTENTO';
+            comenzarBtn.addEventListener('click', () => iniciarIntento(materia));
+        } catch (error) {
+            console.error(error);
+            alert("Error cargando preguntas. Verifica la consola.");
         }
     }
 
-    function startQuiz() {
-        lobby.style.display = 'none';
-        simulador.style.display = window.innerWidth > 900 ? 'grid' : 'block';
-        userAnswers = new Array(questions.length).fill(null);
+    function iniciarIntento(materiaKey) {
+        let pool = preguntasPorMateria[materiaKey];
+        if(!pool) return;
+
+        if (materiaKey.startsWith('ppnn')) {
+             preguntasQuiz = pool.sort(() => Math.random() - 0.5);
+        } else if (materiaKey.includes('general')) {
+             preguntasQuiz = pool.sort(() => Math.random() - 0.5).slice(0, TOTAL_PREGUNTAS_QUIZ);
+        } else {
+             preguntasQuiz = pool.sort(() => Math.random() - 0.5).slice(0, 50);
+        }
         
-        renderNav();
-        showQ(0);
+        respuestasUsuario = new Array(preguntasQuiz.length).fill(null);
         
-        timerInterval = setInterval(() => {
-            timeLeft--;
-            const m = Math.floor(timeLeft/60).toString().padStart(2,'0');
-            const s = (timeLeft%60).toString().padStart(2,'0');
-            document.getElementById('cronometro').textContent = `${m}:${s}`;
-            if(timeLeft<=0) finish();
+        lobbyContainer.style.display = 'none';
+        simuladorContainer.style.display = 'flex'; 
+        
+        construirNavegador();
+        mostrarPregunta(0);
+        iniciarCronometro();
+    }
+
+    function iniciarCronometro() {
+        clearInterval(cronometroInterval);
+        function formatTime(totalSeconds) {
+            const m = Math.floor(totalSeconds / 60);
+            const s = totalSeconds % 60;
+            return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+        }
+        if(cronometroDisplay) cronometroDisplay.textContent = formatTime(tiempoRestanteSeg);
+        cronometroInterval = setInterval(() => {
+            tiempoRestanteSeg--;
+            if(cronometroDisplay) cronometroDisplay.textContent = formatTime(tiempoRestanteSeg);
+            if (tiempoRestanteSeg <= 0) { finalizarIntento(true); }
         }, 1000);
     }
 
-    function showQ(idx) {
-        currentIdx = idx;
-        const q = questions[idx];
-        document.getElementById('pregunta-numero').textContent = `Pregunta ${idx+1}`;
-        document.getElementById('pregunta-texto').textContent = q.pregunta;
-        
-        const imgDiv = document.getElementById('q-image-container');
-        imgDiv.innerHTML = q.imagen ? `<img src="${q.imagen}" onerror="this.style.display='none'" class="pregunta-imagen">` : '';
+    // --- AQUÍ ESTÁ LA LÓGICA LINEAL Y VISUALIZACIÓN ---
+    function construirNavegador() {
+        navegadorPreguntas.innerHTML = '';
+        for (let i = 0; i < TOTAL_PREGUNTAS_QUIZ; i++) {
+            const btn = document.createElement('button');
+            btn.className = 'nav-dot'; // Usamos tu clase nav-dot
+            btn.textContent = i + 1;
+            btn.dataset.indice = i;
+            // IMPORTANTE: No agregamos evento onclick para bloquear el regreso
+            btn.style.cursor = 'default'; 
+            navegadorPreguntas.appendChild(btn);
+        }
+    }
 
-        const opts = document.getElementById('opciones-container');
-        opts.innerHTML = '';
-        q.opciones.forEach(op => {
+    function mostrarPregunta(indice) {
+        indicePreguntaActual = indice;
+        const pregunta = preguntasQuiz[indice];
+        
+        if(preguntaNumero) preguntaNumero.textContent = `Pregunta ${indice + 1}`;
+        
+        // Mostrar Imagen si existe
+        const imgContainer = document.getElementById('q-image-container'); 
+        let imgHTML = '';
+        if (pregunta.imagen) {
+            imgHTML = `<img src="${pregunta.imagen}" class="pregunta-imagen" style="max-width:100%; border-radius:8px; margin-top:10px;" onerror="this.style.display='none'">`;
+        }
+        
+        if(imgContainer) {
+            imgContainer.innerHTML = imgHTML;
+            if(preguntaTexto) preguntaTexto.innerHTML = pregunta.pregunta;
+        } else {
+            if(preguntaTexto) preguntaTexto.innerHTML = `<span>${pregunta.pregunta}</span><br>${imgHTML}`;
+        }
+        
+        opcionesContainer.innerHTML = '';
+        pregunta.opciones.forEach(opcion => {
             const btn = document.createElement('button');
             btn.className = 'opcion-btn';
-            if(userAnswers[idx] === op) btn.classList.add('selected');
-            
-            btn.textContent = op;
-            btn.onclick = () => {
-                userAnswers[idx] = op;
-                // Marcar visualmente pero NO cambiar de pregunta automáticamente
-                const allOpts = opts.querySelectorAll('.opcion-btn');
-                allOpts.forEach(b => b.classList.remove('selected'));
-                btn.classList.add('selected');
-                
-                // Actualizar dot visualmente
-                const dots = navContainer.children;
-                if(dots[idx]) dots[idx].classList.add('answered');
-            };
-            opts.appendChild(btn);
+            btn.innerHTML = opcion;
+            if (respuestasUsuario[indice] === opcion) btn.classList.add('selected');
+            btn.addEventListener('click', () => seleccionarRespuesta(opcion));
+            opcionesContainer.appendChild(btn);
         });
         
-        // Actualizar estado visual del navegador (solo highlight)
-        const dots = navContainer.children;
-        for(let i=0; i<dots.length; i++) {
-            dots[i].classList.remove('active');
-            if(i === idx) dots[i].classList.add('active');
-        }
-
-        // Controlar botón siguiente/terminar
-        if (idx === questions.length - 1) {
-            btnNext.textContent = "Finalizar";
-            btnNext.style.background = "#27ae60"; // Verde para terminar
+        // Actualizar botón Siguiente/Finalizar
+        if (indice === TOTAL_PREGUNTAS_QUIZ - 1) {
+            if(siguienteBtn) {
+                 siguienteBtn.textContent = "Finalizar Intento";
+                 siguienteBtn.style.background = "#27ae60"; 
+            }
         } else {
-            btnNext.textContent = "Siguiente";
-            btnNext.style.background = "#b22222"; // Rojo normal
+            if(siguienteBtn) {
+                siguienteBtn.textContent = "Siguiente";
+                siguienteBtn.style.background = ""; 
+            }
+        }
+        
+        actualizarNavegadorVisual();
+    }
+
+    function seleccionarRespuesta(opcion) {
+        respuestasUsuario[indicePreguntaActual] = opcion;
+        
+        // Actualizar visualmente la opción seleccionada
+        const opciones = opcionesContainer.querySelectorAll('.opcion-btn');
+        opciones.forEach(btn => {
+            if(btn.innerHTML === opcion) btn.classList.add('selected');
+            else btn.classList.remove('selected');
+        });
+
+        // Marcar en el navegador (solo visual)
+        const navBtn = navegadorPreguntas.children[indicePreguntaActual];
+        if (navBtn) navBtn.classList.add('answered');
+    }
+
+    function actualizarNavegadorVisual() {
+        const botones = navegadorPreguntas.children;
+        for(let btn of botones) {
+            btn.classList.remove('active');
+            if (parseInt(btn.dataset.indice) === indicePreguntaActual) btn.classList.add('active');
         }
     }
 
-    function renderNav() {
-        navContainer.innerHTML = '';
-        questions.forEach((_, i) => {
-            const b = document.createElement('button');
-            b.className = 'nav-dot';
-            b.textContent = i+1;
-            // IMPORTANTE: Eliminado el onclick para bloquear navegación libre
-            // b.onclick = () => showQ(i); <--- ELIMINADO
-            b.style.cursor = "default"; // Cursor normal para indicar no-clic
-            navContainer.appendChild(b);
-        });
+    function irPreguntaSiguiente() {
+        // LINEALIDAD: Solo avanza, nunca retrocede
+        if (indicePreguntaActual < TOTAL_PREGUNTAS_QUIZ - 1) {
+            mostrarPregunta(indicePreguntaActual + 1);
+        } else {
+            // Si es la última pregunta, finaliza
+            finalizarIntento(false);
+        }
     }
 
-    // LÓGICA DE AVANCE LINEAL
-    btnNext.onclick = () => {
-        // Validar si respondió (Opcional: Si quieres obligar a responder, descomenta esto)
-        /* if(userAnswers[currentIdx] === null) {
-            alert("Debes seleccionar una respuesta para avanzar.");
-            return;
-        } */
+    function confirmarTerminarIntento() {
+        const enBlanco = respuestasUsuario.filter(r => r === null).length;
+        if(modalMensaje) modalMensaje.innerHTML = `¿Seguro que quieres terminar?<br>Tienes <strong>${enBlanco}</strong> preguntas sin responder.`;
+        if(modalOverlay) modalOverlay.style.display = 'flex';
+    }
 
-        if (currentIdx < questions.length - 1) {
-            // Avanzar
-            showQ(currentIdx + 1);
-        } else {
-            // Es la última pregunta, terminar
-            finish();
+    async function guardarResultadoEnSupabase(resultado) {
+        try {
+            await supabase.from('resultados').insert([resultado]);
+            console.log("Guardado OK");
+        } catch (error) {
+            console.error("Error guardando:", error);
         }
-    };
+    }
 
-    async function finish() {
-        clearInterval(timerInterval);
-        simulador.style.display = 'none';
-        resultados.style.display = 'block';
+    function finalizarIntento(porTiempo = false) {
+        clearInterval(cronometroInterval);
+        
+        simuladorContainer.style.display = 'none';
+        resultadosContainer.style.display = 'block';
+        
+        let correctas = 0, incorrectas = 0, enBlanco = 0, puntaje = 0;
+        const puntosPorPregunta = TOTAL_PREGUNTAS_QUIZ > 0 ? (1000 / TOTAL_PREGUNTAS_QUIZ) : 0;
+        
+        for (let i = 0; i < TOTAL_PREGUNTAS_QUIZ; i++) {
+            const respUser = respuestasUsuario[i];
+            const respCorrecta = preguntasQuiz[i].respuesta;
+            
+            if (respUser === null) enBlanco++;
+            else if (respUser === respCorrecta) { correctas++; }
+            else incorrectas++;
+        }
+        puntaje = Math.round(correctas * puntosPorPregunta);
 
-        let ok = 0;
-        questions.forEach((q, i) => { if(userAnswers[i] === q.respuesta) ok++; });
-        const score = Math.round((ok * 1000) / questions.length);
+        if(puntajeFinalDisplay) puntajeFinalDisplay.textContent = puntaje;
+        if(statsContestadas) statsContestadas.textContent = correctas + incorrectas;
+        if(statsCorrectas) statsCorrectas.textContent = correctas;
+        if(statsIncorrectas) statsIncorrectas.textContent = incorrectas;
+        if(statsEnBlanco) statsEnBlanco.textContent = enBlanco;
 
-        document.getElementById('puntaje-final').textContent = score;
-        document.getElementById('stats-correctas').textContent = ok;
-        document.getElementById('stats-incorrectas').textContent = questions.length - ok;
-        document.getElementById('stats-en-blanco').textContent = userAnswers.filter(a=>a===null).length;
+        // --- MOSTRAR REVISIÓN CON IMÁGENES ---
+        if(revisionContainer) {
+            revisionContainer.innerHTML = '';
+            preguntasQuiz.forEach((q, i) => {
+                const div = document.createElement('div');
+                div.className = 'revision-pregunta'; 
+                div.style.borderBottom = "1px solid #ddd";
+                div.style.padding = "15px";
+                div.style.marginBottom = "10px";
+                div.style.background = "#fff";
+                div.style.borderRadius = "8px";
 
-        // Feedback
-        const revContainer = document.getElementById('revision-container');
-        revContainer.innerHTML = '';
-        questions.forEach((q, i) => {
-            const div = document.createElement('div');
-            div.className = 'revision-pregunta';
-            const correct = userAnswers[i] === q.respuesta;
-            div.innerHTML = `<p><strong>${i+1}. ${q.pregunta}</strong></p>
-                             <p>Tu respuesta: <span style="color:${correct?'green':'red'}">${userAnswers[i]||'---'}</span></p>
-                             ${!correct ? `<p style="color:green">Correcta: ${q.respuesta}</p>` : ''}`;
-            revContainer.appendChild(div);
-        });
+                const esCorrecta = respuestasUsuario[i] === q.respuesta;
+                const colorResp = esCorrecta ? '#27ae60' : '#c0392b';
+                
+                // --- AQUÍ ESTÁ EL CAMBIO PARA LAS IMÁGENES EN RESULTADOS ---
+                let imgHTML = '';
+                if(q.imagen) {
+                    imgHTML = `<div style="text-align:center; margin:10px 0;">
+                        <img src="${q.imagen}" style="max-width:100%; max-height:200px; border-radius:5px; border:1px solid #eee;">
+                    </div>`;
+                }
+
+                div.innerHTML = `
+                    <p style="font-size:1.1rem; margin-bottom:5px;"><strong>${i+1}. ${q.pregunta}</strong></p>
+                    ${imgHTML} 
+                    <p>Tu respuesta: <span style="font-weight:bold; color:${colorResp}">${respuestasUsuario[i] || 'En Blanco'}</span></p>
+                    ${!esCorrecta ? `<p style="color:#27ae60; margin-top:5px;">Correcta: <strong>${q.respuesta}</strong></p>` : ''}
+                `;
+                revisionContainer.appendChild(div);
+            });
+        }
 
         // Guardar
-        const userStr = sessionStorage.getItem('userInfo'); // Revisa tu auth.js
-        if(userStr) {
-            const user = JSON.parse(userStr);
+        const user = JSON.parse(sessionStorage.getItem('userInfo') || '{}');
+        if (user.usuario) {
             const params = new URLSearchParams(window.location.search);
-            const title = materias[params.get('materia')] || params.get('materia');
+            const materiaKey = params.get('materia') || 'sociales';
+            const nombreMateria = materias[materiaKey] || materiaKey;
             
-            try {
-                const { error } = await supabase.from('resultados').insert([{
-                    usuario_id: user.usuario,
-                    usuario_nombre: user.nombre,
-                    materia: title,
-                    puntaje: score,
-                    total_preguntas: questions.length,
-                    ciudad: user.ciudad
-                }]);
-                if(error) throw error;
-            } catch(e) { console.error(e); }
+            guardarResultadoEnSupabase({
+                usuario_id: user.usuario,
+                usuario_nombre: user.nombre,
+                materia: nombreMateria,
+                puntaje: puntaje,
+                total_preguntas: TOTAL_PREGUNTAS_QUIZ,
+                ciudad: user.ciudad
+            });
         }
     }
 
-    // Botones de salida
-    document.getElementById('terminar-intento-btn').onclick = () => {
-        if(confirm("¿Seguro que quieres terminar el examen ahora?")) finish();
-    };
-    document.getElementById('retry-btn').onclick = () => location.reload();
-    document.getElementById('reiniciar-btn').onclick = () => location.href='index.html';
-
-    init();
+    inicializar();
 });
