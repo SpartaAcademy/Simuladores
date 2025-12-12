@@ -13,19 +13,15 @@
     <script src="JS/auth.js"></script>
     <script> checkAuth(); </script>
 </head>
-
 <body>
     <header>
         <a href="index.html" class="header-main-link">
-            <div class="header-logo"> <img src="logo.png" alt="Sparta Academy Logo"> </div>
-            <div class="header-titulo">
-                <h1>SPARTA ACADEMY</h1>
-                <h2 id="titulo-materia">SIMULADOR DE: ...</h2>
-            </div>
+            <div class="header-logo"><img src="logo.png" alt="Logo"></div>
+            <div class="header-titulo"><h1>SPARTA ACADEMY</h1><h2 id="titulo-materia">SIMULADOR</h2></div>
         </a>
         <div class="header-spacer"></div>
         <div class="user-info-container desktop-only">
-            <span id="user-name-display-desktop">Cargando...</span>
+            <span id="user-name-display-desktop">Usuario</span>
             <div class="dropdown">
                 <button class="dropdown-btn">▼</button>
                 <div class="dropdown-content">
@@ -39,14 +35,8 @@
 
     <div class="side-nav" id="side-nav">
         <button class="close-nav-btn" id="close-nav-btn">&times;</button>
-        <div class="side-nav-header"> <img src="logo.png" alt="Sparta Logo" class="side-nav-logo">
-            <h3>Menú Aspirante</h3>
-        </div>
-        <div class="side-nav-user">
-            <p id="user-prefix-mobile">Aspirante:</p>
-            <p><strong id="user-name-display-mobile">Cargando...</strong></p>
-        </div>
-        <a href="resultados.html" id="ver-resultados-mobile" class="side-nav-link">Ver Resultados</a>
+        <div class="side-nav-header"><img src="logo.png" style="width:50px"><h3>Menú</h3></div>
+        <a href="resultados.html" id="ver-resultados-mobile" class="side-nav-link">Resultados</a>
         <a href="#" id="logout-button-mobile" class="side-nav-link">Cerrar Sesión</a>
     </div>
     <div class="overlay" id="overlay"></div>
@@ -55,12 +45,12 @@
         <div id="lobby-container">
             <h1>Instrucciones del Simulacro</h1>
             <div class="datos-informativos">
-                <p><strong>Materia:</strong> <span id="lobby-materia"></span></p>
-                <p><strong>Total de Preguntas:</strong> <span id="lobby-preguntas">50</span></p>
-                <p><strong>Tiempo Máximo:</strong> <span id="lobby-tiempo">1 Hora (60 Minutos)</span></p>
+                <p><strong>Materia:</strong> <span id="lobby-materia">Cargando...</span></p>
+                <p><strong>Total de Preguntas:</strong> <span id="lobby-preguntas">...</span></p>
+                <p><strong>Tiempo Máximo:</strong> <span id="lobby-tiempo">...</span></p>
                 <p><strong>Calificación sobre:</strong> 1000 Puntos</p>
             </div>
-            <div id="instrucciones-extra"></div>
+            <div id="instrucciones-adicionales"></div>
             <hr>
             <h3>Puntajes:</h3>
             <ul>
@@ -78,19 +68,19 @@
                     <span id="pregunta-numero" class="pregunta-num-tag">Pregunta 1</span>
                     <div id="pregunta-texto-container">
                         <h2 id="pregunta-texto">...</h2>
-                        <div id="imagen-pregunta-container" style="text-align: center; margin-top: 15px;"></div>
+                        <div id="q-image-container" style="text-align: center; margin-top:15px;"></div>
                     </div>
                 </div>
                 <div id="opciones-container"></div>
-                <div class="quiz-navegacion"> <button id="siguiente-btn">Siguiente</button> </div>
+                <div class="quiz-navegacion"><button id="siguiente-btn">Siguiente</button></div>
             </div>
             <div class="quiz-col-derecha">
                 <div class="timer-box">
                     <h3>Tiempo Restante</h3>
-                    <div id="cronometro">60:00</div>
+                    <div id="cronometro">00:00</div>
                 </div>
                 <div class="navegador-box">
-                    <h3>Preguntas</h3>
+                    <h3>Navegación</h3>
                     <div id="navegador-preguntas"></div>
                 </div>
                 <button id="terminar-intento-btn">Terminar Intento</button>
@@ -102,7 +92,7 @@
             <div class="puntaje-final-box">
                 <h3>Puntaje Total</h3>
                 <h1 id="puntaje-final">0</h1>
-                <p>sobre 1000 Puntos</p>
+                <p>sobre 1000</p>
             </div>
             <div class="estadisticas-grid">
                 <div><h4>Correctas</h4><p id="stats-correctas">0</p></div>
@@ -111,34 +101,38 @@
             </div>
             <hr>
             <div class="revision-botones">
-                <button id="retry-btn">Realizar otro intento</button>
-                <button id="reiniciar-btn">Volver al Inicio</button>
+                <button id="retry-btn">Reintentar</button>
+                <button id="reiniciar-btn">Salir</button>
             </div>
             <div id="revision-container"></div>
         </div>
     </main>
 
-    <div id="modal-error" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:9999; justify-content:center; align-items:center;">
-        <div style="background:white; padding:30px; border-radius:10px; max-width:400px; text-align:center; border-top:5px solid #d32f2f;">
-            <h2 style="color:#d32f2f; margin-top:0;">¡Error!</h2>
-            <p id="mensaje-error" style="font-size:1.1rem; color:#333;">Desconocido</p>
-            <button onclick="document.getElementById('modal-error').style.display='none'" style="background:#333; color:white; border:none; padding:10px 20px; margin-top:20px; cursor:pointer;">Cerrar</button>
+    <div id="error-modal" class="modal-overlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); z-index:9999; justify-content:center; align-items:center;">
+        <div class="modal-content" style="background:white; padding:30px; border-radius:12px; width:90%; max-width:400px; text-align:center; border-top:6px solid #d32f2f;">
+            <h3 style="color:#d32f2f; font-size:2rem; margin:0 0 10px 0; font-family:'Teko', sans-serif;">¡Error!</h3>
+            <p id="error-text" style="font-size:1.1rem; color:#333; margin-bottom:20px;">Desconocido</p>
+            <button onclick="document.getElementById('error-modal').style.display='none'" style="background:#333; color:white; border:none; padding:10px 20px; border-radius:4px; cursor:pointer; width:100%; font-size:1rem;">Cerrar</button>
         </div>
     </div>
 
-    <div id="modal-overlay" class="overlay"> <div style="position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); background:white; padding:30px; border-radius:10px; text-align:center; box-shadow:0 0 20px rgba(0,0,0,0.5);">
+    <div id="modal-overlay" class="modal-overlay" style="display:none;">
+        <div class="modal-content">
             <h3>¿Terminar Intento?</h3>
-            <p id="modal-mensaje">¿Estás seguro?</p>
-            <div style="margin-top:20px; display:flex; gap:10px; justify-content:center;">
-                <button id="cancelar-modal-btn" style="background:#666; color:white; border:none; padding:10px 20px; cursor:pointer;">Cancelar</button>
-                <button id="confirmar-modal-btn" style="background:#b22222; color:white; border:none; padding:10px 20px; cursor:pointer;">Terminar</button>
+            <p id="modal-mensaje">Asegúrate de haber respondido todo.</p>
+            <div style="display:flex; gap:10px; justify-content:center; margin-top:20px;">
+                <button id="cancelar-modal-btn" style="background:#666; color:white; border:none; padding:10px 20px; border-radius:4px; cursor:pointer;">Cancelar</button>
+                <button id="confirmar-modal-btn" style="background:#b22222; color:white; border:none; padding:10px 20px; border-radius:4px; cursor:pointer;">Terminar</button>
             </div>
         </div>
     </div>
 
+    <footer><p>Sparta Academy 2025</p></footer>
+
     <script src="JS/script-simulador.js"></script>
     
     <script>
+        // Inicialización de UI
         document.addEventListener('DOMContentLoaded', () => {
             if(typeof setupUserInfoDropdown === 'function') setupUserInfoDropdown();
             if(typeof setupMobileMenu === 'function') setupMobileMenu();
