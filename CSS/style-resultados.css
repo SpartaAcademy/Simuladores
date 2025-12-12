@@ -1,46 +1,23 @@
-/* --- ADMIN PANEL STYLE --- */
+:root { --primary: #b22222; --dark: #1a1a1a; --light: #f4f6f8; }
+body { font-family: 'Work Sans', sans-serif; background: var(--light); color: var(--dark); margin: 0; }
 .resultados-main { padding: 40px 20px; max-width: 1200px; margin: 0 auto; }
-.resultados-main h1 { font-family: 'Teko', sans-serif; font-size: 3rem; color: #1a1a1a; margin-bottom: 30px; border-bottom: 4px solid #b22222; display: inline-block; }
+h1 { font-family: 'Teko', sans-serif; font-size: 3rem; margin-bottom: 30px; text-transform: uppercase; }
 
-/* FILTROS */
-.filtros-container {
-    background: white; padding: 25px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-    display: flex; gap: 15px; align-items: center; flex-wrap: wrap; margin-bottom: 30px;
-}
-.filtro-grupo { display: flex; align-items: center; gap: 10px; background: #f8f9fa; padding: 8px 15px; border-radius: 8px; border: 1px solid #eee; }
+/* Filtros */
+.filtros-container { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 30px; align-items: center; }
+.filtro-grupo { background: #f9f9f9; padding: 8px 15px; border-radius: 8px; border: 1px solid #eee; display: flex; align-items: center; gap: 10px; }
 .filtro-grupo select, .filtro-grupo input { border: none; background: transparent; outline: none; font-size: 1rem; color: #333; }
-.filtro-grupo i { color: #b22222; }
-
-/* BOTONES */
 .pdf-button { background: #b22222; color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: bold; }
 .csv-button { background: #27ae60; color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: bold; }
 
-/* TARJETAS DE USUARIO */
-.user-card {
-    background: white; border-radius: 10px; overflow: hidden; margin-bottom: 15px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05); border: 1px solid #eee; transition: 0.2s;
-}
-.user-card:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-
-.user-header {
-    padding: 20px; cursor: pointer; display: flex; justify-content: space-between; align-items: center;
-    background: white;
-}
+/* Tarjetas */
+.user-card { background: white; border-radius: 8px; margin-bottom: 15px; border: 1px solid #eee; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+.user-header { padding: 20px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: white; }
 .user-header:hover { background: #fdfdfd; }
-.user-info h3 { margin: 0; font-family: 'Teko'; font-size: 1.6rem; color: #1a1a1a; }
-.user-info small { color: #777; font-size: 0.9rem; text-transform: uppercase; }
+.user-header h3 { margin: 0; font-family: 'Teko'; font-size: 1.5rem; }
+.user-attempts { padding: 20px; display: none; background: #fafafa; border-top: 1px solid #eee; }
 
-/* TABLA INTERNA */
-.user-attempts { padding: 0 20px 20px 20px; background: #fafafa; border-top: 1px solid #eee; display: none; }
-.user-card.open .user-attempts { display: block; animation: slideDown 0.3s ease; }
-
-.modern-table { width: 100%; border-collapse: collapse; margin-top: 15px; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.03); }
-.modern-table th { background: #1a1a1a; color: white; padding: 12px; text-align: left; font-size: 0.9rem; text-transform: uppercase; }
-.modern-table td { padding: 12px; border-bottom: 1px solid #eee; color: #444; }
-.modern-table tr:last-child td { border-bottom: none; }
-
-/* NOTAS COLORES */
-.grade-good { color: #27ae60; font-weight: 700; background: #eafaf1; padding: 4px 8px; border-radius: 4px; }
-.grade-bad { color: #c0392b; font-weight: 700; background: #fdedec; padding: 4px 8px; border-radius: 4px; }
-
-@keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+/* Tabla */
+.table { width: 100%; border-collapse: collapse; margin-top: 10px; background: white; border-radius: 8px; overflow: hidden; }
+.table th { background: #1a1a1a; color: white; padding: 12px; text-align: left; font-size: 0.9rem; text-transform: uppercase; }
+.table td { padding: 12px; border-bottom: 1px solid #eee; color: #555; }
