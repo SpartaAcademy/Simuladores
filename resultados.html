@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sparta Academy - Reportes</title>
-    <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
+    <title>Sparta Academy - Admin</title>
     <link rel="stylesheet" href="CSS/style-resultados.css">
     <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;600&family=Work+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -12,46 +11,32 @@
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.23/jspdf.plugin.autotable.min.js"></script>
-    
     <script src="JS/auth.js"></script>
-    <script>
-        checkAuth();
-        const info = getUserInfo();
-        if (info && info.rol !== 'admin') {
-            alert("Acceso denegado.");
-            window.location.replace('index.html');
-        }
-    </script>
+    <script> checkAuth(); </script>
 </head>
 <body>
     <header>
         <a href="index.html" class="header-main-link">
             <div class="header-logo"> <img src="logo.png" alt="Logo"> </div>
-            <div class="header-titulo"><h1>SPARTA ACADEMY</h1><h2>REPORTE ADMIN</h2></div>
+            <div class="header-titulo"><h1>SPARTA ACADEMY</h1><h2>ADMINISTRACIÓN</h2></div>
         </a>
-        <div class="header-spacer"></div>
-        <div class="user-info-container desktop-only">
-            <div class="dropdown">
-                <button class="dropdown-btn">▼</button>
-                <div class="dropdown-content">
-                    <a href="index.html">Simuladores</a>
-                    <a href="#" id="logout-button-desktop">Cerrar Sesión</a>
-                </div>
-            </div>
+        <div class="user-menu desktop-only">
+            <button onclick="logout()" style="background:rgba(255,255,255,0.1); border:1px solid #555; color:white; padding:8px 15px; border-radius:5px; cursor:pointer;">Cerrar Sesión</button>
         </div>
         <button class="hamburger-menu mobile-only" id="hamburger-btn">☰</button>
     </header>
 
     <div class="side-nav" id="side-nav">
-        <button class="close-nav-btn">&times;</button>
-        <div class="side-nav-header"><img src="logo.png" style="width:60px"><h3>Admin</h3></div>
+        <button class="close-nav-btn" id="close-nav-btn">&times;</button>
+        <div class="side-nav-header"><img src="logo.png" width="60"><h3>Admin</h3></div>
         <a href="index.html" class="side-nav-link">Simuladores</a>
-        <a href="#" id="logout-button-mobile" class="side-nav-link">Cerrar Sesión</a>
+        <a href="#" onclick="logout()" class="side-nav-link">Salir</a>
     </div>
     <div class="overlay" id="overlay"></div>
 
     <main class="resultados-main">
         <h1>Reporte de Intentos</h1>
+        
         <div class="filtros-container">
             <div class="filtro-grupo">
                 <i class="fas fa-map-marker-alt"></i>
@@ -61,30 +46,38 @@
                 <i class="fas fa-book"></i>
                 <select id="filtro-materia"><option>Todas las Materias</option></select>
             </div>
-            <div class="filtro-grupo filtro-nombre">
+            <div class="filtro-grupo">
                 <i class="fas fa-search"></i>
                 <input type="text" id="filtro-nombre" placeholder="Buscar nombre...">
             </div>
-            <button id="descargar-pdf-btn" class="pdf-button">PDF</button>
-            <button id="descargar-general-csv-btn" class="csv-button">CSV</button>
+            <button id="descargar-pdf-btn" class="pdf-button"><i class="fas fa-file-pdf"></i> PDF</button>
+            <button id="descargar-general-csv-btn" class="csv-button"><i class="fas fa-file-csv"></i> CSV</button>
         </div>
 
-        <div id="loading-spinner" class="spinner"></div>
+        <div id="loading-spinner" style="text-align:center; font-weight:bold; color:#666;">Cargando datos...</div>
         <div id="reporte-container"></div>
     </main>
 
-    <div id="modal-error" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:9999; justify-content:center; align-items:center;">
-        <div style="background:white; padding:30px; border-radius:10px; max-width:400px; text-align:center; border-top:5px solid #d32f2f;">
-            <h3 style="color:#d32f2f;">Error de Conexión</h3>
-            <p id="error-text">No se pudo cargar la base de datos.</p>
-            <button onclick="document.getElementById('modal-error').style.display='none'" style="background:#333; color:white; border:none; padding:10px 20px; margin-top:15px; cursor:pointer;">Cerrar</button>
+    <div id="error-modal" class="modal-overlay">
+        <div class="modal-content">
+            <i class="fas fa-exclamation-circle modal-icon"></i>
+            <h3 class="modal-title">¡Error!</h3>
+            <p id="error-text" class="modal-msg"></p>
+            <button class="btn-close-modal" onclick="document.getElementById('error-modal').style.display='none'">Cerrar</button>
         </div>
     </div>
 
-    <script src="JS/script-resultados.js"></script> <script>
+    <script src="JS/script-resultados.js"></script>
+    <script>
+        // Init menú móvil
         document.addEventListener('DOMContentLoaded', () => {
-            if(typeof setupUserInfoDropdown === 'function') setupUserInfoDropdown();
-            if(typeof setupMobileMenu === 'function') setupMobileMenu();
+            const btn = document.getElementById('hamburger-btn');
+            const nav = document.getElementById('side-nav');
+            const close = document.getElementById('close-nav-btn');
+            const overlay = document.getElementById('overlay');
+            if(btn) btn.onclick = () => { nav.style.width = "280px"; overlay.style.display = "block"; };
+            if(close) close.onclick = () => { nav.style.width = "0"; overlay.style.display = "none"; };
+            if(overlay) overlay.onclick = () => { nav.style.width = "0"; overlay.style.display = "none"; };
         });
     </script>
 </body>
