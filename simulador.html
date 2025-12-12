@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulador - Sparta</title>
-    <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
+    <title>Sparta Academy - Simulador</title>
     <link rel="stylesheet" href="CSS/style-simulador.css">
-    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;500;600&family=Work+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;600&family=Work+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -17,8 +16,12 @@
     <header>
         <a href="index.html" class="header-main-link">
             <div class="header-logo"><img src="logo.png" alt="Logo"></div>
-            <div class="header-titulo"><h1>SPARTA ACADEMY</h1><h2 id="titulo-materia">SIMULADOR</h2></div>
+            <div class="header-titulo">
+                <h1>SPARTA ACADEMY</h1>
+                <h2 id="titulo-materia">SIMULADOR</h2>
+            </div>
         </a>
+        
         <div class="user-info-container desktop-only">
             <div class="dropdown">
                 <button class="dropdown-btn"><i class="fas fa-user-circle"></i> ▼</button>
@@ -28,15 +31,20 @@
                 </div>
             </div>
         </div>
-        <button class="hamburger-menu mobile-only" id="hamburger-btn">☰</button>
+
+        <button class="hamburger-menu mobile-only" id="hamburger-btn"> <i class="fas fa-bars"></i> </button>
     </header>
 
     <div class="side-nav" id="side-nav">
-        <button class="close-nav-btn">&times;</button>
-        <div class="side-nav-header"><img src="logo.png" width="50"><h3>Menú</h3></div>
+        <button class="close-nav-btn" id="close-nav-btn">&times;</button>
+        <div class="side-nav-header"><img src="logo.png" width="60"><h3>Menú</h3></div>
+        <div class="side-nav-user" style="padding:0 30px; color:#aaa; margin-bottom:20px;">
+            Usuario
+        </div>
         <a href="resultados.html" class="side-nav-link">Resultados</a>
         <a href="#" id="logout-button-mobile" class="side-nav-link">Cerrar Sesión</a>
     </div>
+    <div class="overlay" id="overlay"></div>
 
     <main>
         <div id="lobby-container" class="container-box">
@@ -49,41 +57,41 @@
                 <p><i class="fas fa-star"></i> <strong>Puntaje Max:</strong> 1000 Puntos</p>
             </div>
 
-            <div id="instrucciones-extra"></div>
+            <div id="instrucciones-extra" style="margin-bottom:30px; color:#555;"></div>
+            
             <button id="comenzar-btn" disabled><i class="fas fa-spinner fa-spin"></i> Cargando...</button>
         </div>
 
-        <div id="simulador-container" style="display:none;">
-            <div class="quiz-col-izquierda">
-                <div class="quiz-main">
-                    <span class="pregunta-num-tag" id="pregunta-numero">Pregunta 1</span>
+        <div id="simulador-container" class="quiz-layout" style="display:none;">
+            <div class="quiz-main">
+                <div class="question-box">
+                    <span class="q-badge" id="pregunta-numero">Pregunta 1</span>
                     <div id="pregunta-texto">...</div>
                     <div id="q-image-container" style="text-align:center;"></div>
-                    <div id="opciones-container"></div>
-                    <div style="text-align:right; margin-top:20px;">
-                        <button id="siguiente-btn" style="padding:12px 25px; background:var(--primary); color:white; border:none; border-radius:6px; cursor:pointer; font-weight:bold;">Siguiente <i class="fas fa-arrow-right"></i></button>
-                    </div>
+                </div>
+                <div id="opciones-container"></div>
+                <div style="text-align:right; margin-top:20px;">
+                    <button id="siguiente-btn" style="padding:12px 25px; background:var(--primary); color:white; border:none; border-radius:6px; cursor:pointer; font-weight:bold;">Siguiente <i class="fas fa-arrow-right"></i></button>
                 </div>
             </div>
-            <div class="quiz-col-derecha">
-                <div class="quiz-sidebar">
-                    <div class="timer-box">
-                        <small>TIEMPO RESTANTE</small>
-                        <div id="cronometro">00:00</div>
-                    </div>
-                    <div class="nav-box">
-                        <small style="display:block; margin-bottom:10px;">NAVEGACIÓN</small>
-                        <div id="navegador-preguntas"></div>
-                    </div>
-                    <button id="terminar-intento-btn">TERMINAR INTENTO</button>
+
+            <div class="quiz-sidebar">
+                <div class="timer-box">
+                    <small>TIEMPO RESTANTE</small>
+                    <div id="cronometro">00:00</div>
                 </div>
+                <div class="nav-box">
+                    <small style="display:block; margin-bottom:10px;">NAVEGACIÓN</small>
+                    <div id="navegador-preguntas" class="nav-grid"></div>
+                </div>
+                <button id="terminar-intento-btn">TERMINAR INTENTO</button>
             </div>
         </div>
 
-        <div id="resultados-container" class="container-box" style="display:none;">
+        <div id="resultados-container" class="container-box" style="display:none; text-align:center;">
             <h2>¡INTENTO FINALIZADO!</h2>
             <div class="score-circle">
-                <span id="puntaje-final">0</span>
+                <span id="puntaje-final" style="font-family:'Teko'; font-size:4rem; color:var(--primary); line-height:1;">0</span>
                 <span style="color:#666; font-weight:bold;">/ 1000</span>
             </div>
 
@@ -102,10 +110,11 @@
                 </div>
             </div>
 
-            <div class="revision-botones">
+            <div class="revision-botones" style="margin-top:30px; display:flex; justify-content:center;">
                 <button id="retry-btn">Reintentar</button>
                 <button id="reiniciar-btn">Salir</button>
             </div>
+            
             <div id="revision-container" style="margin-top:40px; text-align:left;"></div>
         </div>
     </main>
@@ -121,9 +130,9 @@
 
     <div id="modal-overlay" class="modal-overlay">
         <div class="modal-content">
-            <h3 class="modal-title" style="color:var(--dark)">¿Terminar?</h3>
+            <h3 class="modal-title">¿Terminar?</h3>
             <p id="modal-mensaje" class="modal-msg"></p>
-            <div style="display:flex; gap:10px; justify-content:center;">
+            <div style="display:flex; gap:10px; justify-content:center; margin-top:20px;">
                 <button id="cancelar-modal-btn" style="padding:10px 20px; background:#ddd; border:none; border-radius:4px; cursor:pointer;">Cancelar</button>
                 <button id="confirmar-modal-btn" style="padding:10px 20px; background:var(--primary); color:white; border:none; border-radius:4px; cursor:pointer;">Confirmar</button>
             </div>
@@ -132,9 +141,15 @@
 
     <script src="JS/script-simulador.js"></script>
     <script>
+        // Init menú móvil
         document.addEventListener('DOMContentLoaded', () => {
-            if(typeof setupUserInfoDropdown === 'function') setupUserInfoDropdown();
-            if(typeof setupMobileMenu === 'function') setupMobileMenu();
+            const btn = document.getElementById('hamburger-btn');
+            const nav = document.getElementById('side-nav');
+            const close = document.getElementById('close-nav-btn');
+            const overlay = document.getElementById('overlay');
+            if(btn) btn.onclick = () => { nav.style.width = "280px"; overlay.style.display = "block"; };
+            if(close) close.onclick = () => { nav.style.width = "0"; overlay.style.display = "none"; };
+            if(overlay) overlay.onclick = () => { nav.style.width = "0"; overlay.style.display = "none"; };
         });
     </script>
 </body>
