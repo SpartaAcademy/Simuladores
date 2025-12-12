@@ -5,16 +5,16 @@ const supabaseUrl = 'https://vwfpjvfjmmwmrqqahooi.supabase.co';
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZ3ZnBqdmZqbW13bXJxcWFob29pIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU0NzkyNTcsImV4cCI6MjA4MTA1NTI1N30.pTc8KM-GnxVRgrYpcqm8YUZ9zb6Co-QgKT0i7W41HEA';
 const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
 
+
 document.addEventListener('DOMContentLoaded', () => {
     // Referencias
     const lobby = document.getElementById('lobby-container');
     const simulador = document.getElementById('simulador-container');
     const resultados = document.getElementById('resultados-container');
-    const modalConfirm = document.getElementById('modal-overlay');
-    const modalError = document.getElementById('error-modal');
-    const errorText = document.getElementById('error-text');
     const btnStart = document.getElementById('comenzar-btn');
-
+    const errorModal = document.getElementById('error-modal');
+    const errorText = document.getElementById('error-text');
+    
     let questions = [];
     let userAnswers = [];
     let currentIdx = 0;
@@ -22,23 +22,15 @@ document.addEventListener('DOMContentLoaded', () => {
     let timeLeft = 3600;
     let totalPreguntas = 50;
 
-    // Materias
+    // Nombres legibles
     const materias = {
-        'sociales': 'Ciencias Sociales',
-        'matematicas': 'Matemáticas y Física',
-        'lengua': 'Lengua y Literatura',
-        'ingles': 'Inglés',
-        'general': 'General (Todas)',
-        'inteligencia': 'Inteligencia',
-        'personalidad': 'Personalidad',
-        'ppnn1': 'Cuestionario 1 PPNN',
-        'ppnn2': 'Cuestionario 2 PPNN',
-        'ppnn3': 'Cuestionario 3 PPNN',
-        'ppnn4': 'Cuestionario 4 PPNN',
-        'sociales_esmil': 'Ciencias Sociales (ESMIL)',
-        'matematicas_esmil': 'Matemáticas (ESMIL)',
-        'lengua_esmil': 'Lenguaje (ESMIL)',
-        'ingles_esmil': 'Inglés (ESMIL)',
+        'sociales': 'Ciencias Sociales', 'matematicas': 'Matemáticas y Física',
+        'lengua': 'Lengua y Literatura', 'ingles': 'Inglés', 'general': 'General (Todas)',
+        'inteligencia': 'Inteligencia', 'personalidad': 'Personalidad',
+        'ppnn1': 'Cuestionario 1 PPNN', 'ppnn2': 'Cuestionario 2 PPNN',
+        'ppnn3': 'Cuestionario 3 PPNN', 'ppnn4': 'Cuestionario 4 PPNN',
+        'sociales_esmil': 'Ciencias Sociales (ESMIL)', 'matematicas_esmil': 'Matemáticas (ESMIL)',
+        'lengua_esmil': 'Lenguaje (ESMIL)', 'ingles_esmil': 'Inglés (ESMIL)',
         'general_esmil': 'General ESMIL'
     };
 
@@ -47,8 +39,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function showError(msg) {
         if(errorText) errorText.innerHTML = msg;
-        if(modalError) modalError.style.display = 'flex';
-        btnStart.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Error de Carga';
+        if(errorModal) errorModal.style.display = 'flex';
+        btnStart.textContent = "Error de Archivos";
         btnStart.style.background = "#c0392b";
     }
 
@@ -57,36 +49,36 @@ document.addEventListener('DOMContentLoaded', () => {
         const materiaKey = params.get('materia');
         const title = materias[materiaKey] || 'Simulador';
         
-        // UI Init
         document.getElementById('titulo-materia').textContent = title.toUpperCase();
         document.getElementById('lobby-materia').textContent = title;
         
-        // Config Tiempos
         if(materiaKey.includes('matematicas')) timeLeft = 5400; // 90 min
-        else if(materiaKey.includes('general')) { timeLeft = 10800; totalPreguntas = 200; } // 3h
+        else if(materiaKey.includes('general')) { timeLeft = 10800; totalPreguntas = 200; }
         
         document.getElementById('lobby-tiempo').textContent = Math.floor(timeLeft/60) + " Minutos";
         document.getElementById('lobby-preguntas').textContent = totalPreguntas;
 
-        // Cargar
         try {
             let filesToLoad = [];
+            // Si es general, carga varios archivos. Si no, carga uno.
             if(materiaKey === 'general') filesToLoad = ordenGeneralPolicia;
             else if(materiaKey === 'general_esmil') filesToLoad = ordenGeneralEsmil;
             else filesToLoad = [materiaKey];
 
-            const promises = filesToLoad.map(m => fetch(`DATA/preguntas_${m}.json`).then(r => {
-                if(!r.ok) throw new Error(`Falta: DATA/preguntas_${m}.json`);
-                return r.json();
-            }));
+            const promises = filesToLoad.map(m => 
+                // BUSCA EN DATA/preguntas_X.json
+                fetch(`DATA/preguntas_${m}.json`).then(r => {
+                    if(!r.ok) throw new Error(`Falta el archivo: <b>DATA/preguntas_${m}.json</b>`);
+                    return r.json();
+                })
+            );
 
             const results = await Promise.all(promises);
             let allQ = [];
             results.forEach(d => allQ = allQ.concat(d));
 
-            // Filtrar/Mezclar
             if(materiaKey.startsWith('ppnn')) {
-                questions = allQ.sort(() => 0.5 - Math.random()); // Todas
+                questions = allQ.sort(() => 0.5 - Math.random());
                 totalPreguntas = questions.length;
                 document.getElementById('lobby-preguntas').textContent = totalPreguntas;
             } else if (materiaKey.includes('general')) {
@@ -97,9 +89,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if(questions.length === 0) throw new Error("Archivo vacío.");
 
-            // Botón listo
             btnStart.disabled = false;
-            btnStart.innerHTML = 'COMENZAR INTENTO <i class="fas fa-play"></i>';
+            btnStart.textContent = 'COMENZAR INTENTO';
             btnStart.onclick = startQuiz;
 
         } catch (e) {
@@ -111,10 +102,8 @@ document.addEventListener('DOMContentLoaded', () => {
         lobby.style.display = 'none';
         simulador.style.display = window.innerWidth > 900 ? 'grid' : 'block';
         userAnswers = new Array(questions.length).fill(null);
-        
         renderNav();
         showQ(0);
-        
         timerInterval = setInterval(() => {
             timeLeft--;
             const m = Math.floor(timeLeft/60).toString().padStart(2,'0');
@@ -148,7 +137,6 @@ document.addEventListener('DOMContentLoaded', () => {
             opts.appendChild(btn);
         });
         
-        // Nav active
         document.querySelectorAll('.nav-dot').forEach((d, i) => d.classList.toggle('active', i===idx));
     }
 
@@ -178,9 +166,24 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('stats-incorrectas').textContent = questions.length - ok;
         document.getElementById('stats-en-blanco').textContent = userAnswers.filter(a=>a===null).length;
 
+        // Feedback
+        const revContainer = document.getElementById('revision-container');
+        revContainer.innerHTML = '';
+        questions.forEach((q, i) => {
+            const div = document.createElement('div');
+            div.style.borderBottom = '1px solid #eee';
+            div.style.padding = '10px';
+            const correct = userAnswers[i] === q.respuesta;
+            div.innerHTML = `<p><strong>${i+1}. ${q.pregunta}</strong></p>
+                             <p>Tu respuesta: <span style="color:${correct?'green':'red'}">${userAnswers[i]||'---'}</span></p>
+                             ${!correct ? `<p style="color:green">Correcta: ${q.respuesta}</p>` : ''}`;
+            revContainer.appendChild(div);
+        });
+
         // Guardar
-        const user = JSON.parse(sessionStorage.getItem('userInfo') || '{}');
-        if(user.usuario) {
+        const userStr = sessionStorage.getItem('userInfo'); // Revisa si es 'userInfo' o 'sparta_user' en tu auth.js
+        if(userStr) {
+            const user = JSON.parse(userStr);
             const params = new URLSearchParams(window.location.search);
             const title = materias[params.get('materia')] || params.get('materia');
             
@@ -197,14 +200,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Nav buttons
+    // Nav
     document.getElementById('siguiente-btn').onclick = () => { if(currentIdx < questions.length-1) showQ(currentIdx+1); };
     document.getElementById('terminar-intento-btn').onclick = () => {
-        document.getElementById('modal-mensaje').textContent = `Faltan ${userAnswers.filter(a=>a===null).length} preguntas. ¿Terminar?`;
-        modalConfirm.style.display = 'flex';
+        document.getElementById('modal-mensaje').textContent = `Faltan ${userAnswers.filter(a=>a===null).length} preguntas.`;
+        document.getElementById('modal-overlay').style.display = 'flex';
     };
-    document.getElementById('confirmar-modal-btn').onclick = () => { modalConfirm.style.display='none'; finish(); };
-    document.getElementById('cancelar-modal-btn').onclick = () => modalConfirm.style.display='none';
+    document.getElementById('confirmar-modal-btn').onclick = () => { document.getElementById('modal-overlay').style.display='none'; finish(); };
+    document.getElementById('cancelar-modal-btn').onclick = () => document.getElementById('modal-overlay').style.display='none';
     document.getElementById('retry-btn').onclick = () => location.reload();
     document.getElementById('reiniciar-btn').onclick = () => location.href='index.html';
 
