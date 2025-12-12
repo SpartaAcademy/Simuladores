@@ -1,13 +1,29 @@
 // JS/script-simulador.js
 
 // Inicializar Supabase
+
+
+// JS/script-simulador.js
+
+console.log(">>> INICIANDO script-simulador.js <<<");
+
+// 1. CONEXIÓN SUPABASE
 const supabaseUrl = 'https://fgpqioviycmgwypidhcs.supabase.co';
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZncHFpb3ZpeWNtZ3d5cGlkaGNzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU0OTkwMDgsImV4cCI6MjA4MTA3NTAwOH0.5ckdzDtwFRG8JpuW5S-Qi885oOSVESAvbLoNiqePJYo';
-const supabase = createClient(supabaseUrl, supabaseKey);
 
+let supabase;
+try {
+    supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+    console.log("Supabase inicializado correctamente.");
+} catch (e) {
+    console.error("CRÍTICO: Falló la inicialización de Supabase:", e);
+    alert("Error crítico: No se pudo conectar con la base de datos.");
+}
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Referencias
+    console.log("DOM completamente cargado. Iniciando lógica...");
+
+    // Referencias DOM
     const lobbyContainer = document.getElementById('lobby-container');
     const simuladorContainer = document.getElementById('simulador-container');
     const resultadosContainer = document.getElementById('resultados-container');
@@ -25,13 +41,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const statsIncorrectas = document.getElementById('stats-incorrectas');
     const statsEnBlanco = document.getElementById('stats-en-blanco');
     const revisionContainer = document.getElementById('revision-container');
-    const reiniciarBtn = document.getElementById('reiniciar-btn');
-    const retryBtn = document.getElementById('retry-btn');
     
     // Modales
     const modalOverlay = document.getElementById('modal-overlay');
     const modalError = document.getElementById('error-modal');
     const errorText = document.getElementById('error-text');
+
+    if(!comenzarBtn) { console.error("CRÍTICO: No se encontró el botón 'comenzar-btn' en el HTML."); return; }
 
     let preguntasPorMateria = {};
     let preguntasQuiz = [];
@@ -41,7 +57,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let tiempoRestanteSeg;
     let TOTAL_PREGUNTAS_QUIZ = 50;
 
-    // LISTA DE MATERIAS
     const materias = {
         'sociales': 'Ciencias Sociales',
         'matematicas': 'Matemáticas y Física',
@@ -65,36 +80,47 @@ document.addEventListener('DOMContentLoaded', () => {
     const ordenGeneralEsmil = ['sociales_esmil', 'matematicas_esmil', 'lengua_esmil', 'ingles_esmil'];
 
     function showError(msg) {
-        console.error(msg);
+        console.error("MOSTRANDO ERROR AL USUARIO:", msg);
         if(errorText && modalError) {
             errorText.innerHTML = msg;
             modalError.style.display = 'flex';
         } else {
-            alert(msg);
+            alert("ERROR: " + msg);
         }
-        comenzarBtn.textContent = "Error de Carga";
-        comenzarBtn.style.background = "#d32f2f";
+        if(comenzarBtn) {
+            comenzarBtn.textContent = "Error de Carga";
+            comenzarBtn.style.backgroundColor = "#d32f2f";
+            comenzarBtn.disabled = true;
+        }
     }
 
     function inicializar() {
+        console.log("Ejecutando función inicializar()...");
         const params = new URLSearchParams(window.location.search);
-        const materiaKey = params.get('materia') || 'sociales';
-        let nombreMateria = materias[materiaKey];
+        const materiaKey = params.get('materia');
+        console.log("Materia detectada en URL:", materiaKey);
 
-        // Fallback nombre
+        if (!materiaKey) {
+            showError("No se especificó ninguna materia.");
+            return;
+        }
+        
+        let nombreMateria = materias[materiaKey];
         if (!nombreMateria) {
             if (materiaKey.startsWith('ppnn')) nombreMateria = `Cuestionario ${materiaKey.replace('ppnn', '')} PPNN`;
             else nombreMateria = 'Materia Desconocida';
         }
+        console.log("Nombre de materia resuelto:", nombreMateria);
 
-        if(document.getElementById('titulo-materia')) 
-            document.getElementById('titulo-materia').textContent = `SIMULADOR DE: ${nombreMateria.toUpperCase()}`;
+        // Actualizar UI inicial
+        if(document.getElementById('titulo-materia')) document.getElementById('titulo-materia').textContent = `SIMULADOR DE: ${nombreMateria.toUpperCase()}`;
         if(lobbyMateria) lobbyMateria.textContent = nombreMateria;
 
         let quizDurationSeconds = 3600; 
-
         if (materiaKey.startsWith('ppnn')) {
             quizDurationSeconds = 3600;
+            const extra = document.getElementById('instrucciones-adicionales');
+            if(extra) extra.innerHTML = '<p style="color:#b22222; font-weight:bold;">Prueba de velocidad y precisión.</p>';
         } else if (materiaKey.includes('matematicas')) {
             quizDurationSeconds = 5400; 
         } else if (materiaKey.includes('general')) {
@@ -103,33 +129,45 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         tiempoRestanteSeg = quizDurationSeconds;
-        if(document.getElementById('lobby-tiempo')) 
-            document.getElementById('lobby-tiempo').textContent = Math.floor(quizDurationSeconds/60) + " Minutos";
+        if(document.getElementById('lobby-tiempo')) document.getElementById('lobby-tiempo').textContent = Math.floor(quizDurationSeconds/60) + " Minutos";
         if(lobbyPreguntasDisplay) lobbyPreguntasDisplay.textContent = TOTAL_PREGUNTAS_QUIZ;
 
+        console.log("Configuración inicial completa. Llamando a cargarPreguntas...");
         cargarPreguntas(materiaKey);
     }
 
     async function cargarPreguntas(materia) {
+        console.log(`Iniciando carga de preguntas para: ${materia}`);
         let materiasACargar = [];
         if (materia === 'general') materiasACargar = ordenGeneralPolicia;
         else if (materia === 'general_esmil') materiasACargar = ordenGeneralEsmil;
         else materiasACargar = [materia];
 
+        console.log("Archivos a cargar:", materiasACargar.map(m => `DATA/preguntas_${m}.json`));
+
         try {
-            const promesas = materiasACargar.map(m =>
-                // IMPORTANTE: Ruta plana -> DATA/preguntas_X.json
-                fetch(`DATA/preguntas_${m}.json`)
+            const promesas = materiasACargar.map(m => {
+                const url = `DATA/preguntas_${m}.json`;
+                console.log(`Haciendo fetch a: ${url}`);
+                return fetch(url)
                     .then(res => {
-                        if (!res.ok) throw new Error(`No se encontró el archivo: <b>DATA/preguntas_${m}.json</b>`);
+                        if (!res.ok) {
+                            console.error(`Error en fetch ${url}: Status ${res.status}`);
+                            throw new Error(`No se encontró el archivo: <b>${url}</b> (Error ${res.status})`);
+                        }
+                        console.log(`Fetch OK: ${url}`);
                         return res.json();
-                    })
-            );
+                    });
+            });
 
             const resultados = await Promise.all(promesas);
+            console.log("Todos los fetch completados exitosamente.");
             
             let todas = [];
             resultados.forEach(data => todas = todas.concat(data));
+            console.log(`Total preguntas cargadas: ${todas.length}`);
+
+            if(todas.length === 0) throw new Error("Los archivos JSON estaban vacíos.");
 
             if(materia.startsWith('ppnn')) {
                 TOTAL_PREGUNTAS_QUIZ = todas.length;
@@ -138,19 +176,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
             preguntasPorMateria[materia] = todas;
             
+            console.log("Habilitando botón Comenzar...");
             comenzarBtn.disabled = false;
             comenzarBtn.textContent = 'COMENZAR INTENTO';
-            comenzarBtn.onclick = () => iniciarIntento(materia);
+            comenzarBtn.onclick = () => {
+                console.log("Click en Comenzar. Iniciando intento...");
+                iniciarIntento(materia);
+            };
 
         } catch (error) {
+            console.error("Error atrapado en cargarPreguntas:", error);
             showError(error.message);
         }
     }
 
     function iniciarIntento(materiaKey) {
         let pool = preguntasPorMateria[materiaKey];
-        if (!pool || pool.length === 0) { showError("El archivo JSON está vacío."); return; }
-
+        
         if(materiaKey.startsWith('ppnn')) {
             preguntasQuiz = pool.sort(() => 0.5 - Math.random());
         } else if (materiaKey.includes('general')) {
@@ -159,12 +201,12 @@ document.addEventListener('DOMContentLoaded', () => {
             preguntasQuiz = pool.sort(() => 0.5 - Math.random()).slice(0, 50);
         }
         
+        console.log(`Quiz preparado con ${preguntasQuiz.length} preguntas.`);
         respuestasUsuario = new Array(preguntasQuiz.length).fill(null);
+        
         lobbyContainer.style.display = 'none';
-        simuladorContainer.style.display = 'grid'; // O flex segun tu CSS
-        if(window.innerWidth > 900) simuladorContainer.style.display = 'grid'; // Forzar grid en PC
-        else simuladorContainer.style.display = 'flex';
-
+        simuladorContainer.style.display = 'flex';
+        
         construirNavegador();
         mostrarPregunta(0);
         iniciarCronometro();
@@ -175,10 +217,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const q = preguntasQuiz[idx];
         preguntaNumero.textContent = `Pregunta ${idx + 1}`;
         
-        // Imagen
         const imgDiv = document.getElementById('q-image-container');
         if(q.imagen) {
-            imgDiv.innerHTML = `<img src="${q.imagen}" onerror="this.style.display='none'" class="pregunta-imagen">`;
+            // Intenta cargar imagen, si falla la oculta sin romper nada
+            imgDiv.innerHTML = `<img src="${q.imagen}" onerror="this.style.display='none'; console.warn('No se pudo cargar imagen: ${q.imagen}');" class="pregunta-imagen">`;
         } else {
             imgDiv.innerHTML = '';
         }
@@ -218,21 +260,25 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function confirmarTerminarIntento() {
+        const modalMensaje = document.getElementById('modal-mensaje');
         if(modalMensaje) modalMensaje.textContent = `¿Seguro que quieres terminar? Tienes ${respuestasUsuario.filter(r=>r===null).length} sin responder.`;
         if(modalOverlay) modalOverlay.style.display = 'flex';
     }
 
     function iniciarCronometro() {
+        console.log("Cronómetro iniciado.");
         cronometroInterval = setInterval(() => {
             tiempoRestanteSeg--;
             const m = Math.floor(tiempoRestanteSeg / 60);
             const s = tiempoRestanteSeg % 60;
+            const cronometroDisplay = document.getElementById('cronometro');
             if(cronometroDisplay) cronometroDisplay.textContent = `${m}:${s < 10 ? '0'+s : s}`;
             if(tiempoRestanteSeg <= 0) finalizarIntento();
         }, 1000);
     }
 
     async function finalizarIntento() {
+        console.log("Finalizando intento...");
         clearInterval(cronometroInterval);
         simuladorContainer.style.display = 'none';
         resultadosContainer.style.display = 'block';
@@ -240,7 +286,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let correctas = 0;
         preguntasQuiz.forEach((q, i) => { if(respuestasUsuario[i] === q.respuesta) correctas++; });
         
-        const score = Math.round((correctas * 1000) / preguntasQuiz.length);
+        const score = Math.round((correctas * 1000) / preguntasQuiz.length) || 0;
         if(puntajeFinalDisplay) puntajeFinalDisplay.textContent = score;
         if(statsCorrectas) statsCorrectas.textContent = correctas;
         if(statsIncorrectas) statsIncorrectas.textContent = preguntasQuiz.length - correctas;
@@ -251,16 +297,22 @@ document.addEventListener('DOMContentLoaded', () => {
             revisionContainer.innerHTML = '';
             preguntasQuiz.forEach((q, i) => {
                 const div = document.createElement('div');
-                div.style.borderBottom = "1px solid #eee"; div.style.padding = "10px";
-                div.innerHTML = `<p><strong>${i+1}. ${q.pregunta}</strong></p><p>Tu respuesta: ${respuestasUsuario[i] || '---'}</p><p style="color:green">Correcta: ${q.respuesta}</p>`;
+                div.className = 'revision-pregunta';
+                const esCorrecta = respuestasUsuario[i] === q.respuesta;
+                div.innerHTML = `
+                    <p><strong>${i+1}. ${q.pregunta}</strong></p>
+                    <p>Tu respuesta: <span style="color:${esCorrecta?'green':'red'}">${respuestasUsuario[i] || '---'}</span></p>
+                    ${!esCorrecta ? `<p>Correcta: <strong>${q.respuesta}</strong></p>` : ''}
+                `;
                 revisionContainer.appendChild(div);
             });
         }
 
         // GUARDAR SUPABASE
-        const userStr = sessionStorage.getItem('userInfo'); // Revisa si auth.js usa 'userInfo'
+        const userStr = sessionStorage.getItem('userInfo'); 
         if(userStr) {
             const user = JSON.parse(userStr);
+            console.log("Intentando guardar en Supabase para usuario:", user.usuario);
             try {
                 const params = new URLSearchParams(window.location.search);
                 const title = materias[params.get('materia')] || params.get('materia');
@@ -273,17 +325,22 @@ document.addEventListener('DOMContentLoaded', () => {
                     total_preguntas: preguntasQuiz.length,
                     ciudad: user.ciudad
                 }]);
+                
                 if(error) throw error;
+                console.log("Resultado guardado exitosamente en Supabase.");
             } catch(e) {
-                showError("No se guardó el resultado: " + e.message);
+                console.error("Error al guardar en Supabase:", e.message);
+                alert("Tu nota se calculó, pero hubo un error al guardarla en la nube. Toma una captura.");
             }
+        } else {
+            console.warn("No se encontró información de usuario en sessionStorage. No se guardó el resultado.");
         }
     }
 
-    // Inicializar al cargar
+    // Inicializar
     inicializar();
 
-    // Listeners extra
+    // Listeners
     if(siguienteBtn) siguienteBtn.addEventListener('click', irPreguntaSiguiente);
     if(terminarIntentoBtn) terminarIntentoBtn.addEventListener('click', confirmarTerminarIntento);
     if(document.getElementById('reiniciar-btn')) document.getElementById('reiniciar-btn').addEventListener('click', () => location.href='index.html');
