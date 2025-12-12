@@ -1,4 +1,4 @@
-/* --- GLOBAL --- */
+/* --- CONFIGURACIÓN GLOBAL --- */
 :root {
     --primary: #b22222;
     --primary-dark: #8b0000;
@@ -13,30 +13,77 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: 'Work Sans', sans-serif; background-color: var(--light); color: var(--dark); min-height: 100vh; display: flex; flex-direction: column; }
 
-/* --- HEADER (EL MENÚ NEGRO) --- */
-header { background: var(--dark); color: var(--white); padding: 15px 30px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 4px 20px rgba(0,0,0,0.2); position: sticky; top: 0; z-index: 100; }
+/* --- HEADER FIXED (SOLUCIÓN DOBLE MENÚ) --- */
+header { 
+    background: var(--dark); color: var(--white); padding: 12px 30px; 
+    display: flex; align-items: center; justify-content: space-between; 
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2); position: sticky; top: 0; z-index: 100; 
+}
 .header-main-link { display: flex; align-items: center; gap: 15px; text-decoration: none; color: white; }
-.header-logo img { height: 50px; }
-.header-titulo h1 { font-family: 'Teko', sans-serif; font-size: 2.2rem; line-height: 1; margin: 0; letter-spacing: 1px; }
-.header-titulo h2 { font-family: 'Work Sans', sans-serif; font-size: 0.85rem; color: #ccc; margin: 0; text-transform: uppercase; letter-spacing: 2px; }
-.user-info-container { display: flex; align-items: center; gap: 10px; font-size: 0.9rem; }
+.header-logo img { height: 45px; }
+.header-titulo h1 { font-family: 'Teko', sans-serif; font-size: 2rem; line-height: 1; margin: 0; }
+.header-titulo h2 { font-family: 'Work Sans', sans-serif; font-size: 0.8rem; color: #ccc; margin: 0; text-transform: uppercase; letter-spacing: 1px; }
+
+/* Menú Escritorio */
+.user-info-container { display: flex; align-items: center; gap: 15px; }
 .dropdown { position: relative; }
-.dropdown-btn { background: rgba(255,255,255,0.1); border: none; color: white; cursor: pointer; padding: 8px 12px; border-radius: 6px; }
-.dropdown-content { display: none; position: absolute; right: 0; top: 100%; background: white; min-width: 160px; box-shadow: var(--shadow); border-radius: 8px; overflow: hidden; margin-top: 10px; }
+.dropdown-btn { 
+    background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); 
+    color: white; cursor: pointer; padding: 8px 15px; border-radius: 6px; 
+    font-size: 0.9rem; transition: 0.3s; 
+}
+.dropdown-btn:hover { background: rgba(255,255,255,0.2); }
+.dropdown-content { 
+    display: none; position: absolute; right: 0; top: 100%; margin-top: 10px;
+    background: white; min-width: 180px; box-shadow: var(--shadow); 
+    border-radius: 8px; overflow: hidden; z-index: 1000;
+}
 .dropdown:hover .dropdown-content { display: block; }
-.dropdown-content a { display: block; padding: 12px 20px; color: var(--dark); text-decoration: none; border-bottom: 1px solid #eee; }
+.dropdown-content a { 
+    display: block; padding: 12px 20px; color: var(--dark); 
+    text-decoration: none; border-bottom: 1px solid #eee; font-size: 0.95rem;
+}
 .dropdown-content a:hover { background: #f9f9f9; color: var(--primary); }
 
-/* --- LOBBY (Instrucciones) --- */
+/* Menú Móvil (Hamburguesa) */
+.hamburger-menu { 
+    display: none; /* Oculto por defecto en PC */
+    background: none; border: none; color: white; font-size: 1.8rem; cursor: pointer; 
+}
+
+/* SIDE NAV (Menú Lateral Móvil) */
+.side-nav { 
+    height: 100%; width: 0; position: fixed; z-index: 2000; top: 0; right: 0; 
+    background-color: #111; overflow-x: hidden; transition: 0.3s; padding-top: 60px; 
+}
+.side-nav-header { text-align: center; margin-bottom: 30px; }
+.side-nav-header img { width: 80px; margin-bottom: 10px; }
+.side-nav-header h3 { color: white; font-family: 'Teko', sans-serif; font-size: 1.5rem; margin: 0; }
+.side-nav-user { padding: 0 30px 20px; color: #888; border-bottom: 1px solid #333; margin-bottom: 20px; }
+.side-nav-user strong { color: white; font-size: 1.1rem; }
+.side-nav-link { padding: 15px 30px; text-decoration: none; font-size: 1.1rem; color: #ccc; display: block; transition: 0.3s; }
+.side-nav-link:hover { color: var(--primary); background: #222; }
+.close-nav-btn { position: absolute; top: 15px; right: 25px; font-size: 36px; background: none; border: none; color: white; cursor: pointer; }
+.overlay { display: none; position: fixed; width: 100%; height: 100%; top: 0; left: 0; background-color: rgba(0,0,0,0.7); z-index: 1500; backdrop-filter: blur(2px); }
+
+/* --- RESPONSIVE (LA MAGIA) --- */
+@media (max-width: 850px) {
+    .desktop-only { display: none !important; } /* Oculta menú PC */
+    .hamburger-menu { display: block !important; } /* Muestra hamburguesa */
+}
+
+/* --- ESTILOS RESTANTES DEL SIMULADOR --- */
 main { flex: 1; padding: 40px 20px; max-width: 1200px; margin: 0 auto; width: 100%; display: flex; justify-content: center; }
-.container-box { background: var(--white); padding: 40px; border-radius: 12px; box-shadow: var(--shadow); width: 100%; max-width: 800px; border-top: 5px solid var(--primary); text-align: center; }
-.datos-informativos { background: #f9f9f9; padding: 20px; border-radius: 8px; margin: 20px 0; text-align: left; display: grid; gap: 10px; font-size: 1.1rem; }
+.container-box { background: var(--white); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); width: 100%; max-width: 800px; border-top: 5px solid var(--primary); }
+
+/* Lobby */
+.datos-informativos { background: #f9f9f9; padding: 20px; border-radius: 8px; margin: 20px 0; display: grid; gap: 10px; font-size: 1.1rem; }
 .datos-informativos i { color: var(--primary); width: 25px; text-align: center; }
 #comenzar-btn { width: 100%; padding: 18px; font-size: 1.3rem; font-weight: 700; background: var(--primary); color: white; border: none; border-radius: 8px; cursor: pointer; transition: 0.3s; margin-top: 20px; }
 #comenzar-btn:hover:not(:disabled) { background: var(--primary-dark); transform: translateY(-2px); }
 #comenzar-btn:disabled { background: #ccc; cursor: not-allowed; }
 
-/* --- SIMULADOR (Quiz) --- */
+/* Quiz Layout */
 #simulador-container { display: none; width: 100%; gap: 30px; }
 @media (min-width: 900px) { #simulador-container { display: grid; grid-template-columns: 1fr 320px; } }
 .quiz-main { background: var(--white); padding: 30px; border-radius: 12px; box-shadow: var(--shadow); }
@@ -46,6 +93,7 @@ main { flex: 1; padding: 40px 20px; max-width: 1200px; margin: 0 auto; width: 10
 .opcion-btn:hover { border-color: var(--primary); background: #fff5f5; }
 .opcion-btn.selected { border-color: var(--primary); background: var(--primary); color: white; font-weight: 600; }
 
+/* Sidebar */
 .quiz-sidebar { position: sticky; top: 90px; height: fit-content; }
 .timer-box { background: var(--dark); color: white; padding: 20px; border-radius: 10px; text-align: center; margin-bottom: 20px; }
 #cronometro { font-family: 'Teko'; font-size: 3.5rem; line-height: 1; }
@@ -56,27 +104,22 @@ main { flex: 1; padding: 40px 20px; max-width: 1200px; margin: 0 auto; width: 10
 .nav-dot.active { border-color: var(--primary); background: var(--primary); color: white; }
 #terminar-intento-btn { width: 100%; padding: 15px; background: var(--success); color: white; border: none; border-radius: 8px; margin-top: 20px; font-weight: bold; cursor: pointer; font-size: 1.1rem; }
 
-/* --- RESULTADOS --- */
+/* Resultados */
+#resultados-container { display: none; text-align: center; }
 .score-circle { width: 180px; height: 180px; border-radius: 50%; border: 10px solid var(--primary); display: flex; flex-direction: column; justify-content: center; align-items: center; margin: 0 auto 30px; }
 #puntaje-final { font-family: 'Teko'; font-size: 5rem; line-height: 0.8; color: var(--primary); }
 .stats-bar { display: flex; justify-content: center; gap: 30px; margin-bottom: 30px; flex-wrap: wrap; }
-.stat-item { text-align: center; background: #f8f9fa; padding: 15px; border-radius: 8px; min-width: 100px; }
+.stat-item { text-align: center; background: #f8f9fa; padding: 15px; border-radius: 8px; min-width: 100px; border-bottom: 3px solid #ddd; }
 .stat-val { display: block; font-size: 2rem; font-family: 'Teko'; font-weight: bold; }
-.stat-lbl { font-size: 0.85rem; text-transform: uppercase; color: #777; }
 .revision-botones button { padding: 12px 25px; border-radius: 50px; border: none; cursor: pointer; font-weight: bold; margin: 0 10px; }
 #retry-btn { background: var(--primary); color: white; }
 #reiniciar-btn { background: transparent; border: 2px solid #ddd; color: #555; }
 
-/* --- MODAL DE ERROR (ROJO) --- */
-.modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 9999; display: none; justify-content: center; align-items: center; backdrop-filter: blur(4px); }
-.modal-content { background: white; padding: 40px; border-radius: 12px; width: 90%; max-width: 450px; text-align: center; border-top: 6px solid var(--danger); box-shadow: 0 25px 50px rgba(0,0,0,0.5); }
-.modal-icon { font-size: 3.5rem; color: var(--danger); margin-bottom: 15px; }
+/* MODALES */
+.modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 3000; display: none; justify-content: center; align-items: center; backdrop-filter: blur(4px); }
+.modal-content { background: white; padding: 40px; border-radius: 12px; width: 90%; max-width: 450px; text-align: center; border-top: 6px solid var(--primary); box-shadow: 0 25px 50px rgba(0,0,0,0.5); animation: slideDown 0.3s; }
+.modal-icon { font-size: 3.5rem; color: var(--primary); margin-bottom: 15px; }
 .modal-title { font-family: 'Teko'; font-size: 2.2rem; color: #333; margin: 0 0 10px 0; }
-.btn-close-modal { background: #333; color: white; width: 100%; padding: 12px; border: none; border-radius: 6px; cursor: pointer; font-size: 1.1rem; margin-top: 20px; }
-
-/* Side Nav (Móvil) */
-.hamburger-menu { display: none; background: none; border: none; color: white; font-size: 1.5rem; }
-.side-nav { height: 100%; width: 0; position: fixed; z-index: 1001; top: 0; right: 0; background-color: #111; overflow-x: hidden; transition: 0.3s; padding-top: 60px; }
-.side-nav a { padding: 8px 8px 8px 32px; text-decoration: none; font-size: 25px; color: #818181; display: block; }
-.side-nav .close-nav-btn { position: absolute; top: 0; right: 25px; font-size: 36px; margin-left: 50px; background: none; border: none; color: white; }
-@media (max-width: 768px) { .desktop-only { display: none; } .hamburger-menu { display: block; } }
+.modal-msg { font-size: 1.1rem; color: #555; margin-bottom: 25px; }
+.btn-close-modal { background: #333; color: white; width: 100%; padding: 12px; border: none; border-radius: 6px; cursor: pointer; font-size: 1.1rem; }
+@keyframes slideDown { from { transform: translateY(-50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
