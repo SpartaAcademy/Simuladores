@@ -1,508 +1,105 @@
 // JS/script-resultados.js
 
-import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
-
 const supabaseUrl = 'https://fgpqioviycmgwypidhcs.supabase.co';
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZncHFpb3ZpeWNtZ3d5cGlkaGNzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU0OTkwMDgsImV4cCI6MjA4MTA3NTAwOH0.5ckdzDtwFRG8JpuW5S-Qi885oOSVESAvbLoNiqePJYo';
-const supabase = createClient(supabaseUrl, supabaseKey);
-
-// (ELIMINADO) El objeto 'materias' estático ya no es necesario
-
-// Inicializa jsPDF (global)
+const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
 const { jsPDF } = window.jspdf;
 
-document.addEventListener('DOMContentLoaded', () => {
-    
-    // Referencias DOM
-    const filtroCiudad = document.getElementById('filtro-ciudad');
-    const filtroMateria = document.getElementById('filtro-materia');
-    const filtroNombre = document.getElementById('filtro-nombre');
-    const reporteContainer = document.getElementById('reporte-container');
-    const loadingSpinner = document.getElementById('loading-spinner');
-    const descargarGeneralBtn = document.getElementById('descargar-general-csv-btn');
-    const descargarPdfBtn = document.getElementById('descargar-pdf-btn');
+// Lista de materias para el filtro
+const materias = {
+    'sociales': 'Ciencias Sociales',
+    'matematicas': 'Matemáticas y Física',
+    'lengua': 'Lengua y Literatura',
+    'ingles': 'Inglés',
+    'general': 'General (Todas)',
+    'inteligencia': 'Inteligencia',
+    'personalidad': 'Personalidad',
+    'ppnn1': 'Cuestionario 1 PPNN',
+    'ppnn2': 'Cuestionario 2 PPNN',
+    'ppnn3': 'Cuestionario 3 PPNN',
+    'ppnn4': 'Cuestionario 4 PPNN',
+    'sociales_esmil': 'Ciencias Sociales (ESMIL)',
+    'matematicas_esmil': 'Matemáticas y Física (ESMIL)',
+    'lengua_esmil': 'Lengua y Literatura (ESMIL)',
+    'ingles_esmil': 'Inglés (ESMIL)',
+    'general_esmil': 'General ESMIL (Todas)'
+};
 
-    let allUsers = [];
-    let allAttempts = [];
-    let currentFilteredUsers = [];
-    
-    function formatFecha(fechaISO) {
-        if (!fechaISO) return 'N/A';
-        const fecha = new Date(fechaISO);
-        return fecha.toLocaleString('es-EC', {
-            day: '2-digit', month: '2-digit', year: 'numeric',
-            hour: '2-digit', minute: '2-digit'
-        });
+document.addEventListener('DOMContentLoaded', async () => {
+    const container = document.getElementById('reporte-container');
+    const spinner = document.getElementById('loading-spinner');
+    const fCiudad = document.getElementById('filtro-ciudad');
+    const fMateria = document.getElementById('filtro-materia');
+    const fNombre = document.getElementById('filtro-nombre');
+
+    function showError(msg) {
+        document.getElementById('error-text').innerHTML = msg;
+        document.getElementById('error-modal').style.display = 'flex';
+        spinner.style.display = 'none';
+        container.innerHTML = '<p style="text-align:center; color:red;">No se cargaron datos.</p>';
     }
 
-    function getClasePuntaje(puntaje) {
-        const p = parseFloat(puntaje) || 0;
-        if (p >= 700) return 'alto';
-        if (p >= 400) return 'medio';
-        return 'bajo';
-    }
+    try {
+        const { data: intentos, error } = await supabase.from('resultados').select('*');
+        if(error) throw new Error(error.message);
 
-    // (MODIFICADO) Esta función ahora lee los datos de Supabase
-    function popularFiltroMaterias(intentos) {
-        // Extrae nombres de materias únicos de los resultados
-        const materiasUnicas = [...new Set(intentos.map(intento => intento.materia))];
-        materiasUnicas.sort(); // Ordena alfabéticamente
+        const resUsers = await fetch('DATA/usuarios.json');
+        if(!resUsers.ok) throw new Error("Falta archivo usuarios.json");
+        const usuariosLocal = await resUsers.json();
 
-        // Limpia el filtro (excepto la opción "Todas")
-        filtroMateria.innerHTML = '<option value="Todas">Todas las Materias</option>';
-        
-        // Añade las materias encontradas
-        materiasUnicas.forEach(materia => {
-            if (materia) { // Evita nulos o vacíos
-                const option = document.createElement('option');
-                option.value = materia;
-                option.textContent = materia;
-                filtroMateria.appendChild(option);
-            }
-        });
-    }
-    
-    async function cargarDatosIniciales() {
-        loadingSpinner.style.display = 'block';
-        reporteContainer.innerHTML = '<p class="no-intentos">Cargando datos...</p>';
-        
-        try {
-            const [usuariosRes, intentosRes] = await Promise.all([
-                fetch('DATA/usuarios.json').then(res => res.json()),
-                supabase.from('resultados').select('*')
-            ]);
-
-            allUsers = usuariosRes.filter(u => !u._comment && u.rol === 'aspirante');
-            
-            if (intentosRes.error) throw intentosRes.error;
-            allAttempts = intentosRes.data;
-
-            // (MODIFICADO) Llama a la función para poblar el filtro
-            popularFiltroMaterias(allAttempts);
-            
-            renderizarListaUsuarios();
-
-        } catch (error) {
-            console.error("Error al cargar datos iniciales:", error);
-            reporteContainer.innerHTML = `<p class="no-intentos" style="color: red;">Error al cargar: ${error.message}</p>`;
-        } finally {
-            loadingSpinner.style.display = 'none';
-        }
-    }
-
-    function renderizarListaUsuarios() {
-        const ciudad = filtroCiudad.value;
-        const materia = filtroMateria.value;
-        const nombreSearch = filtroNombre.value.toLowerCase();
-        
-        currentFilteredUsers = allUsers.filter(user => {
-            const matchCiudad = (ciudad === 'Todos' || user.ciudad === ciudad);
-            const matchNombre = user.nombre.toLowerCase().includes(nombreSearch);
-            return matchCiudad && matchNombre;
+        // Llenar filtro
+        Object.values(materias).forEach(m => {
+            const opt = document.createElement('option');
+            opt.value = opt.textContent = m;
+            fMateria.appendChild(opt);
         });
 
-        currentFilteredUsers.sort((a, b) => a.nombre.localeCompare(b.nombre));
-        
-        reporteContainer.innerHTML = '';
-
-        if (currentFilteredUsers.length === 0) {
-            reporteContainer.innerHTML = '<p class="no-intentos">No se encontraron aspirantes con esos filtros.</p>';
-            return;
-        }
-
-        currentFilteredUsers.forEach(user => {
-            const intentosUsuarioFiltrados = allAttempts.filter(a => 
-                a.usuario_id === user.usuario &&
-                (materia === 'Todas' || a.materia === materia)
-            );
-            const totalIntentos = intentosUsuarioFiltrados.length;
-            
-            if (materia !== 'Todas' && totalIntentos === 0) {
+        const render = () => {
+            container.innerHTML = '';
+            if(!intentos || intentos.length === 0) {
+                container.innerHTML = '<p class="no-intentos">No hay resultados aún.</p>';
                 return;
             }
 
-            const userCard = document.createElement('div');
-            userCard.className = 'user-card';
-            userCard.innerHTML = `
-                <div class="user-header" data-userid="${user.usuario}">
-                    <div class="user-info">
-                        <i class="fas fa-user-circle user-icon"></i>
-                        <div>
-                            <h3>${user.nombre}</h3>
-                            <span class="user-ciudad">${user.ciudad}</span>
-                        </div>
+            const usuarios = usuariosLocal.filter(u => u.rol === 'aspirante').filter(u => {
+                const matchC = fCiudad.value === 'Todas' || u.ciudad === fCiudad.value;
+                const matchN = u.nombre.toLowerCase().includes(fNombre.value.toLowerCase());
+                return matchC && matchN;
+            });
+
+            usuarios.forEach(user => {
+                const userInt = intentos.filter(i => 
+                    i.usuario_id === user.usuario && 
+                    (fMateria.value === 'Todas' || i.materia === fMateria.value)
+                );
+
+                if (fMateria.value !== 'Todas' && userInt.length === 0) return;
+
+                const div = document.createElement('div');
+                div.className = 'user-card';
+                div.innerHTML = `
+                    <div class="user-header">
+                        <div><h3>${user.nombre}</h3><small>${user.ciudad}</small></div>
+                        <strong>${userInt.length} Intentos</strong>
                     </div>
-                    <div class="user-actions">
-                        <span class="user-total-intentos">${totalIntentos} Intento(s)</span>
-                        <button class="user-pdf-btn" data-userid="${user.usuario}" title="Descargar PDF de este usuario">
-                            <i class="fas fa-file-pdf"></i> PDF
-                        </button>
-                        <button class="user-csv-btn" data-userid="${user.usuario}" title="Descargar CSV de este usuario">
-                            <i class="fas fa-download"></i> CSV
-                        </button>
-                        <i class="fas fa-chevron-down user-toggle-icon"></i>
+                    <div class="user-attempts">
+                        <table class="table" style="width:100%">
+                            ${userInt.map(i => `<tr><td>${i.materia}</td><td>${i.puntaje}</td></tr>`).join('')}
+                        </table>
                     </div>
-                </div>
-                <div class="user-attempts-container">
-                    </div>
-            `;
-            reporteContainer.appendChild(userCard);
-        });
-        
-        if (reporteContainer.innerHTML === '') {
-             reporteContainer.innerHTML = '<p class="no-intentos">No se encontraron aspirantes con esos filtros.</p>';
-        }
-
-        reporteContainer.querySelectorAll('.user-header').forEach(header => {
-            header.addEventListener('click', toggleUserAttempts);
-        });
-        reporteContainer.querySelectorAll('.user-csv-btn').forEach(btn => {
-            btn.addEventListener('click', descargarCSVUsuario);
-        });
-        reporteContainer.querySelectorAll('.user-pdf-btn').forEach(btn => {
-            btn.addEventListener('click', descargarPDFUsuario);
-        });
-    }
-
-    function toggleUserAttempts(event) {
-        const header = event.currentTarget;
-        const userCard = header.closest('.user-card');
-        const attemptsContainer = userCard.querySelector('.user-attempts-container');
-        const userId = header.dataset.userid;
-
-        if (event.target.closest('.user-csv-btn') || event.target.closest('.user-pdf-btn')) {
-            return;
-        }
-
-        if (userCard.classList.contains('open')) {
-            userCard.classList.remove('open');
-            attemptsContainer.style.display = 'none';
-        } else {
-            userCard.classList.add('open');
-            attemptsContainer.style.display = 'block';
-            if (attemptsContainer.innerHTML.trim() === '') {
-                buildAttemptDetails(attemptsContainer, userId);
-            }
-        }
-    }
-
-    // (CORREGIDO) Vuelve a agrupar por materia
-    function buildAttemptDetails(container, userId) {
-        const materiaFiltro = filtroMateria.value;
-
-        const intentosUsuario = allAttempts.filter(a => a.usuario_id === userId);
-        const intentosFiltrados = intentosUsuario.filter(a => 
-            materiaFiltro === 'Todas' || a.materia === materiaFiltro
-        );
-
-        if (intentosFiltrados.length === 0) {
-            container.innerHTML = '<p class="no-intentos" style="padding: 10px 0;">No tiene intentos registrados (según los filtros actuales).</p>';
-            return;
-        }
-
-        const intentosAgrupados = {};
-        intentosFiltrados.forEach(intento => {
-            if (!intentosAgrupados[intento.materia]) {
-                intentosAgrupados[intento.materia] = [];
-            }
-            intentosAgrupados[intento.materia].push(intento);
-        });
-
-        let html = '';
-        const materiasOrdenadas = Object.keys(intentosAgrupados).sort();
-        
-        for (const materia of materiasOrdenadas) {
-            html += `<div class="materia-group"><h4>${materia} (${intentosAgrupados[materia].length} intentos)</h4>`;
-            html += '<table class="intentos-tabla"><thead><tr><th class="col-puntaje">Puntaje</th><th class="col-fecha">Fecha y Hora</th></tr></thead><tbody>';
-            
-            intentosAgrupados[materia].sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
-
-            intentosAgrupados[materia].forEach(intento => {
-                const clasePuntaje = getClasePuntaje(intento.puntaje);
-                const puntajeTotal = 1000;
-                html += `
-                    <tr>
-                        <td class="col-puntaje puntaje ${clasePuntaje}">${intento.puntaje} / ${puntajeTotal}</td>
-                        <td class="col-fecha">${formatFecha(intento.created_at)}</td>
-                    </tr>
                 `;
+                div.querySelector('.user-header').onclick = () => div.classList.toggle('open');
+                container.appendChild(div);
             });
-            html += '</tbody></table></div>';
-        }
-        container.innerHTML = html;
+        };
+
+        fCiudad.onchange = render;
+        fMateria.onchange = render;
+        fNombre.oninput = render;
+        spinner.style.display = 'none';
+        render();
+
+    } catch (e) {
+        showError(e.message);
     }
-
-    // --- Lógica de Descarga CSV ---
-    function generarYDescargarCSV(data, filename) {
-        let csvContenido = data.map(filaArray => 
-            filaArray.map(cell => `"${String(cell).replace(/"/g, '""')}"`)
-        ).map(filaArray => filaArray.join(";")).join("\r\n");
-        const bom = "\uFEFF";
-        const csvBlob = new Blob([bom + csvContenido], { type: "text/csv;charset=utf-8;" });
-        const link = document.createElement("a");
-        const url = URL.createObjectURL(csvBlob);
-        link.setAttribute("href", url);
-        link.setAttribute("download", filename);
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-    }
-
-    function descargarCSVUsuario(event) {
-        event.stopPropagation();
-        const userId = event.currentTarget.dataset.userid;
-        const usuarioInfo = allUsers.find(u => u.usuario === userId);
-        
-        const intentosUsuario = allAttempts.filter(a => 
-            a.usuario_id === userId &&
-            (filtroMateria.value === 'Todas' || a.materia === filtroMateria.value)
-        );
-
-        if (intentosUsuario.length === 0) {
-            alert(`El usuario ${usuarioInfo.nombre} no tiene intentos para descargar (según los filtros actuales).`);
-            return;
-        }
-        
-        const data = [
-            ["Reporte Individual de Aspirante"],
-            ["Nombre:", usuarioInfo.nombre],
-            ["Usuario (ID):", usuarioInfo.usuario],
-            ["Ciudad:", usuarioInfo.ciudad],
-            [],
-            ["Materia", "Puntaje", "Total", "Fecha y Hora"]
-        ];
-
-        intentosUsuario.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
-        intentosUsuario.forEach(intento => {
-            const puntajeTotal = 1000;
-            data.push([
-                intento.materia,
-                intento.puntaje,
-                puntajeTotal,
-                formatFecha(intento.created_at)
-            ]);
-        });
-        
-        generarYDescargarCSV(data, `reporte_csv_${usuarioInfo.usuario}.csv`);
-    }
-
-    function descargarCSVGeneral() {
-        const ciudad = filtroCiudad.value;
-        const materia = filtroMateria.value;
-        const nombreSearch = filtroNombre.value.toLowerCase();
-        
-        const intentosFiltrados = allAttempts.filter(attempt => {
-            const usuarioInfo = allUsers.find(u => u.usuario === attempt.usuario_id);
-            if (!usuarioInfo) return false;
-            const matchCiudad = (ciudad === 'Todos' || usuarioInfo.ciudad === ciudad);
-            const matchMateria = (materia === 'Todas' || attempt.materia === materia);
-            const matchNombre = usuarioInfo.nombre.toLowerCase().includes(nombreSearch);
-            return matchCiudad && matchMateria && matchNombre;
-        });
-        
-        if (intentosFiltrados.length === 0) {
-            alert("No hay resultados para descargar (según los filtros actuales).");
-            return;
-        }
-
-        const data = [
-            ["Reporte General de Aspirantes"],
-            ["Filtro Ciudad:", ciudad],
-            ["Filtro Materia:", materia],
-            ["Filtro Nombre:", nombreSearch || "Todos"],
-            [],
-            ["Nombre", "Usuario (ID)", "Ciudad", "Materia", "Puntaje", "Total", "Fecha y Hora"]
-        ];
-
-        intentosFiltrados.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
-        
-        intentosFiltrados.forEach(intento => {
-            const usuarioInfo = allUsers.find(u => u.usuario === intento.usuario_id);
-            const nombre = usuarioInfo ? usuarioInfo.nombre : intento.usuario_nombre;
-            const ciudadUsuario = usuarioInfo ? usuarioInfo.ciudad : 'N/A';
-            const puntajeTotal = 1000;
-            
-            data.push([
-                nombre,
-                intento.usuario_id,
-                ciudadUsuario,
-                intento.materia,
-                intento.puntaje,
-                puntajeTotal,
-                formatFecha(intento.created_at)
-            ]);
-        });
-        generarYDescargarCSV(data, `reporte_general_sparta.csv`);
-    }
-
-    // --- Lógica de Descarga PDF ---
-    function descargarPDFUsuario(event) {
-        event.stopPropagation();
-        const userId = event.currentTarget.dataset.userid;
-        const usuarioInfo = allUsers.find(u => u.usuario === userId);
-        const intentosUsuario = allAttempts.filter(a => 
-            a.usuario_id === userId &&
-            (filtroMateria.value === 'Todas' || a.materia === filtroMateria.value)
-        );
-
-        if (intentosUsuario.length === 0) {
-            alert(`El usuario ${usuarioInfo.nombre} no tiene intentos para descargar (según los filtros actuales).`);
-            return;
-        }
-
-        const doc = new jsPDF();
-        
-        doc.setFont('helvetica', 'bold');
-        doc.setFontSize(16);
-        doc.text(`Reporte de Aspirante`, 14, 22);
-        
-        doc.setFont('helvetica', 'normal');
-        doc.setFontSize(11);
-        doc.text(`Nombre: ${usuarioInfo.nombre}`, 14, 30);
-        doc.text(`Usuario (ID): ${usuarioInfo.usuario}`, 14, 36);
-        doc.text(`Ciudad: ${usuarioInfo.ciudad}`, 14, 42);
-
-        const intentosAgrupados = {};
-        intentosUsuario.forEach(intento => {
-            if (!intentosAgrupados[intento.materia]) {
-                intentosAgrupados[intento.materia] = [];
-            }
-            intentosAgrupados[intento.materia].push(intento);
-        });
-
-        let startY = 50;
-        const head = [['#', 'Puntaje', 'Total', 'Fecha y Hora']];
-        const materiasOrdenadas = Object.keys(intentosAgrupados).sort();
-
-        for (const materia of materiasOrdenadas) {
-            if (startY > 250) { 
-                doc.addPage();
-                startY = 22;
-            }
-            
-            doc.setFont('helvetica', 'bold');
-            doc.setFontSize(12);
-            doc.text(`${materia} (${intentosAgrupados[materia].length} intentos)`, 14, startY);
-            startY += 7;
-
-            const body = intentosAgrupados[materia]
-                .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
-                .map((intento, index) => [
-                    index + 1,
-                    intento.puntaje,
-                    1000,
-                    formatFecha(intento.created_at)
-                ]);
-
-            doc.autoTable({
-                startY: startY,
-                head: head,
-                body: body,
-                theme: 'grid',
-                headStyles: { fillColor: [44, 44, 44] }
-            });
-            
-            startY = doc.autoTable.previous.finalY + 15;
-        }
-
-        doc.save(`reporte_pdf_${usuarioInfo.usuario}.pdf`);
-    }
-    
-    function descargarPDFGeneral() {
-        const ciudad = filtroCiudad.value;
-        const materiaFiltro = filtroMateria.value;
-
-        if (currentFilteredUsers.length === 0) {
-            alert("No hay aspirantes para generar un PDF (según los filtros actuales).");
-            return;
-        }
-
-        const doc = new jsPDF();
-        let firstPage = true;
-
-        currentFilteredUsers.forEach(user => {
-            const intentosUsuario = allAttempts.filter(a => 
-                a.usuario_id === user.usuario &&
-                (materiaFiltro === 'Todas' || a.materia === materiaFiltro)
-            );
-
-            if (materiaFiltro !== 'Todas' && intentosUsuario.length === 0) {
-                return;
-            }
-
-            if (!firstPage) {
-                doc.addPage();
-            }
-            firstPage = false;
-
-            doc.setFont('helvetica', 'bold');
-            doc.setFontSize(16);
-            doc.text(`Reporte de Aspirante`, 14, 22);
-            
-            doc.setFont('helvetica', 'normal');
-            doc.setFontSize(11);
-            doc.text(`Nombre: ${user.nombre}`, 14, 30);
-            doc.text(`Usuario (ID): ${user.usuario}`, 14, 36);
-            doc.text(`Ciudad: ${user.ciudad}`, 14, 42);
-
-            const intentosAgrupados = {};
-            intentosUsuario.forEach(intento => {
-                if (!intentosAgrupados[intento.materia]) {
-                    intentosAgrupados[intento.materia] = [];
-                }
-                intentosAgrupados[intento.materia].push(intento);
-            });
-
-            const head = [['#', 'Puntaje', 'Total', 'Fecha y Hora']];
-            let startY = 50;
-
-            if (intentosUsuario.length === 0) {
-                 doc.text("Este aspirante no tiene intentos registrados (según los filtros).", 14, 50);
-            }
-
-            const materiasOrdenadas = Object.keys(intentosAgrupados).sort();
-            for (const materia of materiasOrdenadas) {
-                 if (startY > 250) {
-                    doc.addPage();
-                    startY = 22;
-                }
-                doc.setFont('helvetica', 'bold');
-                doc.setFontSize(12);
-                doc.text(`${materia} (${intentosAgrupados[materia].length} intentos)`, 14, startY);
-                startY += 7;
-
-                const body = intentosAgrupados[materia]
-                    .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
-                    .map((intento, index) => [
-                        index + 1,
-                        intento.puntaje,
-                        1000,
-                        formatFecha(intento.created_at)
-                    ]);
-
-                doc.autoTable({
-                    startY: startY,
-                    head: head,
-                    body: body,
-                    theme: 'grid',
-                    headStyles: { fillColor: [44, 44, 44] }
-                });
-                
-                startY = doc.autoTable.previous.finalY + 15;
-            }
-        });
-
-        doc.save(`reporte_pdf_${ciudad}_${materiaFiltro}.pdf`);
-    }
-
-
-    // --- Listeners de Filtros ---
-    filtroCiudad.addEventListener('change', renderizarListaUsuarios);
-    filtroMateria.addEventListener('change', renderizarListaUsuarios);
-    filtroNombre.addEventListener('input', renderizarListaUsuarios);
-    descargarGeneralBtn.addEventListener('click', descargarCSVGeneral);
-    descargarPdfBtn.addEventListener('click', descargarPDFGeneral);
-
-    // --- Kickoff ---
-    cargarDatosIniciales();
 });
