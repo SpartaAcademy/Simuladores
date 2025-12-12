@@ -1,14 +1,10 @@
-// JS/script-simulador.js
+// JS/script-resultados.js
 
-// Importar la librería de Supabase
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
 
-// Inicializar Supabase
 const supabaseUrl = 'https://fgpqioviycmgwypidhcs.supabase.co';
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZncHFpb3ZpeWNtZ3d5cGlkaGNzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU0OTkwMDgsImV4cCI6MjA4MTA3NTAwOH0.5ckdzDtwFRG8JpuW5S-Qi885oOSVESAvbLoNiqePJYo';
 const supabase = createClient(supabaseUrl, supabaseKey);
-
-document.addEventListener('DOMContentLoaded', () => {
 
 // (ELIMINADO) El objeto 'materias' estático ya no es necesario
 
