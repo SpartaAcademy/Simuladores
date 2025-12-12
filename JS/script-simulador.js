@@ -1,10 +1,7 @@
-// JS/script-simulador.js
-
 // CONEXIÓN
 const supabaseUrl = 'https://fgpqioviycmgwypidhcs.supabase.co';
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZncHFpb3ZpeWNtZ3d5cGlkaGNzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU0OTkwMDgsImV4cCI6MjA4MTA3NTAwOH0.5ckdzDtwFRG8JpuW5S-Qi885oOSVESAvbLoNiqePJYo';
 const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
-
 
 document.addEventListener('DOMContentLoaded', () => {
     // Referencias
@@ -14,6 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnStart = document.getElementById('comenzar-btn');
     const errorModal = document.getElementById('error-modal');
     const errorText = document.getElementById('error-text');
+    const btnNext = document.getElementById('siguiente-btn');
+    const navContainer = document.getElementById('navegador-preguntas');
     
     let questions = [];
     let userAnswers = [];
@@ -22,7 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let timeLeft = 3600;
     let totalPreguntas = 50;
 
-    // Nombres legibles
     const materias = {
         'sociales': 'Ciencias Sociales', 'matematicas': 'Matemáticas y Física',
         'lengua': 'Lengua y Literatura', 'ingles': 'Inglés', 'general': 'General (Todas)',
@@ -52,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('titulo-materia').textContent = title.toUpperCase();
         document.getElementById('lobby-materia').textContent = title;
         
-        if(materiaKey.includes('matematicas')) timeLeft = 5400; // 90 min
+        if(materiaKey.includes('matematicas')) timeLeft = 5400; 
         else if(materiaKey.includes('general')) { timeLeft = 10800; totalPreguntas = 200; }
         
         document.getElementById('lobby-tiempo').textContent = Math.floor(timeLeft/60) + " Minutos";
@@ -60,13 +58,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         try {
             let filesToLoad = [];
-            // Si es general, carga varios archivos. Si no, carga uno.
             if(materiaKey === 'general') filesToLoad = ordenGeneralPolicia;
             else if(materiaKey === 'general_esmil') filesToLoad = ordenGeneralEsmil;
             else filesToLoad = [materiaKey];
 
             const promises = filesToLoad.map(m => 
-                // BUSCA EN DATA/preguntas_X.json
                 fetch(`DATA/preguntas_${m}.json`).then(r => {
                     if(!r.ok) throw new Error(`Falta el archivo: <b>DATA/preguntas_${m}.json</b>`);
                     return r.json();
@@ -102,8 +98,10 @@ document.addEventListener('DOMContentLoaded', () => {
         lobby.style.display = 'none';
         simulador.style.display = window.innerWidth > 900 ? 'grid' : 'block';
         userAnswers = new Array(questions.length).fill(null);
+        
         renderNav();
         showQ(0);
+        
         timerInterval = setInterval(() => {
             timeLeft--;
             const m = Math.floor(timeLeft/60).toString().padStart(2,'0');
@@ -128,29 +126,68 @@ document.addEventListener('DOMContentLoaded', () => {
             const btn = document.createElement('button');
             btn.className = 'opcion-btn';
             if(userAnswers[idx] === op) btn.classList.add('selected');
+            
             btn.textContent = op;
             btn.onclick = () => {
                 userAnswers[idx] = op;
-                document.querySelectorAll('.nav-dot')[idx].classList.add('answered');
-                showQ(idx);
+                // Marcar visualmente pero NO cambiar de pregunta automáticamente
+                const allOpts = opts.querySelectorAll('.opcion-btn');
+                allOpts.forEach(b => b.classList.remove('selected'));
+                btn.classList.add('selected');
+                
+                // Actualizar dot visualmente
+                const dots = navContainer.children;
+                if(dots[idx]) dots[idx].classList.add('answered');
             };
             opts.appendChild(btn);
         });
         
-        document.querySelectorAll('.nav-dot').forEach((d, i) => d.classList.toggle('active', i===idx));
+        // Actualizar estado visual del navegador (solo highlight)
+        const dots = navContainer.children;
+        for(let i=0; i<dots.length; i++) {
+            dots[i].classList.remove('active');
+            if(i === idx) dots[i].classList.add('active');
+        }
+
+        // Controlar botón siguiente/terminar
+        if (idx === questions.length - 1) {
+            btnNext.textContent = "Finalizar";
+            btnNext.style.background = "#27ae60"; // Verde para terminar
+        } else {
+            btnNext.textContent = "Siguiente";
+            btnNext.style.background = "#b22222"; // Rojo normal
+        }
     }
 
     function renderNav() {
-        const c = document.getElementById('navegador-preguntas');
-        c.innerHTML = '';
+        navContainer.innerHTML = '';
         questions.forEach((_, i) => {
             const b = document.createElement('button');
             b.className = 'nav-dot';
             b.textContent = i+1;
-            b.onclick = () => showQ(i);
-            c.appendChild(b);
+            // IMPORTANTE: Eliminado el onclick para bloquear navegación libre
+            // b.onclick = () => showQ(i); <--- ELIMINADO
+            b.style.cursor = "default"; // Cursor normal para indicar no-clic
+            navContainer.appendChild(b);
         });
     }
+
+    // LÓGICA DE AVANCE LINEAL
+    btnNext.onclick = () => {
+        // Validar si respondió (Opcional: Si quieres obligar a responder, descomenta esto)
+        /* if(userAnswers[currentIdx] === null) {
+            alert("Debes seleccionar una respuesta para avanzar.");
+            return;
+        } */
+
+        if (currentIdx < questions.length - 1) {
+            // Avanzar
+            showQ(currentIdx + 1);
+        } else {
+            // Es la última pregunta, terminar
+            finish();
+        }
+    };
 
     async function finish() {
         clearInterval(timerInterval);
@@ -171,8 +208,7 @@ document.addEventListener('DOMContentLoaded', () => {
         revContainer.innerHTML = '';
         questions.forEach((q, i) => {
             const div = document.createElement('div');
-            div.style.borderBottom = '1px solid #eee';
-            div.style.padding = '10px';
+            div.className = 'revision-pregunta';
             const correct = userAnswers[i] === q.respuesta;
             div.innerHTML = `<p><strong>${i+1}. ${q.pregunta}</strong></p>
                              <p>Tu respuesta: <span style="color:${correct?'green':'red'}">${userAnswers[i]||'---'}</span></p>
@@ -181,14 +217,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         // Guardar
-        const userStr = sessionStorage.getItem('userInfo'); // Revisa si es 'userInfo' o 'sparta_user' en tu auth.js
+        const userStr = sessionStorage.getItem('userInfo'); // Revisa tu auth.js
         if(userStr) {
             const user = JSON.parse(userStr);
             const params = new URLSearchParams(window.location.search);
             const title = materias[params.get('materia')] || params.get('materia');
             
             try {
-                await supabase.from('resultados').insert([{
+                const { error } = await supabase.from('resultados').insert([{
                     usuario_id: user.usuario,
                     usuario_nombre: user.nombre,
                     materia: title,
@@ -196,21 +232,17 @@ document.addEventListener('DOMContentLoaded', () => {
                     total_preguntas: questions.length,
                     ciudad: user.ciudad
                 }]);
+                if(error) throw error;
             } catch(e) { console.error(e); }
         }
     }
 
-    // Nav
-    document.getElementById('siguiente-btn').onclick = () => { if(currentIdx < questions.length-1) showQ(currentIdx+1); };
+    // Botones de salida
     document.getElementById('terminar-intento-btn').onclick = () => {
-        document.getElementById('modal-mensaje').textContent = `Faltan ${userAnswers.filter(a=>a===null).length} preguntas.`;
-        document.getElementById('modal-overlay').style.display = 'flex';
+        if(confirm("¿Seguro que quieres terminar el examen ahora?")) finish();
     };
-    document.getElementById('confirmar-modal-btn').onclick = () => { document.getElementById('modal-overlay').style.display='none'; finish(); };
-    document.getElementById('cancelar-modal-btn').onclick = () => document.getElementById('modal-overlay').style.display='none';
     document.getElementById('retry-btn').onclick = () => location.reload();
     document.getElementById('reiniciar-btn').onclick = () => location.href='index.html';
 
     init();
 });
-
