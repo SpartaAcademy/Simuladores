@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sparta Academy - Simulador</title>
-    <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
     <link rel="stylesheet" href="CSS/style-simulador.css">
     <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;500;600&family=Work+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="JS/auth.js"></script>
     <script> checkAuth(); </script>
@@ -16,85 +16,118 @@
     <header>
         <a href="index.html" class="header-main-link">
             <div class="header-logo"><img src="logo.png" alt="Logo"></div>
-            <div class="header-titulo"><h1>SPARTA ACADEMY</h1><h2 id="titulo-materia">SIMULADOR</h2></div>
+            <div class="header-titulo">
+                <h1>SPARTA ACADEMY</h1>
+                <h2 id="titulo-materia">SIMULADOR</h2>
+            </div>
         </a>
+        <div class="user-info-container desktop-only">
+            <div class="dropdown">
+                <button class="dropdown-btn"><i class="fas fa-user-circle"></i> ▼</button>
+                <div class="dropdown-content">
+                    <a href="resultados.html" id="ver-resultados-desktop">Resultados</a>
+                    <a href="#" id="logout-button-desktop">Salir</a>
+                </div>
+            </div>
+        </div>
+        <button class="hamburger-menu mobile-only" id="hamburger-btn">☰</button>
     </header>
+
+    <div class="side-nav" id="side-nav">
+        <button class="close-nav-btn">&times;</button>
+        <div class="side-nav-header"><img src="logo.png" width="50"><h3>Menú</h3></div>
+        <a href="resultados.html" class="side-nav-link">Resultados</a>
+        <a href="#" id="logout-button-mobile" class="side-nav-link">Cerrar Sesión</a>
+    </div>
+    <div class="overlay" id="overlay"></div>
 
     <main>
         <div id="lobby-container" class="container-box">
-            <h1 style="font-family:'Teko'; font-size:3rem; margin-bottom:20px; color:#1a1a1a;">INSTRUCCIONES</h1>
+            <div class="lobby-header">
+                <h1>INSTRUCCIONES</h1>
+                <p>Lea atentamente antes de comenzar</p>
+            </div>
             
-            <div style="background:#f8f9fa; padding:25px; border-radius:10px; text-align:left; border-left:5px solid #b22222; margin-bottom:30px;">
-                <p style="margin:8px 0; font-size:1.1rem;"><i class="fas fa-book" style="color:#b22222; width:25px;"></i> <strong>Materia:</strong> <span id="lobby-materia">...</span></p>
-                <p style="margin:8px 0; font-size:1.1rem;"><i class="fas fa-list-ol" style="color:#b22222; width:25px;"></i> <strong>Preguntas:</strong> <span id="lobby-preguntas">...</span></p>
-                <p style="margin:8px 0; font-size:1.1rem;"><i class="fas fa-clock" style="color:#b22222; width:25px;"></i> <strong>Tiempo:</strong> <span id="lobby-tiempo">...</span></p>
-                <p style="margin:8px 0; font-size:1.1rem;"><i class="fas fa-star" style="color:#b22222; width:25px;"></i> <strong>Puntaje Max:</strong> 1000 Puntos</p>
+            <div class="lobby-info">
+                <div class="info-item">
+                    <i class="fas fa-book"></i>
+                    <span id="lobby-materia">...</span>
+                    <small>Materia</small>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-list-ol"></i>
+                    <span id="lobby-preguntas">...</span>
+                    <small>Preguntas</small>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-clock"></i>
+                    <span id="lobby-tiempo">...</span>
+                    <small>Tiempo</small>
+                </div>
             </div>
 
-            <div id="instrucciones-extra"></div>
-            <button id="comenzar-btn" class="btn-action btn-primary" style="width:100%; justify-content:center; font-size:1.3rem; padding:15px;" disabled>
-                Cargando recursos...
+            <div id="instrucciones-extra" style="margin-bottom: 30px; color:#555; line-height:1.6;">
+                <p>El simulador consta de preguntas de opción múltiple. Una vez iniciado el tiempo no se detiene.</p>
+            </div>
+            
+            <button id="comenzar-btn" disabled>
+                <i class="fas fa-spinner fa-spin"></i> Cargando...
             </button>
         </div>
 
-        <div id="simulador-container" class="quiz-layout" style="display:none;">
-            <div class="quiz-main">
-                <div class="question-box" style="background:white; padding:30px; border-radius:12px; box-shadow:0 5px 15px rgba(0,0,0,0.05);">
-                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px;">
-                        <span id="pregunta-numero" style="background:#b22222; color:white; padding:5px 12px; border-radius:6px; font-weight:bold;">Pregunta 1</span>
-                    </div>
-                    <div id="pregunta-texto" style="font-size:1.3rem; line-height:1.5;">...</div>
-                    <div id="opciones-container" style="margin-top:25px;"></div>
+        <div id="simulador-container">
+            <div class="quiz-col-izquierda">
+                <div class="question-box">
+                    <span class="q-badge" id="pregunta-numero">Pregunta 1</span>
+                    <div id="pregunta-texto">...</div>
+                    <div id="q-image-container" style="text-align:center;"></div>
                 </div>
-                
-                <div style="margin-top:20px; display:flex; justify-content:flex-end;">
-                    <button id="siguiente-btn" class="btn-action btn-primary">Siguiente Pregunta <i class="fas fa-arrow-right"></i></button>
+                <div id="opciones-container"></div>
+                <div style="text-align:right; margin-top:20px;">
+                    <button id="siguiente-btn" style="padding:12px 25px; background:var(--primary); color:white; border:none; border-radius:6px; cursor:pointer; font-weight:bold;">Siguiente <i class="fas fa-arrow-right"></i></button>
                 </div>
             </div>
-
-            <div class="quiz-sidebar">
-                <div class="timer"><i class="fas fa-stopwatch"></i> <span id="cronometro">00:00</span></div>
-                <div style="background:white; padding:20px; border-radius:12px; box-shadow:0 5px 15px rgba(0,0,0,0.05);">
-                    <h4 style="margin:0 0 15px 0; color:#555;">Navegación</h4>
-                    <div id="navegador-preguntas" class="nav-grid"></div>
-                    <button id="terminar-intento-btn" class="btn-action btn-primary" style="width:100%; background:#27ae60; margin-top:20px;">Terminar Todo</button>
+            <div class="quiz-col-derecha">
+                <div class="quiz-sidebar">
+                    <div class="timer-box">
+                        <small>TIEMPO RESTANTE</small>
+                        <div id="cronometro">00:00</div>
+                    </div>
+                    <div class="nav-box">
+                        <small style="display:block; margin-bottom:10px;">NAVEGACIÓN</small>
+                        <div id="navegador-preguntas"></div>
+                    </div>
+                    <button id="terminar-intento-btn">TERMINAR INTENTO</button>
                 </div>
             </div>
         </div>
 
-        <div id="resultados-container" class="container-box" style="display:none; text-align:center;">
-            <h2>¡INTENTO FINALIZADO!</h2>
+        <div id="resultados-container" class="container-box">
+            <h2>RESULTADOS DEL SIMULACRO</h2>
             
-            <div class="score-card">
-                <div class="score-circle">
-                    <span id="puntaje-final" class="score-value">0</span>
-                    <span class="score-total">/ 1000</span>
-                </div>
-                <p style="color:#666; margin:0;">PUNTAJE OBTENIDO</p>
+            <div class="score-circle">
+                <span id="puntaje-final">0</span>
+                <span class="score-label">PUNTOS / 1000</span>
             </div>
 
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <span class="stat-val" id="stats-contestadas">0</span>
-                    <span class="stat-label">Totales</span>
+            <div class="stats-bar">
+                <div class="stat correct">
+                    <span class="stat-num" id="stats-correctas">0</span>
+                    <span class="stat-lbl">Aciertos</span>
                 </div>
-                <div class="stat-item correct">
-                    <span class="stat-val" id="stats-correctas">0</span>
-                    <span class="stat-label">Aciertos</span>
+                <div class="stat incorrect">
+                    <span class="stat-num" id="stats-incorrectas">0</span>
+                    <span class="stat-lbl">Errores</span>
                 </div>
-                <div class="stat-item incorrect">
-                    <span class="stat-val" id="stats-incorrectas">0</span>
-                    <span class="stat-label">Errores</span>
-                </div>
-                <div class="stat-item blank">
-                    <span class="stat-val" id="stats-en-blanco">0</span>
-                    <span class="stat-label">En Blanco</span>
+                <div class="stat blank">
+                    <span class="stat-num" id="stats-en-blanco">0</span>
+                    <span class="stat-lbl">En Blanco</span>
                 </div>
             </div>
 
-            <div class="revision-botones" style="margin-top:40px; display:flex; justify-content:center; gap:15px;">
-                <button id="reiniciar-btn" class="btn-action btn-outline"><i class="fas fa-home"></i> Menú Principal</button>
-                <button id="retry-btn" class="btn-action btn-primary"><i class="fas fa-redo"></i> Intentar de nuevo</button>
+            <div class="action-btns">
+                <button id="retry-btn" class="btn-action btn-retry"><i class="fas fa-redo"></i> Reintentar</button>
+                <button id="reiniciar-btn" class="btn-action btn-home"><i class="fas fa-home"></i> Salir</button>
             </div>
             
             <div id="revision-container" style="margin-top:40px; text-align:left;"></div>
@@ -102,33 +135,35 @@
     </main>
 
     <div id="modal-overlay" class="modal-overlay">
-        <div class="modal-modern">
-            <div class="modal-icon-wrapper">
-                <div class="modal-icon-circle">
-                    <i class="fas fa-exclamation"></i>
-                </div>
-            </div>
-            <h3>¿Terminar el intento?</h3>
-            <p id="modal-mensaje">Si terminas ahora, se guardarán tus respuestas y no podrás modificar el examen.</p>
-            
-            <div class="modal-actions">
-                <button id="confirmar-modal-btn" class="btn-confirm-end">Sí, terminar examen</button>
-                <button id="cancelar-modal-btn" class="btn-cancel-end">Seguir resolviendo</button>
+        <div class="modal-content modal-modern">
+            <div class="modal-icon"><i class="fas fa-exclamation-circle"></i></div>
+            <h3 class="modal-title">¿Terminar el intento?</h3>
+            <p class="modal-msg" id="modal-mensaje">Si terminas ahora, se guardará tu calificación actual.</p>
+            <div class="modal-btns">
+                <button id="confirmar-modal-btn" class="btn-confirm">Sí, terminar examen</button>
+                <button id="cancelar-modal-btn" class="btn-cancel">Seguir resolviendo</button>
             </div>
         </div>
     </div>
-    
-    <div id="error-modal" class="modal-overlay" style="display:none; z-index:10000;">
-        <div class="modal-modern" style="border-top:5px solid #c0392b;">
-            <div class="modal-icon-circle" style="background:#f9e1e0; color:#c0392b;">
-                <i class="fas fa-bug"></i>
+
+    <div id="error-modal" class="modal-overlay">
+        <div class="modal-content modal-modern" style="border-top-color: #c0392b;">
+            <div class="modal-icon"><i class="fas fa-bug"></i></div>
+            <h3 class="modal-title">¡Error!</h3>
+            <p class="modal-msg" id="error-text">Descripción del error...</p>
+            <div class="modal-btns">
+                <button onclick="document.getElementById('error-modal').style.display='none'" class="btn-cancel" style="width:100%">Cerrar</button>
             </div>
-            <h3>¡Error!</h3>
-            <p id="error-text">Descripción del error...</p>
-            <button onclick="document.getElementById('error-modal').style.display='none'" class="btn-cancel-end">Cerrar</button>
         </div>
     </div>
 
     <script src="JS/script-simulador.js"></script>
+    <script>
+        // Init UI helpers
+        document.addEventListener('DOMContentLoaded', () => {
+            if(typeof setupUserInfoDropdown === 'function') setupUserInfoDropdown();
+            if(typeof setupMobileMenu === 'function') setupMobileMenu();
+        });
+    </script>
 </body>
 </html>
