@@ -3,25 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sparta Academy - Admin</title>
-    <link rel="stylesheet" href="CSS/style-resultados.css">
-    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;600&family=Work+Sans:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Sparta Academy - Reportes</title>
     
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.23/jspdf.plugin.autotable.min.js"></script>
+    
+    <link rel="stylesheet" href="CSS/style-resultados.css"> <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;600&family=Work+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <script src="JS/auth.js"></script>
     <script> checkAuth(); </script>
 </head>
 <body>
     <header>
         <a href="index.html" class="header-main-link">
-            <div class="header-logo"> <img src="logo.png" alt="Logo"> </div>
-            <div class="header-titulo"><h1>SPARTA ACADEMY</h1><h2>ADMINISTRACIÓN</h2></div>
+            <div class="header-logo"><img src="logo.png" alt="Logo"></div>
+            <div class="header-titulo"><h1>SPARTA ACADEMY</h1><h2>ADMIN</h2></div>
         </a>
         <div class="user-menu desktop-only">
-            <button onclick="logout()" style="background:rgba(255,255,255,0.1); border:1px solid #555; color:white; padding:8px 15px; border-radius:5px; cursor:pointer;">Cerrar Sesión</button>
+            <button onclick="logout()" style="background:rgba(255,255,255,0.1); border:1px solid #777; color:white; padding:8px 15px; border-radius:5px; cursor:pointer;">Cerrar Sesión</button>
         </div>
         <button class="hamburger-menu mobile-only" id="hamburger-btn">☰</button>
     </header>
@@ -54,22 +55,14 @@
             <button id="descargar-general-csv-btn" class="csv-button"><i class="fas fa-file-csv"></i> CSV</button>
         </div>
 
-        <div id="loading-spinner" style="text-align:center; font-weight:bold; color:#666;">Cargando datos...</div>
+        <div id="status-msg" style="text-align:center; padding:20px; font-weight:bold; color:#666;">Cargando datos...</div>
+        
         <div id="reporte-container"></div>
     </main>
 
-    <div id="error-modal" class="modal-overlay">
-        <div class="modal-content">
-            <i class="fas fa-exclamation-circle modal-icon"></i>
-            <h3 class="modal-title">¡Error!</h3>
-            <p id="error-text" class="modal-msg"></p>
-            <button class="btn-close-modal" onclick="document.getElementById('error-modal').style.display='none'">Cerrar</button>
-        </div>
-    </div>
-
     <script src="JS/script-resultados.js"></script>
     <script>
-        // Init menú móvil
+        // Script inline para menú móvil
         document.addEventListener('DOMContentLoaded', () => {
             const btn = document.getElementById('hamburger-btn');
             const nav = document.getElementById('side-nav');
