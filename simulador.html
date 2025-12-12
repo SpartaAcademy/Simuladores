@@ -7,13 +7,13 @@
     <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
     <link rel="stylesheet" href="CSS/style-simulador.css">
     <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;600&family=Work+Sans:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     
     <script src="JS/auth.js"></script>
     <script> checkAuth(); </script>
 </head>
+
 <body>
     <header>
         <a href="index.html" class="header-main-link">
@@ -29,7 +29,7 @@
             <div class="dropdown">
                 <button class="dropdown-btn">▼</button>
                 <div class="dropdown-content">
-                    <a href="resultados.html" id="ver-resultados-desktop" style="display: none;">Ver Resultados</a>
+                    <a href="resultados.html" id="ver-resultados-desktop">Ver Resultados</a>
                     <a href="#" id="logout-button-desktop">Cerrar Sesión</a>
                 </div>
             </div>
@@ -46,7 +46,7 @@
             <p id="user-prefix-mobile">Aspirante:</p>
             <p><strong id="user-name-display-mobile">Cargando...</strong></p>
         </div>
-        <a href="resultados.html" id="ver-resultados-mobile" class="side-nav-link" style="display: none;">Ver Resultados</a>
+        <a href="resultados.html" id="ver-resultados-mobile" class="side-nav-link">Ver Resultados</a>
         <a href="#" id="logout-button-mobile" class="side-nav-link">Cerrar Sesión</a>
     </div>
     <div class="overlay" id="overlay"></div>
@@ -54,30 +54,32 @@
     <main>
         <div id="lobby-container">
             <h1>Instrucciones del Simulacro</h1>
-            <div id="instructions-area" class="datos-informativos">
+            <div class="datos-informativos">
                 <p><strong>Materia:</strong> <span id="lobby-materia"></span></p>
                 <p><strong>Total de Preguntas:</strong> <span id="lobby-preguntas">50</span></p>
                 <p><strong>Tiempo Máximo:</strong> <span id="lobby-tiempo">1 Hora (60 Minutos)</span></p>
                 <p><strong>Calificación sobre:</strong> 1000 Puntos</p>
             </div>
+            <div id="instrucciones-extra"></div>
             <hr>
-            <div id="info-puntajes">
-                <h3>Puntajes:</h3>
-                <ul>
-                    <li>Respuesta Correcta: <strong>+20 Puntos</strong> (o equivalente)</li>
-                    <li>Respuesta Incorrecta: <strong>0 Puntos</strong></li>
-                    <li>Respuesta en Blanco: <strong>0 Puntos</strong></li>
-                </ul>
-            </div>
-            <p style="margin-top: 1rem; font-weight: 600;"><strong>Importante:</strong> Este intento es lineal. Una vez que presione "Siguiente", no podrá regresar a la pregunta anterior.</p>
+            <h3>Puntajes:</h3>
+            <ul>
+                <li>Respuesta Correcta: <strong>+20 Puntos</strong></li>
+                <li>Respuesta Incorrecta: <strong>0 Puntos</strong></li>
+            </ul>
+            <p style="margin-top: 1rem; font-weight: 600;">Importante: Una vez que presione "Siguiente", no podrá regresar.</p>
+            
             <button id="comenzar-btn" disabled>Cargando recursos...</button>
         </div>
 
         <div id="simulador-container" style="display:none;">
             <div class="quiz-col-izquierda">
-                <div class="pregunta-header"> <span id="pregunta-numero" class="pregunta-num-tag">Pregunta 1</span>
-                    <h2 id="pregunta-texto">Cargando pregunta...</h2>
-                    <div id="q-image-container" style="text-align:center; margin-top:15px;"></div>
+                <div class="pregunta-header"> 
+                    <span id="pregunta-numero" class="pregunta-num-tag">Pregunta 1</span>
+                    <div id="pregunta-texto-container">
+                        <h2 id="pregunta-texto">...</h2>
+                        <div id="imagen-pregunta-container" style="text-align: center; margin-top: 15px;"></div>
+                    </div>
                 </div>
                 <div id="opciones-container"></div>
                 <div class="quiz-navegacion"> <button id="siguiente-btn">Siguiente</button> </div>
@@ -97,57 +99,45 @@
 
         <div id="resultados-container" style="display:none;">
             <h2>¡Simulacro Terminado!</h2>
-            <p>Estos son tus resultados:</p>
             <div class="puntaje-final-box">
                 <h3>Puntaje Total</h3>
                 <h1 id="puntaje-final">0</h1>
                 <p>sobre 1000 Puntos</p>
             </div>
             <div class="estadisticas-grid">
-                <div><h4>Contestadas</h4><p id="stats-contestadas">0</p></div>
                 <div><h4>Correctas</h4><p id="stats-correctas">0</p></div>
                 <div><h4>Incorrectas</h4><p id="stats-incorrectas">0</p></div>
                 <div><h4>En Blanco</h4><p id="stats-en-blanco">0</p></div>
             </div>
             <hr>
-            <div class="revision-header">
-                <h3>Revisión de Respuestas</h3>
-                <div class="revision-botones">
-                    <button id="retry-btn">Realizar otro intento</button>
-                    <button id="reiniciar-btn">Volver al Inicio</button>
-                </div>
+            <div class="revision-botones">
+                <button id="retry-btn">Realizar otro intento</button>
+                <button id="reiniciar-btn">Volver al Inicio</button>
             </div>
             <div id="revision-container"></div>
         </div>
     </main>
 
-    <div id="error-modal" class="modal-overlay">
-        <div class="modal-content">
-            <i class="fas fa-exclamation-triangle modal-icon"></i>
-            <h3 class="modal-title">¡Error!</h3>
-            <p id="error-text" class="modal-msg"></p>
-            <button class="btn-close-modal" onclick="document.getElementById('error-modal').style.display='none'">Cerrar</button>
+    <div id="modal-error" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:9999; justify-content:center; align-items:center;">
+        <div style="background:white; padding:30px; border-radius:10px; max-width:400px; text-align:center; border-top:5px solid #d32f2f;">
+            <h2 style="color:#d32f2f; margin-top:0;">¡Error!</h2>
+            <p id="mensaje-error" style="font-size:1.1rem; color:#333;">Desconocido</p>
+            <button onclick="document.getElementById('modal-error').style.display='none'" style="background:#333; color:white; border:none; padding:10px 20px; margin-top:20px; cursor:pointer;">Cerrar</button>
         </div>
     </div>
 
-    <div id="modal-overlay" class="modal-overlay">
-        <div class="modal-content">
-            <h3 class="modal-title">Terminar Intento</h3>
-            <p id="modal-mensaje" class="modal-msg">¿Estás seguro?</p>
-            <div class="modal-botones" style="display:flex; gap:10px; justify-content:center;">
-                <button id="cancelar-modal-btn" class="btn-close-modal" style="background:#666;">Cancelar</button>
-                <button id="confirmar-modal-btn" class="btn-close-modal" style="background:#b22222;">Confirmar</button>
+    <div id="modal-overlay" class="overlay"> <div style="position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); background:white; padding:30px; border-radius:10px; text-align:center; box-shadow:0 0 20px rgba(0,0,0,0.5);">
+            <h3>¿Terminar Intento?</h3>
+            <p id="modal-mensaje">¿Estás seguro?</p>
+            <div style="margin-top:20px; display:flex; gap:10px; justify-content:center;">
+                <button id="cancelar-modal-btn" style="background:#666; color:white; border:none; padding:10px 20px; cursor:pointer;">Cancelar</button>
+                <button id="confirmar-modal-btn" style="background:#b22222; color:white; border:none; padding:10px 20px; cursor:pointer;">Terminar</button>
             </div>
         </div>
     </div>
 
-    <footer>
-        <p>Dir: Calle Bolívar entre Boyacá y Junín</p>
-        <p>Cell: 0989746618 / 0984541920 / 0987451775</p>
-        <p>Email: spartatulcan@gmail.com</p>
-    </footer>
-
     <script src="JS/script-simulador.js"></script>
+    
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             if(typeof setupUserInfoDropdown === 'function') setupUserInfoDropdown();
