@@ -1,16 +1,15 @@
-// Estructura del Menú
+// JS/script-home.js
 const MENU_DATA = {
     'root': {
         title: 'Seleccione una Institución',
         desc: 'Elija la institución o categoría para ver los simuladores disponibles.',
         items: [
-            // Arriba (Columna Izq y Der)
             { id: 'policia', label: 'POLICÍA NACIONAL', type: 'folder', icon: 'fas fa-user-shield', desc: 'Pruebas Académicas y PPNN' },
             { id: 'ffaa', label: 'FUERZAS ARMADAS', type: 'folder', icon: 'fas fa-fighter-jet', desc: 'ESMIL, ESFORSE, FAE, NAVAL' },
-            // Abajo (Ancho Completo)
-            { id: 'general', label: 'GENERAL UNIFICADO', type: 'folder', icon: 'fas fa-globe', variant: 'wide', desc: 'Pruebas Psicométricas, Inteligencia y Personalidad para todas las instituciones.' }
+            { id: 'general', label: 'GENERAL UNIFICADO', type: 'folder', icon: 'fas fa-globe', variant: 'wide', desc: 'Pruebas Psicométricas, Inteligencia y Personalidad.' }
         ]
     },
+    // ... (El resto del código igual que te di antes)
     'policia': {
         title: 'Policía Nacional',
         desc: 'Seleccione la categoría de pruebas.',
@@ -33,8 +32,6 @@ const MENU_DATA = {
             { id: 'general_psico', label: 'Simuladores Psicosométricos', type: 'folder', icon: 'fas fa-brain' }
         ]
     },
-    
-    // --- Submenús ---
     'policia_academicas': {
         title: 'Pruebas Académicas (Policía)',
         desc: 'Elija una materia.',
@@ -113,41 +110,23 @@ function renderMenu(menuId) {
 
     data.items.forEach(item => {
         const card = document.createElement('a');
-        
         let baseClass = item.type === 'folder' ? 'materia-card card-folder' : 'materia-card card-test';
         if (item.variant === 'wide') baseClass += ' card-wide';
-        
         card.className = baseClass;
         
         if (item.disabled) {
-            card.classList.add('disabled-card');
-            card.href = '#';
+            card.classList.add('disabled-card'); card.href = '#';
         } else if (item.type === 'test') {
             card.href = item.link;
         } else {
-            card.href = '#'; 
-            card.onclick = (e) => {
-                e.preventDefault();
-                renderMenu(item.id);
-            };
+            card.href = '#'; card.onclick = (e) => { e.preventDefault(); renderMenu(item.id); };
         }
 
         if (item.variant === 'wide') {
-            card.innerHTML = `
-                <i class="${item.icon}"></i>
-                <div class="text-content">
-                    <h3>${item.label}</h3>
-                    <p>${item.desc || ''}</p>
-                </div>
-            `;
+            card.innerHTML = `<i class="${item.icon}"></i><div class="text-content"><h3>${item.label}</h3><p>${item.desc || ''}</p></div>`;
         } else {
-            card.innerHTML = `
-                <i class="${item.icon}"></i>
-                <h3>${item.label}${item.disabled ? ' (Próx.)' : ''}</h3>
-                ${item.desc ? `<p>${item.desc}</p>` : ''} 
-            `;
+            card.innerHTML = `<i class="${item.icon}"></i><h3>${item.label}${item.disabled ? ' (Próx.)' : ''}</h3>${item.desc ? `<p>${item.desc}</p>` : ''}`;
         }
-        
         container.appendChild(card);
     });
 }
@@ -155,16 +134,12 @@ function renderMenu(menuId) {
 function goBack() {
     if (navigationHistory.length > 1) {
         navigationHistory.pop();
-        const previousId = navigationHistory[navigationHistory.length - 1];
-        renderMenu(previousId);
+        renderMenu(navigationHistory[navigationHistory.length - 1]);
     }
 }
 
 function updateNavigationUI() {
     const navBar = document.getElementById('navigation-bar');
-    if (navigationHistory.length > 1) {
-        navBar.style.display = 'flex';
-    } else {
-        navBar.style.display = 'none';
-    }
+    if (navigationHistory.length > 1) navBar.style.display = 'flex';
+    else navBar.style.display = 'none';
 }
