@@ -12,18 +12,27 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnNext = document.getElementById('siguiente-btn');
     const navContainer = document.getElementById('navegador-preguntas');
     
+    // Elementos de Info del Lobby
+    const txtMateria = document.getElementById('lobby-materia');
+    const txtPreguntas = document.getElementById('lobby-preguntas');
+    const txtTiempo = document.getElementById('lobby-tiempo');
+    
     let questions = [];
     let userAnswers = [];
     let currentIdx = 0;
     let timerInterval;
-    let timeLeft = 3600;
-    let totalPreguntas = 50;
+    let timeLeft = 3600; // Valor base
+    let totalPreguntas = 50; // Valor base
 
     const materias = {
-        'sociales': 'Ciencias Sociales', 'matematicas': 'Matemáticas', 'lengua': 'Lengua', 'ingles': 'Inglés', 'general': 'General',
-        'inteligencia': 'Inteligencia', 'personalidad': 'Personalidad', 'ppnn1': 'PPNN 1', 'ppnn2': 'PPNN 2',
-        'ppnn3': 'PPNN 3', 'ppnn4': 'PPNN 4', 'sociales_esmil': 'Sociales ESMIL', 'matematicas_esmil': 'Matemáticas ESMIL',
-        'lengua_esmil': 'Lenguaje ESMIL', 'ingles_esmil': 'Inglés ESMIL', 'general_esmil': 'General ESMIL'
+        'sociales': 'Ciencias Sociales', 'matematicas': 'Matemáticas y Física',
+        'lengua': 'Lengua y Literatura', 'ingles': 'Inglés', 'general': 'General (Todas)',
+        'inteligencia': 'Inteligencia', 'personalidad': 'Personalidad',
+        'ppnn1': 'Cuestionario 1 PPNN', 'ppnn2': 'Cuestionario 2 PPNN',
+        'ppnn3': 'Cuestionario 3 PPNN', 'ppnn4': 'Cuestionario 4 PPNN',
+        'sociales_esmil': 'Ciencias Sociales (ESMIL)', 'matematicas_esmil': 'Matemáticas (ESMIL)',
+        'lengua_esmil': 'Lenguaje (ESMIL)', 'ingles_esmil': 'Inglés (ESMIL)',
+        'general_esmil': 'General ESMIL'
     };
 
     const ordenGeneralPolicia = ['sociales', 'matematicas', 'lengua', 'ingles'];
@@ -32,7 +41,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function showError(msg) {
         document.getElementById('error-text').textContent = msg;
         document.getElementById('error-modal').style.display = 'flex';
-        btnStart.textContent = "Error"; btnStart.style.background = "#c0392b";
+        btnStart.innerHTML = '<i class="fas fa-exclamation-circle"></i> Error de Carga';
+        btnStart.style.background = "#c0392b";
     }
 
     async function init() {
@@ -40,14 +50,20 @@ document.addEventListener('DOMContentLoaded', () => {
         const materiaKey = params.get('materia');
         const title = materias[materiaKey] || 'Simulador';
         
+        // 1. Títulos
         document.getElementById('titulo-materia').textContent = title.toUpperCase();
-        document.getElementById('lobby-materia').textContent = title;
+        if(txtMateria) txtMateria.textContent = title;
         
-        if(materiaKey.includes('matematicas')) timeLeft = 5400; 
-        else if(materiaKey.includes('general')) { timeLeft = 10800; totalPreguntas = 200; }
-        
-        document.getElementById('lobby-tiempo').textContent = Math.floor(timeLeft/60) + " Minutos";
-        document.getElementById('lobby-preguntas').textContent = totalPreguntas;
+        // 2. Configurar Tiempos y Preguntas BASE
+        if(materiaKey.includes('matematicas')) {
+            timeLeft = 5400; // 90 min
+        } else if(materiaKey.includes('general')) { 
+            timeLeft = 10800; // 3 horas
+            totalPreguntas = 200;
+        } else {
+            timeLeft = 3600; // 1 hora
+            totalPreguntas = 50;
+        }
 
         try {
             let filesToLoad = [];
@@ -60,10 +76,10 @@ document.addEventListener('DOMContentLoaded', () => {
             let allQ = [];
             results.forEach(d => allQ = allQ.concat(d));
 
+            // 3. Procesar Preguntas Reales
             if(materiaKey.startsWith('ppnn')) {
                 questions = allQ.sort(() => 0.5 - Math.random());
-                totalPreguntas = questions.length;
-                document.getElementById('lobby-preguntas').textContent = totalPreguntas;
+                totalPreguntas = questions.length; // Ajuste dinámico si hay más/menos
             } else if (materiaKey.includes('general')) {
                 questions = allQ.sort(() => 0.5 - Math.random()).slice(0, 200);
             } else {
@@ -71,8 +87,13 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             if(questions.length === 0) throw new Error("Sin preguntas.");
+
+            // 4. ACTUALIZAR INFO VISUAL EN LOBBY (YA CON DATOS REALES)
+            if(txtPreguntas) txtPreguntas.textContent = questions.length;
+            if(txtTiempo) txtTiempo.textContent = Math.floor(timeLeft/60) + " Minutos";
+
             btnStart.disabled = false;
-            btnStart.textContent = 'COMENZAR INTENTO';
+            btnStart.innerHTML = 'COMENZAR INTENTO <i class="fas fa-play"></i>';
             btnStart.onclick = startQuiz;
 
         } catch (e) { showError(e.message); }
