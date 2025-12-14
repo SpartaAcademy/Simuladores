@@ -1,4 +1,4 @@
-/* --- CONFIGURACIÓN GLOBAL --- */
+/* --- 1. CONFIGURACIÓN GLOBAL --- */
 :root {
     --primary: #b22222;       /* Rojo Sparta */
     --primary-dark: #8b0000;
@@ -6,145 +6,168 @@
     --light: #f4f6f8;
     --white: #ffffff;
     --success: #27ae60;
-    --shadow: 0 4px 15px rgba(0,0,0,0.1);
+    --danger: #c0392b;
+    --radius: 10px;
+    --shadow: 0 4px 20px rgba(0,0,0,0.08);
 }
+
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Work Sans', sans-serif; background-color: var(--light); color: var(--dark); min-height: 100vh; display: flex; flex-direction: column; }
+body { 
+    font-family: 'Work Sans', sans-serif; 
+    background-color: var(--light); 
+    color: var(--dark); 
+    min-height: 100vh; 
+    display: flex; 
+    flex-direction: column; 
+    overflow-x: hidden; /* Evita scroll horizontal en celular */
+}
 
-/* --- HEADER (ARREGLO DE MENÚS) --- */
+/* --- 2. HEADER RESPONSIVE --- */
 header { 
-    background: var(--dark); color: var(--white); padding: 10px 30px; 
-    display: flex; align-items: center; justify-content: space-between; /* Clave para separar logo y menú */
-    position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.3); 
+    background: var(--dark); 
+    color: var(--white); 
+    padding: 12px 5%; /* 5% de padding lateral para adaptarse */
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+    position: sticky; top: 0; z-index: 1000; 
+    box-shadow: 0 2px 15px rgba(0,0,0,0.3); 
 }
+
 .header-main-link { display: flex; align-items: center; gap: 15px; text-decoration: none; color: white; }
-.header-logo img { height: 45px; }
-.header-titulo h1 { font-family: 'Teko', sans-serif; font-size: 2rem; margin: 0; line-height: 1; }
-.header-titulo h2 { font-family: 'Work Sans', sans-serif; font-size: 0.8rem; color: #ccc; margin: 0; text-transform: uppercase; }
+.header-logo img { height: 40px; }
+.header-titulo h1 { font-family: 'Teko', sans-serif; font-size: 1.8rem; margin: 0; line-height: 1; }
+.header-titulo h2 { font-family: 'Work Sans', sans-serif; font-size: 0.75rem; color: #ccc; margin: 0; text-transform: uppercase; letter-spacing: 1px; }
 
-/* REGLAS ESTRICTAS DE VISIBILIDAD DE MENÚ */
-/* Por defecto (PC): Se ve el usuario, se oculta la hamburguesa */
-.desktop-only { display: flex !important; align-items: center; }
-.mobile-only { display: none !important; }
-
-/* MENÚ DE USUARIO (PC) */
-.user-info-container { position: relative; }
-.dropdown-btn { 
+/* MENÚ ESCRITORIO (Solo PC) */
+.desktop-menu { display: flex; align-items: center; gap: 15px; }
+.user-btn { 
     background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); 
-    color: white; cursor: pointer; padding: 8px 15px; border-radius: 6px; 
-    display: flex; align-items: center; gap: 8px; transition: 0.2s;
+    color: white; padding: 8px 16px; border-radius: 6px; cursor: pointer; 
+    font-size: 0.9rem; transition: 0.3s; display: flex; align-items: center; gap: 8px;
 }
-.dropdown-btn:hover { background: rgba(255,255,255,0.2); }
-.dropdown-content { 
-    display: none; position: absolute; right: 0; top: 110%; 
-    background: white; min-width: 180px; box-shadow: 0 5px 20px rgba(0,0,0,0.2); 
-    border-radius: 8px; overflow: hidden; z-index: 2000;
-}
-.dropdown-content.show { display: block; animation: fadeIn 0.2s; }
-.dropdown-content a { 
-    display: block; padding: 12px 20px; color: var(--dark); 
-    text-decoration: none; border-bottom: 1px solid #eee; 
-}
-.dropdown-content a:hover { background: #f9f9f9; color: var(--primary); }
+.user-btn:hover { background: rgba(255,255,255,0.2); }
 
-/* --- CONTENEDOR PRINCIPAL --- */
+/* MENÚ MÓVIL (Hamburguesa) */
+.mobile-toggle { 
+    display: none; /* Oculto por defecto en PC */
+    background: none; border: none; color: white; 
+    font-size: 1.8rem; cursor: pointer; padding: 5px;
+}
+
+/* --- 3. CONTENEDORES PRINCIPALES --- */
 main { 
-    flex: 1; padding: 30px 20px; width: 100%; 
-    max-width: 1300px; /* Ancho cómodo */
+    flex: 1; 
+    padding: 20px; 
+    width: 100%; 
+    max-width: 1300px; 
     margin: 0 auto; 
 }
 
-/* LOBBY */
+/* Caja Blanca (Lobby y Resultados) */
 .container-box { 
-    background: var(--white); padding: 40px; border-radius: 12px; box-shadow: var(--shadow); 
-    max-width: 800px; margin: 0 auto; border-top: 5px solid var(--primary); 
-}
-.datos-informativos { background: #f9f9f9; padding: 20px; border-radius: 8px; margin: 20px 0; display: grid; gap: 10px; }
-#comenzar-btn { 
-    width: 100%; padding: 15px; background: var(--primary); color: white; border: none; 
-    border-radius: 8px; font-size: 1.3rem; font-weight: bold; cursor: pointer; margin-top: 15px; 
+    background: var(--white); padding: 30px; 
+    border-radius: var(--radius); box-shadow: var(--shadow); 
+    max-width: 800px; margin: 20px auto; 
+    border-top: 5px solid var(--primary); 
+    width: 100%; /* Ocupa todo el ancho disponible en móvil */
 }
 
-/* --- SIMULADOR (GRID 70/30) --- */
+/* --- 4. SIMULADOR (LAYOUT) --- */
 .quiz-layout {
     display: grid;
-    grid-template-columns: 1fr 320px; 
+    grid-template-columns: 3fr 1fr; /* 75% Pregunta / 25% Barra */
     gap: 30px;
     align-items: start;
 }
 
-/* IZQUIERDA */
-.quiz-main { background: var(--white); padding: 30px; border-radius: 12px; box-shadow: var(--shadow); }
-.pregunta-num-tag { background: var(--dark); color: white; padding: 5px 12px; border-radius: 4px; font-weight: bold; font-size: 0.9rem; display: inline-block; margin-bottom: 15px; }
-#pregunta-texto { font-size: 1.3rem; line-height: 1.5; color: var(--dark); margin-bottom: 25px; font-weight: 600; }
+/* Izquierda: Pregunta */
+.quiz-main { background: var(--white); padding: 30px; border-radius: var(--radius); box-shadow: var(--shadow); }
+.pregunta-num-tag { background: var(--dark); color: white; padding: 5px 12px; border-radius: 4px; font-weight: bold; font-size: 0.85rem; display: inline-block; margin-bottom: 15px; }
+#pregunta-texto { font-size: 1.25rem; line-height: 1.6; color: var(--dark); margin-bottom: 25px; font-weight: 600; }
 
 .opcion-btn { 
-    display: block; width: 100%; padding: 15px; margin-bottom: 10px; 
+    display: block; width: 100%; padding: 15px; margin-bottom: 12px; 
     background: #fff; border: 2px solid #eee; border-radius: 8px; 
-    font-size: 1.05rem; text-align: left; cursor: pointer; transition: 0.2s; color: #555;
+    font-size: 1rem; text-align: left; cursor: pointer; transition: 0.2s; color: #555;
 }
 .opcion-btn:hover { border-color: var(--primary); background: #fff5f5; }
 .opcion-btn.selected { border-color: var(--primary); background: var(--primary); color: white; font-weight: 600; }
 
-/* BOTÓN SIGUIENTE ROJO */
 #siguiente-btn {
-    background-color: var(--primary); 
-    color: white;
-    padding: 12px 30px;
-    border: none;
-    border-radius: 8px;
-    font-size: 1.1rem;
-    font-weight: bold;
-    cursor: pointer;
-    float: right;
-    margin-top: 20px;
-    transition: 0.3s;
+    background-color: var(--primary); color: white; padding: 12px 30px; border: none;
+    border-radius: 8px; font-size: 1rem; font-weight: bold; cursor: pointer; float: right; margin-top: 10px;
 }
 #siguiente-btn:hover { background-color: var(--primary-dark); }
 
-/* DERECHA */
-.quiz-sidebar { position: sticky; top: 100px; }
+/* Derecha: Sidebar */
+.quiz-sidebar { position: sticky; top: 80px; }
 .timer-box { 
-    background: var(--dark); color: white; padding: 20px; border-radius: 10px; 
-    text-align: center; margin-bottom: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); 
+    background: var(--dark); color: white; padding: 15px; border-radius: 10px; 
+    text-align: center; margin-bottom: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); 
 }
 #cronometro { font-family: 'Teko', sans-serif; font-size: 3rem; line-height: 1; margin-top: 5px; }
 
-.nav-box { background: white; padding: 20px; border-radius: 10px; box-shadow: var(--shadow); }
-#navegador-preguntas { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+.nav-box { background: white; padding: 15px; border-radius: 10px; box-shadow: var(--shadow); }
+#navegador-preguntas { display: grid; grid-template-columns: repeat(5, 1fr); gap: 5px; }
 .nav-dot { 
     aspect-ratio: 1; border: 1px solid #ddd; background: #fff; border-radius: 4px; 
-    color: #999; font-weight: 600; cursor: default; 
+    color: #999; font-weight: 600; font-size: 0.8rem; cursor: default; display: flex; justify-content: center; align-items: center;
 }
 .nav-dot.answered { background: #e3f2fd; border-color: #2196f3; color: #1565c0; }
-.nav-dot.active { border-color: var(--primary); background: var(--primary); color: white; border: 2px solid var(--primary); }
+.nav-dot.active { border-color: var(--primary); background: var(--primary); color: white; }
 
-#terminar-intento-btn { 
-    width: 100%; padding: 12px; background: var(--success); color: white; 
-    border: none; border-radius: 8px; margin-top: 20px; font-weight: bold; cursor: pointer; 
+#terminar-intento-btn { width: 100%; padding: 12px; background: var(--success); color: white; border: none; border-radius: 8px; margin-top: 15px; font-weight: bold; cursor: pointer; }
+
+/* --- 5. MEDIA QUERIES (AQUÍ ESTÁ LA CLAVE RESPONSIVE) --- */
+@media (max-width: 900px) {
+    /* 1. Header */
+    .desktop-menu { display: none !important; } /* Ocultar menú PC */
+    .mobile-toggle { display: block !important; } /* Mostrar hamburguesa */
+    .header-titulo h1 { font-size: 1.5rem; }
+    
+    /* 2. Grid del Simulador (Pasa a columna vertical) */
+    .quiz-layout { 
+        grid-template-columns: 1fr; /* Una sola columna */
+        display: flex; 
+        flex-direction: column-reverse; /* Sidebar abajo, Pregunta arriba? No, Sidebar abajo suele ser mejor en móvil para no estorbar, o arriba el timer. */
+        flex-direction: column; /* Timer arriba, pregunta abajo */
+    }
+    
+    /* Ajustes específicos móvil */
+    .quiz-sidebar { 
+        position: static; /* Ya no es sticky en móvil */
+        width: 100%; 
+        order: -1; /* Poner el cronómetro PRIMERO */
+        margin-bottom: 20px;
+    }
+    
+    /* El timer más pequeño en móvil */
+    .timer-box { padding: 10px; display: flex; justify-content: space-between; align-items: center; }
+    #cronometro { font-size: 2rem; margin: 0; }
+    .timer-box small { font-size: 0.9rem; margin-right: 10px; }
+    
+    .nav-box { display: none; /* Ocultar los cuadritos en móvil para ahorrar espacio (opcional, o poner display:block) */ }
+    
+    /* Ajuste de botones */
+    #siguiente-btn { width: 100%; float: none; margin-top: 20px; padding: 15px; }
 }
 
-/* RESULTADOS */
-#resultados-container { display: none; text-align: center; }
-.score-circle { width: 180px; height: 180px; border-radius: 50%; border: 10px solid var(--primary); display: flex; flex-direction: column; justify-content: center; align-items: center; margin: 0 auto 30px; }
-#puntaje-final { font-family: 'Teko'; font-size: 5rem; line-height: 0.8; color: var(--primary); }
-.revision-botones { display: flex; gap: 10px; justify-content: center; margin-top: 30px; }
+/* --- SIDE NAV (Menú Lateral Móvil) --- */
+.side-nav { height: 100%; width: 0; position: fixed; z-index: 2000; top: 0; right: 0; background-color: #111; overflow-x: hidden; transition: 0.3s; padding-top: 60px; }
+.side-nav a { padding: 15px 30px; text-decoration: none; font-size: 1.2rem; color: #ccc; display: block; border-bottom: 1px solid #222; }
+.side-nav a:hover { color: white; background: #222; }
+.close-nav-btn { position: absolute; top: 15px; right: 25px; font-size: 36px; margin-left: 50px; background: none; border: none; color: white; }
+.overlay { display: none; position: fixed; width: 100%; height: 100%; top: 0; left: 0; background-color: rgba(0,0,0,0.7); z-index: 1500; backdrop-filter: blur(3px); }
+
+/* --- RESULTADOS --- */
+.score-circle { width: 150px; height: 150px; border-radius: 50%; border: 8px solid var(--primary); display: flex; flex-direction: column; justify-content: center; align-items: center; margin: 0 auto 30px; }
+#puntaje-final { font-family: 'Teko'; font-size: 4rem; line-height: 0.9; color: var(--primary); }
+.stats-bar { display: flex; justify-content: center; gap: 15px; margin-bottom: 30px; flex-wrap: wrap; }
+.stat-item { background: #fff; border: 1px solid #eee; padding: 15px; border-radius: 8px; min-width: 90px; text-align: center; }
+.stat-val { font-size: 1.5rem; font-weight: bold; display: block; }
 
 /* MODALES */
-.modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 3000; display: none; justify-content: center; align-items: center; }
+.modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 3000; display: none; justify-content: center; align-items: center; }
 .modal-content { background: white; padding: 30px; border-radius: 12px; width: 90%; max-width: 400px; text-align: center; border-top: 6px solid var(--primary); }
-@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-
-/* --- RESPONSIVE (MÓVIL) --- */
-@media (max-width: 900px) {
-    /* Ocultar menú PC y Mostrar Hamburguesa */
-    .desktop-only { display: none !important; }
-    .mobile-only { display: block !important; }
-    
-    /* Ajuste de columnas */
-    .quiz-layout { grid-template-columns: 1fr; display: flex; flex-direction: column-reverse; }
-    .quiz-sidebar { width: 100%; margin-bottom: 20px; }
-    
-    /* Estilo botón hamburguesa */
-    .hamburger-menu { background: none; border: none; color: white; font-size: 1.8rem; cursor: pointer; }
-}
+.btn-close-modal { width: 100%; padding: 12px; background: #333; color: white; border: none; border-radius: 6px; margin-top: 15px; }
