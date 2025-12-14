@@ -53,13 +53,15 @@
         <div class="marca-de-agua"><img src="logo.png" alt="Sparta"></div>
 
         <div class="seleccion-container">
-            <div id="navigation-bar" class="nav-bar" style="display: none;">
-                <button id="btn-atras" class="btn-nav"><i class="fas fa-arrow-left"></i> REGRESAR</button>
-                <span id="breadcrumbs" class="breadcrumbs">Inicio</span>
+            <div class="nav-header">
+                <div class="title-area">
+                    <h2 id="section-title">SELECCIONE UNA INSTITUCIÓN</h2>
+                    <p id="section-desc">Elija la categoría para ver los simuladores disponibles.</p>
+                </div>
+                <div class="nav-actions" id="navigation-bar" style="display: none;">
+                    <button id="btn-atras"><i class="fas fa-arrow-left"></i> REGRESAR</button>
+                </div>
             </div>
-
-            <h2 id="section-title">SELECCIONE UNA INSTITUCIÓN</h2>
-            <p id="section-desc">Elija la institución para ver los simuladores disponibles.</p>
 
             <div id="dynamic-grid" class="materias-grid">
                 </div>
@@ -75,18 +77,15 @@
     <script src="JS/script-home.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Lógica Menú Móvil
             const btn = document.getElementById('hamburger-btn');
             const nav = document.getElementById('side-nav');
             const close = document.getElementById('close-nav-btn');
             const overlay = document.getElementById('overlay');
             const userDisplay = document.getElementById('user-display');
 
-            // Nombre Usuario
             const userStr = sessionStorage.getItem('userInfo');
             if(userStr) {
                 const u = JSON.parse(userStr);
-                // Solo mostrar nombre si el espacio lo permite o dejar "PLATAFORMA"
                 // userDisplay.textContent = u.nombre.split(' ')[0].toUpperCase(); 
             }
 
