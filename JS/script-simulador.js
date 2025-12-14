@@ -4,14 +4,20 @@ const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS
 const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Referencias
-    const lobbyBanner = document.getElementById('lobby-banner'); // Nuevo Banner
-    const lobbyContainer = document.getElementById('lobby-container'); // Tarjeta Blanca
+    // Referencias DOM
+    const lobbyBanner = document.getElementById('lobby-banner');
+    const lobbyContainer = document.getElementById('lobby-container');
     const simulador = document.getElementById('simulador-container');
     const resultados = document.getElementById('resultados-container');
     const btnStart = document.getElementById('comenzar-btn');
     const btnNext = document.getElementById('siguiente-btn');
     const navContainer = document.getElementById('navegador-preguntas');
+    
+    // Títulos y Textos
+    const txtTituloMateria = document.getElementById('lobby-titulo-materia');
+    const txtMateria = document.getElementById('lobby-materia');
+    const txtPreguntas = document.getElementById('lobby-preguntas');
+    const txtTiempo = document.getElementById('lobby-tiempo');
     
     // Botón Regresar
     const btnRegresarLobby = document.getElementById('btn-regresar-lobby');
@@ -20,12 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
             window.location.href = 'index.html';
         });
     }
-    
-    // Elementos de Texto
-    const txtTituloBanner = document.getElementById('lobby-titulo-principal'); // Título Negro
-    const txtMateria = document.getElementById('lobby-materia');
-    const txtPreguntas = document.getElementById('lobby-preguntas');
-    const txtTiempo = document.getElementById('lobby-tiempo');
     
     let questions = [];
     let userAnswers = [];
@@ -49,10 +49,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const ordenGeneralEsmil = ['sociales_esmil', 'matematicas_esmil', 'lengua_esmil', 'ingles_esmil'];
 
     function showError(msg) {
-        document.getElementById('error-text').textContent = msg;
-        document.getElementById('error-modal').style.display = 'flex';
-        btnStart.textContent = "Error al Cargar";
+        // En lugar de modal, mostramos error en el botón para feedback inmediato
+        console.error(msg);
+        btnStart.innerHTML = `<i class="fas fa-exclamation-circle"></i> Error: ${msg}`;
         btnStart.style.background = "#c0392b";
+        // También mostrar modal si es crítico
+        document.getElementById('error-text').textContent = "No se pudo cargar el archivo de preguntas. Verifique que exista.";
+        document.getElementById('error-modal').style.display = 'flex';
     }
 
     async function init() {
@@ -61,10 +64,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const title = materias[materiaKey] || 'Simulador';
         
         // Asignar Títulos
+        if(txtTituloMateria) txtTituloMateria.textContent = title.toUpperCase();
+        if(txtMateria) txtMateria.textContent = title;
         document.getElementById('header-subtitulo').textContent = title.toUpperCase();
-        if(txtTituloBanner) txtTituloBanner.textContent = title.toUpperCase(); // Al banner negro
-        if(txtMateria) txtMateria.textContent = title; // A la tarjeta blanca
         
+        // Configuración
         if(materiaKey.includes('matematicas')) {
             timeLeft = 5400; 
         } else if(materiaKey.includes('general')) { 
@@ -86,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const promises = filesToLoad.map(m => 
                 fetch(`DATA/preguntas_${m}.json`).then(r => {
-                    if(!r.ok) throw new Error(`Falta: DATA/preguntas_${m}.json`);
+                    if(!r.ok) throw new Error(`Falta archivo: preguntas_${m}.json`);
                     return r.json();
                 })
             );
@@ -106,19 +110,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if(questions.length === 0) throw new Error("Archivo vacío.");
 
+            // Actualizar real
             if(txtPreguntas) txtPreguntas.textContent = questions.length;
 
+            // Habilitar Botón
             btnStart.disabled = false;
             btnStart.innerHTML = 'COMENZAR INTENTO <i class="fas fa-play"></i>';
             btnStart.onclick = startQuiz;
 
-        } catch (e) { showError(e.message); }
+        } catch (e) { 
+            showError(e.message); 
+        }
     }
 
     function startQuiz() {
-        // OCULTAR BANNER Y CARD
-        lobbyBanner.style.display = 'none'; 
-        lobbyContainer.style.display = 'none';
+        lobbyBanner.style.display = 'none'; // Ocultar Banner
+        lobbyContainer.style.display = 'none'; // Ocultar Card Blanca
         
         simulador.className = 'quiz-layout';
         simulador.style.display = window.innerWidth > 900 ? 'grid' : 'flex';
