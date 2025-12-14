@@ -6,20 +6,26 @@ const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
 const { jsPDF } = window.jspdf;
 
 document.addEventListener('DOMContentLoaded', async () => {
+    // Referencias
     const container = document.getElementById('reporte-container');
     const fMateria = document.getElementById('filtro-materia');
     const fCiudad = document.getElementById('filtro-ciudad');
     const fNombre = document.getElementById('filtro-nombre');
     const spinner = document.getElementById('loading-spinner');
     
-    // Botones
+    // Botones Exportar
     const btnPDF = document.getElementById('descargar-pdf-btn');
     const btnCSV = document.getElementById('descargar-general-csv-btn');
 
     let allIntentos = [];
     let allUsuarios = [];
 
-    // 1. Cargar Datos
+    // --- FUNCIÓN PARA QUITAR TILDES (Buscador Inteligente) ---
+    const cleanText = (str) => {
+        return str ? str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim() : "";
+    };
+
+    // --- 1. CARGA DE DATOS ---
     try {
         const { data: intentos, error } = await supabase.from('resultados').select('*').order('created_at', { ascending: false });
         if (error) throw error;
@@ -29,7 +35,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (!res.ok) throw new Error("Error cargando usuarios.json");
         allUsuarios = await res.json();
         
-        // Llenar Materias
+        // Llenar Filtro Materias
         const materias = [...new Set(allIntentos.map(i => i.materia))].sort();
         materias.forEach(m => {
             const opt = document.createElement('option');
@@ -45,28 +51,31 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (spinner) spinner.innerHTML = `<p style="color:red">Error: ${e.message}</p>`; 
     }
 
-    // 2. Renderizar
+    // --- 2. RENDERIZADO ---
     function render() {
         container.innerHTML = '';
 
-        // Filtrado flexible
+        // Filtros (Usando cleanText para ignorar mayúsculas y tildes)
+        const busqueda = cleanText(fNombre.value);
+        
         const usuariosFiltrados = allUsuarios.filter(u => {
-            // Verificar rol (case insensitive)
             const esAspirante = u.rol && u.rol.toLowerCase() === 'aspirante';
+            const matchCiudad = fCiudad.value === 'Todas' || u.ciudad === fCiudad.value;
             
-            // Filtros visuales
-            const matchC = fCiudad.value === 'Todas' || u.ciudad === fCiudad.value;
-            const matchN = fNombre.value.trim() === '' || u.nombre.toLowerCase().includes(fNombre.value.toLowerCase().trim());
+            // Buscador por Nombre (Flexible)
+            const nombreUsuario = cleanText(u.nombre);
+            const matchNombre = busqueda === '' || nombreUsuario.includes(busqueda);
             
-            return esAspirante && matchC && matchN;
+            return esAspirante && matchCiudad && matchNombre;
         });
 
         if (usuariosFiltrados.length === 0) {
-            container.innerHTML = '<p style="text-align:center; color:#666; margin-top:20px;">No se encontraron estudiantes.</p>';
+            container.innerHTML = '<p style="text-align:center; color:#666; margin-top:30px;">No se encontraron estudiantes con esos datos.</p>';
             return;
         }
 
         usuariosFiltrados.forEach(user => {
+            // Filtrar intentos del usuario + Filtro Materia
             const intentosUser = allIntentos.filter(i => 
                 String(i.usuario_id).trim() === String(user.usuario).trim() &&
                 (fMateria.value === 'Todas' || i.materia === fMateria.value)
@@ -88,22 +97,40 @@ document.addEventListener('DOMContentLoaded', async () => {
                     </div>
                 </div>
                 <div class="user-attempts">
-                    ${intentosUser.length === 0 ? '<p style="text-align:center; color:#999; padding:10px;">Sin intentos.</p>' : `
+                    ${intentosUser.length === 0 ? '<p style="text-align:center; color:#999; padding:15px;">Sin intentos registrados.</p>' : `
                     <table class="table">
-                        <thead><tr><th>Materia</th><th>Nota</th><th>Fecha</th></tr></thead>
+                        <thead>
+                            <tr>
+                                <th>MATERIA</th>
+                                <th>NOTA</th>
+                                <th>FECHA</th>
+                                <th>HORA</th>
+                            </tr>
+                        </thead>
                         <tbody>
-                            ${intentosUser.map(i => `
+                            ${intentosUser.map(i => {
+                                // Fecha y Hora de finalización (guardada en BD)
+                                const fechaObj = new Date(i.created_at);
+                                const fechaStr = fechaObj.toLocaleDateString('es-EC');
+                                const horaFin = fechaObj.toLocaleTimeString('es-EC', {hour: '2-digit', minute:'2-digit'});
+                                
+                                const colorNota = i.puntaje >= 700 ? '#27ae60' : '#c0392b';
+
+                                return `
                                 <tr>
                                     <td>${i.materia}</td>
-                                    <td style="font-weight:bold; color:${i.puntaje>=700?'#27ae60':'#c0392b'}">${i.puntaje}</td>
-                                    <td>${new Date(i.created_at).toLocaleDateString()}</td>
+                                    <td style="font-weight:bold; color:${colorNota}">${i.puntaje}</td>
+                                    <td>${fechaStr}</td>
+                                    <td style="font-weight:bold; color:#333;">${horaFin}</td>
                                 </tr>
-                            `).join('')}
+                                `;
+                            }).join('')}
                         </tbody>
                     </table>
                     `}
                 </div>`;
             
+            // Toggle acordeón
             card.querySelector('.user-header').onclick = () => {
                 const body = card.querySelector('.user-attempts');
                 body.style.display = body.style.display === 'block' ? 'none' : 'block';
@@ -112,53 +139,76 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     }
 
+    // Eventos
     fCiudad.addEventListener('change', render);
     fMateria.addEventListener('change', render);
     fNombre.addEventListener('input', render);
 
-    // PDF Export
+    // --- PDF ---
     if (btnPDF) {
         btnPDF.onclick = () => {
             const doc = new jsPDF();
             doc.text("Reporte Sparta Academy", 14, 20);
-            
             const rows = [];
-            // Recalcular visibles
-            const visibles = allUsuarios.filter(u => u.rol && u.rol.toLowerCase() === 'aspirante' && (fCiudad.value === 'Todas' || u.ciudad === fCiudad.value));
+            
+            // Recalcular visibles para exportar solo lo que se ve
+            const busqueda = cleanText(fNombre.value);
+            const visibles = allUsuarios.filter(u => {
+                const esAspirante = u.rol && u.rol.toLowerCase() === 'aspirante';
+                const matchCiudad = fCiudad.value === 'Todas' || u.ciudad === fCiudad.value;
+                const matchNombre = busqueda === '' || cleanText(u.nombre).includes(busqueda);
+                return esAspirante && matchCiudad && matchNombre;
+            });
             
             visibles.forEach(u => {
                 const ints = allIntentos.filter(i => String(i.usuario_id) === String(u.usuario) && (fMateria.value === 'Todas' || i.materia === fMateria.value));
                 ints.forEach(int => {
-                    rows.push([u.nombre, u.ciudad, int.materia, int.puntaje, new Date(int.created_at).toLocaleDateString()]);
+                    const d = new Date(int.created_at);
+                    rows.push([
+                        u.nombre, 
+                        u.ciudad, 
+                        int.materia, 
+                        int.puntaje, 
+                        d.toLocaleDateString(),
+                        d.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) // Solo Hora Fin
+                    ]);
                 });
             });
 
             doc.autoTable({
-                head: [['Nombre', 'Ciudad', 'Materia', 'Nota', 'Fecha']],
+                head: [['Nombre', 'Ciudad', 'Materia', 'Nota', 'Fecha', 'Hora']],
                 body: rows,
                 startY: 30,
                 headStyles: { fillColor: [178, 34, 34] }
             });
-            doc.save("reporte.pdf");
+            doc.save("Reporte_Sparta.pdf");
         };
     }
     
-    // CSV Export
+    // --- CSV ---
     if (btnCSV) {
         btnCSV.onclick = () => {
-            let csv = "Nombre,Ciudad,Materia,Nota,Fecha\n";
-            const visibles = allUsuarios.filter(u => u.rol && u.rol.toLowerCase() === 'aspirante' && (fCiudad.value === 'Todas' || u.ciudad === fCiudad.value));
+            let csv = "Nombre,Ciudad,Materia,Nota,Fecha,Hora\n";
+            const busqueda = cleanText(fNombre.value);
+            
+            const visibles = allUsuarios.filter(u => {
+                const esAspirante = u.rol && u.rol.toLowerCase() === 'aspirante';
+                const matchCiudad = fCiudad.value === 'Todas' || u.ciudad === fCiudad.value;
+                const matchNombre = busqueda === '' || cleanText(u.nombre).includes(busqueda);
+                return esAspirante && matchCiudad && matchNombre;
+            });
             
             visibles.forEach(u => {
                 const ints = allIntentos.filter(i => String(i.usuario_id) === String(u.usuario) && (fMateria.value === 'Todas' || i.materia === fMateria.value));
                 ints.forEach(int => {
-                    csv += `${u.nombre},${u.ciudad},${int.materia},${int.puntaje},${new Date(int.created_at).toLocaleDateString()}\n`;
+                    const d = new Date(int.created_at);
+                    csv += `${u.nombre},${u.ciudad},${int.materia},${int.puntaje},${d.toLocaleDateString()},${d.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}\n`;
                 });
             });
             
             const link = document.createElement("a");
             link.setAttribute("href", "data:text/csv;charset=utf-8," + encodeURIComponent(csv));
-            link.setAttribute("download", "reporte.csv");
+            link.setAttribute("download", "Reporte_Sparta.csv");
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
