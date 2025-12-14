@@ -7,7 +7,7 @@ const MENU_DATA = {
         desc: 'Elija la institución o categoría para ver los simuladores disponibles.',
         items: [
             { id: 'policia', label: 'POLICÍA NACIONAL', type: 'folder', icon: 'fas fa-user-shield' },
-            { id: 'ffaa', label: 'FUERZAS ARMADAS', type: 'folder', icon: 'fas fa-jet' }, // Icono de avión/militar
+            { id: 'ffaa', label: 'FUERZAS ARMADAS', type: 'folder', icon: 'fas fa-fighter-jet' }, // <-- ¡Icono de Caza de Combate!
             { id: 'general', label: 'GENERAL', type: 'folder', icon: 'fas fa-globe' }
         ]
     },
@@ -100,7 +100,6 @@ let navigationHistory = [];
 
 document.addEventListener('DOMContentLoaded', () => {
     renderMenu('root');
-
     document.getElementById('btn-atras').addEventListener('click', goBack);
 });
 
@@ -157,26 +156,16 @@ function goBack() {
     if (navigationHistory.length > 1) {
         navigationHistory.pop(); // Saca el actual
         const previousId = navigationHistory[navigationHistory.length - 1];
-        // Renderizamos el anterior, pero tenemos que evitar que se vuelva a meter al historial en el render
-        // Así que modificamos la lógica de render ligeramente o manipulamos el historial manualmente aquí.
-        // Simplemente llamamos a render, y render gestionará el push, así que hacemos pop antes.
-        
-        // Corrección: renderMenu añade al historial. 
-        // Para volver, sacamos el actual, y renderizamos el anterior.
-        // Pero renderMenu volverá a añadir el anterior. 
-        // Truco: renderMenu verifica si ya es el último.
         renderMenu(previousId);
     }
 }
 
 function updateNavigationUI() {
     const navBar = document.getElementById('navigation-bar');
-    const breadcrumbs = document.getElementById('breadcrumbs');
+    // const breadcrumbs = document.getElementById('breadcrumbs'); // No usado en el nuevo diseño táctico
     
     if (navigationHistory.length > 1) {
         navBar.style.display = 'flex';
-        // Construir breadcrumbs visuales (opcional, por ahora solo texto simple)
-        // breadcrumbs.textContent = navigationHistory.join(' > '); 
     } else {
         navBar.style.display = 'none';
     }
