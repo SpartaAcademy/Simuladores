@@ -65,9 +65,7 @@
                 </div>
                 <div id="pregunta-texto">...</div>
                 <div id="q-image-container" style="text-align:center; margin-bottom:20px;"></div>
-                
                 <div id="opciones-container"></div>
-                
                 <button id="siguiente-btn">Siguiente <i class="fas fa-arrow-right"></i></button>
             </div>
 
@@ -100,7 +98,7 @@
                 </div>
             </div>
 
-            <div style="display:flex; gap:10px; justify-content:center;">
+            <div class="revision-botones">
                 <button id="retry-btn" style="padding:10px 25px; background:#b22222; color:white; border:none; border-radius:50px; cursor:pointer;">Reintentar</button>
                 <button id="reiniciar-btn" style="padding:10px 25px; background:white; border:1px solid #ccc; border-radius:50px; cursor:pointer;">Salir</button>
             </div>
@@ -110,7 +108,7 @@
         </div>
     </main>
 
-    <div id="error-modal" class="modal-overlay">
+    <div id="error-modal" class="modal-overlay" style="display:none;">
         <div class="modal-content">
             <h3 style="color:#c0392b">¡Error!</h3>
             <p id="error-text"></p>
@@ -118,7 +116,7 @@
         </div>
     </div>
 
-    <div id="modal-overlay" class="modal-overlay">
+    <div id="modal-overlay" class="modal-overlay" style="display:none;">
         <div class="modal-content">
             <h3>¿Terminar Intento?</h3>
             <p id="modal-mensaje"></p>
@@ -135,27 +133,25 @@
         function toggleMenu() {
             document.getElementById("user-dropdown").classList.toggle("show");
         }
-        // Cerrar menú si se hace clic fuera
         window.onclick = function(event) {
             if (!event.target.matches('.dropdown-btn') && !event.target.closest('.dropdown-btn')) {
                 var dropdowns = document.getElementsByClassName("dropdown-content");
                 for (var i = 0; i < dropdowns.length; i++) {
-                    var openDropdown = dropdowns[i];
-                    if (openDropdown.classList.contains('show')) {
-                        openDropdown.classList.remove('show');
+                    if (dropdowns[i].classList.contains('show')) {
+                        dropdowns[i].classList.remove('show');
                     }
                 }
             }
         }
         
-        // Menú Móvil
+        // Init Menú Móvil
         document.addEventListener('DOMContentLoaded', () => {
             const btn = document.getElementById('hamburger-btn');
             const nav = document.getElementById('side-nav');
             const close = document.getElementById('close-nav-btn');
             const overlay = document.getElementById('overlay');
-            
             const userStr = sessionStorage.getItem('userInfo');
+            
             if(userStr) document.getElementById('user-name').textContent = JSON.parse(userStr).nombre.split(' ')[0];
 
             if(btn) btn.onclick = () => { nav.style.width = "280px"; overlay.style.display = "block"; };
