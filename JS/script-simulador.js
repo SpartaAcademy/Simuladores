@@ -12,7 +12,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnNext = document.getElementById('siguiente-btn');
     const navContainer = document.getElementById('navegador-preguntas');
     
-    // Elementos de Info del Lobby
+    // BOTÓN REGRESAR (ACTIVACIÓN)
+    const btnRegresarLobby = document.getElementById('btn-regresar-lobby');
+    if(btnRegresarLobby) {
+        btnRegresarLobby.addEventListener('click', () => {
+            window.location.href = 'index.html'; // Vuelve al inicio
+        });
+    }
+    
+    // Info Cards
     const txtMateria = document.getElementById('lobby-materia');
     const txtPreguntas = document.getElementById('lobby-preguntas');
     const txtTiempo = document.getElementById('lobby-tiempo');
@@ -21,8 +29,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let userAnswers = [];
     let currentIdx = 0;
     let timerInterval;
-    let timeLeft = 3600; // Valor base
-    let totalPreguntas = 50; // Valor base
+    let timeLeft = 3600;
+    let totalPreguntas = 50;
 
     const materias = {
         'sociales': 'Ciencias Sociales', 'matematicas': 'Matemáticas y Física',
@@ -41,29 +49,30 @@ document.addEventListener('DOMContentLoaded', () => {
     function showError(msg) {
         document.getElementById('error-text').textContent = msg;
         document.getElementById('error-modal').style.display = 'flex';
-        btnStart.innerHTML = '<i class="fas fa-exclamation-circle"></i> Error de Carga';
+        btnStart.textContent = "Error al Cargar";
         btnStart.style.background = "#c0392b";
     }
 
     async function init() {
         const params = new URLSearchParams(window.location.search);
-        const materiaKey = params.get('materia');
+        const materiaKey = params.get('materia') || 'sociales';
         const title = materias[materiaKey] || 'Simulador';
         
-        // 1. Títulos
         document.getElementById('titulo-materia').textContent = title.toUpperCase();
         if(txtMateria) txtMateria.textContent = title;
         
-        // 2. Configurar Tiempos y Preguntas BASE
         if(materiaKey.includes('matematicas')) {
-            timeLeft = 5400; // 90 min
+            timeLeft = 5400; 
         } else if(materiaKey.includes('general')) { 
-            timeLeft = 10800; // 3 horas
+            timeLeft = 10800; 
             totalPreguntas = 200;
         } else {
-            timeLeft = 3600; // 1 hora
+            timeLeft = 3600; 
             totalPreguntas = 50;
         }
+
+        if(txtTiempo) txtTiempo.textContent = Math.floor(timeLeft/60) + " Minutos";
+        if(txtPreguntas) txtPreguntas.textContent = totalPreguntas;
 
         try {
             let filesToLoad = [];
@@ -71,26 +80,29 @@ document.addEventListener('DOMContentLoaded', () => {
             else if(materiaKey === 'general_esmil') filesToLoad = ordenGeneralEsmil;
             else filesToLoad = [materiaKey];
 
-            const promises = filesToLoad.map(m => fetch(`DATA/preguntas_${m}.json`).then(r => r.json()));
+            const promises = filesToLoad.map(m => 
+                fetch(`DATA/preguntas_${m}.json`).then(r => {
+                    if(!r.ok) throw new Error(`Falta: DATA/preguntas_${m}.json`);
+                    return r.json();
+                })
+            );
+
             const results = await Promise.all(promises);
             let allQ = [];
             results.forEach(d => allQ = allQ.concat(d));
 
-            // 3. Procesar Preguntas Reales
             if(materiaKey.startsWith('ppnn')) {
                 questions = allQ.sort(() => 0.5 - Math.random());
-                totalPreguntas = questions.length; // Ajuste dinámico si hay más/menos
+                totalPreguntas = questions.length;
             } else if (materiaKey.includes('general')) {
                 questions = allQ.sort(() => 0.5 - Math.random()).slice(0, 200);
             } else {
                 questions = allQ.sort(() => 0.5 - Math.random()).slice(0, 50);
             }
 
-            if(questions.length === 0) throw new Error("Sin preguntas.");
+            if(questions.length === 0) throw new Error("Archivo vacío.");
 
-            // 4. ACTUALIZAR INFO VISUAL EN LOBBY (YA CON DATOS REALES)
             if(txtPreguntas) txtPreguntas.textContent = questions.length;
-            if(txtTiempo) txtTiempo.textContent = Math.floor(timeLeft/60) + " Minutos";
 
             btnStart.disabled = false;
             btnStart.innerHTML = 'COMENZAR INTENTO <i class="fas fa-play"></i>';
@@ -199,7 +211,7 @@ document.addEventListener('DOMContentLoaded', () => {
             div.innerHTML = `<p><strong>${i+1}. ${q.pregunta}</strong></p>
                              ${imgHtml}
                              <p>Tu respuesta: <span style="font-weight:bold; color:${correct?'green':'red'}">${userAnswers[i]||'---'}</span></p>
-                             ${!correct ? `<p style="color:green;">Correcta: <strong>${q.respuesta}</strong></p>` : ''}`;
+                             ${!correct ? `<p style="color:green; margin-top:5px;">Correcta: <strong>${q.respuesta}</strong></p>` : ''}`;
             revContainer.appendChild(div);
         });
 
