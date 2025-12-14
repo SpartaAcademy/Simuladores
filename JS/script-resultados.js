@@ -13,8 +13,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     const fNombre = document.getElementById('filtro-nombre');
     const spinner = document.getElementById('loading-spinner');
     
-    // Botones
-    const btnPDF = document.getElementById('descargar-pdf-btn');
+    // Botones Globales
+    const btnPDFGeneral = document.getElementById('descargar-pdf-btn');
     const btnCSV = document.getElementById('descargar-general-csv-btn');
     const canvasHidden = document.getElementById('hidden-chart-canvas');
 
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (spinner) spinner.innerHTML = `<p style="color:red">Error: ${e.message}</p>`; 
     }
 
-    // --- 2. RENDERIZADO WEB (VISTA AGRUPADA POR MATERIAS) ---
+    // --- 2. RENDERIZADO WEB ---
     function render() {
         container.innerHTML = '';
         const busqueda = cleanText(fNombre.value);
@@ -66,34 +66,29 @@ document.addEventListener('DOMContentLoaded', async () => {
             return;
         }
 
-        // Orden general para conteos (más reciente primero)
+        // Ordenar intentos (Reciente primero para la vista web)
         const intentosParaWeb = [...allIntentos].sort((a,b) => new Date(b.created_at) - new Date(a.created_at));
 
         usuariosFiltrados.forEach(user => {
-            // Filtrar todos los intentos de este usuario según el filtro de materia global
-            const intentosTotalesUser = intentosParaWeb.filter(i => 
+            // Filtrar intentos del usuario
+            const intentosUser = intentosParaWeb.filter(i => 
                 String(i.usuario_id).trim() === String(user.usuario).trim() &&
                 (fMateria.value === 'Todas' || i.materia === fMateria.value)
             );
 
             const card = document.createElement('div');
             card.className = 'user-card';
-            const colorCount = intentosTotalesUser.length > 0 ? '#b22222' : '#999';
+            const colorCount = intentosUser.length > 0 ? '#b22222' : '#999';
             
-            // Construir el HTML interno
+            // Construir HTML interno
             let attemptsHTML = '';
-
-            if (intentosTotalesUser.length === 0) {
+            if (intentosUser.length === 0) {
                 attemptsHTML = '<p style="text-align:center; color:#999; padding:15px;">Sin intentos registrados.</p>';
             } else {
-                // AGRUPAR POR MATERIA
-                // 1. Obtener materias únicas de este usuario
-                const materiasDelUsuario = [...new Set(intentosTotalesUser.map(i => i.materia))].sort();
-
-                // 2. Crear una tabla por cada materia
+                // Agrupar por materia
+                const materiasDelUsuario = [...new Set(intentosUser.map(i => i.materia))].sort();
                 materiasDelUsuario.forEach(materiaNombre => {
-                    const intentosDeMateria = intentosTotalesUser.filter(i => i.materia === materiaNombre);
-                    
+                    const intentosDeMateria = intentosUser.filter(i => i.materia === materiaNombre);
                     attemptsHTML += `
                     <div class="materia-block">
                         <h4 class="materia-title">${materiaNombre} (${intentosDeMateria.length})</h4>
@@ -121,19 +116,33 @@ document.addEventListener('DOMContentLoaded', async () => {
                         <h3>${user.nombre}</h3>
                         <small><i class="fas fa-map-marker-alt"></i> ${user.ciudad}</small>
                     </div>
-                    <div style="text-align:right;">
-                        <strong style="color:${colorCount}; font-size:1.8rem; font-family:'Teko'; line-height:1;">${intentosTotalesUser.length}</strong>
-                        <span style="display:block; font-size:0.75rem; color:#666; letter-spacing:1px;">TOTAL</span>
+                    <div style="display:flex; align-items:center;">
+                        <button class="btn-pdf-mini"><i class="fas fa-file-pdf"></i> PDF Individual</button>
+                        
+                        <div style="text-align:right;">
+                            <strong style="color:${colorCount}; font-size:1.8rem; font-family:'Teko'; line-height:1;">${intentosUser.length}</strong>
+                            <span style="display:block; font-size:0.75rem; color:#666; letter-spacing:1px;">TOTAL</span>
+                        </div>
                     </div>
                 </div>
                 <div class="user-attempts">
                     ${attemptsHTML}
                 </div>`;
             
-            card.querySelector('.user-header').onclick = () => {
+            // Evento Click para Expandir (ignora si se clickea el botón PDF)
+            card.querySelector('.user-header').onclick = (e) => {
+                if(e.target.closest('.btn-pdf-mini')) return; // No expandir si clickean el botón
                 const body = card.querySelector('.user-attempts');
                 body.style.display = body.style.display === 'block' ? 'none' : 'block';
             };
+
+            // EVENTO PDF INDIVIDUAL
+            const btnInd = card.querySelector('.btn-pdf-mini');
+            btnInd.onclick = (e) => {
+                e.stopPropagation(); // Evitar expandir
+                generatePDF([user], `Reporte_${user.nombre.replace(/\s+/g, '_')}.pdf`);
+            };
+
             container.appendChild(card);
         });
     }
@@ -142,103 +151,142 @@ document.addEventListener('DOMContentLoaded', async () => {
     fMateria.addEventListener('change', render);
     fNombre.addEventListener('input', render);
 
-    // --- GENERADOR PDF (Mantiene lógica de separación) ---
-    if (btnPDF) {
-        btnPDF.onclick = async () => {
-            const originalText = btnPDF.innerHTML;
-            btnPDF.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generando...';
-            btnPDF.disabled = true;
+    // --- FUNCIÓN MAESTRA DE GENERACIÓN PDF ---
+    async function generatePDF(usersList, filename) {
+        // Feedback visual
+        const originalBtnText = btnPDFGeneral.innerHTML;
+        document.body.style.cursor = 'wait';
+        
+        const doc = new jsPDF();
+        let pageAdded = false;
 
-            const doc = new jsPDF();
-            const busqueda = cleanText(fNombre.value);
+        for (const u of usersList) {
+            // Obtener intentos
+            let intentosTotalesUsuario = allIntentos.filter(i => 
+                String(i.usuario_id).trim() === String(u.usuario).trim()
+            );
+
+            // Filtrar por Materia seleccionada si aplica
+            if (fMateria.value !== 'Todas') {
+                intentosTotalesUsuario = intentosTotalesUsuario.filter(i => i.materia === fMateria.value);
+            }
+
+            // CASO: Usuario SIN INTENTOS (Pero debe salir en el reporte)
+            if (intentosTotalesUsuario.length === 0) {
+                if (pageAdded) doc.addPage();
+                pageAdded = true;
+                drawHeader(doc, u, fMateria.value);
+                
+                // Mensaje Grande de "SIN INTENTOS"
+                doc.setTextColor(150);
+                doc.setFontSize(20);
+                doc.text("NO REGISTRA INTENTOS", 105, 120, { align: "center" });
+                doc.setFontSize(10);
+                doc.text("(Con los filtros seleccionados)", 105, 130, { align: "center" });
+                
+                // Si es el reporte general y hay muchos usuarios, continuamos al siguiente
+                continue; 
+            }
+
+            // CASO: Usuario CON INTENTOS (Agrupar por materia)
+            const materiasDelUsuario = [...new Set(intentosTotalesUsuario.map(i => i.materia))];
             
+            for (const materiaNombre of materiasDelUsuario) {
+                const intentosMateria = intentosTotalesUsuario.filter(i => i.materia === materiaNombre);
+                if (intentosMateria.length === 0) continue;
+
+                if (pageAdded) doc.addPage();
+                pageAdded = true;
+
+                // 1. Encabezado
+                drawHeader(doc, u, materiaNombre);
+
+                // 2. Stats
+                const promedio = (intentosMateria.reduce((acc, curr) => acc + curr.puntaje, 0) / intentosMateria.length).toFixed(0);
+                const maxNota = Math.max(...intentosMateria.map(i => i.puntaje));
+                drawStatBox(doc, 140, 45, "PROMEDIO", promedio, 178, 34, 34);
+                drawStatBox(doc, 170, 45, "MEJOR NOTA", maxNota, 39, 174, 96);
+
+                // 3. Gráfica (Últimos 20)
+                const limitChart = 20;
+                const dataParaGrafica = intentosMateria.slice(-limitChart);
+                doc.setFontSize(9); doc.setTextColor(50);
+                let tituloGrafica = "EVOLUCIÓN DE PUNTAJES";
+                if (intentosMateria.length > limitChart) tituloGrafica += ` (Últimos ${limitChart})`;
+                doc.text(tituloGrafica, 105, 75, { align: "center" });
+
+                const chartImg = await generateChartImage(dataParaGrafica);
+                if (chartImg) doc.addImage(chartImg, 'PNG', 14, 80, 180, 65);
+
+                // 4. Tabla (Completa, inversa)
+                const intentosTabla = [...intentosMateria].reverse();
+                const tableRows = intentosTabla.map((i, index) => {
+                    const numIntento = intentosMateria.length - index;
+                    return [
+                        numIntento,
+                        i.puntaje,
+                        new Date(i.created_at).toLocaleDateString(),
+                        new Date(i.created_at).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})
+                    ];
+                });
+
+                doc.autoTable({
+                    head: [['#', 'Puntaje', 'Fecha', 'Hora']],
+                    body: tableRows,
+                    startY: 155,
+                    theme: 'grid',
+                    headStyles: { fillColor: [30, 30, 30], textColor: [255, 255, 255], halign: 'center' },
+                    columnStyles: { 0: {halign:'center'}, 1: {halign:'center', fontStyle:'bold'}, 2: {halign:'center'}, 3: {halign:'center'} },
+                    styles: { fontSize: 9, cellPadding: 3 },
+                    didParseCell: function(data) {
+                        if (data.section === 'body' && data.column.index === 1) {
+                            const val = parseInt(data.cell.raw);
+                            data.cell.styles.textColor = val >= 700 ? [39, 174, 96] : [192, 57, 43];
+                        }
+                    }
+                });
+                
+                doc.setFontSize(8); doc.setTextColor(150);
+                doc.text(`Reporte generado el ${new Date().toLocaleDateString()}`, 14, 285);
+            }
+        }
+
+        document.body.style.cursor = 'default';
+        if (!pageAdded) alert("No hay datos para generar.");
+        else doc.save(filename);
+    }
+
+    // --- PDF GENERAL CLICK ---
+    if (btnPDFGeneral) {
+        btnPDFGeneral.onclick = () => {
+            const busqueda = cleanText(fNombre.value);
+            // Filtramos usuarios visibles en la lista actual
             const usuariosVisibles = allUsuarios.filter(u => {
                 const esAspirante = u.rol && u.rol.toLowerCase() === 'aspirante';
                 const matchCiudad = fCiudad.value === 'Todas' || u.ciudad === fCiudad.value;
                 const matchNombre = busqueda === '' || cleanText(u.nombre).includes(busqueda);
                 return esAspirante && matchCiudad && matchNombre;
             });
-
-            let pageAdded = false;
-
-            for (const u of usuariosVisibles) {
-                let intentosTotalesUsuario = allIntentos.filter(i => 
-                    String(i.usuario_id).trim() === String(u.usuario).trim()
-                );
-
-                if (intentosTotalesUsuario.length === 0) continue;
-
-                const materiasDelUsuario = [...new Set(intentosTotalesUsuario.map(i => i.materia))];
-                const materiasAProcesar = fMateria.value === 'Todas' ? materiasDelUsuario : materiasDelUsuario.filter(m => m === fMateria.value);
-
-                for (const materiaNombre of materiasAProcesar) {
-                    const intentosMateria = intentosTotalesUsuario.filter(i => i.materia === materiaNombre);
-                    if (intentosMateria.length === 0) continue;
-
-                    if (pageAdded) doc.addPage();
-                    pageAdded = true;
-
-                    // Encabezado
-                    doc.setFillColor(178, 34, 34); doc.rect(0, 0, 210, 35, 'F');
-                    doc.setTextColor(255, 255, 255); doc.setFont("helvetica", "bold"); doc.setFontSize(20);
-                    doc.text("SPARTA ACADEMY", 105, 18, { align: "center" });
-                    doc.setFontSize(10); doc.setFont("helvetica", "normal");
-                    doc.text("INFORME DE RENDIMIENTO POR MATERIA", 105, 26, { align: "center" });
-
-                    // Info
-                    doc.setTextColor(0, 0, 0); doc.setFontSize(14); doc.text(u.nombre.toUpperCase(), 14, 48);
-                    doc.setFontSize(10); doc.setTextColor(100);
-                    doc.text(`CIUDAD: ${u.ciudad.toUpperCase()}`, 14, 54);
-                    doc.text(`MATERIA: ${materiaNombre.toUpperCase()}`, 14, 59);
-
-                    // Stats
-                    const promedio = (intentosMateria.reduce((acc, curr) => acc + curr.puntaje, 0) / intentosMateria.length).toFixed(0);
-                    const maxNota = Math.max(...intentosMateria.map(i => i.puntaje));
-                    drawStatBox(doc, 140, 45, "PROMEDIO", promedio, 178, 34, 34);
-                    drawStatBox(doc, 170, 45, "MEJOR NOTA", maxNota, 39, 174, 96);
-
-                    // Chart (Últimos 20)
-                    const limitChart = 20;
-                    const dataParaGrafica = intentosMateria.slice(-limitChart);
-                    const chartImg = await generateChartImage(dataParaGrafica);
-                    if (chartImg) {
-                        doc.addImage(chartImg, 'PNG', 14, 80, 180, 65);
-                    }
-
-                    // Tabla
-                    const intentosTabla = [...intentosMateria].reverse(); 
-                    const tableRows = intentosTabla.map((i, index) => {
-                        const numIntento = intentosMateria.length - index;
-                        return [numIntento, i.puntaje, new Date(i.created_at).toLocaleDateString(), new Date(i.created_at).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})];
-                    });
-
-                    doc.autoTable({
-                        head: [['#', 'Puntaje', 'Fecha', 'Hora']],
-                        body: tableRows,
-                        startY: 155,
-                        theme: 'grid',
-                        headStyles: { fillColor: [30, 30, 30], textColor: [255, 255, 255], halign: 'center' },
-                        columnStyles: { 0: {halign:'center'}, 1: {halign:'center', fontStyle:'bold'}, 2: {halign:'center'}, 3: {halign:'center'} },
-                        styles: { fontSize: 9, cellPadding: 3 },
-                        didParseCell: function(data) {
-                            if (data.section === 'body' && data.column.index === 1) {
-                                const val = parseInt(data.cell.raw);
-                                data.cell.styles.textColor = val >= 700 ? [39, 174, 96] : [192, 57, 43];
-                            }
-                        }
-                    });
-                    
-                    doc.setFontSize(8); doc.setTextColor(150);
-                    doc.text(`Reporte generado el ${new Date().toLocaleDateString()}`, 14, 285);
-                }
-            }
-
-            if (!pageAdded) alert("No hay datos para generar el reporte.");
-            else doc.save("Reporte_Sparta_Completo.pdf");
-
-            btnPDF.innerHTML = originalText;
-            btnPDF.disabled = false;
+            
+            if(usuariosVisibles.length === 0) { alert("No hay alumnos filtrados."); return; }
+            
+            generatePDF(usuariosVisibles, "Reporte_General_Sparta.pdf");
         };
+    }
+
+    // --- HELPER FUNCIONES PDF ---
+    function drawHeader(doc, user, materiaName) {
+        doc.setFillColor(178, 34, 34); doc.rect(0, 0, 210, 35, 'F');
+        doc.setTextColor(255, 255, 255); doc.setFont("helvetica", "bold"); doc.setFontSize(20);
+        doc.text("SPARTA ACADEMY", 105, 18, { align: "center" });
+        doc.setFontSize(10); doc.setFont("helvetica", "normal");
+        doc.text("INFORME DE RENDIMIENTO ACADÉMICO", 105, 26, { align: "center" });
+
+        doc.setTextColor(0, 0, 0); doc.setFontSize(14); doc.text(user.nombre.toUpperCase(), 14, 48);
+        doc.setFontSize(10); doc.setTextColor(100);
+        doc.text(`CIUDAD: ${user.ciudad.toUpperCase()}`, 14, 54);
+        const matText = materiaName === 'Todas' ? 'TODAS LAS MATERIAS' : materiaName.toUpperCase();
+        doc.text(`MATERIA: ${matText}`, 14, 59);
     }
 
     function drawStatBox(doc, x, y, label, value, r, g, b) {
@@ -249,6 +297,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     async function generateChartImage(dataIntentos) {
         return new Promise((resolve) => {
+            if(dataIntentos.length === 0) { resolve(null); return; }
             const ctx = canvasHidden.getContext('2d');
             if (window.myReportChart) window.myReportChart.destroy();
             
@@ -279,10 +328,14 @@ document.addEventListener('DOMContentLoaded', async () => {
             const visibles = allUsuarios.filter(u => u.rol && u.rol.toLowerCase() === 'aspirante' && (fCiudad.value === 'Todas' || u.ciudad === fCiudad.value));
             visibles.forEach(u => {
                 const ints = allIntentos.filter(i => String(i.usuario_id) === String(u.usuario) && (fMateria.value === 'Todas' || i.materia === fMateria.value));
-                ints.forEach(int => {
-                    const d = new Date(int.created_at);
-                    csv += `${u.nombre},${u.ciudad},${int.materia},${int.puntaje},${d.toLocaleDateString()},${d.toLocaleTimeString()}\n`;
-                });
+                if(ints.length === 0) {
+                    csv += `${u.nombre},${u.ciudad},SIN INTENTOS,0,--,--\n`;
+                } else {
+                    ints.forEach(int => {
+                        const d = new Date(int.created_at);
+                        csv += `${u.nombre},${u.ciudad},${int.materia},${int.puntaje},${d.toLocaleDateString()},${d.toLocaleTimeString()}\n`;
+                    });
+                }
             });
             const link = document.createElement("a");
             link.setAttribute("href", "data:text/csv;charset=utf-8," + encodeURIComponent(csv));
