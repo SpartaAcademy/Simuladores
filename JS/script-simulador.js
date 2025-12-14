@@ -5,22 +5,24 @@ const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
 
 document.addEventListener('DOMContentLoaded', () => {
     // Referencias
-    const lobby = document.getElementById('lobby-container');
+    const lobbyBanner = document.getElementById('lobby-banner'); // Nuevo Banner
+    const lobbyContainer = document.getElementById('lobby-container'); // Tarjeta Blanca
     const simulador = document.getElementById('simulador-container');
     const resultados = document.getElementById('resultados-container');
     const btnStart = document.getElementById('comenzar-btn');
     const btnNext = document.getElementById('siguiente-btn');
     const navContainer = document.getElementById('navegador-preguntas');
     
-    // BOTÓN REGRESAR (ACTIVACIÓN)
+    // Botón Regresar
     const btnRegresarLobby = document.getElementById('btn-regresar-lobby');
     if(btnRegresarLobby) {
         btnRegresarLobby.addEventListener('click', () => {
-            window.location.href = 'index.html'; // Vuelve al inicio
+            window.location.href = 'index.html';
         });
     }
     
-    // Info Cards
+    // Elementos de Texto
+    const txtTituloBanner = document.getElementById('lobby-titulo-principal'); // Título Negro
     const txtMateria = document.getElementById('lobby-materia');
     const txtPreguntas = document.getElementById('lobby-preguntas');
     const txtTiempo = document.getElementById('lobby-tiempo');
@@ -58,8 +60,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const materiaKey = params.get('materia') || 'sociales';
         const title = materias[materiaKey] || 'Simulador';
         
-        document.getElementById('titulo-materia').textContent = title.toUpperCase();
-        if(txtMateria) txtMateria.textContent = title;
+        // Asignar Títulos
+        document.getElementById('header-subtitulo').textContent = title.toUpperCase();
+        if(txtTituloBanner) txtTituloBanner.textContent = title.toUpperCase(); // Al banner negro
+        if(txtMateria) txtMateria.textContent = title; // A la tarjeta blanca
         
         if(materiaKey.includes('matematicas')) {
             timeLeft = 5400; 
@@ -112,7 +116,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function startQuiz() {
-        lobby.style.display = 'none';
+        // OCULTAR BANNER Y CARD
+        lobbyBanner.style.display = 'none'; 
+        lobbyContainer.style.display = 'none';
+        
         simulador.className = 'quiz-layout';
         simulador.style.display = window.innerWidth > 900 ? 'grid' : 'flex';
         
