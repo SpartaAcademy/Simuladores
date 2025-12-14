@@ -7,9 +7,12 @@
     <link rel="stylesheet" href="CSS/style-resultados.css">
     <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;600&family=Work+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.23/jspdf.plugin.autotable.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
     <script src="JS/auth.js"></script>
     <script> checkAuth(); </script>
 </head>
@@ -71,7 +74,7 @@
                 <input type="text" id="filtro-nombre" placeholder="Buscar alumno...">
             </div>
             <div class="botones-exportar">
-                <button id="descargar-pdf-btn" class="pdf-button"><i class="fas fa-file-pdf"></i> PDF</button>
+                <button id="descargar-pdf-btn" class="pdf-button"><i class="fas fa-file-pdf"></i> PDF PRO</button>
                 <button id="descargar-general-csv-btn" class="csv-button"><i class="fas fa-file-csv"></i> CSV</button>
             </div>
         </div>
@@ -83,6 +86,10 @@
         
         <div id="reporte-container"></div>
     </main>
+
+    <div style="position: absolute; left: -9999px;">
+        <canvas id="hidden-chart-canvas" width="800" height="400"></canvas>
+    </div>
 
     <script src="JS/script-resultados.js"></script>
     <script>
