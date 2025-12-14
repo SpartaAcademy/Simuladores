@@ -23,8 +23,8 @@
         </a>
         
         <div class="desktop-menu">
-            <button class="user-btn" onclick="location.href='resultados.html'">
-                <i class="fas fa-chart-bar"></i> Mis Resultados
+            <button id="btn-admin-desktop" class="user-btn" onclick="location.href='resultados.html'" style="display: none;">
+                <i class="fas fa-chart-pie"></i> Panel Admin
             </button>
             <button class="user-btn" onclick="logout()" style="background:#b22222; border-color:#b22222;">
                 <i class="fas fa-sign-out-alt"></i> Salir
@@ -42,7 +42,7 @@
             <img src="logo.png" width="80" style="margin-bottom:10px;">
             <h3 style="color:white; font-family:'Teko'; margin:0;">MENÚ</h3>
         </div>
-        <a href="resultados.html"><i class="fas fa-chart-bar"></i> Mis Resultados</a>
+        <a href="resultados.html" id="btn-admin-mobile" style="display: none;"><i class="fas fa-chart-pie"></i> Panel Admin</a>
         <a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
     </div>
     <div class="overlay" id="overlay"></div>
@@ -180,9 +180,20 @@
             const nav = document.getElementById('side-nav');
             const close = document.getElementById('close-nav-btn');
             const overlay = document.getElementById('overlay');
-            if(btn) btn.onclick = () => { nav.style.width = "280px"; overlay.style.display = "block"; };
-            if(close) close.onclick = () => { nav.style.width = "0"; overlay.style.display = "none"; };
-            if(overlay) overlay.onclick = () => { nav.style.width = "0"; overlay.style.display = "none"; };
+
+            if(btn) btn.onclick = () => { nav.classList.add('open'); overlay.style.display = "block"; };
+            const closeMenu = () => { nav.classList.remove('open'); overlay.style.display = "none"; };
+            if(close) close.onclick = closeMenu;
+            if(overlay) overlay.onclick = closeMenu;
+
+            // --- LÓGICA DE ROLES ---
+            const user = getUserInfo(); 
+            if (user && user.rol === 'admin') {
+                const btnDesk = document.getElementById('btn-admin-desktop');
+                const btnMob = document.getElementById('btn-admin-mobile');
+                if(btnDesk) btnDesk.style.display = 'flex';
+                if(btnMob) btnMob.style.display = 'block';
+            }
         });
     </script>
 </body>
