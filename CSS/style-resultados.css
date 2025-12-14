@@ -43,8 +43,13 @@ header {
 .user-btn:hover { background: rgba(255,255,255,0.2); }
 .mobile-toggle { display: none; background: none; border: none; color: white; font-size: 1.8rem; cursor: pointer; padding: 5px; }
 
-/* Side Nav */
-.side-nav { height: 100%; width: 0; position: fixed; z-index: 2000; top: 0; right: 0; background-color: #111; overflow-x: hidden; transition: 0.3s; padding-top: 60px; white-space: nowrap; visibility: hidden; }
+/* Side Nav (CORRECCIÓN FANTASMA) */
+.side-nav { 
+    height: 100%; width: 0; position: fixed; z-index: 2000; top: 0; right: 0; 
+    background-color: #111; overflow-x: hidden; transition: 0.3s; padding-top: 60px;
+    white-space: nowrap; 
+    visibility: hidden; /* ESTO OCULTA EL TEXTO AZUL FANTASMA */
+}
 .side-nav.open { width: 280px; visibility: visible; }
 .side-nav a { padding: 15px 30px; text-decoration: none; font-size: 1.2rem; color: #ccc; display: block; border-bottom: 1px solid #222; transition: 0.2s; }
 .side-nav a:hover { color: var(--primary); background: #222; }
@@ -75,7 +80,7 @@ header {
 .csv-button { background: #27ae60; color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: bold; display: flex; align-items: center; gap: 8px; transition: 0.3s; }
 .pdf-button:hover, .csv-button:hover { opacity: 0.9; transform: translateY(-2px); }
 
-/* Tarjetas de Usuario */
+/* Tarjetas */
 .user-card { 
     background: white; border-radius: 10px; margin-bottom: 15px; border: 1px solid #eee; 
     overflow: hidden; box-shadow: 0 3px 10px rgba(0,0,0,0.03); transition: 0.3s; 
@@ -86,8 +91,8 @@ header {
     padding: 20px 25px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; 
     background: white; 
 }
-.user-header div h3 { margin: 0; font-family: 'Teko', sans-serif; font-size: 1.6rem; color: var(--dark); line-height: 1; }
-.user-header div small { color: #888; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; }
+.user-header h3 { margin: 0; font-family: 'Teko', sans-serif; font-size: 1.6rem; color: var(--dark); line-height: 1; }
+.user-header small { color: #888; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; display: block; }
 
 .user-attempts { display: none; padding: 20px; background: #fafafa; border-top: 1px solid #eee; }
 
