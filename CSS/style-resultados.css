@@ -43,12 +43,12 @@ header {
 .user-btn:hover { background: rgba(255,255,255,0.2); }
 .mobile-toggle { display: none; background: none; border: none; color: white; font-size: 1.8rem; cursor: pointer; padding: 5px; }
 
-/* Side Nav (CORRECCIÓN FANTASMA) */
+/* Side Nav (Con fix fantasma) */
 .side-nav { 
     height: 100%; width: 0; position: fixed; z-index: 2000; top: 0; right: 0; 
     background-color: #111; overflow-x: hidden; transition: 0.3s; padding-top: 60px;
     white-space: nowrap; 
-    visibility: hidden; /* ESTO OCULTA EL TEXTO AZUL FANTASMA */
+    visibility: hidden; 
 }
 .side-nav.open { width: 280px; visibility: visible; }
 .side-nav a { padding: 15px 30px; text-decoration: none; font-size: 1.2rem; color: #ccc; display: block; border-bottom: 1px solid #222; transition: 0.2s; }
@@ -95,6 +95,18 @@ header {
 .user-header small { color: #888; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; display: block; }
 
 .user-attempts { display: none; padding: 20px; background: #fafafa; border-top: 1px solid #eee; }
+
+/* NUEVOS ESTILOS PARA SEPARACIÓN POR MATERIAS */
+.materia-block { margin-bottom: 25px; }
+.materia-title {
+    font-family: 'Teko', sans-serif;
+    font-size: 1.4rem;
+    color: var(--primary);
+    border-bottom: 2px solid #eee;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
 
 /* Tabla */
 .table { width: 100%; border-collapse: collapse; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
