@@ -19,11 +19,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const txtPreguntas = document.getElementById('lobby-preguntas');
     const txtTiempo = document.getElementById('lobby-tiempo');
     
-    // Botón Regresar
+    // --- LÓGICA CORREGIDA DEL BOTÓN REGRESAR ---
     const btnRegresarLobby = document.getElementById('btn-regresar-lobby');
     if(btnRegresarLobby) {
         btnRegresarLobby.addEventListener('click', () => {
-            window.location.href = 'index.html';
+            // Intenta ir atrás en el historial
+            if (window.history.length > 1) {
+                window.history.back(); 
+            } else {
+                // Si no hay historial, va al inicio por seguridad
+                window.location.href = 'index.html'; 
+            }
         });
     }
     
@@ -49,11 +55,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const ordenGeneralEsmil = ['sociales_esmil', 'matematicas_esmil', 'lengua_esmil', 'ingles_esmil'];
 
     function showError(msg) {
-        // En lugar de modal, mostramos error en el botón para feedback inmediato
         console.error(msg);
         btnStart.innerHTML = `<i class="fas fa-exclamation-circle"></i> Error: ${msg}`;
         btnStart.style.background = "#c0392b";
-        // También mostrar modal si es crítico
         document.getElementById('error-text').textContent = "No se pudo cargar el archivo de preguntas. Verifique que exista.";
         document.getElementById('error-modal').style.display = 'flex';
     }
@@ -66,7 +70,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // Asignar Títulos
         if(txtTituloMateria) txtTituloMateria.textContent = title.toUpperCase();
         if(txtMateria) txtMateria.textContent = title;
-        document.getElementById('header-subtitulo').textContent = title.toUpperCase();
+        const subTitle = document.getElementById('header-subtitulo');
+        if(subTitle) subTitle.textContent = title.toUpperCase();
         
         // Configuración
         if(materiaKey.includes('matematicas')) {
@@ -110,10 +115,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if(questions.length === 0) throw new Error("Archivo vacío.");
 
-            // Actualizar real
             if(txtPreguntas) txtPreguntas.textContent = questions.length;
 
-            // Habilitar Botón
             btnStart.disabled = false;
             btnStart.innerHTML = 'COMENZAR INTENTO <i class="fas fa-play"></i>';
             btnStart.onclick = startQuiz;
@@ -124,8 +127,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function startQuiz() {
-        lobbyBanner.style.display = 'none'; // Ocultar Banner
-        lobbyContainer.style.display = 'none'; // Ocultar Card Blanca
+        lobbyBanner.style.display = 'none'; 
+        lobbyContainer.style.display = 'none';
         
         simulador.className = 'quiz-layout';
         simulador.style.display = window.innerWidth > 900 ? 'grid' : 'flex';
