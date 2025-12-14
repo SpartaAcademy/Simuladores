@@ -24,9 +24,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     // --- UTILS ---
     const cleanText = (str) => str ? str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim() : "";
 
-    // --- CARGA DATOS ---
+    // --- 1. CARGA DATOS ---
     try {
-        const { data: intentos, error } = await supabase.from('resultados').select('*').order('created_at', { ascending: true }); // Ascendente para la gráfica cronológica
+        // Traemos datos ordenados por fecha ascendente (útil para la gráfica cronológica)
+        const { data: intentos, error } = await supabase.from('resultados').select('*').order('created_at', { ascending: true });
         if (error) throw error;
         allIntentos = intentos || [];
 
@@ -49,7 +50,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (spinner) spinner.innerHTML = `<p style="color:red">Error: ${e.message}</p>`; 
     }
 
-    // --- RENDER WEB (Tarjetas) ---
+    // --- 2. RENDERIZADO WEB (VISTA GENERAL) ---
     function render() {
         container.innerHTML = '';
         const busqueda = cleanText(fNombre.value);
@@ -66,7 +67,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             return;
         }
 
-        // Ordenamos intentos por fecha descendente para la vista web (lo más nuevo arriba)
+        // Para la vista web mostramos lo más reciente primero
         const intentosParaWeb = [...allIntentos].sort((a,b) => new Date(b.created_at) - new Date(a.created_at));
 
         usuariosFiltrados.forEach(user => {
@@ -87,18 +88,23 @@ document.addEventListener('DOMContentLoaded', async () => {
                     </div>
                     <div style="text-align:right;">
                         <strong style="color:${colorCount}; font-size:1.8rem; font-family:'Teko'; line-height:1;">${intentosUser.length}</strong>
-                        <span style="display:block; font-size:0.75rem; color:#666; letter-spacing:1px;">INTENTOS</span>
+                        <span style="display:block; font-size:0.75rem; color:#666; letter-spacing:1px;">INTENTOS TOTALES</span>
                     </div>
                 </div>
                 <div class="user-attempts">
-                    ${intentosUser.length === 0 ? '<p style="text-align:center; color:#999; padding:15px;">Sin intentos.</p>' : `
+                    ${intentosUser.length === 0 ? '<p style="text-align:center; color:#999; padding:15px;">Sin intentos registrados.</p>' : `
                     <table class="table">
                         <thead><tr><th>MATERIA</th><th>NOTA</th><th>FECHA</th><th>HORA</th></tr></thead>
                         <tbody>
                             ${intentosUser.map(i => {
                                 const d = new Date(i.created_at);
                                 const colorNota = i.puntaje >= 700 ? '#27ae60' : '#c0392b';
-                                return `<tr><td>${i.materia}</td><td style="font-weight:bold; color:${colorNota}">${i.puntaje}</td><td>${d.toLocaleDateString()}</td><td>${d.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'})}</td></tr>`;
+                                return `<tr>
+                                    <td>${i.materia}</td>
+                                    <td style="font-weight:bold; color:${colorNota}">${i.puntaje}</td>
+                                    <td>${d.toLocaleDateString()}</td>
+                                    <td>${d.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'})}</td>
+                                </tr>`;
                             }).join('')}
                         </tbody>
                     </table>`}
@@ -112,11 +118,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     }
 
+    // Eventos Filtros
     fCiudad.addEventListener('change', render);
     fMateria.addEventListener('change', render);
     fNombre.addEventListener('input', render);
 
-    // --- GENERADOR DE PDF PROFESIONAL ---
+    // --- 3. GENERADOR DE PDF AVANZADO (SEPARADO POR MATERIAS) ---
     if (btnPDF) {
         btnPDF.onclick = async () => {
             const originalText = btnPDF.innerHTML;
@@ -136,100 +143,137 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             let pageAdded = false;
 
-            // 2. Iterar por cada usuario (Una hoja nueva por usuario)
+            // 2. Iterar por USUARIO
             for (const u of usuariosVisibles) {
-                // Obtener intentos (Cronológicos para la gráfica)
-                let intentos = allIntentos.filter(i => 
-                    String(i.usuario_id).trim() === String(u.usuario).trim() &&
-                    (fMateria.value === 'Todas' || i.materia === fMateria.value)
+                
+                // Obtener todos los intentos de este usuario
+                let intentosTotalesUsuario = allIntentos.filter(i => 
+                    String(i.usuario_id).trim() === String(u.usuario).trim()
                 );
 
-                // Si no tiene intentos y el filtro de materia está activo, saltar
-                if (intentos.length === 0) continue;
+                if (intentosTotalesUsuario.length === 0) continue;
 
-                if (pageAdded) doc.addPage();
-                pageAdded = true;
+                // 3. Agrupar por MATERIA (Esto separa el reporte)
+                // Obtenemos las materias únicas que ha rendido este usuario
+                const materiasDelUsuario = [...new Set(intentosTotalesUsuario.map(i => i.materia))];
 
-                // --- ENCABEZADO ---
-                doc.setFillColor(178, 34, 34); // Rojo Sparta
-                doc.rect(0, 0, 210, 40, 'F'); // Barra roja superior
-                
-                doc.setTextColor(255, 255, 255);
-                doc.setFont("helvetica", "bold");
-                doc.setFontSize(22);
-                doc.text("SPARTA ACADEMY", 105, 20, { align: "center" });
-                
-                doc.setFontSize(12);
-                doc.setFont("helvetica", "normal");
-                doc.text("INFORME DE RENDIMIENTO INDIVIDUAL", 105, 30, { align: "center" });
+                // Si hay un filtro de materia seleccionado, solo usamos esa
+                const materiasAProcesar = fMateria.value === 'Todas' 
+                    ? materiasDelUsuario 
+                    : materiasDelUsuario.filter(m => m === fMateria.value);
 
-                // --- DATOS DEL ESTUDIANTE ---
-                doc.setTextColor(0, 0, 0);
-                doc.setFontSize(16);
-                doc.text(u.nombre.toUpperCase(), 14, 55);
-                
-                doc.setFontSize(10);
-                doc.setTextColor(100);
-                doc.text(`CIUDAD: ${u.ciudad.toUpperCase()}`, 14, 62);
-                doc.text(`MATERIA FILTRO: ${fMateria.value.toUpperCase()}`, 14, 67);
-                doc.text(`FECHA REPORTE: ${new Date().toLocaleDateString()}`, 14, 72);
+                // 4. Iterar por MATERIA (Crear una sección/página por materia)
+                for (const materiaNombre of materiasAProcesar) {
+                    
+                    // Filtrar intentos SOLO de esta materia
+                    // Nota: 'allIntentos' ya viene ordenado cronológicamente (antiguo -> nuevo)
+                    const intentosMateria = intentosTotalesUsuario.filter(i => i.materia === materiaNombre);
 
-                // --- ESTADÍSTICAS RÁPIDAS (KPIs) ---
-                const promedio = (intentos.reduce((acc, curr) => acc + curr.puntaje, 0) / intentos.length).toFixed(0);
-                const maxNota = Math.max(...intentos.map(i => i.puntaje));
-                
-                // Cuadro Promedio
-                doc.setFillColor(240, 240, 240);
-                doc.rect(140, 50, 25, 25, 'F');
-                doc.setFontSize(8); doc.text("PROMEDIO", 152.5, 55, {align:"center"});
-                doc.setFontSize(14); doc.setTextColor(178, 34, 34); doc.text(promedio, 152.5, 65, {align:"center"});
+                    if (intentosMateria.length === 0) continue;
 
-                // Cuadro Max
-                doc.setFillColor(240, 240, 240);
-                doc.rect(170, 50, 25, 25, 'F');
-                doc.setFontSize(8); doc.setTextColor(100); doc.text("MEJOR NOTA", 182.5, 55, {align:"center"});
-                doc.setFontSize(14); doc.setTextColor(39, 174, 96); doc.text(maxNota.toString(), 182.5, 65, {align:"center"});
+                    if (pageAdded) doc.addPage();
+                    pageAdded = true;
 
-                // --- GRÁFICA DE BARRAS (CHART.JS) ---
-                // Necesitamos generar la imagen del chart
-                const chartImg = await generateChartImage(intentos);
-                if (chartImg) {
-                    doc.addImage(chartImg, 'PNG', 14, 85, 180, 70);
-                }
+                    // --- ENCABEZADO DE PÁGINA ---
+                    doc.setFillColor(178, 34, 34); // Rojo Sparta
+                    doc.rect(0, 0, 210, 35, 'F');
+                    
+                    doc.setTextColor(255, 255, 255);
+                    doc.setFont("helvetica", "bold");
+                    doc.setFontSize(20);
+                    doc.text("SPARTA ACADEMY", 105, 18, { align: "center" });
+                    
+                    doc.setFontSize(10);
+                    doc.setFont("helvetica", "normal");
+                    doc.text("INFORME DE RENDIMIENTO POR MATERIA", 105, 26, { align: "center" });
 
-                // --- TABLA DE DETALLES ---
-                // Preparamos datos para la tabla (Orden inverso para ver lo último primero en la lista)
-                const intentosTabla = [...intentos].reverse(); 
-                const tableRows = intentosTabla.map(i => [
-                    i.materia,
-                    i.puntaje,
-                    new Date(i.created_at).toLocaleDateString(),
-                    new Date(i.created_at).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})
-                ]);
+                    // --- INFO ALUMNO ---
+                    doc.setTextColor(0, 0, 0);
+                    doc.setFontSize(14);
+                    doc.text(u.nombre.toUpperCase(), 14, 48);
+                    
+                    doc.setFontSize(10);
+                    doc.setTextColor(100);
+                    doc.text(`CIUDAD: ${u.ciudad.toUpperCase()}`, 14, 54);
+                    doc.text(`MATERIA: ${materiaNombre.toUpperCase()}`, 14, 59); // Nombre específico de la materia
 
-                doc.autoTable({
-                    head: [['Materia', 'Puntaje', 'Fecha', 'Hora']],
-                    body: tableRows,
-                    startY: 165,
-                    theme: 'grid',
-                    headStyles: { fillColor: [20, 20, 20], textColor: [255, 255, 255] },
-                    styles: { fontSize: 9, cellPadding: 3 },
-                    columnStyles: {
-                        1: { fontStyle: 'bold', textColor: [178, 34, 34] } // Columna puntaje en rojo/bold
+                    // --- ESTADÍSTICAS DE LA MATERIA ---
+                    const promedio = (intentosMateria.reduce((acc, curr) => acc + curr.puntaje, 0) / intentosMateria.length).toFixed(0);
+                    const maxNota = Math.max(...intentosMateria.map(i => i.puntaje));
+                    const totalTests = intentosMateria.length;
+
+                    // Cajas de KPIs
+                    drawStatBox(doc, 140, 45, "PROMEDIO", promedio, 178, 34, 34);
+                    drawStatBox(doc, 170, 45, "MEJOR NOTA", maxNota, 39, 174, 96);
+
+                    // --- GRÁFICA INTELIGENTE (Limitada a últimos 20) ---
+                    // Tomamos los últimos 20 intentos para que la gráfica no explote
+                    const limitChart = 20;
+                    const dataParaGrafica = intentosMateria.slice(-limitChart); // Los últimos X
+                    
+                    doc.setFontSize(9);
+                    doc.setTextColor(50);
+                    let tituloGrafica = "EVOLUCIÓN DE PUNTAJES";
+                    if (intentosMateria.length > limitChart) {
+                        tituloGrafica += ` (Últimos ${limitChart} de ${intentosMateria.length} intentos)`;
                     }
-                });
+                    doc.text(tituloGrafica, 105, 75, { align: "center" });
 
-                // Footer Pie de página
-                const pageCount = doc.internal.getNumberOfPages();
-                doc.setFontSize(8);
-                doc.setTextColor(150);
-                doc.text(`Sparta Academy - Sistema de Entrenamiento`, 105, 285, { align: "center" });
-            }
+                    // Generar imagen del chart solo con esta materia
+                    const chartImg = await generateChartImage(dataParaGrafica);
+                    if (chartImg) {
+                        doc.addImage(chartImg, 'PNG', 14, 80, 180, 65);
+                    }
+
+                    // --- TABLA COMPLETA (Aquí sí van todos los intentos) ---
+                    // Invertimos para mostrar el más reciente arriba en la tabla
+                    const intentosTabla = [...intentosMateria].reverse(); 
+                    
+                    const tableRows = intentosTabla.map((i, index) => {
+                        // Calculamos el número de intento real (basado en el total)
+                        const numIntento = intentosMateria.length - index;
+                        return [
+                            numIntento,
+                            i.puntaje,
+                            new Date(i.created_at).toLocaleDateString(),
+                            new Date(i.created_at).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})
+                        ];
+                    });
+
+                    doc.autoTable({
+                        head: [['#', 'Puntaje', 'Fecha', 'Hora']],
+                        body: tableRows,
+                        startY: 155,
+                        theme: 'grid',
+                        headStyles: { fillColor: [30, 30, 30], textColor: [255, 255, 255], halign: 'center' },
+                        columnStyles: {
+                            0: { halign: 'center', cellWidth: 20 },
+                            1: { halign: 'center', fontStyle: 'bold' },
+                            2: { halign: 'center' },
+                            3: { halign: 'center' }
+                        },
+                        styles: { fontSize: 9, cellPadding: 3 },
+                        // Colorear notas rojas/verdes en la tabla
+                        didParseCell: function(data) {
+                            if (data.section === 'body' && data.column.index === 1) {
+                                const val = parseInt(data.cell.raw);
+                                data.cell.styles.textColor = val >= 700 ? [39, 174, 96] : [192, 57, 43];
+                            }
+                        }
+                    });
+
+                    // Pie de página
+                    doc.setFontSize(8);
+                    doc.setTextColor(150);
+                    doc.text(`Reporte generado el ${new Date().toLocaleDateString()}`, 14, 285);
+                    doc.text(`Sparta Academy`, 195, 285, { align: "right" });
+                } // Fin loop Materias
+            } // Fin loop Usuarios
 
             if (!pageAdded) {
-                alert("No hay datos para generar el reporte con los filtros actuales.");
+                alert("No hay datos para generar el reporte.");
             } else {
-                doc.save("Reporte_Sparta_Profesional.pdf");
+                doc.save("Reporte_Sparta_Completo.pdf");
             }
 
             btnPDF.innerHTML = originalText;
@@ -237,18 +281,30 @@ document.addEventListener('DOMContentLoaded', async () => {
         };
     }
 
-    // --- FUNCIÓN AUXILIAR PARA GENERAR IMAGEN DEL GRÁFICO ---
+    // --- AUXILIARES PDF ---
+    function drawStatBox(doc, x, y, label, value, r, g, b) {
+        doc.setFillColor(245, 245, 245);
+        doc.rect(x, y, 25, 20, 'F');
+        doc.setFontSize(7);
+        doc.setTextColor(100);
+        doc.text(label, x + 12.5, y + 5, {align:"center"});
+        doc.setFontSize(12);
+        doc.setFont("helvetica", "bold");
+        doc.setTextColor(r, g, b);
+        doc.text(String(value), x + 12.5, y + 15, {align:"center"});
+    }
+
     async function generateChartImage(dataIntentos) {
         return new Promise((resolve) => {
             const ctx = canvasHidden.getContext('2d');
             
-            // Destruir chart previo si existe (para no sobreponer)
             if (window.myReportChart) window.myReportChart.destroy();
 
-            // Etiquetas (Fechas cortas) y Datos
-            const labels = dataIntentos.map((i, idx) => `Intento ${idx + 1}`);
+            // Etiquetas simples 1, 2, 3... correspondientes al orden cronológico
+            // dataIntentos viene ordenado antiguo -> nuevo
+            const labels = dataIntentos.map((_, idx) => `${idx + 1}`);
             const scores = dataIntentos.map(i => i.puntaje);
-            const colors = scores.map(s => s >= 700 ? '#27ae60' : '#b22222'); // Verde si pasa, Rojo si no
+            const colors = scores.map(s => s >= 700 ? '#27ae60' : '#b22222');
 
             window.myReportChart = new Chart(ctx, {
                 type: 'bar',
@@ -258,41 +314,49 @@ document.addEventListener('DOMContentLoaded', async () => {
                         label: 'Puntaje',
                         data: scores,
                         backgroundColor: colors,
-                        borderWidth: 0,
-                        borderRadius: 4
+                        borderRadius: 3,
+                        barPercentage: 0.6
                     }]
                 },
                 options: {
                     responsive: false,
-                    animation: false, // Importante para que se dibuje al instante
+                    animation: false,
                     plugins: {
                         legend: { display: false },
-                        title: { display: true, text: 'EVOLUCIÓN DE PUNTAJES', color: '#333', font: {size: 14} }
+                        tooltip: { enabled: false }
                     },
                     scales: {
-                        y: { beginAtZero: true, max: 1000 }
+                        y: { beginAtZero: true, max: 1000, grid: { color: '#eee' } },
+                        x: { grid: { display: false } }
                     }
                 }
             });
 
-            // Esperar un micro-momento para que renderice y sacar la foto
             setTimeout(() => {
                 const imgData = canvasHidden.toDataURL('image/png', 1.0);
                 resolve(imgData);
-            }, 100);
+            }, 150);
         });
     }
 
-    // --- CSV (Simple) ---
+    // --- CSV ---
     if (btnCSV) {
         btnCSV.onclick = () => {
             let csv = "Nombre,Ciudad,Materia,Nota,Fecha,Hora\n";
             const busqueda = cleanText(fNombre.value);
-            const visibles = allUsuarios.filter(u => u.rol && u.rol.toLowerCase() === 'aspirante' && (fCiudad.value === 'Todas' || u.ciudad === fCiudad.value));
+            const visibles = allUsuarios.filter(u => {
+                const esAspirante = u.rol && u.rol.toLowerCase() === 'aspirante';
+                const matchCiudad = fCiudad.value === 'Todas' || u.ciudad === fCiudad.value;
+                const matchNombre = busqueda === '' || cleanText(u.nombre).includes(busqueda);
+                return esAspirante && matchCiudad && matchNombre;
+            });
             
             visibles.forEach(u => {
-                const ints = allIntentos.filter(i => String(i.usuario_id) === String(u.usuario) && (fMateria.value === 'Todas' || i.materia === fMateria.value));
-                ints.forEach(int => {
+                const ints = allIntentos.filter(i => String(i.usuario_id) === String(u.usuario));
+                // Filtro materia también en CSV si está seleccionado
+                const intsFiltrados = fMateria.value === 'Todas' ? ints : ints.filter(i => i.materia === fMateria.value);
+
+                intsFiltrados.forEach(int => {
                     const d = new Date(int.created_at);
                     csv += `${u.nombre},${u.ciudad},${int.materia},${int.puntaje},${d.toLocaleDateString()},${d.toLocaleTimeString()}\n`;
                 });
