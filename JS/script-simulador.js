@@ -4,7 +4,7 @@ const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS
 const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Referencias DOM
+    // Referencias
     const lobby = document.getElementById('lobby-container');
     const simulador = document.getElementById('simulador-container');
     const resultados = document.getElementById('resultados-container');
@@ -47,11 +47,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const materiaKey = params.get('materia');
         const title = materias[materiaKey] || 'Simulador';
         
-        // Cargar Títulos
-        const titleEl = document.getElementById('titulo-materia');
-        const lobbyTitleEl = document.getElementById('lobby-materia');
-        if(titleEl) titleEl.textContent = title.toUpperCase();
-        if(lobbyTitleEl) lobbyTitleEl.textContent = title;
+        const tMateria = document.getElementById('titulo-materia');
+        const lMateria = document.getElementById('lobby-materia');
+        if(tMateria) tMateria.textContent = title.toUpperCase();
+        if(lMateria) lMateria.textContent = title;
         
         if(materiaKey.includes('matematicas')) timeLeft = 5400; 
         else if(materiaKey.includes('general')) { timeLeft = 10800; totalPreguntas = 200; }
@@ -67,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const promises = filesToLoad.map(m => 
                 fetch(`DATA/preguntas_${m}.json`).then(r => {
-                    if(!r.ok) throw new Error(`Falta el archivo: <b>DATA/preguntas_${m}.json</b>`);
+                    if(!r.ok) throw new Error(`Falta: DATA/preguntas_${m}.json`);
                     return r.json();
                 })
             );
@@ -99,12 +98,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function startQuiz() {
         lobby.style.display = 'none';
-        // FORZAR CLASE GRID
-        simulador.className = 'quiz-layout';
-        simulador.style.display = 'grid'; // Importante para que tome el CSS nuevo
+        simulador.className = 'quiz-layout'; // Fuerza el grid
+        simulador.style.display = window.innerWidth > 900 ? 'grid' : 'flex'; // Grid PC, Flex Mobile
         
         userAnswers = new Array(questions.length).fill(null);
-        
         renderNav();
         showQ(0);
         
@@ -132,22 +129,18 @@ document.addEventListener('DOMContentLoaded', () => {
             const btn = document.createElement('button');
             btn.className = 'opcion-btn';
             if(userAnswers[idx] === op) btn.classList.add('selected');
-            
             btn.textContent = op;
             btn.onclick = () => {
                 userAnswers[idx] = op;
-                // Marcar visualmente
-                const allOpts = opts.querySelectorAll('.opcion-btn');
-                allOpts.forEach(b => b.classList.remove('selected'));
+                const all = opts.querySelectorAll('.opcion-btn');
+                all.forEach(b => b.classList.remove('selected'));
                 btn.classList.add('selected');
-                
                 const dots = navContainer.children;
                 if(dots[idx]) dots[idx].classList.add('answered');
             };
             opts.appendChild(btn);
         });
         
-        // Actualizar visualmente el navegador
         const dots = navContainer.children;
         for(let i=0; i<dots.length; i++) {
             dots[i].classList.remove('active');
@@ -169,12 +162,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const b = document.createElement('button');
             b.className = 'nav-dot';
             b.textContent = i+1;
-            b.style.cursor = "default"; // Bloquear cursor
+            b.style.cursor = "default"; 
             navContainer.appendChild(b);
         });
     }
 
-    // BOTÓN SIGUIENTE (Única forma de avanzar)
     btnNext.onclick = () => {
         if (currentIdx < questions.length - 1) {
             showQ(currentIdx + 1);
@@ -195,29 +187,22 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('puntaje-final').textContent = score;
         document.getElementById('stats-correctas').textContent = ok;
         document.getElementById('stats-incorrectas').textContent = questions.length - ok;
-        // Fix para "En blanco" (null)
-        const enBlanco = userAnswers.filter(a => a === null).length;
-        if(document.getElementById('stats-en-blanco')) {
-             document.getElementById('stats-en-blanco').textContent = enBlanco;
-        }
+        document.getElementById('stats-en-blanco').textContent = userAnswers.filter(a=>a===null).length;
 
-        // --- REVISIÓN CON IMÁGENES ---
         const revContainer = document.getElementById('revision-container');
         revContainer.innerHTML = '';
         questions.forEach((q, i) => {
             const div = document.createElement('div');
             div.style.borderBottom = '1px solid #eee';
             div.style.padding = '15px';
-            div.style.background = '#fff';
             div.style.marginBottom = '10px';
+            div.style.background = '#fff';
             div.style.borderRadius = '8px';
 
             const correct = userAnswers[i] === q.respuesta;
             
             let imgHtml = '';
-            if(q.imagen) {
-                imgHtml = `<div style="text-align:center; margin:10px 0;"><img src="${q.imagen}" style="max-width:150px; border-radius:5px;"></div>`;
-            }
+            if(q.imagen) imgHtml = `<div style="text-align:center; margin:10px 0;"><img src="${q.imagen}" style="max-width:150px; border-radius:5px;"></div>`;
 
             div.innerHTML = `<p style="font-size:1.1rem; margin-bottom:5px;"><strong>${i+1}. ${q.pregunta}</strong></p>
                              ${imgHtml}
@@ -226,7 +211,6 @@ document.addEventListener('DOMContentLoaded', () => {
             revContainer.appendChild(div);
         });
 
-        // Guardar
         const userStr = sessionStorage.getItem('userInfo'); 
         if(userStr) {
             const user = JSON.parse(userStr);
@@ -234,7 +218,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const title = materias[params.get('materia')] || params.get('materia');
             
             try {
-                const { error } = await supabase.from('resultados').insert([{
+                await supabase.from('resultados').insert([{
                     usuario_id: user.usuario,
                     usuario_nombre: user.nombre,
                     materia: title,
@@ -242,29 +226,16 @@ document.addEventListener('DOMContentLoaded', () => {
                     total_preguntas: questions.length,
                     ciudad: user.ciudad
                 }]);
-                if(error) throw error;
             } catch(e) { console.error(e); }
         }
     }
 
-    // Botones Salida
     document.getElementById('terminar-intento-btn').onclick = () => {
-        const modal = document.getElementById('modal-overlay');
-        const msg = document.getElementById('modal-mensaje');
-        const unans = userAnswers.filter(a=>a===null).length;
-        if(msg) msg.textContent = `Tienes ${unans} preguntas sin responder.`;
-        if(modal) modal.style.display = 'flex';
+        document.getElementById('modal-mensaje').textContent = `Faltan ${userAnswers.filter(a=>a===null).length} preguntas.`;
+        document.getElementById('modal-overlay').style.display = 'flex';
     };
-    
-    document.getElementById('confirmar-modal-btn').onclick = () => {
-        document.getElementById('modal-overlay').style.display='none';
-        finish();
-    };
-    
-    document.getElementById('cancelar-modal-btn').onclick = () => {
-        document.getElementById('modal-overlay').style.display='none';
-    };
-
+    document.getElementById('confirmar-modal-btn').onclick = () => { document.getElementById('modal-overlay').style.display='none'; finish(); };
+    document.getElementById('cancelar-modal-btn').onclick = () => document.getElementById('modal-overlay').style.display='none';
     document.getElementById('retry-btn').onclick = () => location.reload();
     document.getElementById('reiniciar-btn').onclick = () => location.href='index.html';
 
