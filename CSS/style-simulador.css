@@ -1,4 +1,4 @@
-/* --- CONFIGURACIÓN GLOBAL --- */
+/* --- GLOBAL --- */
 :root {
     --primary: #b22222;
     --primary-dark: #8b0000;
@@ -6,120 +6,132 @@
     --light: #f4f6f8;
     --white: #ffffff;
     --success: #27ae60;
-    --danger: #c0392b;
-    --warning: #f39c12;
-    --shadow: 0 10px 30px rgba(0,0,0,0.08);
+    --shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: 'Work Sans', sans-serif; background-color: var(--light); color: var(--dark); min-height: 100vh; display: flex; flex-direction: column; }
 
-/* --- HEADER FIXED (SOLUCIÓN DOBLE MENÚ) --- */
+/* --- HEADER --- */
 header { 
-    background: var(--dark); color: var(--white); padding: 12px 30px; 
+    background: var(--dark); color: var(--white); padding: 10px 30px; 
     display: flex; align-items: center; justify-content: space-between; 
-    box-shadow: 0 4px 20px rgba(0,0,0,0.2); position: sticky; top: 0; z-index: 100; 
+    position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.3); 
 }
 .header-main-link { display: flex; align-items: center; gap: 15px; text-decoration: none; color: white; }
 .header-logo img { height: 45px; }
-.header-titulo h1 { font-family: 'Teko', sans-serif; font-size: 2rem; line-height: 1; margin: 0; }
-.header-titulo h2 { font-family: 'Work Sans', sans-serif; font-size: 0.8rem; color: #ccc; margin: 0; text-transform: uppercase; letter-spacing: 1px; }
+.header-titulo h1 { font-family: 'Teko', sans-serif; font-size: 2rem; margin: 0; line-height: 1; }
+.header-titulo h2 { font-family: 'Work Sans', sans-serif; font-size: 0.8rem; color: #ccc; margin: 0; text-transform: uppercase; }
 
-/* Menú Escritorio */
-.user-info-container { display: flex; align-items: center; gap: 15px; }
-.dropdown { position: relative; }
+/* MENÚ DE USUARIO (SOLUCIÓN CLIC) */
+.user-info-container { position: relative; }
 .dropdown-btn { 
     background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); 
     color: white; cursor: pointer; padding: 8px 15px; border-radius: 6px; 
-    font-size: 0.9rem; transition: 0.3s; 
+    display: flex; align-items: center; gap: 8px; transition: 0.2s;
 }
 .dropdown-btn:hover { background: rgba(255,255,255,0.2); }
+/* El menú está oculto por defecto y se muestra con la clase .show via JS */
 .dropdown-content { 
-    display: none; position: absolute; right: 0; top: 100%; margin-top: 10px;
-    background: white; min-width: 180px; box-shadow: var(--shadow); 
-    border-radius: 8px; overflow: hidden; z-index: 1000;
+    display: none; position: absolute; right: 0; top: 110%; 
+    background: white; min-width: 180px; box-shadow: 0 5px 20px rgba(0,0,0,0.2); 
+    border-radius: 8px; overflow: hidden; z-index: 2000;
 }
-.dropdown:hover .dropdown-content { display: block; }
+.dropdown-content.show { display: block; animation: fadeIn 0.2s; }
 .dropdown-content a { 
     display: block; padding: 12px 20px; color: var(--dark); 
-    text-decoration: none; border-bottom: 1px solid #eee; font-size: 0.95rem;
+    text-decoration: none; border-bottom: 1px solid #eee; 
 }
 .dropdown-content a:hover { background: #f9f9f9; color: var(--primary); }
 
-/* Menú Móvil (Hamburguesa) */
-.hamburger-menu { 
-    display: none; /* Oculto por defecto en PC */
-    background: none; border: none; color: white; font-size: 1.8rem; cursor: pointer; 
+/* --- CONTENEDOR PRINCIPAL --- */
+main { 
+    flex: 1; padding: 30px; width: 100%; 
+    max-width: 1200px; /* Limita el ancho para que no se vea eterno */
+    margin: 0 auto; 
 }
 
-/* SIDE NAV (Menú Lateral Móvil) */
-.side-nav { 
-    height: 100%; width: 0; position: fixed; z-index: 2000; top: 0; right: 0; 
-    background-color: #111; overflow-x: hidden; transition: 0.3s; padding-top: 60px; 
+/* LOBBY */
+.container-box { 
+    background: var(--white); padding: 40px; border-radius: 12px; box-shadow: var(--shadow); 
+    max-width: 800px; margin: 0 auto; border-top: 5px solid var(--primary); 
 }
-.side-nav-header { text-align: center; margin-bottom: 30px; }
-.side-nav-header img { width: 80px; margin-bottom: 10px; }
-.side-nav-header h3 { color: white; font-family: 'Teko', sans-serif; font-size: 1.5rem; margin: 0; }
-.side-nav-user { padding: 0 30px 20px; color: #888; border-bottom: 1px solid #333; margin-bottom: 20px; }
-.side-nav-user strong { color: white; font-size: 1.1rem; }
-.side-nav-link { padding: 15px 30px; text-decoration: none; font-size: 1.1rem; color: #ccc; display: block; transition: 0.3s; }
-.side-nav-link:hover { color: var(--primary); background: #222; }
-.close-nav-btn { position: absolute; top: 15px; right: 25px; font-size: 36px; background: none; border: none; color: white; cursor: pointer; }
-.overlay { display: none; position: fixed; width: 100%; height: 100%; top: 0; left: 0; background-color: rgba(0,0,0,0.7); z-index: 1500; backdrop-filter: blur(2px); }
-
-/* --- RESPONSIVE (LA MAGIA) --- */
-@media (max-width: 850px) {
-    .desktop-only { display: none !important; } /* Oculta menú PC */
-    .hamburger-menu { display: block !important; } /* Muestra hamburguesa */
+.datos-informativos { background: #f9f9f9; padding: 20px; border-radius: 8px; margin: 20px 0; display: grid; gap: 10px; }
+#comenzar-btn { 
+    width: 100%; padding: 15px; background: var(--primary); color: white; border: none; 
+    border-radius: 8px; font-size: 1.3rem; font-weight: bold; cursor: pointer; margin-top: 15px; 
 }
 
-/* --- ESTILOS RESTANTES DEL SIMULADOR --- */
-main { flex: 1; padding: 40px 20px; max-width: 1200px; margin: 0 auto; width: 100%; display: flex; justify-content: center; }
-.container-box { background: var(--white); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); width: 100%; max-width: 800px; border-top: 5px solid var(--primary); }
+/* --- SIMULADOR (GRID PERFECTO) --- */
+.quiz-layout {
+    display: grid;
+    grid-template-columns: 2.5fr 1fr; /* 70% Pregunta - 30% Sidebar */
+    gap: 30px;
+    align-items: start;
+}
 
-/* Lobby */
-.datos-informativos { background: #f9f9f9; padding: 20px; border-radius: 8px; margin: 20px 0; display: grid; gap: 10px; font-size: 1.1rem; }
-.datos-informativos i { color: var(--primary); width: 25px; text-align: center; }
-#comenzar-btn { width: 100%; padding: 18px; font-size: 1.3rem; font-weight: 700; background: var(--primary); color: white; border: none; border-radius: 8px; cursor: pointer; transition: 0.3s; margin-top: 20px; }
-#comenzar-btn:hover:not(:disabled) { background: var(--primary-dark); transform: translateY(-2px); }
-#comenzar-btn:disabled { background: #ccc; cursor: not-allowed; }
+/* COLUMNA IZQUIERDA: PREGUNTA */
+.quiz-main { 
+    background: var(--white); padding: 30px; border-radius: 12px; box-shadow: var(--shadow); 
+}
+.pregunta-header { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+.pregunta-num-tag { background: var(--dark); color: white; padding: 5px 12px; border-radius: 4px; font-weight: bold; font-size: 0.9rem; }
+#pregunta-texto { font-size: 1.3rem; line-height: 1.5; color: var(--dark); margin-top: 15px; font-weight: 600; }
 
-/* Quiz Layout */
-#simulador-container { display: none; width: 100%; gap: 30px; }
-@media (min-width: 900px) { #simulador-container { display: grid; grid-template-columns: 1fr 320px; } }
-.quiz-main { background: var(--white); padding: 30px; border-radius: 12px; box-shadow: var(--shadow); }
-.pregunta-num-tag { background: var(--primary); color: white; padding: 5px 12px; border-radius: 4px; font-weight: bold; font-size: 0.9rem; display: inline-block; margin-bottom: 15px; }
-#pregunta-texto { font-size: 1.4rem; line-height: 1.5; color: var(--dark); margin-bottom: 25px; font-weight: 600; }
-.opcion-btn { display: block; width: 100%; padding: 15px 20px; margin-bottom: 12px; background: #fff; border: 2px solid #eee; border-radius: 8px; font-size: 1.1rem; text-align: left; cursor: pointer; transition: 0.2s; color: #444; }
+.opcion-btn { 
+    display: block; width: 100%; padding: 15px; margin-bottom: 10px; 
+    background: #fff; border: 2px solid #eee; border-radius: 8px; 
+    font-size: 1.05rem; text-align: left; cursor: pointer; transition: 0.2s; color: #555;
+}
 .opcion-btn:hover { border-color: var(--primary); background: #fff5f5; }
 .opcion-btn.selected { border-color: var(--primary); background: var(--primary); color: white; font-weight: 600; }
 
-/* Sidebar */
-.quiz-sidebar { position: sticky; top: 90px; height: fit-content; }
-.timer-box { background: var(--dark); color: white; padding: 20px; border-radius: 10px; text-align: center; margin-bottom: 20px; }
-#cronometro { font-family: 'Teko'; font-size: 3.5rem; line-height: 1; }
-.nav-box { background: white; padding: 20px; border-radius: 10px; box-shadow: var(--shadow); }
-#navegador-preguntas { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-top: 10px; }
-.nav-dot { aspect-ratio: 1; border: 1px solid #ddd; background: #fff; border-radius: 4px; cursor: pointer; font-weight: 600; color: #777; }
-.nav-dot.answered { background: #e3f2fd; border-color: #2196f3; color: #1565c0; }
-.nav-dot.active { border-color: var(--primary); background: var(--primary); color: white; }
-#terminar-intento-btn { width: 100%; padding: 15px; background: var(--success); color: white; border: none; border-radius: 8px; margin-top: 20px; font-weight: bold; cursor: pointer; font-size: 1.1rem; }
+/* BOTÓN SIGUIENTE ROJO */
+#siguiente-btn {
+    background-color: var(--primary); 
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    float: right;
+    margin-top: 20px;
+    transition: 0.3s;
+}
+#siguiente-btn:hover { background-color: var(--primary-dark); }
 
-/* Resultados */
-#resultados-container { display: none; text-align: center; }
-.score-circle { width: 180px; height: 180px; border-radius: 50%; border: 10px solid var(--primary); display: flex; flex-direction: column; justify-content: center; align-items: center; margin: 0 auto 30px; }
-#puntaje-final { font-family: 'Teko'; font-size: 5rem; line-height: 0.8; color: var(--primary); }
-.stats-bar { display: flex; justify-content: center; gap: 30px; margin-bottom: 30px; flex-wrap: wrap; }
-.stat-item { text-align: center; background: #f8f9fa; padding: 15px; border-radius: 8px; min-width: 100px; border-bottom: 3px solid #ddd; }
-.stat-val { display: block; font-size: 2rem; font-family: 'Teko'; font-weight: bold; }
-.revision-botones button { padding: 12px 25px; border-radius: 50px; border: none; cursor: pointer; font-weight: bold; margin: 0 10px; }
-#retry-btn { background: var(--primary); color: white; }
-#reiniciar-btn { background: transparent; border: 2px solid #ddd; color: #555; }
+/* COLUMNA DERECHA: SIDEBAR */
+.quiz-sidebar { position: sticky; top: 100px; }
+.timer-box { 
+    background: var(--dark); color: white; padding: 20px; border-radius: 10px; 
+    text-align: center; margin-bottom: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); 
+}
+#cronometro { font-family: 'Teko', sans-serif; font-size: 3rem; line-height: 1; margin-top: 5px; }
+
+.nav-box { background: white; padding: 20px; border-radius: 10px; box-shadow: var(--shadow); }
+#navegador-preguntas { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+.nav-dot { 
+    aspect-ratio: 1; border: 1px solid #ddd; background: #fff; border-radius: 4px; 
+    color: #999; font-weight: 600; cursor: default; /* No clicable */
+}
+.nav-dot.answered { background: #e3f2fd; border-color: #2196f3; color: #1565c0; }
+.nav-dot.active { border-color: var(--primary); background: var(--primary); color: white; border: 2px solid var(--primary); }
+
+#terminar-intento-btn { 
+    width: 100%; padding: 12px; background: var(--success); color: white; 
+    border: none; border-radius: 8px; margin-top: 20px; font-weight: bold; cursor: pointer; 
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .quiz-layout { grid-template-columns: 1fr; display: flex; flex-direction: column-reverse; }
+    .quiz-sidebar { width: 100%; margin-bottom: 20px; }
+    .desktop-only { display: none; }
+    .hamburger-menu { display: block; background: none; border: none; color: white; font-size: 1.8rem; }
+}
 
 /* MODALES */
-.modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 3000; display: none; justify-content: center; align-items: center; backdrop-filter: blur(4px); }
-.modal-content { background: white; padding: 40px; border-radius: 12px; width: 90%; max-width: 450px; text-align: center; border-top: 6px solid var(--primary); box-shadow: 0 25px 50px rgba(0,0,0,0.5); animation: slideDown 0.3s; }
-.modal-icon { font-size: 3.5rem; color: var(--primary); margin-bottom: 15px; }
-.modal-title { font-family: 'Teko'; font-size: 2.2rem; color: #333; margin: 0 0 10px 0; }
-.modal-msg { font-size: 1.1rem; color: #555; margin-bottom: 25px; }
-.btn-close-modal { background: #333; color: white; width: 100%; padding: 12px; border: none; border-radius: 6px; cursor: pointer; font-size: 1.1rem; }
-@keyframes slideDown { from { transform: translateY(-50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+.modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 3000; display: none; justify-content: center; align-items: center; }
+.modal-content { background: white; padding: 30px; border-radius: 12px; width: 90%; max-width: 400px; text-align: center; border-top: 6px solid var(--primary); }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
