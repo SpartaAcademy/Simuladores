@@ -1,14 +1,14 @@
-// JS/script-home.js
-
-// Estructura del Menú (Aquí se define todo el árbol de navegación)
+// Estructura del Menú
 const MENU_DATA = {
     'root': {
         title: 'Seleccione una Institución',
         desc: 'Elija la institución o categoría para ver los simuladores disponibles.',
         items: [
-            { id: 'policia', label: 'POLICÍA NACIONAL', type: 'folder', icon: 'fas fa-user-shield' },
-            { id: 'ffaa', label: 'FUERZAS ARMADAS', type: 'folder', icon: 'fas fa-fighter-jet' }, // <-- ¡Icono de Caza de Combate!
-            { id: 'general', label: 'GENERAL', type: 'folder', icon: 'fas fa-globe' }
+            // Arriba (Columna Izq y Der)
+            { id: 'policia', label: 'POLICÍA NACIONAL', type: 'folder', icon: 'fas fa-user-shield', desc: 'Pruebas Académicas y PPNN' },
+            { id: 'ffaa', label: 'FUERZAS ARMADAS', type: 'folder', icon: 'fas fa-fighter-jet', desc: 'ESMIL, ESFORSE, FAE, NAVAL' },
+            // Abajo (Ancho Completo)
+            { id: 'general', label: 'GENERAL UNIFICADO', type: 'folder', icon: 'fas fa-globe', variant: 'wide', desc: 'Pruebas Psicométricas, Inteligencia y Personalidad para todas las instituciones.' }
         ]
     },
     'policia': {
@@ -34,9 +34,7 @@ const MENU_DATA = {
         ]
     },
     
-    // --- Submenús de Nivel 3 ---
-    
-    // Policía - Académicas (Usa los JSON normales)
+    // --- Submenús ---
     'policia_academicas': {
         title: 'Pruebas Académicas (Policía)',
         desc: 'Elija una materia.',
@@ -48,20 +46,16 @@ const MENU_DATA = {
             { label: 'GENERAL (TODAS)', type: 'test', link: 'simulador.html?materia=general', icon: 'fas fa-layer-group' }
         ]
     },
-    
-    // Policía - PPNN
     'policia_ppnn': {
         title: 'Pruebas PPNN 2025',
         desc: 'Cuestionarios específicos PPNN.',
         items: [
             { label: 'CUESTIONARIO 1 PPNN', type: 'test', link: 'simulador.html?materia=ppnn1', icon: 'fas fa-file-contract' },
-            { label: 'CUESTIONARIO 2 PPNN', type: 'test', link: 'simulador.html?materia=ppnn2', icon: 'fas fa-file-contract' }, // Activar cuando tengas el JSON
+            { label: 'CUESTIONARIO 2 PPNN', type: 'test', link: 'simulador.html?materia=ppnn2', icon: 'fas fa-file-contract' },
             { label: 'CUESTIONARIO 3 PPNN', type: 'test', link: 'simulador.html?materia=ppnn3', icon: 'fas fa-file-contract' },
             { label: 'CUESTIONARIO 4 PPNN', type: 'test', link: 'simulador.html?materia=ppnn4', icon: 'fas fa-file-contract' }
         ]
     },
-
-    // FFAA - ESMIL (Usa JSONs con sufijo _esmil)
     'ffaa_esmil': {
         title: 'Pruebas Académicas ESMIL',
         desc: 'Elija una materia para ESMIL.',
@@ -73,29 +67,24 @@ const MENU_DATA = {
             { label: 'GENERAL (TODAS)', type: 'test', link: 'simulador.html?materia=general_esmil', icon: 'fas fa-layer-group' }
         ]
     },
-
-    // General - Psicométricas
     'general_psico': {
         title: 'Simuladores Psicosométricos',
         desc: 'Pruebas de inteligencia y personalidad.',
         items: [
-            { id: 'inteligencia_menu', label: 'INTELIGENCIA', type: 'folder', icon: 'fas fa-lightbulb' }, // Abre submenú V1/V2
+            { id: 'inteligencia_menu', label: 'INTELIGENCIA', type: 'folder', icon: 'fas fa-lightbulb' },
             { label: 'PERSONALIDAD', type: 'test', link: 'simulador.html?materia=personalidad', icon: 'fas fa-user' }
         ]
     },
-
-    // General - Inteligencia (Submenú V1, V2...)
     'inteligencia_menu': {
         title: 'Simuladores de Inteligencia',
         desc: 'Seleccione la versión.',
         items: [
             { label: 'INTELIGENCIA V1', type: 'test', link: 'simulador.html?materia=inteligencia', icon: 'fas fa-brain' },
-            { label: 'INTELIGENCIA V2', type: 'test', link: '#', icon: 'fas fa-brain', disabled: true } // Disabled
+            { label: 'INTELIGENCIA V2', type: 'test', link: '#', icon: 'fas fa-brain', disabled: true }
         ]
     }
 };
 
-// Historial de navegación para el botón "Atrás"
 let navigationHistory = [];
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -107,7 +96,6 @@ function renderMenu(menuId) {
     const data = MENU_DATA[menuId];
     if (!data) return;
 
-    // Actualizar historial
     if (menuId === 'root') {
         navigationHistory = ['root'];
     } else {
@@ -117,19 +105,19 @@ function renderMenu(menuId) {
     }
     updateNavigationUI();
 
-    // Actualizar Textos
     document.getElementById('section-title').textContent = data.title;
     document.getElementById('section-desc').textContent = data.desc;
 
-    // Renderizar Botones
     const container = document.getElementById('dynamic-grid');
     container.innerHTML = '';
 
     data.items.forEach(item => {
         const card = document.createElement('a');
         
-        // Clases base
-        card.className = item.type === 'folder' ? 'materia-card card-folder' : 'materia-card card-test';
+        let baseClass = item.type === 'folder' ? 'materia-card card-folder' : 'materia-card card-test';
+        if (item.variant === 'wide') baseClass += ' card-wide';
+        
+        card.className = baseClass;
         
         if (item.disabled) {
             card.classList.add('disabled-card');
@@ -137,24 +125,36 @@ function renderMenu(menuId) {
         } else if (item.type === 'test') {
             card.href = item.link;
         } else {
-            card.href = '#'; // Folder click handled by JS
+            card.href = '#'; 
             card.onclick = (e) => {
                 e.preventDefault();
                 renderMenu(item.id);
             };
         }
 
-        card.innerHTML = `
-            <i class="${item.icon}"></i>
-            <h3>${item.label}${item.disabled ? ' (Próx.)' : ''}</h3>
-        `;
+        if (item.variant === 'wide') {
+            card.innerHTML = `
+                <i class="${item.icon}"></i>
+                <div class="text-content">
+                    <h3>${item.label}</h3>
+                    <p>${item.desc || ''}</p>
+                </div>
+            `;
+        } else {
+            card.innerHTML = `
+                <i class="${item.icon}"></i>
+                <h3>${item.label}${item.disabled ? ' (Próx.)' : ''}</h3>
+                ${item.desc ? `<p>${item.desc}</p>` : ''} 
+            `;
+        }
+        
         container.appendChild(card);
     });
 }
 
 function goBack() {
     if (navigationHistory.length > 1) {
-        navigationHistory.pop(); // Saca el actual
+        navigationHistory.pop();
         const previousId = navigationHistory[navigationHistory.length - 1];
         renderMenu(previousId);
     }
@@ -162,8 +162,6 @@ function goBack() {
 
 function updateNavigationUI() {
     const navBar = document.getElementById('navigation-bar');
-    // const breadcrumbs = document.getElementById('breadcrumbs'); // No usado en el nuevo diseño táctico
-    
     if (navigationHistory.length > 1) {
         navBar.style.display = 'flex';
     } else {
