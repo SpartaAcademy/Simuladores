@@ -18,13 +18,13 @@
             <div class="header-logo"><img src="logo.png" alt="Logo"></div>
             <div class="header-titulo">
                 <h1>SPARTA ACADEMY</h1>
-                <h2 id="titulo-materia">SIMULADOR</h2>
+                <h2 id="header-subtitulo">SIMULADOR</h2>
             </div>
         </a>
         
         <div class="desktop-menu">
             <button class="user-btn" onclick="location.href='resultados.html'">
-                <i class="fas fa-chart-bar"></i> Resultados
+                <i class="fas fa-chart-bar"></i> Mis Resultados
             </button>
             <button class="user-btn" onclick="logout()" style="background:#b22222; border-color:#b22222;">
                 <i class="fas fa-sign-out-alt"></i> Salir
@@ -48,18 +48,27 @@
     <div class="overlay" id="overlay"></div>
 
     <main>
+        <div id="lobby-banner" class="lobby-banner">
+            <div class="banner-title">
+                <h1 id="lobby-titulo-principal">CARGANDO MATERIA...</h1>
+                <p>Elija una opción para continuar.</p>
+            </div>
+            <button id="btn-regresar-lobby" class="btn-regresar-outline">
+                <i class="fas fa-arrow-left"></i> REGRESAR
+            </button>
+        </div>
+
         <div id="lobby-container" class="container-box">
             <div class="lobby-content">
-                <div class="lobby-header">
-                    <h1>Instrucciones</h1>
-                    <p>Lea atentamente los parámetros antes de iniciar el simulacro.</p>
+                <div class="lobby-header-center">
+                    <h2>INSTRUCCIONES</h2> <p>Lea atentamente los parámetros antes de iniciar el simulacro.</p>
                 </div>
                 
                 <div class="lobby-grid">
                     <div class="info-card">
                         <i class="fas fa-book"></i>
                         <span>Materia</span>
-                        <strong id="lobby-materia">Cargando...</strong>
+                        <strong id="lobby-materia">...</strong>
                     </div>
                     <div class="info-card">
                         <i class="fas fa-list-ol"></i>
