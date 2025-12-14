@@ -1,92 +1,100 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sparta Academy - Simuladores</title>
+    <title>Sparta Academy - Inicio</title>
     <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
+    
     <link rel="stylesheet" href="CSS/style-home.css">
-    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;600&family=Work+Sans:wght@400;600&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;600&family=Work+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="JS/auth.js"></script>
     <script> checkAuth(); </script>
 </head>
-
 <body>
     <header>
         <a href="index.html" class="header-main-link">
-            <div class="header-logo"> <img src="logo.png" alt="Sparta Academy Logo"> </div>
+            <div class="header-logo"><img src="logo.png" alt="Logo"></div>
             <div class="header-titulo">
                 <h1>SPARTA ACADEMY</h1>
-                <h2>PLATAFORMA DE SIMULADORES</h2>
+                <h2 id="user-display">PLATAFORMA</h2>
             </div>
         </a>
-        <div class="header-spacer"></div>
-        <div class="user-info-container desktop-only">
-            <span id="user-name-display-desktop">Cargando...</span>
-            <div class="dropdown">
-                <button class="dropdown-btn">▼</button>
-                <div class="dropdown-content">
-                    <a href="resultados.html" id="ver-resultados-desktop" style="display: none;">Ver Resultados</a>
-                    <a href="#" id="logout-button-desktop">Cerrar Sesión</a>
-                </div>
-            </div>
+        
+        <div class="desktop-menu">
+            <button class="user-btn" onclick="location.href='resultados.html'">
+                <i class="fas fa-chart-bar"></i> Mis Resultados
+            </button>
+            <button class="user-btn" onclick="logout()" style="background:#b22222; border-color:#b22222;">
+                <i class="fas fa-sign-out-alt"></i> Salir
+            </button>
         </div>
-        <button class="hamburger-menu mobile-only" id="hamburger-btn">☰</button>
+
+        <button class="mobile-toggle" id="hamburger-btn">
+            <i class="fas fa-bars"></i>
+        </button>
     </header>
 
     <div class="side-nav" id="side-nav">
         <button class="close-nav-btn" id="close-nav-btn">&times;</button>
-        <div class="side-nav-header"> <img src="logo.png" alt="Sparta Logo" class="side-nav-logo">
-            <h3>Menú Aspirante</h3>
+        <div style="text-align:center; padding:20px;">
+            <img src="logo.png" width="80" style="margin-bottom:10px;">
+            <h3 style="color:white; font-family:'Teko'; margin:0;">MENÚ</h3>
         </div>
-        <div class="side-nav-user">
-            <p id="user-prefix-mobile">Aspirante:</p>
-            <p><strong id="user-name-display-mobile">Cargando...</strong></p>
-        </div>
-        <a href="resultados.html" id="ver-resultados-mobile" class="side-nav-link" style="display: none;">Ver
-            Resultados</a>
-        <a href="#" id="logout-button-mobile" class="side-nav-link">Cerrar Sesión</a>
+        <a href="resultados.html"><i class="fas fa-chart-bar"></i> Mis Resultados</a>
+        <a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
     </div>
     <div class="overlay" id="overlay"></div>
 
     <main>
-        <div class="marca-de-agua"> <img src="logo.png" alt="Watermark"> </div>
+        <div class="marca-de-agua"><img src="logo.png" alt="Sparta"></div>
 
         <div class="seleccion-container">
             <div id="navigation-bar" class="nav-bar" style="display: none;">
-                <button id="btn-atras" class="btn-nav"><i class="fas fa-arrow-left"></i> Atrás</button>
+                <button id="btn-atras" class="btn-nav"><i class="fas fa-arrow-left"></i> REGRESAR</button>
                 <span id="breadcrumbs" class="breadcrumbs">Inicio</span>
             </div>
 
-            <h2 id="section-title">Seleccione una Institución</h2>
+            <h2 id="section-title">SELECCIONE UNA INSTITUCIÓN</h2>
             <p id="section-desc">Elija la institución para ver los simuladores disponibles.</p>
 
             <div id="dynamic-grid" class="materias-grid">
-            </div>
+                </div>
         </div>
     </main>
 
     <footer>
-        <p>Dir: Calle Bolívar entre Boyacá y Junín</p>
-        <p>Cell: 0989746618 / 0984541920 / 0987451775</p>
-        <p>Email: spartatulcan@gmail.com</p>
+        <p><strong>SPARTA ACADEMY</strong></p>
+        <p>Dir: Calle Bolívar entre Boyacá y Junín | Tulcán - Ecuador</p>
+        <p>Contacto: 0989746618 / 0984541920</p>
     </footer>
 
     <script src="JS/script-home.js"></script>
-
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            setupUserInfoDropdown();
-            setupMobileMenu();
+            // Lógica Menú Móvil
+            const btn = document.getElementById('hamburger-btn');
+            const nav = document.getElementById('side-nav');
+            const close = document.getElementById('close-nav-btn');
+            const overlay = document.getElementById('overlay');
+            const userDisplay = document.getElementById('user-display');
+
+            // Nombre Usuario
+            const userStr = sessionStorage.getItem('userInfo');
+            if(userStr) {
+                const u = JSON.parse(userStr);
+                // Solo mostrar nombre si el espacio lo permite o dejar "PLATAFORMA"
+                // userDisplay.textContent = u.nombre.split(' ')[0].toUpperCase(); 
+            }
+
+            if(btn) btn.onclick = () => { nav.classList.add('open'); overlay.style.display = "block"; };
+            const closeMenu = () => { nav.classList.remove('open'); overlay.style.display = "none"; };
+            if(close) close.onclick = closeMenu;
+            if(overlay) overlay.onclick = closeMenu;
         });
-        window.addEventListener('pageshow', function (event) { if (event.persisted) { checkAuth(); } });
     </script>
 </body>
-
 </html>
