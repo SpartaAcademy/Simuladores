@@ -9,8 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const simulador = document.getElementById('simulador-container');
     const resultados = document.getElementById('resultados-container');
     const btnStart = document.getElementById('comenzar-btn');
-    const errorModal = document.getElementById('error-modal');
-    const errorText = document.getElementById('error-text');
     const btnNext = document.getElementById('siguiente-btn');
     const navContainer = document.getElementById('navegador-preguntas');
     
@@ -22,24 +20,19 @@ document.addEventListener('DOMContentLoaded', () => {
     let totalPreguntas = 50;
 
     const materias = {
-        'sociales': 'Ciencias Sociales', 'matematicas': 'Matemáticas y Física',
-        'lengua': 'Lengua y Literatura', 'ingles': 'Inglés', 'general': 'General (Todas)',
-        'inteligencia': 'Inteligencia', 'personalidad': 'Personalidad',
-        'ppnn1': 'Cuestionario 1 PPNN', 'ppnn2': 'Cuestionario 2 PPNN',
-        'ppnn3': 'Cuestionario 3 PPNN', 'ppnn4': 'Cuestionario 4 PPNN',
-        'sociales_esmil': 'Ciencias Sociales (ESMIL)', 'matematicas_esmil': 'Matemáticas (ESMIL)',
-        'lengua_esmil': 'Lenguaje (ESMIL)', 'ingles_esmil': 'Inglés (ESMIL)',
-        'general_esmil': 'General ESMIL'
+        'sociales': 'Ciencias Sociales', 'matematicas': 'Matemáticas', 'lengua': 'Lengua', 'ingles': 'Inglés', 'general': 'General',
+        'inteligencia': 'Inteligencia', 'personalidad': 'Personalidad', 'ppnn1': 'PPNN 1', 'ppnn2': 'PPNN 2',
+        'ppnn3': 'PPNN 3', 'ppnn4': 'PPNN 4', 'sociales_esmil': 'Sociales ESMIL', 'matematicas_esmil': 'Matemáticas ESMIL',
+        'lengua_esmil': 'Lenguaje ESMIL', 'ingles_esmil': 'Inglés ESMIL', 'general_esmil': 'General ESMIL'
     };
 
     const ordenGeneralPolicia = ['sociales', 'matematicas', 'lengua', 'ingles'];
     const ordenGeneralEsmil = ['sociales_esmil', 'matematicas_esmil', 'lengua_esmil', 'ingles_esmil'];
 
     function showError(msg) {
-        if(errorText) errorText.innerHTML = msg;
-        if(errorModal) errorModal.style.display = 'flex';
-        btnStart.textContent = "Error de Archivos";
-        btnStart.style.background = "#c0392b";
+        document.getElementById('error-text').textContent = msg;
+        document.getElementById('error-modal').style.display = 'flex';
+        btnStart.textContent = "Error"; btnStart.style.background = "#c0392b";
     }
 
     async function init() {
@@ -47,10 +40,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const materiaKey = params.get('materia');
         const title = materias[materiaKey] || 'Simulador';
         
-        const tMateria = document.getElementById('titulo-materia');
-        const lMateria = document.getElementById('lobby-materia');
-        if(tMateria) tMateria.textContent = title.toUpperCase();
-        if(lMateria) lMateria.textContent = title;
+        document.getElementById('titulo-materia').textContent = title.toUpperCase();
+        document.getElementById('lobby-materia').textContent = title;
         
         if(materiaKey.includes('matematicas')) timeLeft = 5400; 
         else if(materiaKey.includes('general')) { timeLeft = 10800; totalPreguntas = 200; }
@@ -64,13 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
             else if(materiaKey === 'general_esmil') filesToLoad = ordenGeneralEsmil;
             else filesToLoad = [materiaKey];
 
-            const promises = filesToLoad.map(m => 
-                fetch(`DATA/preguntas_${m}.json`).then(r => {
-                    if(!r.ok) throw new Error(`Falta: DATA/preguntas_${m}.json`);
-                    return r.json();
-                })
-            );
-
+            const promises = filesToLoad.map(m => fetch(`DATA/preguntas_${m}.json`).then(r => r.json()));
             const results = await Promise.all(promises);
             let allQ = [];
             results.forEach(d => allQ = allQ.concat(d));
@@ -85,21 +70,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 questions = allQ.sort(() => 0.5 - Math.random()).slice(0, 50);
             }
 
-            if(questions.length === 0) throw new Error("Archivo vacío.");
-
+            if(questions.length === 0) throw new Error("Sin preguntas.");
             btnStart.disabled = false;
             btnStart.textContent = 'COMENZAR INTENTO';
             btnStart.onclick = startQuiz;
 
-        } catch (e) {
-            showError(e.message);
-        }
+        } catch (e) { showError(e.message); }
     }
 
     function startQuiz() {
         lobby.style.display = 'none';
-        simulador.className = 'quiz-layout'; // Fuerza el grid
-        simulador.style.display = window.innerWidth > 900 ? 'grid' : 'flex'; // Grid PC, Flex Mobile
+        simulador.className = 'quiz-layout';
+        simulador.style.display = window.innerWidth > 900 ? 'grid' : 'flex';
         
         userAnswers = new Array(questions.length).fill(null);
         renderNav();
@@ -168,11 +150,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     btnNext.onclick = () => {
-        if (currentIdx < questions.length - 1) {
-            showQ(currentIdx + 1);
-        } else {
-            finish();
-        }
+        if (currentIdx < questions.length - 1) showQ(currentIdx + 1);
+        else finish();
     };
 
     async function finish() {
@@ -193,21 +172,13 @@ document.addEventListener('DOMContentLoaded', () => {
         revContainer.innerHTML = '';
         questions.forEach((q, i) => {
             const div = document.createElement('div');
-            div.style.borderBottom = '1px solid #eee';
-            div.style.padding = '15px';
-            div.style.marginBottom = '10px';
-            div.style.background = '#fff';
-            div.style.borderRadius = '8px';
-
+            div.style.borderBottom = '1px solid #eee'; div.style.padding = '15px';
             const correct = userAnswers[i] === q.respuesta;
-            
-            let imgHtml = '';
-            if(q.imagen) imgHtml = `<div style="text-align:center; margin:10px 0;"><img src="${q.imagen}" style="max-width:150px; border-radius:5px;"></div>`;
-
-            div.innerHTML = `<p style="font-size:1.1rem; margin-bottom:5px;"><strong>${i+1}. ${q.pregunta}</strong></p>
+            let imgHtml = q.imagen ? `<div style="text-align:center; margin:10px 0;"><img src="${q.imagen}" style="max-width:150px; border-radius:5px;"></div>` : '';
+            div.innerHTML = `<p><strong>${i+1}. ${q.pregunta}</strong></p>
                              ${imgHtml}
                              <p>Tu respuesta: <span style="font-weight:bold; color:${correct?'green':'red'}">${userAnswers[i]||'---'}</span></p>
-                             ${!correct ? `<p style="color:green; margin-top:5px;">Correcta: <strong>${q.respuesta}</strong></p>` : ''}`;
+                             ${!correct ? `<p style="color:green;">Correcta: <strong>${q.respuesta}</strong></p>` : ''}`;
             revContainer.appendChild(div);
         });
 
@@ -216,15 +187,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const user = JSON.parse(userStr);
             const params = new URLSearchParams(window.location.search);
             const title = materias[params.get('materia')] || params.get('materia');
-            
             try {
                 await supabase.from('resultados').insert([{
-                    usuario_id: user.usuario,
-                    usuario_nombre: user.nombre,
-                    materia: title,
-                    puntaje: score,
-                    total_preguntas: questions.length,
-                    ciudad: user.ciudad
+                    usuario_id: user.usuario, usuario_nombre: user.nombre, materia: title,
+                    puntaje: score, total_preguntas: questions.length, ciudad: user.ciudad
                 }]);
             } catch(e) { console.error(e); }
         }
