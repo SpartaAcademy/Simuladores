@@ -14,7 +14,18 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
     <script src="JS/auth.js"></script>
-    <script> checkAuth(); </script>
+    <script> 
+        // 1. Verificar Login
+        checkAuth(); 
+        
+        // 2. VERIFICAR ROL DE ADMINISTRADOR (SEGURIDAD)
+        const usuarioSesion = getUserInfo();
+        // Si no existe o su rol no es exactamente 'admin', lo sacamos
+        if (!usuarioSesion || usuarioSesion.rol !== 'admin') {
+            alert("ACCESO DENEGADO: Esta sección es solo para administradores.");
+            window.location.replace('index.html');
+        }
+    </script>
 </head>
 <body>
     <header>
