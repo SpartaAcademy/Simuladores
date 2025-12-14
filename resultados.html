@@ -3,15 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sparta Academy - Reportes</title>
-    
+    <title>Admin - Reportes</title>
+    <link rel="stylesheet" href="CSS/style-resultados.css">
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;600&family=Work+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.23/jspdf.plugin.autotable.min.js"></script>
-    
-    <link rel="stylesheet" href="CSS/style-resultados.css"> <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;600&family=Work+Sans:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
     <script src="JS/auth.js"></script>
     <script> checkAuth(); </script>
 </head>
@@ -19,58 +17,85 @@
     <header>
         <a href="index.html" class="header-main-link">
             <div class="header-logo"><img src="logo.png" alt="Logo"></div>
-            <div class="header-titulo"><h1>SPARTA ACADEMY</h1><h2>ADMIN</h2></div>
+            <div class="header-titulo">
+                <h1>SPARTA ACADEMY</h1>
+                <h2>ADMINISTRACIÓN</h2>
+            </div>
         </a>
-        <div class="user-menu desktop-only">
-            <button onclick="logout()" style="background:rgba(255,255,255,0.1); border:1px solid #777; color:white; padding:8px 15px; border-radius:5px; cursor:pointer;">Cerrar Sesión</button>
+        
+        <div class="desktop-menu">
+            <button class="user-btn" onclick="location.href='index.html'">
+                <i class="fas fa-home"></i> Simuladores
+            </button>
+            <button class="user-btn" onclick="logout()" style="background:#b22222; border-color:#b22222;">
+                <i class="fas fa-sign-out-alt"></i> Salir
+            </button>
         </div>
-        <button class="hamburger-menu mobile-only" id="hamburger-btn">☰</button>
+
+        <button class="mobile-toggle" id="hamburger-btn">
+            <i class="fas fa-bars"></i>
+        </button>
     </header>
 
     <div class="side-nav" id="side-nav">
         <button class="close-nav-btn" id="close-nav-btn">&times;</button>
-        <div class="side-nav-header"><img src="logo.png" width="60"><h3>Admin</h3></div>
-        <a href="index.html" class="side-nav-link">Simuladores</a>
-        <a href="#" onclick="logout()" class="side-nav-link">Salir</a>
+        <div style="text-align:center; padding:20px;">
+            <img src="logo.png" width="80" style="margin-bottom:10px;">
+            <h3 style="color:white; font-family:'Teko'; margin:0;">ADMIN</h3>
+        </div>
+        <a href="index.html"><i class="fas fa-home"></i> Simuladores</a>
+        <a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
     </div>
     <div class="overlay" id="overlay"></div>
 
     <main class="resultados-main">
-        <h1>Reporte de Intentos</h1>
+        <h1>REPORTE DE INTENTOS</h1>
         
         <div class="filtros-container">
             <div class="filtro-grupo">
                 <i class="fas fa-map-marker-alt"></i>
-                <select id="filtro-ciudad"><option>Todas</option><option>Tulcán</option><option>Ibarra</option></select>
+                <select id="filtro-ciudad">
+                    <option value="Todas">Todas las Ciudades</option>
+                    <option value="Tulcán">Tulcán</option>
+                    <option value="Ibarra">Ibarra</option>
+                </select>
             </div>
             <div class="filtro-grupo">
                 <i class="fas fa-book"></i>
-                <select id="filtro-materia"><option>Todas las Materias</option></select>
+                <select id="filtro-materia">
+                    <option value="Todas">Todas las Materias</option>
+                </select>
             </div>
             <div class="filtro-grupo">
                 <i class="fas fa-search"></i>
-                <input type="text" id="filtro-nombre" placeholder="Buscar nombre...">
+                <input type="text" id="filtro-nombre" placeholder="Buscar alumno...">
             </div>
-            <button id="descargar-pdf-btn" class="pdf-button"><i class="fas fa-file-pdf"></i> PDF</button>
-            <button id="descargar-general-csv-btn" class="csv-button"><i class="fas fa-file-csv"></i> CSV</button>
+            <div class="botones-exportar">
+                <button id="descargar-pdf-btn" class="pdf-button"><i class="fas fa-file-pdf"></i> PDF</button>
+                <button id="descargar-general-csv-btn" class="csv-button"><i class="fas fa-file-csv"></i> CSV</button>
+            </div>
         </div>
 
-        <div id="status-msg" style="text-align:center; padding:20px; font-weight:bold; color:#666;">Cargando datos...</div>
+        <div id="loading-spinner" style="text-align:center; margin-top:30px;">
+            <i class="fas fa-spinner fa-spin" style="font-size:2rem; color:#b22222;"></i>
+            <p>Cargando datos...</p>
+        </div>
         
         <div id="reporte-container"></div>
     </main>
 
     <script src="JS/script-resultados.js"></script>
     <script>
-        // Script inline para menú móvil
         document.addEventListener('DOMContentLoaded', () => {
             const btn = document.getElementById('hamburger-btn');
             const nav = document.getElementById('side-nav');
             const close = document.getElementById('close-nav-btn');
             const overlay = document.getElementById('overlay');
-            if(btn) btn.onclick = () => { nav.style.width = "280px"; overlay.style.display = "block"; };
-            if(close) close.onclick = () => { nav.style.width = "0"; overlay.style.display = "none"; };
-            if(overlay) overlay.onclick = () => { nav.style.width = "0"; overlay.style.display = "none"; };
+
+            if(btn) btn.onclick = () => { nav.classList.add('open'); overlay.style.display = "block"; };
+            const closeMenu = () => { nav.classList.remove('open'); overlay.style.display = "none"; };
+            if(close) close.onclick = closeMenu;
+            if(overlay) overlay.onclick = closeMenu;
         });
     </script>
 </body>
