@@ -1,150 +1,92 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sparta Academy - Inicio</title>
+    <title>Sparta Academy - Simuladores</title>
+    <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <link rel="stylesheet" href="CSS/style-home.css">
-    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;600&family=Work+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;600&family=Work+Sans:wght@400;600&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="JS/auth.js"></script>
     <script> checkAuth(); </script>
 </head>
+
 <body>
     <header>
         <a href="index.html" class="header-main-link">
-            <div class="header-logo"><img src="logo.png" alt="Logo"></div>
+            <div class="header-logo"> <img src="logo.png" alt="Sparta Academy Logo"> </div>
             <div class="header-titulo">
                 <h1>SPARTA ACADEMY</h1>
-                <h2 id="user-display">BIENVENIDO</h2>
+                <h2>PLATAFORMA DE SIMULADORES</h2>
             </div>
         </a>
-        
-        <div class="desktop-menu">
-            <button class="user-btn" onclick="location.href='resultados.html'">
-                <i class="fas fa-chart-bar"></i> Mis Resultados
-            </button>
-            <button class="user-btn" onclick="logout()" style="background:#b22222; border-color:#b22222;">
-                <i class="fas fa-sign-out-alt"></i> Salir
-            </button>
+        <div class="header-spacer"></div>
+        <div class="user-info-container desktop-only">
+            <span id="user-name-display-desktop">Cargando...</span>
+            <div class="dropdown">
+                <button class="dropdown-btn">▼</button>
+                <div class="dropdown-content">
+                    <a href="resultados.html" id="ver-resultados-desktop" style="display: none;">Ver Resultados</a>
+                    <a href="#" id="logout-button-desktop">Cerrar Sesión</a>
+                </div>
+            </div>
         </div>
-
-        <button class="mobile-toggle" id="hamburger-btn">
-            <i class="fas fa-bars"></i>
-        </button>
+        <button class="hamburger-menu mobile-only" id="hamburger-btn">☰</button>
     </header>
 
     <div class="side-nav" id="side-nav">
         <button class="close-nav-btn" id="close-nav-btn">&times;</button>
-        <div style="text-align:center; padding:20px;">
-            <img src="logo.png" width="80" style="margin-bottom:10px;">
-            <h3 style="color:white; font-family:'Teko'; margin:0;">MENÚ</h3>
+        <div class="side-nav-header"> <img src="logo.png" alt="Sparta Logo" class="side-nav-logo">
+            <h3>Menú Aspirante</h3>
         </div>
-        <a href="resultados.html"><i class="fas fa-chart-bar"></i> Mis Resultados</a>
-        <a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
+        <div class="side-nav-user">
+            <p id="user-prefix-mobile">Aspirante:</p>
+            <p><strong id="user-name-display-mobile">Cargando...</strong></p>
+        </div>
+        <a href="resultados.html" id="ver-resultados-mobile" class="side-nav-link" style="display: none;">Ver
+            Resultados</a>
+        <a href="#" id="logout-button-mobile" class="side-nav-link">Cerrar Sesión</a>
     </div>
     <div class="overlay" id="overlay"></div>
 
-    <main class="home-main">
-        <h1 class="section-title">SELECCIONA TU SIMULADOR</h1>
-        
-        <div class="category-section">
-            <h2 class="cat-title"><i class="fas fa-shield-alt"></i> Policía Nacional</h2>
-            <div class="cards-grid">
-                <div class="card" onclick="location.href='simulador.html?materia=sociales'">
-                    <i class="fas fa-history"></i>
-                    <h3>Ciencias Sociales</h3>
-                    <p>Historia y Geografía del Ecuador</p>
-                </div>
-                <div class="card" onclick="location.href='simulador.html?materia=matematicas'">
-                    <i class="fas fa-calculator"></i>
-                    <h3>Matemáticas</h3>
-                    <p>Razonamiento Numérico</p>
-                </div>
-                <div class="card" onclick="location.href='simulador.html?materia=lengua'">
-                    <i class="fas fa-book"></i>
-                    <h3>Lengua</h3>
-                    <p>Literatura y Gramática</p>
-                </div>
-                <div class="card" onclick="location.href='simulador.html?materia=ingles'">
-                    <i class="fas fa-language"></i>
-                    <h3>Inglés</h3>
-                    <p>Grammar & Vocabulary</p>
-                </div>
-                <div class="card" onclick="location.href='simulador.html?materia=general'" style="border-left: 5px solid #b22222;">
-                    <i class="fas fa-layer-group"></i>
-                    <h3>General Unificado</h3>
-                    <p>Todas las materias (200 Preguntas)</p>
-                </div>
-            </div>
-        </div>
+    <main>
+        <div class="marca-de-agua"> <img src="logo.png" alt="Watermark"> </div>
 
-        <div class="category-section">
-            <h2 class="cat-title"><i class="fas fa-medal"></i> ESMIL / ESFORSE</h2>
-            <div class="cards-grid">
-                <div class="card" onclick="location.href='simulador.html?materia=sociales_esmil'">
-                    <i class="fas fa-globe-americas"></i>
-                    <h3>Sociales ESMIL</h3>
-                </div>
-                <div class="card" onclick="location.href='simulador.html?materia=matematicas_esmil'">
-                    <i class="fas fa-square-root-alt"></i>
-                    <h3>Matemáticas ESMIL</h3>
-                </div>
-                <div class="card" onclick="location.href='simulador.html?materia=lengua_esmil'">
-                    <i class="fas fa-pen-nib"></i>
-                    <h3>Lenguaje ESMIL</h3>
-                </div>
-                <div class="card" onclick="location.href='simulador.html?materia=ingles_esmil'">
-                    <i class="fas fa-flag-usa"></i>
-                    <h3>Inglés ESMIL</h3>
-                </div>
+        <div class="seleccion-container">
+            <div id="navigation-bar" class="nav-bar" style="display: none;">
+                <button id="btn-atras" class="btn-nav"><i class="fas fa-arrow-left"></i> Atrás</button>
+                <span id="breadcrumbs" class="breadcrumbs">Inicio</span>
             </div>
-        </div>
 
-        <div class="category-section">
-            <h2 class="cat-title"><i class="fas fa-brain"></i> Pruebas Psicológicas</h2>
-            <div class="cards-grid">
-                <div class="card" onclick="location.href='simulador.html?materia=ppnn1'">
-                    <i class="fas fa-clipboard-check"></i>
-                    <h3>Cuestionario 1</h3>
-                </div>
-                <div class="card" onclick="location.href='simulador.html?materia=ppnn2'">
-                    <i class="fas fa-clipboard-check"></i>
-                    <h3>Cuestionario 2</h3>
-                </div>
-                <div class="card" onclick="location.href='simulador.html?materia=inteligencia'">
-                    <i class="fas fa-lightbulb"></i>
-                    <h3>Inteligencia</h3>
-                </div>
-                <div class="card" onclick="location.href='simulador.html?materia=personalidad'">
-                    <i class="fas fa-user-check"></i>
-                    <h3>Personalidad</h3>
-                </div>
+            <h2 id="section-title">Seleccione una Institución</h2>
+            <p id="section-desc">Elija la institución para ver los simuladores disponibles.</p>
+
+            <div id="dynamic-grid" class="materias-grid">
             </div>
         </div>
     </main>
 
+    <footer>
+        <p>Dir: Calle Bolívar entre Boyacá y Junín</p>
+        <p>Cell: 0989746618 / 0984541920 / 0987451775</p>
+        <p>Email: spartatulcan@gmail.com</p>
+    </footer>
+
+    <script src="JS/script-home.js"></script>
+
     <script>
-        // Script Menú Móvil
         document.addEventListener('DOMContentLoaded', () => {
-            const btn = document.getElementById('hamburger-btn');
-            const nav = document.getElementById('side-nav');
-            const close = document.getElementById('close-nav-btn');
-            const overlay = document.getElementById('overlay');
-            const userDisplay = document.getElementById('user-display');
-
-            // Mostrar nombre
-            const userStr = sessionStorage.getItem('userInfo');
-            if(userStr) {
-                const u = JSON.parse(userStr);
-                if(userDisplay) userDisplay.textContent = "HOLA, " + u.nombre.split(' ')[0].toUpperCase();
-            }
-
-            if(btn) btn.onclick = () => { nav.classList.add('open'); overlay.style.display = "block"; };
-            const closeMenu = () => { nav.classList.remove('open'); overlay.style.display = "none"; };
-            if(close) close.onclick = closeMenu;
-            if(overlay) overlay.onclick = closeMenu;
+            setupUserInfoDropdown();
+            setupMobileMenu();
         });
+        window.addEventListener('pageshow', function (event) { if (event.persisted) { checkAuth(); } });
     </script>
 </body>
+
 </html>
