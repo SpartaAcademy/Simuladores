@@ -18,7 +18,7 @@ body {
     overflow-x: hidden; 
 }
 
-/* --- 2. HEADER UNIFICADO (NEGRO) --- */
+/* --- 2. HEADER UNIFICADO (Igual al Simulador) --- */
 header { 
     background: var(--dark); color: var(--white); padding: 12px 5%; 
     display: flex; align-items: center; justify-content: space-between; 
@@ -30,7 +30,7 @@ header {
 .header-titulo h1 { font-family: 'Teko', sans-serif; font-size: 2rem; margin: 0; line-height: 1; letter-spacing: 1px; }
 .header-titulo h2 { font-family: 'Work Sans', sans-serif; font-size: 0.8rem; color: #ccc; margin: 0; text-transform: uppercase; letter-spacing: 1px; }
 
-/* Menús */
+/* Botones Escritorio */
 .desktop-menu { display: flex; align-items: center; gap: 15px; }
 .user-btn { 
     background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); 
@@ -78,7 +78,7 @@ main {
 }
 .nav-actions button:hover { background: var(--primary); border-color: var(--primary); }
 
-/* --- GRID DE TARJETAS (2 ARRIBA, 1 ABAJO) --- */
+/* --- GRID DE TARJETAS --- */
 .materias-grid {
     display: grid;
     grid-template-columns: 1fr 1fr; /* 2 Columnas */
@@ -110,25 +110,37 @@ main {
     color: #f1c40f; /* Dorado */
     transition: 0.3s;
 }
+.card-folder:hover i { transform: scale(1.1); }
 .card-folder h3 { font-family: 'Teko', sans-serif; font-size: 2.2rem; margin: 0; letter-spacing: 1px; font-weight: 500; }
 .card-folder p { color: #888; font-size: 1rem; margin-top: 5px; opacity: 0.8; }
 
-/* TIPO ANCHO TOTAL (GENERAL) */
+/* TIPO ANCHO TOTAL (GENERAL - AHORA OSCURA TAMBIÉN) */
 .card-wide {
     grid-column: 1 / -1; /* Ocupa todo el ancho */
     flex-direction: row; 
     justify-content: flex-start;
     padding: 40px 60px;
-    background: var(--white);
-    border-left: 10px solid var(--primary);
+    
+    /* CAMBIO: Estilo Oscuro igual que las otras */
+    background: #1a1a1a;
+    color: white;
+    background-image: linear-gradient(45deg, #1a1a1a 0%, #252525 100%);
+    border-left: 10px solid var(--primary); /* Detalle rojo a la izquierda */
 }
-.card-wide i { font-size: 5rem; margin-right: 40px; margin-bottom: 0; color: var(--primary); }
-.card-wide .text-content { text-align: left; }
-.card-wide h3 { font-family: 'Teko', sans-serif; font-size: 3rem; margin: 0; color: var(--dark); line-height: 1; }
-.card-wide p { font-size: 1.2rem; color: #666; margin-top: 10px; }
+.card-wide:hover { border-color: var(--primary); }
 
-/* TIPO TEST (NORMAL) */
-.card-test { background: white; border-top: 5px solid #ccc; }
+.card-wide i { 
+    font-size: 5rem; margin-right: 40px; margin-bottom: 0; 
+    color: #f1c40f; /* Dorado también */
+}
+.card-wide:hover i { transform: scale(1.1); }
+
+.card-wide .text-content { text-align: left; }
+.card-wide h3 { font-family: 'Teko', sans-serif; font-size: 3rem; margin: 0; color: white; line-height: 1; }
+.card-wide p { font-size: 1.2rem; color: #aaa; margin-top: 10px; }
+
+/* TIPO TEST (NORMAL - BLANCAS) */
+.card-test { background: white; border-top: 5px solid #ccc; color: var(--dark); }
 .card-test:hover { border-top-color: var(--primary); }
 .card-test i { font-size: 3rem; margin-bottom: 20px; color: var(--dark); }
 .card-test:hover i { color: var(--primary); }
