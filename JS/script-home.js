@@ -1,4 +1,5 @@
 // JS/script-home.js
+
 const MENU_DATA = {
     'root': {
         title: 'Seleccione una Institución',
@@ -9,27 +10,14 @@ const MENU_DATA = {
             { id: 'general', label: 'GENERAL UNIFICADO', type: 'folder', icon: 'fas fa-globe', variant: 'wide', desc: 'Pruebas Psicométricas, Inteligencia y Personalidad.' }
         ]
     },
-    // ... (El resto del código igual que te di antes)
+
+    // --- RAMA POLICÍA ---
     'policia': {
         title: 'Policía Nacional',
         desc: 'Seleccione la categoría de pruebas.',
         items: [
             { id: 'policia_academicas', label: 'Simuladores Pruebas Académicas', type: 'folder', icon: 'fas fa-book' },
             { id: 'policia_ppnn', label: 'Pruebas PPNN 2025', type: 'folder', icon: 'fas fa-file-alt' }
-        ]
-    },
-    'ffaa': {
-        title: 'Fuerzas Armadas',
-        desc: 'Seleccione la categoría de pruebas.',
-        items: [
-            { id: 'ffaa_esmil', label: 'Simuladores Pruebas Académicas ESMIL', type: 'folder', icon: 'fas fa-university' }
-        ]
-    },
-    'general': {
-        title: 'General',
-        desc: 'Pruebas psicométricas generales.',
-        items: [
-            { id: 'general_psico', label: 'Simuladores Psicosométricos', type: 'folder', icon: 'fas fa-brain' }
         ]
     },
     'policia_academicas': {
@@ -53,15 +41,56 @@ const MENU_DATA = {
             { label: 'CUESTIONARIO 4 PPNN', type: 'test', link: 'simulador.html?materia=ppnn4', icon: 'fas fa-file-contract' }
         ]
     },
-    'ffaa_esmil': {
+
+    // --- RAMA FUERZAS ARMADAS (NUEVA ESTRUCTURA) ---
+    'ffaa': {
+        title: 'Fuerzas Armadas',
+        desc: 'Seleccione la escuela.',
+        items: [
+            // Aquí entra directo a ESMIL
+            { id: 'esmil_menu', label: 'ESMIL', type: 'folder', icon: 'fas fa-university', desc: 'Escuela Superior Militar Eloy Alfaro' }
+        ]
+    },
+    'esmil_menu': {
+        title: 'ESMIL',
+        desc: 'Seleccione el tipo de prueba.',
+        items: [
+            { id: 'ffaa_esmil_academicas', label: 'Simuladores Pruebas Académicas ESMIL', type: 'folder', icon: 'fas fa-book-reader' },
+            { id: 'ffaa_esmil_inteligencia', label: 'Tests Inteligencia ESMIL', type: 'folder', icon: 'fas fa-brain' }
+        ]
+    },
+    // Académicas ESMIL (Viejas)
+    'ffaa_esmil_academicas': {
         title: 'Pruebas Académicas ESMIL',
-        desc: 'Elija una materia para ESMIL.',
+        desc: 'Elija una materia.',
         items: [
             { label: 'CIENCIAS SOCIALES', type: 'test', link: 'simulador.html?materia=sociales_esmil', icon: 'fas fa-landmark' },
             { label: 'MATEMÁTICAS Y FÍSICA', type: 'test', link: 'simulador.html?materia=matematicas_esmil', icon: 'fas fa-calculator' },
             { label: 'LENGUA Y LITERATURA', type: 'test', link: 'simulador.html?materia=lengua_esmil', icon: 'fas fa-pen-fancy' },
             { label: 'INGLÉS', type: 'test', link: 'simulador.html?materia=ingles_esmil', icon: 'fas fa-language' },
             { label: 'GENERAL (TODAS)', type: 'test', link: 'simulador.html?materia=general_esmil', icon: 'fas fa-layer-group' }
+        ]
+    },
+    // Inteligencia ESMIL (Nuevas carpetas 1-6)
+    'ffaa_esmil_inteligencia': {
+        title: 'Tests Inteligencia ESMIL',
+        desc: 'Simuladores Psicométricos Específicos.',
+        items: [
+            { label: 'SIMULADOR 1', type: 'test', link: '#', icon: 'fas fa-puzzle-piece', disabled: true }, // Próx
+            { label: 'SIMULADOR 2', type: 'test', link: '#', icon: 'fas fa-puzzle-piece', disabled: true }, // Próx
+            { label: 'SIMULADOR 3', type: 'test', link: '#', icon: 'fas fa-puzzle-piece', disabled: true }, // Próx
+            { label: 'SIMULADOR 4', type: 'test', link: 'simulador.html?materia=int_esmil_4', icon: 'fas fa-lightbulb' },
+            { label: 'SIMULADOR 5', type: 'test', link: 'simulador.html?materia=int_esmil_5', icon: 'fas fa-lightbulb' },
+            { label: 'SIMULADOR 6', type: 'test', link: 'simulador.html?materia=int_esmil_6', icon: 'fas fa-lightbulb' }
+        ]
+    },
+
+    // --- RAMA GENERAL ---
+    'general': {
+        title: 'General',
+        desc: 'Pruebas psicométricas generales.',
+        items: [
+            { id: 'general_psico', label: 'Simuladores Psicosométricos', type: 'folder', icon: 'fas fa-brain' }
         ]
     },
     'general_psico': {
