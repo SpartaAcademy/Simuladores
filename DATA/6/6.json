@@ -1,0 +1,606 @@
+[
+    {
+        "pregunta": "Señale la figura que continúe la serie.",
+        "imagen": "DATA/6/IMG/1.png",
+        "opciones": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E"
+        ],
+        "respuesta": "B"
+    },
+    {
+        "pregunta": "Señale el par de palabras que está compuesto por sinónimos (Palabras que tienen el mismo significado)",
+        "opciones": [
+            "Diestra – Derecha",
+            "Alto-Bajo",
+            "Alegre - Triste",
+            "Riqueza – Pobreza",
+            "Antipatía – Simpatía"
+        ],
+        "respuesta": "Diestra – Derecha"
+    },
+    {
+        "pregunta": "Escoja la pareja de palabras fue mejor complete la frase siguiente, colocando la primera palabra al principio, y la segunda al final.\n........es a mes como Lunes es a....",
+        "opciones": [
+            "Febrero – Martes",
+            "Enero - Día",
+            "Día – Hora",
+            "Viernes – Diciembre",
+            "Doce - Uno"
+        ],
+        "respuesta": "Enero - Día"
+    },
+    {
+        "pregunta": "Indique qué cifra continuaría la serie:\n88 – 2 – 66 – 4 – 44 – 6 - ___",
+        "opciones": [
+            "2",
+            "8",
+            "11",
+            "3",
+            "22"
+        ],
+        "respuesta": "22"
+    },
+    {
+        "pregunta": "¿Cuál de las siguientes parejas de palabras está formada por sinónimos?",
+        "opciones": [
+            "Ratificar - Negar",
+            "Enardecer - Tranquilizar",
+            "Evocar - Olvidar",
+            "Terminar - Concluir",
+            "Alabar - Injuriar"
+        ],
+        "respuesta": "Terminar - Concluir"
+    },
+    {
+        "pregunta": "En esta serie hay una cifra equivocada:\n3 - 6 - 12 - 24 - 48 - 98 - 192 - 384",
+        "opciones": [
+            "24",
+            "48",
+            "98",
+            "192",
+            "384"
+        ],
+        "respuesta": "98"
+    },
+    {
+        "pregunta": "¿Cuál de las siguientes palabras significa lo mismo que \"FALTA\" ?",
+        "opciones": [
+            "Defecto",
+            "Resolución",
+            "Oficio",
+            "Duda",
+            "Género"
+        ],
+        "respuesta": "Defecto"
+    },
+    {
+        "pregunta": "¿Qué figura continuaría la serie?",
+        "imagen": "DATA/6/IMG/2.png",
+        "opciones": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E"
+        ],
+        "respuesta": "C"
+    },
+    {
+        "pregunta": "¿Qué pareja de palabras completa mejor la frase poniendo la palabra en el primer espacio en blanco y la 2a en el segundo espacio?\n__________ es a corrupción como __________ es a intimidación",
+        "opciones": [
+            "Cohecho - Contrariedad",
+            "Apercibimiento - Fingimiento",
+            "Sentencia - Chantaje",
+            "Amenaza - Hurto",
+            "Soborno - Amenaza"
+        ],
+        "respuesta": "Soborno - Amenaza"
+    },
+    {
+        "pregunta": "¿Cuál es la cifra que completa la serie?:\n36 - 34 - 33 - 31 - 30 - 36 - _ - 33 - 31",
+        "opciones": [
+            "36",
+            "31",
+            "33",
+            "34",
+            "30"
+        ],
+        "respuesta": "34"
+    },
+    {
+        "pregunta": "¿Cuál de las siguientes palabras significa lo mismo que \"RECLAMAR\" ?",
+        "opciones": [
+            "Recluir",
+            "Reprender",
+            "Demandar",
+            "Aceptar",
+            "Declamar"
+        ],
+        "respuesta": "Demandar"
+    },
+    {
+        "pregunta": "¿Qué grupo continuaría la serie?:\n2Z3 4Y5 6X7",
+        "opciones": [
+            "8Y9",
+            "8U9",
+            "8S10",
+            "8V9",
+            "8W9"
+        ],
+        "respuesta": "8W9"
+    },
+    {
+        "pregunta": "Si nos dicen que ofrecieron un \"réquiem\", significa que ofrecieron:",
+        "opciones": [
+            "Una comida",
+            "Una alternativa",
+            "Una copa",
+            "Una misa",
+            "Una invitación"
+        ],
+        "respuesta": "Una misa"
+    },
+    {
+        "pregunta": "Indique cuál seria la quinta cifra de esta serie:\n1.124 - 1.104 - 1.084 - 1.064",
+        "opciones": [
+            "1.034",
+            "1.040",
+            "1.146",
+            "1.044",
+            "1.024"
+        ],
+        "respuesta": "1.044"
+    },
+    {
+        "pregunta": "¿Qué pareja de palabras completaría mejor la frase poniendo la 1ª palabra al principio y la 2ª al final?\n__________ es a niño como veterinario es a __________",
+        "opciones": [
+            "Profesor - Animal",
+            "Madre - Enfermera",
+            "Pediatra - Gato",
+            "Juguete - Inyección",
+            "Perro - Enfermera"
+        ],
+        "respuesta": "Pediatra - Gato"
+    },
+    {
+        "pregunta": "¿Qué número completa la serie?:\n2 6 3 7 5 9 8 12 ___ 16",
+        "opciones": [
+            "11",
+            "13",
+            "12",
+            "15",
+            "10"
+        ],
+        "respuesta": "12"
+    },
+    {
+        "pregunta": "¿Qué figura continuaría la serie?",
+        "imagen": "DATA/6/IMG/3.png",
+        "opciones": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E"
+        ],
+        "respuesta": "C"
+    },
+    {
+        "pregunta": "¿Cuál de las siguientes palabras significa lo mismo que \"ARANCEL\" ?",
+        "opciones": [
+            "Visado",
+            "Tarifa",
+            "Moneda",
+            "Crédito",
+            "Factura"
+        ],
+        "respuesta": "Tarifa"
+    },
+    {
+        "pregunta": "Se dice que una persona es \"ILUSTRE\" si es:",
+        "opciones": [
+            "Impetuosa",
+            "Atenta",
+            "Honrada",
+            "Audaz",
+            "Célebre"
+        ],
+        "respuesta": "Célebre"
+    },
+    {
+        "pregunta": "Indique la letra que continúa la serie (no cuentan las letras dobles: CH, LL, RR) ?:\nB C O P E F R S ..",
+        "opciones": [
+            "T",
+            "H",
+            "C",
+            "K",
+            "L"
+        ],
+        "respuesta": "H"
+    },
+    {
+        "pregunta": "Indique cuál es el resultado de la siguiente operación:\n20% de 35 = ?",
+        "opciones": [
+            "2,5",
+            "5",
+            "7",
+            "10",
+            "Ninguna es correcta"
+        ],
+        "respuesta": "7"
+    },
+    {
+        "pregunta": "¿Qué figura continuaría la serie?",
+        "imagen": "DATA/6/IMG/4.png",
+        "opciones": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E"
+        ],
+        "respuesta": "E"
+    },
+    {
+        "pregunta": "Sustituya la palabra entrecomillada por otra de modo que el sentido de la frase no varíe:\nAtravesamos \"vastas\" llanuras.",
+        "opciones": [
+            "Pedregosas",
+            "Pobladas",
+            "Secas",
+            "Amplias",
+            "Desiertas"
+        ],
+        "respuesta": "Amplias"
+    },
+    {
+        "pregunta": "¿Qué pareja de palabras completaría la frase siguiente, poniendo la 1ª palabra en el primer espacio en blanco y la 2ª en el segundo espacio?\nAzahar es a __________ como __________ es a árbol",
+        "opciones": [
+            "Sauce - Planta",
+            "Planta - Sauce",
+            "Flor - Arbusto",
+            "Flor - Nogal",
+            "Arbusto - Nogal"
+        ],
+        "respuesta": "Flor - Nogal"
+    },
+    {
+        "pregunta": "Si nos dicen que \"fue culpa del hado\" entendemos que fue por culpa:",
+        "opciones": [
+            "Del hielo",
+            "De la niebla",
+            "Del destino",
+            "Del tiempo",
+            "De un fallo mecánico"
+        ],
+        "respuesta": "Del destino"
+    },
+    {
+        "pregunta": "¿Qué figura continúa la serie?",
+        "imagen": "DATA/6/IMG/5.png",
+        "opciones": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E"
+        ],
+        "respuesta": "E"
+    },
+    {
+        "pregunta": "¿Qué pareja de palabras completa mejor la frase siguiente poniendo la 1ª palabra al principio y la 2ª al final?\n__________ es a batallón como día es a __________",
+        "opciones": [
+            "Coronel - Pelotón",
+            "Formación - Noche",
+            "Soldado - Mes",
+            "Instrucción - Semana",
+            "Cuartel - Año"
+        ],
+        "respuesta": "Soldado - Mes"
+    },
+    {
+        "pregunta": "¿Qué figura continuaría la serie?",
+        "imagen": "DATA/6/IMG/6.png",
+        "opciones": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E"
+        ],
+        "respuesta": "E"
+    },
+    {
+        "pregunta": "Indique cuál sería la quinta cifra en esta serie: 3.221 3.224 3.230 3.242 ¿?",
+        "opciones": [
+            "3.268",
+            "3.256",
+            "3.264",
+            "3.266",
+            "2.342"
+        ],
+        "respuesta": "3.266"
+    },
+    {
+        "pregunta": "Forme una frase con estas palabras y haga lo que en ella se indica.\nde - frase - la - penúltima - letra - señale - esta",
+        "opciones": [
+            "e",
+            "f",
+            "s",
+            "l",
+            "d"
+        ],
+        "respuesta": "s"
+    },
+    {
+        "pregunta": "¿Qué pareja de palabras completa mejor la frase poniendo la 1ª palabra al principio y la 2ª al final?\n__________ es a mechero como agua es a __________",
+        "opciones": [
+            "Llama - Fuente",
+            "Llama - Río",
+            "Luz - Mar",
+            "Fuego - Corriente",
+            "Fuente - Corriente"
+        ],
+        "respuesta": "Llama - Fuente"
+    },
+    {
+        "pregunta": "¿Qué figura continuaría la serie?",
+        "imagen": "DATA/6/IMG/7.png",
+        "opciones": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E"
+        ],
+        "respuesta": "A"
+    },
+    {
+        "pregunta": "¿Cuál de las siguientes parejas de palabras está formada por antónimos (palabras con significado opuesto)?",
+        "opciones": [
+            "Elegía - Lamentación",
+            "Desidia - Apatía",
+            "Coincidente - Simultáneo",
+            "Abrogar - Derogar",
+            "Encarecerse - Depreciarse"
+        ],
+        "respuesta": "Encarecerse - Depreciarse"
+    },
+    {
+        "pregunta": "¿Con qué grupo sigue la serie? 53, 1/11, 60, 1/9, 74, 1/7, 102, 1/5",
+        "opciones": [
+            "158 1/3",
+            "181 1/3",
+            "109 1/3",
+            "156 1/3",
+            "160 1/2"
+        ],
+        "respuesta": "158 1/3"
+    },
+    {
+        "pregunta": "Los siguientes pares de palabras están formados por sinónimos, excepto uno. ¿Cuál es?",
+        "opciones": [
+            "Condecorar - Sancionar",
+            "Fracasar - Malograr",
+            "Deportar - Desterrar",
+            "Detectar - Denotar",
+            "Lucro - Beneficio"
+        ],
+        "respuesta": "Condecorar - Sancionar"
+    },
+    {
+        "pregunta": "Indique qué palabra, sustituyendo la que está entre comillas, hace que no varíe el sentido de la frase:\nEncontré un \"ánade\" en el agua.",
+        "opciones": [
+            "Pez",
+            "Pato",
+            "Flor",
+            "Rana",
+            "Insecto"
+        ],
+        "respuesta": "Pato"
+    },
+    {
+        "pregunta": "¿Qué figura continuaría la serie?",
+        "imagen": "DATA/6/IMG/8.png",
+        "opciones": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E"
+        ],
+        "respuesta": "D"
+    },
+    {
+        "pregunta": "¿Cuál es la siguiente cifra de la serie? 02 03 05 03 04 07 03 03",
+        "opciones": [
+            "05",
+            "04",
+            "03",
+            "07",
+            "06"
+        ],
+        "respuesta": "06"
+    },
+    {
+        "pregunta": "¿Qué cifra completaría el cuadro?\n25 150 75\n5 ? 15\n1 6 3",
+        "opciones": [
+            "25",
+            "40",
+            "50",
+            "45",
+            "30"
+        ],
+        "respuesta": "30"
+    },
+    {
+        "pregunta": "¿Qué pareja de palabras completa mejor la frase poniendo la primera palabra al principio y la segunda al final?\n__________ es a mes como semestre es a __________",
+        "opciones": [
+            "Semana - Año",
+            "Semana - Trimestre",
+            "Trimestre - Día",
+            "Quincena - Año",
+            "Día - Año"
+        ],
+        "respuesta": "Quincena - Año"
+    },
+    {
+        "pregunta": "¿Con qué letra continuaría la serie (no considere las letras dobles: CH, LL, RR)?\nG I L O T Z B E I __",
+        "opciones": [
+            "N",
+            "I",
+            "J",
+            "K",
+            "M"
+        ],
+        "respuesta": "N"
+    },
+    {
+        "pregunta": "Si nos dicen de algo que es \"la quintaesencia\", se refieren a:",
+        "opciones": [
+            "Algo añadido",
+            "Su aroma",
+            "Lo fundamental",
+            "Un nuevo atributo",
+            "Algo no sustancial"
+        ],
+        "respuesta": "Lo fundamental"
+    },
+    {
+        "pregunta": "¿Qué figura continuaría la serie?",
+        "imagen": "DATA/6/IMG/9.png",
+        "opciones": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E"
+        ],
+        "respuesta": "C"
+    },
+    {
+        "pregunta": "¿Con qué cifra continuaría la serie?\n5 8 13 21 34 55 89",
+        "opciones": [
+            "102",
+            "144",
+            "114",
+            "132",
+            "120"
+        ],
+        "respuesta": "144"
+    },
+    {
+        "pregunta": "¿Qué pareja de palabras, de las que siguen, difiere del resto?",
+        "opciones": [
+            "Desdén - Aprecio",
+            "Negligentemente - Descuidadamente",
+            "Desdeñar - Apreciar",
+            "Ambición - Renuncia",
+            "Esclarecer - Enredar"
+        ],
+        "respuesta": "Negligentemente - Descuidadamente"
+    },
+    {
+        "pregunta": "¿Qué cifra continuaría la serie?\n4 16 36 64 100",
+        "opciones": [
+            "120",
+            "144",
+            "136",
+            "126",
+            "198"
+        ],
+        "respuesta": "144"
+    },
+    {
+        "pregunta": "Sustituya la palabra entrecomillada de modo que no varíe el significado de la frase:\nParticipó en una \"lid\".",
+        "opciones": [
+            "Reunión",
+            "Fiesta",
+            "Romería",
+            "Conferencia",
+            "Batalla"
+        ],
+        "respuesta": "Batalla"
+    },
+    {
+        "pregunta": "¿Qué pareja de palabras completa mejor la frase poniendo la 1ª palabra al principio y la segunda al final?\n__________ es a incorrecto como falsedad es a __________",
+        "opciones": [
+            "Correcto - Engaño",
+            "Descortés - Lealtad",
+            "Afable - Cortés",
+            "Cortés - Legitimidad",
+            "Cortés - Impostura"
+        ],
+        "respuesta": "Cortés - Legitimidad"
+    },
+    {
+        "pregunta": "¿Cuál sería la quinta figura de la serie?",
+        "imagen": "DATA/6/IMG/10.png",
+        "opciones": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E"
+        ],
+        "respuesta": "E"
+    },
+    {
+        "pregunta": "¿Qué cifra completa la siguiente serie?:\n236 204 ___ 180 176 174",
+        "opciones": [
+            "196",
+            "192",
+            "190",
+            "188",
+            "186"
+        ],
+        "respuesta": "188"
+    },
+    {
+        "pregunta": "¿Qué pareja de palabras completa mejor la frase poniendo la primera palabra al principio y la segunda al final?\n__________ es a coro como lado es a __________",
+        "opciones": [
+            "Cantante - Línea",
+            "Cantante - Ángulo",
+            "Partitura - Cuadrado",
+            "Canción - Geometría",
+            "Cantante - Pentágono"
+        ],
+        "respuesta": "Cantante - Pentágono"
+    },
+    {
+        "pregunta": "¿Cuál es el elemento que completa la serie (no considere las letras dobles: CH, LL, RR)?\nA1 E3 ___ M15 P31 T63",
+        "opciones": [
+            "H5",
+            "I5",
+            "I7",
+            "I9",
+            "H11"
+        ],
+        "respuesta": "I7"
+    },
+    {
+        "pregunta": "¿Cuál de las siguientes palabras significa lo mismo que \"DECLINACIÓN\" ?",
+        "opciones": [
+            "Determinación",
+            "Engrandecimiento",
+            "Flojedad",
+            "Decadencia",
+            "Impavidez"
+        ],
+        "respuesta": "Decadencia"
+    },
+    {
+        "pregunta": "El peso medio de tres sobres es de 320 gramos. Si ninguno de los sobres pesa menos de 280 gramos ¿cuál es el mayor peso posible de uno de los sobres ?",
+        "opciones": [
+            "400 gr.",
+            "440 gr.",
+            "480 gr.",
+            "500 gr.",
+            "Ninguna es correcta"
+        ],
+        "respuesta": "400 gr."
+    }
+]
