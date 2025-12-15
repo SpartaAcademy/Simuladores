@@ -1,0 +1,657 @@
+[
+    {
+        "pregunta": "El hermano de June tiene un hermano más que hermanas. ¿Cuántos hermanos más que hermanas tiene June?",
+        "opciones": [
+            "1",
+            "2",
+            "3",
+            "4"
+        ],
+        "respuesta": "3"
+    },
+    {
+        "pregunta": "¿Cuál de las formas marcadas con una letra se parece más a las tres formas no marcadas con letra que aparecen a la izquierda?",
+        "imagen": "DATA/5/IMG/1.png",
+        "opciones": [
+            "a",
+            "b",
+            "c",
+            "d"
+        ],
+        "respuesta": "c"
+    },
+    {
+        "pregunta": "En una hilera de cuatro casas, los Brown viven al lado de los Smith pero no al lado de los Bruce. Si los Bruce no viven al lado de los Jones, ¿quiénes son los vecinos inmediatos de los Jones?",
+        "opciones": [
+            "Los Brown",
+            "Los Smith",
+            "Los Brown y los Smith",
+            "Es imposible averiguarlo"
+        ],
+        "respuesta": "Los Brown"
+    },
+    {
+        "pregunta": "¿Cuál de las formas de la línea inferior falta en el círculo vacío de la línea superior?",
+        "imagen": "DATA/5/IMG/2.png",
+        "opciones": [
+            "a",
+            "b",
+            "c",
+            "d",
+            "e"
+        ],
+        "respuesta": "b"
+    },
+    {
+        "pregunta": "¿Si el hijo de Marmaduke es el padre de mi hijo, ¿qué parentesco tengo yo con Marmaduke?",
+        "opciones": [
+            "Soy su abuelo",
+            "Su padre",
+            "Su hijo",
+            "Su nieto",
+            "Yo soy Marmaduke"
+        ],
+        "respuesta": "Su hijo"
+    },
+    {
+        "pregunta": "Completar la oración siguiente colocando palabras en los espacios:\nNingún pobre es emperador, y algunos avaros son pobres: luego algunos (.........) no son (.........).",
+        "opciones": [
+            "Emperadores - Pobres",
+            "Avaros - Emperadores",
+            "Pobres - Avaros",
+            "Avaros - Pobres"
+        ],
+        "respuesta": "Avaros - Emperadores"
+    },
+    {
+        "pregunta": "De las siguientes afirmaciones, ¿cuáles son las dos que, tomadas conjuntamente, prueban en forma concluyente que una o más niñas aprobaron el examen de historia?\na) Algunas niñas son casi tan competentes en historia como los niños.\nb) Las niñas que hicieron el examen de historia eran más que los niños.\nc) Más de la mitad de los niños aprobaron el examen.\nd) Menos de la mitad de todos los alumnos fueron suspendidos.",
+        "opciones": [
+            "a y c",
+            "b y c",
+            "b y d",
+            "a y d",
+            "c y d"
+        ],
+        "respuesta": "b y d"
+    },
+    {
+        "pregunta": "¿Cuál debe ser la cuarta fila de letras que faltan?\nA B C D E\nD A E C B\nC D B E A\n* * * * *",
+        "opciones": [
+            "E C A B D",
+            "E C B A D",
+            "D C A B E",
+            "B D A C E",
+            "E A C B D"
+        ],
+        "respuesta": "E C A B D"
+    },
+    {
+        "pregunta": "¿Qué número debe aparecer en la cabeza del tercer hombre?",
+        "imagen": "DATA/5/IMG/3.png",
+        "opciones": [
+            "2",
+            "3",
+            "4",
+            "5",
+            "6"
+        ],
+        "respuesta": "3"
+    },
+    {
+        "pregunta": "¿Cuál de los recuadros inferiores completa mejor la serie de arriba?",
+        "imagen": "DATA/5/IMG/4.png",
+        "opciones": [
+            "A",
+            "B",
+            "C",
+            "D"
+        ],
+        "respuesta": "C"
+    },
+    {
+        "pregunta": "Soy un hombre. Si el hijo de Juan es el padre de mi hijo, ¿qué soy yo de Juan?",
+        "opciones": [
+            "Su abuelo",
+            "Su padre",
+            "Su hijo",
+            "Su nieto",
+            "Yo soy Juan",
+            "Su tío"
+        ],
+        "respuesta": "Su hijo"
+    },
+    {
+        "pregunta": "¿Qué palabra no pertenece al siguiente grupo?",
+        "opciones": [
+            "cuchillo",
+            "cisne",
+            "sonrisa",
+            "pluma",
+            "hermoso",
+            "pensamiento"
+        ],
+        "respuesta": "hermoso"
+    },
+    {
+        "pregunta": "De las siguientes formas, una representa la imagen de otra reflejada en el espejo. ¿Cuáles son?",
+        "imagen": "DATA/5/IMG/5.png",
+        "opciones": [
+            "A y B",
+            "B y C",
+            "C y D",
+            "D y E",
+            "A y C"
+        ],
+        "respuesta": "D y E"
+    },
+    {
+        "pregunta": "¿Qué número viene después en la siguiente serie? 9, 16, 25, 36...",
+        "opciones": [
+            "45",
+            "49",
+            "64",
+            "55"
+        ],
+        "respuesta": "49"
+    },
+    {
+        "pregunta": "Complete esta analogía con una palabra de seis letras terminada en A.\n«Alto es a bajo como cielo es a _ _ _ _ _ A.»",
+        "opciones": [
+            "PIERNA",
+            "SIERRA",
+            "TIERRA",
+            "HIERBA"
+        ],
+        "respuesta": "TIERRA"
+    },
+    {
+        "pregunta": "En el siguiente cuadro, haciendo una operación aritmética, dos de los números de cada fila horizontal o vertical dan como resultado un tercero. ¿Cuál es el número que falta?\n6   2   4\n2   ?   0\n4   0   4",
+        "opciones": [
+            "0",
+            "2",
+            "4",
+            "6"
+        ],
+        "respuesta": "2"
+    },
+    {
+        "pregunta": "Complete esta analogía con una palabra de ocho letras que termine en E.\n«Potencial es a real como futuro es a _ _ _ _ _ _ _ E.»",
+        "opciones": [
+            "PASADO",
+            "URGENTE",
+            "PRESENTE",
+            "LATENTE"
+        ],
+        "respuesta": "PRESENTE"
+    },
+    {
+        "pregunta": "En el grupo que sigue, indique las dos palabras que, por su significado, no reflejan el mismo concepto.\n(a) cola (b) tamiz (c) sierra (d) clavo (e) cuerda (f) clip",
+        "opciones": [
+            "sierra - tamiz",
+            "cola - clavo",
+            "cuerda - clip",
+            "tamiz - clip"
+        ],
+        "respuesta": "cola - clavo"
+    },
+    {
+        "pregunta": "Montaña es a tierra como remolino es a:",
+        "opciones": [
+            "fluido",
+            "mojado",
+            "mar",
+            "cielo",
+            "lluvia"
+        ],
+        "respuesta": "mar"
+    },
+    {
+        "pregunta": "Indique el número que por lógica completa la serie.\n2, 3, 5, 9, 17...",
+        "opciones": [
+            "30",
+            "33",
+            "35",
+            "65"
+        ],
+        "respuesta": "33"
+    },
+    {
+        "pregunta": "En la línea siguiente, dos de las formas representan el objeto y su imagen en el espejo. ¿Cuáles son?",
+        "imagen": "DATA/5/IMG/6.png",
+        "opciones": [
+            "A y B",
+            "A y C",
+            "B y D",
+            "C y D"
+        ],
+        "respuesta": "B y D"
+    },
+    {
+        "pregunta": "Las estadísticas indican que los conductores del sexo masculino sufren más accidentes de automóvil que las conductoras. La conclusión es que:",
+        "opciones": [
+            "Como siempre, los hombres, típicos machistas, se equivocan en lo que respecta a la pericia de la mujer conductora.",
+            "Los hombres conducen mejor, pero lo hacen con más frecuencia.",
+            "Los hombres y mujeres conducen igualmente bien, pero los hombres hacen más kilometraje.",
+            "La mayoría de los camioneros son hombres.",
+            "No hay suficientes datos para justificar una conclusión."
+        ],
+        "respuesta": "No hay suficientes datos para justificar una conclusión."
+    },
+    {
+        "pregunta": "En el siguiente cuadro, haciendo una operación aritmética, dos de los números de cada fila horizontal o vertical dan como resultado un tercero. ¿Cuál es el número que falta?\n6   2   12\n4   5   20\n24  10  ?",
+        "opciones": [
+            "240",
+            "120",
+            "24",
+            "48"
+        ],
+        "respuesta": "240"
+    },
+    {
+        "pregunta": "Si AxB=24; CxD=32; BxD=48 y BxC=24, ¿cuánto es AxBxCxD?",
+        "opciones": [
+            "480",
+            "576",
+            "744",
+            "768",
+            "824"
+        ],
+        "respuesta": "768"
+    },
+    {
+        "pregunta": "¿Cuál de los cuatro recuadros inferiores completa mejor la serie de arriba?",
+        "imagen": "DATA/5/IMG/7.png",
+        "opciones": [
+            "A",
+            "B",
+            "C",
+            "D"
+        ],
+        "respuesta": "D"
+    },
+    {
+        "pregunta": "¿Cuál de estas palabras no pertenece al grupo?",
+        "opciones": [
+            "microscopio",
+            "lupa",
+            "micrófono",
+            "telescopio",
+            "telégrafo"
+        ],
+        "respuesta": "telégrafo"
+    },
+    {
+        "pregunta": "Busque las dos palabras de significado más parecido.\n(a) haz (b) bulto (c) risa (d) rayo (e) colección",
+        "opciones": [
+            "haz - bulto",
+            "haz - rayo",
+            "bulto - colección",
+            "risa - rayo",
+            "rayo - colección"
+        ],
+        "respuesta": "haz - bulto"
+    },
+    {
+        "pregunta": "Si al llegar a la esquina Jim dobla a la derecha o a la izquierda puede quedarse sin gasolina antes de encontrar una estación de servicio. Ha dejado una atrás, pero sabe que, si vuelve, se le acabará la gasolina antes de llegar. En la dirección que lleva no ve ningún surtidor. Por tanto:",
+        "opciones": [
+            "Puede que se quede sin gasolina",
+            "Se quedará sin gasolina",
+            "No debió seguir",
+            "Se ha perdido",
+            "Debería girar a la derecha",
+            "Debería girar a la izquierda"
+        ],
+        "respuesta": "Puede que se quede sin gasolina"
+    },
+    {
+        "pregunta": "Complete la analogía:\n(Caras) son a (Flechas) como + - 0 son a:",
+        "imagen": "DATA/5/IMG/8.png",
+        "opciones": [
+            "+ - 0",
+            "0 + -",
+            "- + 0",
+            "0 - +",
+            "+ + 0"
+        ],
+        "respuesta": "- + 0"
+    },
+    {
+        "pregunta": "Todos los neumáticos son de goma. Todo lo de goma es flexible. Alguna goma es negra. Según esto, ¿cuál o cuales de las siguientes afirmaciones son ciertas?",
+        "opciones": [
+            "Todos los neumáticos son flexibles y negros.",
+            "Todos los neumáticos son negros.",
+            "Sólo algunos neumáticos son de goma.",
+            "Todos los neumáticos son flexibles.",
+            "Todos los neumáticos son flexibles y algunos negros."
+        ],
+        "respuesta": "Todos los neumáticos son flexibles."
+    },
+    {
+        "pregunta": "Escriba entre paréntesis una palabra de 5 letras que, si va precedida de las letras a la izquierda del paréntesis o seguida de las letras de la derecha, forma en cada caso una palabra de 7 letras.\nGA(_____)CA",
+        "opciones": [
+            "BARRA",
+            "RROTA",
+            "LLINA",
+            "RRAFA"
+        ],
+        "respuesta": "BARRA"
+    },
+    {
+        "pregunta": "¿Cuál de las cuatro figuras inferiores completa mejor la serie de arriba?",
+        "imagen": "DATA/5/IMG/9.png",
+        "opciones": [
+            "A",
+            "B",
+            "C",
+            "D"
+        ],
+        "respuesta": "B"
+    },
+    {
+        "pregunta": "¿Cuál de las parejas de números es la continuación más lógica de la serie propuesta?\n2 8 3 7 5 6 8 5 _ _",
+        "opciones": [
+            "8 6",
+            "11 4",
+            "12 4",
+            "12 6"
+        ],
+        "respuesta": "12 4"
+    },
+    {
+        "pregunta": "Encuentre una palabra que pueda significar lo mismo que las dos que se indican:\nPOEMA _______ PIEDRA",
+        "opciones": [
+            "CANTO",
+            "ODA",
+            "ROCA",
+            "VERSO"
+        ],
+        "respuesta": "CANTO"
+    },
+    {
+        "pregunta": "¿Qué figura de entre las marcadas con una letra completa mejor la analogía siguiente? (Hexágono es a estrella de 6 puntas)",
+        "imagen": "DATA/5/IMG/10.png",
+        "opciones": [
+            "A",
+            "B",
+            "C"
+        ],
+        "respuesta": "B"
+    },
+    {
+        "pregunta": "A es más joven B; C es más viejo que A; D es más viejo que C. ¿Cuál de las siguientes afirmaciones es cierta?",
+        "opciones": [
+            "C es más viejo que B",
+            "B es más viejo que C",
+            "A es más viejo que D",
+            "D es más viejo que A"
+        ],
+        "respuesta": "D es más viejo que A"
+    },
+    {
+        "pregunta": "Indique la palabra que falta en la siguiente analogía:\nESTRELLA es a CONSTELACIÓN como PÉTALO ES A _ _ _ _ _ _",
+        "opciones": [
+            "COROLA",
+            "FLOR",
+            "AROMA",
+            "JARDÍN"
+        ],
+        "respuesta": "COROLA"
+    },
+    {
+        "pregunta": "¿Cuál de las cuatro primeras figuras puede obtenerse por simple rotación de la figura de la derecha?",
+        "imagen": "DATA/5/IMG/11.png",
+        "opciones": [
+            "A",
+            "B",
+            "C",
+            "D"
+        ],
+        "respuesta": "B"
+    },
+    {
+        "pregunta": "¿Qué número multiplicado por 3 es los 3/4 de 120?",
+        "opciones": [
+            "30",
+            "40",
+            "90",
+            "120"
+        ],
+        "respuesta": "30"
+    },
+    {
+        "pregunta": "Escriba en cada uno de los dos espacios de tres letras que presentan las dos palabras indicadas, una tercera palabra capaz de darles un sentido completo a ambas palabras:\nA _ _ _ DEAR \t MA _ _ _ IA",
+        "opciones": [
+            "LAR",
+            "TER",
+            "GEN",
+            "SON"
+        ],
+        "respuesta": "LAR"
+    },
+    {
+        "pregunta": "Escoja de entre las palabras propuestas la que mejor complete la siguiente analogía:\nDÉCIMO es a MÉDICO como RETINA es a _ _ _ _ _ _",
+        "opciones": [
+            "blanda",
+            "tierna",
+            "galeno",
+            "niebla"
+        ],
+        "respuesta": "tierna"
+    },
+    {
+        "pregunta": "De entre las cuatro figuras indicadas con una letra, ¿cuál corresponde a la siguiente analogía? (Relojes)",
+        "imagen": "DATA/5/IMG/12.png",
+        "opciones": [
+            "A",
+            "B",
+            "C",
+            "D"
+        ],
+        "respuesta": "C"
+    },
+    {
+        "pregunta": "Si III V = BAO   IV III VI = VAS   VI III II = SAR\n¿qué es I II III IV V?",
+        "opciones": [
+            "BRAVO",
+            "BRASA",
+            "BREVA",
+            "BARCO",
+            "BROCA"
+        ],
+        "respuesta": "BRAVO"
+    },
+    {
+        "pregunta": "Jorge tiene tantos hermanos como hermanas; sin embargo una hermana tiene el doble de hermanos que de hermanas. ¿Cuántos chicos y chicas hay en la familia?",
+        "opciones": [
+            "4 chicos y 3 chicas",
+            "3 chicos y 4 chicas",
+            "3 chicos y 3 chicas",
+            "5 chicos y 4 chicas"
+        ],
+        "respuesta": "4 chicos y 3 chicas"
+    },
+    {
+        "pregunta": "Todas las ostras son conchas y todos los conchas son azules; además algunas conchas son la morada de animalitos pequeños. Según los datos suministrados, ¿cuál de las siguientes afirmaciones es cierta?",
+        "opciones": [
+            "a) todas las ostras son azules.",
+            "b) Todas las moradas de animalitos pequeños son ostras.",
+            "c) a) y b) no son ciertas.",
+            "d) a) y b) son ciertas las dos."
+        ],
+        "respuesta": "a) todas las ostras son azules."
+    },
+    {
+        "pregunta": "Todos los números de la primera tabla han sido colocados según una regla; si se ha seguido la misma regla para componer la segunda tabla, ¿cuál es el número que falta?\nTabla 1: (6 2 3) (3 1 3) (2 2 1)\nTabla 2: (? 4 6) (6 2 3) (4 2 2)",
+        "imagen": "DATA/5/IMG/13.png",
+        "opciones": [
+            "24",
+            "10",
+            "12",
+            "20"
+        ],
+        "respuesta": "24"
+    },
+    {
+        "pregunta": "¿Cuál de las tres letras indicadas con una letra completa por lógica la siguiente analogía?",
+        "imagen": "DATA/5/IMG/14.png",
+        "opciones": [
+            "A",
+            "B",
+            "C"
+        ],
+        "respuesta": "B"
+    },
+    {
+        "pregunta": "Un cubo de madera de 30 cm. de lado se pinta completamente de rojo; luego se sierra en 27 cubitos de 10 cm de lado cada uno. ¿Cuántos serán los cubitos serrados que presentarán sólo dos caras pintadas?",
+        "opciones": [
+            "6",
+            "9",
+            "12",
+            "27"
+        ],
+        "respuesta": "12"
+    },
+    {
+        "pregunta": "Completar la siguiente analogía escogiendo entre las palabras propuestas:\nCAPITALISMO es a EMPRESARIO como FEUDALISMO es a ...............",
+        "opciones": [
+            "caballo",
+            "señor",
+            "siervo de la gleba",
+            "feudo"
+        ],
+        "respuesta": "señor"
+    },
+    {
+        "pregunta": "¿Qué terna de letras representa la continuación más lógica de la serie? (prescíndase de la ñ)\nZ Y X U V W T S R _ _ _",
+        "opciones": [
+            "OPQ",
+            "POQ",
+            "OQN",
+            "NOP"
+        ],
+        "respuesta": "OPQ"
+    },
+    {
+        "pregunta": "A lo largo de una carretera hay cuatro pueblos seguidos: los Rojos viven al lado de los Verdes pero no de los Grises; los Azules no viven al lado de los Grises. ¿Quiénes son pues los vecinos de los Grises?",
+        "opciones": [
+            "Los Rojos",
+            "Los Verdes",
+            "Los Rojos y los Verdes",
+            "no puede determinarse"
+        ],
+        "respuesta": "Los Verdes"
+    },
+    {
+        "pregunta": "Carmen pulsa 50 caracteres cada 10 segundos mientras Rosa no pulsa más que 40 en el mismo tiempo. ¿Cuánto tiempo emplearán entre las dos para pulsar 360 caracteres en total?",
+        "opciones": [
+            "30 seg",
+            "36 seg",
+            "40 seg",
+            "45 seg"
+        ],
+        "respuesta": "40 seg"
+    },
+    {
+        "pregunta": "Aquí tenemos cuatro vistas distintas del mismo cubo. Escoja, entre las cuatro propuestas, el dibujo que corresponde a la cara opuesta a la que está en blanco en la cuarta figura.",
+        "imagen": "DATA/5/IMG/15.png",
+        "opciones": [
+            "A",
+            "B",
+            "C",
+            "D"
+        ],
+        "respuesta": "A"
+    },
+    {
+        "pregunta": "Sonia tiene un número de vestidos igual a los que posee Alicia divididos por los que tiene Ana. Alicia posee 42, pero tendría 8 veces los que tiene Ana si tuviera 14 más. ¿Cuántos vestidos tiene Sonia?",
+        "opciones": [
+            "5",
+            "6",
+            "7",
+            "8"
+        ],
+        "respuesta": "6"
+    },
+    {
+        "pregunta": "¿Cuál de las tres figuras indicadas con una letra completa lógicamente la siguiente analogía?",
+        "imagen": "DATA/5/IMG/16.png",
+        "opciones": [
+            "A",
+            "B",
+            "C"
+        ],
+        "respuesta": "B"
+    },
+    {
+        "pregunta": "Compra usted un elefante por 550.000 pesetas y lo revende a un circo por 500.000 pesetas. Después de la temporada se lo recompra al circo por 450.000 pesetas y más tarde lo revende a un zoo por 600.000 pesetas. ¿Cuánto ha ganado o perdido en pesetas?",
+        "opciones": [
+            "Ha ganado 100.000",
+            "Ha perdido 50.000",
+            "Ha ganado 50.000",
+            "Se quedó igual"
+        ],
+        "respuesta": "Ha ganado 100.000"
+    },
+    {
+        "pregunta": "Si TRASPIÉ vale 3, ENVUELTA vale 9 y SIESTA 6, ¿cuánto vale BUFÓN?",
+        "opciones": [
+            "2",
+            "1",
+            "4",
+            "5"
+        ],
+        "respuesta": "1"
+    },
+    {
+        "pregunta": "Si A + B = 18 y A x B = 72, ¿cuál será el resultado de 2 x (A + B) + 2 x A x B?",
+        "opciones": [
+            "144",
+            "160",
+            "180",
+            "252"
+        ],
+        "respuesta": "180"
+    },
+    {
+        "pregunta": "Aquí tenemos cuatro vistas distintas del mismo dado, ¿cuál debe ser la letra a inscribir en la figura D?",
+        "imagen": "DATA/5/IMG/17.png",
+        "opciones": [
+            "E",
+            "N",
+            "T",
+            "V"
+        ],
+        "respuesta": "V"
+    },
+    {
+        "pregunta": "¿Cuál de los dos refranes siguientes tiene un sentido más próximo al de la frase 'El hábito no hace al monje'?",
+        "opciones": [
+            "El que tiene tejado de vidrio, no tire piedras a su vecino.",
+            "Ojos que no ven, corazón que no siente.",
+            "Donde fuego se hace, humo sale.",
+            "No es oro todo lo que reluce, ni harina lo que blanquea."
+        ],
+        "respuesta": "No es oro todo lo que reluce, ni harina lo que blanquea."
+    },
+    {
+        "pregunta": "Usted tiene 30 monedas, se apuesta todo y recupera la apuesta más 60 monedas, se gasta un tercio del total en un regalo, 10 en un taxi y el diez por ciento del resto lo da de propina. ¿Cuánto le queda?",
+        "opciones": [
+            "35",
+            "40",
+            "45",
+            "50"
+        ],
+        "respuesta": "45"
+    },
+    {
+        "pregunta": "¿Cuál de las cuatro primeras figuras puede obtenerse girando e invirtiendo la última figura de la derecha?",
+        "imagen": "DATA/5/IMG/18.png",
+        "opciones": [
+            "A",
+            "B",
+            "C",
+            "D"
+        ],
+        "respuesta": "D"
+    }
+]
