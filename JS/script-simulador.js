@@ -70,7 +70,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // Títulos
         if(txtTituloMateria) txtTituloMateria.textContent = title.toUpperCase();
         if(txtMateria) txtMateria.textContent = title;
-        document.getElementById('header-subtitulo').textContent = title.toUpperCase();
+        const headerSub = document.getElementById('header-subtitulo');
+        if(headerSub) headerSub.textContent = title.toUpperCase();
         
         // --- CONFIGURACIÓN DE TIEMPO Y RUTA ---
         let fetchUrl = '';
@@ -80,16 +81,14 @@ document.addEventListener('DOMContentLoaded', () => {
             carpetaEspecialID = materiaKey.split('_')[2]; // Obtiene '4', '5' o '6'
             fetchUrl = `DATA/${carpetaEspecialID}/${carpetaEspecialID}.json`;
             timeLeft = 3600; // 1 Hora
-            totalPreguntas = 50; // Provisional hasta cargar
+            totalPreguntas = 50; 
         } 
-        // Casos Normales
         else if (materiaKey.includes('matematicas')) {
             timeLeft = 5400; 
             fetchUrl = `DATA/preguntas_${materiaKey}.json`;
         } else if (materiaKey.includes('general')) { 
             timeLeft = 10800; 
             totalPreguntas = 200;
-            // General se maneja con array de cargas abajo
         } else {
             timeLeft = 3600; 
             fetchUrl = `DATA/preguntas_${materiaKey}.json`;
@@ -102,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // Definir qué cargar
             if (materiaKey.startsWith('int_esmil_')) {
-                filesToLoad = [fetchUrl]; // Carga directa del archivo especial
+                filesToLoad = [fetchUrl];
             } else if(materiaKey === 'general') {
                 filesToLoad = ordenGeneralPolicia.map(m => `DATA/preguntas_${m}.json`);
             } else if(materiaKey === 'general_esmil') {
@@ -128,9 +127,18 @@ document.addEventListener('DOMContentLoaded', () => {
             } else if (materiaKey.includes('general')) {
                 questions = allQ.sort(() => 0.5 - Math.random()).slice(0, 200);
             } else if (materiaKey.startsWith('int_esmil_')) {
-                // Para Inteligencia ESMIL usamos todas las preguntas del JSON sin recortar (o recortamos a 50 si quieres)
-                // Dejemos todas por ahora, o ajusta .slice(0,50) si prefieres
-                questions = allQ; 
+                // CORRECCIÓN DE RUTAS DE IMÁGENES PARA ESMIL
+                // Recorremos las preguntas y forzamos la ruta correcta: DATA/N/IMAGES/archivo.png
+                questions = allQ.map(q => {
+                    if (q.imagen) {
+                        // Obtenemos solo el nombre del archivo (ej: "pregunta1.png")
+                        // quitando cualquier ruta previa que venga en el JSON por error
+                        const imageName = q.imagen.split('/').pop(); 
+                        q.imagen = `DATA/${carpetaEspecialID}/IMAGES/${imageName}`;
+                    }
+                    return q;
+                });
+                // No recortamos preguntas en ESMIL (usamos todas las del JSON)
             } else {
                 questions = allQ.sort(() => 0.5 - Math.random()).slice(0, 50);
             }
@@ -140,6 +148,10 @@ document.addEventListener('DOMContentLoaded', () => {
             // Actualizar total real
             if(txtPreguntas) txtPreguntas.textContent = questions.length;
 
+            // --- PRELOAD DE IMÁGENES (AQUÍ ESTÁ LA SOLUCIÓN) ---
+            await preloadImages(questions);
+
+            // Una vez cargadas todas las imágenes, habilitamos el botón
             btnStart.disabled = false;
             btnStart.innerHTML = 'COMENZAR INTENTO <i class="fas fa-play"></i>';
             btnStart.onclick = startQuiz;
@@ -147,6 +159,44 @@ document.addEventListener('DOMContentLoaded', () => {
         } catch (e) { 
             showError(e.message); 
         }
+    }
+
+    // --- FUNCIÓN DE PRECARGA DE IMÁGENES ---
+    async function preloadImages(questionsList) {
+        const imagesToLoad = questionsList.filter(q => q.imagen);
+        const totalImages = imagesToLoad.length;
+        
+        if (totalImages === 0) {
+            btnStart.innerHTML = "CARGANDO DATOS...";
+            return;
+        }
+
+        btnStart.innerHTML = `<i class="fas fa-spinner fa-spin"></i> CARGANDO IMÁGENES (0/${totalImages})`;
+        
+        let loadedCount = 0;
+        
+        const promises = imagesToLoad.map(q => {
+            return new Promise((resolve) => {
+                const img = new Image();
+                img.src = q.imagen;
+                
+                // Tanto si carga bien como si falla, contamos como procesado para no trabar
+                img.onload = () => {
+                    loadedCount++;
+                    btnStart.innerHTML = `<i class="fas fa-spinner fa-spin"></i> CARGANDO IMÁGENES (${loadedCount}/${totalImages})`;
+                    resolve();
+                };
+                img.onerror = () => {
+                    console.warn("No se pudo cargar imagen:", q.imagen);
+                    loadedCount++;
+                    btnStart.innerHTML = `<i class="fas fa-spinner fa-spin"></i> CARGANDO IMÁGENES (${loadedCount}/${totalImages})`;
+                    resolve();
+                };
+            });
+        });
+
+        // Esperamos a que TODAS las promesas de carga terminen
+        await Promise.all(promises);
     }
 
     function startQuiz() {
@@ -173,21 +223,14 @@ document.addEventListener('DOMContentLoaded', () => {
         currentIdx = idx;
         const q = questions[idx];
         document.getElementById('pregunta-numero').textContent = `Pregunta ${idx+1}`;
-        document.getElementById('pregunta-texto').textContent = q.pregunta;
+        
+        // --- SOLUCIÓN PARA LOS SALTOS DE LÍNEA (/n) ---
+        // Reemplazamos \n (salto de linea del JSON) por <br> (salto de linea HTML)
+        const textoFormateado = q.pregunta.replace(/\n/g, '<br>');
+        document.getElementById('pregunta-texto').innerHTML = textoFormateado;
         
         const imgDiv = document.getElementById('q-image-container');
-        
-        // --- LÓGICA DE IMÁGENES PARA CARPETAS ESPECIALES ---
-        let imgSrc = q.imagen;
-        if (imgSrc && carpetaEspecialID) {
-            // Si estamos en un simulador especial (ej: 4), y la imagen en el JSON dice "IMAGES/foto.jpg"
-            // Transformamos la ruta a "DATA/4/IMAGES/foto.jpg"
-            if (!imgSrc.includes(`DATA/${carpetaEspecialID}`)) {
-                imgSrc = `DATA/${carpetaEspecialID}/${q.imagen}`;
-            }
-        }
-
-        imgDiv.innerHTML = imgSrc ? `<img src="${imgSrc}" onerror="this.style.display='none'" style="max-width:100%; border-radius:8px;">` : '';
+        imgDiv.innerHTML = q.imagen ? `<img src="${q.imagen}" style="max-width:100%; border-radius:8px; box-shadow:0 4px 10px rgba(0,0,0,0.1);">` : '';
 
         const opts = document.getElementById('opciones-container');
         opts.innerHTML = '';
@@ -259,15 +302,12 @@ document.addEventListener('DOMContentLoaded', () => {
             div.style.borderBottom = '1px solid #eee'; div.style.padding = '15px';
             const correct = userAnswers[i] === q.respuesta;
             
-            // Imagen en revisión también necesita la ruta corregida
-            let imgSrc = q.imagen;
-            if (imgSrc && carpetaEspecialID && !imgSrc.includes(`DATA/${carpetaEspecialID}`)) {
-                imgSrc = `DATA/${carpetaEspecialID}/${q.imagen}`;
-            }
-
-            let imgHtml = imgSrc ? `<div style="text-align:center; margin:10px 0;"><img src="${imgSrc}" style="max-width:150px; border-radius:5px;"></div>` : '';
+            let imgHtml = q.imagen ? `<div style="text-align:center; margin:10px 0;"><img src="${q.imagen}" style="max-width:150px; border-radius:5px;"></div>` : '';
             
-            div.innerHTML = `<p><strong>${i+1}. ${q.pregunta}</strong></p>
+            // También formateamos saltos de línea en la revisión
+            const textoPregunta = q.pregunta.replace(/\n/g, '<br>');
+
+            div.innerHTML = `<p><strong>${i+1}. ${textoPregunta}</strong></p>
                              ${imgHtml}
                              <p>Tu respuesta: <span style="font-weight:bold; color:${correct?'green':'red'}">${userAnswers[i]||'---'}</span></p>
                              ${!correct ? `<p style="color:green; margin-top:5px;">Correcta: <strong>${q.respuesta}</strong></p>` : ''}`;
@@ -279,7 +319,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const user = JSON.parse(userStr);
             const params = new URLSearchParams(window.location.search);
             const materiaKey = params.get('materia');
-            // Usamos el nombre bonito del mapa 'materias' o el código si no existe
             const title = materias[materiaKey] || materiaKey;
             
             try {
