@@ -1,0 +1,530 @@
+[
+    {
+        "pregunta": "En cada uno de los cuadros siguientes hay un grupo de fichas de dominós. Dentro de cada mitad los puntos varían de 0 a 6. Lo que usted tiene que hacer es observar bien cada grupo y calcular cuántos puntos le corresponden a la ficha que está en blanco.",
+        "imagen": "DATA/4/IMG/1.png",
+        "opciones": [
+            "2/4",
+            "3/4",
+            "0/5",
+            "6/6"
+        ],
+        "respuesta": "2/4"
+    },
+    {
+        "pregunta": "En cada uno de los cuadros siguientes hay un grupo de fichas de dominós. Dentro de cada mitad los puntos varían de 0 a 6. Lo que usted tiene que hacer es observar bien cada grupo y calcular cuántos puntos le corresponden a la ficha que está en blanco.",
+        "imagen": "DATA/4/IMG/2.png",
+        "opciones": [
+            "6/1",
+            "0/1",
+            "4/5",
+            "3/6"
+        ],
+        "respuesta": "6/1"
+    },
+    {
+        "pregunta": "En cada uno de los cuadros siguientes hay un grupo de fichas de dominós. Dentro de cada mitad los puntos varían de 0 a 6. Lo que usted tiene que hacer es observar bien cada grupo y calcular cuántos puntos le corresponden a la ficha que está en blanco.",
+        "imagen": "DATA/4/IMG/3.png",
+        "opciones": [
+            "3/5",
+            "1/3",
+            "2/4",
+            "5/6"
+        ],
+        "respuesta": "3/5"
+    },
+    {
+        "pregunta": "En cada uno de los cuadros siguientes hay un grupo de fichas de dominós. Dentro de cada mitad los puntos varían de 0 a 6. Lo que usted tiene que hacer es observar bien cada grupo y calcular cuántos puntos le corresponden a la ficha que está en blanco.",
+        "imagen": "DATA/4/IMG/4.png",
+        "opciones": [
+            "0/2",
+            "4/1",
+            "6/2",
+            "0/5"
+        ],
+        "respuesta": "0/2"
+    },
+    {
+        "pregunta": "En cada uno de los cuadros siguientes hay un grupo de fichas de dominós. Dentro de cada mitad los puntos varían de 0 a 6. Lo que usted tiene que hacer es observar bien cada grupo y calcular cuántos puntos le corresponden a la ficha que está en blanco.",
+        "imagen": "DATA/4/IMG/5.png",
+        "opciones": [
+            "4/1",
+            "2/5",
+            "3/6",
+            "0/2"
+        ],
+        "respuesta": "4/1"
+    },
+    {
+        "pregunta": "En cada uno de los cuadros siguientes hay un grupo de fichas de dominós. Dentro de cada mitad los puntos varían de 0 a 6. Lo que usted tiene que hacer es observar bien cada grupo y calcular cuántos puntos le corresponden a la ficha que está en blanco.",
+        "imagen": "DATA/4/IMG/6.png",
+        "opciones": [
+            "3/6",
+            "1/0",
+            "2/3",
+            "4/6"
+        ],
+        "respuesta": "3/6"
+    },
+    {
+        "pregunta": "En cada uno de los cuadros siguientes hay un grupo de fichas de dominós. Dentro de cada mitad los puntos varían de 0 a 6. Lo que usted tiene que hacer es observar bien cada grupo y calcular cuántos puntos le corresponden a la ficha que está en blanco.",
+        "imagen": "DATA/4/IMG/7.png",
+        "opciones": [
+            "6/0",
+            "1/1",
+            "5/2",
+            "5/4"
+        ],
+        "respuesta": "5/2"
+    },
+    {
+        "pregunta": "En cada uno de los cuadros siguientes hay un grupo de fichas de dominós. Dentro de cada mitad los puntos varían de 0 a 6. Lo que usted tiene que hacer es observar bien cada grupo y calcular cuántos puntos le corresponden a la ficha que está en blanco.",
+        "imagen": "DATA/4/IMG/8.png",
+        "opciones": [
+            "2/6",
+            "0/3",
+            "4/1",
+            "0/4"
+        ],
+        "respuesta": "0/4"
+    },
+    {
+        "pregunta": "En cada uno de los cuadros siguientes hay un grupo de fichas de dominós. Dentro de cada mitad los puntos varían de 0 a 6. Lo que usted tiene que hacer es observar bien cada grupo y calcular cuántos puntos le corresponden a la ficha que está en blanco.",
+        "imagen": "DATA/4/IMG/9.png",
+        "opciones": [
+            "2/6",
+            "1/6",
+            "0/4",
+            "2/2"
+        ],
+        "respuesta": "2/6"
+    },
+    {
+        "pregunta": "En cada uno de los cuadros siguientes hay un grupo de fichas de dominós. Dentro de cada mitad los puntos varían de 0 a 6. Lo que usted tiene que hacer es observar bien cada grupo y calcular cuántos puntos le corresponden a la ficha que está en blanco.",
+        "imagen": "DATA/4/IMG/10.png",
+        "opciones": [
+            "4/4",
+            "5/0",
+            "3/3",
+            "6/3"
+        ],
+        "respuesta": "3/3"
+    },
+    {
+        "pregunta": "En cada uno de los cuadros siguientes hay un grupo de fichas de dominós. Dentro de cada mitad los puntos varían de 0 a 6. Lo que usted tiene que hacer es observar bien cada grupo y calcular cuántos puntos le corresponden a la ficha que está en blanco.",
+        "imagen": "DATA/4/IMG/11.png",
+        "opciones": [
+            "0/6",
+            "2/1",
+            "3/3",
+            "4/0"
+        ],
+        "respuesta": "4/0"
+    },
+    {
+        "pregunta": "En cada uno de los cuadros siguientes hay un grupo de fichas de dominós. Dentro de cada mitad los puntos varían de 0 a 6. Lo que usted tiene que hacer es observar bien cada grupo y calcular cuántos puntos le corresponden a la ficha que está en blanco.",
+        "imagen": "DATA/4/IMG/12.png",
+        "opciones": [
+            "1/5",
+            "4/2",
+            "6/1",
+            "5/1"
+        ],
+        "respuesta": "5/1"
+    },
+    {
+        "pregunta": "En cada uno de los cuadros siguientes hay un grupo de fichas de dominós. Dentro de cada mitad los puntos varían de 0 a 6. Lo que usted tiene que hacer es observar bien cada grupo y calcular cuántos puntos le corresponden a la ficha que está en blanco.",
+        "imagen": "DATA/4/IMG/13.png",
+        "opciones": [
+            "3/4",
+            "2/0",
+            "5/6",
+            "2/3"
+        ],
+        "respuesta": "2/3"
+    },
+    {
+        "pregunta": "En cada uno de los cuadros siguientes hay un grupo de fichas de dominós. Dentro de cada mitad los puntos varían de 0 a 6. Lo que usted tiene que hacer es observar bien cada grupo y calcular cuántos puntos le corresponden a la ficha que está en blanco.",
+        "imagen": "DATA/4/IMG/14.png",
+        "opciones": [
+            "6/5",
+            "0/2",
+            "4/3",
+            "5/6"
+        ],
+        "respuesta": "5/6"
+    },
+    {
+        "pregunta": "En cada uno de los cuadros siguientes hay un grupo de fichas de dominós. Dentro de cada mitad los puntos varían de 0 a 6. Lo que usted tiene que hacer es observar bien cada grupo y calcular cuántos puntos le corresponden a la ficha que está en blanco.",
+        "imagen": "DATA/4/IMG/15.png",
+        "opciones": [
+            "2/4",
+            "3/1",
+            "5/0",
+            "1/4"
+        ],
+        "respuesta": "1/4"
+    },
+    {
+        "pregunta": "En cada uno de los cuadros siguientes hay un grupo de fichas de dominós. Dentro de cada mitad los puntos varían de 0 a 6. Lo que usted tiene que hacer es observar bien cada grupo y calcular cuántos puntos le corresponden a la ficha que está en blanco.",
+        "imagen": "DATA/4/IMG/16.png",
+        "opciones": [
+            "2/5",
+            "1/6",
+            "0/5",
+            "3/2"
+        ],
+        "respuesta": "2/5"
+    },
+    {
+        "pregunta": "En cada uno de los cuadros siguientes hay un grupo de fichas de dominós. Dentro de cada mitad los puntos varían de 0 a 6. Lo que usted tiene que hacer es observar bien cada grupo y calcular cuántos puntos le corresponden a la ficha que está en blanco.",
+        "imagen": "DATA/4/IMG/17.png",
+        "opciones": [
+            "5/3",
+            "2/5",
+            "6/4",
+            "6/0"
+        ],
+        "respuesta": "6/0"
+    },
+    {
+        "pregunta": "En cada uno de los cuadros siguientes hay un grupo de fichas de dominós. Dentro de cada mitad los puntos varían de 0 a 6. Lo que usted tiene que hacer es observar bien cada grupo y calcular cuántos puntos le corresponden a la ficha que está en blanco.",
+        "imagen": "DATA/4/IMG/18.png",
+        "opciones": [
+            "0/1",
+            "3/6",
+            "4/5",
+            "1/4"
+        ],
+        "respuesta": "1/4"
+    },
+    {
+        "pregunta": "En cada uno de los cuadros siguientes hay un grupo de fichas de dominós. Dentro de cada mitad los puntos varían de 0 a 6. Lo que usted tiene que hacer es observar bien cada grupo y calcular cuántos puntos le corresponden a la ficha que está en blanco.",
+        "imagen": "DATA/4/IMG/19.png",
+        "opciones": [
+            "6/6",
+            "1/4",
+            "5/2",
+            "2/2"
+        ],
+        "respuesta": "2/2"
+    },
+    {
+        "pregunta": "En cada uno de los cuadros siguientes hay un grupo de fichas de dominós. Dentro de cada mitad los puntos varían de 0 a 6. Lo que usted tiene que hacer es observar bien cada grupo y calcular cuántos puntos le corresponden a la ficha que está en blanco.",
+        "imagen": "DATA/4/IMG/20.png",
+        "opciones": [
+            "3/0",
+            "2/1",
+            "4/6",
+            "1/5"
+        ],
+        "respuesta": "1/5"
+    },
+    {
+        "pregunta": "En cada uno de los cuadros siguientes hay un grupo de fichas de dominós. Dentro de cada mitad los puntos varían de 0 a 6. Lo que usted tiene que hacer es observar bien cada grupo y calcular cuántos puntos le corresponden a la ficha que está en blanco.",
+        "imagen": "DATA/4/IMG/21.png",
+        "opciones": [
+            "1/2",
+            "0/5",
+            "3/4",
+            "0/4"
+        ],
+        "respuesta": "0/4"
+    },
+    {
+        "pregunta": "En cada uno de los cuadros siguientes hay un grupo de fichas de dominós. Dentro de cada mitad los puntos varían de 0 a 6. Lo que usted tiene que hacer es observar bien cada grupo y calcular cuántos puntos le corresponden a la ficha que está en blanco.",
+        "imagen": "DATA/4/IMG/22.png",
+        "opciones": [
+            "4/2",
+            "5/1",
+            "2/6",
+            "6/3"
+        ],
+        "respuesta": "6/3"
+    },
+    {
+        "pregunta": "En cada uno de los cuadros siguientes hay un grupo de fichas de dominós. Dentro de cada mitad los puntos varían de 0 a 6. Lo que usted tiene que hacer es observar bien cada grupo y calcular cuántos puntos le corresponden a la ficha que está en blanco.",
+        "imagen": "DATA/4/IMG/23.png",
+        "opciones": [
+            "6/3",
+            "1/0",
+            "2/1",
+            "2/2"
+        ],
+        "respuesta": "2/1"
+    },
+    {
+        "pregunta": "En cada uno de los cuadros siguientes hay un grupo de fichas de dominós. Dentro de cada mitad los puntos varían de 0 a 6. Lo que usted tiene que hacer es observar bien cada grupo y calcular cuántos puntos le corresponden a la ficha que está en blanco.",
+        "imagen": "DATA/4/IMG/24.png",
+        "opciones": [
+            "5/6",
+            "4/1",
+            "0/0",
+            "3/5"
+        ],
+        "respuesta": "3/5"
+    },
+    {
+        "pregunta": "En cada uno de los cuadros siguientes hay un grupo de fichas de dominós. Dentro de cada mitad los puntos varían de 0 a 6. Lo que usted tiene que hacer es observar bien cada grupo y calcular cuántos puntos le corresponden a la ficha que está en blanco.",
+        "imagen": "DATA/4/IMG/25.png",
+        "opciones": [
+            "2/5",
+            "3/2",
+            "6/0",
+            "6/4"
+        ],
+        "respuesta": "6/4"
+    },
+    {
+        "pregunta": "En cada uno de los cuadros siguientes hay un grupo de fichas de dominós. Dentro de cada mitad los puntos varían de 0 a 6. Lo que usted tiene que hacer es observar bien cada grupo y calcular cuántos puntos le corresponden a la ficha que está en blanco.",
+        "imagen": "DATA/4/IMG/26.png",
+        "opciones": [
+            "0/3",
+            "1/5",
+            "5/2",
+            "3/0"
+        ],
+        "respuesta": "3/0"
+    },
+    {
+        "pregunta": "En cada uno de los cuadros siguientes hay un grupo de fichas de dominós. Dentro de cada mitad los puntos varían de 0 a 6. Lo que usted tiene que hacer es observar bien cada grupo y calcular cuántos puntos le corresponden a la ficha que está en blanco.",
+        "imagen": "DATA/4/IMG/27.png",
+        "opciones": [
+            "1/5",
+            "2/0",
+            "4/5",
+            "1/1"
+        ],
+        "respuesta": "1/5"
+    },
+    {
+        "pregunta": "En cada uno de los cuadros siguientes hay un grupo de fichas de dominós. Dentro de cada mitad los puntos varían de 0 a 6. Lo que usted tiene que hacer es observar bien cada grupo y calcular cuántos puntos le corresponden a la ficha que está en blanco.",
+        "imagen": "DATA/4/IMG/28.png",
+        "opciones": [
+            "5/4",
+            "6/2",
+            "0/6",
+            "3/1"
+        ],
+        "respuesta": "5/4"
+    },
+    {
+        "pregunta": "En cada uno de los cuadros siguientes hay un grupo de fichas de dominós. Dentro de cada mitad los puntos varían de 0 a 6. Lo que usted tiene que hacer es observar bien cada grupo y calcular cuántos puntos le corresponden a la ficha que está en blanco.",
+        "imagen": "DATA/4/IMG/29.png",
+        "opciones": [
+            "1/6",
+            "5/4",
+            "4/0",
+            "5/3"
+        ],
+        "respuesta": "5/4"
+    },
+    {
+        "pregunta": "En cada uno de los cuadros siguientes hay un grupo de fichas de dominós. Dentro de cada mitad los puntos varían de 0 a 6. Lo que usted tiene que hacer es observar bien cada grupo y calcular cuántos puntos le corresponden a la ficha que está en blanco.",
+        "imagen": "DATA/4/IMG/30.png",
+        "opciones": [
+            "3/3",
+            "0/2",
+            "6/5",
+            "0/3"
+        ],
+        "respuesta": "0/3"
+    },
+    {
+        "pregunta": "En cada uno de los cuadros siguientes hay un grupo de fichas de dominós. Dentro de cada mitad los puntos varían de 0 a 6. Lo que usted tiene que hacer es observar bien cada grupo y calcular cuántos puntos le corresponden a la ficha que está en blanco.",
+        "imagen": "DATA/4/IMG/31.png",
+        "opciones": [
+            "4/6",
+            "5/0",
+            "2/3",
+            "5/6"
+        ],
+        "respuesta": "5/6"
+    },
+    {
+        "pregunta": "En cada uno de los cuadros siguientes hay un grupo de fichas de dominós. Dentro de cada mitad los puntos varían de 0 a 6. Lo que usted tiene que hacer es observar bien cada grupo y calcular cuántos puntos le corresponden a la ficha que está en blanco.",
+        "imagen": "DATA/4/IMG/32.png",
+        "opciones": [
+            "0/4",
+            "3/5",
+            "6/1",
+            "4/0"
+        ],
+        "respuesta": "4/0"
+    },
+    {
+        "pregunta": "En cada uno de los cuadros siguientes hay un grupo de fichas de dominós. Dentro de cada mitad los puntos varían de 0 a 6. Lo que usted tiene que hacer es observar bien cada grupo y calcular cuántos puntos le corresponden a la ficha que está en blanco.",
+        "imagen": "DATA/4/IMG/33.png",
+        "opciones": [
+            "4/4",
+            "5/6",
+            "4/3",
+            "2/5"
+        ],
+        "respuesta": "4/4"
+    },
+    {
+        "pregunta": "En cada uno de los cuadros siguientes hay un grupo de fichas de dominós. Dentro de cada mitad los puntos varían de 0 a 6. Lo que usted tiene que hacer es observar bien cada grupo y calcular cuántos puntos le corresponden a la ficha que está en blanco.",
+        "imagen": "DATA/4/IMG/34.png",
+        "opciones": [
+            "6/0",
+            "3/2",
+            "0/1",
+            "2/1"
+        ],
+        "respuesta": "2/1"
+    },
+    {
+        "pregunta": "En cada uno de los cuadros siguientes hay un grupo de fichas de dominós. Dentro de cada mitad los puntos varían de 0 a 6. Lo que usted tiene que hacer es observar bien cada grupo y calcular cuántos puntos le corresponden a la ficha que está en blanco.",
+        "imagen": "DATA/4/IMG/35.png",
+        "opciones": [
+            "2/6",
+            "1/3",
+            "5/2",
+            "6/2"
+        ],
+        "respuesta": "6/2"
+    },
+    {
+        "pregunta": "En cada uno de los cuadros siguientes hay un grupo de fichas de dominós. Dentro de cada mitad los puntos varían de 0 a 6. Lo que usted tiene que hacer es observar bien cada grupo y calcular cuántos puntos le corresponden a la ficha que está en blanco.",
+        "imagen": "DATA/4/IMG/36.png",
+        "opciones": [
+            "4/1",
+            "6/6",
+            "0/5",
+            "3/5"
+        ],
+        "respuesta": "3/5"
+    },
+    {
+        "pregunta": "En cada uno de los cuadros siguientes hay un grupo de fichas de dominós. Dentro de cada mitad los puntos varían de 0 a 6. Lo que usted tiene que hacer es observar bien cada grupo y calcular cuántos puntos le corresponden a la ficha que está en blanco.",
+        "imagen": "DATA/4/IMG/37.png",
+        "opciones": [
+            "6/0",
+            "5/1",
+            "1/5",
+            "6/3"
+        ],
+        "respuesta": "6/0"
+    },
+    {
+        "pregunta": "En cada uno de los cuadros siguientes hay un grupo de fichas de dominós. Dentro de cada mitad los puntos varían de 0 a 6. Lo que usted tiene que hacer es observar bien cada grupo y calcular cuántos puntos le corresponden a la ficha que está en blanco.",
+        "imagen": "DATA/4/IMG/38.png",
+        "opciones": [
+            "0/6",
+            "2/4",
+            "4/2",
+            "4/6"
+        ],
+        "respuesta": "4/6"
+    },
+    {
+        "pregunta": "En cada uno de los cuadros siguientes hay un grupo de fichas de dominós. Dentro de cada mitad los puntos varían de 0 a 6. Lo que usted tiene que hacer es observar bien cada grupo y calcular cuántos puntos le corresponden a la ficha que está en blanco.",
+        "imagen": "DATA/4/IMG/39.png",
+        "opciones": [
+            "3/4",
+            "3/1",
+            "6/2",
+            "2/3"
+        ],
+        "respuesta": "3/4"
+    },
+    {
+        "pregunta": "En cada uno de los cuadros siguientes hay un grupo de fichas de dominós. Dentro de cada mitad los puntos varían de 0 a 6. Lo que usted tiene que hacer es observar bien cada grupo y calcular cuántos puntos le corresponden a la ficha que está en blanco.",
+        "imagen": "DATA/4/IMG/40.png",
+        "opciones": [
+            "1/4",
+            "0/0",
+            "4/6",
+            "1/0"
+        ],
+        "respuesta": "1/0"
+    },
+    {
+        "pregunta": "En cada uno de los cuadros siguientes hay un grupo de fichas de dominós. Dentro de cada mitad los puntos varían de 0 a 6. Lo que usted tiene que hacer es observar bien cada grupo y calcular cuántos puntos le corresponden a la ficha que está en blanco.",
+        "imagen": "DATA/4/IMG/41.png",
+        "opciones": [
+            "5/1",
+            "2/1",
+            "3/5",
+            "0/2"
+        ],
+        "respuesta": "5/1"
+    },
+    {
+        "pregunta": "En cada uno de los cuadros siguientes hay un grupo de fichas de dominós. Dentro de cada mitad los puntos varían de 0 a 6. Lo que usted tiene que hacer es observar bien cada grupo y calcular cuántos puntos le corresponden a la ficha que está en blanco.",
+        "imagen": "DATA/4/IMG/42.png",
+        "opciones": [
+            "4/3",
+            "1/6",
+            "5/4",
+            "0/6"
+        ],
+        "respuesta": "0/6"
+    },
+    {
+        "pregunta": "En cada uno de los cuadros siguientes hay un grupo de fichas de dominós. Dentro de cada mitad los puntos varían de 0 a 6. Lo que usted tiene que hacer es observar bien cada grupo y calcular cuántos puntos le corresponden a la ficha que está en blanco.",
+        "imagen": "DATA/4/IMG/43.png",
+        "opciones": [
+            "0/5",
+            "3/6",
+            "3/6",
+            "4/0"
+        ],
+        "respuesta": "3/6"
+    },
+    {
+        "pregunta": "En cada uno de los cuadros siguientes hay un grupo de fichas de dominós. Dentro de cada mitad los puntos varían de 0 a 6. Lo que usted tiene que hacer es observar bien cada grupo y calcular cuántos puntos le corresponden a la ficha que está en blanco.",
+        "imagen": "DATA/4/IMG/44.png",
+        "opciones": [
+            "3/0",
+            "5/6",
+            "1/2",
+            "3/4"
+        ],
+        "respuesta": "3/0"
+    },
+    {
+        "pregunta": "En cada uno de los cuadros siguientes hay un grupo de fichas de dominós. Dentro de cada mitad los puntos varían de 0 a 6. Lo que usted tiene que hacer es observar bien cada grupo y calcular cuántos puntos le corresponden a la ficha que está en blanco.",
+        "imagen": "DATA/4/IMG/45.png",
+        "opciones": [
+            "2/5",
+            "4/4",
+            "0/3",
+            "2/0"
+        ],
+        "respuesta": "2/5"
+    },
+    {
+        "pregunta": "En cada uno de los cuadros siguientes hay un grupo de fichas de dominós. Dentro de cada mitad los puntos varían de 0 a 6. Lo que usted tiene que hacer es observar bien cada grupo y calcular cuántos puntos le corresponden a la ficha que está en blanco.",
+        "imagen": "DATA/4/IMG/46.png",
+        "opciones": [
+            "1/3",
+            "3/2",
+            "5/0",
+            "1/6"
+        ],
+        "respuesta": "1/6"
+    },
+    {
+        "pregunta": "En cada uno de los cuadros siguientes hay un grupo de fichas de dominós. Dentro de cada mitad los puntos varían de 0 a 6. Lo que usted tiene que hacer es observar bien cada grupo y calcular cuántos puntos le corresponden a la ficha que está en blanco.",
+        "imagen": "DATA/4/IMG/47.png",
+        "opciones": [
+            "2/6",
+            "0/4",
+            "6/3",
+            "2/2"
+        ],
+        "respuesta": "2/2"
+    },
+    {
+        "pregunta": "En cada uno de los cuadros siguientes hay un grupo de fichas de dominós. Dentro de cada mitad los puntos varían de 0 a 6. Lo que usted tiene que hacer es observar bien cada grupo y calcular cuántos puntos le corresponden a la ficha que está en blanco.",
+        "imagen": "DATA/4/IMG/48.png",
+        "opciones": [
+            "1/3",
+            "5/2",
+            "4/1",
+            "0/1"
+        ],
+        "respuesta": "1/3"
+    }
+]
