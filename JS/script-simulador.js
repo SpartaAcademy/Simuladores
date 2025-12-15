@@ -121,24 +121,25 @@ document.addEventListener('DOMContentLoaded', () => {
             let allQ = [];
             results.forEach(d => allQ = allQ.concat(d));
 
-            // --- PROCESAMIENTO DE PREGUNTAS ---
+            // --- PROCESAMIENTO DE PREGUNTAS (ALEATORIZACIÓN) ---
             if(materiaKey.startsWith('ppnn')) {
                 questions = allQ.sort(() => 0.5 - Math.random());
             } else if (materiaKey.includes('general')) {
                 questions = allQ.sort(() => 0.5 - Math.random()).slice(0, 200);
             } else if (materiaKey.startsWith('int_esmil_')) {
-                // CORRECCIÓN DE RUTAS DE IMÁGENES PARA ESMIL
-                // Recorremos las preguntas y forzamos la ruta correcta: DATA/N/IMAGES/archivo.png
+                // 1. CORRECCIÓN DE RUTAS DE IMÁGENES PARA ESMIL
                 questions = allQ.map(q => {
                     if (q.imagen) {
-                        // Obtenemos solo el nombre del archivo (ej: "pregunta1.png")
-                        // quitando cualquier ruta previa que venga en el JSON por error
                         const imageName = q.imagen.split('/').pop(); 
                         q.imagen = `DATA/${carpetaEspecialID}/IMAGES/${imageName}`;
                     }
                     return q;
                 });
-                // No recortamos preguntas en ESMIL (usamos todas las del JSON)
+                
+                // 2. ALEATORIZAR ORDEN (BARAJAR)
+                // Esto asegura que cada intento tenga un orden diferente
+                questions.sort(() => 0.5 - Math.random());
+
             } else {
                 questions = allQ.sort(() => 0.5 - Math.random()).slice(0, 50);
             }
@@ -148,10 +149,10 @@ document.addEventListener('DOMContentLoaded', () => {
             // Actualizar total real
             if(txtPreguntas) txtPreguntas.textContent = questions.length;
 
-            // --- PRELOAD DE IMÁGENES (AQUÍ ESTÁ LA SOLUCIÓN) ---
+            // --- PRELOAD DE IMÁGENES ---
             await preloadImages(questions);
 
-            // Una vez cargadas todas las imágenes, habilitamos el botón
+            // Habilitar botón
             btnStart.disabled = false;
             btnStart.innerHTML = 'COMENZAR INTENTO <i class="fas fa-play"></i>';
             btnStart.onclick = startQuiz;
@@ -180,7 +181,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 const img = new Image();
                 img.src = q.imagen;
                 
-                // Tanto si carga bien como si falla, contamos como procesado para no trabar
                 img.onload = () => {
                     loadedCount++;
                     btnStart.innerHTML = `<i class="fas fa-spinner fa-spin"></i> CARGANDO IMÁGENES (${loadedCount}/${totalImages})`;
@@ -195,7 +195,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        // Esperamos a que TODAS las promesas de carga terminen
         await Promise.all(promises);
     }
 
@@ -224,8 +223,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const q = questions[idx];
         document.getElementById('pregunta-numero').textContent = `Pregunta ${idx+1}`;
         
-        // --- SOLUCIÓN PARA LOS SALTOS DE LÍNEA (/n) ---
-        // Reemplazamos \n (salto de linea del JSON) por <br> (salto de linea HTML)
+        // Formatear saltos de línea del JSON (/n -> <br>)
         const textoFormateado = q.pregunta.replace(/\n/g, '<br>');
         document.getElementById('pregunta-texto').innerHTML = textoFormateado;
         
@@ -303,8 +301,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const correct = userAnswers[i] === q.respuesta;
             
             let imgHtml = q.imagen ? `<div style="text-align:center; margin:10px 0;"><img src="${q.imagen}" style="max-width:150px; border-radius:5px;"></div>` : '';
-            
-            // También formateamos saltos de línea en la revisión
             const textoPregunta = q.pregunta.replace(/\n/g, '<br>');
 
             div.innerHTML = `<p><strong>${i+1}. ${textoPregunta}</strong></p>
