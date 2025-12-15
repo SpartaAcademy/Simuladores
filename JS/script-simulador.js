@@ -19,17 +19,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const txtPreguntas = document.getElementById('lobby-preguntas');
     const txtTiempo = document.getElementById('lobby-tiempo');
     
-    // --- LÓGICA CORREGIDA DEL BOTÓN REGRESAR ---
+    // Botón Regresar
     const btnRegresarLobby = document.getElementById('btn-regresar-lobby');
     if(btnRegresarLobby) {
         btnRegresarLobby.addEventListener('click', () => {
-            // Intenta ir atrás en el historial
-            if (window.history.length > 1) {
-                window.history.back(); 
-            } else {
-                // Si no hay historial, va al inicio por seguridad
-                window.location.href = 'index.html'; 
-            }
+            if (window.history.length > 1) { window.history.back(); } 
+            else { window.location.href = 'index.html'; }
         });
     }
     
@@ -39,6 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let timerInterval;
     let timeLeft = 3600;
     let totalPreguntas = 50;
+    let carpetaEspecialID = null; // Para guardar el ID de carpeta (4, 5, 6)
 
     const materias = {
         'sociales': 'Ciencias Sociales', 'matematicas': 'Matemáticas y Física',
@@ -48,7 +44,11 @@ document.addEventListener('DOMContentLoaded', () => {
         'ppnn3': 'Cuestionario 3 PPNN', 'ppnn4': 'Cuestionario 4 PPNN',
         'sociales_esmil': 'Ciencias Sociales (ESMIL)', 'matematicas_esmil': 'Matemáticas (ESMIL)',
         'lengua_esmil': 'Lenguaje (ESMIL)', 'ingles_esmil': 'Inglés (ESMIL)',
-        'general_esmil': 'General ESMIL'
+        'general_esmil': 'General ESMIL',
+        // NUEVOS SIMULADORES ESMIL
+        'int_esmil_4': 'Inteligencia ESMIL 4',
+        'int_esmil_5': 'Inteligencia ESMIL 5',
+        'int_esmil_6': 'Inteligencia ESMIL 6'
     };
 
     const ordenGeneralPolicia = ['sociales', 'matematicas', 'lengua', 'ingles'];
@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error(msg);
         btnStart.innerHTML = `<i class="fas fa-exclamation-circle"></i> Error: ${msg}`;
         btnStart.style.background = "#c0392b";
-        document.getElementById('error-text').textContent = "No se pudo cargar el archivo de preguntas. Verifique que exista.";
+        document.getElementById('error-text').textContent = "No se pudo cargar el archivo. Verifique la carpeta DATA.";
         document.getElementById('error-modal').style.display = 'flex';
     }
 
@@ -67,35 +67,53 @@ document.addEventListener('DOMContentLoaded', () => {
         const materiaKey = params.get('materia') || 'sociales';
         const title = materias[materiaKey] || 'Simulador';
         
-        // Asignar Títulos
+        // Títulos
         if(txtTituloMateria) txtTituloMateria.textContent = title.toUpperCase();
         if(txtMateria) txtMateria.textContent = title;
-        const subTitle = document.getElementById('header-subtitulo');
-        if(subTitle) subTitle.textContent = title.toUpperCase();
+        document.getElementById('header-subtitulo').textContent = title.toUpperCase();
         
-        // Configuración
-        if(materiaKey.includes('matematicas')) {
+        // --- CONFIGURACIÓN DE TIEMPO Y RUTA ---
+        let fetchUrl = '';
+        
+        // Caso Especial: Simuladores Inteligencia ESMIL (DATA/N/N.json)
+        if (materiaKey.startsWith('int_esmil_')) {
+            carpetaEspecialID = materiaKey.split('_')[2]; // Obtiene '4', '5' o '6'
+            fetchUrl = `DATA/${carpetaEspecialID}/${carpetaEspecialID}.json`;
+            timeLeft = 3600; // 1 Hora
+            totalPreguntas = 50; // Provisional hasta cargar
+        } 
+        // Casos Normales
+        else if (materiaKey.includes('matematicas')) {
             timeLeft = 5400; 
-        } else if(materiaKey.includes('general')) { 
+            fetchUrl = `DATA/preguntas_${materiaKey}.json`;
+        } else if (materiaKey.includes('general')) { 
             timeLeft = 10800; 
             totalPreguntas = 200;
+            // General se maneja con array de cargas abajo
         } else {
             timeLeft = 3600; 
-            totalPreguntas = 50;
+            fetchUrl = `DATA/preguntas_${materiaKey}.json`;
         }
 
         if(txtTiempo) txtTiempo.textContent = Math.floor(timeLeft/60) + " Minutos";
-        if(txtPreguntas) txtPreguntas.textContent = totalPreguntas;
 
         try {
             let filesToLoad = [];
-            if(materiaKey === 'general') filesToLoad = ordenGeneralPolicia;
-            else if(materiaKey === 'general_esmil') filesToLoad = ordenGeneralEsmil;
-            else filesToLoad = [materiaKey];
+            
+            // Definir qué cargar
+            if (materiaKey.startsWith('int_esmil_')) {
+                filesToLoad = [fetchUrl]; // Carga directa del archivo especial
+            } else if(materiaKey === 'general') {
+                filesToLoad = ordenGeneralPolicia.map(m => `DATA/preguntas_${m}.json`);
+            } else if(materiaKey === 'general_esmil') {
+                filesToLoad = ordenGeneralEsmil.map(m => `DATA/preguntas_${m}.json`);
+            } else {
+                filesToLoad = [fetchUrl];
+            }
 
-            const promises = filesToLoad.map(m => 
-                fetch(`DATA/preguntas_${m}.json`).then(r => {
-                    if(!r.ok) throw new Error(`Falta archivo: preguntas_${m}.json`);
+            const promises = filesToLoad.map(url => 
+                fetch(url).then(r => {
+                    if(!r.ok) throw new Error(`Falta: ${url}`);
                     return r.json();
                 })
             );
@@ -104,17 +122,22 @@ document.addEventListener('DOMContentLoaded', () => {
             let allQ = [];
             results.forEach(d => allQ = allQ.concat(d));
 
+            // --- PROCESAMIENTO DE PREGUNTAS ---
             if(materiaKey.startsWith('ppnn')) {
                 questions = allQ.sort(() => 0.5 - Math.random());
-                totalPreguntas = questions.length;
             } else if (materiaKey.includes('general')) {
                 questions = allQ.sort(() => 0.5 - Math.random()).slice(0, 200);
+            } else if (materiaKey.startsWith('int_esmil_')) {
+                // Para Inteligencia ESMIL usamos todas las preguntas del JSON sin recortar (o recortamos a 50 si quieres)
+                // Dejemos todas por ahora, o ajusta .slice(0,50) si prefieres
+                questions = allQ; 
             } else {
                 questions = allQ.sort(() => 0.5 - Math.random()).slice(0, 50);
             }
 
             if(questions.length === 0) throw new Error("Archivo vacío.");
 
+            // Actualizar total real
             if(txtPreguntas) txtPreguntas.textContent = questions.length;
 
             btnStart.disabled = false;
@@ -153,7 +176,18 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('pregunta-texto').textContent = q.pregunta;
         
         const imgDiv = document.getElementById('q-image-container');
-        imgDiv.innerHTML = q.imagen ? `<img src="${q.imagen}" onerror="this.style.display='none'" style="max-width:100%; border-radius:8px;">` : '';
+        
+        // --- LÓGICA DE IMÁGENES PARA CARPETAS ESPECIALES ---
+        let imgSrc = q.imagen;
+        if (imgSrc && carpetaEspecialID) {
+            // Si estamos en un simulador especial (ej: 4), y la imagen en el JSON dice "IMAGES/foto.jpg"
+            // Transformamos la ruta a "DATA/4/IMAGES/foto.jpg"
+            if (!imgSrc.includes(`DATA/${carpetaEspecialID}`)) {
+                imgSrc = `DATA/${carpetaEspecialID}/${q.imagen}`;
+            }
+        }
+
+        imgDiv.innerHTML = imgSrc ? `<img src="${imgSrc}" onerror="this.style.display='none'" style="max-width:100%; border-radius:8px;">` : '';
 
         const opts = document.getElementById('opciones-container');
         opts.innerHTML = '';
@@ -224,7 +258,15 @@ document.addEventListener('DOMContentLoaded', () => {
             const div = document.createElement('div');
             div.style.borderBottom = '1px solid #eee'; div.style.padding = '15px';
             const correct = userAnswers[i] === q.respuesta;
-            let imgHtml = q.imagen ? `<div style="text-align:center; margin:10px 0;"><img src="${q.imagen}" style="max-width:150px; border-radius:5px;"></div>` : '';
+            
+            // Imagen en revisión también necesita la ruta corregida
+            let imgSrc = q.imagen;
+            if (imgSrc && carpetaEspecialID && !imgSrc.includes(`DATA/${carpetaEspecialID}`)) {
+                imgSrc = `DATA/${carpetaEspecialID}/${q.imagen}`;
+            }
+
+            let imgHtml = imgSrc ? `<div style="text-align:center; margin:10px 0;"><img src="${imgSrc}" style="max-width:150px; border-radius:5px;"></div>` : '';
+            
             div.innerHTML = `<p><strong>${i+1}. ${q.pregunta}</strong></p>
                              ${imgHtml}
                              <p>Tu respuesta: <span style="font-weight:bold; color:${correct?'green':'red'}">${userAnswers[i]||'---'}</span></p>
@@ -236,7 +278,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if(userStr) {
             const user = JSON.parse(userStr);
             const params = new URLSearchParams(window.location.search);
-            const title = materias[params.get('materia')] || params.get('materia');
+            const materiaKey = params.get('materia');
+            // Usamos el nombre bonito del mapa 'materias' o el código si no existe
+            const title = materias[materiaKey] || materiaKey;
+            
             try {
                 await supabase.from('resultados').insert([{
                     usuario_id: user.usuario, usuario_nombre: user.nombre, materia: title,
