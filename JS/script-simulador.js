@@ -4,7 +4,7 @@ const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS
 const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Referencias DOM
+    // Referencias
     const lobbyBanner = document.getElementById('lobby-banner');
     const lobbyContainer = document.getElementById('lobby-container');
     const simulador = document.getElementById('simulador-container');
@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnNext = document.getElementById('siguiente-btn');
     const navContainer = document.getElementById('navegador-preguntas');
     
-    // Títulos y Textos
+    // Títulos
     const txtTituloMateria = document.getElementById('lobby-titulo-materia');
     const txtMateria = document.getElementById('lobby-materia');
     const txtPreguntas = document.getElementById('lobby-preguntas');
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let totalPreguntas = 50;
     let carpetaEspecialID = null;
     let isTableMode = false;
-    let tableUserAnswers = {}; // Respuestas para la tabla
+    let tableUserAnswers = {}; 
 
     const materias = {
         'sociales': 'Ciencias Sociales', 'matematicas': 'Matemáticas y Física',
@@ -46,7 +46,6 @@ document.addEventListener('DOMContentLoaded', () => {
         'sociales_esmil': 'Ciencias Sociales (ESMIL)', 'matematicas_esmil': 'Matemáticas (ESMIL)',
         'lengua_esmil': 'Lenguaje (ESMIL)', 'ingles_esmil': 'Inglés (ESMIL)',
         'general_esmil': 'General ESMIL',
-        // NUEVOS
         'int_esmil_3': 'Inteligencia ESMIL 3 (Vocabulario)',
         'int_esmil_4': 'Inteligencia ESMIL 4',
         'int_esmil_5': 'Inteligencia ESMIL 5',
@@ -60,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error(msg);
         btnStart.innerHTML = `<i class="fas fa-exclamation-circle"></i> Error: ${msg}`;
         btnStart.style.background = "#c0392b";
-        document.getElementById('error-text').textContent = "Error de carga. Intenta recargar la página.";
+        document.getElementById('error-text').textContent = "Error cargando. Recarga la página.";
         document.getElementById('error-modal').style.display = 'flex';
     }
 
@@ -76,15 +75,15 @@ document.addEventListener('DOMContentLoaded', () => {
         
         let fetchUrl = '';
         
-        // --- CONFIGURACIÓN SEGÚN TIPO ---
+        // CONFIGURACIÓN SEGÚN TIPO
         if (materiaKey === 'int_esmil_3') {
             isTableMode = true;
             fetchUrl = 'DATA/3/3.json';
-            timeLeft = 1800; // 30 min
+            timeLeft = 1800; 
             totalPreguntas = 50;
         } 
         else if (materiaKey.startsWith('int_esmil_')) {
-            carpetaEspecialID = materiaKey.split('_')[2];
+            carpetaEspecialID = materiaKey.split('_')[2]; 
             fetchUrl = `DATA/${carpetaEspecialID}/${carpetaEspecialID}.json`;
             timeLeft = 3600;
         } 
@@ -128,9 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if(allQ.length === 0) throw new Error("Archivo JSON vacío.");
             questions = allQ;
 
-            // --- PROCESAMIENTO ---
-            
-            // A) Simuladores Carpeta (4, 5, 6) -> Arreglar imágenes + Aleatorio
+            // PROCESAMIENTO
             if(!isTableMode && materiaKey.startsWith('int_esmil_')) {
                 questions = questions.map(q => {
                     if (q.imagen) {
@@ -141,11 +138,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
                 questions.sort(() => 0.5 - Math.random());
             } 
-            // B) Modo Tabla (3) -> No aleatorio, mantener orden de la imagen
             else if (isTableMode) {
-                // No hacemos sort
+                // No sort para tabla
             }
-            // C) Otros
             else if (materiaKey.startsWith('ppnn') || materiaKey.includes('general')) {
                 questions = questions.sort(() => 0.5 - Math.random());
                 if (materiaKey.includes('general')) questions = questions.slice(0, 200);
@@ -156,7 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if(txtPreguntas) txtPreguntas.textContent = questions.length;
 
-            // --- PRELOAD (Con Timeout de seguridad) ---
+            // PRELOAD SEGURO
             if(!isTableMode) {
                 await Promise.race([
                     preloadImages(questions),
@@ -190,9 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
         await Promise.all(promises);
     }
 
-    // ==========================================
-    //  MODO TABLA (SIMULADOR 3)
-    // ==========================================
+    // MODO TABLA
     function startTableQuiz() {
         lobbyBanner.style.display = 'none';
         lobbyContainer.style.display = 'none';
@@ -209,11 +202,8 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
             <div class="table-responsive-wrapper">
                 <table class="vocab-table">
-                    <thead>
-                        <tr><th style="width:50px;">#</th><th>PALABRA</th><th>A</th><th>B</th><th>C</th><th>D</th></tr>
-                    </thead>
-                    <tbody>
-        `;
+                    <thead><tr><th style="width:50px;">#</th><th>PALABRA</th><th>A</th><th>B</th><th>C</th><th>D</th></tr></thead>
+                    <tbody>`;
 
         questions.forEach((q, index) => {
             html += `
@@ -243,7 +233,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 1000);
     }
 
-    // EXPORTAMOS AL ÁMBITO GLOBAL para onclick inline
     window.selectCell = function(rowIndex, answerText, cellElement) {
         if(document.querySelector('.btn-finish-table').style.display === 'none') return;
         tableUserAnswers[rowIndex] = answerText;
@@ -271,10 +260,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         const score = Math.round((aciertos * 1000) / questions.length);
-        alert(`¡EXAMEN FINALIZADO!\nPUNTAJE: ${score}/1000\nACIERTOS: ${aciertos}/${questions.length}`);
-        
+        alert(`¡EXAMEN FINALIZADO!\nPUNTAJE: ${score}/1000`);
         document.querySelector('.btn-finish-table').style.display = 'none';
-        
         saveResult(score, questions.length, 'Inteligencia ESMIL 3 (Vocabulario)');
         
         const btnExit = document.createElement('button');
@@ -285,9 +272,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelector('.full-width-container').appendChild(btnExit);
     };
 
-    // ==========================================
-    //  MODO NORMAL
-    // ==========================================
+    // MODO NORMAL
     function startQuiz() {
         lobbyBanner.style.display = 'none'; 
         lobbyContainer.style.display = 'none';
