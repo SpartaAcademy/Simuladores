@@ -1,0 +1,322 @@
+[
+    {
+        "pregunta": "MASCULINO es a GÉNERO como PLURAL es a ...?...",
+        "opciones": [
+            "FORMA",
+            "PREDICADO",
+            "MODO",
+            "NÚMERO"
+        ],
+        "respuesta": "NÚMERO"
+    },
+    {
+        "pregunta": "PIRÁMIDE es a TRIÁNGULO como CUBO es a ...?...",
+        "opciones": [
+            "CUADRADO",
+            "RECTÁNGULO",
+            "ROMBO",
+            "CILINDRO"
+        ],
+        "respuesta": "CUADRADO"
+    },
+    {
+        "pregunta": "BEBIDA es a SED como COMIDA es a ...?...",
+        "opciones": [
+            "AYUNO",
+            "GULA",
+            "APETITO",
+            "EMPACHO"
+        ],
+        "respuesta": "APETITO"
+    },
+    {
+        "pregunta": "SUB- es a DEBAJO como EQUI- es a ...?...",
+        "opciones": [
+            "MITAD",
+            "MAYOR",
+            "MENOR",
+            "IGUAL"
+        ],
+        "respuesta": "IGUAL"
+    },
+    {
+        "pregunta": "...?... es a NUNCA como TODO es a ...?...",
+        "opciones": [
+            "JAMÁS – PARTE",
+            "SIEMPRE – NADA",
+            "DESPUÉS – UNO",
+            "SIEMPRE – COMPLETO"
+        ],
+        "respuesta": "SIEMPRE – NADA"
+    },
+    {
+        "pregunta": "ARCHIVAR es a ...?... como INCREMENTAR es a ...?...",
+        "opciones": [
+            "ABARCAR – AUMENTAR",
+            "ORDENAR – DISTRIBUIR",
+            "GUARDAR – AUMENTAR",
+            "DESORDENAR – ACRECENTAR"
+        ],
+        "respuesta": "GUARDAR – AUMENTAR"
+    },
+    {
+        "pregunta": "PIE es a CUERPO como BOMBILLA es a ...?...",
+        "opciones": [
+            "OJOS",
+            "LUZ",
+            "VELA",
+            "LÁMPARA"
+        ],
+        "respuesta": "LÁMPARA"
+    },
+    {
+        "pregunta": "...?... es a LÁPIZ como TINTA es a ...?...",
+        "opciones": [
+            "DIBUJO – CALAMAR",
+            "GRAFITO – PAPEL",
+            "MINA – PLUMA",
+            "ARTISTA – TINTERO"
+        ],
+        "respuesta": "MINA – PLUMA"
+    },
+    {
+        "pregunta": "...?... es a TIEMPO como BARÓMETRO es a ...?...",
+        "opciones": [
+            "PRESENTE – DENSIDAD",
+            "HORA – ALTURA",
+            "CRONÓMETRO – TERMÓMETRO",
+            "RELOJ – PRESIÓN"
+        ],
+        "respuesta": "RELOJ – PRESIÓN"
+    },
+    {
+        "pregunta": "...?... es a PÁJARO como ESCAMA es a ...?...",
+        "opciones": [
+            "AIRE – MAR",
+            "AIRE – PEZ",
+            "PLUMA – PEZ",
+            "PICO – PEZ"
+        ],
+        "respuesta": "PLUMA – PEZ"
+    },
+    {
+        "pregunta": "...?... es a TRANSPORTE como TELÉFONO es a ...?...",
+        "opciones": [
+            "MOTOCICLETA – HABLAR",
+            "COCHE – COMUNICACIÓN",
+            "TREN – LLAMADA",
+            "DISTANCIA – INFORMACIÓN"
+        ],
+        "respuesta": "COCHE – COMUNICACIÓN"
+    },
+    {
+        "pregunta": "...?... es a ACUSACIÓN como ABOGADO es a ...?...",
+        "opciones": [
+            "FISCAL – DEFENSA",
+            "DELITO – LETRADO",
+            "SENTENCIA – TESTIGO",
+            "CULPABLE – INOCENTE"
+        ],
+        "respuesta": "FISCAL – DEFENSA"
+    },
+    {
+        "pregunta": "ENCUBIERTO es a CLANDESTINO como ENDEBLE es a ...?...",
+        "opciones": [
+            "DOBLADO",
+            "SIMPLE",
+            "DELICADO",
+            "COMPRIMIDO"
+        ],
+        "respuesta": "DELICADO"
+    },
+    {
+        "pregunta": "ATRAPAR es a ...?... como ATRASADO es a ...?...",
+        "opciones": [
+            "DIFERIR – RESUELTO",
+            "PRENDER – DEMORADO",
+            "ENGAÑAR – EMPEÑADO",
+            "REFORZAR – HENDIDO"
+        ],
+        "respuesta": "PRENDER – DEMORADO"
+    },
+    {
+        "pregunta": "BIFURCADO es a ...?... como RESISTENTE es a ...?...",
+        "opciones": [
+            "COMPACTO – DURADERO",
+            "DIVIDIDO – SENSIBLE",
+            "ESTRECHO – FUNDIDO",
+            "RAMIFICADO – FUERTE"
+        ],
+        "respuesta": "RAMIFICADO – FUERTE"
+    },
+    {
+        "pregunta": "...?... es a ÓPTIMO como MALO es a ...?...",
+        "opciones": [
+            "MEJOR – PEOR",
+            "PÉSIMO – FATAL",
+            "FRAUDE – ENGAÑO",
+            "BUENO – PÉSIMO"
+        ],
+        "respuesta": "BUENO – PÉSIMO"
+    },
+    {
+        "pregunta": "...?... es a BLANCO como FUEGO es a ...?...",
+        "opciones": [
+            "HIELO – CALOR",
+            "FRÍO – ROJO",
+            "NIEVE – CALOR",
+            "NIEVE – ROJO"
+        ],
+        "respuesta": "NIEVE – ROJO"
+    },
+    {
+        "pregunta": "REPARAR es a ENMENDAR como MANTENER es a ...?...",
+        "opciones": [
+            "MODERAR",
+            "PRESUMIR",
+            "PROSEGUIR",
+            "AYUNAR"
+        ],
+        "respuesta": "PROSEGUIR"
+    },
+    {
+        "pregunta": "FUGAZ es a DURADERO como TRANSLÚCIDO es a ...?...",
+        "opciones": [
+            "LUZ",
+            "OSCURIDAD",
+            "OPACO",
+            "PERENNE"
+        ],
+        "respuesta": "OPACO"
+    },
+    {
+        "pregunta": "ADELANTAR es a DEMORAR como ANTICIPAR es a ...?...",
+        "opciones": [
+            "APLAZAR",
+            "DESISTIR",
+            "PROVEER",
+            "ACHACAR"
+        ],
+        "respuesta": "APLAZAR"
+    },
+    {
+        "pregunta": "...?... es a CONSECUENCIA como PARTE es a ...?...",
+        "opciones": [
+            "SECUELA – PORCIÓN",
+            "ACCIÓN – TODO",
+            "ANTECEDENTE – DIVISIÓN",
+            "RESPONSABLE – SUMA"
+        ],
+        "respuesta": "SECUELA – PORCIÓN"
+    },
+    {
+        "pregunta": "ABRUMAR es a ...?... como DEMOLER es a ...?...",
+        "opciones": [
+            "PESAR – REDUCIR",
+            "RECARGAR – REPRIMIR",
+            "APLACAR – MOLESTAR",
+            "ALIVIAR – CONSTRUIR"
+        ],
+        "respuesta": "ALIVIAR – CONSTRUIR"
+    },
+    {
+        "pregunta": "...?... es a POSTERIOR como MAÑANA es a ...?...",
+        "opciones": [
+            "NOCHE – ANTERIOR",
+            "TARDE – PRONTO",
+            "PRONTO – DÍA",
+            "OSCURIDAD – CLARIDAD"
+        ],
+        "respuesta": "NOCHE – ANTERIOR"
+    },
+    {
+        "pregunta": "AMENAZAR es a INTIMIDAR como ARTICULAR es a ...?...",
+        "opciones": [
+            "LEGISLAR",
+            "PRONUNCIAR",
+            "AFIRMAR",
+            "ARQUEAR"
+        ],
+        "respuesta": "PRONUNCIAR"
+    },
+    {
+        "pregunta": "AGUA es a EMBUDO como TIERRA es a ...?...",
+        "opciones": [
+            "CRIBA",
+            "FRESADORA",
+            "CINCEL",
+            "ESCARIADOR"
+        ],
+        "respuesta": "CRIBA"
+    },
+    {
+        "pregunta": "CINCEL es a ESCULTOR como ESCALPELO es a ...?...",
+        "opciones": [
+            "ABOGADO",
+            "CIRUJANO",
+            "AGRICULTOR",
+            "MECÁNICO"
+        ],
+        "respuesta": "CIRUJANO"
+    },
+    {
+        "pregunta": "AFLUENCIA es a PROFUSIÓN como AUGE es a ...?...",
+        "opciones": [
+            "DOMINIO",
+            "PODERÍO",
+            "CULMINACIÓN",
+            "EXACTITUD"
+        ],
+        "respuesta": "CULMINACIÓN"
+    },
+    {
+        "pregunta": "ACRE es a POSITIVO como ACÉRRIMO es a ...?...",
+        "opciones": [
+            "RELATIVO",
+            "SUPERLATIVO",
+            "COMPARATIVO",
+            "GENITIVO"
+        ],
+        "respuesta": "SUPERLATIVO"
+    },
+    {
+        "pregunta": "FILATELIA es a SELLO como NUMISMÁTICA es a ...?...",
+        "opciones": [
+            "FÓSIL",
+            "ANTIGÜEDAD",
+            "NÚMERO",
+            "MONEDA"
+        ],
+        "respuesta": "MONEDA"
+    },
+    {
+        "pregunta": "SIGLO es a CIEN como LUSTRO es a ...?...",
+        "opciones": [
+            "MIL",
+            "DIEZ",
+            "CINCUENTA",
+            "CINCO"
+        ],
+        "respuesta": "CINCO"
+    },
+    {
+        "pregunta": "CAPITEL es a COLUMNA como DINTEL es a ...?...",
+        "opciones": [
+            "FACHADA",
+            "CIMIENTO",
+            "VENTANA",
+            "FILA"
+        ],
+        "respuesta": "VENTANA"
+    },
+    {
+        "pregunta": "RECURSOS es a BIENES como INFLUENCIA es a ...?...",
+        "opciones": [
+            "SERIEDAD",
+            "DECISIÓN",
+            "GENTILEZA",
+            "ASCENDENCIA"
+        ],
+        "respuesta": "ASCENDENCIA"
+    }
+]
