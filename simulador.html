@@ -79,7 +79,21 @@
         </div>
 
         <div id="simulador-container" class="quiz-layout" style="display:none;">
+            <div class="quiz-main">
+                <div style="border-bottom:1px solid #eee; padding-bottom:10px; margin-bottom:20px;">
+                    <span class="pregunta-num-tag" id="pregunta-numero">Pregunta 1</span>
+                </div>
+                <div id="pregunta-texto">...</div>
+                <div id="q-image-container" style="text-align:center; margin:20px 0;"></div>
+                <div id="opciones-container"></div>
+                <button id="siguiente-btn">Siguiente <i class="fas fa-arrow-right"></i></button>
             </div>
+            <div class="quiz-sidebar">
+                <div class="timer-box"><div><small style="color:#ccc;">TIEMPO RESTANTE</small></div><div id="cronometro">00:00</div></div>
+                <div class="nav-box"><small style="display:block; margin-bottom:10px; color:#888; font-weight:bold;">PROGRESO</small><div id="navegador-preguntas"></div></div>
+                <button id="terminar-intento-btn">TERMINAR INTENTO</button>
+            </div>
+        </div>
 
         <div id="resultados-container" class="container-box" style="display:none; text-align:center; padding:40px;">
             <h2>¡INTENTO FINALIZADO!</h2>
@@ -90,6 +104,7 @@
             <div class="stats-bar">
                 <div class="stat-item" style="border-bottom-color:var(--success)"><span class="stat-val" id="stats-correctas" style="color:var(--success)">0</span><small>Correctas</small></div>
                 <div class="stat-item" style="border-bottom-color:var(--danger)"><span class="stat-val" id="stats-incorrectas" style="color:var(--danger)">0</span><small>Incorrectas</small></div>
+                <div class="stat-item" style="border-bottom-color:var(--warning)"><span class="stat-val" id="stats-en-blanco" style="color:var(--warning)">0</span><small>En Blanco</small></div>
             </div>
             <div class="revision-botones">
                 <button id="retry-btn" style="background:var(--primary); color:white; border:none; padding:12px 30px; border-radius:50px;">Reintentar</button>
