@@ -4,7 +4,6 @@ const simuladorKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
 const simuladorDB = window.supabase.createClient(simuladorUrl, simuladorKey);
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Referencias
     const lobbyBanner = document.getElementById('lobby-banner');
     const lobbyContainer = document.getElementById('lobby-container');
     const simulador = document.getElementById('simulador-container');
@@ -18,15 +17,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnBack = document.getElementById('btn-regresar-lobby');
     if(btnBack) btnBack.addEventListener('click', () => window.history.length > 1 ? window.history.back() : window.location.href = 'index.html');
 
-    let questions = []; // Para simuladores normales
-    
-    // Variables Modo Mixto (Sim 3)
+    let questions = [];
     let phase1Data = []; 
     let phase2Blocks = []; 
-    let userAnswers = []; // Normal
-    let tableAnswersText = {}; // Fase 1
-    let tableAnswersImg = {}; // Fase 2
-    
+    let userAnswers = [];
+    let tableAnswersText = {};
+    let tableAnswersImg = {}; 
     let currentIdx = 0;
     let timerInterval;
     let timeLeft = 3600;
@@ -131,9 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
         })));
     }
 
-    // ==========================================
-    //  FASE 1: VOCABULARIO
-    // ==========================================
+    // FASE 1
     function startPhase1() {
         lobbyBanner.style.display = 'none'; lobbyContainer.style.display = 'none';
         simulador.style.display = 'block'; simulador.className = ''; 
@@ -157,11 +151,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.goToPhase2 = () => { window.scrollTo(0,0); startPhase2(); };
 
-    // ==========================================
-    //  FASE 2: BLOQUES IMÁGENES
-    // ==========================================
+    // FASE 2
     function startPhase2() {
-        let html = `<div class="full-width-container"><div style="display:flex; justify-content:space-between; margin-bottom:20px; align-items:center;"><h2>PARTE 2: ABSTRACTO</h2><div class="timer-box" style="padding:10px 20px;"><i class="fas fa-clock"></i> <span id="cronometro-tabla-2">--:--</span></div></div>`;
+        let html = `<div class="full-width-container"><div style="display:flex; justify-content:space-between; margin-bottom:20px; align-items:center;"><h2>PARTE 2: ABSTRACTO (Selección Múltiple)</h2><div class="timer-box" style="padding:10px 20px;"><i class="fas fa-clock"></i> <span id="cronometro-tabla-2">--:--</span></div></div>`;
         
         phase2Blocks.forEach((bloque, bIdx) => {
             html += `<div class="block-container"><div class="block-img-wrapper"><img src="${bloque.imagen_bloque}" alt="Bloque ${bIdx+1}"></div><div class="block-table-wrapper"><table class="block-table"><thead><tr><th>#</th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th></tr></thead><tbody>`;
@@ -171,27 +163,19 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             html += `</tbody></table></div></div>`;
         });
-        
-        // BOTÓN TERMINAR (TRIGGER MODAL)
         html += `<button class="btn-finish-table" id="btn-trigger-modal">TERMINAR Y CALIFICAR</button></div>`;
         simulador.innerHTML = html;
 
-        // Evento Modal
         document.getElementById('btn-trigger-modal').onclick = () => {
-            // Calcular faltantes
             let faltantes = 0;
-            // Fase 1
             for(let i=0; i<phase1Data.length; i++) { if(!tableAnswersText[i]) faltantes++; }
-            // Fase 2 (Chequear si hay respuestas en el rango 1-20)
             for(let i=1; i<=20; i++) { if(!tableAnswersImg[i] || tableAnswersImg[i].length === 0) faltantes++; }
 
-            document.getElementById('modal-mensaje').textContent = `Faltan ${faltantes} preguntas por responder.`;
+            document.getElementById('modal-mensaje').textContent = `Faltan ${faltantes} preguntas.`;
             document.getElementById('modal-overlay').style.display = 'flex';
-            
-            // Asignar acción al confirmar
             document.getElementById('confirmar-modal-btn').onclick = () => {
                 document.getElementById('modal-overlay').style.display='none';
-                finishMultiPhase(); // Ejecutar lógica de resultados
+                finishMultiPhase();
             };
         };
     }
@@ -208,24 +192,20 @@ document.addEventListener('DOMContentLoaded', () => {
         tableAnswersImg[qNum] = currentAns;
     };
 
-    // ==========================================
-    //  RESULTADOS MODO MIXTO (DETALLADO)
-    // ==========================================
+    // RESULTADOS
     window.finishMultiPhase = async () => {
         clearInterval(timerInterval);
-        simulador.style.display = 'none'; // Ocultar tablas
-        resultados.style.display = 'block'; // Mostrar contenedor resultados
+        simulador.style.display = 'none';
+        resultados.style.display = 'block';
 
         let ok1 = 0, ok2 = 0;
-        let revHTML = ''; // HTML para revisión detallada
+        let revHTML = '';
 
-        // --- CALIFICAR FASE 1 ---
         revHTML += `<h3 style="background:#eee; padding:10px; border-left:5px solid var(--primary); margin-top:30px;">FASE 1: VOCABULARIO</h3>`;
         phase1Data.forEach((q, i) => {
             const userAns = tableAnswersText[i];
             const correct = userAns === q.respuesta;
             if (correct) ok1++;
-            
             revHTML += `<div style="border-bottom:1px solid #eee; padding:15px; text-align:left;">
                 <p><strong>${i+1}. ${q.palabra}</strong></p>
                 <p>Tu respuesta: <span style="font-weight:bold; color:${correct?'green':'red'}">${userAns || '---'}</span></p>
@@ -233,29 +213,37 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>`;
         });
 
-        // --- CALIFICAR FASE 2 ---
         revHTML += `<h3 style="background:#eee; padding:10px; border-left:5px solid var(--primary); margin-top:30px;">FASE 2: ABSTRACTO</h3>`;
         const letras = ['A','B','C','D','E','F'];
         
-        phase2Blocks.forEach(bloque => {
+        // AQUÍ ESTÁ EL CAMBIO: MOSTRAR IMAGEN DEL BLOQUE EN REVISIÓN
+        phase2Blocks.forEach((bloque, bIdx) => {
+            // Título e Imagen del Bloque
+            revHTML += `
+            <div style="margin-top:30px; border:1px solid #ccc; border-radius:8px; overflow:hidden;">
+                <div style="background:#222; color:white; padding:5px 15px; font-family:'Teko'; font-size:1.2rem;">BLOQUE ${bIdx+1} (Preguntas ${bloque.rango_inicio}-${bloque.rango_fin})</div>
+                <div style="padding:10px; text-align:center; background:#f9f9f9; border-bottom:1px solid #eee;">
+                    <img src="${bloque.imagen_bloque}" style="max-width:100%; border-radius:5px;">
+                </div>
+            `;
+
+            // Listar preguntas
             bloque.respuestas_bloque.forEach((correctArr, i) => {
                 const qNum = bloque.rango_inicio + i;
                 const userArr = tableAnswersImg[qNum] || [];
-                
-                // Lógica Estricta: Todas correctas y ninguna incorrecta
                 const esCorrecto = (userArr.length === correctArr.length) && userArr.every(val => correctArr.includes(val));
                 if (esCorrecto) ok2++;
 
-                // Convertir indices a letras para mostrar
                 const userLetters = userArr.map(idx => letras[idx]).join(', ');
                 const correctLetters = correctArr.map(idx => letras[idx]).join(', ');
 
-                revHTML += `<div style="border-bottom:1px solid #eee; padding:15px; text-align:left;">
-                    <p><strong>Pregunta ${qNum} (Bloque Imagen)</strong></p>
+                revHTML += `<div style="border-bottom:1px solid #eee; padding:15px; text-align:left; background:white;">
+                    <p><strong>Pregunta ${qNum}:</strong></p>
                     <p>Tu respuesta: <span style="font-weight:bold; color:${esCorrecto?'green':'red'}">${userLetters || '---'}</span></p>
-                    ${!esCorrecto ? `<p style="color:green; margin-top:5px;">Correcta: <strong>${correctLetters}</strong></p>` : ''}
+                    ${!esCorrecto ? `<p style="color:green; margin-top:5px;">Correctas: <strong>${correctLetters}</strong></p>` : ''}
                 </div>`;
             });
+            revHTML += `</div>`; // Cierra el div del bloque
         });
 
         const totalOk = ok1 + ok2;
@@ -264,25 +252,19 @@ document.addEventListener('DOMContentLoaded', () => {
         const incorrectas = totalQ - totalOk;
         const enBlanco = (phase1Data.length - Object.keys(tableAnswersText).length) + (20 - Object.keys(tableAnswersImg).length);
 
-        // --- LLENAR DATOS EN PANTALLA DE RESULTADOS ---
         document.getElementById('puntaje-final').textContent = score;
         document.getElementById('stats-correctas').textContent = totalOk;
         document.getElementById('stats-incorrectas').textContent = incorrectas;
         document.getElementById('stats-en-blanco').textContent = enBlanco > 0 ? enBlanco : 0;
-        
-        // Inyectar revisión detallada
         document.getElementById('revision-container').innerHTML = revHTML;
 
-        // Botones finales
         document.getElementById('retry-btn').onclick = () => location.reload();
         document.getElementById('reiniciar-btn').onclick = () => location.href='index.html';
 
         saveResult(score, totalQ, 'Inteligencia ESMIL 3 (Mixto)');
     };
 
-    // ==========================================
-    //  MODO NORMAL (Diapositivas)
-    // ==========================================
+    // MODO NORMAL
     function startQuiz() {
         lobbyBanner.style.display = 'none'; lobbyContainer.style.display = 'none';
         simulador.className = 'quiz-layout'; simulador.style.display = window.innerWidth > 900 ? 'grid' : 'flex';
@@ -313,7 +295,6 @@ document.addEventListener('DOMContentLoaded', () => {
         nextBtn.textContent = idx === questions.length - 1 ? "Finalizar" : "Siguiente";
         nextBtn.style.backgroundColor = idx === questions.length - 1 ? "#27ae60" : "#b22222";
         nextBtn.onclick = () => idx < questions.length - 1 ? showQ(idx + 1) : finish();
-        
         const dots = document.getElementById('navegador-preguntas').children;
         for(let i=0; i<dots.length; i++) { dots[i].classList.remove('active'); if(i===idx) dots[i].classList.add('active'); }
     }
@@ -337,12 +318,9 @@ document.addEventListener('DOMContentLoaded', () => {
         simulador.style.display = 'none'; resultados.style.display = 'block';
         let ok = 0; questions.forEach((q, i) => { if(userAnswers[i] === q.respuesta) ok++; });
         const score = Math.round((ok * 1000) / questions.length);
-        
         document.getElementById('puntaje-final').textContent = score;
         document.getElementById('stats-correctas').textContent = ok;
         document.getElementById('stats-incorrectas').textContent = questions.length - ok;
-        document.getElementById('stats-en-blanco').textContent = userAnswers.filter(a=>a===null).length;
-
         const rev = document.getElementById('revision-container'); rev.innerHTML = '';
         questions.forEach((q, i) => {
             const correct = userAnswers[i] === q.respuesta;
@@ -373,12 +351,8 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('modal-mensaje').textContent = `Faltan ${userAnswers.filter(a=>a===null).length} preguntas.`;
         document.getElementById('modal-overlay').style.display = 'flex';
     };
-    
-    // Configuración inicial de modal para modo normal
     document.getElementById('confirmar-modal-btn').onclick = () => { document.getElementById('modal-overlay').style.display='none'; finish(); };
     document.getElementById('cancelar-modal-btn').onclick = () => document.getElementById('modal-overlay').style.display='none';
-    
-    // Botones finales
     document.getElementById('retry-btn').onclick = () => location.reload();
     document.getElementById('reiniciar-btn').onclick = () => location.href='index.html';
 
