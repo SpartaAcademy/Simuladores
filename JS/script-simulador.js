@@ -4,6 +4,7 @@ const simuladorKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
 const simuladorDB = window.supabase.createClient(simuladorUrl, simuladorKey);
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Referencias
     const lobbyBanner = document.getElementById('lobby-banner');
     const lobbyContainer = document.getElementById('lobby-container');
     const simulador = document.getElementById('simulador-container');
@@ -34,7 +35,12 @@ document.addEventListener('DOMContentLoaded', () => {
         'sociales': 'Ciencias Sociales', 'matematicas': 'Matemáticas y Física', 'lengua': 'Lengua y Literatura', 'ingles': 'Inglés', 'general': 'General (Todas)',
         'inteligencia': 'Inteligencia', 'personalidad': 'Personalidad', 'ppnn1': 'Cuestionario 1 PPNN', 'ppnn2': 'Cuestionario 2 PPNN', 'ppnn3': 'Cuestionario 3 PPNN', 'ppnn4': 'Cuestionario 4 PPNN',
         'sociales_esmil': 'Ciencias Sociales (ESMIL)', 'matematicas_esmil': 'Matemáticas (ESMIL)', 'lengua_esmil': 'Lenguaje (ESMIL)', 'ingles_esmil': 'Inglés (ESMIL)', 'general_esmil': 'General ESMIL',
-        'int_esmil_2': 'Inteligencia ESMIL 2', 'int_esmil_3': 'Inteligencia ESMIL 3 (Mixto)', 'int_esmil_4': 'Inteligencia ESMIL 4', 'int_esmil_5': 'Inteligencia ESMIL 5', 'int_esmil_6': 'Inteligencia ESMIL 6'
+        'int_esmil_1': 'Inteligencia ESMIL 1', 
+        'int_esmil_2': 'Inteligencia ESMIL 2',
+        'int_esmil_3': 'Inteligencia ESMIL 3 (Mixto)', 
+        'int_esmil_4': 'Inteligencia ESMIL 4', 
+        'int_esmil_5': 'Inteligencia ESMIL 5', 
+        'int_esmil_6': 'Inteligencia ESMIL 6'
     };
     
     const ordenGeneralPolicia = ['sociales', 'matematicas', 'lengua', 'ingles'];
@@ -44,6 +50,8 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error(msg);
         btnStart.innerHTML = `<i class="fas fa-exclamation-circle"></i> Error: ${msg}`;
         btnStart.style.background = "#c0392b";
+        document.getElementById('error-text').textContent = "Error cargando datos. Recarga la página.";
+        document.getElementById('error-modal').style.display = 'flex';
     }
 
     async function init() {
@@ -55,11 +63,21 @@ document.addEventListener('DOMContentLoaded', () => {
         if(txtMateria) txtMateria.textContent = title;
 
         let fetchUrl = '';
+        
+        // --- 1. CONFIGURACIÓN ---
         if (materiaKey === 'int_esmil_3') {
-            isMultiPhaseMode = true; fetchUrl = 'DATA/3/3.json'; timeLeft = 3600;
-        } else if (materiaKey.startsWith('int_esmil_')) {
-            carpetaEspecialID = materiaKey.split('_')[2]; fetchUrl = `DATA/${carpetaEspecialID}/${carpetaEspecialID}.json`; timeLeft = 3600;
-        } else if (materiaKey.includes('matematicas')) {
+            // SOLO EL 3 ES ESPECIAL
+            isMultiPhaseMode = true; 
+            fetchUrl = 'DATA/3/3.json'; 
+            timeLeft = 3600;
+        } 
+        else if (materiaKey.startsWith('int_esmil_')) {
+            // EL 1, 2, 4, 5, 6 SON NORMALES AHORA
+            carpetaEspecialID = materiaKey.split('_')[2]; 
+            fetchUrl = `DATA/${carpetaEspecialID}/${carpetaEspecialID}.json`; 
+            timeLeft = 3600;
+        } 
+        else if (materiaKey.includes('matematicas')) {
             timeLeft = 5400; fetchUrl = `DATA/preguntas_${materiaKey}.json`;
         } else if (materiaKey.includes('general')) {
             timeLeft = 10800; totalPreguntas = 200; fetchUrl = `DATA/preguntas_${materiaKey}.json`;
@@ -70,6 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if(txtTiempo) txtTiempo.textContent = Math.floor(timeLeft/60) + " Minutos";
 
         try {
+            // --- 2. CARGA ---
             let filesToLoad = [];
             if (isMultiPhaseMode || materiaKey.startsWith('int_esmil_')) filesToLoad = [fetchUrl];
             else if (materiaKey === 'general') filesToLoad = ordenGeneralPolicia.map(m => `DATA/preguntas_${m}.json`);
@@ -79,7 +98,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const promises = filesToLoad.map(url => fetch(url).then(r => r.ok ? r.json() : null));
             const results = await Promise.all(promises);
             
+            // --- 3. PROCESAMIENTO ---
             if (isMultiPhaseMode) {
+                // MODO MIXTO (SOLO SIM 3)
                 const data = results[0];
                 if (!data || !data.parte1 || !data.parte2_bloques) throw new Error("JSON de Sim 3 inválido.");
                 phase1Data = data.parte1;
@@ -88,13 +109,16 @@ document.addEventListener('DOMContentLoaded', () => {
                     return b;
                 });
                 totalPreguntas = phase1Data.length + 20; 
-            } else {
+            } 
+            else {
+                // MODO NORMAL (1, 2, 4, 5, 6 y otros)
                 let allQ = [];
                 results.forEach(d => { if(d) allQ = allQ.concat(d); });
                 if(allQ.length === 0) throw new Error("Archivo vacío");
                 questions = allQ;
 
                 if (materiaKey.startsWith('int_esmil_')) {
+                    // Para 1, 2, 4, 5, 6 arreglamos rutas de imágenes
                     questions = questions.map(q => {
                         if (q.imagen) q.imagen = `DATA/${carpetaEspecialID}/IMAGES/${q.imagen.split('/').pop()}`;
                         return q;
@@ -108,6 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if(txtPreguntas) txtPreguntas.textContent = totalPreguntas;
 
+            // --- 4. PRELOAD ---
             if (!isMultiPhaseMode && questions.some(q => q.imagen)) {
                 btnStart.innerHTML = "CARGANDO RECURSOS...";
                 await Promise.race([preloadImages(questions), new Promise(r => setTimeout(r, 2000))]);
@@ -115,6 +140,8 @@ document.addEventListener('DOMContentLoaded', () => {
             
             btnStart.disabled = false;
             btnStart.innerHTML = 'COMENZAR INTENTO <i class="fas fa-play"></i>';
+            
+            // Si es mixto (3) -> startPhase1, si no (1, 2, 4...) -> startQuiz
             btnStart.onclick = isMultiPhaseMode ? startPhase1 : startQuiz;
 
         } catch (e) { showError(e.message); }
@@ -127,7 +154,9 @@ document.addEventListener('DOMContentLoaded', () => {
         })));
     }
 
-    // FASE 1
+    // ==========================================
+    //  MODO MIXTO (SIM 3) - FASE 1: VOCAB
+    // ==========================================
     function startPhase1() {
         lobbyBanner.style.display = 'none'; lobbyContainer.style.display = 'none';
         simulador.style.display = 'block'; simulador.className = ''; 
@@ -151,10 +180,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.goToPhase2 = () => { window.scrollTo(0,0); startPhase2(); };
 
-    // FASE 2
+    // ==========================================
+    //  MODO MIXTO - FASE 2: BLOQUES IMÁGENES
+    // ==========================================
     function startPhase2() {
         let html = `<div class="full-width-container"><div style="display:flex; justify-content:space-between; margin-bottom:20px; align-items:center;"><h2>PARTE 2: ABSTRACTO (Selección Múltiple)</h2><div class="timer-box" style="padding:10px 20px;"><i class="fas fa-clock"></i> <span id="cronometro-tabla-2">--:--</span></div></div>`;
-        
         phase2Blocks.forEach((bloque, bIdx) => {
             html += `<div class="block-container"><div class="block-img-wrapper"><img src="${bloque.imagen_bloque}" alt="Bloque ${bIdx+1}"></div><div class="block-table-wrapper"><table class="block-table"><thead><tr><th>#</th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th></tr></thead><tbody>`;
             for (let q = bloque.rango_inicio; q <= bloque.rango_fin; q++) {
@@ -170,7 +200,6 @@ document.addEventListener('DOMContentLoaded', () => {
             let faltantes = 0;
             for(let i=0; i<phase1Data.length; i++) { if(!tableAnswersText[i]) faltantes++; }
             for(let i=1; i<=20; i++) { if(!tableAnswersImg[i] || tableAnswersImg[i].length === 0) faltantes++; }
-
             document.getElementById('modal-mensaje').textContent = `Faltan ${faltantes} preguntas.`;
             document.getElementById('modal-overlay').style.display = 'flex';
             document.getElementById('confirmar-modal-btn').onclick = () => {
@@ -192,7 +221,7 @@ document.addEventListener('DOMContentLoaded', () => {
         tableAnswersImg[qNum] = currentAns;
     };
 
-    // RESULTADOS
+    // --- RESULTADOS MODO MIXTO ---
     window.finishMultiPhase = async () => {
         clearInterval(timerInterval);
         simulador.style.display = 'none';
@@ -206,44 +235,24 @@ document.addEventListener('DOMContentLoaded', () => {
             const userAns = tableAnswersText[i];
             const correct = userAns === q.respuesta;
             if (correct) ok1++;
-            revHTML += `<div style="border-bottom:1px solid #eee; padding:15px; text-align:left;">
-                <p><strong>${i+1}. ${q.palabra}</strong></p>
-                <p>Tu respuesta: <span style="font-weight:bold; color:${correct?'green':'red'}">${userAns || '---'}</span></p>
-                ${!correct ? `<p style="color:green; margin-top:5px;">Correcta: <strong>${q.respuesta}</strong></p>` : ''}
-            </div>`;
+            revHTML += `<div style="border-bottom:1px solid #eee; padding:15px; text-align:left;"><p><strong>${i+1}. ${q.palabra}</strong></p><p>Tu respuesta: <span style="font-weight:bold; color:${correct?'green':'red'}">${userAns || '---'}</span></p>${!correct ? `<p style="color:green">Correcta: <strong>${q.respuesta}</strong></p>` : ''}</div>`;
         });
 
         revHTML += `<h3 style="background:#eee; padding:10px; border-left:5px solid var(--primary); margin-top:30px;">FASE 2: ABSTRACTO</h3>`;
         const letras = ['A','B','C','D','E','F'];
         
-        // AQUÍ ESTÁ EL CAMBIO: MOSTRAR IMAGEN DEL BLOQUE EN REVISIÓN
         phase2Blocks.forEach((bloque, bIdx) => {
-            // Título e Imagen del Bloque
-            revHTML += `
-            <div style="margin-top:30px; border:1px solid #ccc; border-radius:8px; overflow:hidden;">
-                <div style="background:#222; color:white; padding:5px 15px; font-family:'Teko'; font-size:1.2rem;">BLOQUE ${bIdx+1} (Preguntas ${bloque.rango_inicio}-${bloque.rango_fin})</div>
-                <div style="padding:10px; text-align:center; background:#f9f9f9; border-bottom:1px solid #eee;">
-                    <img src="${bloque.imagen_bloque}" style="max-width:100%; border-radius:5px;">
-                </div>
-            `;
-
-            // Listar preguntas
+            revHTML += `<div style="margin-top:30px; border:1px solid #ccc; border-radius:8px; overflow:hidden;"><div style="background:#222; color:white; padding:5px 15px; font-family:'Teko'; font-size:1.2rem;">BLOQUE ${bIdx+1} (Preguntas ${bloque.rango_inicio}-${bloque.rango_fin})</div><div style="padding:10px; text-align:center; background:#f9f9f9; border-bottom:1px solid #eee;"><img src="${bloque.imagen_bloque}" style="max-width:100%;"></div>`;
             bloque.respuestas_bloque.forEach((correctArr, i) => {
                 const qNum = bloque.rango_inicio + i;
                 const userArr = tableAnswersImg[qNum] || [];
                 const esCorrecto = (userArr.length === correctArr.length) && userArr.every(val => correctArr.includes(val));
                 if (esCorrecto) ok2++;
-
                 const userLetters = userArr.map(idx => letras[idx]).join(', ');
                 const correctLetters = correctArr.map(idx => letras[idx]).join(', ');
-
-                revHTML += `<div style="border-bottom:1px solid #eee; padding:15px; text-align:left; background:white;">
-                    <p><strong>Pregunta ${qNum}:</strong></p>
-                    <p>Tu respuesta: <span style="font-weight:bold; color:${esCorrecto?'green':'red'}">${userLetters || '---'}</span></p>
-                    ${!esCorrecto ? `<p style="color:green; margin-top:5px;">Correctas: <strong>${correctLetters}</strong></p>` : ''}
-                </div>`;
+                revHTML += `<div style="border-bottom:1px solid #eee; padding:15px; text-align:left; background:white;"><p><strong>Pregunta ${qNum}:</strong></p><p>Tu respuesta: <span style="font-weight:bold; color:${esCorrecto?'green':'red'}">${userLetters || '---'}</span></p>${!esCorrecto ? `<p style="color:green">Correctas: <strong>${correctLetters}</strong></p>` : ''}</div>`;
             });
-            revHTML += `</div>`; // Cierra el div del bloque
+            revHTML += `</div>`;
         });
 
         const totalOk = ok1 + ok2;
@@ -264,7 +273,9 @@ document.addEventListener('DOMContentLoaded', () => {
         saveResult(score, totalQ, 'Inteligencia ESMIL 3 (Mixto)');
     };
 
-    // MODO NORMAL
+    // ==========================================
+    //  MODO NORMAL (Diapositivas - Sim 1, 2, 4...)
+    // ==========================================
     function startQuiz() {
         lobbyBanner.style.display = 'none'; lobbyContainer.style.display = 'none';
         simulador.className = 'quiz-layout'; simulador.style.display = window.innerWidth > 900 ? 'grid' : 'flex';
@@ -295,6 +306,7 @@ document.addEventListener('DOMContentLoaded', () => {
         nextBtn.textContent = idx === questions.length - 1 ? "Finalizar" : "Siguiente";
         nextBtn.style.backgroundColor = idx === questions.length - 1 ? "#27ae60" : "#b22222";
         nextBtn.onclick = () => idx < questions.length - 1 ? showQ(idx + 1) : finish();
+        
         const dots = document.getElementById('navegador-preguntas').children;
         for(let i=0; i<dots.length; i++) { dots[i].classList.remove('active'); if(i===idx) dots[i].classList.add('active'); }
     }
