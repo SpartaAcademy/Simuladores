@@ -1,6 +1,7 @@
-const supabaseUrl = 'https://fgpqioviycmgwypidhcs.supabase.co';
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZncHFpb3ZpeWNtZ3d5cGlkaGNzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU0OTkwMDgsImV4cCI6MjA4MTA3NTAwOH0.5ckdzDtwFRG8JpuW5S-Qi885oOSVESAvbLoNiqePJYo';
-const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+// CONEXIÓN (Nombre cambiado a 'simuladorDB' para evitar conflictos con auth.js)
+const simuladorUrl = 'https://fgpqioviycmgwypidhcs.supabase.co';
+const simuladorKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZncHFpb3ZpeWNtZ3d5cGlkaGNzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU0OTkwMDgsImV4cCI6MjA4MTA3NTAwOH0.5ckdzDtwFRG8JpuW5S-Qi885oOSVESAvbLoNiqePJYo';
+const simuladorDB = window.supabase.createClient(simuladorUrl, simuladorKey);
 
 document.addEventListener('DOMContentLoaded', () => {
     const lobbyBanner = document.getElementById('lobby-banner');
@@ -12,8 +13,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const txtMateria = document.getElementById('lobby-materia');
     const txtPreguntas = document.getElementById('lobby-preguntas');
     const txtTiempo = document.getElementById('lobby-tiempo');
+    
+    // Botón regresar
     const btnBack = document.getElementById('btn-regresar-lobby');
-    if(btnBack) btnBack.addEventListener('click', () => window.history.length > 1 ? window.history.back() : window.location.href = 'index.html');
+    if(btnBack) btnBack.addEventListener('click', () => {
+        if (window.history.length > 1) window.history.back(); 
+        else window.location.href = 'index.html'; 
+    });
 
     let questions = [];
     let userAnswers = [];
@@ -26,12 +32,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const materias = {
         'sociales': 'Ciencias Sociales', 'matematicas': 'Matemáticas y Física', 'lengua': 'Lengua y Literatura', 'ingles': 'Inglés', 'general': 'General (Todas)',
-        'inteligencia': 'Inteligencia', 'personalidad': 'Personalidad', 'ppnn1': 'Cuestionario 1 PPNN', 'ppnn2': 'Cuestionario 2 PPNN', 'ppnn3': 'Cuestionario 3 PPNN', 'ppnn4': 'Cuestionario 4 PPNN',
+        'inteligencia': 'Inteligencia', 'personalidad': 'Personalidad',
+        'ppnn1': 'Cuestionario 1 PPNN', 'ppnn2': 'Cuestionario 2 PPNN', 'ppnn3': 'Cuestionario 3 PPNN', 'ppnn4': 'Cuestionario 4 PPNN',
         'sociales_esmil': 'Ciencias Sociales (ESMIL)', 'matematicas_esmil': 'Matemáticas (ESMIL)', 'lengua_esmil': 'Lenguaje (ESMIL)', 'ingles_esmil': 'Inglés (ESMIL)', 'general_esmil': 'General ESMIL',
         'int_esmil_3': 'Inteligencia ESMIL 3 (Vocabulario)', 'int_esmil_4': 'Inteligencia ESMIL 4', 'int_esmil_5': 'Inteligencia ESMIL 5', 'int_esmil_6': 'Inteligencia ESMIL 6'
     };
+
     const ordenGeneralPolicia = ['sociales', 'matematicas', 'lengua', 'ingles'];
     const ordenGeneralEsmil = ['sociales_esmil', 'matematicas_esmil', 'lengua_esmil', 'ingles_esmil'];
+
+    function showError(msg) {
+        console.error(msg);
+        btnStart.innerHTML = `<i class="fas fa-exclamation-circle"></i> Error: ${msg}`;
+        btnStart.style.background = "#c0392b";
+        document.getElementById('error-text').textContent = "Error cargando. Recarga la página.";
+        document.getElementById('error-modal').style.display = 'flex';
+    }
 
     async function init() {
         const params = new URLSearchParams(window.location.search);
@@ -40,19 +56,22 @@ document.addEventListener('DOMContentLoaded', () => {
         
         if(txtTituloMateria) txtTituloMateria.textContent = title.toUpperCase();
         if(txtMateria) txtMateria.textContent = title;
+        const headerSub = document.getElementById('header-subtitulo');
+        if(headerSub) headerSub.textContent = title.toUpperCase();
 
         let fetchUrl = '';
         if (materiaKey === 'int_esmil_3') {
-            isTableMode = true; fetchUrl = 'DATA/3/3.json'; timeLeft = 1800;
+            isTableMode = true; fetchUrl = 'DATA/3/3.json'; timeLeft = 1800; totalPreguntas = 50;
         } else if (materiaKey.startsWith('int_esmil_')) {
             carpetaEspecialID = materiaKey.split('_')[2]; fetchUrl = `DATA/${carpetaEspecialID}/${carpetaEspecialID}.json`; timeLeft = 3600;
         } else if (materiaKey.includes('matematicas')) {
             timeLeft = 5400; fetchUrl = `DATA/preguntas_${materiaKey}.json`;
         } else if (materiaKey.includes('general')) {
-            timeLeft = 10800; fetchUrl = `DATA/preguntas_${materiaKey}.json`;
+            timeLeft = 10800; totalPreguntas = 200; fetchUrl = `DATA/preguntas_${materiaKey}.json`;
         } else {
             timeLeft = 3600; fetchUrl = `DATA/preguntas_${materiaKey}.json`;
         }
+
         if(txtTiempo) txtTiempo.textContent = Math.floor(timeLeft/60) + " Minutos";
 
         try {
@@ -76,15 +95,21 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (q.imagen) q.imagen = `DATA/${carpetaEspecialID}/IMAGES/${q.imagen.split('/').pop()}`;
                     return q;
                 }).sort(() => 0.5 - Math.random());
-            } else if (!isTableMode) {
-                if (materiaKey.startsWith('ppnn')) questions.sort(() => 0.5 - Math.random());
-                else if (materiaKey.includes('general')) questions.sort(() => 0.5 - Math.random()).slice(0, 200);
-                else questions.sort(() => 0.5 - Math.random()).slice(0, 50);
+            } 
+            else if (isTableMode) {
+                // Tabla: No sort
+            }
+            else if (materiaKey.startsWith('ppnn') || materiaKey.includes('general')) {
+                questions = questions.sort(() => 0.5 - Math.random());
+                if (materiaKey.includes('general')) questions = questions.slice(0, 200);
+            } 
+            else {
+                questions = questions.sort(() => 0.5 - Math.random()).slice(0, 50);
             }
 
             if(txtPreguntas) txtPreguntas.textContent = questions.length;
 
-            // PRELOAD SEGURO
+            // Preload (Con seguridad)
             if(!isTableMode && questions.some(q => q.imagen)) {
                 btnStart.innerHTML = "CARGANDO RECURSOS...";
                 await Promise.race([preloadImages(questions), new Promise(r => setTimeout(r, 2000))]);
@@ -95,9 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
             btnStart.onclick = isTableMode ? startTableQuiz : startQuiz;
 
         } catch (e) {
-            btnStart.innerHTML = "ERROR AL CARGAR";
-            btnStart.style.background = "#c0392b";
-            console.error(e);
+            showError(e.message);
         }
     }
 
@@ -112,7 +135,17 @@ document.addEventListener('DOMContentLoaded', () => {
     function startTableQuiz() {
         lobbyBanner.style.display = 'none'; lobbyContainer.style.display = 'none';
         simulador.style.display = 'block'; simulador.className = ''; 
-        let html = `<div class="full-width-container"><div style="display:flex; justify-content:space-between; margin-bottom:20px; align-items:center;"><h2>TEST DE VOCABULARIO</h2><div class="timer-box" style="padding:10px 20px;"><i class="fas fa-clock"></i> <span id="cronometro-tabla">00:00</span></div></div><div class="table-responsive-wrapper"><table class="vocab-table"><thead><tr><th style="width:50px;">#</th><th>PALABRA</th><th>A</th><th>B</th><th>C</th><th>D</th></tr></thead><tbody>`;
+        
+        let html = `
+        <div class="full-width-container">
+            <div style="display:flex; justify-content:space-between; margin-bottom:20px; align-items:center;">
+                <h2>TEST DE VOCABULARIO</h2>
+                <div class="timer-box" style="padding:10px 20px;"><i class="fas fa-clock"></i> <span id="cronometro-tabla">00:00</span></div>
+            </div>
+            <div class="table-responsive-wrapper">
+                <table class="vocab-table">
+                    <thead><tr><th style="width:50px;">#</th><th>PALABRA</th><th>A</th><th>B</th><th>C</th><th>D</th></tr></thead>
+                    <tbody>`;
         questions.forEach((q, i) => {
             html += `<tr id="row-${i}"><td><strong>${i+1}</strong></td><td class="vocab-word-cell">${q.palabra}</td>
             <td class="vocab-option-cell" onclick="selectCell(${i}, '${q.opciones[0]}', this)">${q.opciones[0]}</td>
@@ -236,7 +269,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const params = new URLSearchParams(window.location.search);
             const title = materias[params.get('materia')] || params.get('materia');
             try {
-                await supabase.from('resultados').insert([{
+                // Usamos 'simuladorDB' en lugar de 'supabase'
+                await simuladorDB.from('resultados').insert([{
                     usuario_id: user.usuario, usuario_nombre: user.nombre, materia: title,
                     puntaje: score, total_preguntas: total, ciudad: user.ciudad
                 }]);
