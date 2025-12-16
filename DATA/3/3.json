@@ -53,7 +53,7 @@
   ],
   "parte2_bloques": [
     {
-      "imagen_bloque": "image_02cae9.jpg",
+      "imagen_bloque": "1.jpg",
       "rango_inicio": 1,
       "rango_fin": 5,
       "respuestas_bloque": [
@@ -102,4 +102,5 @@
     }
   ]
 }
+
 
