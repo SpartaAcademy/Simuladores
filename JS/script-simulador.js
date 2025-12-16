@@ -12,8 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const txtMateria = document.getElementById('lobby-materia');
     const txtPreguntas = document.getElementById('lobby-preguntas');
     const txtTiempo = document.getElementById('lobby-tiempo');
-    
-    // Botón regresar
     const btnBack = document.getElementById('btn-regresar-lobby');
     if(btnBack) btnBack.addEventListener('click', () => window.history.length > 1 ? window.history.back() : window.location.href = 'index.html');
 
@@ -28,12 +26,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const materias = {
         'sociales': 'Ciencias Sociales', 'matematicas': 'Matemáticas y Física', 'lengua': 'Lengua y Literatura', 'ingles': 'Inglés', 'general': 'General (Todas)',
-        'inteligencia': 'Inteligencia', 'personalidad': 'Personalidad',
-        'ppnn1': 'Cuestionario 1 PPNN', 'ppnn2': 'Cuestionario 2 PPNN', 'ppnn3': 'Cuestionario 3 PPNN', 'ppnn4': 'Cuestionario 4 PPNN',
+        'inteligencia': 'Inteligencia', 'personalidad': 'Personalidad', 'ppnn1': 'Cuestionario 1 PPNN', 'ppnn2': 'Cuestionario 2 PPNN', 'ppnn3': 'Cuestionario 3 PPNN', 'ppnn4': 'Cuestionario 4 PPNN',
         'sociales_esmil': 'Ciencias Sociales (ESMIL)', 'matematicas_esmil': 'Matemáticas (ESMIL)', 'lengua_esmil': 'Lenguaje (ESMIL)', 'ingles_esmil': 'Inglés (ESMIL)', 'general_esmil': 'General ESMIL',
         'int_esmil_3': 'Inteligencia ESMIL 3 (Vocabulario)', 'int_esmil_4': 'Inteligencia ESMIL 4', 'int_esmil_5': 'Inteligencia ESMIL 5', 'int_esmil_6': 'Inteligencia ESMIL 6'
     };
-
     const ordenGeneralPolicia = ['sociales', 'matematicas', 'lengua', 'ingles'];
     const ordenGeneralEsmil = ['sociales_esmil', 'matematicas_esmil', 'lengua_esmil', 'ingles_esmil'];
 
@@ -57,7 +53,6 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             timeLeft = 3600; fetchUrl = `DATA/preguntas_${materiaKey}.json`;
         }
-
         if(txtTiempo) txtTiempo.textContent = Math.floor(timeLeft/60) + " Minutos";
 
         try {
@@ -89,10 +84,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if(txtPreguntas) txtPreguntas.textContent = questions.length;
 
-            // Preload (Con seguridad)
+            // PRELOAD SEGURO
             if(!isTableMode && questions.some(q => q.imagen)) {
                 btnStart.innerHTML = "CARGANDO RECURSOS...";
-                await Promise.race([preloadImages(questions), new Promise(r => setTimeout(r, 2500))]);
+                await Promise.race([preloadImages(questions), new Promise(r => setTimeout(r, 2000))]);
             }
 
             btnStart.disabled = false;
@@ -117,17 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function startTableQuiz() {
         lobbyBanner.style.display = 'none'; lobbyContainer.style.display = 'none';
         simulador.style.display = 'block'; simulador.className = ''; 
-        
-        let html = `
-        <div class="full-width-container">
-            <div style="display:flex; justify-content:space-between; margin-bottom:20px; align-items:center;">
-                <h2>TEST DE VOCABULARIO</h2>
-                <div class="timer-box" style="padding:10px 20px;"><i class="fas fa-clock"></i> <span id="cronometro-tabla">00:00</span></div>
-            </div>
-            <div class="table-responsive-wrapper">
-                <table class="vocab-table">
-                    <thead><tr><th style="width:50px;">#</th><th>PALABRA</th><th>A</th><th>B</th><th>C</th><th>D</th></tr></thead>
-                    <tbody>`;
+        let html = `<div class="full-width-container"><div style="display:flex; justify-content:space-between; margin-bottom:20px; align-items:center;"><h2>TEST DE VOCABULARIO</h2><div class="timer-box" style="padding:10px 20px;"><i class="fas fa-clock"></i> <span id="cronometro-tabla">00:00</span></div></div><div class="table-responsive-wrapper"><table class="vocab-table"><thead><tr><th style="width:50px;">#</th><th>PALABRA</th><th>A</th><th>B</th><th>C</th><th>D</th></tr></thead><tbody>`;
         questions.forEach((q, i) => {
             html += `<tr id="row-${i}"><td><strong>${i+1}</strong></td><td class="vocab-word-cell">${q.palabra}</td>
             <td class="vocab-option-cell" onclick="selectCell(${i}, '${q.opciones[0]}', this)">${q.opciones[0]}</td>
@@ -161,7 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if(userAns === q.respuesta) ok++;
         });
         const score = Math.round((ok * 1000) / questions.length);
-        alert(`PUNTAJE: ${score}/1000\nACIERTOS: ${ok}/${questions.length}`);
+        alert(`PUNTAJE: ${score}/1000`);
         document.querySelector('.btn-finish-table').style.display = 'none';
         
         const btnExit = document.createElement('button');
@@ -228,11 +213,9 @@ document.addEventListener('DOMContentLoaded', () => {
         simulador.style.display = 'none'; resultados.style.display = 'block';
         let ok = 0; questions.forEach((q, i) => { if(userAnswers[i] === q.respuesta) ok++; });
         const score = Math.round((ok * 1000) / questions.length);
-        
         document.getElementById('puntaje-final').textContent = score;
         document.getElementById('stats-correctas').textContent = ok;
         document.getElementById('stats-incorrectas').textContent = questions.length - ok;
-        
         const rev = document.getElementById('revision-container'); rev.innerHTML = '';
         questions.forEach((q, i) => {
             const correct = userAnswers[i] === q.respuesta;
