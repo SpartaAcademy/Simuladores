@@ -12,22 +12,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnStart = document.getElementById('comenzar-btn');
     const btnNext = document.getElementById('siguiente-btn');
     const navContainer = document.getElementById('navegador-preguntas');
-
+    
     // Títulos y Textos
     const txtTituloMateria = document.getElementById('lobby-titulo-materia');
     const txtMateria = document.getElementById('lobby-materia');
     const txtPreguntas = document.getElementById('lobby-preguntas');
     const txtTiempo = document.getElementById('lobby-tiempo');
-
+    
     // Botón Regresar
     const btnRegresarLobby = document.getElementById('btn-regresar-lobby');
-    if (btnRegresarLobby) {
+    if(btnRegresarLobby) {
         btnRegresarLobby.addEventListener('click', () => {
-            if (window.history.length > 1) { window.history.back(); }
+            if (window.history.length > 1) { window.history.back(); } 
             else { window.location.href = 'index.html'; }
         });
     }
-
+    
     let questions = [];
     let userAnswers = [];
     let currentIdx = 0;
@@ -66,53 +66,53 @@ document.addEventListener('DOMContentLoaded', () => {
         const params = new URLSearchParams(window.location.search);
         const materiaKey = params.get('materia') || 'sociales';
         const title = materias[materiaKey] || 'Simulador';
-
+        
         // Títulos
-        if (txtTituloMateria) txtTituloMateria.textContent = title.toUpperCase();
-        if (txtMateria) txtMateria.textContent = title;
+        if(txtTituloMateria) txtTituloMateria.textContent = title.toUpperCase();
+        if(txtMateria) txtMateria.textContent = title;
         const headerSub = document.getElementById('header-subtitulo');
-        if (headerSub) headerSub.textContent = title.toUpperCase();
-
+        if(headerSub) headerSub.textContent = title.toUpperCase();
+        
         // --- CONFIGURACIÓN DE TIEMPO Y RUTA ---
         let fetchUrl = '';
-
+        
         // Caso Especial: Simuladores Inteligencia ESMIL (DATA/N/N.json)
         if (materiaKey.startsWith('int_esmil_')) {
             carpetaEspecialID = materiaKey.split('_')[2]; // Obtiene '4', '5' o '6'
             fetchUrl = `DATA/${carpetaEspecialID}/${carpetaEspecialID}.json`;
             timeLeft = 3600; // 1 Hora
-            totalPreguntas = 50;
-        }
+            totalPreguntas = 50; 
+        } 
         else if (materiaKey.includes('matematicas')) {
-            timeLeft = 5400;
+            timeLeft = 5400; 
             fetchUrl = `DATA/preguntas_${materiaKey}.json`;
-        } else if (materiaKey.includes('general')) {
-            timeLeft = 10800;
+        } else if (materiaKey.includes('general')) { 
+            timeLeft = 10800; 
             totalPreguntas = 200;
         } else {
-            timeLeft = 3600;
+            timeLeft = 3600; 
             fetchUrl = `DATA/preguntas_${materiaKey}.json`;
         }
 
-        if (txtTiempo) txtTiempo.textContent = Math.floor(timeLeft / 60) + " Minutos";
+        if(txtTiempo) txtTiempo.textContent = Math.floor(timeLeft/60) + " Minutos";
 
         try {
             let filesToLoad = [];
-
+            
             // Definir qué cargar
             if (materiaKey.startsWith('int_esmil_')) {
                 filesToLoad = [fetchUrl];
-            } else if (materiaKey === 'general') {
+            } else if(materiaKey === 'general') {
                 filesToLoad = ordenGeneralPolicia.map(m => `DATA/preguntas_${m}.json`);
-            } else if (materiaKey === 'general_esmil') {
+            } else if(materiaKey === 'general_esmil') {
                 filesToLoad = ordenGeneralEsmil.map(m => `DATA/preguntas_${m}.json`);
             } else {
                 filesToLoad = [fetchUrl];
             }
 
-            const promises = filesToLoad.map(url =>
+            const promises = filesToLoad.map(url => 
                 fetch(url).then(r => {
-                    if (!r.ok) throw new Error(`Falta: ${url}`);
+                    if(!r.ok) throw new Error(`Falta: ${url}`);
                     return r.json();
                 })
             );
@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
             results.forEach(d => allQ = allQ.concat(d));
 
             // --- PROCESAMIENTO DE PREGUNTAS (ALEATORIZACIÓN) ---
-            if (materiaKey.startsWith('ppnn')) {
+            if(materiaKey.startsWith('ppnn')) {
                 questions = allQ.sort(() => 0.5 - Math.random());
             } else if (materiaKey.includes('general')) {
                 questions = allQ.sort(() => 0.5 - Math.random()).slice(0, 200);
@@ -130,12 +130,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 // 1. CORRECCIÓN DE RUTAS DE IMÁGENES PARA ESMIL
                 questions = allQ.map(q => {
                     if (q.imagen) {
-                        const imageName = q.imagen.split('/').pop();
+                        const imageName = q.imagen.split('/').pop(); 
                         q.imagen = `DATA/${carpetaEspecialID}/IMAGES/${imageName}`;
                     }
                     return q;
                 });
-
+                
                 // 2. ALEATORIZAR ORDEN (BARAJAR)
                 // Esto asegura que cada intento tenga un orden diferente
                 questions.sort(() => 0.5 - Math.random());
@@ -144,10 +144,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 questions = allQ.sort(() => 0.5 - Math.random()).slice(0, 50);
             }
 
-            if (questions.length === 0) throw new Error("Archivo vacío.");
+            if(questions.length === 0) throw new Error("Archivo vacío.");
 
             // Actualizar total real
-            if (txtPreguntas) txtPreguntas.textContent = questions.length;
+            if(txtPreguntas) txtPreguntas.textContent = questions.length;
 
             // --- PRELOAD DE IMÁGENES ---
             await preloadImages(questions);
@@ -157,8 +157,8 @@ document.addEventListener('DOMContentLoaded', () => {
             btnStart.innerHTML = 'COMENZAR INTENTO <i class="fas fa-play"></i>';
             btnStart.onclick = startQuiz;
 
-        } catch (e) {
-            showError(e.message);
+        } catch (e) { 
+            showError(e.message); 
         }
     }
 
@@ -166,21 +166,21 @@ document.addEventListener('DOMContentLoaded', () => {
     async function preloadImages(questionsList) {
         const imagesToLoad = questionsList.filter(q => q.imagen);
         const totalImages = imagesToLoad.length;
-
+        
         if (totalImages === 0) {
             btnStart.innerHTML = "CARGANDO DATOS...";
             return;
         }
 
         btnStart.innerHTML = `<i class="fas fa-spinner fa-spin"></i> CARGANDO IMÁGENES (0/${totalImages})`;
-
+        
         let loadedCount = 0;
-
+        
         const promises = imagesToLoad.map(q => {
             return new Promise((resolve) => {
                 const img = new Image();
                 img.src = q.imagen;
-
+                
                 img.onload = () => {
                     loadedCount++;
                     btnStart.innerHTML = `<i class="fas fa-spinner fa-spin"></i> CARGANDO IMÁGENES (${loadedCount}/${totalImages})`;
@@ -199,34 +199,34 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function startQuiz() {
-        lobbyBanner.style.display = 'none';
+        lobbyBanner.style.display = 'none'; 
         lobbyContainer.style.display = 'none';
-
+        
         simulador.className = 'quiz-layout';
         simulador.style.display = window.innerWidth > 900 ? 'grid' : 'flex';
-
+        
         userAnswers = new Array(questions.length).fill(null);
         renderNav();
         showQ(0);
-
+        
         timerInterval = setInterval(() => {
             timeLeft--;
-            const m = Math.floor(timeLeft / 60).toString().padStart(2, '0');
-            const s = (timeLeft % 60).toString().padStart(2, '0');
+            const m = Math.floor(timeLeft/60).toString().padStart(2,'0');
+            const s = (timeLeft%60).toString().padStart(2,'0');
             document.getElementById('cronometro').textContent = `${m}:${s}`;
-            if (timeLeft <= 0) finish();
+            if(timeLeft<=0) finish();
         }, 1000);
     }
 
     function showQ(idx) {
         currentIdx = idx;
         const q = questions[idx];
-        document.getElementById('pregunta-numero').textContent = `Pregunta ${idx + 1}`;
-
+        document.getElementById('pregunta-numero').textContent = `Pregunta ${idx+1}`;
+        
         // Formatear saltos de línea del JSON (/n -> <br>)
         const textoFormateado = q.pregunta.replace(/\n/g, '<br>');
         document.getElementById('pregunta-texto').innerHTML = textoFormateado;
-
+        
         const imgDiv = document.getElementById('q-image-container');
         imgDiv.innerHTML = q.imagen ? `<img src="${q.imagen}" style="max-width:100%; border-radius:8px; box-shadow:0 4px 10px rgba(0,0,0,0.1);">` : '';
 
@@ -235,7 +235,7 @@ document.addEventListener('DOMContentLoaded', () => {
         q.opciones.forEach(op => {
             const btn = document.createElement('button');
             btn.className = 'opcion-btn';
-            if (userAnswers[idx] === op) btn.classList.add('selected');
+            if(userAnswers[idx] === op) btn.classList.add('selected');
             btn.textContent = op;
             btn.onclick = () => {
                 userAnswers[idx] = op;
@@ -243,23 +243,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 all.forEach(b => b.classList.remove('selected'));
                 btn.classList.add('selected');
                 const dots = navContainer.children;
-                if (dots[idx]) dots[idx].classList.add('answered');
+                if(dots[idx]) dots[idx].classList.add('answered');
             };
             opts.appendChild(btn);
         });
-
+        
         const dots = navContainer.children;
-        for (let i = 0; i < dots.length; i++) {
+        for(let i=0; i<dots.length; i++) {
             dots[i].classList.remove('active');
-            if (i === idx) dots[i].classList.add('active');
+            if(i === idx) dots[i].classList.add('active');
         }
 
         if (idx === questions.length - 1) {
             btnNext.textContent = "Finalizar";
-            btnNext.style.backgroundColor = "#27ae60";
+            btnNext.style.backgroundColor = "#27ae60"; 
         } else {
             btnNext.textContent = "Siguiente";
-            btnNext.style.backgroundColor = "#b22222";
+            btnNext.style.backgroundColor = "#b22222"; 
         }
     }
 
@@ -268,8 +268,8 @@ document.addEventListener('DOMContentLoaded', () => {
         questions.forEach((_, i) => {
             const b = document.createElement('button');
             b.className = 'nav-dot';
-            b.textContent = i + 1;
-            b.style.cursor = "default";
+            b.textContent = i+1;
+            b.style.cursor = "default"; 
             navContainer.appendChild(b);
         });
     }
@@ -285,13 +285,13 @@ document.addEventListener('DOMContentLoaded', () => {
         resultados.style.display = 'block';
 
         let ok = 0;
-        questions.forEach((q, i) => { if (userAnswers[i] === q.respuesta) ok++; });
+        questions.forEach((q, i) => { if(userAnswers[i] === q.respuesta) ok++; });
         const score = Math.round((ok * 1000) / questions.length);
 
         document.getElementById('puntaje-final').textContent = score;
         document.getElementById('stats-correctas').textContent = ok;
         document.getElementById('stats-incorrectas').textContent = questions.length - ok;
-        document.getElementById('stats-en-blanco').textContent = userAnswers.filter(a => a === null).length;
+        document.getElementById('stats-en-blanco').textContent = userAnswers.filter(a=>a===null).length;
 
         const revContainer = document.getElementById('revision-container');
         revContainer.innerHTML = '';
@@ -299,41 +299,41 @@ document.addEventListener('DOMContentLoaded', () => {
             const div = document.createElement('div');
             div.style.borderBottom = '1px solid #eee'; div.style.padding = '15px';
             const correct = userAnswers[i] === q.respuesta;
-
+            
             let imgHtml = q.imagen ? `<div style="text-align:center; margin:10px 0;"><img src="${q.imagen}" style="max-width:150px; border-radius:5px;"></div>` : '';
             const textoPregunta = q.pregunta.replace(/\n/g, '<br>');
 
-            div.innerHTML = `<p><strong>${i + 1}. ${textoPregunta}</strong></p>
+            div.innerHTML = `<p><strong>${i+1}. ${textoPregunta}</strong></p>
                              ${imgHtml}
-                             <p>Tu respuesta: <span style="font-weight:bold; color:${correct ? 'green' : 'red'}">${userAnswers[i] || '---'}</span></p>
+                             <p>Tu respuesta: <span style="font-weight:bold; color:${correct?'green':'red'}">${userAnswers[i]||'---'}</span></p>
                              ${!correct ? `<p style="color:green; margin-top:5px;">Correcta: <strong>${q.respuesta}</strong></p>` : ''}`;
             revContainer.appendChild(div);
         });
 
-        const userStr = sessionStorage.getItem('userInfo');
-        if (userStr) {
+        const userStr = sessionStorage.getItem('userInfo'); 
+        if(userStr) {
             const user = JSON.parse(userStr);
             const params = new URLSearchParams(window.location.search);
             const materiaKey = params.get('materia');
             const title = materias[materiaKey] || materiaKey;
-
+            
             try {
                 await supabase.from('resultados').insert([{
                     usuario_id: user.usuario, usuario_nombre: user.nombre, materia: title,
                     puntaje: score, total_preguntas: questions.length, ciudad: user.ciudad
                 }]);
-            } catch (e) { console.error(e); }
+            } catch(e) { console.error(e); }
         }
     }
 
     document.getElementById('terminar-intento-btn').onclick = () => {
-        document.getElementById('modal-mensaje').textContent = `Faltan ${userAnswers.filter(a => a === null).length} preguntas.`;
+        document.getElementById('modal-mensaje').textContent = `Faltan ${userAnswers.filter(a=>a===null).length} preguntas.`;
         document.getElementById('modal-overlay').style.display = 'flex';
     };
-    document.getElementById('confirmar-modal-btn').onclick = () => { document.getElementById('modal-overlay').style.display = 'none'; finish(); };
-    document.getElementById('cancelar-modal-btn').onclick = () => document.getElementById('modal-overlay').style.display = 'none';
+    document.getElementById('confirmar-modal-btn').onclick = () => { document.getElementById('modal-overlay').style.display='none'; finish(); };
+    document.getElementById('cancelar-modal-btn').onclick = () => document.getElementById('modal-overlay').style.display='none';
     document.getElementById('retry-btn').onclick = () => location.reload();
-    document.getElementById('reiniciar-btn').onclick = () => location.href = 'index.html';
+    document.getElementById('reiniciar-btn').onclick = () => location.href='index.html';
 
     init();
 });
