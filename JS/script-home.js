@@ -67,9 +67,11 @@ const MENU_DATA = {
         title: 'Tests Inteligencia ESMIL',
         desc: 'Simuladores Psicométricos Específicos.',
         items: [
-            { label: 'SIMULADOR 1', type: 'test', link: '#', icon: 'fas fa-puzzle-piece', disabled: true },
-            { label: 'SIMULADOR 2', type: 'test', link: '#', icon: 'fas fa-puzzle-piece', disabled: true },
-            { label: 'SIMULADOR 3 (Vocabulario)', type: 'test', link: 'simulador.html?materia=int_esmil_3', icon: 'fas fa-list-alt' },
+            // AHORA EL 1 Y EL 2 ESTÁN ACTIVOS (NORMALES)
+            { label: 'SIMULADOR 1', type: 'test', link: 'simulador.html?materia=int_esmil_1', icon: 'fas fa-puzzle-piece' },
+            { label: 'SIMULADOR 2', type: 'test', link: 'simulador.html?materia=int_esmil_2', icon: 'fas fa-puzzle-piece' },
+            // EL 3 ES EL ESPECIAL
+            { label: 'SIMULADOR 3 (Mixto)', type: 'test', link: 'simulador.html?materia=int_esmil_3', icon: 'fas fa-list-alt' },
             { label: 'SIMULADOR 4', type: 'test', link: 'simulador.html?materia=int_esmil_4', icon: 'fas fa-lightbulb' },
             { label: 'SIMULADOR 5', type: 'test', link: 'simulador.html?materia=int_esmil_5', icon: 'fas fa-lightbulb' },
             { label: 'SIMULADOR 6', type: 'test', link: 'simulador.html?materia=int_esmil_6', icon: 'fas fa-lightbulb' }
@@ -125,13 +127,21 @@ function renderMenu(menuId) {
         if (item.variant === 'wide') baseClass += ' card-wide';
         card.className = baseClass;
         
-        if (item.disabled) { card.classList.add('disabled-card'); card.href = '#'; }
-        else if (item.type === 'test') card.href = item.link;
-        else { card.href = '#'; card.onclick = (e) => { e.preventDefault(); renderMenu(item.id); }; }
+        if (item.disabled) {
+            card.classList.add('disabled-card'); 
+            card.href = '#';
+        } else if (item.type === 'test') {
+            card.href = item.link;
+        } else {
+            card.href = '#'; 
+            card.onclick = (e) => { e.preventDefault(); renderMenu(item.id); };
+        }
 
-        card.innerHTML = `<i class="${item.icon}"></i><div class="text-content"><h3>${item.label}${item.disabled?' (Próx.)':''}</h3>${item.desc?`<p>${item.desc}</p>`:''}</div>`;
-        if(item.variant !== 'wide') card.innerHTML = `<i class="${item.icon}"></i><h3>${item.label}${item.disabled?' (Próx.)':''}</h3>${item.desc?`<p>${item.desc}</p>`:''}`;
-        
+        if (item.variant === 'wide') {
+            card.innerHTML = `<i class="${item.icon}"></i><div class="text-content"><h3>${item.label}</h3><p>${item.desc || ''}</p></div>`;
+        } else {
+            card.innerHTML = `<i class="${item.icon}"></i><h3>${item.label}${item.disabled ? ' (Próx.)' : ''}</h3>${item.desc ? `<p>${item.desc}</p>` : ''}`;
+        }
         container.appendChild(card);
     });
 }
@@ -141,4 +151,10 @@ function goBack() {
         navigationHistory.pop();
         renderMenu(navigationHistory[navigationHistory.length - 1]);
     }
+}
+
+function updateNavigationUI() {
+    const navBar = document.getElementById('navigation-bar');
+    if (navigationHistory.length > 1) navBar.style.display = 'flex';
+    else navBar.style.display = 'none';
 }
