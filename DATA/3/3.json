@@ -65,7 +65,7 @@
       ]
     },
     {
-      "imagen_bloque": "image_f861bc.png",
+      "imagen_bloque": "2.png",
       "rango_inicio": 6,
       "rango_fin": 10,
       "respuestas_bloque": [
@@ -77,7 +77,7 @@
       ]
     },
     {
-      "imagen_bloque": "image_f8619f.png",
+      "imagen_bloque": "3.png",
       "rango_inicio": 11,
       "rango_fin": 15,
       "respuestas_bloque": [
@@ -89,7 +89,7 @@
       ]
     },
     {
-      "imagen_bloque": "image_f86180.png",
+      "imagen_bloque": "4.png",
       "rango_inicio": 16,
       "rango_fin": 20,
       "respuestas_bloque": [
@@ -102,3 +102,4 @@
     }
   ]
 }
+
