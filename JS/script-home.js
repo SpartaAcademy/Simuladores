@@ -42,12 +42,11 @@ const MENU_DATA = {
         ]
     },
 
-    // --- RAMA FUERZAS ARMADAS (NUEVA ESTRUCTURA) ---
+    // --- RAMA FUERZAS ARMADAS ---
     'ffaa': {
         title: 'Fuerzas Armadas',
         desc: 'Seleccione la escuela.',
         items: [
-            // Aquí entra directo a ESMIL
             { id: 'esmil_menu', label: 'ESMIL', type: 'folder', icon: 'fas fa-university', desc: 'Escuela Superior Militar Eloy Alfaro' }
         ]
     },
@@ -59,7 +58,6 @@ const MENU_DATA = {
             { id: 'ffaa_esmil_inteligencia', label: 'Tests Inteligencia ESMIL', type: 'folder', icon: 'fas fa-brain' }
         ]
     },
-    // Académicas ESMIL (Viejas)
     'ffaa_esmil_academicas': {
         title: 'Pruebas Académicas ESMIL',
         desc: 'Elija una materia.',
@@ -71,14 +69,16 @@ const MENU_DATA = {
             { label: 'GENERAL (TODAS)', type: 'test', link: 'simulador.html?materia=general_esmil', icon: 'fas fa-layer-group' }
         ]
     },
-    // Inteligencia ESMIL (Nuevas carpetas 1-6)
+    
+    // --- AQUÍ ESTÁ EL CAMBIO IMPORTANTE: SIMULADOR 3 HABILITADO ---
     'ffaa_esmil_inteligencia': {
         title: 'Tests Inteligencia ESMIL',
         desc: 'Simuladores Psicométricos Específicos.',
         items: [
-            { label: 'SIMULADOR 1', type: 'test', link: '#', icon: 'fas fa-puzzle-piece', disabled: true }, // Próx
-            { label: 'SIMULADOR 2', type: 'test', link: '#', icon: 'fas fa-puzzle-piece', disabled: true }, // Próx
-            { label: 'SIMULADOR 3', type: 'test', link: '#', icon: 'fas fa-puzzle-piece', disabled: true }, // Próx
+            { label: 'SIMULADOR 1', type: 'test', link: '#', icon: 'fas fa-puzzle-piece', disabled: true },
+            { label: 'SIMULADOR 2', type: 'test', link: '#', icon: 'fas fa-puzzle-piece', disabled: true },
+            // HABILITADO:
+            { label: 'SIMULADOR 3 (Vocabulario)', type: 'test', link: 'simulador.html?materia=int_esmil_3', icon: 'fas fa-list-alt' }, 
             { label: 'SIMULADOR 4', type: 'test', link: 'simulador.html?materia=int_esmil_4', icon: 'fas fa-lightbulb' },
             { label: 'SIMULADOR 5', type: 'test', link: 'simulador.html?materia=int_esmil_5', icon: 'fas fa-lightbulb' },
             { label: 'SIMULADOR 6', type: 'test', link: 'simulador.html?materia=int_esmil_6', icon: 'fas fa-lightbulb' }
