@@ -1,0 +1,244 @@
+[
+    {
+        "pregunta": "En los siguientes ejercicios, ¿cuál de las figuras de la derecha (A, B, C o D) completa la figura de la izquierda?",
+        "imagen": "DATA/2/IMG/1.png",
+        "opciones": [
+            "A",
+            "B",
+            "C",
+            "D"
+        ],
+        "respuesta": "A"
+    },
+    {
+        "pregunta": "En los siguientes ejercicios, ¿cuál de las figuras de la derecha (A, B, C o D) completa la figura de la izquierda?",
+        "imagen": "DATA/2/IMG/2.png",
+        "opciones": [
+            "A",
+            "B",
+            "C",
+            "D"
+        ],
+        "respuesta": "A"
+    },
+    {
+        "pregunta": "En los siguientes ejercicios, ¿cuál de las figuras de la derecha (A, B, C o D) completa la figura de la izquierda?",
+        "imagen": "DATA/2/IMG/3.png",
+        "opciones": [
+            "A",
+            "B",
+            "C",
+            "D"
+        ],
+        "respuesta": "A"
+    },
+    {
+        "pregunta": "En los siguientes ejercicios, ¿cuál de las figuras de la derecha (A, B, C o D) completa la figura de la izquierda?",
+        "imagen": "DATA/2/IMG/4.png",
+        "opciones": [
+            "A",
+            "B",
+            "C",
+            "D"
+        ],
+        "respuesta": "B"
+    },
+    {
+        "pregunta": "En los siguientes ejercicios, ¿cuál de las figuras de la derecha (A, B, C o D) se halla oculta parcialmente por un cuadrado a la izquierda?",
+        "imagen": "DATA/2/IMG/5.png",
+        "opciones": [
+            "A",
+            "B",
+            "C",
+            "D"
+        ],
+        "respuesta": "D"
+    },
+    {
+        "pregunta": "En los siguientes ejercicios, ¿cuál de las figuras de la derecha (A, B, C o D) se halla oculta parcialmente por un cuadrado a la izquierda?",
+        "imagen": "DATA/2/IMG/6.png",
+        "opciones": [
+            "A",
+            "B",
+            "C",
+            "D"
+        ],
+        "respuesta": "A"
+    },
+    {
+        "pregunta": "En los siguientes ejercicios, ¿cuál de las figuras de la derecha (A, B, C o D) se halla oculta parcialmente por un cuadrado a la izquierda?",
+        "imagen": "DATA/2/IMG/7.png",
+        "opciones": [
+            "A",
+            "B",
+            "C",
+            "D"
+        ],
+        "respuesta": "A"
+    },
+    {
+        "pregunta": "En los siguientes ejercicios aparece a la izquierda un puzzle al que le faltan dos piezas, y al lado una de esas dos piezas que le faltan. ¿Cuál de las cuatro piezas de la derecha (A,B, C o D) es la otra pieza que completa el puzzle?",
+        "imagen": "DATA/2/IMG/8.png",
+        "opciones": [
+            "A",
+            "B",
+            "C",
+            "D"
+        ],
+        "respuesta": "A"
+    },
+    {
+        "pregunta": "En los siguientes ejercicios aparece a la izquierda un puzzle al que le faltan dos piezas, y al lado una de esas dos piezas que le faltan. ¿Cuál de las cuatro piezas de la derecha (A,B, C o D) es la otra pieza que completa el puzzle?",
+        "imagen": "DATA/2/IMG/9.png",
+        "opciones": [
+            "A",
+            "B",
+            "C",
+            "D"
+        ],
+        "respuesta": "B"
+    },
+    {
+        "pregunta": "En los siguientes ejercicios aparece a la izquierda un puzzle al que le faltan dos piezas, y al lado una de esas dos piezas que le faltan. ¿Cuál de las cuatro piezas de la derecha (A,B, C o D) es la otra pieza que completa el puzzle?",
+        "imagen": "DATA/2/IMG/10.png",
+        "opciones": [
+            "A",
+            "B",
+            "C",
+            "D"
+        ],
+        "respuesta": "B"
+    },
+    {
+        "pregunta": "En los siguientes ejercicios aparece a la izquierda un puzzle al que le faltan dos piezas, y al lado una de esas dos piezas que le faltan. ¿Cuál de las cuatro piezas de la derecha (A,B, C o D) es la otra pieza que completa el puzzle?",
+        "imagen": "DATA/2/IMG/11.png",
+        "opciones": [
+            "A",
+            "B",
+            "C",
+            "D"
+        ],
+        "respuesta": "B"
+    },
+    {
+        "pregunta": "En los siguientes ejercicios aparece a la izquierda un puzzle al que le faltan dos piezas, y al lado una de esas dos piezas que le faltan. ¿Cuál de las cuatro piezas de la derecha (A,B, C o D) es la otra pieza que completa el puzzle?",
+        "imagen": "DATA/2/IMG/12.png",
+        "opciones": [
+            "A",
+            "B",
+            "C",
+            "D"
+        ],
+        "respuesta": "A"
+    },
+    {
+        "pregunta": "En los siguientes ejercicios aparece a la izquierda un puzzle al que le faltan dos piezas, y al lado una de esas dos piezas que le faltan. ¿Cuál de las cuatro piezas de la derecha (A,B, C o D) es la otra pieza que completa el puzzle?",
+        "imagen": "DATA/2/IMG/13.png",
+        "opciones": [
+            "A",
+            "B",
+            "C",
+            "D"
+        ],
+        "respuesta": "A"
+    },
+    {
+        "pregunta": "En los siguientes ejercicios aparece a la izquierda un puzzle al que le faltan tres piezas, y al lado dos de esas tres piezas que le faltan. ¿Cuál de las cuatro piezas de la derecha (A, B, C o D) es la otra pieza que completa el puzzle?",
+        "imagen": "DATA/2/IMG/14.png",
+        "opciones": [
+            "A",
+            "B",
+            "C",
+            "D"
+        ],
+        "respuesta": "A"
+    },
+    {
+        "pregunta": "En los siguientes ejercicios aparece a la izquierda un puzzle al que le faltan tres piezas, y al lado dos de esas tres piezas que le faltan. ¿Cuál de las cuatro piezas de la derecha (A, B, C o D) es la otra pieza que completa el puzzle?",
+        "imagen": "DATA/2/IMG/15.png",
+        "opciones": [
+            "A",
+            "B",
+            "C",
+            "D"
+        ],
+        "respuesta": "A"
+    },
+    {
+        "pregunta": "En los siguientes ejercicios aparece a la izquierda un puzzle al que le faltan tres piezas, y al lado dos de esas tres piezas que le faltan. ¿Cuál de las cuatro piezas de la derecha (A, B, C o D) es la otra pieza que completa el puzzle?",
+        "imagen": "DATA/2/IMG/16.png",
+        "opciones": [
+            "A",
+            "B",
+            "C",
+            "D"
+        ],
+        "respuesta": "C"
+    },
+    {
+        "pregunta": "En los siguientes ejercicios aparece a la izquierda un puzzle al que le faltan tres piezas, y al lado dos de esas tres piezas que le faltan. ¿Cuál de las cuatro piezas de la derecha (A, B, C o D) es la otra pieza que completa el puzzle?",
+        "imagen": "DATA/2/IMG/17.png",
+        "opciones": [
+            "A",
+            "B",
+            "C",
+            "D"
+        ],
+        "respuesta": "A"
+    },
+    {
+        "pregunta": "En los siguientes ejercicios aparece a la izquierda un puzzle al que le faltan tres piezas, y al lado dos de esas tres piezas que le faltan. ¿Cuál de las cuatro piezas de la derecha (A, B, C o D) es la otra pieza que completa el puzzle?",
+        "imagen": "DATA/2/IMG/18.png",
+        "opciones": [
+            "A",
+            "B",
+            "C",
+            "D"
+        ],
+        "respuesta": "B"
+    },
+    {
+        "pregunta": "En los siguientes ejercicios aparece a la izquierda un puzzle al que le faltan dos piezas, y al lado una de esas dos piezas que le faltan. ¿Cuál de las cuatro piezas de la derecha (A,B, C o D) es la otra pieza que completa el puzzle?",
+        "imagen": "DATA/2/IMG/19.png",
+        "opciones": [
+            "A",
+            "B",
+            "C",
+            "D"
+        ],
+        "respuesta": "C"
+    },
+    {
+        "pregunta": "En los siguientes ejercicios aparece a la izquierda un puzzle al que le faltan dos piezas, y al lado una de esas dos piezas que le faltan. ¿Cuál de las cuatro piezas de la derecha (A,B, C o D) es la otra pieza que completa el puzzle?",
+        "imagen": "DATA/2/IMG/20.png",
+        "opciones": [
+            "A",
+            "B",
+            "C",
+            "D"
+        ],
+        "respuesta": "C"
+    },
+    {
+        "pregunta": "En los siguientes ejercicios, ¿cuál de las figuras de la derecha completa la figura de la izquierda?",
+        "imagen": "DATA/2/IMG/21.png",
+        "opciones": [
+            "A",
+            "B",
+            "C",
+            "D"
+        ],
+        "respuesta": "A"
+    },
+    {
+        "pregunta": "En los siguientes ejercicios, ¿cuál de las figuras de la derecha completa la figura de la izquierda?",
+        "imagen": "DATA/2/IMG/22.png",
+        "opciones": [
+            "A",
+            "B",
+            "C",
+            "D"
+        ],
+        "respuesta": "C"
+    }
+]
