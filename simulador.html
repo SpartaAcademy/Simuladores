@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simulador - Sparta</title>
     <link rel="stylesheet" href="CSS/style-simulador.css">
+    
     <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;600&family=Work+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
@@ -181,12 +182,11 @@
             const close = document.getElementById('close-nav-btn');
             const overlay = document.getElementById('overlay');
 
-            if(btn) btn.onclick = () => { nav.classList.add('open'); overlay.style.display = "block"; };
-            const closeMenu = () => { nav.classList.remove('open'); overlay.style.display = "none"; };
-            if(close) close.onclick = closeMenu;
-            if(overlay) overlay.onclick = closeMenu;
+            if(btn) btn.onclick = () => { nav.style.width = "280px"; overlay.style.display = "block"; };
+            if(close) close.onclick = () => { nav.style.width = "0"; overlay.style.display = "none"; };
+            if(overlay) overlay.onclick = () => { nav.style.width = "0"; overlay.style.display = "none"; };
 
-            // --- LÓGICA DE ROLES ---
+            // Mostrar botón admin si corresponde
             const user = getUserInfo(); 
             if (user && user.rol === 'admin') {
                 const btnDesk = document.getElementById('btn-admin-desktop');
