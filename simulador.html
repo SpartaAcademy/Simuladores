@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simulador - Sparta</title>
     <link rel="stylesheet" href="CSS/style-simulador.css">
+    
     <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;600&family=Work+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
@@ -21,7 +22,6 @@
                 <h2 id="header-subtitulo">SIMULADOR</h2>
             </div>
         </a>
-        
         <div class="desktop-menu">
             <button id="btn-admin-desktop" class="user-btn" onclick="location.href='resultados.html'" style="display: none;">
                 <i class="fas fa-chart-pie"></i> Panel Admin
@@ -30,10 +30,7 @@
                 <i class="fas fa-sign-out-alt"></i> Salir
             </button>
         </div>
-
-        <button class="mobile-toggle" id="hamburger-btn">
-            <i class="fas fa-bars"></i>
-        </button>
+        <button class="mobile-toggle" id="hamburger-btn"><i class="fas fa-bars"></i></button>
     </header>
 
     <div class="side-nav" id="side-nav">
@@ -64,67 +61,25 @@
                     <h2>INSTRUCCIONES</h2>
                     <p>Lea atentamente los parámetros antes de iniciar.</p>
                 </div>
-                
                 <div class="lobby-grid">
-                    <div class="info-card">
-                        <i class="fas fa-book"></i>
-                        <span>Materia</span>
-                        <strong id="lobby-materia">...</strong>
-                    </div>
-                    <div class="info-card">
-                        <i class="fas fa-list-ol"></i>
-                        <span>Preguntas</span>
-                        <strong id="lobby-preguntas">...</strong>
-                    </div>
-                    <div class="info-card">
-                        <i class="fas fa-clock"></i>
-                        <span>Tiempo</span>
-                        <strong id="lobby-tiempo">...</strong>
-                    </div>
-                    <div class="info-card">
-                        <i class="fas fa-star"></i>
-                        <span>Puntaje Max</span>
-                        <strong>1000 Pts</strong>
-                    </div>
+                    <div class="info-card"><i class="fas fa-book"></i><span>Materia</span><strong id="lobby-materia">...</strong></div>
+                    <div class="info-card"><i class="fas fa-list-ol"></i><span>Preguntas</span><strong id="lobby-preguntas">...</strong></div>
+                    <div class="info-card"><i class="fas fa-clock"></i><span>Tiempo</span><strong id="lobby-tiempo">...</strong></div>
+                    <div class="info-card"><i class="fas fa-star"></i><span>Puntaje Max</span><strong>1000 Pts</strong></div>
                 </div>
-
                 <div class="warning-box">
                     <i class="fas fa-exclamation-triangle"></i>
                     <div>
-                        <h4>¡ATENCIÓN: MODO LINEAL!</h4>
-                        <p>Este examen es secuencial. <strong>Una vez que respondas y pases a la siguiente pregunta, NO podrás regresar</strong> a corregir.</p>
+                        <h4>¡ATENCIÓN!</h4>
+                        <p>Asegúrate de tu respuesta antes de avanzar.</p>
                     </div>
                 </div>
-                
-                <button id="comenzar-btn" disabled>
-                    <i class="fas fa-spinner fa-spin"></i> CARGANDO RECURSOS...
-                </button>
+                <button id="comenzar-btn" disabled><i class="fas fa-spinner fa-spin"></i> CARGANDO RECURSOS...</button>
             </div>
         </div>
 
         <div id="simulador-container" class="quiz-layout" style="display:none;">
-            <div class="quiz-main">
-                <div style="border-bottom:1px solid #eee; padding-bottom:10px; margin-bottom:20px;">
-                    <span class="pregunta-num-tag" id="pregunta-numero">Pregunta 1</span>
-                </div>
-                <div id="pregunta-texto">...</div>
-                <div id="q-image-container" style="text-align:center; margin:20px 0;"></div>
-                <div id="opciones-container"></div>
-                <button id="siguiente-btn">Siguiente <i class="fas fa-arrow-right"></i></button>
             </div>
-
-            <div class="quiz-sidebar">
-                <div class="timer-box">
-                    <div><small style="color:#ccc;">TIEMPO RESTANTE</small></div>
-                    <div id="cronometro">00:00</div>
-                </div>
-                <div class="nav-box">
-                    <small style="display:block; margin-bottom:10px; color:#888; font-weight:bold;">PROGRESO</small>
-                    <div id="navegador-preguntas"></div>
-                </div>
-                <button id="terminar-intento-btn">TERMINAR INTENTO</button>
-            </div>
-        </div>
 
         <div id="resultados-container" class="container-box" style="display:none; text-align:center; padding:40px;">
             <h2>¡INTENTO FINALIZADO!</h2>
@@ -133,18 +88,8 @@
                 <span style="font-size:0.9rem; color:#666; font-weight:bold;">PUNTOS</span>
             </div>
             <div class="stats-bar">
-                <div class="stat-item" style="border-bottom-color:var(--success)">
-                    <span class="stat-val" id="stats-correctas" style="color:var(--success)">0</span>
-                    <small>Correctas</small>
-                </div>
-                <div class="stat-item" style="border-bottom-color:var(--danger)">
-                    <span class="stat-val" id="stats-incorrectas" style="color:var(--danger)">0</span>
-                    <small>Incorrectas</small>
-                </div>
-                <div class="stat-item" style="border-bottom-color:var(--warning)">
-                    <span class="stat-val" id="stats-en-blanco" style="color:var(--warning)">0</span>
-                    <small>En Blanco</small>
-                </div>
+                <div class="stat-item" style="border-bottom-color:var(--success)"><span class="stat-val" id="stats-correctas" style="color:var(--success)">0</span><small>Correctas</small></div>
+                <div class="stat-item" style="border-bottom-color:var(--danger)"><span class="stat-val" id="stats-incorrectas" style="color:var(--danger)">0</span><small>Incorrectas</small></div>
             </div>
             <div class="revision-botones">
                 <button id="retry-btn" style="background:var(--primary); color:white; border:none; padding:12px 30px; border-radius:50px;">Reintentar</button>
@@ -180,13 +125,9 @@
             const nav = document.getElementById('side-nav');
             const close = document.getElementById('close-nav-btn');
             const overlay = document.getElementById('overlay');
-
-            if(btn) btn.onclick = () => { nav.classList.add('open'); overlay.style.display = "block"; };
-            const closeMenu = () => { nav.classList.remove('open'); overlay.style.display = "none"; };
-            if(close) close.onclick = closeMenu;
-            if(overlay) overlay.onclick = closeMenu;
-
-            // --- LÓGICA DE ROLES ---
+            if(btn) btn.onclick = () => { nav.style.width = "280px"; overlay.style.display = "block"; };
+            if(close) close.onclick = () => { nav.style.width = "0"; overlay.style.display = "none"; };
+            if(overlay) overlay.onclick = () => { nav.style.width = "0"; overlay.style.display = "none"; };
             const user = getUserInfo(); 
             if (user && user.rol === 'admin') {
                 const btnDesk = document.getElementById('btn-admin-desktop');
