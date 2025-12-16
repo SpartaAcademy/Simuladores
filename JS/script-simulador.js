@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnNext = document.getElementById('siguiente-btn');
     const navContainer = document.getElementById('navegador-preguntas');
     
-    // Títulos
+    // Títulos y Textos
     const txtTituloMateria = document.getElementById('lobby-titulo-materia');
     const txtMateria = document.getElementById('lobby-materia');
     const txtPreguntas = document.getElementById('lobby-preguntas');
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let totalPreguntas = 50;
     let carpetaEspecialID = null;
     let isTableMode = false;
-    let tableUserAnswers = {}; 
+    let tableUserAnswers = {}; // Respuestas para la tabla
 
     const materias = {
         'sociales': 'Ciencias Sociales', 'matematicas': 'Matemáticas y Física',
@@ -46,6 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'sociales_esmil': 'Ciencias Sociales (ESMIL)', 'matematicas_esmil': 'Matemáticas (ESMIL)',
         'lengua_esmil': 'Lenguaje (ESMIL)', 'ingles_esmil': 'Inglés (ESMIL)',
         'general_esmil': 'General ESMIL',
+        // NUEVOS
         'int_esmil_3': 'Inteligencia ESMIL 3 (Vocabulario)',
         'int_esmil_4': 'Inteligencia ESMIL 4',
         'int_esmil_5': 'Inteligencia ESMIL 5',
@@ -75,15 +76,15 @@ document.addEventListener('DOMContentLoaded', () => {
         
         let fetchUrl = '';
         
-        // --- 1. CONFIGURACIÓN INICIAL SEGÚN TIPO ---
+        // --- CONFIGURACIÓN SEGÚN TIPO ---
         if (materiaKey === 'int_esmil_3') {
             isTableMode = true;
             fetchUrl = 'DATA/3/3.json';
-            timeLeft = 1800; 
+            timeLeft = 1800; // 30 min
             totalPreguntas = 50;
         } 
         else if (materiaKey.startsWith('int_esmil_')) {
-            carpetaEspecialID = materiaKey.split('_')[2]; 
+            carpetaEspecialID = materiaKey.split('_')[2];
             fetchUrl = `DATA/${carpetaEspecialID}/${carpetaEspecialID}.json`;
             timeLeft = 3600;
         } 
@@ -101,7 +102,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if(txtTiempo) txtTiempo.textContent = Math.floor(timeLeft/60) + " Minutos";
 
         try {
-            // --- 2. CARGA DE ARCHIVOS JSON ---
             let filesToLoad = [];
             
             if (materiaKey === 'int_esmil_3' || materiaKey.startsWith('int_esmil_')) {
@@ -128,9 +128,9 @@ document.addEventListener('DOMContentLoaded', () => {
             if(allQ.length === 0) throw new Error("Archivo JSON vacío.");
             questions = allQ;
 
-            // --- 3. PROCESAMIENTO (Imágenes y Aleatoriedad) ---
+            // --- PROCESAMIENTO ---
             
-            // A) Si es un simulador ESMIL de Carpeta (4, 5, 6)
+            // A) Simuladores Carpeta (4, 5, 6) -> Arreglar imágenes + Aleatorio
             if(!isTableMode && materiaKey.startsWith('int_esmil_')) {
                 questions = questions.map(q => {
                     if (q.imagen) {
@@ -141,40 +141,34 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
                 questions.sort(() => 0.5 - Math.random());
             } 
-            // B) Si es tabla (3), NO TOCAMOS EL ORDEN
+            // B) Modo Tabla (3) -> No aleatorio, mantener orden de la imagen
             else if (isTableMode) {
-                // No hacemos sort para mantener orden 1-50
+                // No hacemos sort
             }
-            // C) Si es General o PPNN
+            // C) Otros
             else if (materiaKey.startsWith('ppnn') || materiaKey.includes('general')) {
                 questions = questions.sort(() => 0.5 - Math.random());
                 if (materiaKey.includes('general')) questions = questions.slice(0, 200);
             } 
-            // D) Simuladores Normales
             else {
                 questions = questions.sort(() => 0.5 - Math.random()).slice(0, 50);
             }
 
             if(txtPreguntas) txtPreguntas.textContent = questions.length;
 
-            // --- 4. PRECARGA DE IMÁGENES (CON TIMEOUT DE SEGURIDAD) ---
-            // Solo precargamos si NO es tabla (el 3 es puro texto)
+            // --- PRELOAD (Con Timeout de seguridad) ---
             if(!isTableMode) {
-                // Usamos Promise.race para que si tarda más de 3 segundos, avance igual
                 await Promise.race([
                     preloadImages(questions),
-                    new Promise(resolve => setTimeout(resolve, 3000)) // Timeout de 3 seg
+                    new Promise(resolve => setTimeout(resolve, 3000))
                 ]);
             }
 
-            // Habilitar botón FINALMENTE
             btnStart.disabled = false;
             btnStart.innerHTML = 'COMENZAR INTENTO <i class="fas fa-play"></i>';
             btnStart.onclick = isTableMode ? startTableQuiz : startQuiz;
 
-        } catch (e) { 
-            showError(e.message); 
-        }
+        } catch (e) { showError(e.message); }
     }
 
     async function preloadImages(questionsList) {
@@ -182,24 +176,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const totalImages = imagesToLoad.length;
         if (totalImages === 0) return;
 
-        btnStart.innerHTML = `CARGANDO RECURSOS... (0/${totalImages})`;
+        btnStart.innerHTML = `CARGANDO (${totalImages})...`;
         let loadedCount = 0;
         
         const promises = imagesToLoad.map(q => {
             return new Promise((resolve) => {
                 const img = new Image();
                 img.src = q.imagen;
-                // Importante: Resolvemos siempre, aunque falle, para no bloquear
-                img.onload = () => { 
-                    loadedCount++; 
-                    btnStart.innerHTML = `CARGANDO RECURSOS... (${loadedCount}/${totalImages})`; 
-                    resolve(); 
-                };
-                img.onerror = () => { 
-                    loadedCount++; 
-                    // No cambiamos el texto en error para no asustar, solo seguimos
-                    resolve(); 
-                };
+                img.onload = () => { loadedCount++; resolve(); };
+                img.onerror = () => { loadedCount++; resolve(); };
             });
         });
         await Promise.all(promises);
@@ -225,9 +210,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="table-responsive-wrapper">
                 <table class="vocab-table">
                     <thead>
-                        <tr>
-                            <th style="width:50px;">#</th><th>PALABRA</th><th>A</th><th>B</th><th>C</th><th>D</th>
-                        </tr>
+                        <tr><th style="width:50px;">#</th><th>PALABRA</th><th>A</th><th>B</th><th>C</th><th>D</th></tr>
                     </thead>
                     <tbody>
         `;
@@ -260,6 +243,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 1000);
     }
 
+    // EXPORTAMOS AL ÁMBITO GLOBAL para onclick inline
     window.selectCell = function(rowIndex, answerText, cellElement) {
         if(document.querySelector('.btn-finish-table').style.display === 'none') return;
         tableUserAnswers[rowIndex] = answerText;
@@ -288,7 +272,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const score = Math.round((aciertos * 1000) / questions.length);
         alert(`¡EXAMEN FINALIZADO!\nPUNTAJE: ${score}/1000\nACIERTOS: ${aciertos}/${questions.length}`);
+        
         document.querySelector('.btn-finish-table').style.display = 'none';
+        
         saveResult(score, questions.length, 'Inteligencia ESMIL 3 (Vocabulario)');
         
         const btnExit = document.createElement('button');
@@ -351,7 +337,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
         
-        // Actualizar Nav
         const dots = navContainer.children;
         for(let i=0; i<dots.length; i++) {
             dots[i].classList.remove('active');
