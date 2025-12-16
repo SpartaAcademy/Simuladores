@@ -1,5 +1,3 @@
-// JS/script-home.js
-
 const MENU_DATA = {
     'root': {
         title: 'Seleccione una Institución',
@@ -69,15 +67,13 @@ const MENU_DATA = {
             { label: 'GENERAL (TODAS)', type: 'test', link: 'simulador.html?materia=general_esmil', icon: 'fas fa-layer-group' }
         ]
     },
-    
-    // --- AQUÍ ESTÁ EL CAMBIO IMPORTANTE: SIMULADOR 3 HABILITADO ---
     'ffaa_esmil_inteligencia': {
         title: 'Tests Inteligencia ESMIL',
         desc: 'Simuladores Psicométricos Específicos.',
         items: [
             { label: 'SIMULADOR 1', type: 'test', link: '#', icon: 'fas fa-puzzle-piece', disabled: true },
             { label: 'SIMULADOR 2', type: 'test', link: '#', icon: 'fas fa-puzzle-piece', disabled: true },
-            // HABILITADO:
+            // AQUÍ ESTÁ EL 3 HABILITADO
             { label: 'SIMULADOR 3 (Vocabulario)', type: 'test', link: 'simulador.html?materia=int_esmil_3', icon: 'fas fa-list-alt' }, 
             { label: 'SIMULADOR 4', type: 'test', link: 'simulador.html?materia=int_esmil_4', icon: 'fas fa-lightbulb' },
             { label: 'SIMULADOR 5', type: 'test', link: 'simulador.html?materia=int_esmil_5', icon: 'fas fa-lightbulb' },
@@ -144,11 +140,13 @@ function renderMenu(menuId) {
         card.className = baseClass;
         
         if (item.disabled) {
-            card.classList.add('disabled-card'); card.href = '#';
+            card.classList.add('disabled-card'); 
+            card.href = '#';
         } else if (item.type === 'test') {
             card.href = item.link;
         } else {
-            card.href = '#'; card.onclick = (e) => { e.preventDefault(); renderMenu(item.id); };
+            card.href = '#'; 
+            card.onclick = (e) => { e.preventDefault(); renderMenu(item.id); };
         }
 
         if (item.variant === 'wide') {
