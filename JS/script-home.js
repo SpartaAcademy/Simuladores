@@ -142,7 +142,7 @@ function renderMenu(menuId) {
         let baseClass = item.type === 'folder' ? 'materia-card card-folder' : 'materia-card card-test';
         if (item.variant === 'wide') baseClass += ' card-wide';
         card.className = baseClass;
-
+        
         if (item.disabled) {
             card.classList.add('disabled-card'); card.href = '#';
         } else if (item.type === 'test') {
