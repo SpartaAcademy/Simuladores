@@ -53,28 +53,52 @@
   ],
   "parte2_bloques": [
     {
-      "imagen_bloque": "1.png",
+      "imagen_bloque": "image_02cae9.jpg",
       "rango_inicio": 1,
       "rango_fin": 5,
-      "respuestas_bloque": [0, 1, 2, 3, 4] 
+      "respuestas_bloque": [
+        [2, 3], 
+        [0, 4], 
+        [1, 5], 
+        [3, 4], 
+        [0, 2]  
+      ]
     },
     {
-      "imagen_bloque": "2.png",
+      "imagen_bloque": "image_f861bc.png",
       "rango_inicio": 6,
       "rango_fin": 10,
-      "respuestas_bloque": [0, 0, 0, 0, 0]
+      "respuestas_bloque": [
+        [1, 4], 
+        [0, 3], 
+        [2, 5], 
+        [1, 4], 
+        [0, 3]  
+      ]
     },
     {
-      "imagen_bloque": "3.png",
+      "imagen_bloque": "image_f8619f.png",
       "rango_inicio": 11,
       "rango_fin": 15,
-      "respuestas_bloque": [0, 0, 0, 0, 0]
+      "respuestas_bloque": [
+        [2, 5], 
+        [0, 4], 
+        [1, 3], 
+        [2, 5], 
+        [0, 3]  
+      ]
     },
     {
-      "imagen_bloque": "4.png",
+      "imagen_bloque": "image_f86180.png",
       "rango_inicio": 16,
       "rango_fin": 20,
-      "respuestas_bloque": [0, 0, 0, 0, 0]
+      "respuestas_bloque": [
+        [1, 4], 
+        [2, 5], 
+        [0, 3], 
+        [1, 4], 
+        [2, 5]  
+      ]
     }
   ]
 }
