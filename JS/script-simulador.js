@@ -1,10 +1,8 @@
-// CONEXIÓN (Nombre único 'simuladorDB')
 const simuladorUrl = 'https://fgpqioviycmgwypidhcs.supabase.co';
 const simuladorKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZncHFpb3ZpeWNtZ3d5cGlkaGNzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU0OTkwMDgsImV4cCI6MjA4MTA3NTAwOH0.5ckdzDtwFRG8JpuW5S-Qi885oOSVESAvbLoNiqePJYo';
 const simuladorDB = window.supabase.createClient(simuladorUrl, simuladorKey);
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Referencias
     const lobbyBanner = document.getElementById('lobby-banner');
     const lobbyContainer = document.getElementById('lobby-container');
     const simulador = document.getElementById('simulador-container');
@@ -14,8 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const txtMateria = document.getElementById('lobby-materia');
     const txtPreguntas = document.getElementById('lobby-preguntas');
     const txtTiempo = document.getElementById('lobby-tiempo');
-    const btnBack = document.getElementById('btn-regresar-lobby');
     
+    const btnBack = document.getElementById('btn-regresar-lobby');
     if(btnBack) btnBack.addEventListener('click', () => window.history.length > 1 ? window.history.back() : window.location.href = 'index.html');
 
     let questions = [];
@@ -23,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let phase2Blocks = []; 
     let userAnswers = [];
     let tableAnswersText = {};
-    let tableAnswersImg = {}; // { 1: 0, 2: 3... } (NroPregunta: IndiceRespuesta)
+    let tableAnswersImg = {}; // { 1: [0, 2], 2: [1]... } (Array de respuestas seleccionadas)
     let currentIdx = 0;
     let timerInterval;
     let timeLeft = 3600;
@@ -55,7 +53,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if(txtMateria) txtMateria.textContent = title;
 
         let fetchUrl = '';
-        // CONFIGURACIÓN DE TIPO DE EXAMEN
         if (materiaKey === 'int_esmil_3') {
             isMultiPhaseMode = true; fetchUrl = 'DATA/3/3.json'; timeLeft = 3600;
         } else if (materiaKey.startsWith('int_esmil_')) {
@@ -80,19 +77,16 @@ document.addEventListener('DOMContentLoaded', () => {
             const promises = filesToLoad.map(url => fetch(url).then(r => r.ok ? r.json() : null));
             const results = await Promise.all(promises);
             
-            // --- PROCESAMIENTO DE DATOS ---
             if (isMultiPhaseMode) {
-                // MODO MIXTO (SIMULADOR 3)
                 const data = results[0];
-                if (!data || !data.parte1 || !data.parte2_bloques) throw new Error("JSON Inválido para Sim 3");
+                if (!data || !data.parte1 || !data.parte2_bloques) throw new Error("JSON de Sim 3 inválido.");
                 phase1Data = data.parte1;
                 phase2Blocks = data.parte2_bloques.map(b => {
-                    b.imagen_bloque = `DATA/3/IMAGES/${b.imagen_bloque}`; // Ruta imagen bloque
+                    b.imagen_bloque = `DATA/3/IMAGES/${b.imagen_bloque}`; 
                     return b;
                 });
-                totalPreguntas = phase1Data.length + 20; // 50 vocab + 20 abstracto (4 bloques * 5)
+                totalPreguntas = phase1Data.length + 20; 
             } else {
-                // MODO NORMAL
                 let allQ = [];
                 results.forEach(d => { if(d) allQ = allQ.concat(d); });
                 if(allQ.length === 0) throw new Error("Archivo vacío");
@@ -112,7 +106,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if(txtPreguntas) txtPreguntas.textContent = totalPreguntas;
 
-            // PRELOAD SEGURO
             if (!isMultiPhaseMode && questions.some(q => q.imagen)) {
                 btnStart.innerHTML = "CARGANDO RECURSOS...";
                 await Promise.race([preloadImages(questions), new Promise(r => setTimeout(r, 2000))]);
@@ -132,9 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
         })));
     }
 
-    // ==========================================
-    //  FASE 1: VOCABULARIO
-    // ==========================================
+    // FASE 1
     function startPhase1() {
         lobbyBanner.style.display = 'none'; lobbyContainer.style.display = 'none';
         simulador.style.display = 'block'; simulador.className = ''; 
@@ -158,16 +149,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.goToPhase2 = () => { window.scrollTo(0,0); startPhase2(); };
 
-    // ==========================================
-    //  FASE 2: BLOQUES IMÁGENES
-    // ==========================================
+    // FASE 2: BLOQUES IMÁGENES (SELECCIÓN MÚLTIPLE)
     function startPhase2() {
-        let html = `<div class="full-width-container"><div style="display:flex; justify-content:space-between; margin-bottom:20px; align-items:center;"><h2>PARTE 2: ABSTRACTO</h2><div class="timer-box" style="padding:10px 20px;"><i class="fas fa-clock"></i> <span id="cronometro-tabla-2">--:--</span></div></div>`;
+        let html = `<div class="full-width-container"><div style="display:flex; justify-content:space-between; margin-bottom:20px; align-items:center;"><h2>PARTE 2: ABSTRACTO (Marque todas las correctas)</h2><div class="timer-box" style="padding:10px 20px;"><i class="fas fa-clock"></i> <span id="cronometro-tabla-2">--:--</span></div></div>`;
         
         phase2Blocks.forEach((bloque, bIdx) => {
             html += `<div class="block-container"><div class="block-img-wrapper"><img src="${bloque.imagen_bloque}" alt="Bloque ${bIdx+1}"></div><div class="block-table-wrapper"><table class="block-table"><thead><tr><th>#</th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th></tr></thead><tbody>`;
-            // Generar 5 filas por bloque (según rango)
             for (let q = bloque.rango_inicio; q <= bloque.rango_fin; q++) {
+                // Inicializar array de respuestas para esta pregunta si no existe
+                if (!tableAnswersImg[q]) tableAnswersImg[q] = [];
+                
                 html += `<tr id="row-p2-${q}"><td><strong>${q}</strong></td>
                 <td class="opt-cell" onclick="selectPhase2(${q}, 0, this)">A</td><td class="opt-cell" onclick="selectPhase2(${q}, 1, this)">B</td><td class="opt-cell" onclick="selectPhase2(${q}, 2, this)">C</td><td class="opt-cell" onclick="selectPhase2(${q}, 3, this)">D</td><td class="opt-cell" onclick="selectPhase2(${q}, 4, this)">E</td><td class="opt-cell" onclick="selectPhase2(${q}, 5, this)">F</td></tr>`;
             }
@@ -177,51 +168,73 @@ document.addEventListener('DOMContentLoaded', () => {
         simulador.innerHTML = html;
     }
 
+    // LÓGICA TOGGLE (MARCAR/DESMARCAR)
     window.selectPhase2 = (qNum, valIdx, el) => {
         if(document.querySelector('.btn-finish-table').disabled) return;
-        tableAnswersImg[qNum] = valIdx;
-        const row = document.getElementById(`row-p2-${qNum}`);
-        const cells = row.getElementsByClassName('opt-cell');
-        for(let c of cells) c.classList.remove('opt-selected');
-        el.classList.add('opt-selected');
+        
+        // Obtener array actual de respuestas para esa pregunta
+        let currentAns = tableAnswersImg[qNum] || [];
+        
+        if (currentAns.includes(valIdx)) {
+            // Si ya está, lo quitamos
+            currentAns = currentAns.filter(v => v !== valIdx);
+            el.classList.remove('opt-selected');
+        } else {
+            // Si no está, lo agregamos
+            currentAns.push(valIdx);
+            el.classList.add('opt-selected');
+        }
+        
+        tableAnswersImg[qNum] = currentAns;
     };
 
     window.finishMultiPhase = async () => {
         clearInterval(timerInterval);
+        
         let ok1 = 0, ok2 = 0;
         
-        // Fase 1
+        // Calificar Fase 1
         phase1Data.forEach((q, i) => { if(tableAnswersText[i] === q.respuesta) ok1++; });
         
-        // Fase 2
+        // Calificar Fase 2 (Array vs Array)
         phase2Blocks.forEach(bloque => {
-            bloque.respuestas_bloque.forEach((correctIdx, i) => {
+            // Recorrer las preguntas de este bloque (0 a 4)
+            bloque.respuestas_bloque.forEach((correctArr, i) => {
                 const qNum = bloque.rango_inicio + i;
-                const userIdx = tableAnswersImg[qNum];
+                const userArr = tableAnswersImg[qNum] || [];
                 const row = document.getElementById(`row-p2-${qNum}`);
+                
+                // Pintar Correctas
                 if(row) {
                     const cells = row.getElementsByClassName('opt-cell');
-                    if(cells[correctIdx]) cells[correctIdx].classList.add('opt-correct');
-                    if(userIdx !== undefined && userIdx !== correctIdx && cells[userIdx]) cells[userIdx].classList.add('opt-incorrect');
+                    // Marcar en verde las que ERAN correctas
+                    correctArr.forEach(idx => cells[idx].classList.add('opt-correct'));
+                    
+                    // Marcar en rojo si el usuario marcó algo que NO era correcto
+                    userArr.forEach(idx => {
+                        if (!correctArr.includes(idx)) cells[idx].classList.add('opt-incorrect');
+                    });
                 }
-                if(userIdx === correctIdx) ok2++;
+
+                // Lógica de punto: Debe tener todas las correctas y ninguna incorrecta
+                // 1. Misma longitud
+                // 2. Todos los elementos de userArr están en correctArr
+                const esCorrecto = (userArr.length === correctArr.length) && userArr.every(val => correctArr.includes(val));
+                
+                if(esCorrecto) ok2++;
             });
         });
 
         const totalOk = ok1 + ok2;
         const totalQ = phase1Data.length + 20;
         const score = Math.round((totalOk * 1000) / totalQ);
-        
         alert(`¡EXAMEN COMPLETADO!\n\nVocabulario: ${ok1}/${phase1Data.length}\nAbstracto: ${ok2}/20\n\nNOTA FINAL: ${score}/1000`);
         
         const btn = document.querySelector('.btn-finish-table');
         if(btn) { btn.disabled = true; btn.style.background = "#555"; btn.textContent = "CALIFICADO"; }
-        
-        const btnExit = document.createElement('button');
-        btnExit.textContent = "SALIR AL MENÚ"; btnExit.className = "btn-finish-table"; btnExit.style.background = "#333"; btnExit.style.marginTop = "10px";
+        const btnExit = document.createElement('button'); btnExit.textContent = "SALIR AL MENÚ"; btnExit.className = "btn-finish-table"; btnExit.style.background = "#333"; btnExit.style.marginTop = "10px";
         btnExit.onclick = () => window.location.href = 'index.html';
         document.querySelector('.full-width-container').appendChild(btnExit);
-
         saveResult(score, totalQ, 'Inteligencia ESMIL 3 (Mixto)');
     };
 
