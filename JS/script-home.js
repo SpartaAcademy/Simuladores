@@ -1,5 +1,3 @@
-// JS/script-home.js
-
 const MENU_DATA = {
     'root': {
         title: 'Seleccione una Institución',
@@ -10,8 +8,6 @@ const MENU_DATA = {
             { id: 'general', label: 'GENERAL UNIFICADO', type: 'folder', icon: 'fas fa-globe', variant: 'wide', desc: 'Pruebas Psicométricas, Inteligencia y Personalidad.' }
         ]
     },
-
-    // --- RAMA POLICÍA ---
     'policia': {
         title: 'Policía Nacional',
         desc: 'Seleccione la categoría de pruebas.',
@@ -41,13 +37,10 @@ const MENU_DATA = {
             { label: 'CUESTIONARIO 4 PPNN', type: 'test', link: 'simulador.html?materia=ppnn4', icon: 'fas fa-file-contract' }
         ]
     },
-
-    // --- RAMA FUERZAS ARMADAS (NUEVA ESTRUCTURA) ---
     'ffaa': {
         title: 'Fuerzas Armadas',
         desc: 'Seleccione la escuela.',
         items: [
-            // Aquí entra directo a ESMIL
             { id: 'esmil_menu', label: 'ESMIL', type: 'folder', icon: 'fas fa-university', desc: 'Escuela Superior Militar Eloy Alfaro' }
         ]
     },
@@ -59,7 +52,6 @@ const MENU_DATA = {
             { id: 'ffaa_esmil_inteligencia', label: 'Tests Inteligencia ESMIL', type: 'folder', icon: 'fas fa-brain' }
         ]
     },
-    // Académicas ESMIL (Viejas)
     'ffaa_esmil_academicas': {
         title: 'Pruebas Académicas ESMIL',
         desc: 'Elija una materia.',
@@ -71,21 +63,18 @@ const MENU_DATA = {
             { label: 'GENERAL (TODAS)', type: 'test', link: 'simulador.html?materia=general_esmil', icon: 'fas fa-layer-group' }
         ]
     },
-    // Inteligencia ESMIL (Nuevas carpetas 1-6)
     'ffaa_esmil_inteligencia': {
         title: 'Tests Inteligencia ESMIL',
         desc: 'Simuladores Psicométricos Específicos.',
         items: [
-            { label: 'SIMULADOR 1', type: 'test', link: '#', icon: 'fas fa-puzzle-piece', disabled: true }, // Próx
-            { label: 'SIMULADOR 2', type: 'test', link: '#', icon: 'fas fa-puzzle-piece', disabled: true }, // Próx
-            { label: 'SIMULADOR 3', type: 'test', link: '#', icon: 'fas fa-puzzle-piece', disabled: true }, // Próx
+            { label: 'SIMULADOR 1', type: 'test', link: '#', icon: 'fas fa-puzzle-piece', disabled: true },
+            { label: 'SIMULADOR 2', type: 'test', link: '#', icon: 'fas fa-puzzle-piece', disabled: true },
+            { label: 'SIMULADOR 3 (Vocabulario)', type: 'test', link: 'simulador.html?materia=int_esmil_3', icon: 'fas fa-list-alt' },
             { label: 'SIMULADOR 4', type: 'test', link: 'simulador.html?materia=int_esmil_4', icon: 'fas fa-lightbulb' },
             { label: 'SIMULADOR 5', type: 'test', link: 'simulador.html?materia=int_esmil_5', icon: 'fas fa-lightbulb' },
             { label: 'SIMULADOR 6', type: 'test', link: 'simulador.html?materia=int_esmil_6', icon: 'fas fa-lightbulb' }
         ]
     },
-
-    // --- RAMA GENERAL ---
     'general': {
         title: 'General',
         desc: 'Pruebas psicométricas generales.',
@@ -121,19 +110,12 @@ document.addEventListener('DOMContentLoaded', () => {
 function renderMenu(menuId) {
     const data = MENU_DATA[menuId];
     if (!data) return;
-
-    if (menuId === 'root') {
-        navigationHistory = ['root'];
-    } else {
-        if (navigationHistory[navigationHistory.length - 1] !== menuId) {
-            navigationHistory.push(menuId);
-        }
-    }
-    updateNavigationUI();
-
+    if (menuId === 'root') navigationHistory = ['root'];
+    else if (navigationHistory[navigationHistory.length - 1] !== menuId) navigationHistory.push(menuId);
+    
+    document.getElementById('navigation-bar').style.display = navigationHistory.length > 1 ? 'flex' : 'none';
     document.getElementById('section-title').textContent = data.title;
     document.getElementById('section-desc').textContent = data.desc;
-
     const container = document.getElementById('dynamic-grid');
     container.innerHTML = '';
 
@@ -143,19 +125,13 @@ function renderMenu(menuId) {
         if (item.variant === 'wide') baseClass += ' card-wide';
         card.className = baseClass;
         
-        if (item.disabled) {
-            card.classList.add('disabled-card'); card.href = '#';
-        } else if (item.type === 'test') {
-            card.href = item.link;
-        } else {
-            card.href = '#'; card.onclick = (e) => { e.preventDefault(); renderMenu(item.id); };
-        }
+        if (item.disabled) { card.classList.add('disabled-card'); card.href = '#'; }
+        else if (item.type === 'test') card.href = item.link;
+        else { card.href = '#'; card.onclick = (e) => { e.preventDefault(); renderMenu(item.id); }; }
 
-        if (item.variant === 'wide') {
-            card.innerHTML = `<i class="${item.icon}"></i><div class="text-content"><h3>${item.label}</h3><p>${item.desc || ''}</p></div>`;
-        } else {
-            card.innerHTML = `<i class="${item.icon}"></i><h3>${item.label}${item.disabled ? ' (Próx.)' : ''}</h3>${item.desc ? `<p>${item.desc}</p>` : ''}`;
-        }
+        card.innerHTML = `<i class="${item.icon}"></i><div class="text-content"><h3>${item.label}${item.disabled?' (Próx.)':''}</h3>${item.desc?`<p>${item.desc}</p>`:''}</div>`;
+        if(item.variant !== 'wide') card.innerHTML = `<i class="${item.icon}"></i><h3>${item.label}${item.disabled?' (Próx.)':''}</h3>${item.desc?`<p>${item.desc}</p>`:''}`;
+        
         container.appendChild(card);
     });
 }
@@ -165,10 +141,4 @@ function goBack() {
         navigationHistory.pop();
         renderMenu(navigationHistory[navigationHistory.length - 1]);
     }
-}
-
-function updateNavigationUI() {
-    const navBar = document.getElementById('navigation-bar');
-    if (navigationHistory.length > 1) navBar.style.display = 'flex';
-    else navBar.style.display = 'none';
 }
