@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin - Reportes</title>
     <link rel="stylesheet" href="CSS/style-resultados.css">
+    
     <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;600&family=Work+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
@@ -12,109 +13,43 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.23/jspdf.plugin.autotable.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    
     <script src="JS/auth.js"></script>
-    <script> 
-        // 1. Verificar Login
-        checkAuth(); 
-        
-        // 2. VERIFICAR ROL DE ADMINISTRADOR (SEGURIDAD)
-        const usuarioSesion = getUserInfo();
-        // Si no existe o su rol no es exactamente 'admin', lo sacamos
-        if (!usuarioSesion || usuarioSesion.rol !== 'admin') {
-            alert("ACCESO DENEGADO: Esta sección es solo para administradores.");
-            window.location.replace('index.html');
-        }
+    <script>
+        checkAuth();
+        const u = getUserInfo();
+        if(!u || u.rol !== 'admin') { alert("Acceso denegado"); location.href='index.html'; }
     </script>
 </head>
 <body>
     <header>
         <a href="index.html" class="header-main-link">
             <div class="header-logo"><img src="logo.png" alt="Logo"></div>
-            <div class="header-titulo">
-                <h1>SPARTA ACADEMY</h1>
-                <h2>ADMINISTRACIÓN</h2>
-            </div>
+            <div class="header-titulo"><h1>SPARTA ACADEMY</h1><h2>ADMINISTRACIÓN</h2></div>
         </a>
-        
         <div class="desktop-menu">
-            <button class="user-btn" onclick="location.href='index.html'">
-                <i class="fas fa-home"></i> Simuladores
-            </button>
-            <button class="user-btn" onclick="logout()" style="background:#b22222; border-color:#b22222;">
-                <i class="fas fa-sign-out-alt"></i> Salir
-            </button>
+            <button class="user-btn" onclick="location.href='index.html'"><i class="fas fa-home"></i> Simuladores</button>
+            <button class="user-btn" onclick="logout()" style="background:#b22222; border-color:#b22222;"><i class="fas fa-sign-out-alt"></i> Salir</button>
         </div>
-
-        <button class="mobile-toggle" id="hamburger-btn">
-            <i class="fas fa-bars"></i>
-        </button>
     </header>
-
-    <div class="side-nav" id="side-nav">
-        <button class="close-nav-btn" id="close-nav-btn">&times;</button>
-        <div style="text-align:center; padding:20px;">
-            <img src="logo.png" width="80" style="margin-bottom:10px;">
-            <h3 style="color:white; font-family:'Teko'; margin:0;">ADMIN</h3>
-        </div>
-        <a href="index.html"><i class="fas fa-home"></i> Simuladores</a>
-        <a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
-    </div>
-    <div class="overlay" id="overlay"></div>
 
     <main class="resultados-main">
         <h1>REPORTE DE INTENTOS</h1>
-        
         <div class="filtros-container">
-            <div class="filtro-grupo">
-                <i class="fas fa-map-marker-alt"></i>
-                <select id="filtro-ciudad">
-                    <option value="Todas">Todas las Ciudades</option>
-                    <option value="Tulcán">Tulcán</option>
-                    <option value="Ibarra">Ibarra</option>
-                </select>
-            </div>
-            <div class="filtro-grupo">
-                <i class="fas fa-book"></i>
-                <select id="filtro-materia">
-                    <option value="Todas">Todas las Materias</option>
-                </select>
-            </div>
-            <div class="filtro-grupo">
-                <i class="fas fa-search"></i>
-                <input type="text" id="filtro-nombre" placeholder="Buscar alumno...">
-            </div>
+            <div class="filtro-grupo"><i class="fas fa-map-marker-alt"></i><select id="filtro-ciudad"><option value="Todas">Todas las Ciudades</option><option value="Tulcán">Tulcán</option><option value="Ibarra">Ibarra</option></select></div>
+            <div class="filtro-grupo"><i class="fas fa-book"></i><select id="filtro-materia"><option value="Todas">Todas las Materias</option></select></div>
+            <div class="filtro-grupo"><i class="fas fa-search"></i><input type="text" id="filtro-nombre" placeholder="Buscar alumno..."></div>
             <div class="botones-exportar">
                 <button id="descargar-pdf-btn" class="pdf-button"><i class="fas fa-file-pdf"></i> REPORTE GENERAL</button>
                 <button id="descargar-general-csv-btn" class="csv-button"><i class="fas fa-file-csv"></i> CSV</button>
             </div>
         </div>
-
         <div id="loading-spinner" style="text-align:center; margin-top:30px;">
-            <i class="fas fa-spinner fa-spin" style="font-size:2rem; color:#b22222;"></i>
-            <p>Cargando datos...</p>
+            <i class="fas fa-spinner fa-spin" style="font-size:2rem; color:#b22222;"></i><p>Cargando datos...</p>
         </div>
-        
         <div id="reporte-container"></div>
     </main>
 
-    <div style="position: absolute; left: -9999px;">
-        <canvas id="hidden-chart-canvas" width="800" height="400"></canvas>
-    </div>
-
+    <div style="position: absolute; left: -9999px;"><canvas id="hidden-chart-canvas" width="800" height="400"></canvas></div>
     <script src="JS/script-resultados.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const btn = document.getElementById('hamburger-btn');
-            const nav = document.getElementById('side-nav');
-            const close = document.getElementById('close-nav-btn');
-            const overlay = document.getElementById('overlay');
-
-            if(btn) btn.onclick = () => { nav.classList.add('open'); overlay.style.display = "block"; };
-            const closeMenu = () => { nav.classList.remove('open'); overlay.style.display = "none"; };
-            if(close) close.onclick = closeMenu;
-            if(overlay) overlay.onclick = closeMenu;
-        });
-    </script>
 </body>
 </html>
