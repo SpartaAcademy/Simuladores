@@ -1,7 +1,9 @@
-// --- 1. CONFIGURACIÓN Y CONEXIÓN ---
+// --- 1. CONFIGURACIÓN Y CONEXIÓN TULCÁN ---
 const supabaseUrl = 'https://fgpqioviycmgwypidhcs.supabase.co';
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZncHFpb3ZpeWNtZ3d5cGlkaGNzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU0OTkwMDgsImV4cCI6MjA4MTA3NTAwOH0.5ckdzDtwFRG8JpuW5S-Qi885oOSVESAvbLoNiqePJYo';
-const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+
+// CAMBIO IMPORTANTE: Usamos 'tulcanDB' para evitar conflictos de nombre
+const tulcanDB = window.supabase.createClient(supabaseUrl, supabaseKey);
 
 // Librería PDF
 const { jsPDF } = window.jspdf;
@@ -25,8 +27,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Función para limpiar texto
     const cleanText = (str) => str ? str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim() : "";
 
-    // --- 2. CARGA DE DATOS (DIAGNÓSTICO) ---
-    console.log("Iniciando carga de datos...");
+    // --- 2. CARGA DE DATOS ---
+    console.log("Iniciando carga de datos Tulcán...");
     
     try {
         // PASO A: Cargar Usuarios (Local)
@@ -35,8 +37,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         allUsuarios = await resUsuarios.json();
         console.log("Usuarios cargados:", allUsuarios.length);
 
-        // PASO B: Cargar Resultados (Supabase)
-        const { data: intentos, error } = await supabase
+        // PASO B: Cargar Resultados (Supabase usando tulcanDB)
+        const { data: intentos, error } = await tulcanDB
             .from('resultados')
             .select('*')
             .order('created_at', { ascending: true });
@@ -48,10 +50,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         allIntentos = intentos || [];
         console.log("Intentos cargados:", allIntentos.length);
-
-        if (allIntentos.length === 0) {
-            console.warn("La tabla 'resultados' está vacía.");
-        }
 
         // PASO C: Llenar Filtro de Materias
         if (allIntentos.length > 0) {
@@ -71,7 +69,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     } catch (e) {
         if (spinner) {
             spinner.innerHTML = `
-                <div style="color: #c0392b; background: #fff5f5; padding: 20px; border-radius: 8px; border: 1px solid #c0392b;">
+                <div style="color: #c0392b; background: #fff5f5; padding: 20px; border-radius: 8px; border: 1px solid #c0392b; text-align: center;">
                     <h3><i class="fas fa-exclamation-triangle"></i> Error de Conexión</h3>
                     <p>${e.message}</p>
                     <small>Verifica tu conexión a internet o las credenciales.</small>
@@ -94,7 +92,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
 
         if (usuariosFiltrados.length === 0) {
-            container.innerHTML = '<p style="text-align:center; color:#666; margin-top:30px;">No se encontraron aspirantes.</p>';
+            container.innerHTML = '<p style="text-align:center; color:#666; margin-top:30px;">No se encontraron aspirantes con esos criterios.</p>';
             return;
         }
 
@@ -228,7 +226,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 drawStatBox(doc, 140, 45, "PROMEDIO", promedio, 178, 34, 34);
                 drawStatBox(doc, 170, 45, "MEJOR NOTA", maxNota, 39, 174, 96);
 
-                const dataParaGrafica = intentosMateria.slice(-20); // Últimos 20 para gráfica
+                const dataParaGrafica = intentosMateria.slice(-20); 
                 const chartImg = await generateChartImage(dataParaGrafica);
                 if (chartImg) doc.addImage(chartImg, 'PNG', 14, 80, 180, 65);
 
