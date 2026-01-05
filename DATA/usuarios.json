@@ -168,6 +168,13 @@
     "ciudad": "Tulcán"
   },
   {
+    "usuario": "mateo_reascos",
+    "contrasena": "mateo_reascos",
+    "nombre": "Mateo Reascos",
+    "rol": "aspirante",
+    "ciudad": "Tulcán"
+  },
+  {
     "_comment": "USUARIOS DE LA CIUDAD DE IBARRA"
   }
 ]
