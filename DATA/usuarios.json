@@ -175,6 +175,20 @@
     "ciudad": "Tulcán"
   },
   {
+    "usuario": "pabel_cando",
+    "contrasena": "pabel_cando",
+    "nombre": "Pabel Cando",
+    "rol": "aspirante",
+    "ciudad": "Tulcán"
+  },
+  {
+    "usuario": "arelis_rea",
+    "contrasena": "arelis_rea",
+    "nombre": "Arelis Rea",
+    "rol": "aspirante",
+    "ciudad": "Tulcán"
+  },
+  {
     "_comment": "USUARIOS DE LA CIUDAD DE IBARRA"
   }
 ]
