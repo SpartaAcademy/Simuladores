@@ -189,6 +189,13 @@
     "ciudad": "Tulcán"
   },
   {
+    "usuario": "jhojan_garcia",
+    "contrasena": "jhojan_garcia",
+    "nombre": "Jhojan Garcia",
+    "rol": "aspirante",
+    "ciudad": "Tulcán"
+  },
+  {
     "_comment": "USUARIOS DE LA CIUDAD DE IBARRA"
   }
 ]
