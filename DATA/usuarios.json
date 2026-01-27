@@ -196,6 +196,13 @@
     "ciudad": "Tulcán"
   },
   {
+    "usuario": "rafael_sarango",
+    "contrasena": "rafael_sarango",
+    "nombre": "Rafael Sarango",
+    "rol": "aspirante",
+    "ciudad": "Tulcán"
+  },
+  {
     "_comment": "USUARIOS DE LA CIUDAD DE IBARRA"
   }
 ]
