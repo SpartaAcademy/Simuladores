@@ -1,4 +1,5 @@
-// CONEXIÓN
+// JS/script-simulador.js
+
 const simuladorUrl = 'https://fgpqioviycmgwypidhcs.supabase.co';
 const simuladorKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZncHFpb3ZpeWNtZ3d5cGlkaGNzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU0OTkwMDgsImV4cCI6MjA4MTA3NTAwOH0.5ckdzDtwFRG8JpuW5S-Qi885oOSVESAvbLoNiqePJYo';
 const simuladorDB = window.supabase.createClient(simuladorUrl, simuladorKey);
@@ -40,7 +41,8 @@ document.addEventListener('DOMContentLoaded', () => {
         'int_esmil_3': 'Inteligencia ESMIL 3 (Mixto)', 
         'int_esmil_4': 'Inteligencia ESMIL 4', 
         'int_esmil_5': 'Inteligencia ESMIL 5', 
-        'int_esmil_6': 'Inteligencia ESMIL 6'
+        'int_esmil_6': 'Inteligencia ESMIL 6',
+        'int_esmil_7': 'Inteligencia ESMIL 7 (Completo)' // <--- NUEVO
     };
     
     const ordenGeneralPolicia = ['sociales', 'matematicas', 'lengua', 'ingles'];
@@ -66,13 +68,15 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // --- 1. CONFIGURACIÓN ---
         if (materiaKey === 'int_esmil_3') {
-            // SOLO EL 3 ES ESPECIAL
             isMultiPhaseMode = true; 
             fetchUrl = 'DATA/3/3.json'; 
             timeLeft = 3600;
         } 
+        else if (materiaKey === 'int_esmil_7') { // <--- CONFIGURACIÓN SIM 7
+            fetchUrl = 'DATA/7/7.json';
+            timeLeft = 5400; // 90 Minutos
+        }
         else if (materiaKey.startsWith('int_esmil_')) {
-            // EL 1, 2, 4, 5, 6 SON NORMALES AHORA
             carpetaEspecialID = materiaKey.split('_')[2]; 
             fetchUrl = `DATA/${carpetaEspecialID}/${carpetaEspecialID}.json`; 
             timeLeft = 3600;
@@ -100,7 +104,6 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // --- 3. PROCESAMIENTO ---
             if (isMultiPhaseMode) {
-                // MODO MIXTO (SOLO SIM 3)
                 const data = results[0];
                 if (!data || !data.parte1 || !data.parte2_bloques) throw new Error("JSON de Sim 3 inválido.");
                 phase1Data = data.parte1;
@@ -111,18 +114,27 @@ document.addEventListener('DOMContentLoaded', () => {
                 totalPreguntas = phase1Data.length + 20; 
             } 
             else {
-                // MODO NORMAL (1, 2, 4, 5, 6 y otros)
                 let allQ = [];
                 results.forEach(d => { if(d) allQ = allQ.concat(d); });
                 if(allQ.length === 0) throw new Error("Archivo vacío");
                 questions = allQ;
 
                 if (materiaKey.startsWith('int_esmil_')) {
-                    // Para 1, 2, 4, 5, 6 arreglamos rutas de imágenes
+                    // Para 1, 2, 4, 5, 6, 7 arreglamos rutas
                     questions = questions.map(q => {
-                        if (q.imagen) q.imagen = `DATA/${carpetaEspecialID}/IMAGES/${q.imagen.split('/').pop()}`;
+                        let carpeta = carpetaEspecialID;
+                        if(materiaKey === 'int_esmil_7') carpeta = '7'; // FORZAR CARPETA 7
+                        
+                        if (q.imagen && !q.imagen.includes('DATA')) {
+                             q.imagen = `DATA/${carpeta}/IMAGES/${q.imagen.split('/').pop()}`;
+                        }
                         return q;
-                    }).sort(() => 0.5 - Math.random());
+                    });
+                    
+                    // SIM 7 NO SE MEZCLA (Mantiene orden Verbal->Abstracto->etc)
+                    if (materiaKey !== 'int_esmil_7') {
+                        questions = questions.sort(() => 0.5 - Math.random());
+                    }
                 } else {
                     questions = questions.sort(() => 0.5 - Math.random());
                     if (!materiaKey.includes('general') && !materiaKey.startsWith('ppnn')) questions = questions.slice(0, 50);
@@ -141,7 +153,6 @@ document.addEventListener('DOMContentLoaded', () => {
             btnStart.disabled = false;
             btnStart.innerHTML = 'COMENZAR INTENTO <i class="fas fa-play"></i>';
             
-            // Si es mixto (3) -> startPhase1, si no (1, 2, 4...) -> startQuiz
             btnStart.onclick = isMultiPhaseMode ? startPhase1 : startQuiz;
 
         } catch (e) { showError(e.message); }
@@ -264,7 +275,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('puntaje-final').textContent = score;
         document.getElementById('stats-correctas').textContent = totalOk;
         document.getElementById('stats-incorrectas').textContent = incorrectas;
-        document.getElementById('stats-en-blanco').textContent = enBlanco > 0 ? enBlanco : 0;
+        if(document.getElementById('stats-en-blanco')) document.getElementById('stats-en-blanco').textContent = enBlanco > 0 ? enBlanco : 0;
         document.getElementById('revision-container').innerHTML = revHTML;
 
         document.getElementById('retry-btn').onclick = () => location.reload();
