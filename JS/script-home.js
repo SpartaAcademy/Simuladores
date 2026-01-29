@@ -1,3 +1,5 @@
+// JS/script-home.js
+
 const MENU_DATA = {
     'root': {
         title: 'Seleccione una Institución',
@@ -67,14 +69,14 @@ const MENU_DATA = {
         title: 'Tests Inteligencia ESMIL',
         desc: 'Simuladores Psicométricos Específicos.',
         items: [
-            // AHORA EL 1 Y EL 2 ESTÁN ACTIVOS (NORMALES)
             { label: 'SIMULADOR 1', type: 'test', link: 'simulador.html?materia=int_esmil_1', icon: 'fas fa-puzzle-piece' },
             { label: 'SIMULADOR 2', type: 'test', link: 'simulador.html?materia=int_esmil_2', icon: 'fas fa-puzzle-piece' },
-            // EL 3 ES EL ESPECIAL
             { label: 'SIMULADOR 3 (Mixto)', type: 'test', link: 'simulador.html?materia=int_esmil_3', icon: 'fas fa-list-alt' },
             { label: 'SIMULADOR 4', type: 'test', link: 'simulador.html?materia=int_esmil_4', icon: 'fas fa-lightbulb' },
             { label: 'SIMULADOR 5', type: 'test', link: 'simulador.html?materia=int_esmil_5', icon: 'fas fa-lightbulb' },
-            { label: 'SIMULADOR 6', type: 'test', link: 'simulador.html?materia=int_esmil_6', icon: 'fas fa-lightbulb' }
+            { label: 'SIMULADOR 6', type: 'test', link: 'simulador.html?materia=int_esmil_6', icon: 'fas fa-lightbulb' },
+            // === NUEVO SIMULADOR 7 AGREGADO AQUÍ ===
+            { label: 'SIMULADOR 7 (COMPLETO)', type: 'test', link: 'simulador.html?materia=int_esmil_7', icon: 'fas fa-brain' }
         ]
     },
     'general': {
