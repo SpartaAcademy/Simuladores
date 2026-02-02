@@ -203,6 +203,13 @@
     "ciudad": "Tulcán"
   },
   {
+    "usuario": "juan_sebastian",
+    "contrasena": "juan_sebastian",
+    "nombre": "Juan Sebastian",
+    "rol": "aspirante",
+    "ciudad": "Tulcán"
+  },
+  {
     "_comment": "USUARIOS DE LA CIUDAD DE IBARRA"
   }
 ]
