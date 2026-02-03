@@ -1767,7 +1767,7 @@
   {
     "pregunta": "En mi casa soy muy ordenado con mis pertenencias.",
     "opciones": ["Si", "Ocasionalmente.", "No"],
-    "respuesta": "No"
+    "respuesta": "Si"
   },
   {
     "pregunta": "Jamas me he enfadado tanto que no haya podido controlar mi tono de voz.",
@@ -4607,7 +4607,7 @@
   {
     "pregunta": "Deberíamos tener cuidado de mezclarnos con todo tipo de extraños, porque hay peligro de infección.",
     "opciones": ["Si", "Quien sabe", "No"],
-    "respuesta": "Si"
+    "respuesta": "No"
   },
   {
     "pregunta": "Siempre soy Cortez y diplomático con la gente poco razonable, poco imaginativa, y no soy partidario de descubrirlos lo cerrado de criterio que son.",
