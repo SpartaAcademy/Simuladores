@@ -25,6 +25,15 @@
         </a>
         
         <div class="desktop-menu">
+            <div id="admin-tools" style="display:none; gap:10px;">
+                <button id="btn-edit-mode" class="user-btn" onclick="toggleEditMode()" style="background:#e67e22; border-color:#d35400;">
+                    <i class="fas fa-edit"></i> EDITAR
+                </button>
+                <button id="btn-save-changes" class="user-btn" onclick="guardarCambiosEnNube()" style="display:none; background:#27ae60; border-color:#2ecc71;">
+                    <i class="fas fa-save"></i> GUARDAR
+                </button>
+            </div>
+
             <button id="btn-admin-desktop" class="user-btn" onclick="location.href='resultados.html'" style="display: none;">
                 <i class="fas fa-chart-pie"></i> Panel Admin
             </button>
@@ -45,7 +54,6 @@
             <h3 style="color:white; font-family:'Teko'; margin:0;">MENÚ</h3>
         </div>
         <a href="resultados.html" id="btn-admin-mobile" style="display: none;"><i class="fas fa-chart-pie"></i> Panel Admin</a>
-        
         <a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
     </div>
     <div class="overlay" id="overlay"></div>
@@ -68,6 +76,37 @@
         </div>
     </main>
 
+    <div id="editor-modal" class="modal-overlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:2000; align-items:center; justify-content:center;">
+        <div class="modal-box" style="background:white; padding:30px; border-radius:10px; max-width:400px; width:90%; text-align:left; border-top: 5px solid #d32f2f;">
+            <h3 style="font-family:'Teko'; font-size:2rem; margin-top:0;">EDITAR ELEMENTO</h3>
+            <label style="font-weight:bold;">Nombre:</label>
+            <input type="text" id="edit-nombre" style="width:100%; padding:10px; margin-bottom:15px; border:1px solid #ccc;">
+            <label style="font-weight:bold;">Descripción:</label>
+            <input type="text" id="edit-desc" style="width:100%; padding:10px; margin-bottom:15px; border:1px solid #ccc;">
+            <div style="display:flex; justify-content:flex-end; gap:10px;">
+                <button onclick="document.getElementById('editor-modal').style.display='none'" style="padding:10px 20px; border:none; background:#777; color:white; cursor:pointer;">Cancelar</button>
+                <button onclick="aplicarCambiosItem()" style="padding:10px 20px; border:none; background:#d32f2f; color:white; cursor:pointer;">Guardar</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="nuevo-modal" class="modal-overlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:2000; align-items:center; justify-content:center;">
+        <div class="modal-box" style="background:white; padding:30px; border-radius:10px; max-width:400px; width:90%; text-align:left; border-top: 5px solid #27ae60;">
+            <h3 style="font-family:'Teko'; font-size:2rem; margin-top:0;">AÑADIR NUEVO</h3>
+            <label style="font-weight:bold;">Tipo:</label>
+            <select id="new-type" style="width:100%; padding:10px; margin-bottom:15px;">
+                <option value="folder">📂 Carpeta Nueva</option>
+                <option value="test">📝 Nuevo Simulador</option>
+            </select>
+            <label style="font-weight:bold;">Nombre:</label>
+            <input type="text" id="new-name" placeholder="Ej: Pruebas 2026" style="width:100%; padding:10px; margin-bottom:15px; border:1px solid #ccc;">
+            <div style="display:flex; justify-content:flex-end; gap:10px;">
+                <button onclick="document.getElementById('nuevo-modal').style.display='none'" style="padding:10px 20px; border:none; background:#777; color:white; cursor:pointer;">Cancelar</button>
+                <button onclick="crearElemento()" style="padding:10px 20px; border:none; background:#27ae60; color:white; cursor:pointer;">Crear</button>
+            </div>
+        </div>
+    </div>
+
     <footer>
         <p><strong>SPARTA</strong></p>
         <p>Dir: Calle Bolívar entre Boyacá y Junín | Tulcán - Ecuador</p>
@@ -77,7 +116,6 @@
     <script src="JS/script-home.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Lógica Menú
             const btn = document.getElementById('hamburger-btn');
             const nav = document.getElementById('side-nav');
             const close = document.getElementById('close-nav-btn');
@@ -88,17 +126,17 @@
             if(close) close.onclick = closeMenu;
             if(overlay) overlay.onclick = closeMenu;
 
-            // --- LÓGICA DE ROLES (OCULTAR/MOSTRAR BOTÓN) ---
-            const user = getUserInfo(); // Función de auth.js
+            const user = getUserInfo(); 
             if (user && user.rol === 'admin') {
-                // Si es admin, mostramos los botones
                 const btnDesk = document.getElementById('btn-admin-desktop');
                 const btnMob = document.getElementById('btn-admin-mobile');
-                if(btnDesk) btnDesk.style.display = 'flex'; // Flex para alinear ícono
+                const adminTools = document.getElementById('admin-tools');
+                
+                if(btnDesk) btnDesk.style.display = 'flex';
                 if(btnMob) btnMob.style.display = 'block';
+                if(adminTools) adminTools.style.display = 'flex'; // Mostrar herramientas de edición
             }
         });
     </script>
 </body>
 </html>
-
