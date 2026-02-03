@@ -256,7 +256,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     function drawHeader(doc, user, materiaName) {
         doc.setFillColor(178, 34, 34); doc.rect(0, 0, 210, 35, 'F');
         doc.setTextColor(255, 255, 255); doc.setFont("helvetica", "bold"); doc.setFontSize(20);
-        doc.text("SPARTA ACADEMY", 105, 18, { align: "center" });
+        doc.text("SPARTA", 105, 18, { align: "center" });
         doc.setFontSize(10); doc.setFont("helvetica", "normal");
         doc.text("REPORTE DE RENDIMIENTO", 105, 26, { align: "center" });
         doc.setTextColor(0, 0, 0); doc.setFontSize(14); doc.text(user.nombre.toUpperCase(), 14, 48);
