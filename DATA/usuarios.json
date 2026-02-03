@@ -21,30 +21,9 @@
     "ciudad": "Tulcán"
   },
   {
-    "usuario": "carlos_bedoya",
-    "contrasena": "carlos_bedoya",
-    "nombre": "Carlos Bedoya",
-    "rol": "aspirante",
-    "ciudad": "Tulcán"
-  },
-  {
     "usuario": "mateo_benavides",
     "contrasena": "mateo_benavides",
     "nombre": "Mateo Benavides",
-    "rol": "aspirante",
-    "ciudad": "Tulcán"
-  },
-  {
-    "usuario": "kiara_carrillo",
-    "contrasena": "kiara_carrillo",
-    "nombre": "Kiara Carrillo",
-    "rol": "aspirante",
-    "ciudad": "Tulcán"
-  },
-  {
-    "usuario": "milton_enriquez",
-    "contrasena": "milton_enriquez",
-    "nombre": "Milton Enríquez",
     "rol": "aspirante",
     "ciudad": "Tulcán"
   },
@@ -56,23 +35,9 @@
     "ciudad": "Tulcán"
   },
   {
-    "usuario": "franklin_imbaquingo",
-    "contrasena": "franklin_imbaquingo",
-    "nombre": "Franklin Imbaquingo",
-    "rol": "aspirante",
-    "ciudad": "Tulcán"
-  },
-  {
     "usuario": "mateo_janeta",
     "contrasena": "mateo_janeta",
     "nombre": "Mateo Janeta",
-    "rol": "aspirante",
-    "ciudad": "Tulcán"
-  },
-  {
-    "usuario": "joel_lema",
-    "contrasena": "joel_lema",
-    "nombre": "Joel Lema",
     "rol": "aspirante",
     "ciudad": "Tulcán"
   },
@@ -87,20 +52,6 @@
     "usuario": "deivid_montenegro",
     "contrasena": "deivid_montenegro",
     "nombre": "Deivid Montenegro",
-    "rol": "aspirante",
-    "ciudad": "Tulcán"
-  },
-  {
-    "usuario": "anguie_sanchez",
-    "contrasena": "anguie_sanchez",
-    "nombre": "Anguie Sánchez",
-    "rol": "aspirante",
-    "ciudad": "Tulcán"
-  },
-  {
-    "usuario": "wendy_sanchez",
-    "contrasena": "wendy_sanchez",
-    "nombre": "Wendy Sánchez",
     "rol": "aspirante",
     "ciudad": "Tulcán"
   },
@@ -126,23 +77,9 @@
     "ciudad": "Tulcán"
   },
   {
-    "usuario": "lima_sebastian",
-    "contrasena": "lima_sebastian",
-    "nombre": "Lima Sebastian",
-    "rol": "aspirante",
-    "ciudad": "Tulcán"
-  },
-  {
     "usuario": "montalvo_jose",
     "contrasena": "montalvo_jose",
     "nombre": "José Montalvo",
-    "rol": "aspirante",
-    "ciudad": "Tulcán"
-  },
-  {
-    "usuario": "anthony_benavides",
-    "contrasena": "anthony_benavides",
-    "nombre": "Anthony Benavides",
     "rol": "aspirante",
     "ciudad": "Tulcán"
   },
