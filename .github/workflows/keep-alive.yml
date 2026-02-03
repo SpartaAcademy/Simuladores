@@ -1,0 +1,18 @@
+name: Mantener Supabase Activo
+
+on:
+  schedule:
+    # Se ejecuta todos los lunes y jueves a las 00:00 UTC
+    # Esto asegura actividad cada 3-4 días (el límite es 7)
+    - cron: "0 0 * * 1,4"
+  workflow_dispatch: # Permite ejecutarlo manualmente si quieres probar
+
+jobs:
+  ping-supabase:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Despertar Supabase (Ping)
+        run: |
+          # Hacemos una petición simple a tu proyecto
+          curl -I https://fgpqioviycmgwypidhcs.supabase.co
+          echo "Ping enviado a Supabase Sparta Tulcán"
