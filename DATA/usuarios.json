@@ -210,6 +210,13 @@
     "ciudad": "Tulcán"
   },
   {
+    "usuario": "sebastian_ortega",
+    "contrasena": "sebastian_ortega",
+    "nombre": "Sebastián Ortega",
+    "rol": "aspirante",
+    "ciudad": "Tulcán"
+  },
+  {
     "_comment": "USUARIOS DE LA CIUDAD DE IBARRA"
   }
 ]
