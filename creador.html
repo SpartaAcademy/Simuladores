@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creador de Simuladores</title>
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;600&family=Work+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <style>
+        body { font-family: 'Work Sans', sans-serif; background: #f0f2f5; padding: 20px; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; border-top: 5px solid #d32f2f; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        h1 { font-family: 'Teko'; margin: 0; color: #333; }
+        .form-section { background: #fafafa; padding: 15px; border: 1px solid #eee; margin-bottom: 20px; border-radius: 5px; }
+        label { font-weight: bold; display: block; margin-top: 10px; }
+        input, textarea { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        .q-card { background: white; border-left: 4px solid #3498db; padding: 20px; margin-bottom: 15px; position: relative; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .btn { padding: 10px 20px; border: none; cursor: pointer; color: white; font-weight: bold; border-radius: 4px; font-family: 'Teko'; font-size: 1.2rem; }
+        .btn-add { background: #3498db; width: 100%; }
+        .btn-save { background: #27ae60; width: 100%; font-size: 1.5rem; margin-top: 20px; }
+        .btn-del { position: absolute; top: 10px; right: 10px; background: #c0392b; padding: 5px 10px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+            <h1>NUEVO SIMULADOR</h1>
+            <button onclick="location.href='index.html'" class="btn" style="background:#7f8c8d;">CANCELAR</button>
+        </div>
+
+        <div class="form-section">
+            <h3>Configuración</h3>
+            <label>Título:</label>
+            <input type="text" id="sim-title">
+            <div style="display:flex; gap:20px;">
+                <div style="flex:1;"><label>Tiempo (segundos):</label><input type="number" id="sim-time" value="3600"></div>
+                <div style="flex:1;"><label>ID Sistema:</label><input type="text" id="sim-id" disabled style="background:#eee;"></div>
+            </div>
+        </div>
+
+        <div id="questions-list"></div>
+        <button class="btn btn-add" onclick="addQuestionUI()">+ AÑADIR PREGUNTA</button>
+        <button class="btn btn-save" onclick="saveSimulator()">GUARDAR Y PUBLICAR</button>
+    </div>
+
+    <script>
+        // CONEXIÓN SUPABASE
+        const sbUrl = 'https://fgpqioviycmgwypidhcs.supabase.co';
+        const sbKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZncHFpb3ZpeWNtZ3d5cGlkaGNzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU0OTkwMDgsImV4cCI6MjA4MTA3NTAwOH0.5ckdzDtwFRG8JpuW5S-Qi885oOSVESAvbLoNiqePJYo';
+        const db = window.supabase.createClient(sbUrl, sbKey);
+
+        const params = new URLSearchParams(window.location.search);
+        const parentId = params.get('parent');
+        const simId = params.get('id');
+        const simName = params.get('nombre');
+
+        document.getElementById('sim-id').value = simId;
+        document.getElementById('sim-title').value = simName;
+
+        function addQuestionUI() {
+            const div = document.createElement('div');
+            div.className = 'q-card';
+            div.innerHTML = `
+                <button class="btn btn-del" onclick="this.parentElement.remove()">X</button>
+                <label>Pregunta:</label>
+                <textarea class="q-text" rows="2" placeholder="Escribe la pregunta..."></textarea>
+                <label>URL Imagen (Opcional):</label>
+                <input type="text" class="q-img" placeholder="https://...">
+                <label>Opciones (separadas por coma):</label>
+                <input type="text" class="q-opts" value="A, B, C, D">
+                <label>Respuesta Correcta:</label>
+                <input type="text" class="q-ans" placeholder="Ej: A">
+            `;
+            document.getElementById('questions-list').appendChild(div);
+        }
+
+        async function saveSimulator() {
+            const title = document.getElementById('sim-title').value;
+            const time = document.getElementById('sim-time').value;
+            const qCards = document.querySelectorAll('.q-card');
+            let questions = [];
+
+            qCards.forEach((card, idx) => {
+                questions.push({
+                    id: idx + 1,
+                    pregunta: card.querySelector('.q-text').value,
+                    imagen: card.querySelector('.q-img').value || null,
+                    opciones: card.querySelector('.q-opts').value.split(',').map(s => s.trim()),
+                    respuesta: card.querySelector('.q-ans').value.trim()
+                });
+            });
+
+            if (questions.length === 0) return alert("Añade al menos una pregunta.");
+
+            // 1. Guardar Simulador en Tabla custom_simulators
+            const { error } = await db.from('custom_simulators').upsert([{
+                id: simId,
+                title: title,
+                config: { tiempo: time },
+                questions: questions
+            }]);
+
+            if (error) return alert("Error al guardar simulador: " + error.message);
+
+            // 2. Actualizar Menú
+            const { data: menuData } = await db.from('menu_structure').select('json_data').order('id', { ascending: false }).limit(1);
+            let menu = menuData[0].json_data;
+            
+            // Añadir al menú padre
+            menu[parentId].items.push({
+                label: title,
+                type: 'test',
+                link: `simulador.html?materia=custom&id=${simId}`,
+                icon: 'fas fa-pen-square'
+            });
+
+            // Guardar Menú
+            await db.from('menu_structure').insert([{ json_data: menu }]);
+
+            alert("¡Simulador creado exitosamente!");
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>
