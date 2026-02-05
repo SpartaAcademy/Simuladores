@@ -1,6 +1,6 @@
-// JS/script-home.js - VERSIÓN MAESTRA (CON EDITOR INTELIGENTE)
+// JS/script-home.js - VERSIÓN CORREGIDA (ICONOS Y EDICIÓN)
 
-// --- 1. DATOS POR DEFECTO (RESPALDO) ---
+// --- 1. ESTRUCTURA BASE ---
 const DEFAULT_MENU = {
     'root': {
         title: 'Seleccione una Institución',
@@ -28,7 +28,7 @@ let MENU_DATA = JSON.parse(JSON.stringify(DEFAULT_MENU));
 let navigationHistory = [];
 let currentMenuId = 'root';
 let isEditMode = false;
-let itemToEdit = null; // {menuId, index}
+let itemToEdit = null;
 
 // --- 3. CONEXIÓN SUPABASE ---
 const sbUrl = 'https://fgpqioviycmgwypidhcs.supabase.co';
@@ -37,12 +37,10 @@ const db = window.supabase.createClient(sbUrl, sbKey);
 
 // --- 4. INICIALIZACIÓN ---
 document.addEventListener('DOMContentLoaded', async () => {
-    // Cargar menú de la nube primero
     await cargarMenuDesdeNube();
     renderMenu('root');
     document.getElementById('btn-atras').addEventListener('click', goBack);
     
-    // Verificar si hay usuario admin
     const user = getUserInfo(); 
     if (user && user.rol === 'admin') {
         const btnDesk = document.getElementById('btn-admin-desktop');
@@ -58,11 +56,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 // --- 5. LÓGICA DE BASE DE DATOS ---
 async function cargarMenuDesdeNube() {
     try {
-        const { data, error } = await db.from('menu_structure')
-            .select('json_data')
-            .order('id', { ascending: false })
-            .limit(1);
-            
+        const { data, error } = await db.from('menu_structure').select('json_data').order('id', { ascending: false }).limit(1);
         if (data && data.length > 0) {
             MENU_DATA = data[0].json_data;
             console.log("Menú cargado desde Supabase ✅");
@@ -72,22 +66,16 @@ async function cargarMenuDesdeNube() {
 
 async function guardarCambiosEnNube() {
     const btn = document.getElementById('btn-save-changes');
-    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Guardando...';
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> ...';
     try {
         const { error } = await db.from('menu_structure').insert([{ json_data: MENU_DATA }]);
         if (error) throw error;
         
-        // Usar alerta bonita si existe, si no alert normal
-        if (typeof showSparta === "function") {
-            showSparta("¡GUARDADO!", "Cambios actualizados en la nube.", "success");
-        } else {
-            alert("¡Menú guardado exitosamente!");
-        }
+        if (typeof showSparta === "function") showSparta("¡GUARDADO!", "Cambios actualizados.", "success");
+        else alert("¡Menú guardado exitosamente!");
         
         toggleEditMode();
-    } catch (e) {
-        alert("Error al guardar: " + e.message);
-    }
+    } catch (e) { alert("Error al guardar: " + e.message); }
     btn.innerHTML = '<i class="fas fa-save"></i> GUARDAR';
 }
 
@@ -96,11 +84,9 @@ function renderMenu(menuId) {
     currentMenuId = menuId;
     const data = MENU_DATA[menuId] || { title: 'Vacío', items: [] };
     
-    // Historial
     if (menuId === 'root') navigationHistory = ['root'];
     else if (navigationHistory[navigationHistory.length - 1] !== menuId) navigationHistory.push(menuId);
     
-    // UI
     document.getElementById('navigation-bar').style.display = navigationHistory.length > 1 ? 'flex' : 'none';
     document.getElementById('section-title').textContent = data.title;
     document.getElementById('section-desc').textContent = data.desc || '';
@@ -108,7 +94,7 @@ function renderMenu(menuId) {
     const container = document.getElementById('dynamic-grid');
     container.innerHTML = '';
 
-    // Botón AÑADIR (Solo en Modo Edición)
+    // Botón AÑADIR (Modo Edición)
     if (isEditMode) {
         const addBtn = document.createElement('div');
         addBtn.className = 'materia-card';
@@ -134,14 +120,15 @@ function renderMenu(menuId) {
             html += `<h3>${item.label}${item.disabled?' (Próx.)':''}</h3>${item.desc ? `<p>${item.desc}</p>` : ''}`;
         }
 
-        // CONTROLES DE EDICIÓN
+        // --- ARREGLO DE ICONOS GRANDES ---
+        // Se aplicará un estilo flexbox controlado y tamaños fijos
         if (isEditMode) {
             html += `
-            <div style="position:absolute; top:5px; right:5px; display:flex; gap:5px; z-index:10;">
-                <button onclick="moverItem('${menuId}', ${index}, -1)" style="background:#3498db; color:white; border:none; padding:5px; cursor:pointer; border-radius:3px;">⬅️</button>
-                <button onclick="moverItem('${menuId}', ${index}, 1)" style="background:#3498db; color:white; border:none; padding:5px; cursor:pointer; border-radius:3px;">➡️</button>
-                <button onclick="abrirEditor('${menuId}', ${index})" style="background:#f39c12; color:white; border:none; padding:5px; cursor:pointer; border-radius:3px;"><i class="fas fa-pen"></i></button>
-                <button onclick="borrarItem('${menuId}', ${index})" style="background:#c0392b; color:white; border:none; padding:5px; cursor:pointer; border-radius:3px;"><i class="fas fa-trash"></i></button>
+            <div style="position:absolute; top:5px; right:5px; display:flex; gap:5px; z-index:10; background:rgba(255,255,255,0.9); padding:3px; border-radius:5px; box-shadow:0 2px 5px rgba(0,0,0,0.2);">
+                <button onclick="moverItem('${menuId}', ${index}, -1)" style="width:30px; height:30px; display:flex; justify-content:center; align-items:center; background:#3498db; color:white; border:none; border-radius:4px; cursor:pointer;"><i class="fas fa-arrow-left" style="font-size:12px;"></i></button>
+                <button onclick="moverItem('${menuId}', ${index}, 1)" style="width:30px; height:30px; display:flex; justify-content:center; align-items:center; background:#3498db; color:white; border:none; border-radius:4px; cursor:pointer;"><i class="fas fa-arrow-right" style="font-size:12px;"></i></button>
+                <button onclick="abrirEditor('${menuId}', ${index})" style="width:30px; height:30px; display:flex; justify-content:center; align-items:center; background:#f39c12; color:white; border:none; border-radius:4px; cursor:pointer;"><i class="fas fa-pen" style="font-size:12px;"></i></button>
+                <button onclick="borrarItem('${menuId}', ${index})" style="width:30px; height:30px; display:flex; justify-content:center; align-items:center; background:#c0392b; color:white; border:none; border-radius:4px; cursor:pointer;"><i class="fas fa-trash" style="font-size:12px;"></i></button>
             </div>`;
             card.style.border = "2px dashed #f39c12";
             card.style.transform = "scale(0.98)";
@@ -159,17 +146,13 @@ function renderMenu(menuId) {
     });
 }
 
-// --- 7. FUNCIONES DE GESTIÓN Y EDICIÓN ---
-
+// --- 7. FUNCIONES DE EDICIÓN ---
 function toggleEditMode() {
     isEditMode = !isEditMode;
-    // Mostrar botones guardar y salir
     const btnSave = document.getElementById('btn-save-changes');
     const btnEdit = document.getElementById('btn-edit-mode');
-    
     if (btnSave) btnSave.style.display = isEditMode ? 'flex' : 'none';
     if (btnEdit) btnEdit.innerHTML = isEditMode ? '<i class="fas fa-times"></i> SALIR' : '<i class="fas fa-edit"></i> EDITAR';
-    
     renderMenu(currentMenuId);
 }
 
@@ -177,38 +160,44 @@ function moverItem(menuId, index, direction) {
     const items = MENU_DATA[menuId].items;
     const newIndex = index + direction;
     if (newIndex >= 0 && newIndex < items.length) {
-        [items[index], items[newIndex]] = [items[newIndex], items[index]]; // Swap
+        [items[index], items[newIndex]] = [items[newIndex], items[index]];
         renderMenu(menuId);
     }
 }
 
 function borrarItem(menuId, index) {
-    if(confirm("¿Seguro que quieres eliminar este elemento?")) {
+    if(confirm("¿Eliminar este elemento?")) {
         MENU_DATA[menuId].items.splice(index, 1);
         renderMenu(menuId);
     }
 }
 
-// *** AQUÍ ESTÁ LA LÓGICA NUEVA PARA EDITAR SIMULADORES ***
+// --- ARREGLO DEL "ABRIR EDITOR" ---
+// Esta función ahora detecta correctamente si es un simulador CUSTOM y envía el modo "edit"
 function abrirEditor(menuId, index) {
     itemToEdit = { menuId, index };
     const item = MENU_DATA[menuId].items[index];
 
-    // CASO 1: SI ES UN SIMULADOR CREADO (CUSTOM)
-    // Redirigir al creador.html en modo edición
+    // 1. SI ES SIMULADOR PERSONALIZADO (Tiene link con 'custom')
     if (item.type === 'test' && item.link && item.link.includes('materia=custom')) {
-        const urlParams = new URLSearchParams(item.link.split('?')[1]);
-        const simId = urlParams.get('id');
-        
-        if (simId) {
-            // Redireccionar enviando el ID y el ID del padre (para actualizar nombre en menú)
-            location.href = `creador.html?id=${simId}&mode=edit&parent=${menuId}`;
-        } else {
-            alert("Error: ID de simulador no encontrado.");
+        try {
+            // Extraer ID real de la URL (ej: simulador.html?materia=custom&id=123)
+            const urlParts = item.link.split('?')[1];
+            const urlParams = new URLSearchParams(urlParts);
+            const simId = urlParams.get('id');
+            
+            if (simId) {
+                // Redirigir al creador con la orden de EDITAR
+                location.href = `creador.html?id=${simId}&mode=edit&parent=${menuId}`;
+            } else {
+                alert("Error: ID de simulador corrupto.");
+            }
+        } catch(e) {
+            console.error(e);
+            alert("Error al leer datos del simulador.");
         }
     } 
-    // CASO 2: SI ES CARPETA O SIMULADOR DEL SISTEMA
-    // Abrir modal solo para renombrar
+    // 2. SI ES CARPETA O SIMULADOR DEL SISTEMA (Solo renombrar)
     else {
         document.getElementById('edit-nombre').value = item.label;
         document.getElementById('edit-desc').value = item.desc || '';
@@ -227,7 +216,6 @@ function aplicarCambiosItem() {
     }
 }
 
-// --- 8. CREACIÓN DE NUEVOS ELEMENTOS ---
 function crearElemento() {
     const tipo = document.getElementById('new-type').value;
     const nombre = document.getElementById('new-name').value;
@@ -235,23 +223,14 @@ function crearElemento() {
 
     if (tipo === 'folder') {
         const nuevoId = 'folder_' + Date.now();
-        // Crear item carpeta
-        MENU_DATA[currentMenuId].items.push({ 
-            id: nuevoId, 
-            label: nombre, 
-            type: 'folder', 
-            icon: 'fas fa-folder', 
-            desc: 'Carpeta nueva' 
-        });
-        // Crear entrada vacía en la estructura
+        MENU_DATA[currentMenuId].items.push({ id: nuevoId, label: nombre, type: 'folder', icon: 'fas fa-folder', desc: 'Carpeta nueva' });
         MENU_DATA[nuevoId] = { title: nombre, desc: 'Contenido...', items: [] };
-        
         document.getElementById('nuevo-modal').style.display = 'none';
         renderMenu(currentMenuId);
     } 
     else if (tipo === 'test') {
-        // Redirigir al creador para configurar preguntas
         const nuevoSimId = 'custom_' + Date.now();
+        // Al crear, no mandamos mode=edit para que empiece limpio
         location.href = `creador.html?id=${nuevoSimId}&nombre=${encodeURIComponent(nombre)}&parent=${currentMenuId}`;
     }
 }
