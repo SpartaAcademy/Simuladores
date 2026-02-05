@@ -9,66 +9,146 @@
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="JS/auth.js"></script>
     <style>
-        :root { --sparta-red: #D32F2F; --sparta-dark: #1a1a1a; --sparta-gray: #f4f4f9; --accent-blue: #3498db; }
-        body { font-family: 'Work Sans', sans-serif; background: var(--sparta-gray); margin: 0; padding-top: 80px; }
+        :root {
+            --sparta-red: #D32F2F;
+            --sparta-dark: #1a1a1a;
+            --sparta-gray: #f4f4f9;
+            --accent-blue: #3498db;
+        }
+
+        body { 
+            font-family: 'Work Sans', sans-serif; 
+            background: var(--sparta-gray); 
+            margin: 0; padding: 0; 
+            padding-top: 80px; 
+        }
 
         /* HEADER */
         header {
-            background: linear-gradient(90deg, #111 0%, #333 100%); height: 70px; padding: 0 30px;
+            background: linear-gradient(90deg, #111 0%, #333 100%);
+            height: 70px;
+            padding: 0 30px;
             display: flex; justify-content: space-between; align-items: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5); position: fixed; top: 0; width: 100%; z-index: 1000; box-sizing: border-box;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            position: fixed; top: 0; width: 100%; z-index: 1000; box-sizing: border-box;
             border-bottom: 3px solid var(--sparta-red);
         }
         .header-left { display: flex; align-items: center; gap: 15px; cursor: pointer; }
         .header-left img { height: 50px; }
         .header-text h1 { font-family: 'Teko', sans-serif; margin: 0; color: white; font-size: 1.8rem; line-height: 1; }
         .header-text h2 { font-family: 'Work Sans', sans-serif; margin: 0; color: #ccc; font-size: 0.7rem; letter-spacing: 2px; }
-        .btn-header { background: transparent; border: 1px solid rgba(255,255,255,0.3); color: white; padding: 8px 15px; border-radius: 4px; cursor: pointer; transition: 0.3s; }
-        .btn-header:hover { background: var(--sparta-red); }
+        
+        .btn-header {
+            background: transparent; border: 1px solid rgba(255,255,255,0.3);
+            color: white; padding: 8px 15px; border-radius: 4px; cursor: pointer;
+            font-family: 'Work Sans', sans-serif; font-size: 0.9rem; transition: 0.3s;
+        }
+        .btn-header:hover { background: var(--sparta-red); border-color: var(--sparta-red); }
 
-        /* CONTENEDOR */
-        .main-container { max-width: 900px; margin: 0 auto; padding: 20px; padding-bottom: 100px; }
-        .page-title { font-family: 'Teko', sans-serif; font-size: 3rem; color: var(--sparta-dark); margin-bottom: 20px; border-left: 10px solid var(--sparta-red); padding-left: 15px; }
+        /* CONTENEDOR PRINCIPAL */
+        .main-container {
+            max-width: 900px; margin: 40px auto;
+            padding: 0 20px; padding-bottom: 100px;
+        }
+
+        .page-title {
+            font-family: 'Teko', sans-serif; font-size: 3rem; color: var(--sparta-dark);
+            margin-bottom: 20px; border-left: 10px solid var(--sparta-red);
+            padding-left: 15px; text-transform: uppercase;
+        }
 
         /* PANELES */
-        .panel { background: white; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); padding: 25px; margin-bottom: 30px; border-top: 4px solid var(--sparta-dark); }
+        .panel {
+            background: white; border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            padding: 25px; margin-bottom: 30px;
+            border-top: 4px solid var(--sparta-dark);
+        }
+
+        .panel h3 { margin-top: 0; font-family: 'Teko'; font-size: 1.8rem; color: #444; border-bottom: 1px solid #eee; padding-bottom: 10px; margin-bottom: 20px; }
+
         .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .form-group { margin-bottom: 15px; }
         label { display: block; font-weight: 700; margin-bottom: 5px; color: #555; font-size: 0.9rem; }
-        input, select, textarea { width: 100%; padding: 12px; border: 2px solid #eee; border-radius: 6px; font-family: 'Work Sans'; font-size: 1rem; box-sizing: border-box; }
-        input:focus, textarea:focus { border-color: var(--sparta-red); outline: none; }
+        input, select { 
+            width: 100%; padding: 12px; border: 2px solid #eee; border-radius: 6px; 
+            font-family: 'Work Sans'; font-size: 1rem; transition: 0.3s; box-sizing: border-box;
+        }
+        input:focus { border-color: var(--sparta-red); outline: none; }
 
         /* TARJETA DE PREGUNTA */
         .q-card {
-            background: white; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-            margin-bottom: 20px; position: relative; border-left: 6px solid var(--accent-blue);
+            background: white; border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            margin-bottom: 20px; position: relative;
+            border-left: 6px solid var(--accent-blue);
             animation: slideIn 0.3s ease-out;
+            overflow: hidden;
         }
         @keyframes slideIn { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-        .q-header { background: #f8f9fa; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; }
+
+        .q-header {
+            background: #f8f9fa; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee;
+        }
         .q-body { padding: 20px; }
-        .btn-del { background: #ffebee; color: #c62828; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; }
+
+        .btn-del { background: #ffebee; color: #c62828; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-weight: bold; }
+        .btn-del:hover { background: #c62828; color: white; }
+
+        textarea.q-input { 
+            width: 100%; border: 2px solid #eee; border-radius: 6px; padding: 10px; 
+            font-family: 'Work Sans'; resize: vertical; min-height: 60px; box-sizing: border-box;
+        }
 
         /* UPLOAD ZONA */
         .upload-zone { border: 2px dashed #ccc; padding: 15px; text-align: center; border-radius: 6px; margin-top: 5px; cursor: pointer; transition: 0.2s; }
         .upload-zone:hover { border-color: var(--accent-blue); background: #f0f8ff; }
         .upload-zone.has-file { border-color: #27ae60; background: #e8f8f5; }
 
-        /* BOTONES ACCIÓN */
+        /* BOTONES DE ACCIÓN */
         .actions-bar {
             position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%);
             background: rgba(255,255,255,0.95); backdrop-filter: blur(10px);
-            padding: 15px 30px; border-radius: 50px; box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-            display: flex; gap: 20px; z-index: 2000; border: 1px solid #ddd;
+            padding: 15px 30px; border-radius: 50px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            display: flex; gap: 20px; justify-content: center;
+            border: 1px solid #ddd; z-index: 2000;
         }
-        .btn-action { padding: 12px 30px; border: none; border-radius: 50px; font-family: 'Teko', sans-serif; font-size: 1.4rem; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: transform 0.2s; color: white; }
+
+        .btn-action {
+            padding: 12px 30px; border: none; border-radius: 50px;
+            font-family: 'Teko', sans-serif; font-size: 1.4rem; font-weight: 600;
+            cursor: pointer; display: flex; align-items: center; gap: 10px;
+            transition: transform 0.2s; color: white;
+        }
         .btn-action:hover { transform: translateY(-3px); }
         .btn-add { background: var(--accent-blue); }
-        .btn-save { background: var(--sparta-red); }
+        .btn-save { background: var(--sparta-red); box-shadow: 0 4px 15px rgba(211, 47, 47, 0.4); }
 
-        /* ALERTA */
-        .sparta-overlay { position: fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:9999; display:none; justify-content:center; align-items:center; backdrop-filter: blur(5px); }
-        .sparta-box { background: white; padding: 30px; border-radius: 10px; text-align: center; max-width: 400px; border-top: 5px solid var(--sparta-red); animation: pop 0.3s; }
-        @keyframes pop { 0% { transform: scale(0.8); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+        /* ALERTA SPARTA PERSONALIZADA */
+        .sparta-alert-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(4px);
+            z-index: 9999; display: none; justify-content: center; align-items: center;
+        }
+
+        .sparta-alert-box {
+            background: white; width: 90%; max-width: 400px; padding: 30px;
+            border-radius: 12px; text-align: center;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+            animation: spartaPop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border-top: 6px solid #D32F2F; font-family: 'Work Sans', sans-serif;
+        }
+
+        .sparta-alert-icon { font-size: 3rem; margin-bottom: 15px; display: block; }
+        .sparta-alert-title { font-family: 'Teko', sans-serif; font-size: 2rem; margin: 0; color: #333; line-height: 1; }
+        .sparta-alert-msg { color: #666; font-size: 1.1rem; margin: 15px 0 25px 0; }
+        .sparta-btn-ok {
+            background: #2c3e50; color: white; border: none; padding: 12px 30px; border-radius: 50px;
+            font-family: 'Teko', sans-serif; font-size: 1.3rem; cursor: pointer; width: 100%;
+        }
+        .sparta-btn-ok:hover { transform: scale(1.05); background: #D32F2F; }
+        @keyframes spartaPop { 0% { transform: scale(0.8); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
     </style>
 </head>
 <body>
@@ -85,55 +165,56 @@
     </header>
 
     <div class="main-container">
-        <h1 class="page-title">NUEVO SIMULADOR</h1>
+        <h1 class="page-title">CONFIGURAR SIMULADOR</h1>
 
         <div class="panel">
-            <h3><i class="fas fa-sliders-h"></i> CONFIGURACIÓN</h3>
+            <h3><i class="fas fa-sliders-h"></i> DATOS GENERALES</h3>
             <div class="form-group">
                 <label>TÍTULO DEL EXAMEN</label>
-                <input type="text" id="sim-title" placeholder="Ej: Test de Inteligencia Abstracta">
+                <input type="text" id="sim-title" placeholder="Ej: Inteligencia Espacial - Nivel 1">
             </div>
             <div class="form-grid">
                 <div class="form-group">
-                    <label>TIEMPO (Segundos)</label>
+                    <label><i class="fas fa-clock"></i> TIEMPO (Segundos)</label>
                     <input type="number" id="sim-time" value="3600">
                 </div>
                 <div class="form-group">
-                    <label>ID SISTEMA</label>
-                    <input type="text" id="sim-id" disabled style="background:#eee; color:#777;">
+                    <label><i class="fas fa-fingerprint"></i> ID SISTEMA</label>
+                    <input type="text" id="sim-id" disabled style="background:#eee; color:#888;">
                 </div>
             </div>
         </div>
 
         <div id="questions-list"></div>
 
-        <div class="panel" style="border-top-color: #f1c40f;">
-            <div style="display:flex; align-items:center; gap:15px;">
-                <i class="fas fa-file-code" style="font-size:2rem; color:#f1c40f;"></i>
+        <div class="panel" style="border-top-color: #f1c40f; background: #fffcf0;">
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <i class="fas fa-file-code" style="font-size: 2rem; color: #f1c40f;"></i>
                 <div>
-                    <strong>Carga por JSON (Opcional)</strong><br>
-                    <span style="font-size:0.8rem; color:#666;">Si ya tienes el archivo listo.</span>
+                    <strong style="display:block;">Carga Masiva (Opcional)</strong>
+                    <span style="font-size: 0.9rem; color: #666;">Si tienes un archivo .json listo, súbelo aquí.</span>
                 </div>
-                <input type="file" id="json-file" accept=".json" style="margin-left:auto; width:auto;">
+                <input type="file" id="json-file" accept=".json" style="margin-left: auto; width: auto;">
             </div>
         </div>
+
     </div>
 
     <div class="actions-bar">
         <button class="btn-action btn-add" onclick="addQuestionUI()">
-            <i class="fas fa-plus"></i> PREGUNTA
+            <i class="fas fa-plus-circle"></i> AGREGAR PREGUNTA
         </button>
         <button class="btn-action btn-save" onclick="prepararGuardado()">
-            <i class="fas fa-save"></i> GUARDAR
+            <i class="fas fa-save"></i> GUARDAR EXAMEN
         </button>
     </div>
 
-    <div id="sparta-alert" class="sparta-overlay">
-        <div class="sparta-box">
-            <i id="alert-icon" class="fas fa-info-circle" style="font-size:3rem; margin-bottom:15px;"></i>
-            <h3 id="alert-title" style="margin:0; font-family:'Teko'; font-size:2rem;">MENSAJE</h3>
-            <p id="alert-msg" style="color:#666; margin:15px 0;">...</p>
-            <button onclick="document.getElementById('sparta-alert').style.display='none'" style="padding:10px 30px; background:#333; color:white; border:none; border-radius:5px; cursor:pointer;">OK</button>
+    <div id="sparta-alert" class="sparta-alert-overlay">
+        <div class="sparta-alert-box">
+            <i id="sp-icon" class="fas fa-check-circle sparta-alert-icon" style="color: #27ae60;"></i>
+            <h3 id="sp-title" class="sparta-alert-title">¡ÉXITO!</h3>
+            <p id="sp-msg" class="sparta-alert-msg">Acción realizada correctamente.</p>
+            <button onclick="cerrarSpartaAlert()" class="sparta-btn-ok">ENTENDIDO</button>
         </div>
     </div>
 
@@ -145,17 +226,16 @@
 
     // --- INICIALIZACIÓN ---
     const params = new URLSearchParams(window.location.search);
-    const parentId = params.get('parent') || 'root';
-    const simId = params.get('id') || 'sim_' + Date.now();
+    const parentId = params.get('parent') || 'root'; 
+    const simId = params.get('id') || 'sim_' + Date.now(); 
     const simName = params.get('nombre') || '';
 
     document.getElementById('sim-id').value = simId;
     if(simName) document.getElementById('sim-title').value = simName;
 
-    // Agregar primera pregunta automáticamente
-    window.onload = () => addQuestionUI();
+    window.onload = () => { addQuestionUI(); };
 
-    // --- AÑADIR TARJETA DE PREGUNTA ---
+    // --- AGREGAR TARJETA DE PREGUNTA ---
     function addQuestionUI() {
         const count = document.querySelectorAll('.q-card').length + 1;
         const div = document.createElement('div');
@@ -174,10 +254,10 @@
                 <div class="form-grid">
                     <div class="form-group">
                         <label>IMAGEN (Opcional)</label>
-                        <input type="text" class="q-img-url" placeholder="Pegar enlace de Drive o Web">
+                        <input type="text" class="q-img-url" placeholder="Pegar enlace o ruta (DATA/7/img_SEC1/1.png)">
                         
                         <div class="upload-zone" onclick="this.querySelector('input').click()">
-                            <i class="fas fa-cloud-upload-alt"></i> O subir archivo desde PC
+                            <i class="fas fa-cloud-upload-alt"></i> O subir desde PC
                             <input type="file" class="q-img-file" accept="image/*" style="display:none" onchange="previewFile(this)">
                             <div class="file-name" style="font-size:0.8rem; color:#27ae60; margin-top:5px;"></div>
                         </div>
@@ -189,7 +269,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label>OPCIONES (Separar con comas)</label>
+                    <label>OPCIONES (Separadas por comas)</label>
                     <input type="text" class="q-opts" value="A, B, C, D">
                 </div>
             </div>
@@ -198,7 +278,7 @@
         window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
     }
 
-    // --- VISUALIZAR NOMBRE DE ARCHIVO SELECCIONADO ---
+    // --- VISUALIZAR NOMBRE ARCHIVO ---
     function previewFile(input) {
         const fileNameDiv = input.parentElement.querySelector('.file-name');
         if (input.files && input.files[0]) {
@@ -210,7 +290,7 @@
         }
     }
 
-    // --- SUBIR IMAGEN A SUPABASE STORAGE ---
+    // --- SUBIR IMAGEN A SUPABASE ---
     async function uploadImageToSupabase(file) {
         try {
             const fileExt = file.name.split('.').pop();
@@ -226,15 +306,15 @@
             return data.publicUrl;
         } catch (error) {
             console.error("Error subiendo imagen:", error);
-            return null;
+            return null; // Si falla, retorna null pero no detiene todo
         }
     }
 
-    // --- LÓGICA DE GUARDADO PRINCIPAL ---
+    // --- GUARDAR SIMULADOR ---
     async function prepararGuardado() {
         const title = document.getElementById('sim-title').value;
         const time = document.getElementById('sim-time').value;
-        if (!title) return showAlert("Falta Título", "Ponle un nombre al examen.", "error");
+        if (!title) return showSparta("Falta Título", "Ponle un nombre al examen.", "error");
 
         const btn = document.querySelector('.btn-save');
         const originalText = btn.innerHTML;
@@ -245,27 +325,25 @@
         const cards = document.querySelectorAll('.q-card');
 
         try {
-            // 1. ITERAR TARJETAS Y SUBIR IMÁGENES SI HAY
+            // 1. RECORRER TARJETAS
             for (let i = 0; i < cards.length; i++) {
                 const card = cards[i];
                 const text = card.querySelector('.q-text').value;
                 const ans = card.querySelector('.q-ans').value.trim();
                 const opts = card.querySelector('.q-opts').value;
                 
-                // Manejo de Imagen
                 const urlInput = card.querySelector('.q-img-url').value.trim();
                 const fileInput = card.querySelector('.q-img-file').files[0];
                 let finalImgUrl = urlInput || null;
 
-                // Si hay archivo, lo subimos primero
+                // Si seleccionó archivo, subirlo
                 if (fileInput) {
                     btn.innerHTML = `<i class="fas fa-cloud-upload-alt"></i> Subiendo img ${i+1}...`;
                     const uploadedUrl = await uploadImageToSupabase(fileInput);
                     if (uploadedUrl) finalImgUrl = uploadedUrl;
-                    else throw new Error(`Falló subida imagen pregunta ${i+1}`);
                 }
 
-                // Solo agregamos si hay respuesta definida
+                // Guardar solo si hay respuesta definida
                 if (ans) {
                     finalQuestions.push({
                         id: i + 1,
@@ -277,7 +355,7 @@
                 }
             }
 
-            // 2. AGREGAR JSON EXTERNO SI HAY
+            // 2. AGREGAR JSON (SI HAY)
             const jsonFile = document.getElementById('json-file').files[0];
             if (jsonFile) {
                 const text = await jsonFile.text();
@@ -299,12 +377,17 @@
             if (dbError) throw dbError;
 
             // 4. ACTUALIZAR MENÚ
+            // NOTA: Aquí estaba el error del "indexOf", hemos agregado validaciones
             const { data: menuData } = await db.from('menu_structure').select('json_data').order('id', { ascending: false }).limit(1);
             if (menuData && menuData.length > 0) {
                 let menu = menuData[0].json_data;
                 if (menu[parentId]) {
-                    // Evitar duplicados
-                    menu[parentId].items = menu[parentId].items.filter(i => i.link.indexOf(simId) === -1);
+                    // FILTRO SEGURO: Verificamos que i.link exista antes de buscar
+                    menu[parentId].items = menu[parentId].items.filter(i => {
+                        // Si no tiene link (es carpeta) lo dejamos. Si tiene link, verificamos que no sea el mismo ID.
+                        return !i.link || i.link.indexOf(simId) === -1;
+                    });
+                    
                     // Agregar nuevo
                     menu[parentId].items.push({
                         label: title,
@@ -316,34 +399,50 @@
                 }
             }
 
-            showAlert("¡ÉXITO!", "Simulador guardado y publicado.", "success");
-            setTimeout(() => window.location.href = 'index.html', 2000);
+            showSparta("¡ÉXITO!", "Simulador guardado correctamente.", "success");
 
         } catch (e) {
             console.error(e);
-            showAlert("ERROR", e.message, "error");
+            showSparta("ERROR", e.message, "error");
             btn.innerHTML = originalText;
             btn.disabled = false;
         }
     }
 
-    // --- FUNCIÓN ALERTA BONITA ---
-    function showAlert(title, msg, type) {
+    // --- SISTEMA DE ALERTAS ---
+    function showSparta(titulo, mensaje, tipo = 'success') {
         const overlay = document.getElementById('sparta-alert');
-        const icon = document.getElementById('alert-icon');
-        const box = document.querySelector('.sparta-box');
+        const icon = document.getElementById('sp-icon');
+        const titleEl = document.getElementById('sp-title');
+        const msgEl = document.getElementById('sp-msg');
+        const box = document.querySelector('.sparta-alert-box');
         
-        document.getElementById('alert-title').textContent = title;
-        document.getElementById('alert-msg').textContent = msg;
+        titleEl.textContent = titulo;
+        msgEl.textContent = mensaje;
         
-        if (type === 'error') {
-            icon.className = 'fas fa-times-circle'; icon.style.color = '#c0392b';
+        if (tipo === 'success') {
+            icon.className = 'fas fa-check-circle sparta-alert-icon';
+            icon.style.color = '#27ae60';
+            box.style.borderTopColor = '#27ae60';
+        } else if (tipo === 'error') {
+            icon.className = 'fas fa-exclamation-triangle sparta-alert-icon';
+            icon.style.color = '#c0392b';
             box.style.borderTopColor = '#c0392b';
         } else {
-            icon.className = 'fas fa-check-circle'; icon.style.color = '#27ae60';
-            box.style.borderTopColor = '#27ae60';
+            icon.className = 'fas fa-info-circle sparta-alert-icon';
+            icon.style.color = '#3498db';
+            box.style.borderTopColor = '#3498db';
         }
+
         overlay.style.display = 'flex';
+    }
+
+    function cerrarSpartaAlert() {
+        document.getElementById('sparta-alert').style.display = 'none';
+        // Si fue éxito al guardar, volver al inicio
+        if (document.getElementById('sp-title').textContent === '¡ÉXITO!') {
+            window.location.href = 'index.html';
+        }
     }
 </script>
 </body>
