@@ -1,6 +1,5 @@
-// JS/script-home.js - VERSIÓN CORREGIDA (ICONOS Y EDICIÓN)
+// JS/script-home.js - VERSIÓN CORREGIDA (DISEÑO PROFESIONAL)
 
-// --- 1. ESTRUCTURA BASE ---
 const DEFAULT_MENU = {
     'root': {
         title: 'Seleccione una Institución',
@@ -23,19 +22,17 @@ const DEFAULT_MENU = {
     'inteligencia_menu': { title: 'Inteligencia', desc: 'Versiones.', items: [{ label: 'INTELIGENCIA V1', type: 'test', link: 'simulador.html?materia=inteligencia', icon: 'fas fa-brain' }, { label: 'INTELIGENCIA V2', type: 'test', link: '#', icon: 'fas fa-brain', disabled: true }] }
 };
 
-// --- 2. VARIABLES GLOBALES ---
+// --- VARIABLES GLOBALES ---
 let MENU_DATA = JSON.parse(JSON.stringify(DEFAULT_MENU));
 let navigationHistory = [];
 let currentMenuId = 'root';
 let isEditMode = false;
 let itemToEdit = null;
 
-// --- 3. CONEXIÓN SUPABASE ---
 const sbUrl = 'https://fgpqioviycmgwypidhcs.supabase.co';
 const sbKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZncHFpb3ZpeWNtZ3d5cGlkaGNzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU0OTkwMDgsImV4cCI6MjA4MTA3NTAwOH0.5ckdzDtwFRG8JpuW5S-Qi885oOSVESAvbLoNiqePJYo';
 const db = window.supabase.createClient(sbUrl, sbKey);
 
-// --- 4. INICIALIZACIÓN ---
 document.addEventListener('DOMContentLoaded', async () => {
     await cargarMenuDesdeNube();
     renderMenu('root');
@@ -53,7 +50,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 });
 
-// --- 5. LÓGICA DE BASE DE DATOS ---
 async function cargarMenuDesdeNube() {
     try {
         const { data, error } = await db.from('menu_structure').select('json_data').order('id', { ascending: false }).limit(1);
@@ -61,7 +57,7 @@ async function cargarMenuDesdeNube() {
             MENU_DATA = data[0].json_data;
             console.log("Menú cargado desde Supabase ✅");
         }
-    } catch (e) { console.error("Usando menú local por defecto.", e); }
+    } catch (e) { console.error("Usando menú local."); }
 }
 
 async function guardarCambiosEnNube() {
@@ -70,16 +66,12 @@ async function guardarCambiosEnNube() {
     try {
         const { error } = await db.from('menu_structure').insert([{ json_data: MENU_DATA }]);
         if (error) throw error;
-        
-        if (typeof showSparta === "function") showSparta("¡GUARDADO!", "Cambios actualizados.", "success");
-        else alert("¡Menú guardado exitosamente!");
-        
+        alert("¡Menú guardado exitosamente!");
         toggleEditMode();
     } catch (e) { alert("Error al guardar: " + e.message); }
     btn.innerHTML = '<i class="fas fa-save"></i> GUARDAR';
 }
 
-// --- 6. RENDERIZADO DEL MENÚ ---
 function renderMenu(menuId) {
     currentMenuId = menuId;
     const data = MENU_DATA[menuId] || { title: 'Vacío', items: [] };
@@ -94,7 +86,6 @@ function renderMenu(menuId) {
     const container = document.getElementById('dynamic-grid');
     container.innerHTML = '';
 
-    // Botón AÑADIR (Modo Edición)
     if (isEditMode) {
         const addBtn = document.createElement('div');
         addBtn.className = 'materia-card';
@@ -120,16 +111,16 @@ function renderMenu(menuId) {
             html += `<h3>${item.label}${item.disabled?' (Próx.)':''}</h3>${item.desc ? `<p>${item.desc}</p>` : ''}`;
         }
 
-        // --- ARREGLO DE ICONOS GRANDES ---
-        // Se aplicará un estilo flexbox controlado y tamaños fijos
+        // --- AQUI ESTA EL CAMBIO DE DISEÑO ---
         if (isEditMode) {
             html += `
-            <div style="position:absolute; top:5px; right:5px; display:flex; gap:5px; z-index:10; background:rgba(255,255,255,0.9); padding:3px; border-radius:5px; box-shadow:0 2px 5px rgba(0,0,0,0.2);">
-                <button onclick="moverItem('${menuId}', ${index}, -1)" style="width:30px; height:30px; display:flex; justify-content:center; align-items:center; background:#3498db; color:white; border:none; border-radius:4px; cursor:pointer;"><i class="fas fa-arrow-left" style="font-size:12px;"></i></button>
-                <button onclick="moverItem('${menuId}', ${index}, 1)" style="width:30px; height:30px; display:flex; justify-content:center; align-items:center; background:#3498db; color:white; border:none; border-radius:4px; cursor:pointer;"><i class="fas fa-arrow-right" style="font-size:12px;"></i></button>
-                <button onclick="abrirEditor('${menuId}', ${index})" style="width:30px; height:30px; display:flex; justify-content:center; align-items:center; background:#f39c12; color:white; border:none; border-radius:4px; cursor:pointer;"><i class="fas fa-pen" style="font-size:12px;"></i></button>
-                <button onclick="borrarItem('${menuId}', ${index})" style="width:30px; height:30px; display:flex; justify-content:center; align-items:center; background:#c0392b; color:white; border:none; border-radius:4px; cursor:pointer;"><i class="fas fa-trash" style="font-size:12px;"></i></button>
+            <div class="admin-controls-overlay">
+                <button onclick="moverItem('${menuId}', ${index}, -1)" class="mini-btn btn-move" title="Mover Izquierda"><i class="fas fa-arrow-left"></i></button>
+                <button onclick="moverItem('${menuId}', ${index}, 1)" class="mini-btn btn-move" title="Mover Derecha"><i class="fas fa-arrow-right"></i></button>
+                <button onclick="abrirEditor('${menuId}', ${index})" class="mini-btn btn-edit" title="Editar"><i class="fas fa-pen"></i></button>
+                <button onclick="borrarItem('${menuId}', ${index})" class="mini-btn btn-del" title="Eliminar"><i class="fas fa-trash"></i></button>
             </div>`;
+            
             card.style.border = "2px dashed #f39c12";
             card.style.transform = "scale(0.98)";
         } else {
@@ -146,7 +137,7 @@ function renderMenu(menuId) {
     });
 }
 
-// --- 7. FUNCIONES DE EDICIÓN ---
+// --- EDICIÓN ---
 function toggleEditMode() {
     isEditMode = !isEditMode;
     const btnSave = document.getElementById('btn-save-changes');
@@ -166,38 +157,36 @@ function moverItem(menuId, index, direction) {
 }
 
 function borrarItem(menuId, index) {
-    if(confirm("¿Eliminar este elemento?")) {
+    if(confirm("¿Seguro que quieres eliminar este elemento?")) {
         MENU_DATA[menuId].items.splice(index, 1);
         renderMenu(menuId);
     }
 }
 
-// --- ARREGLO DEL "ABRIR EDITOR" ---
-// Esta función ahora detecta correctamente si es un simulador CUSTOM y envía el modo "edit"
+// --- EDITOR INTELIGENTE ---
 function abrirEditor(menuId, index) {
     itemToEdit = { menuId, index };
     const item = MENU_DATA[menuId].items[index];
 
-    // 1. SI ES SIMULADOR PERSONALIZADO (Tiene link con 'custom')
+    // SI ES UN SIMULADOR PERSONALIZADO
     if (item.type === 'test' && item.link && item.link.includes('materia=custom')) {
         try {
-            // Extraer ID real de la URL (ej: simulador.html?materia=custom&id=123)
             const urlParts = item.link.split('?')[1];
             const urlParams = new URLSearchParams(urlParts);
             const simId = urlParams.get('id');
             
             if (simId) {
-                // Redirigir al creador con la orden de EDITAR
+                // REDIRIGIR AL CREADOR CON EL MODO 'EDIT' ACTIVADO
                 location.href = `creador.html?id=${simId}&mode=edit&parent=${menuId}`;
             } else {
                 alert("Error: ID de simulador corrupto.");
             }
         } catch(e) {
             console.error(e);
-            alert("Error al leer datos del simulador.");
+            alert("Error procesando el simulador.");
         }
     } 
-    // 2. SI ES CARPETA O SIMULADOR DEL SISTEMA (Solo renombrar)
+    // SI ES CARPETA O SIMULADOR ESTÁNDAR
     else {
         document.getElementById('edit-nombre').value = item.label;
         document.getElementById('edit-desc').value = item.desc || '';
@@ -230,7 +219,6 @@ function crearElemento() {
     } 
     else if (tipo === 'test') {
         const nuevoSimId = 'custom_' + Date.now();
-        // Al crear, no mandamos mode=edit para que empiece limpio
         location.href = `creador.html?id=${nuevoSimId}&nombre=${encodeURIComponent(nombre)}&parent=${currentMenuId}`;
     }
 }
