@@ -1,6 +1,5 @@
-// JS/script-simulador.js - VERSIÓN MAESTRA (DRIVE FIX + PRELOAD)
+// JS/script-simulador.js - FINAL (CON PARCHE DRIVE)
 
-// CONEXIÓN SUPABASE
 const simuladorUrl = 'https://fgpqioviycmgwypidhcs.supabase.co';
 const simuladorKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZncHFpb3ZpeWNtZ3d5cGlkaGNzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU0OTkwMDgsImV4cCI6MjA4MTA3NTAwOH0.5ckdzDtwFRG8JpuW5S-Qi885oOSVESAvbLoNiqePJYo';
 const simuladorDB = window.supabase.createClient(simuladorUrl, simuladorKey);
@@ -61,10 +60,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- FUNCIÓN HELPER: ARREGLAR ENLACES DRIVE ---
     function fixDriveLink(url) {
         if (!url) return "";
+        // Si ya es un enlace arreglado (thumbnail), lo dejamos
+        if (url.includes("google.com/thumbnail")) return url;
+        
+        // Si es un enlace de vista (/view), lo arreglamos
         if (url.includes("drive.google.com") && url.includes("/view")) {
-            const match = url.match(/\/d\/(.+?)\//);
+            const match = url.match(/\/d\/([a-zA-Z0-9_-]+)/);
             if (match && match[1]) {
-                return `https://drive.google.com/uc?export=view&id=${match[1]}`;
+                return `https://drive.google.com/thumbnail?id=${match[1]}&sz=w4000`;
             }
         }
         return url;
@@ -89,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 timeLeft = data.config ? data.config.tiempo : 3600;
                 totalPreguntas = questions.length;
 
-                // APLICAR CORRECCIÓN DRIVE A LAS PREGUNTAS
+                // APLICAR CORRECCIÓN DRIVE A LAS PREGUNTAS (Para asegurar)
                 questions = questions.map(q => {
                     if (q.imagen) q.imagen = fixDriveLink(q.imagen);
                     return q;
@@ -191,6 +194,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         imagenes.forEach(q => {
             const img = new Image();
+            // IMPORTANTE: ReferrerPolicy ayuda con Google Drive
+            img.referrerPolicy = "no-referrer";
             img.src = q.imagen;
             img.onload = () => { cargadas++; actualizarProgreso(); };
             img.onerror = () => { 
@@ -338,7 +343,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         const imgContainer = document.getElementById('q-image-container');
         if (q.imagen) {
-            imgContainer.innerHTML = `<img src="${q.imagen}" style="max-width:100%; max-height:450px; display:block; margin:10px auto; border-radius:8px; box-shadow:0 4px 10px rgba(0,0,0,0.1);">`;
+            imgContainer.innerHTML = `<img src="${q.imagen}" style="max-width:100%; max-height:450px; display:block; margin:10px auto; border-radius:8px; box-shadow:0 4px 10px rgba(0,0,0,0.1);" referrerpolicy="no-referrer">`;
         } else {
             imgContainer.innerHTML = '';
         }
@@ -408,7 +413,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const correct = userAnswers[i] === q.respuesta;
             rev.innerHTML += `<div style="border-bottom:1px solid #eee; padding:15px;">
                 <p><strong>${i+1}. ${q.pregunta ? q.pregunta.replace(/\n/g, '<br>') : ''}</strong></p>
-                ${q.imagen ? `<img src="${q.imagen}" style="max-width:150px; display:block; margin:10px 0;">` : ''}
+                ${q.imagen ? `<img src="${q.imagen}" style="max-width:150px; display:block; margin:10px 0;" referrerpolicy="no-referrer">` : ''}
                 <p>Tu respuesta: <span style="color:${correct?'green':'red'}">${userAnswers[i]||'---'}</span></p>
                 ${!correct ? `<p style="color:green">Correcta: <strong>${q.respuesta}</strong></p>` : ''}
             </div>`;
