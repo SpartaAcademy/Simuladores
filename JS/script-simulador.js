@@ -1,4 +1,4 @@
-// JS/script-simulador.js - COMPLETO Y CORREGIDO
+// JS/script-simulador.js - VERSIÓN MAESTRA (LOCAL + CUSTOM + PRELOAD)
 
 // CONEXIÓN SUPABASE
 const simuladorUrl = 'https://fgpqioviycmgwypidhcs.supabase.co';
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let carpetaEspecialID = null;
     let isMultiPhaseMode = false;
 
-    // Catálogo de materias (solo para títulos estáticos)
+    // Catálogo de materias
     const materias = {
         'sociales': 'Ciencias Sociales', 'matematicas': 'Matemáticas y Física', 'lengua': 'Lengua y Literatura', 'ingles': 'Inglés', 'general': 'General (Todas)',
         'inteligencia': 'Inteligencia', 'personalidad': 'Personalidad', 'ppnn1': 'Cuestionario 1 PPNN', 'ppnn2': 'Cuestionario 2 PPNN', 'ppnn3': 'Cuestionario 3 PPNN', 'ppnn4': 'Cuestionario 4 PPNN',
@@ -59,53 +59,38 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('error-modal').style.display = 'flex';
     }
 
-    // --- FUNCIÓN INIT PRINCIPAL (AQUÍ ESTÁ LA MAGIA) ---
+    // --- FUNCIÓN INIT PRINCIPAL ---
     async function init() {
         const params = new URLSearchParams(window.location.search);
         const materiaKey = params.get('materia') || 'sociales';
-        const customId = params.get('id'); // ID si es personalizado
+        const customId = params.get('id'); 
 
         // ==========================================================
-        // CASO 1: SIMULADOR PERSONALIZADO (DESDE SUPABASE)
+        // PARTE 1: SIMULADOR PERSONALIZADO (DESDE SUPABASE)
         // ==========================================================
         if (materiaKey === 'custom' && customId) {
             console.log("Modo Custom detectado. Cargando ID:", customId);
-            
-            // UI Temporal
             if(txtTituloMateria) txtTituloMateria.textContent = "CARGANDO...";
-            btnStart.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Cargando...';
-            btnStart.disabled = true;
-
+            
             try {
-                // Consultar a Supabase
-                const { data, error } = await simuladorDB
-                    .from('custom_simulators')
-                    .select('*')
-                    .eq('id', customId)
-                    .single();
-
+                const { data, error } = await simuladorDB.from('custom_simulators').select('*').eq('id', customId).single();
                 if (error || !data) throw new Error("Simulador no encontrado en la nube.");
 
-                // Asignar datos recibidos
                 questions = data.questions; 
                 timeLeft = data.config ? data.config.tiempo : 3600;
                 totalPreguntas = questions.length;
 
                 if (!questions || questions.length === 0) throw new Error("El simulador está vacío.");
 
-                // Actualizar Interfaz
                 const tituloSim = data.title ? data.title.toUpperCase() : "SIMULADOR PERSONALIZADO";
                 if(txtTituloMateria) txtTituloMateria.textContent = tituloSim;
                 if(txtMateria) txtMateria.textContent = "Creado por Admin";
                 if(txtPreguntas) txtPreguntas.textContent = totalPreguntas;
                 if(txtTiempo) txtTiempo.textContent = Math.floor(timeLeft/60) + " Minutos";
 
-                // Habilitar el botón
-                btnStart.disabled = false;
-                btnStart.innerHTML = 'COMENZAR INTENTO <i class="fas fa-play"></i>';
-                btnStart.onclick = startQuiz;
-                
-                return; // ¡EXITO! DETENEMOS AQUÍ PARA NO EJECUTAR LA LÓGICA DE ARCHIVOS LOCALES
+                // Iniciar Precarga (Turbo)
+                iniciarPrecarga(questions);
+                return; 
             } catch (e) {
                 showError(e.message);
                 return;
@@ -113,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // ==========================================================
-        // CASO 2: SIMULADORES ESTÁNDAR (ARCHIVOS JSON LOCALES)
+        // PARTE 2: SIMULADOR LOCAL (TU LÓGICA ORIGINAL)
         // ==========================================================
         
         const title = materias[materiaKey] || 'Simulador';
@@ -122,14 +107,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let fetchUrl = '';
         
-        // Configuración de rutas locales
+        // Configuración original de rutas
         if (materiaKey === 'int_esmil_3') {
             isMultiPhaseMode = true; 
             fetchUrl = 'DATA/3/3.json'; 
             timeLeft = 3600;
         } 
         else if (materiaKey === 'int_esmil_7') { 
-            fetchUrl = 'DATA/7/7.json'; // Tu Sim 7 de Tulcán
+            fetchUrl = 'DATA/7/7.json'; 
             timeLeft = 5400; 
         }
         else if (materiaKey.startsWith('int_esmil_')) {
@@ -148,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if(txtTiempo) txtTiempo.textContent = Math.floor(timeLeft/60) + " Minutos";
 
         try {
-            // Carga de Archivos Locales
+            // Carga de Archivos
             let filesToLoad = [];
             if (isMultiPhaseMode || materiaKey.startsWith('int_esmil_')) filesToLoad = [fetchUrl];
             else if (materiaKey === 'general') filesToLoad = ordenGeneralPolicia.map(m => `DATA/preguntas_${m}.json`);
@@ -168,27 +153,26 @@ document.addEventListener('DOMContentLoaded', () => {
                     return b;
                 });
                 totalPreguntas = phase1Data.length + 20; 
-            } 
-            else {
+                
+                // Precarga especial para modo mixto
+                let imagenesFase2 = phase2Blocks.map(b => ({ imagen: b.imagen_bloque }));
+                iniciarPrecarga(imagenesFase2); // Precargamos las imágenes de bloques
+                
+            } else {
                 let allQ = [];
                 results.forEach(d => { if(d) allQ = allQ.concat(d); });
                 if(allQ.length === 0) throw new Error("Archivo vacío o no encontrado en DATA/.");
                 questions = allQ;
 
-                // Ajuste de Rutas de Imágenes (Carpetas locales)
                 if (materiaKey.startsWith('int_esmil_')) {
                     questions = questions.map(q => {
                         let carpeta = carpetaEspecialID;
-                        if(materiaKey === 'int_esmil_7') carpeta = '7'; // Forzar carpeta 7
-                        
-                        // Si la imagen no tiene ruta completa, se la ponemos
+                        if(materiaKey === 'int_esmil_7') carpeta = '7'; 
                         if (q.imagen && !q.imagen.includes('DATA')) {
                              q.imagen = `DATA/${carpeta}/IMAGES/${q.imagen.split('/').pop()}`;
                         }
                         return q;
                     });
-                    
-                    // Sim 7 no se mezcla, los demás sí
                     if (materiaKey !== 'int_esmil_7') {
                         questions = questions.sort(() => 0.5 - Math.random());
                     }
@@ -197,32 +181,61 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (!materiaKey.includes('general') && !materiaKey.startsWith('ppnn')) questions = questions.slice(0, 50);
                 }
                 totalPreguntas = questions.length;
+                
+                // Precarga estándar (Turbo)
+                iniciarPrecarga(questions);
             }
 
             if(txtPreguntas) txtPreguntas.textContent = totalPreguntas;
 
-            // Preload de Imágenes Locales
-            if (!isMultiPhaseMode && questions.some(q => q.imagen)) {
-                btnStart.innerHTML = "CARGANDO RECURSOS...";
-                await Promise.race([preloadImages(questions), new Promise(r => setTimeout(r, 2000))]);
-            }
-            
-            btnStart.disabled = false;
-            btnStart.innerHTML = 'COMENZAR INTENTO <i class="fas fa-play"></i>';
-            btnStart.onclick = isMultiPhaseMode ? startPhase1 : startQuiz;
-
         } catch (e) { showError(e.message); }
     }
 
-    async function preloadImages(list) {
-        const imgs = list.filter(q => q.imagen);
-        await Promise.all(imgs.map(q => new Promise(resolve => {
-            const i = new Image(); i.src = q.imagen; i.onload = resolve; i.onerror = resolve;
-        })));
+    // --- NUEVA FUNCIÓN TURBO PRECARGA (CON BARRA) ---
+    async function iniciarPrecarga(listaPreguntas) {
+        // Filtrar solo las que tienen imagen
+        const imagenes = listaPreguntas.filter(q => q.imagen && q.imagen.trim() !== '');
+        
+        if (imagenes.length === 0) {
+            habilitarBoton();
+            return;
+        }
+
+        let cargadas = 0;
+        const total = imagenes.length;
+        btnStart.disabled = true;
+        
+        const actualizarProgreso = () => {
+            const porcentaje = Math.round((cargadas / total) * 100);
+            btnStart.innerHTML = `<i class="fas fa-spinner fa-spin"></i> CARGANDO RECURSOS (${cargadas}/${total})... ${porcentaje}%`;
+            btnStart.style.background = '#e67e22'; // Naranja mientras carga
+            if (cargadas === total) habilitarBoton();
+        };
+
+        actualizarProgreso();
+
+        // Carga paralela
+        imagenes.forEach(q => {
+            const img = new Image();
+            img.src = q.imagen;
+            img.onload = () => { cargadas++; actualizarProgreso(); };
+            img.onerror = () => { 
+                console.warn("Fallo carga imagen:", q.imagen); 
+                cargadas++; // Contamos igual para no trabar
+                actualizarProgreso(); 
+            };
+        });
+    }
+
+    function habilitarBoton() {
+        btnStart.disabled = false;
+        btnStart.innerHTML = 'COMENZAR INTENTO <i class="fas fa-play"></i>';
+        btnStart.style.background = ''; // Volver al color CSS original o poner #27ae60
+        btnStart.onclick = isMultiPhaseMode ? startPhase1 : startQuiz;
     }
 
     // ==========================================
-    //  RESTO DE FUNCIONES (IGUAL QUE SIEMPRE)
+    //  FASE 1 Y 2 (SIMULADOR 3) - INTACTO
     // ==========================================
     function startPhase1() {
         lobbyBanner.style.display = 'none'; lobbyContainer.style.display = 'none';
@@ -336,6 +349,9 @@ document.addEventListener('DOMContentLoaded', () => {
         saveResult(score, totalQ, 'Inteligencia ESMIL 3 (Mixto)');
     };
 
+    // ==========================================
+    //  MODO NORMAL (Diapositivas) - INTACTO
+    // ==========================================
     function startQuiz() {
         lobbyBanner.style.display = 'none'; lobbyContainer.style.display = 'none';
         simulador.className = 'quiz-layout'; simulador.style.display = window.innerWidth > 900 ? 'grid' : 'flex';
@@ -348,7 +364,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const q = questions[idx];
         document.getElementById('pregunta-numero').textContent = `Pregunta ${idx+1}`;
         document.getElementById('pregunta-texto').innerHTML = q.pregunta ? q.pregunta.replace(/\n/g, '<br>') : '';
-        document.getElementById('q-image-container').innerHTML = q.imagen ? `<img src="${q.imagen}" style="max-width:100%; border-radius:8px;">` : '';
+        
+        // RENDERIZADO DE IMAGEN MEJORADO (Estilo CSS inline para asegurar que se vea bien)
+        const imgContainer = document.getElementById('q-image-container');
+        if (q.imagen) {
+            imgContainer.innerHTML = `<img src="${q.imagen}" style="max-width:100%; max-height:450px; display:block; margin:10px auto; border-radius:8px; box-shadow:0 4px 10px rgba(0,0,0,0.1);">`;
+        } else {
+            imgContainer.innerHTML = '';
+        }
+
         const opts = document.getElementById('opciones-container'); opts.innerHTML = '';
         if(q.opciones) q.opciones.forEach(op => {
             const btn = document.createElement('button'); btn.className = 'opcion-btn';
@@ -362,10 +386,17 @@ document.addEventListener('DOMContentLoaded', () => {
             };
             opts.appendChild(btn);
         });
+        
         const nextBtn = document.getElementById('siguiente-btn');
-        nextBtn.textContent = idx === questions.length - 1 ? "Finalizar" : "Siguiente";
-        nextBtn.style.backgroundColor = idx === questions.length - 1 ? "#27ae60" : "#b22222";
-        nextBtn.onclick = () => idx < questions.length - 1 ? showQ(idx + 1) : finish();
+        if (idx === questions.length - 1) {
+            nextBtn.textContent = "Finalizar";
+            nextBtn.style.backgroundColor = "#27ae60";
+            nextBtn.onclick = finish;
+        } else {
+            nextBtn.textContent = "Siguiente";
+            nextBtn.style.backgroundColor = "#b22222";
+            nextBtn.onclick = () => showQ(idx + 1);
+        }
         
         const dots = document.getElementById('navegador-preguntas').children;
         for(let i=0; i<dots.length; i++) { dots[i].classList.remove('active'); if(i===idx) dots[i].classList.add('active'); }
@@ -373,14 +404,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function renderNav() {
         const nav = document.getElementById('navegador-preguntas'); nav.innerHTML = '';
-        questions.forEach((_, i) => { const b = document.createElement('button'); b.className = 'nav-dot'; b.textContent = i+1; nav.appendChild(b); });
+        questions.forEach((_, i) => { 
+            const b = document.createElement('button'); 
+            b.className = 'nav-dot'; 
+            b.textContent = i+1; 
+            b.onclick = () => showQ(i); // Permite navegar clickeando la bolita
+            nav.appendChild(b); 
+        });
     }
 
     function startTimer(callback) {
         timerInterval = setInterval(() => {
             timeLeft--;
+            const m = Math.floor(timeLeft / 60).toString().padStart(2,'0');
+            const s = (timeLeft % 60).toString().padStart(2,'0');
             const timerEl = document.getElementById('cronometro') || document.getElementById('cronometro-tabla') || document.getElementById('cronometro-tabla-2');
-            if(timerEl) timerEl.textContent = `${Math.floor(timeLeft/60).toString().padStart(2,'0')}:${(timeLeft%60).toString().padStart(2,'0')}`;
+            if(timerEl) timerEl.textContent = `${m}:${s}`;
             if(timeLeft<=0) callback();
         }, 1000);
     }
@@ -393,17 +432,21 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('puntaje-final').textContent = score;
         document.getElementById('stats-correctas').textContent = ok;
         document.getElementById('stats-incorrectas').textContent = questions.length - ok;
+        
+        // REVISIÓN MEJORADA (Muestra imagen si existe)
         const rev = document.getElementById('revision-container'); rev.innerHTML = '';
         questions.forEach((q, i) => {
             const correct = userAnswers[i] === q.respuesta;
             rev.innerHTML += `<div style="border-bottom:1px solid #eee; padding:15px;">
                 <p><strong>${i+1}. ${q.pregunta ? q.pregunta.replace(/\n/g, '<br>') : ''}</strong></p>
-                ${q.imagen ? `<img src="${q.imagen}" style="max-width:150px;">` : ''}
+                ${q.imagen ? `<img src="${q.imagen}" style="max-width:150px; display:block; margin:10px 0;">` : ''}
                 <p>Tu respuesta: <span style="color:${correct?'green':'red'}">${userAnswers[i]||'---'}</span></p>
                 ${!correct ? `<p style="color:green">Correcta: <strong>${q.respuesta}</strong></p>` : ''}
             </div>`;
         });
-        saveResult(score, questions.length, materias[new URLSearchParams(window.location.search).get('materia')]);
+        
+        const matTitle = txtTituloMateria ? txtTituloMateria.textContent : materias[new URLSearchParams(window.location.search).get('materia')];
+        saveResult(score, questions.length, matTitle);
     }
 
     async function saveResult(score, total, title) {
