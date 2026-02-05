@@ -1,4 +1,4 @@
-// JS/script-home.js - VERSIÓN CORREGIDA (DISEÑO PROFESIONAL)
+// JS/script-home.js - VERSIÓN RESPONSIVE (MÓVIL Y ESCRITORIO)
 
 const DEFAULT_MENU = {
     'root': {
@@ -22,7 +22,6 @@ const DEFAULT_MENU = {
     'inteligencia_menu': { title: 'Inteligencia', desc: 'Versiones.', items: [{ label: 'INTELIGENCIA V1', type: 'test', link: 'simulador.html?materia=inteligencia', icon: 'fas fa-brain' }, { label: 'INTELIGENCIA V2', type: 'test', link: '#', icon: 'fas fa-brain', disabled: true }] }
 };
 
-// --- VARIABLES GLOBALES ---
 let MENU_DATA = JSON.parse(JSON.stringify(DEFAULT_MENU));
 let navigationHistory = [];
 let currentMenuId = 'root';
@@ -37,17 +36,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     await cargarMenuDesdeNube();
     renderMenu('root');
     document.getElementById('btn-atras').addEventListener('click', goBack);
-    
-    const user = getUserInfo(); 
-    if (user && user.rol === 'admin') {
-        const btnDesk = document.getElementById('btn-admin-desktop');
-        const btnMob = document.getElementById('btn-admin-mobile');
-        const adminTools = document.getElementById('admin-tools');
-        
-        if(btnDesk) btnDesk.style.display = 'flex';
-        if(btnMob) btnMob.style.display = 'block';
-        if(adminTools) adminTools.style.display = 'flex';
-    }
 });
 
 async function cargarMenuDesdeNube() {
@@ -61,15 +49,29 @@ async function cargarMenuDesdeNube() {
 }
 
 async function guardarCambiosEnNube() {
-    const btn = document.getElementById('btn-save-changes');
-    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> ...';
+    // Referencias a botones de Escritorio y Móvil
+    const btnD = document.getElementById('btn-save-changes-desk');
+    const btnM = document.getElementById('btn-save-changes-mob');
+    
+    // Estado cargando
+    const loadingHTML = '<i class="fas fa-spinner fa-spin"></i> ...';
+    if(btnD) btnD.innerHTML = loadingHTML;
+    if(btnM) btnM.innerHTML = loadingHTML;
+
     try {
         const { error } = await db.from('menu_structure').insert([{ json_data: MENU_DATA }]);
         if (error) throw error;
-        alert("¡Menú guardado exitosamente!");
-        toggleEditMode();
+        
+        if (typeof showSparta === "function") showSparta("¡GUARDADO!", "Cambios actualizados.", "success");
+        else alert("¡Menú guardado exitosamente!");
+        
+        toggleEditMode(); // Salir de modo edición
     } catch (e) { alert("Error al guardar: " + e.message); }
-    btn.innerHTML = '<i class="fas fa-save"></i> GUARDAR';
+    
+    // Restaurar botones
+    const saveHTML = '<i class="fas fa-save"></i> GUARDAR';
+    if(btnD) btnD.innerHTML = saveHTML;
+    if(btnM) btnM.innerHTML = saveHTML;
 }
 
 function renderMenu(menuId) {
@@ -111,7 +113,6 @@ function renderMenu(menuId) {
             html += `<h3>${item.label}${item.disabled?' (Próx.)':''}</h3>${item.desc ? `<p>${item.desc}</p>` : ''}`;
         }
 
-        // --- AQUI ESTA EL CAMBIO DE DISEÑO ---
         if (isEditMode) {
             html += `
             <div class="admin-controls-overlay">
@@ -120,7 +121,6 @@ function renderMenu(menuId) {
                 <button onclick="abrirEditor('${menuId}', ${index})" class="mini-btn btn-edit" title="Editar"><i class="fas fa-pen"></i></button>
                 <button onclick="borrarItem('${menuId}', ${index})" class="mini-btn btn-del" title="Eliminar"><i class="fas fa-trash"></i></button>
             </div>`;
-            
             card.style.border = "2px dashed #f39c12";
             card.style.transform = "scale(0.98)";
         } else {
@@ -137,13 +137,32 @@ function renderMenu(menuId) {
     });
 }
 
-// --- EDICIÓN ---
+// --- EDICIÓN UNIFICADA (MÓVIL Y DESKTOP) ---
 function toggleEditMode() {
     isEditMode = !isEditMode;
-    const btnSave = document.getElementById('btn-save-changes');
-    const btnEdit = document.getElementById('btn-edit-mode');
-    if (btnSave) btnSave.style.display = isEditMode ? 'flex' : 'none';
-    if (btnEdit) btnEdit.innerHTML = isEditMode ? '<i class="fas fa-times"></i> SALIR' : '<i class="fas fa-edit"></i> EDITAR';
+    
+    // Referencias Desktop
+    const btnSaveD = document.getElementById('btn-save-changes-desk');
+    const btnEditD = document.getElementById('btn-edit-mode-desk');
+    
+    // Referencias Mobile
+    const btnSaveM = document.getElementById('btn-save-changes-mob');
+    const btnEditM = document.getElementById('btn-edit-mode-mob');
+
+    // Actualizar UI Desktop
+    if (btnSaveD) btnSaveD.style.display = isEditMode ? 'flex' : 'none';
+    if (btnEditD) btnEditD.innerHTML = isEditMode ? '<i class="fas fa-times"></i> SALIR' : '<i class="fas fa-edit"></i> EDITAR';
+
+    // Actualizar UI Mobile
+    if (btnSaveM) btnSaveM.style.display = isEditMode ? 'flex' : 'none';
+    if (btnEditM) btnEditM.innerHTML = isEditMode ? '<i class="fas fa-times"></i> SALIR' : '<i class="fas fa-edit"></i> ACTIVAR EDICIÓN';
+
+    // CERRAR MENU MÓVIL AL ACTIVAR EDICIÓN (UX MEJORADO)
+    if(isEditMode) {
+        document.getElementById('side-nav').classList.remove('open');
+        document.getElementById('overlay').style.display = "none";
+    }
+
     renderMenu(currentMenuId);
 }
 
@@ -163,12 +182,10 @@ function borrarItem(menuId, index) {
     }
 }
 
-// --- EDITOR INTELIGENTE ---
 function abrirEditor(menuId, index) {
     itemToEdit = { menuId, index };
     const item = MENU_DATA[menuId].items[index];
 
-    // SI ES UN SIMULADOR PERSONALIZADO
     if (item.type === 'test' && item.link && item.link.includes('materia=custom')) {
         try {
             const urlParts = item.link.split('?')[1];
@@ -176,18 +193,12 @@ function abrirEditor(menuId, index) {
             const simId = urlParams.get('id');
             
             if (simId) {
-                // REDIRIGIR AL CREADOR CON EL MODO 'EDIT' ACTIVADO
                 location.href = `creador.html?id=${simId}&mode=edit&parent=${menuId}`;
             } else {
                 alert("Error: ID de simulador corrupto.");
             }
-        } catch(e) {
-            console.error(e);
-            alert("Error procesando el simulador.");
-        }
-    } 
-    // SI ES CARPETA O SIMULADOR ESTÁNDAR
-    else {
+        } catch(e) { console.error(e); }
+    } else {
         document.getElementById('edit-nombre').value = item.label;
         document.getElementById('edit-desc').value = item.desc || '';
         document.getElementById('editor-modal').style.display = 'flex';
