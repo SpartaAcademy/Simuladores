@@ -1,6 +1,6 @@
-// JS/script-home.js - VERSIÓN DINÁMICA SUPABASE
+// JS/script-home.js - VERSIÓN MAESTRA (CON EDITOR INTELIGENTE)
 
-// Estructura original como respaldo
+// --- 1. DATOS POR DEFECTO (RESPALDO) ---
 const DEFAULT_MENU = {
     'root': {
         title: 'Seleccione una Institución',
@@ -23,56 +23,84 @@ const DEFAULT_MENU = {
     'inteligencia_menu': { title: 'Inteligencia', desc: 'Versiones.', items: [{ label: 'INTELIGENCIA V1', type: 'test', link: 'simulador.html?materia=inteligencia', icon: 'fas fa-brain' }, { label: 'INTELIGENCIA V2', type: 'test', link: '#', icon: 'fas fa-brain', disabled: true }] }
 };
 
-// Variables Globales
+// --- 2. VARIABLES GLOBALES ---
 let MENU_DATA = JSON.parse(JSON.stringify(DEFAULT_MENU));
 let navigationHistory = [];
 let currentMenuId = 'root';
 let isEditMode = false;
-let itemToEdit = null;
+let itemToEdit = null; // {menuId, index}
 
-// Conexión Supabase (Misma del auth.js)
+// --- 3. CONEXIÓN SUPABASE ---
 const sbUrl = 'https://fgpqioviycmgwypidhcs.supabase.co';
 const sbKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZncHFpb3ZpeWNtZ3d5cGlkaGNzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU0OTkwMDgsImV4cCI6MjA4MTA3NTAwOH0.5ckdzDtwFRG8JpuW5S-Qi885oOSVESAvbLoNiqePJYo';
 const db = window.supabase.createClient(sbUrl, sbKey);
 
+// --- 4. INICIALIZACIÓN ---
 document.addEventListener('DOMContentLoaded', async () => {
+    // Cargar menú de la nube primero
     await cargarMenuDesdeNube();
     renderMenu('root');
     document.getElementById('btn-atras').addEventListener('click', goBack);
+    
+    // Verificar si hay usuario admin
+    const user = getUserInfo(); 
+    if (user && user.rol === 'admin') {
+        const btnDesk = document.getElementById('btn-admin-desktop');
+        const btnMob = document.getElementById('btn-admin-mobile');
+        const adminTools = document.getElementById('admin-tools');
+        
+        if(btnDesk) btnDesk.style.display = 'flex';
+        if(btnMob) btnMob.style.display = 'block';
+        if(adminTools) adminTools.style.display = 'flex';
+    }
 });
 
-// --- LÓGICA SUPABASE ---
+// --- 5. LÓGICA DE BASE DE DATOS ---
 async function cargarMenuDesdeNube() {
     try {
-        const { data, error } = await db.from('menu_structure').select('json_data').order('id', { ascending: false }).limit(1);
+        const { data, error } = await db.from('menu_structure')
+            .select('json_data')
+            .order('id', { ascending: false })
+            .limit(1);
+            
         if (data && data.length > 0) {
             MENU_DATA = data[0].json_data;
             console.log("Menú cargado desde Supabase ✅");
         }
-    } catch (e) { console.error("Usando menú local."); }
+    } catch (e) { console.error("Usando menú local por defecto.", e); }
 }
 
 async function guardarCambiosEnNube() {
     const btn = document.getElementById('btn-save-changes');
-    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> ...';
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Guardando...';
     try {
         const { error } = await db.from('menu_structure').insert([{ json_data: MENU_DATA }]);
         if (error) throw error;
-        alert("¡Menú guardado exitosamente!");
+        
+        // Usar alerta bonita si existe, si no alert normal
+        if (typeof showSparta === "function") {
+            showSparta("¡GUARDADO!", "Cambios actualizados en la nube.", "success");
+        } else {
+            alert("¡Menú guardado exitosamente!");
+        }
+        
         toggleEditMode();
-    } catch (e) { alert("Error al guardar: " + e.message); }
+    } catch (e) {
+        alert("Error al guardar: " + e.message);
+    }
     btn.innerHTML = '<i class="fas fa-save"></i> GUARDAR';
 }
 
-// --- RENDERIZADO ---
+// --- 6. RENDERIZADO DEL MENÚ ---
 function renderMenu(menuId) {
     currentMenuId = menuId;
     const data = MENU_DATA[menuId] || { title: 'Vacío', items: [] };
     
-    // Historial y UI
+    // Historial
     if (menuId === 'root') navigationHistory = ['root'];
     else if (navigationHistory[navigationHistory.length - 1] !== menuId) navigationHistory.push(menuId);
     
+    // UI
     document.getElementById('navigation-bar').style.display = navigationHistory.length > 1 ? 'flex' : 'none';
     document.getElementById('section-title').textContent = data.title;
     document.getElementById('section-desc').textContent = data.desc || '';
@@ -80,7 +108,7 @@ function renderMenu(menuId) {
     const container = document.getElementById('dynamic-grid');
     container.innerHTML = '';
 
-    // Botón AÑADIR (Solo en Edit Mode)
+    // Botón AÑADIR (Solo en Modo Edición)
     if (isEditMode) {
         const addBtn = document.createElement('div');
         addBtn.className = 'materia-card';
@@ -100,16 +128,20 @@ function renderMenu(menuId) {
         card.style.position = 'relative';
 
         let html = `<i class="${item.icon || (item.type==='folder'?'fas fa-folder':'fas fa-file-alt')}"></i>`;
-        if (item.variant === 'wide') html += `<div class="text-content"><h3>${item.label}</h3><p>${item.desc || ''}</p></div>`;
-        else html += `<h3>${item.label}${item.disabled?' (Próx.)':''}</h3>${item.desc ? `<p>${item.desc}</p>` : ''}`;
+        if (item.variant === 'wide') {
+            html += `<div class="text-content"><h3>${item.label}</h3><p>${item.desc || ''}</p></div>`;
+        } else {
+            html += `<h3>${item.label}${item.disabled?' (Próx.)':''}</h3>${item.desc ? `<p>${item.desc}</p>` : ''}`;
+        }
 
-        // Controles de Edición
+        // CONTROLES DE EDICIÓN
         if (isEditMode) {
-            html += `<div style="position:absolute; top:5px; right:5px; display:flex; gap:5px; z-index:10;">
-                <button onclick="moverItem('${menuId}', ${index}, -1)" style="background:#3498db; color:white; border:none; padding:5px; cursor:pointer;">⬅️</button>
-                <button onclick="moverItem('${menuId}', ${index}, 1)" style="background:#3498db; color:white; border:none; padding:5px; cursor:pointer;">➡️</button>
-                <button onclick="abrirEditor('${menuId}', ${index})" style="background:#f39c12; color:white; border:none; padding:5px; cursor:pointer;">✏️</button>
-                <button onclick="borrarItem('${menuId}', ${index})" style="background:#c0392b; color:white; border:none; padding:5px; cursor:pointer;">🗑️</button>
+            html += `
+            <div style="position:absolute; top:5px; right:5px; display:flex; gap:5px; z-index:10;">
+                <button onclick="moverItem('${menuId}', ${index}, -1)" style="background:#3498db; color:white; border:none; padding:5px; cursor:pointer; border-radius:3px;">⬅️</button>
+                <button onclick="moverItem('${menuId}', ${index}, 1)" style="background:#3498db; color:white; border:none; padding:5px; cursor:pointer; border-radius:3px;">➡️</button>
+                <button onclick="abrirEditor('${menuId}', ${index})" style="background:#f39c12; color:white; border:none; padding:5px; cursor:pointer; border-radius:3px;"><i class="fas fa-pen"></i></button>
+                <button onclick="borrarItem('${menuId}', ${index})" style="background:#c0392b; color:white; border:none; padding:5px; cursor:pointer; border-radius:3px;"><i class="fas fa-trash"></i></button>
             </div>`;
             card.style.border = "2px dashed #f39c12";
             card.style.transform = "scale(0.98)";
@@ -127,11 +159,17 @@ function renderMenu(menuId) {
     });
 }
 
-// --- EDICIÓN ---
+// --- 7. FUNCIONES DE GESTIÓN Y EDICIÓN ---
+
 function toggleEditMode() {
     isEditMode = !isEditMode;
-    document.getElementById('btn-save-changes').style.display = isEditMode ? 'flex' : 'none';
-    document.getElementById('btn-edit-mode').innerHTML = isEditMode ? '<i class="fas fa-times"></i> SALIR' : '<i class="fas fa-edit"></i> EDITAR';
+    // Mostrar botones guardar y salir
+    const btnSave = document.getElementById('btn-save-changes');
+    const btnEdit = document.getElementById('btn-edit-mode');
+    
+    if (btnSave) btnSave.style.display = isEditMode ? 'flex' : 'none';
+    if (btnEdit) btnEdit.innerHTML = isEditMode ? '<i class="fas fa-times"></i> SALIR' : '<i class="fas fa-edit"></i> EDITAR';
+    
     renderMenu(currentMenuId);
 }
 
@@ -139,24 +177,43 @@ function moverItem(menuId, index, direction) {
     const items = MENU_DATA[menuId].items;
     const newIndex = index + direction;
     if (newIndex >= 0 && newIndex < items.length) {
-        [items[index], items[newIndex]] = [items[newIndex], items[index]];
+        [items[index], items[newIndex]] = [items[newIndex], items[index]]; // Swap
         renderMenu(menuId);
     }
 }
 
 function borrarItem(menuId, index) {
-    if(confirm("¿Eliminar este elemento?")) {
+    if(confirm("¿Seguro que quieres eliminar este elemento?")) {
         MENU_DATA[menuId].items.splice(index, 1);
         renderMenu(menuId);
     }
 }
 
+// *** AQUÍ ESTÁ LA LÓGICA NUEVA PARA EDITAR SIMULADORES ***
 function abrirEditor(menuId, index) {
     itemToEdit = { menuId, index };
     const item = MENU_DATA[menuId].items[index];
-    document.getElementById('edit-nombre').value = item.label;
-    document.getElementById('edit-desc').value = item.desc || '';
-    document.getElementById('editor-modal').style.display = 'flex';
+
+    // CASO 1: SI ES UN SIMULADOR CREADO (CUSTOM)
+    // Redirigir al creador.html en modo edición
+    if (item.type === 'test' && item.link && item.link.includes('materia=custom')) {
+        const urlParams = new URLSearchParams(item.link.split('?')[1]);
+        const simId = urlParams.get('id');
+        
+        if (simId) {
+            // Redireccionar enviando el ID y el ID del padre (para actualizar nombre en menú)
+            location.href = `creador.html?id=${simId}&mode=edit&parent=${menuId}`;
+        } else {
+            alert("Error: ID de simulador no encontrado.");
+        }
+    } 
+    // CASO 2: SI ES CARPETA O SIMULADOR DEL SISTEMA
+    // Abrir modal solo para renombrar
+    else {
+        document.getElementById('edit-nombre').value = item.label;
+        document.getElementById('edit-desc').value = item.desc || '';
+        document.getElementById('editor-modal').style.display = 'flex';
+    }
 }
 
 function aplicarCambiosItem() {
@@ -170,7 +227,7 @@ function aplicarCambiosItem() {
     }
 }
 
-// --- CREACIÓN ---
+// --- 8. CREACIÓN DE NUEVOS ELEMENTOS ---
 function crearElemento() {
     const tipo = document.getElementById('new-type').value;
     const nombre = document.getElementById('new-name').value;
@@ -178,13 +235,22 @@ function crearElemento() {
 
     if (tipo === 'folder') {
         const nuevoId = 'folder_' + Date.now();
-        MENU_DATA[currentMenuId].items.push({ id: nuevoId, label: nombre, type: 'folder', icon: 'fas fa-folder', desc: 'Carpeta nueva' });
+        // Crear item carpeta
+        MENU_DATA[currentMenuId].items.push({ 
+            id: nuevoId, 
+            label: nombre, 
+            type: 'folder', 
+            icon: 'fas fa-folder', 
+            desc: 'Carpeta nueva' 
+        });
+        // Crear entrada vacía en la estructura
         MENU_DATA[nuevoId] = { title: nombre, desc: 'Contenido...', items: [] };
+        
         document.getElementById('nuevo-modal').style.display = 'none';
         renderMenu(currentMenuId);
     } 
     else if (tipo === 'test') {
-        // Redirige al creador de preguntas
+        // Redirigir al creador para configurar preguntas
         const nuevoSimId = 'custom_' + Date.now();
         location.href = `creador.html?id=${nuevoSimId}&nombre=${encodeURIComponent(nombre)}&parent=${currentMenuId}`;
     }
