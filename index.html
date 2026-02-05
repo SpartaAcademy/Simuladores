@@ -15,41 +15,41 @@
     <script> checkAuth(); </script>
 
     <style>
-        /* Contenedor flotante de los botones */
+        /* Contenedor flotante de los botones (Tarjetas) */
         .admin-controls-overlay {
             position: absolute !important;
-            top: 8px !important;
-            right: 8px !important;
+            top: 5px !important;
+            right: 5px !important;
             display: flex !important;
-            gap: 5px !important;
+            gap: 4px !important;
             background: rgba(255, 255, 255, 0.95) !important;
-            padding: 5px !important;
-            border-radius: 8px !important;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15) !important;
+            padding: 4px !important;
+            border-radius: 6px !important;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15) !important;
             z-index: 100 !important;
             border: 1px solid #ddd !important;
-            backdrop-filter: blur(4px);
+            backdrop-filter: blur(2px);
         }
 
         /* Botones Pequeños Blindados */
         .mini-btn {
-            width: 34px !important;
-            height: 34px !important;
-            min-width: 0 !important; /* Evita que se estiren */
+            width: 32px !important;
+            height: 32px !important;
+            min-width: 0 !important; 
             padding: 0 !important;
             margin: 0 !important;
             display: flex !important;
             justify-content: center !important;
             align-items: center !important;
             border: none !important;
-            border-radius: 6px !important;
+            border-radius: 4px !important;
             cursor: pointer !important;
             transition: all 0.2s ease !important;
             color: white !important;
             box-shadow: 0 2px 4px rgba(0,0,0,0.2) !important;
         }
 
-        .mini-btn:hover { transform: translateY(-2px) !important; filter: brightness(1.1); }
+        .mini-btn:hover { transform: scale(1.1) !important; filter: brightness(1.1); }
         .mini-btn i { font-size: 14px !important; margin: 0 !important; pointer-events: none; }
 
         /* Colores Tácticos */
@@ -69,11 +69,11 @@
         </a>
         
         <div class="desktop-menu">
-            <div id="admin-tools" style="display:none; gap:10px;">
-                <button id="btn-edit-mode" class="user-btn" onclick="toggleEditMode()" style="background:#e67e22; border-color:#d35400;">
+            <div id="admin-tools-desktop" style="display:none; gap:10px;">
+                <button id="btn-edit-mode-desk" class="user-btn" onclick="toggleEditMode()" style="background:#e67e22; border-color:#d35400;">
                     <i class="fas fa-edit"></i> EDITAR
                 </button>
-                <button id="btn-save-changes" class="user-btn" onclick="guardarCambiosEnNube()" style="display:none; background:#27ae60; border-color:#2ecc71;">
+                <button id="btn-save-changes-desk" class="user-btn" onclick="guardarCambiosEnNube()" style="display:none; background:#27ae60; border-color:#2ecc71;">
                     <i class="fas fa-save"></i> GUARDAR
                 </button>
             </div>
@@ -97,6 +97,17 @@
             <img src="logo.png" width="80" style="margin-bottom:10px;">
             <h3 style="color:white; font-family:'Teko'; margin:0;">MENÚ</h3>
         </div>
+
+        <div id="admin-tools-mobile" style="display:none; flex-direction:column; gap:10px; padding: 0 20px; margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 20px;">
+            <h4 style="color:#aaa; margin:0 0 10px 0; font-family:'Work Sans'; font-size:0.8rem;">EDICIÓN</h4>
+            <button id="btn-edit-mode-mob" class="user-btn" onclick="toggleEditMode()" style="background:#e67e22; border-color:#d35400; width:100%; justify-content: center;">
+                <i class="fas fa-edit"></i> ACTIVAR EDICIÓN
+            </button>
+            <button id="btn-save-changes-mob" class="user-btn" onclick="guardarCambiosEnNube()" style="display:none; background:#27ae60; border-color:#2ecc71; width:100%; justify-content: center;">
+                <i class="fas fa-save"></i> GUARDAR CAMBIOS
+            </button>
+        </div>
+
         <a href="resultados.html" id="btn-admin-mobile" style="display: none;"><i class="fas fa-chart-pie"></i> Panel Admin</a>
         <a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
     </div>
@@ -122,7 +133,7 @@
 
     <div id="editor-modal" class="modal-overlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:2000; align-items:center; justify-content:center;">
         <div class="modal-box" style="background:white; padding:30px; border-radius:10px; max-width:400px; width:90%; text-align:left; border-top: 5px solid #d32f2f;">
-            <h3 style="font-family:'Teko'; font-size:2rem; margin-top:0;">RENOMBRAR CARPETA</h3>
+            <h3 style="font-family:'Teko'; font-size:2rem; margin-top:0;">RENOMBRAR</h3>
             <label style="font-weight:bold;">Nombre:</label>
             <input type="text" id="edit-nombre" style="width:100%; padding:10px; margin-bottom:15px; border:1px solid #ccc;">
             <label style="font-weight:bold;">Descripción:</label>
@@ -170,15 +181,16 @@
             if(close) close.onclick = closeMenu;
             if(overlay) overlay.onclick = closeMenu;
 
+            // Lógica de visibilidad de Admin (Móvil y Desktop)
             const user = getUserInfo(); 
             if (user && user.rol === 'admin') {
-                const btnDesk = document.getElementById('btn-admin-desktop');
-                const btnMob = document.getElementById('btn-admin-mobile');
-                const adminTools = document.getElementById('admin-tools');
+                // Desktop
+                document.getElementById('btn-admin-desktop').style.display = 'flex';
+                document.getElementById('admin-tools-desktop').style.display = 'flex';
                 
-                if(btnDesk) btnDesk.style.display = 'flex';
-                if(btnMob) btnMob.style.display = 'block';
-                if(adminTools) adminTools.style.display = 'flex';
+                // Móvil
+                document.getElementById('btn-admin-mobile').style.display = 'block';
+                document.getElementById('admin-tools-mobile').style.display = 'flex';
             }
         });
     </script>
