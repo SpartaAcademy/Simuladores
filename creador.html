@@ -9,9 +9,9 @@
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="JS/auth.js"></script>
     <style>
-        /* ESTILOS IGUALES AL ANTERIOR, NO CAMBIAN */
         :root { --sparta-red: #D32F2F; --sparta-dark: #1a1a1a; --sparta-gray: #f4f4f9; --accent-blue: #3498db; }
         body { font-family: 'Work Sans', sans-serif; background: var(--sparta-gray); margin: 0; padding-top: 80px; }
+
         header { background: linear-gradient(90deg, #111 0%, #333 100%); height: 70px; padding: 0 30px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 15px rgba(0,0,0,0.5); position: fixed; top: 0; width: 100%; z-index: 1000; box-sizing: border-box; border-bottom: 3px solid var(--sparta-red); }
         .header-left { display: flex; align-items: center; gap: 15px; cursor: pointer; }
         .header-left img { height: 50px; }
@@ -19,30 +19,37 @@
         .header-text h2 { font-family: 'Work Sans', sans-serif; margin: 0; color: #ccc; font-size: 0.7rem; letter-spacing: 2px; }
         .btn-header { background: transparent; border: 1px solid rgba(255,255,255,0.3); color: white; padding: 8px 15px; border-radius: 4px; cursor: pointer; transition: 0.3s; }
         .btn-header:hover { background: var(--sparta-red); border-color: var(--sparta-red); }
+
         .main-container { max-width: 900px; margin: 40px auto; padding: 0 20px; padding-bottom: 120px; }
         .page-title { font-family: 'Teko', sans-serif; font-size: 3rem; color: var(--sparta-dark); margin-bottom: 20px; border-left: 10px solid var(--sparta-red); padding-left: 15px; text-transform: uppercase; }
+
         .panel { background: white; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); padding: 25px; margin-bottom: 30px; border-top: 4px solid var(--sparta-dark); }
         .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
         .form-group { margin-bottom: 15px; }
         label { display: block; font-weight: 700; margin-bottom: 5px; color: #555; font-size: 0.9rem; }
         input, select, textarea { width: 100%; padding: 12px; border: 2px solid #eee; border-radius: 6px; font-family: 'Work Sans'; font-size: 1rem; transition: 0.3s; box-sizing: border-box; }
         input:focus, textarea:focus { border-color: var(--sparta-red); outline: none; }
+
         .q-card { background: white; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.08); margin-bottom: 20px; position: relative; border-left: 6px solid var(--accent-blue); animation: slideIn 0.3s ease-out; overflow: hidden; }
         @keyframes slideIn { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
         .q-header { background: #f8f9fa; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; }
         .q-body { padding: 20px; }
         .btn-del { background: #ffebee; color: #c62828; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-weight: bold; }
         .btn-del:hover { background: #c62828; color: white; }
-        textarea.q-input { width: 100%; border: 2px solid #eee; border-radius: 6px; padding: 10px; font-family: 'Work Sans'; resize: vertical; min-height: 60px; box-sizing: border-box; }
+
+        /* PREVISUALIZACIÓN */
+        .preview-img { max-width: 150px; max-height: 150px; margin-top: 10px; display: block; border-radius: 4px; border: 1px solid #ddd; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        
         .upload-zone { border: 2px dashed #ccc; padding: 15px; text-align: center; border-radius: 6px; margin-top: 5px; cursor: pointer; transition: 0.2s; background: #f9f9f9; }
         .upload-zone:hover { border-color: var(--accent-blue); background: #f0f8ff; }
         .upload-zone.has-file { border-color: #27ae60; background: #e8f8f5; }
-        .preview-img { max-width: 100px; max-height: 100px; margin-top: 10px; display: block; border-radius: 4px; border: 1px solid #ddd; }
+
         .actions-bar { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); padding: 15px 30px; border-radius: 50px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); display: flex; gap: 20px; justify-content: center; border: 1px solid #ddd; z-index: 2000; }
         .btn-action { padding: 12px 30px; border: none; border-radius: 50px; font-family: 'Teko', sans-serif; font-size: 1.4rem; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: transform 0.2s; color: white; }
         .btn-action:hover { transform: translateY(-3px); }
         .btn-add { background: var(--accent-blue); }
         .btn-save { background: var(--sparta-red); box-shadow: 0 4px 15px rgba(211, 47, 47, 0.4); }
+
         .sparta-alert-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(4px); z-index: 9999; display: none; justify-content: center; align-items: center; }
         .sparta-alert-box { background: white; width: 90%; max-width: 400px; padding: 30px; border-radius: 12px; text-align: center; box-shadow: 0 15px 40px rgba(0,0,0,0.4); border-top: 6px solid #D32F2F; font-family: 'Work Sans', sans-serif; }
         .sparta-alert-icon { font-size: 3rem; margin-bottom: 15px; display: block; }
@@ -126,74 +133,77 @@
     const params = new URLSearchParams(window.location.search);
     const parentId = params.get('parent') || 'root'; 
     let simId = params.get('id') || 'sim_' + Date.now(); 
-    // Detectamos si estamos editando
     const isEditMode = params.get('mode') === 'edit';
 
     document.getElementById('sim-id').value = simId;
 
-    // --- CARGA INICIAL INTELIGENTE ---
     window.onload = async () => { 
         if (isEditMode) {
             document.getElementById('main-title').textContent = "EDITAR SIMULADOR";
             await cargarSimuladorExistente();
         } else {
-            // Si es nuevo, añadimos una pregunta vacía
             addQuestionUI(); 
         }
     };
 
-    // --- FUNCIÓN PARA CARGAR DATOS SI EDITAMOS ---
+    // --- UTILERÍA: ARREGLAR ENLACES DE DRIVE ---
+    function fixDriveLink(url) {
+        if (!url) return "";
+        // Si es enlace de vista previa de Drive, convertir a descarga directa
+        if (url.includes("drive.google.com") && url.includes("/view")) {
+            // Extraer ID: /d/XXXX/view
+            const match = url.match(/\/d\/(.+?)\//);
+            if (match && match[1]) {
+                return `https://drive.google.com/uc?export=view&id=${match[1]}`;
+            }
+        }
+        return url;
+    }
+
     async function cargarSimuladorExistente() {
         const overlay = document.getElementById('sparta-alert');
-        const titleEl = document.getElementById('alert-title');
-        const icon = document.getElementById('alert-icon');
-        const msg = document.getElementById('alert-msg');
-        
-        // Loader improvisado
         overlay.style.display = 'flex';
-        titleEl.textContent = "CARGANDO...";
-        msg.textContent = "Obteniendo preguntas de la nube...";
-        icon.className = "fas fa-circle-notch fa-spin";
+        document.getElementById('alert-title').textContent = "CARGANDO DATOS";
+        document.getElementById('alert-msg').textContent = "Obteniendo preguntas...";
         document.querySelector('.sparta-btn-ok').style.display = 'none';
 
         try {
             const { data, error } = await db.from('custom_simulators').select('*').eq('id', simId).single();
-            
             if (error || !data) throw new Error("No se encontró el simulador.");
 
-            // 1. Llenar Configuración
             document.getElementById('sim-title').value = data.title;
             if(data.config) document.getElementById('sim-time').value = data.config.tiempo;
 
-            // 2. Llenar Preguntas
-            if (data.questions && data.questions.length > 0) {
-                data.questions.forEach(q => addQuestionUI(q));
+            let preguntas = data.questions;
+            if (typeof preguntas === 'string') {
+                try { preguntas = JSON.parse(preguntas); } catch(e) { preguntas = []; }
+            }
+
+            if (Array.isArray(preguntas) && preguntas.length > 0) {
+                preguntas.forEach(q => addQuestionUI(q));
             } else {
                 addQuestionUI();
             }
 
-            // Cerrar Loader
             overlay.style.display = 'none';
             document.querySelector('.sparta-btn-ok').style.display = 'block';
 
         } catch (e) {
-            console.error(e);
-            showAlert("ERROR", "No se pudieron cargar los datos.", "error");
+            showAlert("ERROR", "No se cargaron los datos.", "error");
             document.querySelector('.sparta-btn-ok').style.display = 'block';
         }
     }
 
-    // --- AÑADIR TARJETA (Ahora acepta datos pre-cargados) ---
+    // --- AÑADIR TARJETA ---
     function addQuestionUI(data = null) {
         const count = document.querySelectorAll('.q-card').length + 1;
         const div = document.createElement('div');
         div.className = 'q-card';
         
-        // Valores: Si hay 'data' usamos eso, sino vacío
         const txtPregunta = data ? data.pregunta : '';
         const txtImg = data ? (data.imagen || '') : '';
         const txtAns = data ? data.respuesta : '';
-        const txtOpts = data ? data.opciones.join(', ') : 'A, B, C, D';
+        const txtOpts = (data && data.opciones && Array.isArray(data.opciones)) ? data.opciones.join(', ') : 'A, B, C, D';
 
         div.innerHTML = `
             <div class="q-header">
@@ -208,9 +218,12 @@
                 
                 <div class="form-grid">
                     <div class="form-group">
-                        <label>IMAGEN (Opcional)</label>
-                        <input type="text" class="q-img-url" placeholder="Pegar enlace..." value="${txtImg}">
-                        ${txtImg ? `<img src="${txtImg}" class="preview-img">` : ''}
+                        <label>IMAGEN (Enlace o Subir)</label>
+                        <input type="text" class="q-img-url" placeholder="Pegar enlace Drive..." value="${txtImg}" oninput="updatePreview(this)">
+                        
+                        <div class="preview-container">
+                            ${txtImg ? `<img src="${fixDriveLink(txtImg)}" class="preview-img">` : ''}
+                        </div>
                         
                         <div class="upload-zone" onclick="this.querySelector('input').click()">
                             <i class="fas fa-cloud-upload-alt"></i> Cambiar / Subir Imagen
@@ -232,6 +245,17 @@
         `;
         document.getElementById('questions-list').appendChild(div);
         if(!data) window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    }
+
+    // --- NUEVA FUNCIÓN: ACTUALIZAR PREVIEW AL PEGAR LINK ---
+    function updatePreview(input) {
+        const url = fixDriveLink(input.value.trim());
+        const container = input.nextElementSibling; // div.preview-container
+        if (url) {
+            container.innerHTML = `<img src="${url}" class="preview-img" onerror="this.style.display='none'">`;
+        } else {
+            container.innerHTML = '';
+        }
     }
 
     function previewFile(input) {
@@ -279,7 +303,10 @@
                 const ans = card.querySelector('.q-ans').value.trim();
                 const opts = card.querySelector('.q-opts').value;
                 
-                const urlInput = card.querySelector('.q-img-url').value.trim();
+                // OBTENER URL Y APLICAR FIX DRIVE
+                let urlInput = card.querySelector('.q-img-url').value.trim();
+                urlInput = fixDriveLink(urlInput); // <--- AQUI LA MAGIA
+
                 const fileInput = card.querySelector('.q-img-file').files[0];
                 let finalImgUrl = urlInput || null;
 
@@ -309,7 +336,6 @@
 
             btn.innerHTML = 'Guardando datos...';
             
-            // 1. Guardar Simulador (Actualiza si existe, crea si no)
             const { error: dbError } = await db.from('custom_simulators').upsert([{
                 id: simId,
                 title: title,
@@ -319,18 +345,15 @@
 
             if (dbError) throw dbError;
 
-            // 2. Actualizar Menú (Solo si cambia el título o es nuevo)
+            // Actualizar menú
             const { data: menuData } = await db.from('menu_structure').select('json_data').order('id', { ascending: false }).limit(1);
             if (menuData && menuData.length > 0) {
                 let menu = menuData[0].json_data;
-                // Si pasaron un parentId en modo edición, actualizamos el nombre
                 if (menu[parentId]) {
                     const itemIndex = menu[parentId].items.findIndex(i => i.link && i.link.includes(simId));
                     if (itemIndex !== -1) {
-                        // Actualizar nombre existente
                         menu[parentId].items[itemIndex].label = title;
                     } else if (!isEditMode) {
-                        // Agregar nuevo (solo si no estamos editando uno existente)
                         menu[parentId].items.push({
                             label: title,
                             type: 'test',
@@ -361,7 +384,6 @@
         titleEl.textContent = title;
         document.getElementById('alert-msg').textContent = msg;
         
-        // Reset iconos
         if (type === 'error') {
             icon.className = 'fas fa-times-circle'; icon.style.color = '#c0392b';
             box.style.borderTopColor = '#c0392b';
