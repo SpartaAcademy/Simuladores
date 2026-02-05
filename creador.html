@@ -37,9 +37,7 @@
         .btn-del { background: #ffebee; color: #c62828; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-weight: bold; }
         .btn-del:hover { background: #c62828; color: white; }
 
-        /* PREVISUALIZACIÓN */
-        .preview-img { max-width: 150px; max-height: 150px; margin-top: 10px; display: block; border-radius: 4px; border: 1px solid #ddd; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        
+        .preview-img { max-width: 200px; max-height: 200px; margin-top: 10px; display: block; border-radius: 4px; border: 1px solid #ddd; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
         .upload-zone { border: 2px dashed #ccc; padding: 15px; text-align: center; border-radius: 6px; margin-top: 5px; cursor: pointer; transition: 0.2s; background: #f9f9f9; }
         .upload-zone:hover { border-color: var(--accent-blue); background: #f0f8ff; }
         .upload-zone.has-file { border-color: #27ae60; background: #e8f8f5; }
@@ -146,15 +144,16 @@
         }
     };
 
-    // --- UTILERÍA: ARREGLAR ENLACES DE DRIVE ---
+    // --- MAGIA: ARREGLAR DRIVE PARA QUE SE VEA SIEMPRE ---
     function fixDriveLink(url) {
         if (!url) return "";
-        // Si es enlace de vista previa de Drive, convertir a descarga directa
+        // Convierte link de vista previa (/view) en link de imagen directa (/thumbnail)
         if (url.includes("drive.google.com") && url.includes("/view")) {
-            // Extraer ID: /d/XXXX/view
-            const match = url.match(/\/d\/(.+?)\//);
+            // Extrae el ID que está entre /d/ y /view
+            const match = url.match(/\/d\/([a-zA-Z0-9_-]+)/);
             if (match && match[1]) {
-                return `https://drive.google.com/uc?export=view&id=${match[1]}`;
+                // sz=w4000 pide la imagen en alta calidad
+                return `https://drive.google.com/thumbnail?id=${match[1]}&sz=w4000`; 
             }
         }
         return url;
@@ -194,7 +193,6 @@
         }
     }
 
-    // --- AÑADIR TARJETA ---
     function addQuestionUI(data = null) {
         const count = document.querySelectorAll('.q-card').length + 1;
         const div = document.createElement('div');
@@ -222,7 +220,7 @@
                         <input type="text" class="q-img-url" placeholder="Pegar enlace Drive..." value="${txtImg}" oninput="updatePreview(this)">
                         
                         <div class="preview-container">
-                            ${txtImg ? `<img src="${fixDriveLink(txtImg)}" class="preview-img">` : ''}
+                            ${txtImg ? `<img src="${fixDriveLink(txtImg)}" class="preview-img" referrerpolicy="no-referrer">` : ''}
                         </div>
                         
                         <div class="upload-zone" onclick="this.querySelector('input').click()">
@@ -247,12 +245,11 @@
         if(!data) window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
     }
 
-    // --- NUEVA FUNCIÓN: ACTUALIZAR PREVIEW AL PEGAR LINK ---
     function updatePreview(input) {
         const url = fixDriveLink(input.value.trim());
-        const container = input.nextElementSibling; // div.preview-container
+        const container = input.nextElementSibling;
         if (url) {
-            container.innerHTML = `<img src="${url}" class="preview-img" onerror="this.style.display='none'">`;
+            container.innerHTML = `<img src="${url}" class="preview-img" referrerpolicy="no-referrer" onerror="this.style.display='none'">`;
         } else {
             container.innerHTML = '';
         }
@@ -303,9 +300,9 @@
                 const ans = card.querySelector('.q-ans').value.trim();
                 const opts = card.querySelector('.q-opts').value;
                 
-                // OBTENER URL Y APLICAR FIX DRIVE
+                // GUARDAMOS EL ENLACE CORREGIDO DIRECTAMENTE
                 let urlInput = card.querySelector('.q-img-url').value.trim();
-                urlInput = fixDriveLink(urlInput); // <--- AQUI LA MAGIA
+                urlInput = fixDriveLink(urlInput); 
 
                 const fileInput = card.querySelector('.q-img-file').files[0];
                 let finalImgUrl = urlInput || null;
@@ -345,7 +342,6 @@
 
             if (dbError) throw dbError;
 
-            // Actualizar menú
             const { data: menuData } = await db.from('menu_structure').select('json_data').order('id', { ascending: false }).limit(1);
             if (menuData && menuData.length > 0) {
                 let menu = menuData[0].json_data;
@@ -380,7 +376,6 @@
         const icon = document.getElementById('alert-icon');
         const box = document.querySelector('.sparta-alert-box');
         const titleEl = document.getElementById('alert-title');
-        
         titleEl.textContent = title;
         document.getElementById('alert-msg').textContent = msg;
         
