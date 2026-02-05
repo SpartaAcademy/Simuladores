@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Creador Táctico - Sparta</title>
+    <title>Editor Táctico - Sparta</title>
     <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;600;700&family=Work+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -25,7 +25,7 @@
         .btn-header { background: transparent; border: 1px solid rgba(255,255,255,0.3); color: white; padding: 8px 15px; border-radius: 4px; cursor: pointer; transition: 0.3s; }
         .btn-header:hover { background: var(--sparta-red); }
 
-        .main-container { max-width: 900px; margin: 0 auto; padding: 20px; padding-bottom: 100px; }
+        .main-container { max-width: 900px; margin: 0 auto; padding: 20px; padding-bottom: 120px; }
         .page-title { font-family: 'Teko', sans-serif; font-size: 3rem; color: var(--sparta-dark); margin-bottom: 20px; border-left: 10px solid var(--sparta-red); padding-left: 15px; }
 
         .panel { background: white; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); padding: 25px; margin-bottom: 30px; border-top: 4px solid var(--sparta-dark); }
@@ -47,6 +47,7 @@
         .upload-zone { border: 2px dashed #ccc; padding: 15px; text-align: center; border-radius: 6px; margin-top: 5px; cursor: pointer; transition: 0.2s; background: #f9f9f9; }
         .upload-zone:hover { border-color: var(--accent-blue); background: #f0f8ff; }
         .upload-zone.has-file { border-color: #27ae60; background: #e8f8f5; }
+        .preview-img { max-width: 100px; max-height: 100px; margin-top: 10px; display: block; border-radius: 4px; border: 1px solid #ddd; }
 
         .actions-bar {
             position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%);
@@ -85,17 +86,17 @@
             <img src="logo.png" alt="Logo">
             <div class="header-text">
                 <h1>SPARTA</h1>
-                <h2>PANEL DE CREACIÓN</h2>
+                <h2>PANEL DE EDICIÓN</h2>
             </div>
         </div>
         <button class="btn-header" onclick="location.href='index.html'"><i class="fas fa-times"></i> CANCELAR</button>
     </header>
 
     <div class="main-container">
-        <h1 class="page-title">NUEVO SIMULADOR</h1>
+        <h1 class="page-title" id="main-title">NUEVO SIMULADOR</h1>
 
         <div class="panel">
-            <h3><i class="fas fa-sliders-h"></i> DATOS GENERALES</h3>
+            <h3><i class="fas fa-sliders-h"></i> CONFIGURACIÓN</h3>
             <div class="form-group">
                 <label>TÍTULO DEL EXAMEN</label>
                 <input type="text" id="sim-title" placeholder="Ej: Inteligencia Espacial - Nivel 1">
@@ -107,7 +108,7 @@
                 </div>
                 <div class="form-group">
                     <label>ID SISTEMA</label>
-                    <input type="text" id="sim-id" disabled style="background:#eee; color:#888;">
+                    <input type="text" id="sim-id" disabled style="background:#eee; color:#777;">
                 </div>
             </div>
         </div>
@@ -118,8 +119,8 @@
             <div style="display: flex; align-items: center; gap: 15px;">
                 <i class="fas fa-file-code" style="font-size: 2rem; color: #f1c40f;"></i>
                 <div>
-                    <strong>Carga por JSON (Opcional)</strong><br>
-                    <span style="font-size: 0.9rem; color: #666;">Si ya tienes el archivo listo.</span>
+                    <strong>Agregar JSON (Opcional)</strong><br>
+                    <span style="font-size: 0.9rem; color: #666;">Añadir más preguntas desde archivo.</span>
                 </div>
                 <input type="file" id="json-file" accept=".json" style="margin-left: auto; width: auto;">
             </div>
@@ -131,7 +132,7 @@
             <i class="fas fa-plus-circle"></i> PREGUNTA
         </button>
         <button class="btn-action btn-save" onclick="prepararGuardado()">
-            <i class="fas fa-save"></i> GUARDAR
+            <i class="fas fa-save"></i> GUARDAR CAMBIOS
         </button>
     </div>
 
@@ -151,18 +152,67 @@
 
     const params = new URLSearchParams(window.location.search);
     const parentId = params.get('parent') || 'root'; 
-    const simId = params.get('id') || 'sim_' + Date.now(); 
-    const simName = params.get('nombre') || '';
+    let simId = params.get('id') || 'sim_' + Date.now(); 
+    const isEditMode = params.get('mode') === 'edit';
 
     document.getElementById('sim-id').value = simId;
-    if(simName) document.getElementById('sim-title').value = simName;
 
-    window.onload = () => { addQuestionUI(); };
+    // --- CARGA INICIAL ---
+    window.onload = async () => { 
+        if (isEditMode) {
+            document.getElementById('main-title').textContent = "EDITAR SIMULADOR";
+            await cargarSimuladorExistente();
+        } else {
+            addQuestionUI(); 
+        }
+    };
 
-    function addQuestionUI() {
+    // --- FUNCIÓN PARA CARGAR DATOS SI EDITAMOS ---
+    async function cargarSimuladorExistente() {
+        // Mostrar Loading overlay improvisado
+        const overlay = document.getElementById('sparta-alert');
+        overlay.style.display = 'flex';
+        document.getElementById('alert-title').textContent = "CARGANDO DATOS...";
+        document.querySelector('.sparta-btn-ok').style.display = 'none';
+
+        try {
+            const { data, error } = await db.from('custom_simulators').select('*').eq('id', simId).single();
+            
+            if (error || !data) throw new Error("No se encontró el simulador.");
+
+            // Llenar campos
+            document.getElementById('sim-title').value = data.title;
+            document.getElementById('sim-time').value = data.config.tiempo;
+
+            // Llenar preguntas
+            if (data.questions && data.questions.length > 0) {
+                data.questions.forEach(q => addQuestionUI(q));
+            } else {
+                addQuestionUI();
+            }
+
+            // Ocultar Loading
+            overlay.style.display = 'none';
+            document.querySelector('.sparta-btn-ok').style.display = 'block';
+
+        } catch (e) {
+            console.error(e);
+            showAlert("ERROR", "No se pudieron cargar los datos del simulador.", "error");
+        }
+    }
+
+    // --- AÑADIR TARJETA (Ahora acepta datos pre-cargados) ---
+    function addQuestionUI(data = null) {
         const count = document.querySelectorAll('.q-card').length + 1;
         const div = document.createElement('div');
         div.className = 'q-card';
+        
+        // Valores por defecto o cargados
+        const txtPregunta = data ? data.pregunta : '';
+        const txtImg = data ? (data.imagen || '') : '';
+        const txtAns = data ? data.respuesta : '';
+        const txtOpts = data ? data.opciones.join(', ') : 'A, B, C, D';
+
         div.innerHTML = `
             <div class="q-header">
                 <strong><i class="fas fa-question-circle"></i> PREGUNTA #${count}</strong>
@@ -171,40 +221,41 @@
             <div class="q-body">
                 <div class="form-group">
                     <label>TEXTO DE LA PREGUNTA</label>
-                    <textarea class="q-input q-text" rows="2" placeholder="Escribe aquí..."></textarea>
+                    <textarea class="q-input q-text" rows="2" placeholder="Escribe aquí...">${txtPregunta}</textarea>
                 </div>
                 
                 <div class="form-grid">
                     <div class="form-group">
                         <label>IMAGEN (Opcional)</label>
-                        <input type="text" class="q-img-url" placeholder="Pegar enlace...">
+                        <input type="text" class="q-img-url" placeholder="Pegar enlace..." value="${txtImg}">
+                        ${txtImg ? `<img src="${txtImg}" class="preview-img">` : ''}
                         
                         <div class="upload-zone" onclick="this.querySelector('input').click()">
-                            <i class="fas fa-cloud-upload-alt"></i> O subir archivo
+                            <i class="fas fa-cloud-upload-alt"></i> Cambiar / Subir Imagen
                             <input type="file" class="q-img-file" accept="image/*" style="display:none" onchange="previewFile(this)">
                             <div class="file-name" style="font-size:0.8rem; color:#27ae60; margin-top:5px;"></div>
                         </div>
                     </div>
                     <div class="form-group">
                         <label style="color: var(--sparta-red);">RESPUESTA CORRECTA</label>
-                        <input type="text" class="q-ans" placeholder="Ej: A">
+                        <input type="text" class="q-ans" placeholder="Ej: A" value="${txtAns}">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label>OPCIONES (Separadas por comas)</label>
-                    <input type="text" class="q-opts" value="A, B, C, D">
+                    <input type="text" class="q-opts" value="${txtOpts}">
                 </div>
             </div>
         `;
         document.getElementById('questions-list').appendChild(div);
-        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+        if(!data) window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
     }
 
     function previewFile(input) {
         const fileNameDiv = input.parentElement.querySelector('.file-name');
         if (input.files && input.files[0]) {
-            fileNameDiv.textContent = "Seleccionado: " + input.files[0].name;
+            fileNameDiv.textContent = "Nuevo: " + input.files[0].name;
             input.parentElement.classList.add('has-file');
         } else {
             fileNameDiv.textContent = "";
@@ -217,18 +268,12 @@
             const fileExt = file.name.split('.').pop();
             const fileName = `${Date.now()}_${Math.random().toString(36).substring(7)}.${fileExt}`;
             const filePath = `${fileName}`;
-
-            // Subir
             const { error: uploadError } = await db.storage.from('sim-images').upload(filePath, file);
             if (uploadError) throw uploadError;
-
-            // Obtener URL Pública
             const { data } = db.storage.from('sim-images').getPublicUrl(filePath);
             return data.publicUrl;
         } catch (error) {
-            console.error("Error subiendo imagen:", error);
-            // ¡AHORA LANZAMOS EL ERROR PARA QUE EL USUARIO SE ENTERE!
-            throw new Error("Fallo al subir imagen a Supabase. Verifica permisos.");
+            throw new Error("Fallo al subir imagen.");
         }
     }
 
@@ -246,7 +291,6 @@
         const cards = document.querySelectorAll('.q-card');
 
         try {
-            // 1. RECORRER TARJETAS
             for (let i = 0; i < cards.length; i++) {
                 const card = cards[i];
                 const text = card.querySelector('.q-text').value;
@@ -257,11 +301,9 @@
                 const fileInput = card.querySelector('.q-img-file').files[0];
                 let finalImgUrl = urlInput || null;
 
-                // Si seleccionó archivo, subirlo
                 if (fileInput) {
                     btn.innerHTML = `Subiendo img ${i+1}...`;
-                    const uploadedUrl = await uploadImageToSupabase(fileInput);
-                    if (uploadedUrl) finalImgUrl = uploadedUrl;
+                    finalImgUrl = await uploadImageToSupabase(fileInput);
                 }
 
                 if (ans) {
@@ -285,7 +327,7 @@
 
             btn.innerHTML = 'Guardando datos...';
             
-            // 1. Guardar Simulador
+            // 1. Guardar Simulador (Actualiza si existe, crea si no)
             const { error: dbError } = await db.from('custom_simulators').upsert([{
                 id: simId,
                 title: title,
@@ -295,23 +337,25 @@
 
             if (dbError) throw dbError;
 
-            // 2. Actualizar Menú
+            // 2. Actualizar Menú (Solo si cambia el título o es nuevo)
             const { data: menuData } = await db.from('menu_structure').select('json_data').order('id', { ascending: false }).limit(1);
             if (menuData && menuData.length > 0) {
                 let menu = menuData[0].json_data;
+                // Si pasaron un parentId en modo edición, actualizamos el nombre
                 if (menu[parentId]) {
-                    // Evitar duplicados
-                    menu[parentId].items = menu[parentId].items.filter(i => {
-                        // FIX: Validar que i.link exista antes de checkear
-                        return !i.link || i.link.indexOf(simId) === -1;
-                    });
-                    
-                    menu[parentId].items.push({
-                        label: title,
-                        type: 'test',
-                        link: `simulador.html?materia=custom&id=${simId}`,
-                        icon: 'fas fa-pen-square'
-                    });
+                    const itemIndex = menu[parentId].items.findIndex(i => i.link && i.link.includes(simId));
+                    if (itemIndex !== -1) {
+                        // Actualizar nombre existente
+                        menu[parentId].items[itemIndex].label = title;
+                    } else if (!isEditMode) {
+                        // Agregar nuevo (solo si no estamos editando uno existente que no se encontró)
+                        menu[parentId].items.push({
+                            label: title,
+                            type: 'test',
+                            link: `simulador.html?materia=custom&id=${simId}`,
+                            icon: 'fas fa-pen-square'
+                        });
+                    }
                     await db.from('menu_structure').insert([{ json_data: menu }]);
                 }
             }
