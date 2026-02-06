@@ -15,7 +15,7 @@
     <script> checkAuth(); </script>
 
     <style>
-        /* --- ESTILOS BASE DE BOTONES ADMIN (Los que ya tenías y te gustaban) --- */
+        /* --- ESTILOS DE BOTONES DE EDICIÓN (PERFECTOS PARA PC Y MÓVIL) --- */
         .admin-controls-overlay {
             position: absolute !important;
             top: 5px !important;
@@ -55,59 +55,36 @@
         .btn-edit { background: #f39c12 !important; }
         .btn-del  { background: #c0392b !important; }
 
-        /* --- CORRECCIÓN RESPONSIVE DE EMERGENCIA (NUEVO) --- */
-        /* Esto fuerza a que nada se salga de la pantalla en móviles */
-        html, body {
-            overflow-x: hidden !important; 
-            width: 100% !important;
-            margin: 0 !important; padding: 0 !important;
-        }
-        * {
-            box-sizing: border-box !important;
-            max-width: 100vw !important; /* Límite absoluto de ancho */
-        }
-
+        /* --- AJUSTES SOLO PARA CELULARES (Mantiene PC intacta) --- */
         @media screen and (max-width: 768px) {
-            /* 1. Ajuste de Header */
-            header { padding: 0 10px !important; }
-            .header-left img { height: 40px !important; }
-            .header-titulo h1 { font-size: 1.4rem !important; margin-left: 5px !important;}
-            .header-titulo h2 { font-size: 0.6rem !important; margin-left: 5px !important;}
-            
-            /* 2. Contenedor Principal */
-            .seleccion-container { padding: 15px !important; width: 100% !important; }
-
-            /* 3. Forzar texto a bajar de línea (Wrap) */
-            #section-title, .materia-card h3 {
-                white-space: normal !important;
-                word-wrap: break-word !important;
-                overflow-wrap: break-word !important;
-                font-size: 1.3rem !important;
-                line-height: 1.2 !important;
+            /* Ajuste de márgenes para que no se pegue al borde */
+            .seleccion-container {
+                width: 95% !important;
+                padding: 10px !important;
             }
-            .materia-card h3 { font-size: 1.1rem !important; }
+            
+            /* Títulos responsive */
+            #section-title {
+                font-size: 1.8rem !important;
+                line-height: 1.1 !important;
+            }
 
-            /* 4. Tarjetas en columna */
+            /* Forzar grid a una columna en móvil */
             #dynamic-grid {
                 display: flex !important;
                 flex-direction: column !important;
             }
+            
             .materia-card, .card-wide {
                 width: 100% !important;
                 margin-bottom: 15px !important;
             }
 
-            /* 5. ARREGLO BOTONES: Se acomodan en bloque si no caben */
+            /* Si los botones de editar no caben, que hagan salto de línea */
             .admin-controls-overlay {
                 flex-wrap: wrap !important;
+                max-width: 80px !important;
                 justify-content: flex-end !important;
-                max-width: 80px !important; /* Fuerza el wrap si es muy ancho */
-                right: 5px !important;
-                top: 5px !important;
-            }
-            .mini-btn {
-                width: 28px !important; /* Un poco más chicos en móvil */
-                height: 28px !important;
             }
         }
     </style>
