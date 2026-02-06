@@ -44,16 +44,15 @@
 
         .json-input-file { margin-left: auto; width: auto; }
 
-        /* --- NUEVO ESTILO DE SWITCH PROFESIONAL --- */
+        /* SWITCHES PROFESIONALES */
         .switch-container {
             display: flex; align-items: center; justify-content: space-between;
             background: #f8f9fa; padding: 15px; border-radius: 8px; border: 1px solid #eee;
-            margin-top: 10px;
+            margin-bottom: 10px;
         }
-        .switch-info strong { display: block; color: #333; font-size: 1.1rem; margin-bottom: 2px; }
-        .switch-info span { color: #666; font-size: 0.9rem; }
+        .switch-info strong { display: block; color: #333; font-size: 1rem; margin-bottom: 2px; }
+        .switch-info span { color: #666; font-size: 0.85rem; }
         
-        /* El Toggle */
         .switch { position: relative; display: inline-block; width: 50px; height: 28px; }
         .switch input { opacity: 0; width: 0; height: 0; }
         .slider {
@@ -67,7 +66,6 @@
         }
         input:checked + .slider { background-color: var(--sparta-red); }
         input:checked + .slider:before { transform: translateX(22px); }
-        /* ------------------------------------------ */
 
         .actions-bar { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); padding: 15px 30px; border-radius: 50px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); display: flex; gap: 20px; justify-content: center; border: 1px solid #ddd; z-index: 2000; }
         .btn-action { padding: 12px 30px; border: none; border-radius: 50px; font-family: 'Teko', sans-serif; font-size: 1.4rem; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: transform 0.2s; color: white; }
@@ -120,19 +118,21 @@
                 <label>TÍTULO DEL EXAMEN</label>
                 <input type="text" id="sim-title" placeholder="Ej: Inteligencia Espacial">
             </div>
+            
             <div class="form-grid">
                 <div class="form-group">
                     <label>TIEMPO (Segundos)</label>
                     <input type="number" id="sim-time" value="3600">
                 </div>
                 <div class="form-group">
-                    <label>ID SISTEMA</label>
-                    <input type="text" id="sim-id" disabled style="background:#eee; color:#777;">
+                    <label>LÍMITE PREGUNTAS (0 = Todas)</label>
+                    <input type="number" id="sim-limit" placeholder="Ej: 50" min="0">
                 </div>
             </div>
-            
-            <div class="form-group" style="margin-top: 20px;">
-                <label>MODALIDAD</label>
+
+            <div style="margin-top: 20px;">
+                <label style="margin-bottom:10px; display:block;">OPCIONES AVANZADAS</label>
+                
                 <div class="switch-container">
                     <div class="switch-info">
                         <strong>MODO LINEAL</strong>
@@ -143,6 +143,22 @@
                         <span class="slider"></span>
                     </label>
                 </div>
+
+                <div class="switch-container">
+                    <div class="switch-info">
+                        <strong>MEZCLAR PREGUNTAS (Aleatorio)</strong>
+                        <span>Cambia el orden en cada intento.</span>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" id="sim-shuffle">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+            
+            <div class="form-group" style="margin-top:15px; opacity:0.6;">
+                <label style="font-size:0.8rem;">ID SISTEMA</label>
+                <input type="text" id="sim-id" disabled style="background:#eee; color:#777; font-size:0.8rem; padding:8px;">
             </div>
         </div>
 
@@ -222,9 +238,12 @@
             if (error || !data) throw new Error("No se encontró el simulador.");
 
             document.getElementById('sim-title').value = data.title;
+            // CARGAR CONFIGURACIÓN COMPLETA
             if(data.config) {
                 document.getElementById('sim-time').value = data.config.tiempo;
                 if (data.config.lineal) document.getElementById('sim-linear').checked = true;
+                if (data.config.mezclar) document.getElementById('sim-shuffle').checked = true;
+                if (data.config.limite) document.getElementById('sim-limit').value = data.config.limite;
             }
 
             let preguntas = data.questions;
@@ -337,7 +356,11 @@
     async function prepararGuardado() {
         const title = document.getElementById('sim-title').value;
         const time = document.getElementById('sim-time').value;
+        
+        // LEER NUEVAS OPCIONES
         const isLinear = document.getElementById('sim-linear').checked;
+        const isShuffle = document.getElementById('sim-shuffle').checked;
+        const limitVal = parseInt(document.getElementById('sim-limit').value) || 0;
 
         if (!title) return showAlert("Falta Título", "Ponle un nombre al examen.", "error");
 
@@ -388,12 +411,15 @@
 
             btn.innerHTML = 'Guardando datos...';
             
+            // GUARDAR TODA LA CONFIGURACIÓN (TIEMPO, LINEAL, MEZCLAR, LÍMITE)
             const { error: dbError } = await db.from('custom_simulators').upsert([{
                 id: simId,
                 title: title,
                 config: { 
                     tiempo: parseInt(time),
-                    lineal: isLinear 
+                    lineal: isLinear,
+                    mezclar: isShuffle,
+                    limite: limitVal
                 },
                 questions: finalQuestions
             }]);
