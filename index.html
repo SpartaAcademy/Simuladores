@@ -15,7 +15,7 @@
     <script> checkAuth(); </script>
 
     <style>
-        /* --- ESTILOS DE BOTONES DE EDICIÓN (PERFECTOS PARA PC Y MÓVIL) --- */
+        /* --- ESTILOS DE LOS BOTONES DE EDICIÓN (Mini) --- */
         .admin-controls-overlay {
             position: absolute !important;
             top: 5px !important;
@@ -55,32 +55,44 @@
         .btn-edit { background: #f39c12 !important; }
         .btn-del  { background: #c0392b !important; }
 
-        /* --- AJUSTES SOLO PARA CELULARES (Mantiene PC intacta) --- */
+        /* --- CORRECCIONES RESPONSIVE --- */
+        /* PC: Se ve normal (sin restricciones agresivas) */
+        
+        /* MÓVIL: Aquí aplicamos los ajustes para que no se rompa */
         @media screen and (max-width: 768px) {
-            /* Ajuste de márgenes para que no se pegue al borde */
+            html, body { overflow-x: hidden !important; width: 100% !important; margin: 0; padding: 0; }
+            * { box-sizing: border-box !important; }
+            
+            header { padding: 0 10px !important; }
+            .header-left img { height: 40px !important; }
+            .header-titulo h1 { font-size: 1.4rem !important; margin-left: 5px !important;}
+            .header-titulo h2 { font-size: 0.6rem !important; margin-left: 5px !important;}
+            
             .seleccion-container {
                 width: 95% !important;
                 padding: 10px !important;
             }
-            
-            /* Títulos responsive */
-            #section-title {
-                font-size: 1.8rem !important;
-                line-height: 1.1 !important;
-            }
 
-            /* Forzar grid a una columna en móvil */
+            /* Forzar texto a bajar de línea si es muy largo */
+            #section-title, .materia-card h3 {
+                white-space: normal !important;
+                word-wrap: break-word !important;
+                font-size: 1.4rem !important;
+                line-height: 1.2 !important;
+            }
+            .materia-card h3 { font-size: 1.1rem !important; }
+
+            /* Tarjetas en columna */
             #dynamic-grid {
                 display: flex !important;
                 flex-direction: column !important;
             }
-            
             .materia-card, .card-wide {
                 width: 100% !important;
                 margin-bottom: 15px !important;
             }
 
-            /* Si los botones de editar no caben, que hagan salto de línea */
+            /* Si los botones flotantes no caben, que se pongan en dos filas */
             .admin-controls-overlay {
                 flex-wrap: wrap !important;
                 max-width: 80px !important;
