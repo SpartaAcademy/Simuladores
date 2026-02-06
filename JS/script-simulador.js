@@ -1,4 +1,4 @@
-// JS/script-simulador.js - FINAL (CON PARCHE DRIVE)
+// JS/script-simulador.js - DEFINITIVO CON MODO LINEAL
 
 const simuladorUrl = 'https://fgpqioviycmgwypidhcs.supabase.co';
 const simuladorKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZncHFpb3ZpeWNtZ3d5cGlkaGNzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU0OTkwMDgsImV4cCI6MjA4MTA3NTAwOH0.5ckdzDtwFRG8JpuW5S-Qi885oOSVESAvbLoNiqePJYo';
@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let totalPreguntas = 50;
     let carpetaEspecialID = null;
     let isMultiPhaseMode = false;
+    let isLinearMode = false; // NUEVA VARIABLE PARA MODO LINEAL
 
     const materias = {
         'sociales': 'Ciencias Sociales', 'matematicas': 'Matemáticas y Física', 'lengua': 'Lengua y Literatura', 'ingles': 'Inglés', 'general': 'General (Todas)',
@@ -57,15 +58,11 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('error-modal').style.display = 'flex';
     }
 
-    // --- FUNCIÓN HELPER: ARREGLAR ENLACES DRIVE ---
     function fixDriveLink(url) {
         if (!url) return "";
-        // Si ya es un enlace arreglado (thumbnail), lo dejamos
         if (url.includes("google.com/thumbnail")) return url;
-        
-        // Si es un enlace de vista (/view), lo arreglamos
         if (url.includes("drive.google.com") && url.includes("/view")) {
-            const match = url.match(/\/d\/([a-zA-Z0-9_-]+)/);
+            const match = url.match(/\/d\/(.+?)\//);
             if (match && match[1]) {
                 return `https://drive.google.com/thumbnail?id=${match[1]}&sz=w4000`;
             }
@@ -73,7 +70,6 @@ document.addEventListener('DOMContentLoaded', () => {
         return url;
     }
 
-    // --- INIT ---
     async function init() {
         const params = new URLSearchParams(window.location.search);
         const materiaKey = params.get('materia') || 'sociales';
@@ -90,9 +86,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 questions = data.questions; 
                 timeLeft = data.config ? data.config.tiempo : 3600;
+                // LEER CONFIGURACIÓN LINEAL
+                isLinearMode = data.config && data.config.lineal ? true : false;
+                
                 totalPreguntas = questions.length;
 
-                // APLICAR CORRECCIÓN DRIVE A LAS PREGUNTAS (Para asegurar)
                 questions = questions.map(q => {
                     if (q.imagen) q.imagen = fixDriveLink(q.imagen);
                     return q;
@@ -173,7 +171,6 @@ document.addEventListener('DOMContentLoaded', () => {
         } catch (e) { showError(e.message); }
     }
 
-    // --- PRECARGA TURBO ---
     async function iniciarPrecarga(listaPreguntas) {
         const imagenes = listaPreguntas.filter(q => q.imagen && q.imagen.trim() !== '');
         
@@ -194,7 +191,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         imagenes.forEach(q => {
             const img = new Image();
-            // IMPORTANTE: ReferrerPolicy ayuda con Google Drive
             img.referrerPolicy = "no-referrer";
             img.src = q.imagen;
             img.onload = () => { cargadas++; actualizarProgreso(); };
@@ -212,10 +208,6 @@ document.addEventListener('DOMContentLoaded', () => {
         btnStart.onclick = isMultiPhaseMode ? startPhase1 : startQuiz;
     }
 
-    // ... (RESTO DE FUNCIONES startPhase1, startQuiz, etc. IDENTICAS) ...
-    // Para ahorrar espacio asumo que las tienes del mensaje anterior.
-    // SI LAS NECESITAS COMPLETAS OTRA VEZ DÍMELO, PERO ESTAS NO CAMBIAN.
-    
     function startPhase1() {
         lobbyBanner.style.display = 'none'; lobbyContainer.style.display = 'none';
         simulador.style.display = 'block'; simulador.className = ''; 
@@ -383,7 +375,14 @@ document.addEventListener('DOMContentLoaded', () => {
             const b = document.createElement('button'); 
             b.className = 'nav-dot'; 
             b.textContent = i+1; 
-            b.onclick = () => showQ(i);
+            
+            // --- LÓGICA DE BLOQUEO LINEAL ---
+            if (!isLinearMode) {
+                b.onclick = () => showQ(i);
+            } else {
+                b.style.cursor = 'not-allowed';
+                b.style.opacity = '0.7';
+            }
             nav.appendChild(b); 
         });
     }
