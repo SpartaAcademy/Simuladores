@@ -1,4 +1,4 @@
-// JS/script-resultados.js - VERSIÓN INTELIGENTE Y ORGANIZADA
+// JS/script-resultados.js - VERSIÓN CORREGIDA (RECUPERA HISTORIAL)
 
 const supabaseUrl = 'https://fgpqioviycmgwypidhcs.supabase.co';
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZncHFpb3ZpeWNtZ3d5cGlkaGNzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU0OTkwMDgsImV4cCI6MjA4MTA3NTAwOH0.5ckdzDtwFRG8JpuW5S-Qi885oOSVESAvbLoNiqePJYo';
@@ -20,7 +20,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     let allUsuarios = [];
     let allIntentos = [];
-    let activeSimulatorsMap = {}; // Para validar cuáles existen realmente
+    
+    // Mapa para saber qué materias ya pusimos en el select
+    let materiasColocadas = {}; 
 
     const clean = (str) => str ? str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim() : "";
 
@@ -28,7 +30,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     try {
         console.log("Cargando datos...");
 
-        // 1. CARGAR MENÚ PARA FILTRAR MATERIAS ACTIVAS Y ORGANIZARLAS
+        // 1. CARGAR MENÚ (Para el orden de carpetas)
         const { data: menuData } = await tulcanDB.from('menu_structure').select('json_data').order('id', {ascending: false}).limit(1);
         let menuStructure = (menuData && menuData.length > 0) ? menuData[0].json_data : null;
 
@@ -52,7 +54,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         allIntentos = resData || [];
 
         // --- A. LLENAR FILTRO DE CIUDADES DINÁMICAMENTE ---
-        // Extraemos todas las ciudades únicas de la base de datos de usuarios
         const ciudadesUnicas = [...new Set(allUsuarios.map(u => u.ciudad ? u.ciudad.trim() : "Sin Ciudad"))].sort();
         
         fCiudad.innerHTML = '<option value="Todas">Todas las Ciudades</option>';
@@ -65,40 +66,46 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
         });
 
-        // --- B. LLENAR FILTRO DE MATERIAS ORGANIZADO POR CARPETAS ---
+        // --- B. LLENAR FILTRO DE MATERIAS (Híbrido: Menú + Historial) ---
         fMateria.innerHTML = '<option value="Todas">Todas las Materias</option>';
-        
+        materiasColocadas = {};
+
+        // B1. Primero las del Menú (Bonitas y ordenadas)
         if (menuStructure) {
-            // Recorremos el menú recursivamente para agrupar por carpetas
             const grupos = extraerSimuladoresPorCarpeta(menuStructure['root'], menuStructure, "GENERAL");
-            
-            // Creamos los OPTGROUPS en el select
             for (const [carpeta, simuladores] of Object.entries(grupos)) {
                 if (simuladores.length > 0) {
                     const group = document.createElement('optgroup');
-                    group.label = carpeta; // Nombre de la carpeta
+                    group.label = carpeta; 
                     
                     simuladores.forEach(sim => {
-                        const opt = document.createElement('option');
-                        opt.value = sim.label; // Usamos el nombre como valor
-                        opt.textContent = sim.label;
-                        group.appendChild(opt);
-                        
-                        // Guardamos en el mapa para saber que este simulador SÍ EXISTE
-                        activeSimulatorsMap[sim.label] = true;
+                        // Evitar duplicados si el mismo test está en dos carpetas
+                        if (!materiasColocadas[sim.label]) {
+                            const opt = document.createElement('option');
+                            opt.value = sim.label; 
+                            opt.textContent = sim.label;
+                            group.appendChild(opt);
+                            materiasColocadas[sim.label] = true;
+                        }
                     });
                     fMateria.appendChild(group);
                 }
             }
-        } else {
-            // Fallback si no hay menú (método antiguo plano)
-            const materias = [...new Set(allIntentos.map(i => i.materia))].sort();
-            materias.forEach(m => {
+        }
+
+        // B2. Luego las "Huérfanas" (Historial antiguo que no está en el menú actual)
+        const todasLasMateriasHistorial = [...new Set(allIntentos.map(i => i.materia))].sort();
+        const materiasHuerfanas = todasLasMateriasHistorial.filter(m => !materiasColocadas[m]);
+
+        if (materiasHuerfanas.length > 0) {
+            const groupOtros = document.createElement('optgroup');
+            groupOtros.label = "OTROS / HISTORIAL";
+            materiasHuerfanas.forEach(m => {
                 const opt = document.createElement('option');
                 opt.value = m; opt.textContent = m;
-                fMateria.appendChild(opt);
-                activeSimulatorsMap[m] = true;
+                groupOtros.appendChild(opt);
             });
+            fMateria.appendChild(groupOtros);
         }
 
         spinner.style.display = 'none';
@@ -109,18 +116,15 @@ document.addEventListener('DOMContentLoaded', async () => {
         console.error(e);
     }
 
-    // --- FUNCIÓN RECURSIVA PARA ORDENAR MATERIAS ---
+    // --- FUNCIÓN RECURSIVA ---
     function extraerSimuladoresPorCarpeta(itemRoot, fullMenu, nombreCarpetaActual, resultado = {}) {
         if (!itemRoot || !itemRoot.items) return resultado;
 
         itemRoot.items.forEach(item => {
             if (item.type === 'folder') {
-                // Si es carpeta, entramos recursivamente
-                // Usamos el nombre de la carpeta como categoría
                 const subCarpetaNombre = item.label.toUpperCase();
                 extraerSimuladoresPorCarpeta(fullMenu[item.id], fullMenu, subCarpetaNombre, resultado);
             } else if (item.type === 'test') {
-                // Si es un test, lo agregamos a la lista de la carpeta actual
                 if (!resultado[nombreCarpetaActual]) {
                     resultado[nombreCarpetaActual] = [];
                 }
@@ -130,7 +134,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         return resultado;
     }
 
-    // --- RENDERIZADO DE TARJETAS ---
+    // --- RENDERIZADO ---
     function renderCards() {
         container.innerHTML = '';
         const busqueda = clean(fNombre.value);
@@ -150,19 +154,15 @@ document.addEventListener('DOMContentLoaded', async () => {
             return;
         }
 
-        // Ordenar intentos recientes primero
         const intentosDisplay = [...allIntentos].sort((a,b) => new Date(b.created_at) - new Date(a.created_at));
 
         usuariosVisibles.forEach(user => {
             // 2. Filtrar intentos del usuario
+            // ¡AQUÍ ESTABA EL ERROR ANTES! Ya NO filtramos por "activeSimulatorsMap".
+            // Mostramos TODO lo que tenga el ID del usuario.
             let intentosUser = intentosDisplay.filter(i => String(i.usuario_id) === String(user.usuario));
 
-            // 3. Filtrar "Fantasmas": Solo mostrar intentos de simuladores que existen actualmente
-            // (A menos que el filtro sea 'Todas', donde podríamos querer ver historia, 
-            // pero para limpiar la vista, filtraremos contra el mapa de activos)
-            intentosUser = intentosUser.filter(i => activeSimulatorsMap[i.materia]);
-
-            // 4. Aplicar Filtro de Materia del Dropdown
+            // 3. Aplicar Filtro de Materia (solo si se seleccionó una específica)
             if (materiaFiltro !== 'Todas') {
                 intentosUser = intentosUser.filter(i => i.materia === materiaFiltro);
             }
@@ -176,9 +176,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             let htmlIntentos = '';
             if (intentosUser.length === 0) {
-                htmlIntentos = '<p style="text-align:center; color:#999; padding:10px;">Sin registros en simuladores activos.</p>';
+                htmlIntentos = '<p style="text-align:center; color:#999; padding:10px;">Sin registros.</p>';
             } else {
-                // Agrupar por materia
                 const mats = [...new Set(intentosUser.map(i => i.materia))].sort();
                 mats.forEach(m => {
                     const intsMateria = intentosUser.filter(i => i.materia === m);
@@ -225,8 +224,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             };
 
             card.querySelector('.btn-pdf-mini').onclick = () => {
-                // Solo enviamos intentos válidos al PDF
-                generarPDF([user], `Reporte_${user.nombre}.pdf`, activeSimulatorsMap);
+                generarPDF([user], `Reporte_${user.nombre}.pdf`);
             };
 
             container.appendChild(card);
@@ -250,12 +248,12 @@ document.addEventListener('DOMContentLoaded', async () => {
                 const matchNombre = busqueda === '' || clean(u.nombre).includes(busqueda);
                 return matchCiudad && matchNombre;
             });
-            if(list.length > 0) generarPDF(list, "Reporte_General.pdf", activeSimulatorsMap);
+            if(list.length > 0) generarPDF(list, "Reporte_General.pdf");
             else alert("No hay datos para generar el PDF.");
         };
     }
 
-    async function generarPDF(users, filename, validSimulators) {
+    async function generarPDF(users, filename) {
         document.body.style.cursor = 'wait';
         const doc = new jsPDF();
         let pageAdded = false;
@@ -263,9 +261,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         for (const user of users) {
             let intentos = allIntentos.filter(i => String(i.usuario_id) === String(user.usuario));
             
-            // FILTRO ESTRICTO PDF: Solo simuladores que existen y coinciden con el filtro
-            intentos = intentos.filter(i => validSimulators[i.materia]); 
-            
+            // FILTRO PDF: Respetamos el filtro de materia si está activo
             if (fMateria.value !== 'Todas') intentos = intentos.filter(i => i.materia === fMateria.value);
 
             if (intentos.length === 0) {
@@ -317,7 +313,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         
         document.body.style.cursor = 'default';
         if(pageAdded) doc.save(filename);
-        else if(users.length > 1) alert("Ningún usuario tiene intentos en los simuladores seleccionados.");
+        else if(users.length > 1) alert("Ningún usuario tiene intentos en los criterios seleccionados.");
     }
 
     function drawHeader(doc, user, mat) {
@@ -327,7 +323,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         
         doc.setTextColor(0,0,0); doc.setFontSize(14); doc.text(user.nombre.toUpperCase(), 15, 45);
         doc.setFontSize(10); doc.setTextColor(100); 
-        doc.text(`CIUDAD: ${user.ciudad || 'N/A'}`, 15, 50);
+        doc.text(`CIUDAD: ${(user.ciudad || 'N/A').toUpperCase()}`, 15, 50);
         doc.text(`MATERIA: ${mat}`, 15, 55);
     }
 
