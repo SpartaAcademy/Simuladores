@@ -15,7 +15,7 @@
     <script> checkAuth(); </script>
 
     <style>
-        /* ESTILOS BOTONES ADMIN */
+        /* --- ESTILOS BOTONES ADMIN (Mini - Overlay) --- */
         .admin-controls-overlay {
             position: absolute !important; top: 5px !important; right: 5px !important;
             display: flex !important; gap: 4px !important;
@@ -31,23 +31,38 @@
         }
         .mini-btn:hover { transform: scale(1.1) !important; filter: brightness(1.1); }
         .mini-btn i { font-size: 14px !important; margin: 0 !important; pointer-events: none; }
+        
+        /* Colores de los botones mini */
         .btn-move { background: #2980b9 !important; }
         .btn-edit { background: #f39c12 !important; }
         .btn-del  { background: #c0392b !important; }
 
-        /* RESPONSIVE */
+        /* --- CORRECCIONES RESPONSIVE (SOLO MÓVIL) --- */
         @media screen and (max-width: 768px) {
             html, body { overflow-x: hidden !important; width: 100% !important; margin: 0; padding: 0; }
             * { box-sizing: border-box !important; }
+            
             header { padding: 0 10px !important; }
             .header-left img { height: 40px !important; }
             .header-titulo h1 { font-size: 1.4rem !important; margin-left: 5px !important;}
             .header-titulo h2 { font-size: 0.6rem !important; margin-left: 5px !important;}
+            
             .seleccion-container { width: 95% !important; padding: 10px !important; }
-            #section-title, .materia-card h3 { white-space: normal !important; word-wrap: break-word !important; font-size: 1.4rem !important; line-height: 1.2 !important; }
+            
+            /* Ajuste de textos largos */
+            #section-title, .materia-card h3 { 
+                white-space: normal !important; 
+                word-wrap: break-word !important; 
+                font-size: 1.4rem !important; 
+                line-height: 1.2 !important; 
+            }
             .materia-card h3 { font-size: 1.1rem !important; }
+
+            /* Grid en columna */
             #dynamic-grid { display: flex !important; flex-direction: column !important; }
             .materia-card, .card-wide { width: 100% !important; margin-bottom: 15px !important; }
+
+            /* Botones flotantes en dos filas si es necesario */
             .admin-controls-overlay { flex-wrap: wrap !important; max-width: 80px !important; justify-content: flex-end !important; }
         }
     </style>
@@ -64,7 +79,7 @@
         
         <div class="desktop-menu">
             <div id="admin-tools-desktop" style="display:none; gap:10px;">
-                <button class="user-btn" onclick="location.href='usuarios.html'" style="background:#3498db; border-color:#2980b9;">
+                <button class="user-btn" onclick="location.href='usuarios.html'" style="background:#2c3e50; border-color:#1a252f;">
                     <i class="fas fa-users"></i> USUARIOS
                 </button>
                 
@@ -99,7 +114,7 @@
         <div id="admin-tools-mobile" style="display:none; flex-direction:column; gap:10px; padding: 0 20px; margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 20px;">
             <h4 style="color:#aaa; margin:0 0 10px 0; font-family:'Work Sans'; font-size:0.8rem;">ADMINISTRACIÓN</h4>
             
-            <button class="user-btn" onclick="location.href='usuarios.html'" style="background:#3498db; border-color:#2980b9; width:100%; justify-content:center;">
+            <button class="user-btn" onclick="location.href='usuarios.html'" style="background:#2c3e50; border-color:#1a252f; width:100%; justify-content:center;">
                 <i class="fas fa-users"></i> GESTIÓN USUARIOS
             </button>
 
