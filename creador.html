@@ -44,21 +44,36 @@
 
         .json-input-file { margin-left: auto; width: auto; }
 
+        /* --- NUEVO ESTILO DE SWITCH PROFESIONAL --- */
+        .switch-container {
+            display: flex; align-items: center; justify-content: space-between;
+            background: #f8f9fa; padding: 15px; border-radius: 8px; border: 1px solid #eee;
+            margin-top: 10px;
+        }
+        .switch-info strong { display: block; color: #333; font-size: 1.1rem; margin-bottom: 2px; }
+        .switch-info span { color: #666; font-size: 0.9rem; }
+        
+        /* El Toggle */
+        .switch { position: relative; display: inline-block; width: 50px; height: 28px; }
+        .switch input { opacity: 0; width: 0; height: 0; }
+        .slider {
+            position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0;
+            background-color: #ccc; transition: .4s; border-radius: 34px;
+        }
+        .slider:before {
+            position: absolute; content: ""; height: 20px; width: 20px;
+            left: 4px; bottom: 4px; background-color: white;
+            transition: .4s; border-radius: 50%; box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        input:checked + .slider { background-color: var(--sparta-red); }
+        input:checked + .slider:before { transform: translateX(22px); }
+        /* ------------------------------------------ */
+
         .actions-bar { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); padding: 15px 30px; border-radius: 50px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); display: flex; gap: 20px; justify-content: center; border: 1px solid #ddd; z-index: 2000; }
         .btn-action { padding: 12px 30px; border: none; border-radius: 50px; font-family: 'Teko', sans-serif; font-size: 1.4rem; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: transform 0.2s; color: white; }
         .btn-action:hover { transform: translateY(-3px); }
         .btn-add { background: var(--accent-blue); }
         .btn-save { background: var(--sparta-red); box-shadow: 0 4px 15px rgba(211, 47, 47, 0.4); }
-
-        /* CHECKBOX PERSONALIZADO (Lineal) */
-        .checkbox-container {
-            display: flex; align-items: center; gap: 10px;
-            background: #fff3e0; padding: 15px; border-radius: 6px; border: 1px solid #ffe0b2;
-            cursor: pointer; transition: 0.2s;
-        }
-        .checkbox-container:hover { background: #ffe0b2; }
-        .checkbox-container input { width: 20px; height: 20px; cursor: pointer; accent-color: #e67e22; }
-        .checkbox-text { font-weight: bold; color: #d35400; font-size: 1rem; }
 
         .sparta-alert-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(4px); z-index: 9999; display: none; justify-content: center; align-items: center; }
         .sparta-alert-box { background: white; width: 90%; max-width: 400px; padding: 30px; border-radius: 12px; text-align: center; box-shadow: 0 15px 40px rgba(0,0,0,0.4); border-top: 6px solid #D32F2F; font-family: 'Work Sans', sans-serif; }
@@ -118,9 +133,15 @@
             
             <div class="form-group" style="margin-top: 20px;">
                 <label>MODALIDAD</label>
-                <div class="checkbox-container" onclick="document.getElementById('sim-linear').click()">
-                    <input type="checkbox" id="sim-linear" onclick="event.stopPropagation()">
-                    <span class="checkbox-text">ACTIVAR MODO LINEAL (No permite regresar preguntas)</span>
+                <div class="switch-container">
+                    <div class="switch-info">
+                        <strong>MODO LINEAL</strong>
+                        <span>Bloquea el regreso a preguntas anteriores.</span>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" id="sim-linear">
+                        <span class="slider"></span>
+                    </label>
                 </div>
             </div>
         </div>
@@ -201,12 +222,9 @@
             if (error || !data) throw new Error("No se encontró el simulador.");
 
             document.getElementById('sim-title').value = data.title;
-            // Cargar Configuración (Tiempo y Modo Lineal)
             if(data.config) {
                 document.getElementById('sim-time').value = data.config.tiempo;
-                if (data.config.lineal) {
-                    document.getElementById('sim-linear').checked = true;
-                }
+                if (data.config.lineal) document.getElementById('sim-linear').checked = true;
             }
 
             let preguntas = data.questions;
@@ -254,9 +272,11 @@
                     <div class="form-group">
                         <label>IMAGEN (Enlace o Subir)</label>
                         <input type="text" class="q-img-url" placeholder="Pegar enlace Drive..." value="${txtImg}" oninput="updatePreview(this)">
+                        
                         <div class="preview-container">
                             ${txtImg ? `<img src="${fixDriveLink(txtImg)}" class="preview-img" referrerpolicy="no-referrer">` : ''}
                         </div>
+                        
                         <div class="upload-zone" onclick="this.querySelector('input').click()">
                             <i class="fas fa-cloud-upload-alt"></i> Cambiar / Subir Imagen
                             <input type="file" class="q-img-file" accept="image/*" style="display:none" onchange="previewFile(this)">
@@ -317,7 +337,6 @@
     async function prepararGuardado() {
         const title = document.getElementById('sim-title').value;
         const time = document.getElementById('sim-time').value;
-        // LEER EL ESTADO DEL MODO LINEAL
         const isLinear = document.getElementById('sim-linear').checked;
 
         if (!title) return showAlert("Falta Título", "Ponle un nombre al examen.", "error");
@@ -369,13 +388,12 @@
 
             btn.innerHTML = 'Guardando datos...';
             
-            // GUARDAR CON LA NUEVA CONFIGURACIÓN LINEAL
             const { error: dbError } = await db.from('custom_simulators').upsert([{
                 id: simId,
                 title: title,
                 config: { 
                     tiempo: parseInt(time),
-                    lineal: isLinear // <-- AQUÍ SE GUARDA LA OPCIÓN
+                    lineal: isLinear 
                 },
                 questions: finalQuestions
             }]);
