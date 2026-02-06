@@ -15,89 +15,40 @@
     <script> checkAuth(); </script>
 
     <style>
-        /* --- ESTILOS DE LOS BOTONES DE EDICIÓN (Mini) --- */
+        /* ESTILOS DE LOS BOTONES DE EDICIÓN */
         .admin-controls-overlay {
-            position: absolute !important;
-            top: 5px !important;
-            right: 5px !important;
-            display: flex !important;
-            gap: 4px !important;
-            background: rgba(255, 255, 255, 0.95) !important;
-            padding: 4px !important;
-            border-radius: 6px !important;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.15) !important;
-            z-index: 100 !important;
-            border: 1px solid #ddd !important;
-            backdrop-filter: blur(2px);
+            position: absolute !important; top: 5px !important; right: 5px !important;
+            display: flex !important; gap: 4px !important;
+            background: rgba(255, 255, 255, 0.95) !important; padding: 4px !important;
+            border-radius: 6px !important; box-shadow: 0 2px 8px rgba(0,0,0,0.15) !important;
+            z-index: 100 !important; border: 1px solid #ddd !important; backdrop-filter: blur(2px);
         }
-
         .mini-btn {
-            width: 32px !important;
-            height: 32px !important;
-            min-width: 0 !important; 
-            padding: 0 !important;
-            margin: 0 !important;
-            display: flex !important;
-            justify-content: center !important;
-            align-items: center !important;
-            border: none !important;
-            border-radius: 4px !important;
-            cursor: pointer !important;
-            transition: all 0.2s ease !important;
-            color: white !important;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.2) !important;
+            width: 32px !important; height: 32px !important; min-width: 0 !important; 
+            padding: 0 !important; margin: 0 !important; display: flex !important; justify-content: center !important; align-items: center !important;
+            border: none !important; border-radius: 4px !important; cursor: pointer !important;
+            transition: all 0.2s ease !important; color: white !important; box-shadow: 0 2px 4px rgba(0,0,0,0.2) !important;
         }
-
         .mini-btn:hover { transform: scale(1.1) !important; filter: brightness(1.1); }
         .mini-btn i { font-size: 14px !important; margin: 0 !important; pointer-events: none; }
-
         .btn-move { background: #2980b9 !important; }
         .btn-edit { background: #f39c12 !important; }
         .btn-del  { background: #c0392b !important; }
 
-        /* --- CORRECCIONES RESPONSIVE --- */
-        /* PC: Se ve normal (sin restricciones agresivas) */
-        
-        /* MÓVIL: Aquí aplicamos los ajustes para que no se rompa */
+        /* CORRECCIONES RESPONSIVE */
         @media screen and (max-width: 768px) {
             html, body { overflow-x: hidden !important; width: 100% !important; margin: 0; padding: 0; }
             * { box-sizing: border-box !important; }
-            
             header { padding: 0 10px !important; }
             .header-left img { height: 40px !important; }
             .header-titulo h1 { font-size: 1.4rem !important; margin-left: 5px !important;}
             .header-titulo h2 { font-size: 0.6rem !important; margin-left: 5px !important;}
-            
-            .seleccion-container {
-                width: 95% !important;
-                padding: 10px !important;
-            }
-
-            /* Forzar texto a bajar de línea si es muy largo */
-            #section-title, .materia-card h3 {
-                white-space: normal !important;
-                word-wrap: break-word !important;
-                font-size: 1.4rem !important;
-                line-height: 1.2 !important;
-            }
+            .seleccion-container { width: 95% !important; padding: 10px !important; }
+            #section-title, .materia-card h3 { white-space: normal !important; word-wrap: break-word !important; font-size: 1.4rem !important; line-height: 1.2 !important; }
             .materia-card h3 { font-size: 1.1rem !important; }
-
-            /* Tarjetas en columna */
-            #dynamic-grid {
-                display: flex !important;
-                flex-direction: column !important;
-            }
-            .materia-card, .card-wide {
-                width: 100% !important;
-                margin-bottom: 15px !important;
-            }
-
-            /* Si los botones flotantes no caben, que se pongan en dos filas */
-            .admin-controls-overlay {
-                flex-wrap: wrap !important;
-                max-width: 80px !important;
-                justify-content: flex-end !important;
-            }
+            #dynamic-grid { display: flex !important; flex-direction: column !important; }
+            .materia-card, .card-wide { width: 100% !important; margin-bottom: 15px !important; }
+            .admin-controls-overlay { flex-wrap: wrap !important; max-width: 80px !important; justify-content: flex-end !important; }
         }
     </style>
 </head>
@@ -113,6 +64,10 @@
         
         <div class="desktop-menu">
             <div id="admin-tools-desktop" style="display:none; gap:10px;">
+                <button class="user-btn" onclick="location.href='usuarios.html'" style="background:#3498db; border-color:#2980b9;">
+                    <i class="fas fa-users"></i> USUARIOS
+                </button>
+                
                 <button id="btn-edit-mode-desk" class="user-btn" onclick="toggleEditMode()" style="background:#e67e22; border-color:#d35400;">
                     <i class="fas fa-edit"></i> EDITAR
                 </button>
@@ -142,7 +97,12 @@
         </div>
 
         <div id="admin-tools-mobile" style="display:none; flex-direction:column; gap:10px; padding: 0 20px; margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 20px;">
-            <h4 style="color:#aaa; margin:0 0 10px 0; font-family:'Work Sans'; font-size:0.8rem;">EDICIÓN</h4>
+            <h4 style="color:#aaa; margin:0 0 10px 0; font-family:'Work Sans'; font-size:0.8rem;">ADMINISTRACIÓN</h4>
+            
+            <button class="user-btn" onclick="location.href='usuarios.html'" style="background:#3498db; border-color:#2980b9; width:100%; justify-content:center;">
+                <i class="fas fa-users"></i> GESTIÓN USUARIOS
+            </button>
+
             <button id="btn-edit-mode-mob" class="user-btn" onclick="toggleEditMode()" style="background:#e67e22; border-color:#d35400; width:100%; justify-content: center;">
                 <i class="fas fa-edit"></i> ACTIVAR EDICIÓN
             </button>
