@@ -1,11 +1,10 @@
-// JS/script-simulador.js - DEFINITIVO CON MODO LINEAL
+// JS/script-simulador.js - CON LÓGICA DE MEZCLA Y LÍMITE
 
 const simuladorUrl = 'https://fgpqioviycmgwypidhcs.supabase.co';
 const simuladorKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZncHFpb3ZpeWNtZ3d5cGlkaGNzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU0OTkwMDgsImV4cCI6MjA4MTA3NTAwOH0.5ckdzDtwFRG8JpuW5S-Qi885oOSVESAvbLoNiqePJYo';
 const simuladorDB = window.supabase.createClient(simuladorUrl, simuladorKey);
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Referencias DOM
     const lobbyBanner = document.getElementById('lobby-banner');
     const lobbyContainer = document.getElementById('lobby-container');
     const simulador = document.getElementById('simulador-container');
@@ -19,7 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnBack = document.getElementById('btn-regresar-lobby');
     if(btnBack) btnBack.addEventListener('click', () => window.history.length > 1 ? window.history.back() : window.location.href = 'index.html');
 
-    // Variables de Estado
     let questions = [];
     let phase1Data = []; 
     let phase2Blocks = []; 
@@ -32,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let totalPreguntas = 50;
     let carpetaEspecialID = null;
     let isMultiPhaseMode = false;
-    let isLinearMode = false; // NUEVA VARIABLE PARA MODO LINEAL
+    let isLinearMode = false;
 
     const materias = {
         'sociales': 'Ciencias Sociales', 'matematicas': 'Matemáticas y Física', 'lengua': 'Lengua y Literatura', 'ingles': 'Inglés', 'general': 'General (Todas)',
@@ -84,11 +82,28 @@ document.addEventListener('DOMContentLoaded', () => {
                 const { data, error } = await simuladorDB.from('custom_simulators').select('*').eq('id', customId).single();
                 if (error || !data) throw new Error("Simulador no encontrado en la nube.");
 
-                questions = data.questions; 
+                let poolPreguntas = data.questions; 
                 timeLeft = data.config ? data.config.tiempo : 3600;
-                // LEER CONFIGURACIÓN LINEAL
-                isLinearMode = data.config && data.config.lineal ? true : false;
                 
+                // --- NUEVA LÓGICA: MEZCLAR Y LÍMITE ---
+                const doShuffle = data.config && data.config.mezclar;
+                const limit = data.config && data.config.limite ? parseInt(data.config.limite) : 0;
+                isLinearMode = data.config && data.config.lineal;
+
+                // 1. Si "Mezclar" está activo O si hay límite (para que no salgan siempre las primeras)
+                // Se baraja todo el pool primero
+                if (doShuffle || (limit > 0 && limit < poolPreguntas.length)) {
+                    poolPreguntas = poolPreguntas.sort(() => 0.5 - Math.random());
+                }
+
+                // 2. Aplicar Límite (Cortar array)
+                if (limit > 0 && limit < poolPreguntas.length) {
+                    poolPreguntas = poolPreguntas.slice(0, limit);
+                }
+
+                questions = poolPreguntas;
+                // -------------------------------------
+
                 totalPreguntas = questions.length;
 
                 questions = questions.map(q => {
