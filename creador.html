@@ -20,7 +20,9 @@
         .btn-header { background: transparent; border: 1px solid rgba(255,255,255,0.3); color: white; padding: 8px 15px; border-radius: 4px; cursor: pointer; transition: 0.3s; }
         .btn-header:hover { background: var(--sparta-red); border-color: var(--sparta-red); }
 
-        .main-container { max-width: 900px; margin: 40px auto; padding: 0 20px; padding-bottom: 120px; }
+        /* Padding inferior aumentado para que los botones no tapen contenido */
+        .main-container { max-width: 900px; margin: 40px auto; padding: 0 20px; padding-bottom: 160px; }
+        
         .page-title { font-family: 'Teko', sans-serif; font-size: 3rem; color: var(--sparta-dark); margin-bottom: 20px; border-left: 10px solid var(--sparta-red); padding-left: 15px; text-transform: uppercase; }
 
         .panel { background: white; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); padding: 25px; margin-bottom: 30px; border-top: 4px solid var(--sparta-dark); }
@@ -37,12 +39,13 @@
         .btn-del { background: #ffebee; color: #c62828; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-weight: bold; }
         .btn-del:hover { background: #c62828; color: white; }
 
-        /* PREVIEW E INPUTS */
-        .preview-img { max-width: 100%; /* FIX MOVIL */ height: auto; margin-top: 10px; display: block; border-radius: 4px; border: 1px solid #ddd; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        
-        .upload-zone { border: 2px dashed #ccc; padding: 15px; text-align: center; border-radius: 6px; margin-top: 5px; cursor: pointer; transition: 0.2s; background: #f9f9f9; overflow: hidden; /* Evita que el texto largo rompa el cuadro */ }
+        .preview-img { max-width: 200px; max-height: 200px; margin-top: 10px; display: block; border-radius: 4px; border: 1px solid #ddd; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .upload-zone { border: 2px dashed #ccc; padding: 15px; text-align: center; border-radius: 6px; margin-top: 5px; cursor: pointer; transition: 0.2s; background: #f9f9f9; }
         .upload-zone:hover { border-color: var(--accent-blue); background: #f0f8ff; }
         .upload-zone.has-file { border-color: #27ae60; background: #e8f8f5; }
+
+        /* INPUT DE ARCHIVO JSON (ESTILO HÍBRIDO) */
+        .json-input-file { margin-left: auto; width: auto; }
 
         .actions-bar { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); padding: 15px 30px; border-radius: 50px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); display: flex; gap: 20px; justify-content: center; border: 1px solid #ddd; z-index: 2000; }
         .btn-action { padding: 12px 30px; border: none; border-radius: 50px; font-family: 'Teko', sans-serif; font-size: 1.4rem; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: transform 0.2s; color: white; }
@@ -58,47 +61,24 @@
         .sparta-btn-ok { background: #2c3e50; color: white; border: none; padding: 12px 30px; border-radius: 50px; font-family: 'Teko', sans-serif; font-size: 1.3rem; cursor: pointer; width: 100%; margin-top: 20px; }
         .sparta-btn-ok:hover { transform: scale(1.05); background: #D32F2F; }
 
-        /* --- MEDIA QUERY: SOLO AFECTA CELULARES --- */
+        /* --- CORRECCIONES SOLO MÓVIL --- */
         @media screen and (max-width: 768px) {
             header { padding: 0 10px; }
             .header-left img { height: 40px; }
             .header-titulo h1 { font-size: 1.4rem; margin-left: 5px; }
             .header-titulo h2 { font-size: 0.6rem; margin-left: 5px; }
             
-            .main-container { width: 100%; padding: 15px; }
+            .main-container { width: 100%; padding: 15px; padding-bottom: 180px; }
+            .page-title { white-space: normal; word-wrap: break-word; font-size: 2rem; }
             
-            .page-title { 
-                font-size: 2rem; 
-                white-space: normal; /* Permite salto de línea */
-                word-wrap: break-word; 
-            }
-            
-            /* Inputs responsive */
-            input, textarea, select { 
-                max-width: 100%; /* Nunca más ancho que el padre */
-                font-size: 14px; /* Evita zoom en iOS */
-            }
-            
-            /* Input de archivo fix */
-            input[type="file"] { 
-                max-width: 100%; 
-                font-size: 0.8rem;
-            }
-
             .form-grid { display: flex; flex-direction: column; }
+            .panel { padding: 15px; }
             
-            .actions-bar { 
-                width: 90%; 
-                padding: 10px; 
-                gap: 10px; 
-            }
+            /* Input de archivo se adapta al ancho en móvil */
+            .json-input-file { width: 100%; margin-top: 10px; font-size: 0.8rem; }
             
-            .btn-action { 
-                font-size: 1rem; 
-                padding: 10px; 
-                width: 50%; /* Botones comparten espacio */
-                justify-content: center;
-            }
+            .actions-bar { width: 90%; padding: 10px; gap: 10px; }
+            .btn-action { font-size: 1rem; padding: 10px; width: 50%; justify-content: center; }
         }
     </style>
 </head>
@@ -112,7 +92,7 @@
                 <h2>PANEL DE GESTIÓN</h2>
             </div>
         </div>
-        <button class="btn-header" onclick="location.href='index.html'"><i class="fas fa-times"></i></button>
+        <button class="btn-header" onclick="location.href='index.html'"><i class="fas fa-times"></i> CANCELAR</button>
     </header>
 
     <div class="main-container">
@@ -139,19 +119,20 @@
         <div id="questions-list"></div>
 
         <div class="panel" style="border-top-color: #f1c40f; background: #fffcf0;">
-            <div style="display: flex; align-items: center; gap: 15px;">
+            <div style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap;">
                 <i class="fas fa-file-code" style="font-size: 2rem; color: #f1c40f;"></i>
-                <div style="overflow: hidden;"> <strong>Carga JSON (Opcional)</strong><br>
+                <div>
+                    <strong>Carga JSON (Opcional)</strong><br>
                     <span style="font-size: 0.9rem; color: #666;">Añadir más preguntas.</span>
                 </div>
-                <input type="file" id="json-file" accept=".json" style="max-width: 150px;">
+                <input type="file" id="json-file" accept=".json" class="json-input-file">
             </div>
         </div>
     </div>
 
     <div class="actions-bar">
         <button class="btn-action btn-add" onclick="addQuestionUI()">
-            <i class="fas fa-plus-circle"></i> AGREGAR
+            <i class="fas fa-plus-circle"></i> PREGUNTA
         </button>
         <button class="btn-action btn-save" onclick="prepararGuardado()">
             <i class="fas fa-save"></i> GUARDAR
