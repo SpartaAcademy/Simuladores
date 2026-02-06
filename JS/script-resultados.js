@@ -1,15 +1,12 @@
-// --- 1. CONFIGURACIÓN Y CONEXIÓN TULCÁN ---
+// JS/script-resultados.js - CONECTADO 100% A SUPABASE
+
 const supabaseUrl = 'https://fgpqioviycmgwypidhcs.supabase.co';
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZncHFpb3ZpeWNtZ3d5cGlkaGNzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU0OTkwMDgsImV4cCI6MjA4MTA3NTAwOH0.5ckdzDtwFRG8JpuW5S-Qi885oOSVESAvbLoNiqePJYo';
-
-// CAMBIO IMPORTANTE: Usamos 'tulcanDB' para evitar conflictos de nombre
 const tulcanDB = window.supabase.createClient(supabaseUrl, supabaseKey);
-
-// Librería PDF
 const { jsPDF } = window.jspdf;
 
 document.addEventListener('DOMContentLoaded', async () => {
-    // Referencias al DOM
+    // Referencias DOM
     const container = document.getElementById('reporte-container');
     const fMateria = document.getElementById('filtro-materia');
     const fCiudad = document.getElementById('filtro-ciudad');
@@ -24,82 +21,68 @@ document.addEventListener('DOMContentLoaded', async () => {
     let allIntentos = [];
     let allUsuarios = [];
 
-    // Función para limpiar texto
     const cleanText = (str) => str ? str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim() : "";
 
-    // --- 2. CARGA DE DATOS ---
-    console.log("Iniciando carga de datos Tulcán...");
+    console.log("Iniciando carga de datos Admin...");
     
     try {
-        // PASO A: Cargar Usuarios (Local)
-        const resUsuarios = await fetch('DATA/usuarios.json');
-        if (!resUsuarios.ok) throw new Error("No se encontró el archivo DATA/usuarios.json");
-        allUsuarios = await resUsuarios.json();
-        console.log("Usuarios cargados:", allUsuarios.length);
+        // 1. CARGAR USUARIOS DESDE SUPABASE (Tabla 'usuarios')
+        const { data: usuariosData, error: userError } = await tulcanDB
+            .from('usuarios')
+            .select('*')
+            .eq('rol', 'aspirante') // Solo traemos aspirantes para el reporte
+            .order('nombre', { ascending: true });
 
-        // PASO B: Cargar Resultados (Supabase usando tulcanDB)
-        const { data: intentos, error } = await tulcanDB
+        if (userError) throw new Error("Error cargando usuarios: " + userError.message);
+        allUsuarios = usuariosData;
+
+        // 2. CARGAR RESULTADOS
+        const { data: intentos, error: resultError } = await tulcanDB
             .from('resultados')
             .select('*')
             .order('created_at', { ascending: true });
 
-        if (error) {
-            console.error("Error Supabase:", error);
-            throw new Error(`Error de Base de Datos: ${error.message}`);
-        }
-
+        if (resultError) throw new Error("Error cargando resultados: " + resultError.message);
         allIntentos = intentos || [];
-        console.log("Intentos cargados:", allIntentos.length);
 
-        // PASO C: Llenar Filtro de Materias
+        // 3. Llenar Filtro Materias
         if (allIntentos.length > 0) {
             const materiasUnicas = [...new Set(allIntentos.map(i => i.materia))].sort();
             materiasUnicas.forEach(m => {
                 const opt = document.createElement('option');
-                opt.value = m;
-                opt.textContent = m;
+                opt.value = m; opt.textContent = m;
                 fMateria.appendChild(opt);
             });
         }
 
-        // Ocultar spinner y mostrar datos
         if (spinner) spinner.style.display = 'none';
         render();
 
     } catch (e) {
-        if (spinner) {
-            spinner.innerHTML = `
-                <div style="color: #c0392b; background: #fff5f5; padding: 20px; border-radius: 8px; border: 1px solid #c0392b; text-align: center;">
-                    <h3><i class="fas fa-exclamation-triangle"></i> Error de Conexión</h3>
-                    <p>${e.message}</p>
-                    <small>Verifica tu conexión a internet o las credenciales.</small>
-                </div>`;
-        }
-        console.error("Error Fatal:", e);
+        if (spinner) spinner.innerHTML = `<p style="color:red; text-align:center;">Error: ${e.message}</p>`;
+        console.error(e);
     }
 
-    // --- 3. RENDERIZADO ---
+    // --- RENDERIZADO ---
     function render() {
         container.innerHTML = '';
         const busqueda = cleanText(fNombre.value);
         
-        // Filtrar Usuarios Aspirantes
         const usuariosFiltrados = allUsuarios.filter(u => {
-            const esAspirante = u.rol && u.rol.toLowerCase() === 'aspirante';
             const matchCiudad = fCiudad.value === 'Todas' || u.ciudad === fCiudad.value;
             const matchNombre = busqueda === '' || cleanText(u.nombre).includes(busqueda);
-            return esAspirante && matchCiudad && matchNombre;
+            return matchCiudad && matchNombre;
         });
 
         if (usuariosFiltrados.length === 0) {
-            container.innerHTML = '<p style="text-align:center; color:#666; margin-top:30px;">No se encontraron aspirantes con esos criterios.</p>';
+            container.innerHTML = '<p style="text-align:center; color:#666; margin-top:30px;">No se encontraron aspirantes.</p>';
             return;
         }
 
-        // Ordenamos intentos para la vista web (Reciente arriba)
         const intentosParaWeb = [...allIntentos].sort((a,b) => new Date(b.created_at) - new Date(a.created_at));
 
         usuariosFiltrados.forEach(user => {
+            // Relacionamos intentos por el campo 'usuario_id' que coincide con el 'usuario' (login)
             const intentosUser = intentosParaWeb.filter(i => 
                 String(i.usuario_id).trim() === String(user.usuario).trim() &&
                 (fMateria.value === 'Todas' || i.materia === fMateria.value)
@@ -109,27 +92,23 @@ document.addEventListener('DOMContentLoaded', async () => {
             card.className = 'user-card';
             const colorCount = intentosUser.length > 0 ? '#b22222' : '#999';
             
-            // HTML interno
             let attemptsHTML = '';
             if (intentosUser.length === 0) {
-                attemptsHTML = '<p style="text-align:center; color:#999; padding:15px; font-style:italic;">No hay registros.</p>';
+                attemptsHTML = '<p style="text-align:center; color:#999; padding:15px;">Sin registros recientes.</p>';
             } else {
-                const materiasDelUsuario = [...new Set(intentosUser.map(i => i.materia))].sort();
-                
-                materiasDelUsuario.forEach(materiaNombre => {
-                    const intentosDeMateria = intentosUser.filter(i => i.materia === materiaNombre);
-                    
+                const materiasUser = [...new Set(intentosUser.map(i => i.materia))].sort();
+                materiasUser.forEach(mat => {
+                    const intentosMat = intentosUser.filter(i => i.materia === mat);
                     attemptsHTML += `
                     <div class="materia-block">
-                        <h4 class="materia-title">${materiaNombre} (${intentosDeMateria.length})</h4>
+                        <h4 class="materia-title">${mat} (${intentosMat.length})</h4>
                         <table class="table">
                             <thead><tr><th>NOTA</th><th>FECHA</th><th>HORA</th></tr></thead>
                             <tbody>
-                                ${intentosDeMateria.map(i => {
+                                ${intentosMat.map(i => {
                                     const d = new Date(i.created_at);
-                                    const colorNota = i.puntaje >= 700 ? '#27ae60' : '#c0392b';
                                     return `<tr>
-                                        <td style="font-weight:bold; color:${colorNota}">${i.puntaje}</td>
+                                        <td style="font-weight:bold; color:${i.puntaje >= 700 ? '#27ae60' : '#c0392b'}">${i.puntaje}</td>
                                         <td>${d.toLocaleDateString()}</td>
                                         <td>${d.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'})}</td>
                                     </tr>`;
@@ -144,21 +123,18 @@ document.addEventListener('DOMContentLoaded', async () => {
                 <div class="user-header">
                     <div style="text-align:left;">
                         <h3>${user.nombre}</h3>
-                        <small><i class="fas fa-map-marker-alt"></i> ${user.ciudad}</small>
+                        <small><i class="fas fa-map-marker-alt"></i> ${user.ciudad || 'N/A'}</small>
                     </div>
                     <div style="display:flex; align-items:center;">
                         <button class="btn-pdf-mini"><i class="fas fa-file-pdf"></i> PDF</button>
                         <div style="text-align:right;">
                             <strong style="color:${colorCount}; font-size:1.8rem; font-family:'Teko'; line-height:1;">${intentosUser.length}</strong>
-                            <span style="display:block; font-size:0.75rem; color:#666; letter-spacing:1px;">TOTAL</span>
+                            <span style="display:block; font-size:0.75rem; color:#666;">TOTAL</span>
                         </div>
                     </div>
                 </div>
-                <div class="user-attempts">
-                    ${attemptsHTML}
-                </div>`;
+                <div class="user-attempts">${attemptsHTML}</div>`;
             
-            // Eventos
             card.querySelector('.user-header').onclick = (e) => {
                 if(e.target.closest('.btn-pdf-mini')) return; 
                 const body = card.querySelector('.user-attempts');
@@ -174,27 +150,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     }
 
-    // Listeners
+    // Listeners Filtros
     fCiudad.addEventListener('change', render);
     fMateria.addEventListener('change', render);
     fNombre.addEventListener('input', render);
 
-    // PDF General
-    if (btnPDFGeneral) {
-        btnPDFGeneral.onclick = () => {
-            const busqueda = cleanText(fNombre.value);
-            const usuariosVisibles = allUsuarios.filter(u => {
-                const esAspirante = u.rol && u.rol.toLowerCase() === 'aspirante';
-                const matchCiudad = fCiudad.value === 'Todas' || u.ciudad === fCiudad.value;
-                const matchNombre = busqueda === '' || cleanText(u.nombre).includes(busqueda);
-                return esAspirante && matchCiudad && matchNombre;
-            });
-            if(usuariosVisibles.length > 0) generatePDF(usuariosVisibles, "Reporte_General_Sparta.pdf");
-            else alert("No hay datos filtrados para generar reporte.");
-        };
-    }
-
-    // --- GENERADOR PDF ---
+    // --- GENERADOR PDF (Lógica Original) ---
     async function generatePDF(usersList, filename) {
         document.body.style.cursor = 'wait';
         const doc = new jsPDF();
@@ -218,7 +179,6 @@ document.addEventListener('DOMContentLoaded', async () => {
                 if (intentosMateria.length === 0) continue;
 
                 if (pageAdded) doc.addPage(); pageAdded = true;
-
                 drawHeader(doc, u, materiaNombre);
 
                 const promedio = (intentosMateria.reduce((acc, curr) => acc + curr.puntaje, 0) / intentosMateria.length).toFixed(0);
@@ -233,18 +193,13 @@ document.addEventListener('DOMContentLoaded', async () => {
                 const intentosTabla = [...intentosMateria].reverse();
                 const tableRows = intentosTabla.map((i, index) => {
                     const numIntento = intentosMateria.length - index;
-                    return [
-                        numIntento, i.puntaje, 
-                        new Date(i.created_at).toLocaleDateString(), 
-                        new Date(i.created_at).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})
-                    ];
+                    return [numIntento, i.puntaje, new Date(i.created_at).toLocaleDateString(), new Date(i.created_at).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})];
                 });
 
                 doc.autoTable({
                     head: [['#', 'Puntaje', 'Fecha', 'Hora']], body: tableRows, startY: 155, theme: 'grid',
                     headStyles: { fillColor: [30, 30, 30] }, styles: { fontSize: 9, cellPadding: 3 }
                 });
-                
                 doc.setFontSize(8); doc.setTextColor(150); doc.text(`Generado: ${new Date().toLocaleDateString()}`, 14, 285);
             }
         }
@@ -261,7 +216,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         doc.text("REPORTE DE RENDIMIENTO", 105, 26, { align: "center" });
         doc.setTextColor(0, 0, 0); doc.setFontSize(14); doc.text(user.nombre.toUpperCase(), 14, 48);
         doc.setFontSize(10); doc.setTextColor(100);
-        doc.text(`CIUDAD: ${user.ciudad.toUpperCase()}`, 14, 54);
+        doc.text(`CIUDAD: ${(user.ciudad || 'N/A').toUpperCase()}`, 14, 54);
         doc.text(`MATERIA: ${materiaName === 'Todas' ? 'TODAS' : materiaName.toUpperCase()}`, 14, 59);
     }
 
@@ -276,11 +231,9 @@ document.addEventListener('DOMContentLoaded', async () => {
             if(dataIntentos.length === 0) { resolve(null); return; }
             const ctx = canvasHidden.getContext('2d');
             if (window.myReportChart) window.myReportChart.destroy();
-            
             const labels = dataIntentos.map((_, idx) => `${idx + 1}`);
             const scores = dataIntentos.map(i => i.puntaje);
             const colors = scores.map(s => s >= 700 ? '#27ae60' : '#b22222');
-
             window.myReportChart = new Chart(ctx, {
                 type: 'bar',
                 data: { labels: labels, datasets: [{ label: 'Puntaje', data: scores, backgroundColor: colors }] },
@@ -290,11 +243,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     }
 
-    // CSV
     if (btnCSV) {
         btnCSV.onclick = () => {
             let csv = "Nombre,Ciudad,Materia,Nota,Fecha,Hora\n";
-            const visibles = allUsuarios.filter(u => u.rol==='aspirante' && (fCiudad.value==='Todas'||u.ciudad===fCiudad.value));
+            const visibles = allUsuarios.filter(u => (fCiudad.value==='Todas'||u.ciudad===fCiudad.value));
             visibles.forEach(u => {
                 const ints = allIntentos.filter(i => String(i.usuario_id)===String(u.usuario) && (fMateria.value==='Todas'||i.materia===fMateria.value));
                 if(ints.length===0) csv += `${u.nombre},${u.ciudad},SIN INTENTOS,0,--,--\n`;
