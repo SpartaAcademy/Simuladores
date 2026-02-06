@@ -1,4 +1,4 @@
-// JS/script-home.js - VERSIÓN RESPONSIVE (MÓVIL Y ESCRITORIO)
+// JS/script-home.js - VERSIÓN SEGURA Y RESPONSIVE
 
 const DEFAULT_MENU = {
     'root': {
@@ -38,22 +38,39 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.getElementById('btn-atras').addEventListener('click', goBack);
 });
 
+// --- SEGURIDAD: VERIFICAR PERMISOS DE CARPETA ---
+function verificarAcceso(targetId) {
+    const user = getUserInfo();
+    
+    // 1. Admin entra a todo
+    if (user && user.rol === 'admin') return true;
+
+    // 2. Seguridad básica
+    if (!user || !user.permisos) return false;
+
+    // 3. Permiso universal ('*')
+    if (user.permisos.includes('*')) return true;
+
+    // 4. Permiso específico (si el ID de la carpeta está en su lista)
+    if (user.permisos.includes(targetId)) return true;
+
+    return false;
+}
+
+function mostrarAccesoDenegado() {
+    document.getElementById('denied-modal').style.display = 'flex';
+}
+
 async function cargarMenuDesdeNube() {
     try {
-        const { data, error } = await db.from('menu_structure').select('json_data').order('id', { ascending: false }).limit(1);
-        if (data && data.length > 0) {
-            MENU_DATA = data[0].json_data;
-            console.log("Menú cargado desde Supabase ✅");
-        }
+        const { data } = await db.from('menu_structure').select('json_data').order('id', { ascending: false }).limit(1);
+        if (data && data.length > 0) MENU_DATA = data[0].json_data;
     } catch (e) { console.error("Usando menú local."); }
 }
 
 async function guardarCambiosEnNube() {
-    // Referencias a botones de Escritorio y Móvil
     const btnD = document.getElementById('btn-save-changes-desk');
     const btnM = document.getElementById('btn-save-changes-mob');
-    
-    // Estado cargando
     const loadingHTML = '<i class="fas fa-spinner fa-spin"></i> ...';
     if(btnD) btnD.innerHTML = loadingHTML;
     if(btnM) btnM.innerHTML = loadingHTML;
@@ -61,14 +78,10 @@ async function guardarCambiosEnNube() {
     try {
         const { error } = await db.from('menu_structure').insert([{ json_data: MENU_DATA }]);
         if (error) throw error;
-        
-        if (typeof showSparta === "function") showSparta("¡GUARDADO!", "Cambios actualizados.", "success");
-        else alert("¡Menú guardado exitosamente!");
-        
-        toggleEditMode(); // Salir de modo edición
+        alert("¡Menú guardado exitosamente!");
+        toggleEditMode();
     } catch (e) { alert("Error al guardar: " + e.message); }
     
-    // Restaurar botones
     const saveHTML = '<i class="fas fa-save"></i> GUARDAR';
     if(btnD) btnD.innerHTML = saveHTML;
     if(btnM) btnM.innerHTML = saveHTML;
@@ -127,8 +140,17 @@ function renderMenu(menuId) {
             card.style.cursor = 'pointer';
             if (!item.disabled) {
                 card.onclick = () => {
-                    if (item.type === 'folder') renderMenu(item.id);
-                    else location.href = item.link;
+                    // --- AQUÍ ESTÁ LA SEGURIDAD ---
+                    if (item.type === 'folder') {
+                        if (verificarAcceso(item.id)) {
+                            renderMenu(item.id);
+                        } else {
+                            mostrarAccesoDenegado();
+                        }
+                    } 
+                    else {
+                        location.href = item.link;
+                    }
                 };
             }
         }
@@ -137,32 +159,22 @@ function renderMenu(menuId) {
     });
 }
 
-// --- EDICIÓN UNIFICADA (MÓVIL Y DESKTOP) ---
 function toggleEditMode() {
     isEditMode = !isEditMode;
-    
-    // Referencias Desktop
     const btnSaveD = document.getElementById('btn-save-changes-desk');
     const btnEditD = document.getElementById('btn-edit-mode-desk');
-    
-    // Referencias Mobile
     const btnSaveM = document.getElementById('btn-save-changes-mob');
     const btnEditM = document.getElementById('btn-edit-mode-mob');
 
-    // Actualizar UI Desktop
     if (btnSaveD) btnSaveD.style.display = isEditMode ? 'flex' : 'none';
     if (btnEditD) btnEditD.innerHTML = isEditMode ? '<i class="fas fa-times"></i> SALIR' : '<i class="fas fa-edit"></i> EDITAR';
-
-    // Actualizar UI Mobile
     if (btnSaveM) btnSaveM.style.display = isEditMode ? 'flex' : 'none';
     if (btnEditM) btnEditM.innerHTML = isEditMode ? '<i class="fas fa-times"></i> SALIR' : '<i class="fas fa-edit"></i> ACTIVAR EDICIÓN';
 
-    // CERRAR MENU MÓVIL AL ACTIVAR EDICIÓN (UX MEJORADO)
     if(isEditMode) {
         document.getElementById('side-nav').classList.remove('open');
         document.getElementById('overlay').style.display = "none";
     }
-
     renderMenu(currentMenuId);
 }
 
@@ -191,12 +203,7 @@ function abrirEditor(menuId, index) {
             const urlParts = item.link.split('?')[1];
             const urlParams = new URLSearchParams(urlParts);
             const simId = urlParams.get('id');
-            
-            if (simId) {
-                location.href = `creador.html?id=${simId}&mode=edit&parent=${menuId}`;
-            } else {
-                alert("Error: ID de simulador corrupto.");
-            }
+            if (simId) location.href = `creador.html?id=${simId}&mode=edit&parent=${menuId}`;
         } catch(e) { console.error(e); }
     } else {
         document.getElementById('edit-nombre').value = item.label;
