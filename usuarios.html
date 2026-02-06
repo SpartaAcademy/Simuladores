@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Usuarios - Sparta</title>
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;600&family=Work+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="JS/auth.js"></script>
+    <style>
+        :root { --sparta-red: #D32F2F; --sparta-dark: #1a1a1a; --sparta-gray: #f4f4f9; }
+        body { font-family: 'Work Sans', sans-serif; background: var(--sparta-gray); margin: 0; padding-top: 80px; }
+
+        header { background: linear-gradient(90deg, #111 0%, #333 100%); height: 70px; padding: 0 30px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 15px rgba(0,0,0,0.5); position: fixed; top: 0; width: 100%; z-index: 1000; box-sizing: border-box; border-bottom: 3px solid var(--sparta-red); }
+        .header-left { display: flex; align-items: center; gap: 15px; cursor: pointer; }
+        .header-left img { height: 50px; }
+        .header-text h1 { font-family: 'Teko', sans-serif; margin: 0; color: white; font-size: 1.8rem; line-height: 1; }
+        .header-text h2 { font-family: 'Work Sans', sans-serif; margin: 0; color: #ccc; font-size: 0.7rem; letter-spacing: 2px; }
+        .btn-header { background: transparent; border: 1px solid rgba(255,255,255,0.3); color: white; padding: 8px 15px; border-radius: 4px; cursor: pointer; transition: 0.3s; font-family:'Work Sans'; }
+        .btn-header:hover { background: var(--sparta-red); }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+        
+        .top-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 10px; }
+        .page-title { font-family: 'Teko'; font-size: 2.5rem; margin: 0; color: #333; border-left: 8px solid var(--sparta-red); padding-left: 15px; }
+        
+        .btn-add { background: #27ae60; color: white; border: none; padding: 10px 20px; border-radius: 5px; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 8px; }
+        .btn-add:hover { background: #2ecc71; }
+
+        /* TABLA RESPONSIVE */
+        .table-wrapper { background: white; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; min-width: 600px; }
+        th { background: #333; color: white; text-align: left; padding: 15px; font-family: 'Teko'; font-size: 1.2rem; font-weight: normal; }
+        td { padding: 12px 15px; border-bottom: 1px solid #eee; color: #555; }
+        tr:hover { background: #f9f9f9; }
+        
+        .role-badge { padding: 4px 8px; border-radius: 4px; font-size: 0.8rem; font-weight: bold; text-transform: uppercase; }
+        .role-admin { background: #e8f5e9; color: #27ae60; border: 1px solid #27ae60; }
+        .role-aspirante { background: #e3f2fd; color: #2196f3; border: 1px solid #2196f3; }
+
+        .action-btn { padding: 6px 10px; border: none; border-radius: 4px; cursor: pointer; color: white; margin-right: 5px; transition: 0.2s; }
+        .btn-edit { background: #f39c12; }
+        .btn-del { background: #c0392b; }
+        .action-btn:hover { transform: scale(1.1); }
+
+        /* MODAL */
+        .modal-overlay { position: fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); display:none; justify-content:center; align-items:center; z-index: 2000; backdrop-filter: blur(3px); }
+        .modal-box { background: white; width: 90%; max-width: 500px; padding: 30px; border-radius: 10px; border-top: 5px solid var(--sparta-red); box-shadow: 0 20px 50px rgba(0,0,0,0.3); max-height: 90vh; overflow-y: auto; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; font-weight: bold; margin-bottom: 5px; font-size: 0.9rem; }
+        input, select { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        
+        /* PERMISOS */
+        .permisos-container { background: #f9f9f9; padding: 10px; border-radius: 5px; border: 1px solid #eee; margin-top: 5px; max-height: 150px; overflow-y: auto; }
+        .permiso-item { display: flex; align-items: center; gap: 10px; margin-bottom: 5px; padding: 5px; border-bottom: 1px solid #eee; }
+        .permiso-item:last-child { border-bottom: none; }
+        .permiso-item input { width: auto; margin: 0; }
+
+        @media screen and (max-width: 768px) {
+            header { padding: 0 10px; }
+            .header-left img { height: 40px; }
+            .header-titulo h1 { font-size: 1.4rem; margin-left: 5px;}
+            .header-titulo h2 { font-size: 0.6rem; margin-left: 5px;}
+            .page-title { font-size: 2rem; }
+            .top-bar { flex-direction: column; align-items: flex-start; }
+            .btn-add { width: 100%; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-left" onclick="location.href='index.html'">
+            <img src="logo.png" alt="Logo">
+            <div class="header-text">
+                <h1>SPARTA</h1>
+                <h2>GESTIÓN DE USUARIOS</h2>
+            </div>
+        </div>
+        <button class="btn-header" onclick="location.href='index.html'"><i class="fas fa-arrow-left"></i> VOLVER</button>
+    </header>
+
+    <div class="container">
+        <div class="top-bar">
+            <h2 class="page-title">LISTADO DE USUARIOS</h2>
+            <button class="btn-add" onclick="abrirModal()">
+                <i class="fas fa-user-plus"></i> NUEVO USUARIO
+            </button>
+        </div>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>USUARIO</th>
+                        <th>NOMBRE</th>
+                        <th>CIUDAD</th>
+                        <th>ROL</th>
+                        <th style="text-align:center;">ACCIONES</th>
+                    </tr>
+                </thead>
+                <tbody id="users-table-body">
+                    </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="user-modal" class="modal-overlay">
+        <div class="modal-box">
+            <h2 id="modal-title" style="font-family:'Teko'; font-size:2rem; margin-top:0;">NUEVO USUARIO</h2>
+            <input type="hidden" id="user-id">
+            
+            <div class="form-group">
+                <label>Usuario (Login):</label>
+                <input type="text" id="inp-user">
+            </div>
+            <div class="form-group">
+                <label>Contraseña:</label>
+                <input type="text" id="inp-pass" placeholder="Visible para editar">
+            </div>
+            <div class="form-group">
+                <label>Nombre Completo:</label>
+                <input type="text" id="inp-name">
+            </div>
+            <div class="form-grid" style="display:grid; grid-template-columns: 1fr 1fr; gap:10px;">
+                <div class="form-group">
+                    <label>Ciudad:</label>
+                    <input type="text" id="inp-city">
+                </div>
+                <div class="form-group">
+                    <label>Rol:</label>
+                    <select id="inp-role">
+                        <option value="aspirante">Aspirante</option>
+                        <option value="admin">Administrador</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Acceso a Carpetas:</label>
+                <small style="color:#666; display:block; margin-bottom:5px;">Selecciona qué puede ver este usuario.</small>
+                <div class="permisos-container" id="folder-permissions">
+                    </div>
+            </div>
+
+            <div style="display:flex; justify-content:flex-end; gap:10px; margin-top:20px;">
+                <button onclick="document.getElementById('user-modal').style.display='none'" style="padding:10px 20px; border:none; background:#777; color:white; border-radius:4px; cursor:pointer;">Cancelar</button>
+                <button onclick="guardarUsuario()" style="padding:10px 20px; border:none; background:#27ae60; color:white; border-radius:4px; cursor:pointer;">Guardar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="JS/script-usuarios.js"></script>
+</body>
+</html>
