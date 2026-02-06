@@ -1,29 +1,47 @@
-// JS/script-usuarios.js - CRUD COMPLETO
+// JS/script-usuarios.js - GESTIÓN AVANZADA Y RECURSIVA
 
 const sbUrl = 'https://fgpqioviycmgwypidhcs.supabase.co';
 const sbKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZncHFpb3ZpeWNtZ3d5cGlkaGNzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU0OTkwMDgsImV4cCI6MjA4MTA3NTAwOH0.5ckdzDtwFRG8JpuW5S-Qi885oOSVESAvbLoNiqePJYo';
 const db = window.supabase.createClient(sbUrl, sbKey);
 
 let allUsers = [];
-let menuFolders = [];
+let fullMenuData = {}; 
 
 document.addEventListener('DOMContentLoaded', async () => {
-    await cargarCarpetasMenu();
+    await cargarEstructuraMenu();
     cargarUsuarios();
 });
 
-// Obtener carpetas para permisos
-async function cargarCarpetasMenu() {
+// --- 1. CARGAR ARBOL DE CARPETAS ---
+async function cargarEstructuraMenu() {
     try {
         const { data } = await db.from('menu_structure').select('json_data').order('id', {ascending:false}).limit(1);
         if(data && data.length > 0) {
-            const menu = data[0].json_data;
-            menuFolders = menu['root'].items.filter(i => i.type === 'folder');
+            fullMenuData = data[0].json_data;
         }
-    } catch(e) { console.error("Error cargando carpetas", e); }
+    } catch(e) { console.error("Error cargando menú", e); }
 }
 
-// Cargar tabla
+// Función recursiva para sacar todas las carpetas y subcarpetas
+function listarCarpetasRecursivas(menuId, nivel = 0, lista = []) {
+    const folderData = fullMenuData[menuId];
+    if (!folderData || !folderData.items) return lista;
+
+    folderData.items.forEach(item => {
+        if (item.type === 'folder') {
+            lista.push({ 
+                id: item.id, 
+                label: item.label, 
+                level: nivel 
+            });
+            // Recursividad: Buscar dentro de esta carpeta
+            listarCarpetasRecursivas(item.id, nivel + 1, lista);
+        }
+    });
+    return lista;
+}
+
+// --- 2. TABLA DE USUARIOS ---
 async function cargarUsuarios() {
     const tbody = document.getElementById('users-table-body');
     tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;">Cargando...</td></tr>';
@@ -34,7 +52,6 @@ async function cargarUsuarios() {
         tbody.innerHTML = '<tr><td colspan="5" style="color:red; text-align:center;">Error cargando usuarios</td></tr>';
         return;
     }
-
     allUsers = data;
     renderTabla();
 }
@@ -59,7 +76,7 @@ function renderTabla() {
     });
 }
 
-// Modal y CRUD
+// --- 3. MODAL Y PERMISOS ---
 function abrirModal(userId = null) {
     const modal = document.getElementById('user-modal');
     const title = document.getElementById('modal-title');
@@ -72,19 +89,23 @@ function abrirModal(userId = null) {
     document.getElementById('inp-city').value = '';
     document.getElementById('inp-role').value = 'aspirante';
 
-    // Generar checks
     permContainer.innerHTML = `
-        <div class="permiso-item">
+        <div class="permiso-item" style="background:#e8f5e9; border:1px solid #c8e6c9;">
             <input type="checkbox" id="perm-all" value="*" checked onchange="toggleAllPerms(this)">
-            <label for="perm-all" style="margin:0"><strong>TODO EL CONTENIDO (Acceso Total)</strong></label>
+            <label for="perm-all" style="margin:0; font-weight:bold; color:#2e7d32;">ACCESO TOTAL (Admin)</label>
         </div>
     `;
     
-    menuFolders.forEach(f => {
+    const listaPlana = listarCarpetasRecursivas('root');
+    
+    listaPlana.forEach(carpeta => {
+        const indent = carpeta.level * 20; 
+        const icon = carpeta.level === 0 ? 'fas fa-folder' : 'fas fa-folder-open';
+        
         permContainer.innerHTML += `
-            <div class="permiso-item">
-                <input type="checkbox" class="folder-chk" value="${f.id}" disabled checked>
-                <label style="margin:0">${f.label}</label>
+            <div class="permiso-item" style="padding-left: ${indent + 10}px;">
+                <input type="checkbox" class="folder-chk" value="${carpeta.id}" disabled checked>
+                <label style="margin:0"><i class="${icon}" style="color:#f39c12; margin-right:5px;"></i> ${carpeta.label}</label>
             </div>
         `;
     });
@@ -117,7 +138,7 @@ window.toggleAllPerms = (mainChk) => {
     const subs = document.querySelectorAll('.folder-chk');
     subs.forEach(chk => {
         chk.disabled = mainChk.checked;
-        chk.checked = mainChk.checked;
+        if(mainChk.checked) chk.checked = true;
     });
 }
 
